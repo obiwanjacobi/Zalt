@@ -1,0 +1,10 @@
+ASMHEAD                         = 0000, G: 
+ASMSIZE                         = 0D2F, G: 
+ASMTAIL                         = 0D2F, G: 
+start                           = 0000, L: nop_loop
+
+
+ASMHEAD                         = 0000, G: 
+start                           = 0000, L: nop_loop
+ASMSIZE                         = 0D2F, G: 
+ASMTAIL                         = 0D2F, G: 

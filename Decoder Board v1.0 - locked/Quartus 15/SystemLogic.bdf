@@ -1,0 +1,311 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+*/
+(header "graphic" (version "1.4"))
+(alias "<<__$DEF_ALIAS7799>>""A[15..0]")
+(alias "<<__$DEF_ALIAS7828>>""D[7..0]")
+(alias "<<__$DEF_ALIAS7829>>""D[7..0]")
+(alias "<<__$DEF_ALIAS7838>>""nMEMREQ")
+(alias "<<__$DEF_ALIAS7653>>""D[7..0]")
+(alias "<<__$DEF_ALIAS7830>>""A[15..0]")
+(alias "<<__$DEF_ALIAS7414>>""D[7..0]")
+(alias "<<__$DEF_ALIAS7821>>""D[7..0]")
+(alias "<<__$DEF_ALIAS7826>>""D[7..0]")
+(alias "<<__$DEF_ALIAS7801>>""A[15..0]")
+(alias "<<__$DEF_ALIAS7831>>""A[15..0]")
+(alias "<<__$DEF_ALIAS7835>>""A[15..0]")
+(alias "<<__$DEF_ALIAS7836>>""A[15..0]")
+(pin
+	(bidir)
+	(rect -216 80 -40 96)
+	(text "BIDIR" (rect 134 0 175 11)(font "Arial" (font_size 6)))
+	(text "D[7..0]" (rect 29 0 86 14)(font "Arial" ))
+	(pt 176 8)
+	(drawing
+		(line (pt 120 4)(pt 98 4))
+		(line (pt 176 8)(pt 124 8))
+		(line (pt 120 12)(pt 98 12))
+		(line (pt 98 4)(pt 94 8))
+		(line (pt 98 12)(pt 94 8))
+		(line (pt 120 4)(pt 124 8))
+		(line (pt 124 8)(pt 120 12))
+	)
+	(flipy)
+	(text "VCC" (rect 148 7 172 18)(font "Arial" (font_size 6)))
+)
+(pin
+	(bidir)
+	(rect -216 120 -40 136)
+	(text "BIDIR" (rect 134 5 175 16)(font "Arial" (font_size 6)))
+	(text "A[15..0]" (rect 5 2 71 16)(font "Arial" ))
+	(pt 176 8)
+	(drawing
+		(line (pt 120 12)(pt 98 12))
+		(line (pt 176 8)(pt 124 8))
+		(line (pt 120 4)(pt 98 4))
+		(line (pt 98 12)(pt 94 8))
+		(line (pt 98 4)(pt 94 8))
+		(line (pt 120 12)(pt 124 8))
+		(line (pt 124 8)(pt 120 4))
+	)
+	(rotate180)
+	(text "VCC" (rect 148 -2 172 9)(font "Arial" (font_size 6)))
+)
+(pin
+	(bidir)
+	(rect -216 232 -40 248)
+	(text "BIDIR" (rect 134 5 175 16)(font "Arial" (font_size 6)))
+	(text "nMEMREQ" (rect 5 2 62 16)(font "Arial" ))
+	(pt 176 8)
+	(drawing
+		(line (pt 120 12)(pt 98 12))
+		(line (pt 176 8)(pt 124 8))
+		(line (pt 120 4)(pt 98 4))
+		(line (pt 98 12)(pt 94 8))
+		(line (pt 98 4)(pt 94 8))
+		(line (pt 120 12)(pt 124 8))
+		(line (pt 124 8)(pt 120 4))
+	)
+	(rotate180)
+	(text "VCC" (rect 148 -2 172 9)(font "Arial" (font_size 6)))
+)
+(pin
+	(bidir)
+	(rect -216 264 -40 280)
+	(text "BIDIR" (rect 134 5 175 16)(font "Arial" (font_size 6)))
+	(text "nIOREQ" (rect 5 2 54 16)(font "Arial" ))
+	(pt 176 8)
+	(drawing
+		(line (pt 120 12)(pt 98 12))
+		(line (pt 176 8)(pt 124 8))
+		(line (pt 120 4)(pt 98 4))
+		(line (pt 98 12)(pt 94 8))
+		(line (pt 98 4)(pt 94 8))
+		(line (pt 120 12)(pt 124 8))
+		(line (pt 124 8)(pt 120 4))
+	)
+	(rotate180)
+	(text "VCC" (rect 148 -2 172 9)(font "Arial" (font_size 6)))
+)
+(pin
+	(bidir)
+	(rect -216 296 -40 312)
+	(text "BIDIR" (rect 134 5 175 16)(font "Arial" (font_size 6)))
+	(text "nRD" (rect 5 2 29 16)(font "Arial" ))
+	(pt 176 8)
+	(drawing
+		(line (pt 120 12)(pt 98 12))
+		(line (pt 176 8)(pt 124 8))
+		(line (pt 120 4)(pt 98 4))
+		(line (pt 98 12)(pt 94 8))
+		(line (pt 98 4)(pt 94 8))
+		(line (pt 120 12)(pt 124 8))
+		(line (pt 124 8)(pt 120 4))
+	)
+	(rotate180)
+	(text "VCC" (rect 148 -2 172 9)(font "Arial" (font_size 6)))
+)
+(pin
+	(bidir)
+	(rect -216 328 -40 344)
+	(text "BIDIR" (rect 134 5 175 16)(font "Arial" (font_size 6)))
+	(text "nWR" (rect 5 2 29 16)(font "Arial" ))
+	(pt 176 8)
+	(drawing
+		(line (pt 120 12)(pt 98 12))
+		(line (pt 176 8)(pt 124 8))
+		(line (pt 120 4)(pt 98 4))
+		(line (pt 98 12)(pt 94 8))
+		(line (pt 98 4)(pt 94 8))
+		(line (pt 120 12)(pt 124 8))
+		(line (pt 124 8)(pt 120 4))
+	)
+	(rotate180)
+	(text "VCC" (rect 148 -2 172 9)(font "Arial" (font_size 6)))
+)
+(block
+	(rect 1040 160 1240 376)
+	(text "MemoryController" (rect 5 5 156 21)(font "Arial" (font_size 8)))	(text "MemCtrlr" (rect 5 199 71 213)(font "Arial" ))	(block_io "A[15..0]" (input))
+	(block_io "nMEMREQ" (input))
+	(block_io "nIOREQ" (input))
+	(block_io "nRD" (input))
+	(block_io "nWR" (input))
+	(block_io "MA[7..0]" (output))
+	(block_io "D[7..0]" (bidir))
+	(mapper
+		(pt 0 48)
+		(bidir)
+		)
+	(mapper
+		(pt 0 24)
+		(bidir)
+		(mapping "D[7..0]" "D[7..0]" )
+		(annotation_block (mapping)(rect 880 104 1040 152))
+	)
+)
+(block
+	(rect 416 216 624 456)
+	(text "ExternalAddressController" (rect 5 5 241 21)(font "Arial" (font_size 8)))	(text "ExtAddressCtrlr" (rect 5 223 128 237)(font "Arial" ))	(block_io "D[7..0]" (bidir))
+	(block_io "A[15..0]" (bidir))
+	(block_io "EA[3..0]" (bidir))
+	(block_io "EALE" (bidir))
+	(block_io "nMEMREQ" (bidir))
+	(block_io "nIOREQ" (bidir))
+	(block_io "nRD" (bidir))
+	(block_io "nWR" (bidir))
+	(mapper
+		(pt 0 16)
+		(bidir)
+		(mapping "D[7..0]" "D[7..0]" )
+		(annotation_block (mapping)(rect 264 152 424 200))
+	)
+	(mapper
+		(pt 0 40)
+		(bidir)
+		(mapping "A[15..0]" "A[15..0]" )
+		(annotation_block (mapping)(rect 224 272 400 320))
+	)
+	(mapper
+		(pt 0 152)
+		(bidir)
+		(mapping "nMEMREQ" "nMEMREQ" )
+		(annotation_block (mapping)(rect 240 384 400 432))
+	)
+)
+(connector
+	(text "<<__$DEF_ALIAS7653>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 248 88)
+	(pt 248 232)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7414>>" (rect 192 -144 357 -130)(font "Arial" )(invisible))
+	(pt 248 232)
+	(pt 416 232)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7799>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 216 256)
+	(pt 216 128)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7801>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 216 256)
+	(pt 416 256)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7821>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt -40 88)
+	(pt 248 88)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7826>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 248 88)
+	(pt 856 88)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7828>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 856 88)
+	(pt 856 184)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7829>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 856 184)
+	(pt 1040 184)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7831>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 832 128)
+	(pt 832 208)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7830>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt -40 128)
+	(pt 216 128)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7835>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 216 128)
+	(pt 832 128)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7836>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 832 208)
+	(pt 1040 208)
+	(conduit)
+)
+(connector
+	(text "<<__$DEF_ALIAS7838>>" (rect 0 0 165 14)(font "Arial" )(invisible))
+	(pt 8 368)
+	(pt 416 368)
+	(conduit)
+)
+(connector
+	(pt -40 240)
+	(pt 8 240)
+)
+(connector
+	(pt -40 272)
+	(pt 8 272)
+)
+(connector
+	(pt 8 240)
+	(pt 8 272)
+	(conduit)
+)
+(connector
+	(pt -40 304)
+	(pt 8 304)
+)
+(connector
+	(pt 8 272)
+	(pt 8 304)
+	(conduit)
+)
+(connector
+	(pt -40 336)
+	(pt 8 336)
+)
+(connector
+	(pt 8 304)
+	(pt 8 336)
+	(conduit)
+)
+(connector
+	(pt 8 336)
+	(pt 8 368)
+	(conduit)
+)
+(junction (pt 248 88))
+(junction (pt 216 128))
+(junction (pt 8 272))
+(junction (pt 8 304))
+(junction (pt 8 336))

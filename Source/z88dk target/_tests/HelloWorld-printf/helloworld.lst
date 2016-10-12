@@ -1,0 +1,387 @@
+Z80 Module Assembler 2.8.5, (c) InterLogic 1993-2009, Paulo Custodio 2011-2016                    Sat Jul 02 14:32:06 2016
+Page 001                                                                      'C:\Users\marc\AppData\Local\Temp\s5ss_.lst'
+
+
+1     0000              ;--------------------------------------------------------
+2     0000              ; File Created by SDCC : free open source ANSI-C Compiler
+3     0000              ; Version 3.5.5 #9516 (MSVC)
+4     0000              ;--------------------------------------------------------
+5     0000              ; Processed by Z88DK
+6     0000              ;--------------------------------------------------------
+7     0000              	EXTERN __divschar
+8     0000              	EXTERN __divschar_callee
+9     0000              	EXTERN __divsint
+10    0000              	EXTERN __divsint_callee
+11    0000              	EXTERN __divslong
+12    0000              	EXTERN __divslong_callee
+13    0000              	EXTERN __divslonglong
+14    0000              	EXTERN __divslonglong_callee
+15    0000              	EXTERN __divsuchar
+16    0000              	EXTERN __divsuchar_callee
+17    0000              	EXTERN __divuchar
+18    0000              	EXTERN __divuchar_callee
+19    0000              	EXTERN __divuint
+20    0000              	EXTERN __divuint_callee
+21    0000              	EXTERN __divulong
+22    0000              	EXTERN __divulong_callee
+23    0000              	EXTERN __divulonglong
+24    0000              	EXTERN __divulonglong_callee
+25    0000              	EXTERN __divuschar
+26    0000              	EXTERN __divuschar_callee
+27    0000              	EXTERN __modschar
+28    0000              	EXTERN __modschar_callee
+29    0000              	EXTERN __modsint
+30    0000              	EXTERN __modsint_callee
+31    0000              	EXTERN __modslong
+32    0000              	EXTERN __modslong_callee
+33    0000              	EXTERN __modslonglong
+34    0000              	EXTERN __modslonglong_callee
+35    0000              	EXTERN __modsuchar
+36    0000              	EXTERN __modsuchar_callee
+37    0000              	EXTERN __moduchar
+38    0000              	EXTERN __moduchar_callee
+39    0000              	EXTERN __moduint
+40    0000              	EXTERN __moduint_callee
+41    0000              	EXTERN __modulong
+42    0000              	EXTERN __modulong_callee
+43    0000              	EXTERN __modulonglong
+44    0000              	EXTERN __modulonglong_callee
+45    0000              	EXTERN __moduschar
+46    0000              	EXTERN __moduschar_callee
+47    0000              	EXTERN __mulint
+48    0000              	EXTERN __mulint_callee
+49    0000              	EXTERN __mullong
+50    0000              	EXTERN __mullong_callee
+51    0000              	EXTERN __mullonglong
+52    0000              	EXTERN __mullonglong_callee
+53    0000              	EXTERN __mulschar
+54    0000              	EXTERN __mulschar_callee
+55    0000              	EXTERN __mulsuchar
+56    0000              	EXTERN __mulsuchar_callee
+57    0000              	EXTERN __muluschar
+58    0000              	EXTERN __muluschar_callee
+59    0000              	EXTERN __rlslonglong
+60    0000              	EXTERN __rlslonglong_callee
+61    0000              	EXTERN __rlulonglong
+
+Z80 Module Assembler 2.8.5, (c) InterLogic 1993-2009, Paulo Custodio 2011-2016                    Sat Jul 02 14:32:06 2016
+Page 002                                                                      'C:\Users\marc\AppData\Local\Temp\s5ss_.lst'
+
+
+62    0000              	EXTERN __rlulonglong_callee
+63    0000              	EXTERN __rrslonglong
+64    0000              	EXTERN __rrslonglong_callee
+65    0000              	EXTERN __rrulonglong
+66    0000              	EXTERN __rrulonglong_callee
+67    0000              	EXTERN ___sdcc_call_hl
+68    0000              	EXTERN ___sdcc_call_iy
+69    0000              	EXTERN ___sdcc_enter_ix
+70    0000              	EXTERN _banked_call
+71    0000              	EXTERN _banked_ret
+72    0000              	EXTERN ___fs2schar
+73    0000              	EXTERN ___fs2schar_callee
+74    0000              	EXTERN ___fs2sint
+75    0000              	EXTERN ___fs2sint_callee
+76    0000              	EXTERN ___fs2slong
+77    0000              	EXTERN ___fs2slong_callee
+78    0000              	EXTERN ___fs2slonglong
+79    0000              	EXTERN ___fs2slonglong_callee
+80    0000              	EXTERN ___fs2uchar
+81    0000              	EXTERN ___fs2uchar_callee
+82    0000              	EXTERN ___fs2uint
+83    0000              	EXTERN ___fs2uint_callee
+84    0000              	EXTERN ___fs2ulong
+85    0000              	EXTERN ___fs2ulong_callee
+86    0000              	EXTERN ___fs2ulonglong
+87    0000              	EXTERN ___fs2ulonglong_callee
+88    0000              	EXTERN ___fsadd
+89    0000              	EXTERN ___fsadd_callee
+90    0000              	EXTERN ___fsdiv
+91    0000              	EXTERN ___fsdiv_callee
+92    0000              	EXTERN ___fseq
+93    0000              	EXTERN ___fseq_callee
+94    0000              	EXTERN ___fsgt
+95    0000              	EXTERN ___fsgt_callee
+96    0000              	EXTERN ___fslt
+97    0000              	EXTERN ___fslt_callee
+98    0000              	EXTERN ___fsmul
+99    0000              	EXTERN ___fsmul_callee
+100   0000              	EXTERN ___fsneq
+101   0000              	EXTERN ___fsneq_callee
+102   0000              	EXTERN ___fssub
+103   0000              	EXTERN ___fssub_callee
+104   0000              	EXTERN ___schar2fs
+105   0000              	EXTERN ___schar2fs_callee
+106   0000              	EXTERN ___sint2fs
+107   0000              	EXTERN ___sint2fs_callee
+108   0000              	EXTERN ___slong2fs
+109   0000              	EXTERN ___slong2fs_callee
+110   0000              	EXTERN ___slonglong2fs
+111   0000              	EXTERN ___slonglong2fs_callee
+112   0000              	EXTERN ___uchar2fs
+113   0000              	EXTERN ___uchar2fs_callee
+114   0000              	EXTERN ___uint2fs
+115   0000              	EXTERN ___uint2fs_callee
+116   0000              	EXTERN ___ulong2fs
+117   0000              	EXTERN ___ulong2fs_callee
+118   0000              	EXTERN ___ulonglong2fs
+119   0000              	EXTERN ___ulonglong2fs_callee
+120   0000              	EXTERN asm_z80_push_di
+121   0000              	EXTERN asm_z80_pop_ei
+122   0000              
+
+Z80 Module Assembler 2.8.5, (c) InterLogic 1993-2009, Paulo Custodio 2011-2016                    Sat Jul 02 14:32:06 2016
+Page 003                                                                      'C:\Users\marc\AppData\Local\Temp\s5ss_.lst'
+
+
+123   0000              ;--------------------------------------------------------
+124   0000              ; Public variables in this module
+125   0000              ;--------------------------------------------------------
+126   0000              	GLOBAL _main
+127   0000              ;--------------------------------------------------------
+128   0000              ; Externals used
+129   0000              ;--------------------------------------------------------
+130   0000              	GLOBAL _vscanf_unlocked_callee
+131   0000              	GLOBAL _vscanf_unlocked
+132   0000              	GLOBAL _vprintf_unlocked_callee
+133   0000              	GLOBAL _vprintf_unlocked
+134   0000              	GLOBAL _vfscanf_unlocked_callee
+135   0000              	GLOBAL _vfscanf_unlocked
+136   0000              	GLOBAL _vfprintf_unlocked_callee
+137   0000              	GLOBAL _vfprintf_unlocked
+138   0000              	GLOBAL _ungetc_unlocked_callee
+139   0000              	GLOBAL _ungetc_unlocked
+140   0000              	GLOBAL _scanf_unlocked
+141   0000              	GLOBAL _rewind_unlocked_fastcall
+142   0000              	GLOBAL _rewind_unlocked
+143   0000              	GLOBAL _puts_unlocked_fastcall
+144   0000              	GLOBAL _puts_unlocked
+145   0000              	GLOBAL _putchar_unlocked_fastcall
+146   0000              	GLOBAL _putchar_unlocked
+147   0000              	GLOBAL _putc_unlocked_callee
+148   0000              	GLOBAL _putc_unlocked
+149   0000              	GLOBAL _printf_unlocked
+150   0000              	GLOBAL _gets_unlocked_fastcall
+151   0000              	GLOBAL _gets_unlocked
+152   0000              	GLOBAL _getline_unlocked_callee
+153   0000              	GLOBAL _getline_unlocked
+154   0000              	GLOBAL _getdelim_unlocked_callee
+155   0000              	GLOBAL _getdelim_unlocked
+156   0000              	GLOBAL _getchar_unlocked
+157   0000              	GLOBAL _getc_unlocked_fastcall
+158   0000              	GLOBAL _getc_unlocked
+159   0000              	GLOBAL _fwrite_unlocked_callee
+160   0000              	GLOBAL _fwrite_unlocked
+161   0000              	GLOBAL _ftell_unlocked_fastcall
+162   0000              	GLOBAL _ftell_unlocked
+163   0000              	GLOBAL _fsetpos_unlocked_callee
+164   0000              	GLOBAL _fsetpos_unlocked
+165   0000              	GLOBAL _fseek_unlocked_callee
+166   0000              	GLOBAL _fseek_unlocked
+167   0000              	GLOBAL _fscanf_unlocked
+168   0000              	GLOBAL _freopen_unlocked_callee
+169   0000              	GLOBAL _freopen_unlocked
+170   0000              	GLOBAL _fread_unlocked_callee
+171   0000              	GLOBAL _fread_unlocked
+172   0000              	GLOBAL _fputs_unlocked_callee
+173   0000              	GLOBAL _fputs_unlocked
+174   0000              	GLOBAL _fputc_unlocked_callee
+175   0000              	GLOBAL _fputc_unlocked
+176   0000              	GLOBAL _fprintf_unlocked
+177   0000              	GLOBAL _fileno_unlocked_fastcall
+178   0000              	GLOBAL _fileno_unlocked
+179   0000              	GLOBAL _fgets_unlocked_callee
+180   0000              	GLOBAL _fgets_unlocked
+181   0000              	GLOBAL _fgetpos_unlocked_callee
+182   0000              	GLOBAL _fgetpos_unlocked
+183   0000              	GLOBAL _fgetc_unlocked_fastcall
+
+Z80 Module Assembler 2.8.5, (c) InterLogic 1993-2009, Paulo Custodio 2011-2016                    Sat Jul 02 14:32:06 2016
+Page 004                                                                      'C:\Users\marc\AppData\Local\Temp\s5ss_.lst'
+
+
+184   0000              	GLOBAL _fgetc_unlocked
+185   0000              	GLOBAL _fflush_unlocked_fastcall
+186   0000              	GLOBAL _fflush_unlocked
+187   0000              	GLOBAL _ferror_unlocked_fastcall
+188   0000              	GLOBAL _ferror_unlocked
+189   0000              	GLOBAL _feof_unlocked_fastcall
+190   0000              	GLOBAL _feof_unlocked
+191   0000              	GLOBAL _fclose_unlocked_fastcall
+192   0000              	GLOBAL _fclose_unlocked
+193   0000              	GLOBAL _clearerr_unlocked_fastcall
+194   0000              	GLOBAL _clearerr_unlocked
+195   0000              	GLOBAL _vsscanf_callee
+196   0000              	GLOBAL _vsscanf
+197   0000              	GLOBAL _vsprintf_callee
+198   0000              	GLOBAL _vsprintf
+199   0000              	GLOBAL _vsnprintf_callee
+200   0000              	GLOBAL _vsnprintf
+201   0000              	GLOBAL _vscanf_callee
+202   0000              	GLOBAL _vscanf
+203   0000              	GLOBAL _vprintf_callee
+204   0000              	GLOBAL _vprintf
+205   0000              	GLOBAL _vfscanf_callee
+206   0000              	GLOBAL _vfscanf
+207   0000              	GLOBAL _vfprintf_callee
+208   0000              	GLOBAL _vfprintf
+209   0000              	GLOBAL _vasprintf_callee
+210   0000              	GLOBAL _vasprintf
+211   0000              	GLOBAL _ungetc_callee
+212   0000              	GLOBAL _ungetc
+213   0000              	GLOBAL _sscanf
+214   0000              	GLOBAL _sprintf
+215   0000              	GLOBAL _snprintf
+216   0000              	GLOBAL _scanf
+217   0000              	GLOBAL _rewind_fastcall
+218   0000              	GLOBAL _rewind
+219   0000              	GLOBAL _puts_fastcall
+220   0000              	GLOBAL _puts
+221   0000              	GLOBAL _putchar_fastcall
+222   0000              	GLOBAL _putchar
+223   0000              	GLOBAL _putc_callee
+224   0000              	GLOBAL _putc
+225   0000              	GLOBAL _printf
+226   0000              	GLOBAL _perror_fastcall
+227   0000              	GLOBAL _perror
+228   0000              	GLOBAL _open_memstream_callee
+229   0000              	GLOBAL _open_memstream
+230   0000              	GLOBAL _obstack_vprintf_callee
+231   0000              	GLOBAL _obstack_vprintf
+232   0000              	GLOBAL _obstack_printf
+233   0000              	GLOBAL _gets_fastcall
+234   0000              	GLOBAL _gets
+235   0000              	GLOBAL _getline_callee
+236   0000              	GLOBAL _getline
+237   0000              	GLOBAL _getdelim_callee
+238   0000              	GLOBAL _getdelim
+239   0000              	GLOBAL _getchar
+240   0000              	GLOBAL _getc_fastcall
+241   0000              	GLOBAL _getc
+242   0000              	GLOBAL _fwrite_callee
+243   0000              	GLOBAL _fwrite
+244   0000              	GLOBAL _funlockfile_fastcall
+
+Z80 Module Assembler 2.8.5, (c) InterLogic 1993-2009, Paulo Custodio 2011-2016                    Sat Jul 02 14:32:06 2016
+Page 005                                                                      'C:\Users\marc\AppData\Local\Temp\s5ss_.lst'
+
+
+245   0000              	GLOBAL _funlockfile
+246   0000              	GLOBAL _ftrylockfile_fastcall
+247   0000              	GLOBAL _ftrylockfile
+248   0000              	GLOBAL _ftell_fastcall
+249   0000              	GLOBAL _ftell
+250   0000              	GLOBAL _fsetpos_callee
+251   0000              	GLOBAL _fsetpos
+252   0000              	GLOBAL _fseek_callee
+253   0000              	GLOBAL _fseek
+254   0000              	GLOBAL _fscanf
+255   0000              	GLOBAL _freopen_callee
+256   0000              	GLOBAL _freopen
+257   0000              	GLOBAL _fread_callee
+258   0000              	GLOBAL _fread
+259   0000              	GLOBAL _fputs_callee
+260   0000              	GLOBAL _fputs
+261   0000              	GLOBAL _fputc_callee
+262   0000              	GLOBAL _fputc
+263   0000              	GLOBAL _fprintf
+264   0000              	GLOBAL _fopen_callee
+265   0000              	GLOBAL _fopen
+266   0000              	GLOBAL _fmemopen_callee
+267   0000              	GLOBAL _fmemopen
+268   0000              	GLOBAL _flockfile_fastcall
+269   0000              	GLOBAL _flockfile
+270   0000              	GLOBAL _fileno_fastcall
+271   0000              	GLOBAL _fileno
+272   0000              	GLOBAL _fgets_callee
+273   0000              	GLOBAL _fgets
+274   0000              	GLOBAL _fgetpos_callee
+275   0000              	GLOBAL _fgetpos
+276   0000              	GLOBAL _fgetc_fastcall
+277   0000              	GLOBAL _fgetc
+278   0000              	GLOBAL _fflush_fastcall
+279   0000              	GLOBAL _fflush
+280   0000              	GLOBAL _ferror_fastcall
+281   0000              	GLOBAL _ferror
+282   0000              	GLOBAL _feof_fastcall
+283   0000              	GLOBAL _feof
+284   0000              	GLOBAL _fdopen_callee
+285   0000              	GLOBAL _fdopen
+286   0000              	GLOBAL _fclose_fastcall
+287   0000              	GLOBAL _fclose
+288   0000              	GLOBAL _clearerr_fastcall
+289   0000              	GLOBAL _clearerr
+290   0000              	GLOBAL _asprintf
+291   0000              	GLOBAL __fmemopen__callee
+292   0000              	GLOBAL __fmemopen_
+293   0000              	GLOBAL _stderr
+294   0000              	GLOBAL _stdout
+295   0000              	GLOBAL _stdin
+296   0000              ;--------------------------------------------------------
+297   0000              ; special function registers
+298   0000              ;--------------------------------------------------------
+299   0000              ;--------------------------------------------------------
+300   0000              ; ram data
+301   0000              ;--------------------------------------------------------
+302   0000              	SECTION bss_compiler
+303   0000              ;--------------------------------------------------------
+304   0000              ; ram data
+305   0000              ;--------------------------------------------------------
+
+Z80 Module Assembler 2.8.5, (c) InterLogic 1993-2009, Paulo Custodio 2011-2016                    Sat Jul 02 14:32:06 2016
+Page 006                                                                      'C:\Users\marc\AppData\Local\Temp\s5ss_.lst'
+
+
+306   0000              
+307   0000              IF 0
+308   0000              
+309   0000              ; .area _INITIALIZED removed by z88dk
+310   0000              
+311   0000              _Message:
+312   0000              	DEFS 2
+313   0000              
+314   0000              ENDIF
+315   0000              
+316   0000              ;--------------------------------------------------------
+317   0000              ; absolute external ram data
+318   0000              ;--------------------------------------------------------
+319   0000              	SECTION IGNORE
+320   0000              ;--------------------------------------------------------
+321   0000              ; global & static initialisations
+322   0000              ;--------------------------------------------------------
+323   0000              	SECTION IGNORE
+324   0000              	SECTION code_crt_init
+325   0000              	SECTION code_crt_exit
+326   0000              	SECTION code_crt_init
+327   0000              ;--------------------------------------------------------
+328   0000              ; Home
+329   0000              ;--------------------------------------------------------
+330   0000              	SECTION IGNORE
+331   0000              	SECTION IGNORE
+332   0000              ;--------------------------------------------------------
+333   0000              ; code
+334   0000              ;--------------------------------------------------------
+335   0000              	SECTION code_compiler
+336   0000              ;	---------------------------------
+337   0000              ; Function main
+338   0000              ; ---------------------------------
+339   0000              _main:
+340   0000  21 00 00    	ld	hl,_Message
+341   0003  4E          	ld	c, (hl)
+342   0004  23          	inc	hl
+343   0005  46          	ld	b, (hl)
+344   0006  C5          	push	bc
+345   0007  CD 00 00    	call	_printf
+346   000A  F1          	pop	af
+347   000B  C9          	ret
+348   000C              	SECTION code_compiler
+349   000C              ___str_0:
+350   000C  5A 61 6C 74 20 73 61 79 73 20 68 65 6C 6C 6F 20 74 6F 20 5A 38 38 64 6B 21 
+                        	DEFM "Zalt says hello to Z88dk!"
+351   0025  00          	DEFB 0x00
+352   0026              	SECTION data_compiler
+353   0000              _Message:
+354   0000  0C 00       	DEFW ___str_0
+355   0002              	SECTION IGNORE
+356   0000              
+

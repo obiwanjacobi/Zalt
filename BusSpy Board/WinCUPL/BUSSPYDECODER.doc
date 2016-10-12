@@ -1,0 +1,99 @@
+
+*******************************************************************************
+                                 BusSpyDecoder
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g16v8s  Library DLIB-h-40-9
+Created         Sun Jun 12 14:16:42 2016
+Name            BusSpyDecoder 
+Partno          Zalt-BusSpy-01 
+Revision        01 
+Date            01-06-2016 
+Designer        Marc Jacobi 
+Company         Canned Bytes 
+Assembly        BusSpy Board 
+Location        IC501 - Z80 Computer / BusSpy 
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+ins_rd =>
+    m1 & memreq & rd
+
+int_ack =>
+    ioreq & m1
+
+io_in =>
+    ioreq & rd
+
+io_out =>
+    ioreq & wr
+
+latch =>
+    !m1 & memreq & mode_memwr & wr
+  # !m1 & memreq & mode_memrd & rd
+  # m1 & memreq & mode_insrd & rd
+  # ioreq & mode_output & wr
+  # ioreq & m1 & mode_intack
+  # ioreq & mode_input & rd
+
+mem =>
+    !m1 & memreq
+
+mem_rd =>
+    !m1 & memreq & rd
+
+mem_wr =>
+    !m1 & memreq & wr
+
+strobe =>
+    !m1 & memreq & mode_memwr & wr
+  # !m1 & memreq & mode_memrd & rd
+  # m1 & memreq & mode_insrd & rd
+  # ioreq & mode_output & wr
+  # ioreq & m1 & mode_intack
+  # ioreq & mode_input & rd
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+ !  busack                      19       V        -       -       -     
+ !  busreq                      18       V        -       -       -     
+ !  halt                        9        V        -       -       -     
+    ins_rd                      0        I        1       -       -     
+    int_ack                     0        I        1       -       -     
+    io_in                       0        I        1       -       -     
+    io_out                      0        I        1       -       -     
+ !  ioreq                       4        V        -       -       -     
+    latch                       16       V        6       8       4     
+ !  m1                          7        V        -       -       -     
+    mem                         0        I        1       -       -     
+    mem_rd                      0        I        1       -       -     
+    mem_wr                      0        I        1       -       -     
+ !  memreq                      3        V        -       -       -     
+ !  mode_input                  13       V        -       -       -     
+ !  mode_insrd                  12       V        -       -       -     
+ !  mode_intack                 17       V        -       -       -     
+ !  mode_memrd                  1        V        -       -       -     
+ !  mode_memwr                  11       V        -       -       -     
+ !  mode_output                 14       V        -       -       -     
+ !  rd                          5        V        -       -       -     
+ !  reset                       2        V        -       -       -     
+ !  strobe                      15       V        6       8       4     
+ !  wait                        8        V        -       -       -     
+ !  wr                          6        V        -       -       -     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

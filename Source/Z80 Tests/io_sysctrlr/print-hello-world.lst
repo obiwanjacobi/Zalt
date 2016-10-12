@@ -1,0 +1,37 @@
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Fri Apr 08 14:54:45 2016
+Page 001                                                                               'io_sysctrlr\print-hello-world.lst'
+
+
+1     0000              defc	IO_ADDRESS	=	$20
+2     0000              
+3     0000              org $0000
+4     0000              start:
+5     0000  21 0E 00    	ld hl, TextSource
+6     0003              loop:
+7     0003  7E          	ld a, (hl)
+8     0004  FE 00       	cp a, 0
+9     0006  28 05       	jr z, end
+10    0008  D3 20       	out (IO_ADDRESS), a
+11    000A  23          	inc hl
+12    000B  18 F6       	jr loop
+13    000D              end:
+14    000D  76          	halt
+15    000E              
+16    000E              TextSource:
+17    000E  48 65 6C 6C 6F 20 57 6F 72 6C 64 21 00 
+                        defm "Hello World!", 0
+18    001B              
+
+
+Local Module Symbols:
+
+IO_ADDRESS                      = 62457400000020 :   1*
+TextSource                      = 000E :   1*
+end                             = 000D :   1*
+loop                            = 0003 :   1*
+start                           = 0000 :   1*
+
+
+Global Module Symbols:
+
+

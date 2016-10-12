@@ -1,0 +1,14 @@
+// DMA Bus Timing
+{ signal: [
+  [ "cpu",
+  {name: 'clock', wave: 'p.........'},
+   {name: ['tspan',{'text-decoration': 'overline'},'BUSREQ'], wave: '10.......1'},
+  {name: ['tspan',{'text-decoration': 'overline'},'BUSACK'], wave: '1..0.....1'}
+  ], [
+  "system",
+    {name: 'EALE', wave: "0.....10.."},
+    {name: "DA0-DA7", wave:"x..=...=.x", data: "A0:7 D0:7" },
+    {name: "A8-A11", wave:"x..=.....x", data: "external-address" },
+    {name: "MA12-MA15", wave:"x..=.....x", data: "external-address" }
+  ]
+]}

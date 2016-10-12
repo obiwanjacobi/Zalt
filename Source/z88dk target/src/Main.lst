@@ -1,0 +1,191 @@
+Z80 Module Assembler 2.8.5, (c) InterLogic 1993-2009, Paulo Custodio 2011-2016                    Sat Jul 02 14:03:18 2016
+Page 001                                                                     'C:\Users\marc\AppData\Local\Temp\sa2g_3.lst'
+
+
+1     0000              ;--------------------------------------------------------
+2     0000              ; File Created by SDCC : free open source ANSI-C Compiler
+3     0000              ; Version 3.5.5 #9516 (MSVC)
+4     0000              ;--------------------------------------------------------
+5     0000              ; Processed by Z88DK
+6     0000              ;--------------------------------------------------------
+7     0000              	EXTERN __divschar
+8     0000              	EXTERN __divschar_callee
+9     0000              	EXTERN __divsint
+10    0000              	EXTERN __divsint_callee
+11    0000              	EXTERN __divslong
+12    0000              	EXTERN __divslong_callee
+13    0000              	EXTERN __divslonglong
+14    0000              	EXTERN __divslonglong_callee
+15    0000              	EXTERN __divsuchar
+16    0000              	EXTERN __divsuchar_callee
+17    0000              	EXTERN __divuchar
+18    0000              	EXTERN __divuchar_callee
+19    0000              	EXTERN __divuint
+20    0000              	EXTERN __divuint_callee
+21    0000              	EXTERN __divulong
+22    0000              	EXTERN __divulong_callee
+23    0000              	EXTERN __divulonglong
+24    0000              	EXTERN __divulonglong_callee
+25    0000              	EXTERN __divuschar
+26    0000              	EXTERN __divuschar_callee
+27    0000              	EXTERN __modschar
+28    0000              	EXTERN __modschar_callee
+29    0000              	EXTERN __modsint
+30    0000              	EXTERN __modsint_callee
+31    0000              	EXTERN __modslong
+32    0000              	EXTERN __modslong_callee
+33    0000              	EXTERN __modslonglong
+34    0000              	EXTERN __modslonglong_callee
+35    0000              	EXTERN __modsuchar
+36    0000              	EXTERN __modsuchar_callee
+37    0000              	EXTERN __moduchar
+38    0000              	EXTERN __moduchar_callee
+39    0000              	EXTERN __moduint
+40    0000              	EXTERN __moduint_callee
+41    0000              	EXTERN __modulong
+42    0000              	EXTERN __modulong_callee
+43    0000              	EXTERN __modulonglong
+44    0000              	EXTERN __modulonglong_callee
+45    0000              	EXTERN __moduschar
+46    0000              	EXTERN __moduschar_callee
+47    0000              	EXTERN __mulint
+48    0000              	EXTERN __mulint_callee
+49    0000              	EXTERN __mullong
+50    0000              	EXTERN __mullong_callee
+51    0000              	EXTERN __mullonglong
+52    0000              	EXTERN __mullonglong_callee
+53    0000              	EXTERN __mulschar
+54    0000              	EXTERN __mulschar_callee
+55    0000              	EXTERN __mulsuchar
+56    0000              	EXTERN __mulsuchar_callee
+57    0000              	EXTERN __muluschar
+58    0000              	EXTERN __muluschar_callee
+59    0000              	EXTERN __rlslonglong
+60    0000              	EXTERN __rlslonglong_callee
+61    0000              	EXTERN __rlulonglong
+
+Z80 Module Assembler 2.8.5, (c) InterLogic 1993-2009, Paulo Custodio 2011-2016                    Sat Jul 02 14:03:18 2016
+Page 002                                                                     'C:\Users\marc\AppData\Local\Temp\sa2g_3.lst'
+
+
+62    0000              	EXTERN __rlulonglong_callee
+63    0000              	EXTERN __rrslonglong
+64    0000              	EXTERN __rrslonglong_callee
+65    0000              	EXTERN __rrulonglong
+66    0000              	EXTERN __rrulonglong_callee
+67    0000              	EXTERN ___sdcc_call_hl
+68    0000              	EXTERN ___sdcc_call_iy
+69    0000              	EXTERN ___sdcc_enter_ix
+70    0000              	EXTERN _banked_call
+71    0000              	EXTERN _banked_ret
+72    0000              	EXTERN ___fs2schar
+73    0000              	EXTERN ___fs2schar_callee
+74    0000              	EXTERN ___fs2sint
+75    0000              	EXTERN ___fs2sint_callee
+76    0000              	EXTERN ___fs2slong
+77    0000              	EXTERN ___fs2slong_callee
+78    0000              	EXTERN ___fs2slonglong
+79    0000              	EXTERN ___fs2slonglong_callee
+80    0000              	EXTERN ___fs2uchar
+81    0000              	EXTERN ___fs2uchar_callee
+82    0000              	EXTERN ___fs2uint
+83    0000              	EXTERN ___fs2uint_callee
+84    0000              	EXTERN ___fs2ulong
+85    0000              	EXTERN ___fs2ulong_callee
+86    0000              	EXTERN ___fs2ulonglong
+87    0000              	EXTERN ___fs2ulonglong_callee
+88    0000              	EXTERN ___fsadd
+89    0000              	EXTERN ___fsadd_callee
+90    0000              	EXTERN ___fsdiv
+91    0000              	EXTERN ___fsdiv_callee
+92    0000              	EXTERN ___fseq
+93    0000              	EXTERN ___fseq_callee
+94    0000              	EXTERN ___fsgt
+95    0000              	EXTERN ___fsgt_callee
+96    0000              	EXTERN ___fslt
+97    0000              	EXTERN ___fslt_callee
+98    0000              	EXTERN ___fsmul
+99    0000              	EXTERN ___fsmul_callee
+100   0000              	EXTERN ___fsneq
+101   0000              	EXTERN ___fsneq_callee
+102   0000              	EXTERN ___fssub
+103   0000              	EXTERN ___fssub_callee
+104   0000              	EXTERN ___schar2fs
+105   0000              	EXTERN ___schar2fs_callee
+106   0000              	EXTERN ___sint2fs
+107   0000              	EXTERN ___sint2fs_callee
+108   0000              	EXTERN ___slong2fs
+109   0000              	EXTERN ___slong2fs_callee
+110   0000              	EXTERN ___slonglong2fs
+111   0000              	EXTERN ___slonglong2fs_callee
+112   0000              	EXTERN ___uchar2fs
+113   0000              	EXTERN ___uchar2fs_callee
+114   0000              	EXTERN ___uint2fs
+115   0000              	EXTERN ___uint2fs_callee
+116   0000              	EXTERN ___ulong2fs
+117   0000              	EXTERN ___ulong2fs_callee
+118   0000              	EXTERN ___ulonglong2fs
+119   0000              	EXTERN ___ulonglong2fs_callee
+120   0000              	EXTERN asm_z80_push_di
+121   0000              	EXTERN asm_z80_pop_ei
+122   0000              
+
+Z80 Module Assembler 2.8.5, (c) InterLogic 1993-2009, Paulo Custodio 2011-2016                    Sat Jul 02 14:03:18 2016
+Page 003                                                                     'C:\Users\marc\AppData\Local\Temp\sa2g_3.lst'
+
+
+123   0000              ;--------------------------------------------------------
+124   0000              ; Public variables in this module
+125   0000              ;--------------------------------------------------------
+126   0000              	GLOBAL _main
+127   0000              ;--------------------------------------------------------
+128   0000              ; Externals used
+129   0000              ;--------------------------------------------------------
+130   0000              ;--------------------------------------------------------
+131   0000              ; special function registers
+132   0000              ;--------------------------------------------------------
+133   0000              ;--------------------------------------------------------
+134   0000              ; ram data
+135   0000              ;--------------------------------------------------------
+136   0000              	SECTION bss_compiler
+137   0000              ;--------------------------------------------------------
+138   0000              ; ram data
+139   0000              ;--------------------------------------------------------
+140   0000              
+141   0000              IF 0
+142   0000              
+143   0000              ; .area _INITIALIZED removed by z88dk
+144   0000              
+145   0000              
+146   0000              ENDIF
+147   0000              
+148   0000              ;--------------------------------------------------------
+149   0000              ; absolute external ram data
+150   0000              ;--------------------------------------------------------
+151   0000              	SECTION IGNORE
+152   0000              ;--------------------------------------------------------
+153   0000              ; global & static initialisations
+154   0000              ;--------------------------------------------------------
+155   0000              	SECTION IGNORE
+156   0000              	SECTION code_crt_init
+157   0000              	SECTION code_crt_exit
+158   0000              	SECTION code_crt_init
+159   0000              ;--------------------------------------------------------
+160   0000              ; Home
+161   0000              ;--------------------------------------------------------
+162   0000              	SECTION IGNORE
+163   0000              	SECTION IGNORE
+164   0000              ;--------------------------------------------------------
+165   0000              ; code
+166   0000              ;--------------------------------------------------------
+167   0000              	SECTION code_compiler
+168   0000              ;	---------------------------------
+169   0000              ; Function main is a stub
+170   0000              ; ---------------------------------
+171   0000              EXTERN l_ret
+172   0000              defc _main = l_ret
+173   0000              	SECTION code_compiler
+174   0000              	SECTION data_compiler
+175   0000              	SECTION IGNORE
+176   0000              
+

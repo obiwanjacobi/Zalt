@@ -1,0 +1,141 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, the Altera Quartus Prime License Agreement,
+# the Altera MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Altera and sold by Altera or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+# Date created = 08:41:50  December 29, 2015
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		SystemLogic_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX II"
+set_global_assignment -name DEVICE EPM240T100C5
+set_global_assignment -name TOP_LEVEL_ENTITY SystemLogic
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 15.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "08:41:50  DECEMBER 29, 2015"
+set_global_assignment -name LAST_QUARTUS_VERSION 15.1.0
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
+set_global_assignment -name POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR 3.3V
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name DEVICE_FILTER_PACKAGE TQFP
+set_global_assignment -name VHDL_FILE SystemLogic.vhd
+set_global_assignment -name VHDL_FILE MemoryController.vhd
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 100
+set_location_assignment PIN_100 -to a[0]
+set_location_assignment PIN_99 -to a[1]
+set_location_assignment PIN_98 -to a[2]
+set_location_assignment PIN_97 -to a[3]
+set_location_assignment PIN_96 -to a[4]
+set_location_assignment PIN_95 -to a[5]
+set_location_assignment PIN_92 -to a[6]
+set_location_assignment PIN_91 -to a[7]
+set_location_assignment PIN_90 -to a[8]
+set_location_assignment PIN_89 -to a[9]
+set_location_assignment PIN_88 -to a[10]
+set_location_assignment PIN_87 -to a[11]
+set_location_assignment PIN_18 -to a[12]
+set_location_assignment PIN_17 -to a[13]
+set_location_assignment PIN_16 -to a[14]
+set_location_assignment PIN_15 -to a[15]
+set_location_assignment PIN_86 -to ma[0]
+set_location_assignment PIN_85 -to ma[1]
+set_location_assignment PIN_84 -to ma[2]
+set_location_assignment PIN_83 -to ma[3]
+set_location_assignment PIN_82 -to ma[4]
+set_location_assignment PIN_81 -to ma[5]
+set_location_assignment PIN_78 -to ma[6]
+set_location_assignment PIN_77 -to ma[7]
+set_location_assignment PIN_12 -to clk
+set_location_assignment PIN_75 -to ctrl[1]
+set_location_assignment PIN_76 -to ctrl[0]
+set_location_assignment PIN_55 -to io_ex[0]
+set_location_assignment PIN_37 -to io_ex[16]
+set_location_assignment PIN_38 -to io_ex[15]
+set_location_assignment PIN_39 -to io_ex[14]
+set_location_assignment PIN_40 -to io_ex[13]
+set_location_assignment PIN_41 -to io_ex[12]
+set_location_assignment PIN_42 -to io_ex[11]
+set_location_assignment PIN_43 -to io_ex[10]
+set_location_assignment PIN_44 -to io_ex[9]
+set_location_assignment PIN_47 -to io_ex[8]
+set_location_assignment PIN_48 -to io_ex[7]
+set_location_assignment PIN_49 -to io_ex[6]
+set_location_assignment PIN_50 -to io_ex[5]
+set_location_assignment PIN_51 -to io_ex[4]
+set_location_assignment PIN_52 -to io_ex[3]
+set_location_assignment PIN_53 -to io_ex[2]
+set_location_assignment PIN_54 -to io_ex[1]
+set_location_assignment PIN_66 -to memmapld
+set_location_assignment PIN_58 -to memrdtablesel
+set_location_assignment PIN_35 -to n_busack
+set_location_assignment PIN_36 -to n_busreq
+set_location_assignment PIN_34 -to n_cpuhalt
+set_location_assignment PIN_30 -to n_cpum1
+set_location_assignment PIN_33 -to n_cpuwait
+set_location_assignment PIN_29 -to n_cpurefresh
+set_location_assignment PIN_20 -to n_cpuint
+set_location_assignment PIN_19 -to n_cpunmi
+set_location_assignment PIN_27 -to n_ioreq
+set_location_assignment PIN_28 -to n_memreq
+set_location_assignment PIN_26 -to n_rd
+set_location_assignment PIN_14 -to n_reset
+set_location_assignment PIN_21 -to n_wr
+set_location_assignment PIN_62 -to iomemmapld
+set_location_assignment PIN_61 -to n_iomaptableoe
+set_location_assignment PIN_67 -to n_maptabledata
+set_location_assignment PIN_64 -to n_maptableoe
+set_location_assignment PIN_71 -to n_mbe[3]
+set_location_assignment PIN_72 -to n_mbe[2]
+set_location_assignment PIN_73 -to n_mbe[1]
+set_location_assignment PIN_74 -to n_mbe[0]
+set_location_assignment PIN_68 -to n_memmapen
+set_location_assignment PIN_69 -to n_memmapoe
+set_location_assignment PIN_70 -to n_memmapwe
+set_location_assignment PIN_57 -to sparetablesel
+set_location_assignment PIN_56 -to sysctrltablesel
+set_location_assignment PIN_1 -to io[7]
+set_location_assignment PIN_2 -to io[6]
+set_location_assignment PIN_3 -to io[5]
+set_location_assignment PIN_4 -to io[4]
+set_location_assignment PIN_5 -to io[3]
+set_location_assignment PIN_6 -to io[2]
+set_location_assignment PIN_7 -to io[1]
+set_location_assignment PIN_8 -to io[0]
+set_global_assignment -name VHDL_FILE MemoryDecoder.vhd
+set_global_assignment -name VHDL_FILE TestMemoryDecoder.vhd
+set_global_assignment -name CDF_FILE output_files/SystemLogic.cdf

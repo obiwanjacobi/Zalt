@@ -1,0 +1,25 @@
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Wed Mar 02 16:39:51 2016
+Page 001                                                                                    'io_sysctrlr/io_sysctrlr2.lst'
+
+
+1     0000              org $0000
+2     0000              
+3     0000              defc	IO_ADDRESS	=	$20
+4     0000              
+5     0000              start:
+6     0000  3E 40       ld a, '@'
+7     0002  D3 20       out (IO_ADDRESS), a
+8     0004              ;in a, (IO_ADDRESS)
+9     0004  76          halt
+10    0005              
+
+
+Local Module Symbols:
+
+IO_ADDRESS                      = 63449C00000020 :   1*
+start                           = 0000 :   1*
+
+
+Global Module Symbols:
+
+

@@ -1,0 +1,15 @@
+// Z80 Bus Request/Acknowledge Cycle
+{ signal: [
+  {node:".....x.....y", phase:"-0.2"},
+  {name: ['tspan',{'text-decoration': 'overline'},'CLK'], wave: '0101010101010', node:"...a.....c"},
+  {name: ['tspan',{'text-decoration': 'overline'},'BUSREQ'], wave: '1.0.....1....', node:"...b.....d"},
+  {name: ['tspan',{'text-decoration': 'overline'},'BUSACK'], wave: '1....0....1.', phase:"-0.2"},
+  {name: 'A15-A0', wave: "=....z.....=", phase:"-0.2"},
+  {name: "D7-D0", wave:"=....z.....=", phase:"-0.2"},
+  {name: ['tspan',{'text-decoration': 'overline'},'RD/WR/MREQ/IORQ/RFSH'], wave:"=....z.....=", phase:"-0.2"},
+], edge:[ "a->b sample", "c->d sample", "x<->y bus available"
+], head:{
+  text:"Z80 Bus Request/Acknowledge Cycle",
+  tock:' T3  T4  Tx  Tx  Tx  T1'
+  }
+}

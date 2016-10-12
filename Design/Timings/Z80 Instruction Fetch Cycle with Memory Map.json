@@ -1,0 +1,25 @@
+// Z80 Instruction Fetch Cycle with Memory Map
+// Includes a Map RAM (15ns) and the main RAM (15ns)
+
+{ signal: [
+  {node:".x.y", phase:"0"},
+  {name: ['tspan',{'text-decoration': 'overline'},'CLK'], wave: '01010101010', node:""},
+  ['Z80',
+    {name: ['tspan',{'text-decoration': 'overline'},'MEMREQ'], wave: '1.0..10.1.', phase:"-0.1", node:""},
+    {name: ['tspan',{'text-decoration': 'overline'},'RD'], wave: '1.0..1...', phase:"-0.1"},
+    {name: ['tspan',{'text-decoration': 'overline'},'M1'], wave: '10...1...', phase:"-0.1"},
+   {name: 'A15-A0', wave: "x=...=..x", data: "PC R", phase: "-0.3"},
+    {name: "D7-D0", wave:"z...=z...", phase:"-0.3"}
+  ],
+  ['Mp',
+    {name: ['tspan',{'text-decoration': 'overline'},'MemAddr'], wave:"=....z.....=", phase:"0"}
+  ],
+  ['Mm',
+    {name: ['tspan',{'text-decoration': 'overline'},'MemAddr'], wave:"=....z.....=", phase:"0"}
+  ],
+], edge:[ "x<->y 50ns"
+], head:{
+  text:"Z80 Instruction Fetch Cycle with Memory Map",
+  tock:' T1  T2  T3  T4  T1'
+  }
+}

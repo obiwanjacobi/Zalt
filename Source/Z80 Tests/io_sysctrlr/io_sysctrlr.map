@@ -1,0 +1,14 @@
+ASMHEAD                         = 0000, G: 
+ASMSIZE                         = 000A, G: 
+ASMTAIL                         = 000A, G: 
+IO_ADDRESS                      = 0020, L: io_sysctrlr
+TEST_ADDRESS                    = 0000, L: io_sysctrlr
+start                           = 0000, L: io_sysctrlr
+
+
+ASMHEAD                         = 0000, G: 
+TEST_ADDRESS                    = 0000, L: io_sysctrlr
+start                           = 0000, L: io_sysctrlr
+ASMSIZE                         = 000A, G: 
+ASMTAIL                         = 000A, G: 
+IO_ADDRESS                      = 0020, L: io_sysctrlr

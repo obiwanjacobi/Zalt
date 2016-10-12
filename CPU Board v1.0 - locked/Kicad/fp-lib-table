@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name Footprints)(type KiCad)(uri "C:\\Users\\marc\\Documents\\Hardware Projects\\Z80 Computer\\CAD\\Footprints.pretty")(options "")(descr ""))
+  (lib (name .pretty)(type KiCad)(uri "$(KIPRJMOD)\\.pretty")(options "")(descr ""))
+)

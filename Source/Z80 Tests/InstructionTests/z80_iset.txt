@@ -1,0 +1,136 @@
+----------------------------------------------------------------------
+                Spektra software and hardware
+          Z80 CPU instruction set database ver: 3.0
+----------------------------------------------------------------------
+
+database example:
+----------------------------------------------------------------------
+|opc      T0 T1 MC1   MC2   MC3   MC4   MC5   MC6   MC7   mnem       |
+|--------------------------------------------------------------------|
+|ED53L1H1 20 00 M1R 4 M1R 4 MRD 3 MRD 3 MWR 3 MWR 3 ... 0 LD (U16),DE|
+----------------------------------------------------------------------
+opc:    operation code [hex]
+        L1,H1,U1,S1 means first operand direct number or adress
+        L2,H2,U2,S2 means second operand direct number or adress
+        L3,H3,U3,S3 means third operand direct number or adress
+        H,L ... U16 high and low byte
+        U   ... U8 unsigned byte
+        S   ... S8 signed byte
+
+T0      normal instruction duration [T] always 2 decimal digits
+T1      instruction duration if condition not met [T] always 2 decimal digits
+
+MC1++   Machine cycle first is type,second is duration [T] always 1 decimal digit
+        ...     unused
+        M1R     M1 cycle
+        MRD     memory read
+        MWR     memory write
+        IOR     IO read
+        IOW     IO write
+        NON     no external operation (internal computation)
+        INT     interrupt cycle
+
+mnem    instruction text (mnemonic)
+
+emulator internal instructions (not in database):
+----------------------------------------------------------------------
+|opc      T0 T1 MC1   MC2   MC3   MC4   MC5   MC6   MC7   mnem       |
+|--------------------------------------------------------------------|
+| -       11 00 M1R 5 MWR 3 MWR 3 ... 0 ... 0 ... 0 ... 0 NMI        |
+| -       02 00 INT 2 ... 0 ... 0 ... 0 ... 0 ... 0 ... 0 INT0       |  // IM0
+| -       13 00 INT 7 MWR 3 MWR 3 ... 0 ... 0 ... 0 ... 0 INT1       |  // IM1
+| -       19 00 INT 7 MWR 3 MWR 3 MRD 3 MRD 3 ... 0 ... 0 INT2       |  // IM2
+----------------------------------------------------------------------
+
+note1:  condition C (carry) is unrecognizable from register C (BC)
+        to recognize which it is, conditions (flags) are used only in
+        instructions: CALL, JR, JP, RET
+
+note2:  max size of opc is 4 bytes (8 digits), if opc is shorter spaces are added
+        max num of MC is 7
+        max size of mnemonic is 15 characters
+
+note3:	aditional spaces are not allowed
+
+note4:  normalized mnemonics:
+        jp (hl) -> jp hl
+        jp (ix) -> jp ix
+        jp (iy) -> jp iy
+        sub r8  -> sub a,r8
+        cp  r8  -> cp  a,r8
+        and r8  -> and a,r8
+        or  r8  -> or  a,r8
+        xor r8  -> xor a,r8
+        
+zexfix: ( fcpu ~ 40MHz, 20min )
+
+Z80all instruction exerciser 
+
+<adc,sbc> hl,<bc,de,hl,sp>...OK
+add hl,<bc,de,hl,sp>.........OK
+add ix,<bc,de,ix,sp>.........OK
+add iy,<bc,de,iy,sp>.........OK
+aluop a,nn...................OK
+aluop a,<b,c,d,e,h,l,(hl),a>.OK
+aluop a,<ixh,ixl,iyh,iyl>....OK
+aluop a,(<ix,iy>+1)..........OK
+bit n,(<ix,iy>+1)............OK
+bit n,<b,c,d,e,h,l,(hl),a>...OK
+cpd<r>.......................OK
+cpi<r>.......................OK
+<daa,cpl,scf,ccf>............OK
+<inc,dec> a..................OK
+<inc,dec> b..................OK
+<inc,dec> bc.................OK
+<inc,dec> c..................OK
+<inc,dec> d..................OK
+<inc,dec> de.................OK
+<inc,dec> e..................OK
+<inc,dec> h..................OK
+<inc,dec> hl.................OK
+<inc,dec> ix.................OK
+<inc,dec> iy.................OK
+<inc,dec> l..................OK
+<inc,dec> (hl)...............OK
+<inc,dec> sp.................OK
+<inc,dec> (<ix,iy>+1)........OK
+<inc,dec> ixh................OK
+<inc,dec> ixl................OK
+<inc,dec>  iyh...............OK
+<inc,dec> iyl................OK
+ld <bc,de>,(nnnn)............OK
+ld hl,(nnnn).................OK
+ld sp,(nnnn).................OK
+ld <ix,iy>,(nnnn)............OK
+ld (nnnn),<bc,de>............OK
+ld (nnnn),hl.................OK
+ld (nnnn),sp.................OK
+ld (nnnn),<ix,iy>............OK
+ld <bc,de,hl,sp>,nnnn........OK
+ld <ix,iy>,nnnn..............OK
+ld a,<(bc),(de)>.............OK
+ld <b,c,d,e,h,l,(hl),a>,nn...OK
+ld (<ix,iy>+1),nn............OK
+ld <b,c,d,e>,(<ix,iy>+1).....OK
+ld <h,l>,(<ix,iy>+1).........OK
+ld a,(<ix,iy>+1).............OK
+ld <ixh,ixl,iyh,iyl>,nn......OK
+ld <bcdehla>,<bcdehla>.......OK
+ld <bcdexya>,<bcdexya>.......OK
+ld a,(nnnn) / ld (nnnn),a....OK
+ldd<r> (1)...................OK
+ldd<r> (2)...................OK
+ldi<r> (1)...................OK
+ldi<r> (2)...................OK
+neg..........................OK
+<rrd,rld>....................OK
+<rlca,rrca,rla,rra>..........OK
+shf/rot (<ix,iy>+1)..........OK
+shf/rot <b,c,d,e,h,l,(hl),a>.OK
+<set,res> n,<bcdehl(hl)a>....OK
+<set,res> n,(<ix,iy>+1)......OK
+ld (<ix,iy>+1),<b,c,d,e>.....OK
+ld (<ix,iy>+1),<h,l>.........OK
+ld (<ix,iy>+1),a.............OK
+ld (<bc,de>),a...............OK
+Tests complete

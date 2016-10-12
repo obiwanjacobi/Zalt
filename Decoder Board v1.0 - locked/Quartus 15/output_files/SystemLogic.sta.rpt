@@ -1,0 +1,278 @@
+TimeQuest Timing Analyzer report for SystemLogic
+Sat Jun 25 17:03:27 2016
+Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Clock Transfers
+ 12. Report TCCS
+ 13. Report RSKM
+ 14. Unconstrained Paths Summary
+ 15. Unconstrained Input Ports
+ 16. Unconstrained Output Ports
+ 17. Unconstrained Input Ports
+ 18. Unconstrained Output Ports
+ 19. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2015 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                           ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
+; Timing Analyzer       ; TimeQuest                                           ;
+; Revision Name         ; SystemLogic                                         ;
+; Device Family         ; MAX II                                              ;
+; Device Name           ; EPM240T100C5                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
+----------
+; Clocks ;
+----------
+No clocks to report.
+
+
+----------------
+; Fmax Summary ;
+----------------
+No paths to report.
+
+
+-----------------
+; Setup Summary ;
+-----------------
+No paths to report.
+
+
+----------------
+; Hold Summary ;
+----------------
+No paths to report.
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
+-------------------------------
+; Minimum Pulse Width Summary ;
+-------------------------------
+No paths to report.
+
+
+-------------------
+; Clock Transfers ;
+-------------------
+Nothing to report.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 19    ; 19   ;
+; Unconstrained Input Port Paths  ; 110   ; 110  ;
+; Unconstrained Output Ports      ; 11    ; 11   ;
+; Unconstrained Output Port Paths ; 110   ; 110  ;
++---------------------------------+-------+------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; a[0]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[1]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[2]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[3]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[4]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[5]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[6]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[7]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[8]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[9]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[10]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[11]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ma[4]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ma[5]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ma[6]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ma[7]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_ioreq    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_memreq   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_wr       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                             ;
++----------------+---------------------------------------------------------------------------------------+
+; Output Port    ; Comment                                                                               ;
++----------------+---------------------------------------------------------------------------------------+
+; iomemmapld     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; memmapld       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_iomaptableoe ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_maptabledata ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_maptableoe   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_mbe[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_mbe[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_mbe[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_mbe[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_memmapoe     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_memmapwe     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; a[0]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[1]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[2]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[3]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[4]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[5]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[6]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[7]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[8]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[9]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[10]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; a[11]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ma[4]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ma[5]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ma[6]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; ma[7]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_ioreq    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_memreq   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_wr       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                             ;
++----------------+---------------------------------------------------------------------------------------+
+; Output Port    ; Comment                                                                               ;
++----------------+---------------------------------------------------------------------------------------+
+; iomemmapld     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; memmapld       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_iomaptableoe ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_maptabledata ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_maptableoe   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_mbe[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_mbe[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_mbe[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_mbe[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_memmapoe     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; n_memmapwe     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++----------------+---------------------------------------------------------------------------------------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime TimeQuest Timing Analyzer
+    Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+    Info: Processing started: Sat Jun 25 17:03:23 2016
+Info: Command: quartus_sta SystemLogic -c SystemLogic
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'SystemLogic.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
+Warning (332068): No clocks defined in design.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info (332159): No clocks to report
+Info (332140): No fmax paths to report
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Info (332140): No Setup paths to report
+Info (332140): No Hold paths to report
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332140): No Minimum Pulse Width paths to report
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 687 megabytes
+    Info: Processing ended: Sat Jun 25 17:03:27 2016
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
+
+

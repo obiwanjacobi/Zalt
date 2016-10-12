@@ -1,0 +1,12 @@
+ASMHEAD                         = 0000, G: 
+ASMSIZE                         = 0005, G: 
+ASMTAIL                         = 0005, G: 
+IO_ADDRESS                      = 0020, L: io_sysctrlr2
+start                           = 0000, L: io_sysctrlr2
+
+
+ASMHEAD                         = 0000, G: 
+start                           = 0000, L: io_sysctrlr2
+ASMSIZE                         = 0005, G: 
+ASMTAIL                         = 0005, G: 
+IO_ADDRESS                      = 0020, L: io_sysctrlr2

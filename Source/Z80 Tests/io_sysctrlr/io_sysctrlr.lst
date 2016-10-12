@@ -1,0 +1,28 @@
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Fri Mar 18 13:47:17 2016
+Page 001                                                                                   '.\io_sysctrlr\io_sysctrlr.lst'
+
+
+1     0000              defc	TEST_ADDRESS	=	$00		; test loop
+2     0000              defc	IO_ADDRESS		=	$20		; Serial
+3     0000              
+4     0000              org $0000
+5     0000              start:
+6     0000  3E 40       	ld a, '@'
+7     0002  D3 00       	out (TEST_ADDRESS), a
+8     0004  AF          	xor a
+9     0005  DB 00       	in a, (TEST_ADDRESS)
+10    0007  D3 20       	out (IO_ADDRESS), a
+11    0009  76          	halt
+12    000A              
+
+
+Local Module Symbols:
+
+IO_ADDRESS                      = 2459C00000020 :   1*
+TEST_ADDRESS                    = 0000 :   1*
+start                           = 0000 :   1*
+
+
+Global Module Symbols:
+
+

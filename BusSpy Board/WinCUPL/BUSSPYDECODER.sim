@@ -1,0 +1,63 @@
+%SIGNAL
+PIN  19 = !busack 
+PIN  18 = !busreq 
+PIN   9 = !halt 
+PIN   4 = !ioreq 
+PIN  16 =  latch 
+PIN   7 = !m1 
+PIN   3 = !memreq 
+PIN  13 = !mode_input 
+PIN  12 = !mode_insrd 
+PIN  17 = !mode_intack 
+PIN   1 = !mode_memrd 
+PIN  11 = !mode_memwr 
+PIN  14 = !mode_output 
+PIN   5 = !rd 
+PIN   2 = !reset 
+PIN  15 = !strobe 
+PIN   8 = !wait 
+PIN   6 = !wr 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+ins_rd =>
+    m1 & memreq & rd
+
+int_ack =>
+    ioreq & m1
+
+io_in =>
+    ioreq & rd
+
+io_out =>
+    ioreq & wr
+
+latch =>
+    m1 & !memreq & !mode_memwr & !wr
+  # m1 & !memreq & !mode_memrd & !rd
+  # !m1 & !memreq & !mode_insrd & !rd
+  # !ioreq & !mode_output & !wr
+  # !ioreq & !m1 & !mode_intack
+  # !ioreq & !mode_input & !rd
+
+mem =>
+    !m1 & memreq
+
+mem_rd =>
+    !m1 & memreq & rd
+
+mem_wr =>
+    !m1 & memreq & wr
+
+strobe =>
+    m1 & !memreq & !mode_memwr & !wr
+  # m1 & !memreq & !mode_memrd & !rd
+  # !m1 & !memreq & !mode_insrd & !rd
+  # !ioreq & !mode_output & !wr
+  # !ioreq & !m1 & !mode_intack
+  # !ioreq & !mode_input & !rd
+
+%END

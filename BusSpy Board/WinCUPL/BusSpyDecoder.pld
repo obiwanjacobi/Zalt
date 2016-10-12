@@ -1,0 +1,108 @@
+Name     BusSpyDecoder ;
+PartNo   Zalt-BusSpy-01 ;
+Date     01-06-2016 ;
+Revision 01 ;
+Designer Marc Jacobi ;
+Company  Canned Bytes ;
+Assembly BusSpy Board ;
+Location IC501 - Z80 Computer / BusSpy ;
+Device   G16V8 ;
+/*Format   j ;*/
+
+
+/** input pins **/
+
+PIN 2   = !reset;		/* cpu reset */
+PIN 3   = !memreq;		/* cpu memory request */
+PIN 4   = !ioreq;		/* cpu io request */
+PIN 5   = !rd;		/* cpu read (in) */
+PIN 6   = !wr;		/* cpu write (out) */
+PIN 7   = !m1;		/* cpu machine cycle 1 */
+PIN 8   = !wait;		/* cpu wait state */
+PIN 9   = !halt;		/* cpu halted */
+PIN 18  = !busreq;		/* cpu bus request */
+PIN 19  = !busack;		/* cpu bus acknowledge */
+
+/* mode inputs */
+PIN 1	= !mode_memrd;
+PIN 11	= !mode_memwr;
+PIN 12	= !mode_insrd;
+PIN 13	= !mode_input;
+PIN 14	= !mode_output;
+PIN 17	= !mode_intack;
+
+
+/** output pins **/
+
+PIN 15  = !strobe;		/* TIL311 strobe, address and data */
+PIN 16  = latch;		/* 74F573 latch, control signals */
+
+
+/** logic fields **/
+
+int_ack 	= m1 & ioreq;
+ins_rd 		= m1 & rd & memreq;
+mem 		= !m1 & memreq;
+mem_rd 		= rd & mem;
+mem_wr 		= wr & mem;
+io_in 		= rd & ioreq;
+io_out 		= wr & ioreq;
+
+
+/** output assignment **/
+
+APPEND strobe	= int_ack & mode_intack;
+APPEND strobe	= ins_rd & mode_insrd;
+APPEND strobe	= mem_rd & mode_memrd;
+APPEND strobe	= mem_wr & mode_memwr;
+APPEND strobe	= io_in & mode_input;
+APPEND strobe	= io_out & mode_output;
+
+
+APPEND latch 	= int_ack & mode_intack;
+APPEND latch 	= ins_rd & mode_insrd;
+APPEND latch 	= mem_rd & mode_memrd;
+APPEND latch 	= mem_wr & mode_memwr;
+APPEND latch 	= io_in & mode_input;
+APPEND latch 	= io_out & mode_output;
+
+
+
+
+
+/**
+This logic is too complex and requires more product terms than the 8 that are available.
+
+APPEND latch 	= int_ack & (mode_intack # mode_all);
+APPEND latch 	= ins_rd & (mode_insrd # mode_all);
+APPEND latch 	= mem_rd & (mode_memrd # mode_mem # mode_memins # mode_all);
+APPEND latch 	= mem_wr & (mode_memwr # mode_mem # mode_memins # mode_all);
+APPEND latch 	= io_in & (mode_io # mode_input # mode_all);
+APPEND latch 	= io_out & (mode_io # mode_output # mode_all);
+
+APPEND strobe	= int_ack & (mode_intack # mode_all);
+APPEND strobe	= ins_rd & (mode_insrd # mode_all);
+APPEND strobe	= mem_rd & (mode_memrd # mode_mem # mode_memins # mode_all);
+APPEND strobe	= mem_wr & (mode_memwr # mode_mem # mode_memins # mode_all);
+APPEND strobe	= io_in & (mode_io # mode_input # mode_all);
+APPEND strobe	= io_out & (mode_io # mode_output # mode_all);
+**/
+
+/**
+This works but is very basic.
+
+APPEND latch 	= int_ack & mode_intack;
+APPEND latch 	= ins_rd & mode_insrd;
+APPEND latch 	= mem_rd & mode_memrd;
+APPEND latch 	= mem_wr & mode_memwr;
+APPEND latch 	= io_in & mode_input;
+APPEND latch 	= io_out & mode_output;
+
+APPEND strobe	= int_ack & mode_intack;
+APPEND strobe	= ins_rd & mode_insrd;
+APPEND strobe	= mem_rd & mode_memrd;
+APPEND strobe	= mem_wr & mode_memwr;
+APPEND strobe	= io_in & mode_input;
+APPEND strobe	= io_out & mode_output;
+**/
+

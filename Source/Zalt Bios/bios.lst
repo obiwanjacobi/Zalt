@@ -1,0 +1,721 @@
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 001                                                                                                        'bios.lst'
+
+
+1     0000              ;
+2     0000              ; bios.asm
+3     0000              ;
+4     0000              
+5     0000              ; This is the root file for compiling the bios.
+6     0000              
+7     0000              ; memory_model defines the order of the non-fixed sections
+8     0000              ; Order is determined by the first time these section names are encountered by the assembler.
+9     0000              include "memory_model.asm"
+1     0000              ;
+2     0000              ; defines the order of the non-fixed code and data sections
+3     0000              ;
+4     0000              
+5     0000              ; Memory Page 0 (2k)
+6     0000              ; $0000		page0  RSTs and NMI - $40: bios vars
+7     0000              ; $0100		page1  Interrupt Vector Table
+8     0000              ; $0200		bios
+9     0000              ; $0300
+10    0000              ; $0400		1k
+11    0000              ; $0500
+12    0000              ; $0600
+13    0000              ; $0700
+14    0000              
+15    0000              ; Memory Page 1 (2k)
+16    0000              ; $0800	 program area
+17    0000              
+18    0000              
+19    0000              ; fixed
+20    0000              section a00
+21    0000              section a08
+22    0000              section a10
+23    0000              section a18
+24    0000              section a20
+25    0000              section a28
+26    0000              section a30
+27    0000              section a38
+28    0000              section bios_vars			; $0040
+29    0000              section a66
+30    0000              section isr_vector_table	; $0100
+31    0000              
+32    0000              ; non-fixed
+33    0000              section bios
+34    0000              section bios_memory
+35    0000              section debug
+36    0000              
+10    0000              ; page0 and isr_vectortable have a fixed org
+11    0000              include "page0.asm"
+1     0000              ;
+2     0000              ; This file defines the memory layout for page zero.
+3     0000              ;
+4     0000              
+5     0000              ; exports
+6     0000              public bios_load_byte_instruction
+7     0000              public bios_load_word_instruction
+8     0000              
+9     0000              ; imports
+10    0000              extern bios_reset_init
+11    0000              extern bios_trap_illegal
+12    0000              
+13    0000              module page0
+14    0000              
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 002                                                                                                        'bios.lst'
+
+
+15    0000              ; Declares fixed addresses and startup routines
+16    0000              
+17    0000              ;
+18    0000              ; Page 0 memory layout
+19    0000              ;
+20    0000              
+21    0000              section a00
+22    0000              ; !RESET and RST00
+23    0000              org $0000
+24    0000  F3          	di					; from warm boot (rst00), interrupts may be enabled
+25    0001  C3 07 00    	jp	bios_reset_init
+26    0004              
+27    0004              section a08
+28    0000              ; RTS08
+29    0000              org $0008
+30    0000              ;	di					; if you need interrupts disabled, do that here
+31    0000  C3 18 00    	jp	BiosFn1
+32    0003              
+33    0003              section a10
+34    0000              ; RST10
+35    0000              org $0010
+36    0000              ;	di					; if you need interrupts disabled, do that here
+37    0000  C3 18 00    	jp	BiosFn2
+38    0003              
+39    0003              section a18
+40    0000              ; RST18
+41    0000              org $0018
+42    0000              ;	di					; if you need interrupts disabled, do that here
+43    0000  C3 18 00    	jp	BiosFn3
+44    0003              
+45    0003              section a20
+46    0000              ; RST20
+47    0000              org $0020
+48    0000              ;	di					; if you need interrupts disabled, do that here
+49    0000  C3 18 00    	jp	BiosFn4
+50    0003              
+51    0003              section a28
+52    0000              ; RST28
+53    0000              org $0028
+54    0000              ;	di					; if you need interrupts disabled, do that here
+55    0000  C3 18 00    	jp	BiosFn5
+56    0003              
+57    0003              section a30
+58    0000              ; RST30
+59    0000              org $0030
+60    0000              ;	di					; if you need interrupts disabled, do that here
+61    0000  C3 18 00    	jp	BiosFn6
+62    0003              
+63    0003              section a38
+64    0000              ; RST38 and IM1
+65    0000              ; used to trap illegal jumps and interrupt mode
+66    0000              org $0038
+67    0000  F3          	di							; disable interrupts
+68    0001              ifdef DEBUG
+69    0001  CD 02 00    	call debug_save_registers	; save cpu state
+70    0004              endif
+71    0004  C3 03 00    	jp	bios_trap_illegal		; call the handler for illegal calls.
+72    0007              
+73    0007              section bios_vars
+74    0000              org $0040
+75    0000              ; see bios_vars.asm for address defines.
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 003                                                                                                        'bios.lst'
+
+
+76    0000  00 00       defw $0000		; bios_var_ram_top
+77    0002  00          defb $00		; bios_var_ram_page
+78    0003              
+79    0003              section a66
+80    0000              ; !NMI
+81    0000              org $0066
+82    0000              ifdef DEBUG
+83    0000  CD 02 00    	call debug_save_registers	; save cpu state
+84    0003  CD 78 00    	call debug_info_point		; communicate InfoPoint to SystemController
+85    0006              endif
+86    0006  ED 45       	retn
+87    0008              
+88    0008              
+89    0008              ; When a program calls an RST function its PC is stored on the SP.
+90    0008              ; The RST function can define an additional byte (or two) immediate after the RST instruction.
+91    0008              ; This extra information would have meaning for the RST operation.
+92    0008              
+93    0008              ; This method reads the single byte that follows the RST instruction
+94    0008              ; and adjusts the returns address to return control after that byte.
+95    0008              ; rst defb $xx
+96    0008              ; pre-condition:
+97    0008              ;	The SP contains a direct return address used to return from this method
+98    0008              ;	and it contains the return address from where the RST method was called -
+99    0008              ;	that will be adjusted.
+100   0008              ; post-condition:
+101   0008              ;	Register a will contain the extra RST byte and the RST return address is adjusted.
+102   0008              bios_load_byte_instruction:
+103   0008  D1          	pop de		; this is the immediate return address and must be preserved.
+104   0009  E1          	pop	hl		; this is the RST return address and must be adjusted
+105   000A  7E          	ld a, (hl)	; get the extra byte
+106   000B  23          	inc hl		; set RST return address past the data byte
+107   000C  E5          	push hl		; put RST return address back on stack
+108   000D  D5          	push de		; as well as the immediate return address
+109   000E  C9          	ret
+110   000F              
+111   000F              ; This method reads two bytes (a word) that follows the RST instruction
+112   000F              ; and adjusts the returns address to return control after that word.
+113   000F              ; rst defw $xxxx
+114   000F              ; pre-condition:
+115   000F              ;	The SP contains a direct return address used to return from this method
+116   000F              ;	and it contains the return address from where the RST method was called -
+117   000F              ;	that will be adjusted.
+118   000F              ;	The word bytes are little endian: so the first is LSB and the next is MSB.
+119   000F              ; post-condition:
+120   000F              ;	Register bc will contain the extra RST bytes and the RST return address is adjusted.
+121   000F              ;	Register c contains the first and b contains the second byte after the RST instruction.
+122   000F              bios_load_word_instruction:
+123   000F  D1          	pop de		; this is the immediate return address and must be preserved.
+124   0010  E1          	pop	hl		; this is the RST return address and must be adjusted
+125   0011  4E          	ld c, (hl)	; get the first extra byte
+126   0012  23          	inc hl		; prepare to get the next data byte
+127   0013  46          	ld b, (hl)	; get the next extra byte
+128   0014  23          	inc hl		; set RST return address past the data word
+129   0015  E5          	push hl		; put RST return address back on stack
+130   0016  D5          	push de		; as well as the immediate return address
+131   0017  C9          	ret
+132   0018              
+133   0018              BiosFn1:
+134   0018              ; bios function #1
+135   0018              
+136   0018              BiosFn2:
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 004                                                                                                        'bios.lst'
+
+
+137   0018              ; bios function #2
+138   0018              
+139   0018              BiosFn3:
+140   0018              ; bios function #3
+141   0018              
+142   0018              BiosFn4:
+143   0018              ; bios function #4
+144   0018              
+145   0018              BiosFn5:
+146   0018              ; bios function #5
+147   0018              
+148   0018              BiosFn6:
+149   0018              ; bios function #6
+150   0018              
+151   0018              
+12    0018              include "isr_vector_table.asm"
+1     0018              ;
+2     0018              ; This file defines the interrupt service routine vector table (IM2)
+3     0018              ;
+4     0018              
+5     0018              
+6     0018              ; exports
+7     0018              public isr_table_index
+8     0018              
+9     0018              ; imports (external isr's)
+10    0018              extern isr_null_vector
+11    0018              
+12    0018              section isr_vector_table
+13    0000              
+14    0000              ;
+15    0000              ; ISR Table (IM2) of 16-bit jump addresses (I=1) 256 bytes max
+16    0000              ;
+17    0000              
+18    0000              ; ISR Table is located at page 1 ($0100, I=1).
+19    0000              defc isr_table_index = 1            ; used to initialie I register
+20    0000              defc isr_table_address = $0100      ; hi-byte is same as the isr_table_index
+21    0000              
+22    0000              
+23    0000              org isr_table_address
+24    0000              ; The lo address byte (A1-A7: A0=0) is put on the databus by the interrupting device.
+25    0000              ; The hi address byte (A8-A15) is supplied by the I register that is initialized to (page) 1.
+26    0000  00 00       defw	isr_null_vector		; Address of ISR #0
+27    0002  00 00       defw	isr_null_vector		; Address of ISR #1
+28    0004  00 00       defw	isr_null_vector		; Address of ISR #2
+29    0006  00 00       defw	isr_null_vector		; Address of ISR #3
+30    0008  00 00       defw	isr_null_vector		; Address of ISR #4
+31    000A  00 00       defw	isr_null_vector		; Address of ISR #5
+32    000C  00 00       defw	isr_null_vector		; Address of ISR #6
+33    000E  00 00       defw	isr_null_vector		; Address of ISR #7
+34    0010  00 00       defw	isr_null_vector		; Address of ISR #8
+35    0012  00 00       defw	isr_null_vector		; Address of ISR #9
+36    0014  00 00       defw	isr_null_vector		; Address of ISR #10
+37    0016  00 00       defw	isr_null_vector		; Address of ISR #11
+38    0018  00 00       defw	isr_null_vector		; Address of ISR #12
+39    001A  00 00       defw	isr_null_vector		; Address of ISR #13
+40    001C  00 00       defw	isr_null_vector		; Address of ISR #14
+41    001E  00 00       defw	isr_null_vector		; Address of ISR #15
+42    0020  00 00       defw	isr_null_vector		; Address of ISR #16
+43    0022  00 00       defw	isr_null_vector		; Address of ISR #17
+44    0024  00 00       defw	isr_null_vector		; Address of ISR #18
+45    0026  00 00       defw	isr_null_vector		; Address of ISR #19
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 005                                                                                                        'bios.lst'
+
+
+46    0028  00 00       defw	isr_null_vector		; Address of ISR #20
+47    002A  00 00       defw	isr_null_vector		; Address of ISR #21
+48    002C  00 00       defw	isr_null_vector		; Address of ISR #22
+49    002E  00 00       defw	isr_null_vector		; Address of ISR #23
+50    0030  00 00       defw	isr_null_vector		; Address of ISR #24
+51    0032  00 00       defw	isr_null_vector		; Address of ISR #25
+52    0034  00 00       defw	isr_null_vector		; Address of ISR #26
+53    0036  00 00       defw	isr_null_vector		; Address of ISR #27
+54    0038  00 00       defw	isr_null_vector		; Address of ISR #28
+55    003A  00 00       defw	isr_null_vector		; Address of ISR #29
+56    003C  00 00       defw	isr_null_vector		; Address of ISR #30
+57    003E  00 00       defw	isr_null_vector		; Address of ISR #31
+58    0040  00 00       defw	isr_null_vector		; Address of ISR #32
+59    0042  00 00       defw	isr_null_vector		; Address of ISR #33
+60    0044  00 00       defw	isr_null_vector		; Address of ISR #34
+61    0046  00 00       defw	isr_null_vector		; Address of ISR #35
+62    0048  00 00       defw	isr_null_vector		; Address of ISR #36
+63    004A  00 00       defw	isr_null_vector		; Address of ISR #37
+64    004C  00 00       defw	isr_null_vector		; Address of ISR #38
+65    004E  00 00       defw	isr_null_vector		; Address of ISR #39
+66    0050  00 00       defw	isr_null_vector		; Address of ISR #40
+67    0052  00 00       defw	isr_null_vector		; Address of ISR #41
+68    0054  00 00       defw	isr_null_vector		; Address of ISR #42
+69    0056  00 00       defw	isr_null_vector		; Address of ISR #43
+70    0058  00 00       defw	isr_null_vector		; Address of ISR #44
+71    005A  00 00       defw	isr_null_vector		; Address of ISR #45
+72    005C  00 00       defw	isr_null_vector		; Address of ISR #46
+73    005E  00 00       defw	isr_null_vector		; Address of ISR #47
+74    0060  00 00       defw	isr_null_vector		; Address of ISR #48
+75    0062  00 00       defw	isr_null_vector		; Address of ISR #49
+76    0064  00 00       defw	isr_null_vector		; Address of ISR #50
+77    0066  00 00       defw	isr_null_vector		; Address of ISR #51
+78    0068  00 00       defw	isr_null_vector		; Address of ISR #52
+79    006A  00 00       defw	isr_null_vector		; Address of ISR #53
+80    006C  00 00       defw	isr_null_vector		; Address of ISR #54
+81    006E  00 00       defw	isr_null_vector		; Address of ISR #55
+82    0070  00 00       defw	isr_null_vector		; Address of ISR #56
+83    0072  00 00       defw	isr_null_vector		; Address of ISR #57
+84    0074  00 00       defw	isr_null_vector		; Address of ISR #58
+85    0076  00 00       defw	isr_null_vector		; Address of ISR #59
+86    0078  00 00       defw	isr_null_vector		; Address of ISR #60
+87    007A  00 00       defw	isr_null_vector		; Address of ISR #61
+88    007C  00 00       defw	isr_null_vector		; Address of ISR #62
+89    007E  00 00       defw	isr_null_vector		; Address of ISR #63
+90    0080              
+91    0080              ; for full table this would be the last ISR vector
+92    0080              ;defw	isr_null_vector		; Address of ISR #127
+93    0080              
+94    0080              
+13    0080              
+14    0080              ; bios content
+15    0080              include "bios_vars.asm"
+1     0080              ;
+2     0080              ; lists all addresses of system variables
+3     0080              ;
+4     0080              
+5     0080              ; bios vars from $0040 till $0060
+6     0080              
+7     0080              defc	bios_var_base		=	$0040
+8     0080              defc	bios_var_ram_top	=	bios_var_base	+	$00		; 2 bytes
+9     0080              defc	bios_var_ram_page	=	bios_var_base	+	$02		; 1 byte
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 006                                                                                                        'bios.lst'
+
+
+10    0080              
+16    0080              include "bios_crt0.asm"
+1     0080              
+17    0080              include "memory.asm"
+1     0080              ;
+2     0080              ; contains routines for managing ram memory
+3     0080              ;
+4     0080              
+5     0080              ; the data that is used to fill memory on reset
+6     0080              defc	bios_memory_fill_opcode		=	$FF		; rst $38
+7     0080              defc	bios_memory_page_size		= 	$0800	; 2k page size
+8     0080              
+9     0080              ; public function
+10    0080              public bios_memory_init
+11    0080              public bios_memory_page_init
+12    0080              public bios_memory_page_switch
+13    0080              
+14    0080              ; imports
+15    0080              
+16    0080              ; start of module
+17    0080              section bios_memory
+18    0000              
+19    0000              ; Determines the top of RAM in 2k blocks
+20    0000              ; pre-conditions:
+21    0000              ;      call-ret
+22    0000              ; post-conditions:
+23    0000              ;		bios_var_ram_top is initialized
+24    0000              bios_memory_determine_top:
+25    0000  06 AA       	ld b, @10101010					; init test value
+26    0002  21 FF FF    	ld hl, $FFFF					; start ram test at 64k top
+27    0005  11 00 08    	ld de, bios_memory_page_size	; test at page-size intervals
+28    0008  18 02       	jr memdettop_entry
+29    000A              .memdettop_loop
+30    000A  ED 52       	sbc hl, de					; lower ram test address
+31    000C              .memdettop_entry
+32    000C  78          	ld a, b						; init register a with test value
+33    000D  77          	ld (hl), a					; write test value into ram
+34    000E  7E          	ld a, (hl)					; read back
+35    000F  B8          	cp a, b						; is it the same (ram is present)
+36    0010  20 F8       	jr nz, memdettop_loop 		; if not, try again at lower address
+37    0012  22 40 00    	ld (bios_var_ram_top), hl	; store ram-top in bios variable
+38    0015  C9          	ret
+39    0016              
+40    0016              ; Initializes ram with fill data starting at address pointed to by register hl.
+41    0016              ; pre-conditions:
+42    0016              ;      call-ret, hl: start address
+43    0016              ;		bios_var_ram_top has been initialized
+44    0016              ; post-conditions:
+45    0016              ;		Ram is initialized with RST$38 ($FF)
+46    0016              bios_memory_init:
+47    0016  44          	ld b, h						; save hl
+48    0017  4D          	ld c, l						; ld bc, hl
+49    0018  2A 40 00    	ld hl, (bios_var_ram_top)	; load ram-top address
+50    001B  37          	scf							; set carry flag / toggle carry flag
+51    001C  3F          	ccf							; to make sure sbc operations is valid
+52    001D  ED 42       	sbc hl, bc					; length = ram-top - start-address
+53    001F              
+54    001F  54          	ld d, h						; setup block length for call
+55    0020  5D          	ld e, l						; ld de, hl
+56    0021  60          	ld h, b						; setup start address for call
+57    0022  69          	ld l, c						; ld hl, bc
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 007                                                                                                        'bios.lst'
+
+
+58    0023              
+59    0023              	; VVVV fall through to fill routine for entire ram VVVV
+60    0023              
+61    0023              ; Fills ram with init-value starting at hl for de number of bytes.
+62    0023              ; pre-conditions:
+63    0023              ;      call-ret
+64    0023              ;		hl: start address
+65    0023              ;		de: number of bytes
+66    0023              bios_memory_fill:
+67    0023  3E FF       	ld a, bios_memory_fill_opcode	; value to write into memory
+68    0025              
+69    0025  43          	ld b, e					; lsb in b for djnz instruction
+70    0026  1B          	dec de					; decrement whole count (with carry) before  ...
+71    0027  14          	inc d					; add one msb outer loop iteration
+72    0028              .memfill_loop
+73    0028  77          	ld (hl), a				; write value into ram pos
+74    0029  23          	inc hl					; next address
+75    002A  10 FC       	djnz memfill_loop		; lsb inner loop
+76    002C  15          	dec d					; decrement msb
+77    002D  20 F9       	jr nz, memfill_loop		; msb outer loop
+78    002F  C9          	ret
+79    0030              
+80    0030              ; pre-conditions:
+81    0030              ;      call-ret
+82    0030              ; post-conditions:
+83    0030              ;bios_memory_page_init:
+84    0030              ;	xor a						; reset a to $00
+85    0030              ;	ld (bios_var_ram_page), a	; reset memory page
+86    0030              ;	ret
+87    0030              
+88    0030              ; pre-conditions:
+89    0030              ;      call-ret
+90    0030              ; post-conditions:
+91    0030              ;bios_memory_page_switch:
+92    0030              ;	ret
+93    0030              
+18    0030              include "debug.asm"
+1     0030              ;
+2     0030              ; debug routines
+3     0030              ;
+4     0030              
+5     0030              ifdef DEBUG
+6     0030              
+7     0030              public debug_info_point
+8     0030              public debug_save_registers
+9     0030              public debug_restore_registers
+10    0030              public debug_restore_registers_all
+11    0030              
+12    0030              
+13    0030              section debug
+14    0000              
+15    0000              ; IO port on the SystemController that is used for debug InfoPoints
+16    0000              defc	debug_system_controller_port	=	$00
+17    0000              
+18    0000              ; (2 sets of 4 regs + 2 index regs and 2 cpu regs) times 2 bytes (24 bytes total)
+19    0000              defc	debug_vars_size	= (4 * 2 + 2 + 2) * 2
+20    0000              debug_vars:
+21    0000              ; allocate space for debug vars
+22    0000  18 00       defb debug_vars_size, $00
+23    0002              
+24    0002              defc	debug_var_base	=	debug_vars
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 008                                                                                                        'bios.lst'
+
+
+25    0002              defc	debug_var_pc	=	debug_var_base	+	$00
+26    0002              defc	debug_var_sp	=	debug_var_base	+	$02
+27    0002              defc	debug_var_af	=	debug_var_base	+	$04
+28    0002              defc	debug_var_bc	=	debug_var_base	+	$06
+29    0002              defc	debug_var_de	=	debug_var_base	+	$08
+30    0002              defc	debug_var_hl	=	debug_var_base	+	$0A
+31    0002              defc	debug_var_af2	=	debug_var_base	+	$0C
+32    0002              defc	debug_var_bc2	=	debug_var_base	+	$0E
+33    0002              defc	debug_var_de2	=	debug_var_base	+	$10
+34    0002              defc	debug_var_hl2	=	debug_var_base	+	$12
+35    0002              defc	debug_var_ix	=	debug_var_base	+	$14
+36    0002              defc	debug_var_iy	=	debug_var_base	+	$16
+37    0002              
+38    0002              
+39    0002              ; Saves all registers in debug vars.
+40    0002              ; Corrects for calling this sub-routine. So SP is saved as if before this call.
+41    0002              ; pre-condition:
+42    0002              ;	call-ret
+43    0002              ; post-condition:
+44    0002              ;	All registers retain their values (also alternates).
+45    0002              debug_save_registers:
+46    0002              	; bc, de and hl
+47    0002  ED 43 00 00 	ld (debug_var_bc), bc	; store bc
+48    0006  ED 53 00 00 	ld (debug_var_de), de	; store de
+49    000A  22 00 00    	ld (debug_var_hl), hl	; store hl
+50    000D  D9          	exx						; switch to alternate registers
+51    000E  ED 43 00 00 	ld (debug_var_bc2), bc	; store bc'
+52    0012  ED 53 00 00 	ld (debug_var_de2), de	; store de'
+53    0016  22 00 00    	ld (debug_var_hl2), hl	; store hl'
+54    0019  D9          	exx						; switch back
+55    001A  DD 22 00 00 	ld (debug_var_ix), ix	; store ix
+56    001E  FD 22 00 00 	ld (debug_var_iy), iy	; store iy
+57    0022              	; pc
+58    0022  E3          	ex (sp), hl				; swap hl onto the stack and get return address (pc)
+59    0023  22 00 00    	ld (debug_var_pc), hl	; store pc
+60    0026              	; sp
+61    0026  E1          	pop hl					; sp is now as before when we were called
+62    0027  ED 73 00 00 	ld (debug_var_sp), sp	; store sp
+63    002B  2A 00 00    	ld hl, (debug_var_pc)	; load saved pc
+64    002E  E5          	push hl					; restore return address
+65    002F              	; af
+66    002F  F5          	push af					; ld hl, af
+67    0030  E1          	pop hl
+68    0031  22 00 00    	ld (debug_var_af), hl	; store af
+69    0034              	; af'
+70    0034  08          	ex af, af				; switch to alternate af
+71    0035  F5          	push af					; ld hl, af
+72    0036  E1          	pop hl
+73    0037  22 00 00    	ld (debug_var_af2), hl	; store af'
+74    003A  08          	ex af, af				; switch af back
+75    003B  2A 00 00    	ld hl, (debug_var_hl)	; restore hl value
+76    003E  C9          	ret
+77    003F              
+78    003F              
+79    003F              ; Restores all registers (incl. alternates) to saved values (debug_save_registers).
+80    003F              ; ALSO RESTORES PC AND SP!
+81    003F              ; THIS MEANS THAT THE RETURN ADDRESS IS CHANGED TO THE SAVED PC VALUE!!
+82    003F              ; AND THE SP IS ALSO RESTORED TO THE SAVED VALUE!!
+83    003F              debug_restore_registers_all:
+84    003F  ED 7B 00 00 	ld sp, (debug_var_sp)	; load saved sp value
+85    0043  2A 00 00    	ld hl, (debug_var_pc)	; load the saved pc value
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 009                                                                                                        'bios.lst'
+
+
+86    0046  E5          	push hl					; set as new return address
+87    0047              
+88    0047              	; ... and we're doomed
+89    0047              
+90    0047              	; VVVVV fall thru! VVVVV
+91    0047              
+92    0047              ; Restores all registers (incl. alternates) to saved values (debug_save_registers).
+93    0047              ; Does not restore pc and sp!
+94    0047              debug_restore_registers:
+95    0047              	; af'
+96    0047  08          	ex af, af
+97    0048  2A 00 00    	ld hl, (debug_var_af2)
+98    004B  E5          	push hl
+99    004C  F1          	pop af
+100   004D              
+101   004D              	; af
+102   004D  08          	ex af, af
+103   004E  2A 00 00    	ld hl, (debug_var_af)
+104   0051  E5          	push hl
+105   0052  F1          	pop af
+106   0053              
+107   0053              	; bc', de', hl'
+108   0053  D9          	exx
+109   0054  2A 00 00    	ld hl, (debug_var_bc2)
+110   0057  44          	ld b, h
+111   0058  4D          	ld c, l
+112   0059  2A 00 00    	ld hl, (debug_var_de2)
+113   005C  54          	ld d, h
+114   005D  5D          	ld e, l
+115   005E  2A 00 00    	ld hl, (debug_var_hl2)
+116   0061              
+117   0061              	; bc, de, hl
+118   0061  D9          	exx
+119   0062  2A 00 00    	ld hl, (debug_var_bc)
+120   0065  44          	ld b, h
+121   0066  4D          	ld c, l
+122   0067  2A 00 00    	ld hl, (debug_var_de)
+123   006A  54          	ld d, h
+124   006B  5D          	ld e, l
+125   006C  2A 00 00    	ld hl, (debug_var_hl)
+126   006F              
+127   006F              	; ix and iy
+128   006F  DD 2A 00 00 	ld ix, (debug_var_ix)
+129   0073  FD 2A 00 00 	ld iy, (debug_var_iy)
+130   0077  C9          	ret
+131   0078              
+132   0078              
+133   0078              ; Communicates with the System Controller to relay the information that makes up an InfoPoint.
+134   0078              ; Mainly CPU-register values. debug_save_registers must be called first.
+135   0078              ; The SystemController can halt (BUSREQ) the CPU in order to retrieve data from memory (DMA).
+136   0078              debug_info_point:
+137   0078  06 18       	ld b, debug_vars_size				; load b with size of register value block
+138   007A  21 00 00    	ld hl, debug_vars					; load hl with start address of register value block
+139   007D  0E 00       	ld c, debug_system_controller_port	; set io port
+140   007F              	; do not unroll: SystemController inserts wait-states
+141   007F  ED B3       	otir								; repeat out
+142   0081  C9          	ret
+143   0082              
+144   0082              
+145   0082              endif	; DEBUG
+146   0082              
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 010                                                                                                        'bios.lst'
+
+
+19    0082              
+20    0082              ; exports
+21    0082              public bios_reset_init
+22    0082              public isr_null_vector
+23    0082              
+24    0082              ; imports
+25    0082              extern isr_table_index
+26    0082              
+27    0082              ;
+28    0082              ; Start of bios
+29    0082              ;
+30    0082              section bios
+31    0000              org $0200
+32    0000              
+33    0000              ; a dummy isr for initializing the isr vector table
+34    0000              isr_null_vector:
+35    0000              ifdef DEBUG
+36    0000  76          	halt			; break if debug build
+37    0001              endif
+38    0001  ED 4D       	reti;			; do nothing, return from interrupt
+39    0003              
+40    0003              ;	hl contains the source address of illegal call
+41    0003              bios_trap_illegal:
+42    0003              ifdef DEBUG
+43    0003  76          	halt			; break if debug build
+44    0004              endif
+45    0004  C3 00 00    	jp $0000		; reset
+46    0007              
+47    0007              ; Interrupts are disabled.
+48    0007              bios_reset_init:
+49    0007  ED 57       	ld	a, i			; cold boot/hard reset would init I to $00
+50    0009  FE 00       	cp	a, $00			; is I zero?
+51    000B  20 16       	jr  nz, resetWarm	; nope - warm boot
+52    000D              
+53    000D              	; initialze ram
+54    000D  21 FF FF    	ld hl, $FFFF				; hard-coded ram top (64k)
+55    0010  AF          	xor a						; memory page $00
+56    0011  22 40 00    	ld (bios_var_ram_top), hl	; init bios vars
+57    0014  32 42 00    	ld (bios_var_ram_page), a	;
+58    0017              
+59    0017              	; !! TEMP !!
+60    0017  21 00 08    	ld hl, bios_memory_page_size	; start of program memory (first page is reserved)
+61    001A  CD 16 00    	call bios_memory_init			; call routine to clear/fill program memory
+62    001D              
+63    001D              	; initialize Interrupt mode
+64    001D  3E 01       	ld	a, isr_table_index      ; load I with page address for isr_vector_table
+65    001F  ED 47       	ld	i, a			        ; for the ISR jump table (at $0100)
+66    0021  ED 5E       	im	2				        ; for IM2
+67    0023              
+68    0023              ; bios_reset_init jumps here if it detects a warm reset
+69    0023              .resetWarm
+70    0023  2A 40 00    	ld hl, (bios_var_ram_top)	; load ram-top
+71    0026  F9          	ld sp, hl					; Stack Pointer at Ram Top
+72    0027              
+73    0027  FB          	ei					; turn on interrupts
+74    0028              ;	jp crt_main; jmp to C main loop
+75    0028              
+76    0028              
+77    0028              
+78    0028              
+79    0028              
+
+Z80 Module Assembler 2.8.2, (c) InterLogic 1993-2009, Paulo Custodio 2011-2015                    Sun Feb 21 17:03:23 2016
+Page 011                                                                                                        'bios.lst'
+
+
+80    0028              
+81    0028              
+
+
+Local Module Symbols:
+
+BiosFn1                         = 82493400000018 :   3*   2 
+BiosFn2                         = 0018 :   3*   2 
+BiosFn3                         = 0018 :   4*   2 
+BiosFn4                         = 0018 :   4*   2 
+BiosFn5                         = 0018 :   4*   2 
+BiosFn6                         = 0018 :   4*   2 
+DEBUG                           = 0001 :   1*
+bios_memory_determine_top       = 0000 :   6*
+bios_memory_fill                = 0023 :   7*
+bios_memory_fill_opcode         = 00FF :   6*   7 
+bios_memory_page_size           = 0800 :   6*  10 
+bios_var_base                   = 0040 :   5*
+bios_var_ram_page               = 0042 :   5*  10 
+bios_var_ram_top                = 0040 :   5*   6   10 
+debug_system_controller_port    = 0000 :   7*   9 
+debug_var_af                    = 0000 :   8*   9 
+debug_var_af2                   = 0000 :   8*   9 
+debug_var_base                  = 0000 :   7*   8 
+debug_var_bc                    = 0000 :   8*   9 
+debug_var_bc2                   = 0000 :   8*   9 
+debug_var_de                    = 0000 :   8*   9 
+debug_var_de2                   = 0000 :   8*   9 
+debug_var_hl                    = 0000 :   8*   9 
+debug_var_hl2                   = 0000 :   8*   9 
+debug_var_ix                    = 0000 :   8*   9 
+debug_var_iy                    = 0000 :   8*   9 
+debug_var_pc                    = 0000 :   8*
+debug_var_sp                    = 0000 :   8*
+debug_vars                      = 0000 :   7*   9 
+debug_vars_size                 = 0018 :   7*   9 
+isr_table_address               = 0100 :   4*
+memdettop_entry                 = 000C :   6*
+memdettop_loop                  = 000A :   6*
+memfill_loop                    = 0028 :   7*
+resetWarm                       = 0023 :  10*
+
+
+Global Module Symbols:
+
+bios_load_byte_instruction      = 822C8C00000008 :   3*   1 
+bios_load_word_instruction      = 000F :   3*   1 
+bios_memory_init                = 0016 :   6*  10 
+bios_reset_init                 = 0007 :  10*   1    2 
+bios_trap_illegal               = 0003 :  10*   1    2 
+debug_info_point                = 0078 :   9*   3 
+debug_restore_registers         = 0047 :   9*   7 
+debug_restore_registers_all     = 003F :   8*   7 
+debug_save_registers            = 0002 :   8*   2    3 
+isr_null_vector                 = 0000 :  10*   4    5 
+isr_table_index                 = 0001 :   4*  10 
+

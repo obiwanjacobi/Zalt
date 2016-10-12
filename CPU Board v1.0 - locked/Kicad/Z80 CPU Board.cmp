@@ -1,0 +1,87 @@
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 05/03/2016 11:34:22
+
+BeginCmp
+TimeStamp = /567D7186;
+Reference = C301;
+ValeurCmp = 100nF;
+IdModule  = C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /567D75AA;
+Reference = C302;
+ValeurCmp = 100nF;
+IdModule  = C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /567D75B0;
+Reference = C303;
+ValeurCmp = 100nF;
+IdModule  = C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /567D75B6;
+Reference = C304;
+ValeurCmp = 100nF;
+IdModule  = C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /567D75BC;
+Reference = C305;
+ValeurCmp = 100nF;
+IdModule  = C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /56DAA35D;
+Reference = HDR1;
+ValeurCmp = BUSHDR-A;
+IdModule  = PIN_ARRAY_20X2;
+EndCmp
+
+BeginCmp
+TimeStamp = /56DAA36C;
+Reference = HDR2;
+ValeurCmp = BUSHDR-B;
+IdModule  = PIN_ARRAY_20X2;
+EndCmp
+
+BeginCmp
+TimeStamp = /567D2CDC;
+Reference = IC1;
+ValeurCmp = UM61512A;
+IdModule  = DIP-32__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /567D2CE2;
+Reference = IC2;
+ValeurCmp = UM61512A;
+IdModule  = DIP-32__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /567BF7D8;
+Reference = IC3;
+ValeurCmp = UM61512A;
+IdModule  = DIP-32__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /567BF7DE;
+Reference = IC4;
+ValeurCmp = UM61512A;
+IdModule  = DIP-32__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /567BF7D2;
+Reference = IC5;
+ValeurCmp = Z80CPU;
+IdModule  = DIP-40__600_ELL;
+EndCmp
+
+EndListe
