@@ -6,19 +6,18 @@
 <CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
 <userData>
 <dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
-<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Components">
 <TreeKeys>
 <v>Source</v>
 <v>Components</v>
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\MemoryController\MemoryManager.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\TopDesign">
 <ExpandedNodeIds>
 <v>SystemController</v>
 <v>SystemController\SystemController</v>
 <v>SystemController\SystemController\TopDesign</v>
-<v>SystemController\SystemController\Commands</v>
 <v>SystemController\SystemController\Commands\CommandHandler.c</v>
 <v>SystemController\SystemController\Commands\CommandHandler.h</v>
 <v>SystemController\SystemController\Commands\CommandParser.c</v>
@@ -33,7 +32,6 @@
 <v>SystemController\SystemController\CpuController\CpuController.h</v>
 <v>SystemController\SystemController\CpuController\IOController.c</v>
 <v>SystemController\SystemController\CpuController\IOController.h</v>
-<v>SystemController\SystemController\MemoryController</v>
 <v>SystemController\SystemController\MemoryController\BusController.c</v>
 <v>SystemController\SystemController\MemoryController\BusController.h</v>
 <v>SystemController\SystemController\MemoryController\MemoryController.c</v>
@@ -112,24 +110,8 @@
 <v>SystemController\SystemController\TopDesign</v>
 <v>SystemController\SystemController\SystemController.cydwr</v>
 <v>SystemController\SystemController\Commands</v>
-<v>SystemController\SystemController\Commands\CommandHandler.c</v>
-<v>SystemController\SystemController\Commands\CommandHandler.h</v>
-<v>SystemController\SystemController\Commands\CommandParser.c</v>
-<v>SystemController\SystemController\Commands\CommandParser.h</v>
-<v>SystemController\SystemController\Commands\CpuCommands.c</v>
-<v>SystemController\SystemController\Commands\CpuCommands.h</v>
-<v>SystemController\SystemController\Commands\MemoryCommands.c</v>
-<v>SystemController\SystemController\Commands\MemoryCommands.h</v>
-<v>SystemController\SystemController\Commands\MemoryManagerCommands.c</v>
-<v>SystemController\SystemController\Commands\MemoryManagerCommands.h</v>
 <v>SystemController\SystemController\CpuController</v>
 <v>SystemController\SystemController\MemoryController</v>
-<v>SystemController\SystemController\MemoryController\BusController.c</v>
-<v>SystemController\SystemController\MemoryController\BusController.h</v>
-<v>SystemController\SystemController\MemoryController\MemoryController.c</v>
-<v>SystemController\SystemController\MemoryController\MemoryController.h</v>
-<v>SystemController\SystemController\MemoryController\MemoryManager.c</v>
-<v>SystemController\SystemController\MemoryController\MemoryManager.h</v>
 <v>SystemController\SystemController\Process</v>
 <v>SystemController\SystemController\SystemTerminal</v>
 <v>SystemController\SystemController\cyapicallbacks.h</v>
@@ -137,14 +119,13 @@
 <v>SystemController\SystemController\main.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\Z80Controller\Z80Controller.cysch">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\ScratchPad">
 <ExpandedNodeIds>
 <v>SystemController</v>
 <v>SystemController\SystemController</v>
 <v>SystemController\SystemController\ScratchPad\ScratchPad.cysch</v>
 <v>SystemController\SystemController\TopDesign</v>
 <v>SystemController\SystemController\TopDesign\TopDesign.cysch</v>
-<v>SystemController\SystemController\Z80Controller</v>
 <v>SystemController\SystemController\Z80Controller\Z80Controller.cysch</v>
 <v>SystemController\SystemController\Z80Controller\Z80Controller.cysym</v>
 </ExpandedNodeIds>
@@ -155,8 +136,6 @@
 <v>SystemController\SystemController\TopDesign</v>
 <v>SystemController\SystemController\TopDesign\TopDesign.cysch</v>
 <v>SystemController\SystemController\Z80Controller</v>
-<v>SystemController\SystemController\Z80Controller\Z80Controller.cysch</v>
-<v>SystemController\SystemController\Z80Controller\Z80Controller.cysym</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -298,7 +277,7 @@
 <ExpandedNodeIds>
 <v>SystemController</v>
 <v>SystemController\SystemController</v>
-<v>SystemController\SystemController\PSoC 5 Architecture TRM</v>
+<v>SystemController\SystemController\PSoC 5LP Architecture TRM</v>
 <v>SystemController\SystemController\CY8C58LP Family Datasheet</v>
 <v>SystemController\SystemController\System Reference Guides</v>
 <v>SystemController\SystemController\System Reference Guides\cy_boot_v5_40</v>
@@ -321,7 +300,7 @@
 <VisibleNodeIds>
 <v>SystemController</v>
 <v>SystemController\SystemController</v>
-<v>SystemController\SystemController\PSoC 5 Architecture TRM</v>
+<v>SystemController\SystemController\PSoC 5LP Architecture TRM</v>
 <v>SystemController\SystemController\CY8C58LP Family Datasheet</v>
 <v>SystemController\SystemController\System Reference Guides</v>
 <v>SystemController\SystemController\System Reference Guides\cy_boot_v5_40</v>
@@ -349,8 +328,16 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\SystemController.cydsn\MemoryManagerCommands.c" />
+<name v=".\SystemController.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\SystemController.cydsn\Z80Controller\Z80Controller.cysch" />
 </OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="965, 742" SelectedTabbedMdiWindow="bdb18aa3-18e6-4ffa-8b44-d6d246e8586b"><DocumentWindow Key="62177af6-8d69-430f-9033-07e15a42e69a" Guid="bdb18aa3-18e6-4ffa-8b44-d6d246e8586b" /><DocumentWindow Key="ca00047a-f496-432d-b8cb-9c2dd7fbbec4" Guid="257a8ae9-1f04-4b8c-87a9-aad6874aa179" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Debug" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
