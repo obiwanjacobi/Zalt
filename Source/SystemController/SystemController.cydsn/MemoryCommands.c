@@ -86,7 +86,7 @@ uint16_t MemoryRead_CopyToTerminal(uint16_t address, uint16_t length)
         mem.Length = l;
         
         MemoryController_Read(&mem);
-        //SysTerminal_PutArray(mem.Buffer, mem.Length);
+        SysTerminal_PutArray(mem.Buffer, mem.Length);
         
         length -= l;
         bytesRead += l;

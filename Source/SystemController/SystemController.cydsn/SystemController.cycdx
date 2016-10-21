@@ -3,7 +3,7 @@
   <block name="D" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="LsbA" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="SysCtrlReg" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="SysCtrlReg_CONTROL_REG" address="0x4000647A" bitWidth="8" desc="" hidden="false" />
+    <register name="SysCtrlReg_CONTROL_REG" address="0x4000647B" bitWidth="8" desc="" hidden="false" />
   </block>
   <block name="MsbA" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CPUCLK_FAST" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -13,24 +13,24 @@
     <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <register name="RX_SysTerminal_RX_ADDRESS1" address="0x4000642E" bitWidth="8" desc="RX Address1 Register" hidden="false" />
-    <register name="RX_SysTerminal_RX_ADDRESS2" address="0x4000643E" bitWidth="8" desc="RX Address2 Register" hidden="false" />
-    <register name="TX_SysTerminal_TX_DATA" address="0x4000644C" bitWidth="8" desc="TX Data Register" hidden="false" />
-    <register name="RX_SysTerminal_RX_DATA" address="0x4000644E" bitWidth="8" desc="RX Data Register" hidden="false" />
-    <register name="RX_SysTerminal_RX_STATUS" address="0x40006469" bitWidth="8" desc="RX status register" hidden="false">
-      <field name="SysTerminal_RX_STS_MRKSPC" from="0" to="0" access="R" resetVal="" desc="" />
-      <field name="SysTerminal_RX_STS_BREAK" from="1" to="1" access="R" resetVal="" desc="" />
-      <field name="SysTerminal_RX_STS_PAR_ERROR" from="2" to="2" access="R" resetVal="" desc="" />
-      <field name="SysTerminal_RX_STS_STOP_ERROR" from="3" to="3" access="R" resetVal="" desc="" />
-      <field name="SysTerminal_RX_STS_OVERRUN" from="4" to="4" access="R" resetVal="" desc="" />
-      <field name="SysTerminal_RX_STS_FIFO_NOTEMPTY" from="5" to="5" access="R" resetVal="" desc="" />
-      <field name="SysTerminal_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" />
+    <register name="RX_SysTerminal_RX_ADDRESS1" address="0x4000642F" bitWidth="8" desc="RX Address1 Register" hidden="false" />
+    <register name="RX_SysTerminal_RX_ADDRESS2" address="0x4000643F" bitWidth="8" desc="RX Address2 Register" hidden="false" />
+    <register name="TX_SysTerminal_TX_DATA" address="0x4000644A" bitWidth="8" desc="TX Data Register" hidden="false" />
+    <register name="RX_SysTerminal_RX_DATA" address="0x4000644F" bitWidth="8" desc="RX Data Register" hidden="false" />
+    <register name="TX_SysTerminal_TX_STATUS" address="0x4000646A" bitWidth="8" desc="TX status register" hidden="false">
+      <field name="SysTerminal_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
+      <field name="SysTerminal_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
+      <field name="SysTerminal_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
+      <field name="SysTerminal_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" hidden="false" />
     </register>
-    <register name="TX_SysTerminal_TX_STATUS" address="0x4000646B" bitWidth="8" desc="TX status register" hidden="false">
-      <field name="SysTerminal_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" />
-      <field name="SysTerminal_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" />
-      <field name="SysTerminal_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" />
-      <field name="SysTerminal_TX_STS_FIFO_NOT_FULL" from="3" to="3" access="R" resetVal="" desc="" />
+    <register name="RX_SysTerminal_RX_STATUS" address="0x4000646E" bitWidth="8" desc="RX status register" hidden="false">
+      <field name="SysTerminal_RX_STS_MRKSPC" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
+      <field name="SysTerminal_RX_STS_BREAK" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
+      <field name="SysTerminal_RX_STS_PAR_ERROR" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
+      <field name="SysTerminal_RX_STS_STOP_ERROR" from="3" to="3" access="R" resetVal="" desc="" hidden="false" />
+      <field name="SysTerminal_RX_STS_OVERRUN" from="4" to="4" access="R" resetVal="" desc="" hidden="false" />
+      <field name="SysTerminal_RX_STS_FIFO_NOTEMPTY" from="5" to="5" access="R" resetVal="" desc="" hidden="false" />
+      <field name="SysTerminal_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" hidden="false" />
     </register>
   </block>
   <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -41,35 +41,35 @@
     <block name="and_7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="and_8" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="Z80Ctrl_WaitCtrlReg" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-      <register name="Z80Ctrl_WaitCtrlReg_CONTROL_REG" address="0x40006478" bitWidth="8" desc="" hidden="false" />
+      <register name="Z80Ctrl_WaitCtrlReg_CONTROL_REG" address="0x40006479" bitWidth="8" desc="" hidden="false" />
     </block>
     <block name="not_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="not_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="Z80Ctrl_RegInD" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-      <register name="Z80Ctrl_RegInD_STATUS_REG" address="0x4000646C" bitWidth="8" desc="" hidden="false" />
-      <register name="Z80Ctrl_RegInD_MASK_REG" address="0x4000648C" bitWidth="8" desc="" hidden="false" />
-      <register name="Z80Ctrl_RegInD_STATUS_AUX_CTL_REG" address="0x4000649C" bitWidth="8" desc="" hidden="false">
-        <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear">
+      <register name="Z80Ctrl_RegInD_STATUS_REG" address="0x40006468" bitWidth="8" desc="" hidden="false" />
+      <register name="Z80Ctrl_RegInD_MASK_REG" address="0x40006488" bitWidth="8" desc="" hidden="false" />
+      <register name="Z80Ctrl_RegInD_STATUS_AUX_CTL_REG" address="0x40006498" bitWidth="8" desc="" hidden="false">
+        <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
           <value name="ENABLED" value="1" desc="Enable counter" />
           <value name="DISABLED" value="0" desc="Disable counter" />
         </field>
-        <field name="INTRENBL" from="4" to="4" access="RW" resetVal="" desc="Enables or disables the Interrupt">
+        <field name="INTRENBL" from="4" to="4" access="RW" resetVal="" desc="Enables or disables the Interrupt" hidden="false">
           <value name="ENABLED" value="1" desc="Interrupt enabled" />
           <value name="DISABLED" value="0" desc="Interrupt disabled" />
         </field>
-        <field name="FIFO1LEVEL" from="3" to="3" access="RW" resetVal="" desc="FIFO level">
+        <field name="FIFO1LEVEL" from="3" to="3" access="RW" resetVal="" desc="FIFO level" hidden="false">
           <value name="ENABLED" value="1" desc="FIFO LVL: input mode: FIFO at least 1/2 empty; output mode: FIFO at least 1/2 full" />
           <value name="DISABLED" value="0" desc="FIFO LVL: input mode: FIFO not full; output mode: FIFO not empty" />
         </field>
-        <field name="FIFO0LEVEL" from="2" to="2" access="RW" resetVal="" desc="FIFO level">
+        <field name="FIFO0LEVEL" from="2" to="2" access="RW" resetVal="" desc="FIFO level" hidden="false">
           <value name="ENABLED" value="1" desc="FIFO LVL: input mode: FIFO at least 1/2 empty; output mode: FIFO at least 1/2 full" />
           <value name="DISABLED" value="0" desc="FIFO LVL: input mode: FIFO not full; output mode: FIFO not empty" />
         </field>
-        <field name="FIFO1CLEAR" from="1" to="1" access="RW" resetVal="" desc="FIFO clear">
+        <field name="FIFO1CLEAR" from="1" to="1" access="RW" resetVal="" desc="FIFO clear" hidden="false">
           <value name="ENABLED" value="1" desc="Clear FIFO state" />
           <value name="DISABLED" value="0" desc="Normal FIFO operation" />
         </field>
-        <field name="FIFO0CLEAR" from="0" to="0" access="RW" resetVal="" desc="FIFO clear">
+        <field name="FIFO0CLEAR" from="0" to="0" access="RW" resetVal="" desc="FIFO clear" hidden="false">
           <value name="ENABLED" value="1" desc="Clear FIFO state" />
           <value name="DISABLED" value="0" desc="Normal FIFO operation" />
         </field>
@@ -93,30 +93,30 @@
     <block name="not_4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="not_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="Z80Ctrl_RegA" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-      <register name="Z80Ctrl_RegA_STATUS_REG" address="0x4000646A" bitWidth="8" desc="" hidden="false" />
-      <register name="Z80Ctrl_RegA_MASK_REG" address="0x4000648A" bitWidth="8" desc="" hidden="false" />
-      <register name="Z80Ctrl_RegA_STATUS_AUX_CTL_REG" address="0x4000649A" bitWidth="8" desc="" hidden="false">
-        <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear">
+      <register name="Z80Ctrl_RegA_STATUS_REG" address="0x4000646D" bitWidth="8" desc="" hidden="false" />
+      <register name="Z80Ctrl_RegA_MASK_REG" address="0x4000648D" bitWidth="8" desc="" hidden="false" />
+      <register name="Z80Ctrl_RegA_STATUS_AUX_CTL_REG" address="0x4000649D" bitWidth="8" desc="" hidden="false">
+        <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
           <value name="ENABLED" value="1" desc="Enable counter" />
           <value name="DISABLED" value="0" desc="Disable counter" />
         </field>
-        <field name="INTRENBL" from="4" to="4" access="RW" resetVal="" desc="Enables or disables the Interrupt">
+        <field name="INTRENBL" from="4" to="4" access="RW" resetVal="" desc="Enables or disables the Interrupt" hidden="false">
           <value name="ENABLED" value="1" desc="Interrupt enabled" />
           <value name="DISABLED" value="0" desc="Interrupt disabled" />
         </field>
-        <field name="FIFO1LEVEL" from="3" to="3" access="RW" resetVal="" desc="FIFO level">
+        <field name="FIFO1LEVEL" from="3" to="3" access="RW" resetVal="" desc="FIFO level" hidden="false">
           <value name="ENABLED" value="1" desc="FIFO LVL: input mode: FIFO at least 1/2 empty; output mode: FIFO at least 1/2 full" />
           <value name="DISABLED" value="0" desc="FIFO LVL: input mode: FIFO not full; output mode: FIFO not empty" />
         </field>
-        <field name="FIFO0LEVEL" from="2" to="2" access="RW" resetVal="" desc="FIFO level">
+        <field name="FIFO0LEVEL" from="2" to="2" access="RW" resetVal="" desc="FIFO level" hidden="false">
           <value name="ENABLED" value="1" desc="FIFO LVL: input mode: FIFO at least 1/2 empty; output mode: FIFO at least 1/2 full" />
           <value name="DISABLED" value="0" desc="FIFO LVL: input mode: FIFO not full; output mode: FIFO not empty" />
         </field>
-        <field name="FIFO1CLEAR" from="1" to="1" access="RW" resetVal="" desc="FIFO clear">
+        <field name="FIFO1CLEAR" from="1" to="1" access="RW" resetVal="" desc="FIFO clear" hidden="false">
           <value name="ENABLED" value="1" desc="Clear FIFO state" />
           <value name="DISABLED" value="0" desc="Normal FIFO operation" />
         </field>
-        <field name="FIFO0CLEAR" from="0" to="0" access="RW" resetVal="" desc="FIFO clear">
+        <field name="FIFO0CLEAR" from="0" to="0" access="RW" resetVal="" desc="FIFO clear" hidden="false">
           <value name="ENABLED" value="1" desc="Clear FIFO state" />
           <value name="DISABLED" value="0" desc="Normal FIFO operation" />
         </field>

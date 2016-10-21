@@ -20,7 +20,7 @@ uint8_t MemCtrl_Read(uint16_t address)
     SpinWait();
     
     uint8_t data = D_Read();
-    SysTerminal_PutChar(data);
+    //SysTerminal_PutChar(data);
     
     CyPins_SetPin(ExtBus_Rd);
     CyPins_SetPin(ExtBus_MemReq);

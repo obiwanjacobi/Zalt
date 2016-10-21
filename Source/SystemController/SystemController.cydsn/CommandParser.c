@@ -64,7 +64,7 @@ uint8_t CommandParser_ParseNewLine(uint8_t data)
     
     if (isNewLine)
     {
-        // we excpect \cr\lf
+        // we expect \cr\lf
         do
         {
             data = SysTerminal_GetChar();
