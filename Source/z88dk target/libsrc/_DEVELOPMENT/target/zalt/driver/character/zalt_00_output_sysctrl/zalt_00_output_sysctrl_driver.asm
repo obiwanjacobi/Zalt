@@ -68,8 +68,11 @@ zalt_00_output_sysctrl_ochar_msg_putc:
 
    ld a, c
    
+   ld bc, $0020
    ; $20 = char-out
-   out ($20), a
+   out (c), a
    
-   or a		; clear carry?
+   scf
+   ccf
+   
    ret

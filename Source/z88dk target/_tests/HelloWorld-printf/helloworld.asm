@@ -1,9 +1,10 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.5.5 #9516 (MSVC)
+; Version 3.6.2 #9712 (MSVC)
 ;--------------------------------------------------------
 ; Processed by Z88DK
 ;--------------------------------------------------------
+	
 	EXTERN __divschar
 	EXTERN __divschar_callee
 	EXTERN __divsint
@@ -117,8 +118,61 @@
 	EXTERN ___ulong2fs_callee
 	EXTERN ___ulonglong2fs
 	EXTERN ___ulonglong2fs_callee
-	EXTERN asm_z80_push_di
-	EXTERN asm_z80_pop_ei
+	EXTERN ____sdcc_2_copy_src_mhl_dst_deix
+	EXTERN ____sdcc_2_copy_src_mhl_dst_bcix
+	EXTERN ____sdcc_4_copy_src_mhl_dst_deix
+	EXTERN ____sdcc_4_copy_src_mhl_dst_bcix
+	EXTERN ____sdcc_4_copy_src_mhl_dst_mbc
+	EXTERN ____sdcc_4_ldi_nosave_bc
+	EXTERN ____sdcc_4_ldi_save_bc
+	EXTERN ____sdcc_4_push_hlix
+	EXTERN ____sdcc_4_push_mhl
+	EXTERN ____sdcc_lib_setmem_hl
+	EXTERN ____sdcc_ll_add_de_bc_hl
+	EXTERN ____sdcc_ll_add_de_bc_hlix
+	EXTERN ____sdcc_ll_add_de_hlix_bc
+	EXTERN ____sdcc_ll_add_de_hlix_bcix
+	EXTERN ____sdcc_ll_add_deix_bc_hl
+	EXTERN ____sdcc_ll_add_deix_hlix
+	EXTERN ____sdcc_ll_add_hlix_bc_deix
+	EXTERN ____sdcc_ll_add_hlix_deix_bc
+	EXTERN ____sdcc_ll_add_hlix_deix_bcix
+	EXTERN ____sdcc_ll_asr_hlix_a
+	EXTERN ____sdcc_ll_asr_mbc_a
+	EXTERN ____sdcc_ll_copy_src_de_dst_hlix
+	EXTERN ____sdcc_ll_copy_src_de_dst_hlsp
+	EXTERN ____sdcc_ll_copy_src_deix_dst_hl
+	EXTERN ____sdcc_ll_copy_src_deix_dst_hlix
+	EXTERN ____sdcc_ll_copy_src_deixm_dst_hlsp
+	EXTERN ____sdcc_ll_copy_src_desp_dst_hlsp
+	EXTERN ____sdcc_ll_copy_src_hl_dst_de
+	EXTERN ____sdcc_ll_copy_src_hlsp_dst_de
+	EXTERN ____sdcc_ll_copy_src_hlsp_dst_deixm
+	EXTERN ____sdcc_ll_lsl_hlix_a
+	EXTERN ____sdcc_ll_lsl_mbc_a
+	EXTERN ____sdcc_ll_lsr_hlix_a
+	EXTERN ____sdcc_ll_lsr_mbc_a
+	EXTERN ____sdcc_ll_push_hlix
+	EXTERN ____sdcc_ll_push_mhl
+	EXTERN ____sdcc_ll_sub_de_bc_hl
+	EXTERN ____sdcc_ll_sub_de_bc_hlix
+	EXTERN ____sdcc_ll_sub_de_hlix_bc
+	EXTERN ____sdcc_ll_sub_de_hlix_bcix
+	EXTERN ____sdcc_ll_sub_deix_bc_hl
+	EXTERN ____sdcc_ll_sub_deix_hlix
+	EXTERN ____sdcc_ll_sub_hlix_bc_deix
+	EXTERN ____sdcc_ll_sub_hlix_deix_bc
+	EXTERN ____sdcc_ll_sub_hlix_deix_bcix
+	EXTERN ____sdcc_load_debc_deix
+	EXTERN ____sdcc_load_dehl_deix
+	EXTERN ____sdcc_load_debc_mhl
+	EXTERN ____sdcc_load_hlde_mhl
+	EXTERN ____sdcc_store_dehl_bcix
+	EXTERN ____sdcc_store_debc_hlix
+	EXTERN ____sdcc_store_debc_mhl
+	EXTERN ____sdcc_z80_pop_ei
+	EXTERN ____sdcc_z80_pop_ei_jp
+	EXTERN ____sdcc_z80_push_di
 	
 ;--------------------------------------------------------
 ; Public variables in this module
@@ -320,25 +374,21 @@ ENDIF
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
-	SECTION IGNORE
-	SECTION code_crt_init
-	SECTION code_crt_exit
 	SECTION code_crt_init
 ;--------------------------------------------------------
 ; Home
 ;--------------------------------------------------------
 	SECTION IGNORE
-	SECTION IGNORE
 ;--------------------------------------------------------
 ; code
 ;--------------------------------------------------------
 	SECTION code_compiler
-;helloworld.c:6: void main(void)
+;helloworld.c:5: void main(void)
 ;	---------------------------------
 ; Function main
 ; ---------------------------------
 _main:
-;helloworld.c:16: printf(Message);
+;helloworld.c:7: printf(Message);
 	ld	hl,_Message
 	ld	c, (hl)
 	inc	hl
@@ -347,7 +397,7 @@ _main:
 	call	_printf
 	pop	af
 	ret
-	SECTION code_compiler
+	SECTION rodata_compiler
 ___str_0:
 	DEFM "Zalt says hello to Z88dk!"
 	DEFB 0x00

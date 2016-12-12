@@ -64,13 +64,13 @@ zalt_00_input_sysctrl_ichar_msg_getc:
    ;   enter   : none
    ;   exit    : a=hl=char. carry set if error (hl=0 general error, hl=-1 eof)
    
-   ; $20 = char-in
-   in a, ($20)
    
+   ld bc, $0020
+   ; $20 = char-in
+   in a, (c)
    ld h, 0
    ld l, a
-      
-   ;or a		; clear carry
+   
    scf
    ccf
    

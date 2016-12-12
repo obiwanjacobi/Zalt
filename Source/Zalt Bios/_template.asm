@@ -28,7 +28,7 @@ component_object_function:
 	
 ;; 	difference between sub-routines and services:
 ;; 	- sub-routines are called with native call-ret and pass argument by documented register.
-;; 	- services are called with native call-ret but pass arguments by stack. 
+;; 	- services are called (through a funtion table) with native call-ret but pass arguments by stack. 
 ;;	  documented is if the service parameter is in, out or ref.
 
 ; example of parameter passing via the SP.
@@ -69,8 +69,8 @@ component_object_function:
 	ld e, (ix - 4)
 	
 ; callee uses local vars (ix with positive displacement) little endian
-	ld l, (ix + 0)
-	ld h, (ix + 1)
+	ld l, (ix + 2)	; have to skip return address, start at 2
+	ld h, (ix + 3)
 
 
 ; callee can call other services (callee becomes caller)

@@ -228,7 +228,9 @@ SECTION code_crt_return
 
    ; exit program
 
-   jr ASMPC                    ; infinite loop (ASMPC means current address)
+   ;jr ASMPC                    ; infinite loop (ASMPC means current address)
+zalt_oblivian:
+	jr zalt_oblivian
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; RUNTIME VARS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
