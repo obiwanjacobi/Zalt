@@ -18,7 +18,7 @@ component_object_function:
 	dec de			; decrement whole count before ...
 	inc d			; add msb one outer loop iteration
 .loop
-	; loooped instructions here 
+	; looped instructions here 
 	
 	djnz loop		; lsb inner loop (decrements b)
 	dec d			; decrement msb
@@ -27,9 +27,9 @@ component_object_function:
 	
 	
 ;; 	difference between sub-routines and services:
-;; 	- sub-routines are called with native call-ret and pass argument by documented register.
+;; 	- sub-routines are called with native call-ret and pass arguments by documented registers.
 ;; 	- services are called (through a funtion table) with native call-ret but pass arguments by stack. 
-;;	  documented is if the service parameter is in, out or ref.
+;;	  documented if the service parameter is in, out or ref.
 
 ; example of parameter passing via the SP.
 ; parameters are always 16 bits (because SP works only with 16 bits values)
@@ -50,27 +50,28 @@ component_object_function:
 	pop de
 ; caller (optionally) use the popped values of out or ref parameters
 
+defc  method_parameter_offset	4	; saved ix and return address
+defc  method_localvar_offset	0	; ?value is specific per scope
 
-; callee prolog: executed at the beginning of every service
-	call thread_get_sp_in_hl	; returns sp in hl (see thread.asm)
-	dec hl
-	dec hl			; skip return address
+; callee prolog: executed at the beginning of every service	
 	push ix			; save ix
-	ld ix, hl		; ix now points to the parameters
-	
-; callee local vars init
-	ld hl, $0		; default/initialization value of var
-	push hl			; create space on stack for var
+	ld ix, $0000
+	add ix, sp		; ix now points to the bottom of the stack
 
-; callee body: retrieve parameters (ix with negative displacement) reversed little endian
-	ld h, (ix - 1)
-	ld l, (ix - 2)
-	ld d, (ix - 3)
-	ld e, (ix - 4)
+; callee body: retrieve parameters (ix with posative displacement) reversed little endian
+	ld h, (ix + method_parameter_offset)
+	ld l, (ix + method_parameter_offset + 1)
+	ld d, (ix + method_parameter_offset + 2)
+	ld e, (ix + method_parameter_offset + 3)
 	
-; callee uses local vars (ix with positive displacement) little endian
-	ld l, (ix + 2)	; have to skip return address, start at 2
-	ld h, (ix + 3)
+; callee local vars init - for all local vars (in scope)
+	ld      ix, -n          ; allocate n bytes for local variables
+    add     ix, sp
+    ld      sp, ix  	;!! THIS CHANGES SP (AND IX)! EPILOG WILL FAIL
+	
+; callee uses local vars (ix with negative displacement) little endian
+	ld l, (ix - )
+	ld h, (ix - )
 
 
 ; callee can call other services (callee becomes caller)

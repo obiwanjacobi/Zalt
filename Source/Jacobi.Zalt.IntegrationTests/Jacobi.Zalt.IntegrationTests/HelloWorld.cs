@@ -33,7 +33,7 @@ namespace Jacobi.Zalt.IntegrationTests
         [TestMethod]
         public void Printf_HelloWorld()
         {
-            RunTest(_model, 0x009D);
+            RunTest(_model);
 
             var consoleOut = _model.OutputPorts.Values.First().DataStream.ToString();
             consoleOut.Should().Be("Zalt says hello to Z88dk!");

@@ -1,0 +1,90 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "windows": {
+        "command": "cmd",
+        "args": [
+            "/C",
+            "z88dk"
+        ]
+    },
+    "isShellCommand": true,
+    "showOutput": "always",
+    "echoCommand": true,
+    "tasks": [
+        {
+            "taskName": "build",
+            "args": [
+                "zcc",
+                "+zalt",
+                "-clib=sdcc_iy",
+                "--max-allocs-per-node200000",
+                "@_zalt.lst"
+            ],
+            "isBuildCommand": true,
+            "suppressTaskName": true,
+            "problemMatcher": {
+                "owner": "z88dk",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):\\s+(warning|error)\\s+(\\d+):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "severity": 3,
+                    "code": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "taskName": "compile-debug",
+            "args": [
+                "zcc",
+                "+zalt",
+                "-clib=sdcc_iy",
+                "--max-allocs-per-node200000",
+                "-m",
+                "--list",
+                "-s",
+                "-g",
+                "\"${file}\"",
+                "-o",
+                "\"${fileDirname}\\${fileBasenameNoExtension}\""
+            ],
+            "suppressTaskName": true
+        },
+        {
+            "taskName": "compile",
+            "args": [
+                "zcc",
+                "+zalt",
+                "-clib=sdcc_iy",
+                "--max-allocs-per-node200000",
+                "\"${file}\"",
+                "-o",
+                "\"${fileDirname}\\${fileBasenameNoExtension}\""
+            ],
+            "suppressTaskName": true
+        },
+        {
+            "taskName": "assemble",
+            "args": [
+                "z80asm",
+                "\"${file}\""
+            ],
+            "suppressTaskName": true
+        },
+        {
+            "taskName": "deploy",
+            "args": [
+                "${workspaceRoot}\\deploy_target.cmd"
+            ],
+            "suppressTaskName": true,
+            "echoCommand": false
+        }
+    ]
+}

@@ -11,14 +11,16 @@ namespace Jacobi.Zalt.IntegrationTests
     public class IntegrationTest
     {
         public const string OutPath = @"";
+        public const ushort EndOfProgram = 0x025C;
 
         public TestContext TestContext { get; set; }
 
-        protected void RunTest(SimulationModel model, ushort endAddress)
+        protected void RunTest(SimulationModel model, ushort endAddress = EndOfProgram)
         {
             bool stop = false;
             model.Cpu.InstructionExecuted += (s, e) => {
-                stop = e.Opcode.Address == endAddress;
+                stop = e.Opcode.Address == endAddress ||
+                    model.Cpu.Halt.Level == Zim80.DigitalLevel.Low;
             };
 
             model.ClockGen.SquareWave((c) => stop);
@@ -30,33 +32,21 @@ namespace Jacobi.Zalt.IntegrationTests
             }
         }
 
-        protected SimulationModel CreateModel(string file)
-        {
-            var builder = new SimulationModelBuilder();
-            builder.AddCpuClockGen();
-            builder.AddCpuMemory();
-            builder.AddLogicAnalyzer();
-
-            builder.Model.Cpu.InstructionExecuted += Cpu_InstructionExecuted;
-
-            var bytes = LoadFile(file);
-            builder.Model.Memory.Write(bytes);
-
-            return builder.Model;
-        }
-
         protected SimulationModelBuilder CreateModelBuilder(string file)
         {
             var builder = new SimulationModelBuilder();
             builder.AddCpuClockGen();
             builder.AddCpuMemory();
 
-            builder.Model.Cpu.InstructionExecuted += Cpu_InstructionExecuted;
-
             var bytes = LoadFile(file);
             builder.Model.Memory.Write(bytes);
 
             return builder;
+        }
+
+        protected void LogExecutionPath(SimulationModel model)
+        {
+            model.Cpu.InstructionExecuted += Cpu_InstructionExecuted;
         }
 
         private void Cpu_InstructionExecuted(object sender, Zim80.CpuZ80.InstructionExecutedEventArgs e)
@@ -98,7 +88,7 @@ namespace Jacobi.Zalt.IntegrationTests
 
         protected byte[] LoadFile(string file)
         {
-            var path = Path.Combine(TestContext.TestDeploymentDir, file);
+            var path = Path.Combine(TestContext.DeploymentDirectory, file);
             return File.ReadAllBytes(path);
         }
     }
