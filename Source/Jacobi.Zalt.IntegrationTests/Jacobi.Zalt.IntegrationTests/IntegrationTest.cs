@@ -5,6 +5,7 @@ using Jacobi.Zim80.Diagnostics;
 using System.IO;
 using Jacobi.Zim80.CpuZ80;
 using System.Text;
+using Jacobi.Zim80;
 
 namespace Jacobi.Zalt.IntegrationTests
 {
@@ -32,7 +33,7 @@ namespace Jacobi.Zalt.IntegrationTests
             }
         }
 
-        protected SimulationModelBuilder CreateModelBuilder(string file)
+        protected SimulationModelBuilder CreateModelBuilder(string file, ushort bss = 0x1000)
         {
             var builder = new SimulationModelBuilder();
             builder.AddCpuClockGen();
@@ -40,6 +41,11 @@ namespace Jacobi.Zalt.IntegrationTests
 
             var bytes = LoadFile(file);
             builder.Model.Memory.Write(bytes);
+
+            if (bss > 0)
+            {
+                builder.Model.Memory.Fill(bss, new BusData8(0), bytes.Length);
+            }
 
             return builder;
         }

@@ -67,9 +67,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Echo.cs" />
+    <Compile Include="Heap.cs" />
     <Compile Include="HelloWorld.cs" />
     <Compile Include="IntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RingBuffer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="helloworld_CODE.bin">
@@ -80,7 +82,15 @@
       <DependentUpon>Echo.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Heap_test_CODE.bin">
+      <DependentUpon>Heap.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
+    <Content Include="RingBuffer_WriteRead_CODE.bin">
+      <DependentUpon>RingBuffer.cs</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -18,6 +18,7 @@
             "args": [
                 "zcc",
                 "+zalt",
+                "-SO3", 
                 "-clib=sdcc_iy",
                 "--max-allocs-per-node200000",
                 "@_zalt.lst"
@@ -62,9 +63,25 @@
             "args": [
                 "zcc",
                 "+zalt",
+                "-SO2",
                 "-clib=sdcc_iy",
                 "--max-allocs-per-node200000",
+                "-m",
                 "\"${file}\"",
+                "-o",
+                "\"${fileDirname}\\${fileBasenameNoExtension}\""
+            ],
+            "suppressTaskName": true
+        },
+        {
+            "taskName": "compile-lst",
+            "args": [
+                "zcc",
+                "+zalt",
+                "-clib=sdcc_iy",
+                "--max-allocs-per-node200000",
+                "-m",
+                "\"@${file}\"",
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}\""
             ],

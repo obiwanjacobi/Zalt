@@ -1,5 +1,7 @@
 @sys\_sys.lst
+Types.c
+Heap.c
+RingBuffer.c
 StringBuilder.c
-vt100.c
 Terminal.c
 Main.c
