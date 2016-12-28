@@ -4,11 +4,24 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+
 /// standard types value ranges
 #define uint8_min 0
-#define uint8_max 255
+#define uint8_max UINT8_MAX
 #define uint16_min 0
-#define uint16_max 65535
+#define uint16_max UINT16_MAX
+#define uint32_min 0
+#define uint32_max UINT32_MAX
+#define int8_min INT8_MIN
+#define int8_max INT8_MAX
+#define int16_min INT16_MIN
+#define int16_max INT16_MAX
+#define int32_min INT32_MIN
+#define int32_max INT32_MAX
+
+//extern const char* EndOfLine;
+extern const char NewLineChar;
+extern const char CarriageReturnChar;
 
 // our own bool
 enum _bool_t {

@@ -18,10 +18,13 @@
             "args": [
                 "zcc",
                 "+zalt",
+                "-vn",
                 "-SO3", 
                 "-clib=sdcc_iy",
                 "--max-allocs-per-node200000",
-                "@_zalt.lst"
+                "@_zalt.lst",
+                "-o",
+                "zalt"
             ],
             "isBuildCommand": true,
             "suppressTaskName": true,

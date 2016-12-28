@@ -1,6 +1,9 @@
 #ifndef __STREAM_H__
 #define __STREAM_H__
 
+#include "Io.h"
+#include "../sys/Sys.h"
+
 /******************************************************************************
 Interaction between StreamProvider and Stream API:
 
@@ -56,127 +59,16 @@ Delete Dir ->	truncate on meta stream.
 ******************************************************************************/
 
 
-typedef uint8_t	StreamProviderId;
-
-typedef enum
-{
-	sfNone,				// 0x00
-	
-	// flags
-	sfCanSeek,			// 0x01
-	sfCanRead,			// 0x02
-	sfCanSeekRead,		// 0x03
-	sfCanWrite,			// 0x04
-	sfCanSeekWrite,		// 0x05
-	sfCanReadWrite,		// 0x06
-	sfCanSeekReadWrite,	// 0x07
-	
-	sfReserved08,
-	sfReserved09,
-	sfReserved0A,
-	sfReserved0B,
-	sfReserved0C,
-	sfReserved0D,
-	sfReserved0E,
-	sfReserved0F,
-	
-	// access
-	sfReadOnly, 					// 0x10
-	sfReadOnlyCanSeek				// 0x11
-	sfReadOnlyCanRead				// 0x12
-	sfReadOnlyCanSeekRead			// 0x13
-	sfReadOnlyCanWrite				// 0x14
-	sfReadOnlyCanSeekWrite			// 0x15
-	sfReadOnlyCanReadWrite			// 0x16
-	sfReadOnlyCanSeekReadWrite		// 0x17
-	
-	sfReserved18,
-	sfReserved19,
-	sfReserved1A,
-	sfReserved1B,
-	sfReserved1C,
-	sfReserved1D,
-	sfReserved1E,
-	sfReserved1F,
-	
-	sfWriteOnly,					// 0x20
-	sfWriteOnlyCanSeek,				// 0x21
-	sfWriteOnlyCanRead,				// 0x22
-	sfWriteOnlyCanSeekRead,			// 0x23
-	sfWriteOnlyCanWrite,			// 0x24
-	sfWriteOnlyCanSeekWrite,		// 0x25
-	sfWriteOnlyCanReadWrite,		// 0x26
-	sfWriteOnlyCanSeekReadWrite,	// 0x27
-	
-	sfReserved28,
-	sfReserved29,
-	sfReserved2A,
-	sfReserved2B,
-	sfReserved2C,
-	sfReserved2D,
-	sfReserved2E,
-	sfReserved2F,
-	
-	sfReadWrite,					// 0x30
-	sfReadWriteCanSeek,				// 0x31
-	sfReadWriteCanRead,				// 0x32
-	sfReadWriteCanSeekRead,			// 0x33
-	sfReadWriteCanWrite,			// 0x34
-	sfReadWriteCanSeekWrite,		// 0x35
-	sfReadWriteCanReadWrite,		// 0x36
-	sfReadWriteCanSeekReadWrite,	// 0x37
-	
-} StreamFlags;
-
-
-// stream positional information
-typedef struct
-{
-	
-	// total length
-	// total position
-	
-} StreamPosition;
-
-// basis for managing streams.
-typedef struct
-{
-	// flags
-	StreamFlags Flags;
-	// total capacity of the buffer
-	uint16_t Capacity;
-	// length of the content in the buffer.
-	uint16_t Length;
-	// position of reading or writing the content in the buffer.
-	uint16_t Position;
-	// Total length of the entire stream.
-	uint16_t StreamLength;
-	// current position of the entire stream.
-	uint16_t StreamPosition;
-	// ptr to the actual buffer
-	uint8_t* Buffer;
-	// stream provider reference
-	StreamProvider* StreamProvider;
-	
-} Stream;
-
-
-typedef struct
-{
-	// same as Stream
-	// with buffer 
-	
-} BufferedStream;
-
 // virtual functions for a stream provider:
-typedef uint16_t (CanProvide*)(const char* protocol);
-typedef result_t (TryOpenStream*)(Uri* uri, StreamFlags flags, Stream** outStream);
-typedef result_t (TryCloseStream*)(Stream* stream);
-typedef result_t (BeginReadStream*)(Stream* stream, AsyncResult* asyncResult);
-typedef result_t (EndReadStream*)(Stream* stream, AsyncResult* asyncResult);
+typedef uint16_t (*CanProvide)(const char* protocol);
+typedef result_t (*TryOpenStream)(const char* uri, StreamFlags access, Stream* outStream);
+typedef result_t (*TryCloseStream)(Stream* stream);
+typedef AsyncResult* (*BeginReadStream)(Stream* stream, uint8_t* buffer, uint16_t capacity);
+typedef uint16_t (*EndReadStream)(Stream* stream, AsyncResult* asyncResult);
+typedef AsyncResult* (*BeginWriteStream)(Stream* stream, const uint8_t* buffer, uint16_t length);
+typedef uint16_t (*EndWriteStream)(Stream* stream, AsyncResult* asyncResult);
 
-typedef struct
-{
+struct _streamProvider {
 	// numeric identification of the StreamProvider.
 	StreamProviderId Id;
 	
@@ -194,35 +86,37 @@ typedef struct
 	// returns an error code, or S_OK if successful. Each StreamProvider may have specific error codes.
 	// result_t TryCloseStream(Stream* stream);
 	TryCloseStream fnTryCloseStream;
-	
-	
-} StreamProvider;
+
+	// methods for reading async
+	BeginReadStream fnBeginReadStream;
+	EndReadStream fnEndReadStream;
+
+	// methods for writing async
+	BeginWriteStream fnBeginWriteStream;
+	EndWriteStream fnEndWriteStream;
+};
+typedef struct _streamProvider StreamProvider;
 // Each StreamProvider implementation supplies a factory method for constructing/initializing this struct.
 
-// Stream struct constructor
-Stream* Stream_Construct(void* buffer, uint16_t capacity);
+// basis for managing streams.
+struct _stream {
+	// flags
+	StreamFlags Flags;
+	// total capacity of the stream
+	uint16_t Length;
+	// position of reading or writing the content in the stream.
+	uint16_t Position;
+	// pointer to the provider
+	StreamProvider* StreamProvider;
+};
 
-// flags:
-//		meta			:	open the meta stream instead of the content stream.
-//		truncate		:	truncate the stream. In combination with meta will delete.
-//		read-only		:	request read-only access. May be important when sharing.
-//		read-write		:	request read and write access. May be expensive in terms of resources and performance.
-//		forward-only	:	request only sequential access from beginning to end. No seeking supported.
-//		create			:	create the resources. Can be used with or without the meta flag. Fails if exists.
-//		append			:	write content to the end of the existing content.
-//		
-Stream* Stream_Open(const char* location, StreamFlags flags);
-result_t Stream_Close(Stream* stream);
+/// Initializes all the stream providers. Call on setup.
+result_t StreamProvider_Construct();
 
 // seek
 uint16_t Stream_GetPosition(Stream* stream);
 result_t Stream_SetPosition(Stream* stream, uint16_t pos);
 result_t Stream_Seek(Stream* stream, SeekStart startAt, uint16_t pos);
-
-// sync read/write
-uint16_t Stream_Read(uint8_t* buffer, uint16_t capacity, uint16_t length);
-uint16_t Stream_Write(uint8_t* buffer, uint16_t length);
-
 
 
 #endif 	//__STREAM_H__

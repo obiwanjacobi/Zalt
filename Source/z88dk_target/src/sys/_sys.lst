@@ -1,2 +1,6 @@
+Types.c
+Error.c
+Heap.c
 Thread.c
-MemoryManager.c
+Async.c
+String.c

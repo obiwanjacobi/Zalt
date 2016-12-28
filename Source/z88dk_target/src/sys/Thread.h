@@ -1,20 +1,18 @@
-#ifndef __Thread_H__
-#define __Thread_H__
+#ifndef __THREAD_H__
+#define __THREAD_H__
 
-#include "../Types.h"
+#include "Sys.h"
 
 // 0 is reserved
-typedef uint8_t		ThreadId;
+typedef uint8_t ThreadId;
 
-typedef struct
-{
-	ThreadId	Id;
-	void*		Stack;
-	void*		Heap;
-	
-} Thread;
+struct _thread {
+	ThreadId Id;
+	result_t LastError;
+	Heap* Heap;
+};
 
-Thread* Thread_GetCurrent();
+// call in setup of main
+void Thread_Construct();
 
-
-#endif	//__Thread_H__
+#endif	//__THREAD_H__

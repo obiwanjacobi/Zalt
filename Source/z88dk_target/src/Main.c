@@ -1,16 +1,27 @@
-#include "Heap.h"
+#include "sys/Thread.h"
+#include "sys/Sys.h"
+#include "io/Stream.h"
 #include "RingBuffer.h"
-#include "Terminal.h"
+#include "Monitor.h"
+
+void init()
+{
+	Thread_Construct();
+	StreamProvider_Construct();
+}
 
 void main()
 {
+	void* memory;
+	RingBuffer* buffer;
+
 	// setup
-	Heap* heap = Heap_Construct(heapNone);
-	void* memory = Heap_Alloc(heap, RingBuffer_size);
-	RingBuffer* buffer = RingBuffer_Construct(memory);
+	init();
+	memory = Thread_Alloc(RingBuffer_size);
+	buffer = RingBuffer_Construct(memory);
 	
-	Terminal_Start(buffer);
+	Monitor_Start(buffer);
 	
 	// teardown
-	Heap_Free(heap, memory);
+	Thread_Free(memory);
 }

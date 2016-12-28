@@ -4,28 +4,21 @@
 #include "Types.h"
 
 // memory allocation data maintained in bios (asm)
-typedef struct
-{
+typedef struct {
 	// length of allocated memory in bytes (uint8_t)
 	uint32_t Capacity;
-	
 	// allocation, memory and access flags
 	uint16_t Flags;
-	
 	// memory admin info
 	void* Reserved;
-		
 	// page index when locked (for fixed memory)
 	uint8_t	Page;
-	
 	// ptr to the start of the actual memory
 	void* Buffer;
-	
 } Memory;
 
 
-typedef enum
-{
+typedef enum {
 	None = 		0,
 	Read = 		0x01,
 	Write = 	0x02,
@@ -33,16 +26,14 @@ typedef enum
 	
 } AccessFlags;
 
-typedef enum
-{
+typedef enum {
 	None = 			0,
 	FixedLocation = 0x10,
 	Locked = 		0x20
 	
 } AllocationFlags;
 
-typedef enum
-{
+typedef enum {
 	None,	// unused/free
 	Bios,
 	Stack,

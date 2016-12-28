@@ -1,5 +1,6 @@
-#include <malloc.h>
 #include "Heap.h"
+#include <malloc.h>
+
 
 #define Page4k 0x1000
 
@@ -12,9 +13,9 @@ Heap* Heap_Construct(HeapFlags flags) {
     return &crt_heap;
 }
 
-void* Heap_Alloc(Heap* heap, uint16_t size) {
+void* Heap_Alloc(Heap* heap, uint16_t length) {
     if (heap != &crt_heap) return NULL;
-    return malloc(size);
+    return malloc(length);
 }
 
 void Heap_Free(Heap* heap, void* memory) {

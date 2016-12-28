@@ -1,7 +1,7 @@
 #ifndef __MemoryManager_H__
 #define __MemoryManager_H__
 
-#include "../Types.h"
+#include "Types.h"
 
 // stores unique page id (bank-id|page-index)
 typedef uint8_t		MemoryPageId;
@@ -11,8 +11,7 @@ MemoryPageId MemoryManager_MakePageId(uint8_t bankIndex, uint8_t pageIndex);
 
 
 // allocated during bios memory test
-typedef struct
-{
+typedef struct {
 	// the page id (source is in 1MB memory address space)
 	MemoryPageId	SourceId;
 	
@@ -25,8 +24,7 @@ typedef struct
 } MemoryPage;
 
 // a list of memory pages that are atomic
-typedef struct
-{
+typedef struct {
 	MemoryPageId	TargetId;
 	MemoryPage*		Page;
 	
@@ -36,8 +34,7 @@ typedef struct
 
 void MemoryManager_Init();
 
-typedef enum
-{
+typedef enum {
 	Boundary,
 	Test
 	

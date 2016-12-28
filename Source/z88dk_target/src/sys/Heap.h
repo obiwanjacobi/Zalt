@@ -1,9 +1,7 @@
 #ifndef __HEAP_H__
 #define __HEAP_H__
 
-#include "Types.h"
-
-typedef void Heap;
+#include "Sys.h"
 
 enum _heapFlags {
     heapNone
@@ -12,7 +10,5 @@ enum _heapFlags {
 typedef enum _heapFlags HeapFlags;
 
 Heap* Heap_Construct(HeapFlags flags);
-void* Heap_Alloc(Heap* heap, uint16_t size);
-void Heap_Free(Heap* heap, void* memory);
 
 #endif //__HEAP_H__

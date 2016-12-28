@@ -1,7 +1,7 @@
-@sys\_sys.lst
-Types.c
-Heap.c
+@sys/_sys.lst
+@io/_io.lst
 RingBuffer.c
 StringBuilder.c
-Terminal.c
+Monitor.c
+Monitor.Commands.c
 Main.c

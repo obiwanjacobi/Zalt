@@ -1,5 +1,4 @@
 #include "StringBuilder.h"
-#include "Error.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -8,6 +7,7 @@ StringBuilder* StringBuilder_Construct(void* memory, uint16_t capacity)
 	StringBuilder* builder = (StringBuilder*)memory;
 	if (memory == NULL) return NULL;
 	if (capacity < StringBuilder_size) return NULL;
+	
 	builder->Capacity = capacity - StringBuilder_size;
 	builder->Length = 0;
 	builder->Text[0] = '\0';
@@ -23,7 +23,7 @@ result_t StringBuilder_AppendString(StringBuilder* builder, const char* buffer, 
 	if (builder->Capacity - builder->Length < length) return E_BUFFERFULL;
 	
 	start = &builder->Text[builder->Length];
-	strncpy(start, buffer, length);
+	strlcpy(start, (char*)buffer, length);
 	builder->Length += length;
 	
 	return S_OK;

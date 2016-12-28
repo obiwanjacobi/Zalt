@@ -1,8 +1,8 @@
 #ifndef __STRINGBUILDER_H__
 #define __STRINGBUILDER_H__
 
-#include "Types.h"
-#include "Error.h"
+#include "sys/Types.h"
+#include "sys/Error.h"
 
 typedef Collection8	StringBuilder;
 #define StringBuilder_size	Collection8_size
