@@ -88,3 +88,7 @@ uint16_t Stream_Write(Stream* stream, const uint8_t* buffer, uint16_t length)
 
 	return stream->StreamProvider->fnEndWriteStream(stream, result);
 }
+
+bool_t Stream_HasFlags(Stream* stream, StreamFlags flags) {
+	return (stream->Flags & flags) != 0;
+}

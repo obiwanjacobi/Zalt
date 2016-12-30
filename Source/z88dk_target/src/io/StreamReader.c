@@ -1,5 +1,6 @@
 #include "Io.h"
 
+#include <stdio.h>
 
 bool_t StreamReader_TryReadByte(Stream* stream, uint8_t* outByte)
 {
@@ -10,6 +11,7 @@ uint8_t GetByte(Stream* stream)
 {
     uint8_t b = 0;
 	while(b == 0) {
+        // TODO: check return value
         Stream_Read(stream, &b, 1);
     }
     return b;
@@ -25,7 +27,7 @@ uint16_t StreamReader_ReadLine(Stream* stream, uint8_t* buffer, uint16_t capacit
     }
 
     // read non-new-line chars and put in buffer
-    while ((b != NewLineChar || b != CarriageReturnChar) &&
+    while ((b != NewLineChar && b != CarriageReturnChar) &&
            (index < capacity)) {
         buffer[index] = b;
         index += 1;

@@ -6,6 +6,7 @@ src/sys/Async.c
 src/sys/String.c
 src/io/Stream.c
 src/io/StreamReader.c
+src/io/StreamWriter.c
 src/io/ConsoleStreamProvider.c
 src/RingBuffer.c
 src/StringBuilder.c

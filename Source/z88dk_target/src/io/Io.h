@@ -45,6 +45,9 @@ result_t Stream_Close(Stream* stream);
 uint16_t Stream_Read(Stream* stream, uint8_t* buffer, uint16_t capacity);
 uint16_t Stream_Write(Stream* stream, const uint8_t* buffer, uint16_t length);
 
+bool_t Stream_HasFlags(Stream* stream, StreamFlags flags);
+
+
 extern const char* ConsoleProtocol;
 
 
@@ -60,6 +63,7 @@ uint16_t StreamReader_ReadLine(Stream* stream, uint8_t* buffer, uint16_t capacit
 // StreamWriter
 //
 
+uint16_t StreamWriter_Write(Stream* stream, const uint8_t* source, uint16_t length);
 uint16_t StreamWriter_WriteLine(Stream* stream, const uint8_t* source, uint16_t length);
 
 

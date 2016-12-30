@@ -4,6 +4,7 @@
 #include "RingBuffer.h"
 #include "Monitor.h"
 
+
 void init()
 {
 	Thread_Construct();
@@ -13,13 +14,13 @@ void init()
 void main()
 {
 	void* memory;
-	RingBuffer* buffer;
+	RingBuffer* buffer = NULL;
 
 	// setup
 	init();
 	memory = Thread_Alloc(RingBuffer_size);
 	buffer = RingBuffer_Construct(memory);
-	
+
 	Monitor_Start(buffer);
 	
 	// teardown

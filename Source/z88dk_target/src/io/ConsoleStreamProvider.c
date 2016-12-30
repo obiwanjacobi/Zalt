@@ -16,9 +16,9 @@ uint16_t ConsoleStreamProvider_CanProvide(const char* protocol)
 
 result_t ConsoleStreamProvider_TryOpenStream(const char* uri, StreamFlags access, Stream* stream)
 {
-    uri;
+    uri; access;
     if (stream == NULL) return E_NULLPTR;
-    stream->Flags = access | streamFlags_CanRead | streamFlags_CanWrite;
+    stream->Flags = streamFlags_CanRead | streamFlags_CanWrite;
     return S_OK;
 }
 
@@ -28,7 +28,7 @@ AsyncResult* ConsoleStreamProvider_BeginReadStream(Stream* stream, uint8_t* buff
     if (stream == NULL) { Error_Set(E_NULLPTR); return NULL; }
     if (buffer == NULL) { Error_Set(E_ARGNULLOREMPTY); return NULL; }
     if (capacity == 0) { Error_Set(E_ARGNOTINRANGE); return NULL; }
-    if ((stream->Flags & streamAccess_Read) == 0) { Error_Set(E_NOACCESS); return NULL;}
+    //if ((stream->Flags & streamAccess_Read) == 0) { Error_Set(E_NOACCESS); return NULL;}
 
     buffer[0] = getchar();
     stream->Position += 1;
@@ -45,27 +45,37 @@ uint16_t ConsoleStreamProvider_EndReadStream(Stream* stream, AsyncResult* asyncR
     return 1;
 }
 
+static struct {
+    AsyncState State;
+    uint16_t TotalBytes;
+} consoleAsyncResult;
+
 AsyncResult* ConsoleStreamProvider_BeginWriteStream(Stream* stream, const uint8_t* buffer, uint16_t length)
 {
-    AsyncResult* result = NULL;
+    uint16_t i;
     if (stream == NULL) { Error_Set(E_NULLPTR); return NULL; }
     if (buffer == NULL) { Error_Set(E_ARGNULLOREMPTY); return NULL; }
     if (length == 0) { Error_Set(E_ARGNOTINRANGE); return NULL; }
-    if ((stream->Flags & streamAccess_Write) == 0) { Error_Set(E_NOACCESS); return NULL;}
+    //if ((stream->Flags & streamAccess_Write) == 0) { Error_Set(E_NOACCESS); return NULL;}
 
-    putchar(buffer[0]);
-    stream->Position += 1;
+    for(i = 0; i < length; i++) {
+        putchar(buffer[i]);
+    }
 
-    result = Thread_Alloc(AsyncResult_size);
-    result->State = asyncState_CompletedSync;
-    return result;
+    i++;    // from zero-based index to count
+    stream->Position += i;
+
+    consoleAsyncResult.State = asyncState_CompletedSync;
+    consoleAsyncResult.TotalBytes = i;
+    return (AsyncResult*)&consoleAsyncResult;
 }
 
 uint16_t ConsoleStreamProvider_EndWriteStream(Stream* stream, AsyncResult* asyncResult)
 {
-    Thread_Free(asyncResult);
     if (stream == NULL) { Error_Set(E_NULLPTR); return 0; }
-    return 1;
+    if (asyncResult == NULL) { Error_Set(E_ARGNULLOREMPTY); return 0; }
+    if (asyncResult != (AsyncResult*)&consoleAsyncResult) { Error_Set(E_NOTINITIALIZED); return 0; }
+    return consoleAsyncResult.TotalBytes;
 }
 
 StreamProvider* ConsoleStreamProvider_Construct(void* memory)

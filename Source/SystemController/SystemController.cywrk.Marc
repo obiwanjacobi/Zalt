@@ -6,18 +6,19 @@
 <CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
 <userData>
 <dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
-<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Datasheet">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
 <TreeKeys>
 <v>Source</v>
 <v>Components</v>
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\Commands\MemoryManagerCommands.c">
 <ExpandedNodeIds>
 <v>SystemController</v>
 <v>SystemController\SystemController</v>
 <v>SystemController\SystemController\TopDesign</v>
+<v>SystemController\SystemController\Commands</v>
 <v>SystemController\SystemController\Commands\CommandHandler.c</v>
 <v>SystemController\SystemController\Commands\CommandHandler.h</v>
 <v>SystemController\SystemController\Commands\CommandParser.c</v>
@@ -28,18 +29,22 @@
 <v>SystemController\SystemController\Commands\MemoryCommands.h</v>
 <v>SystemController\SystemController\Commands\MemoryManagerCommands.c</v>
 <v>SystemController\SystemController\Commands\MemoryManagerCommands.h</v>
+<v>SystemController\SystemController\CpuController</v>
 <v>SystemController\SystemController\CpuController\CpuController.c</v>
 <v>SystemController\SystemController\CpuController\CpuController.h</v>
 <v>SystemController\SystemController\CpuController\IOController.c</v>
 <v>SystemController\SystemController\CpuController\IOController.h</v>
+<v>SystemController\SystemController\MemoryController</v>
 <v>SystemController\SystemController\MemoryController\BusController.c</v>
 <v>SystemController\SystemController\MemoryController\BusController.h</v>
 <v>SystemController\SystemController\MemoryController\MemoryController.c</v>
 <v>SystemController\SystemController\MemoryController\MemoryController.h</v>
 <v>SystemController\SystemController\MemoryController\MemoryManager.c</v>
 <v>SystemController\SystemController\MemoryController\MemoryManager.h</v>
+<v>SystemController\SystemController\Process</v>
 <v>SystemController\SystemController\Process\IOProcessor.c</v>
 <v>SystemController\SystemController\Process\IOProcessor.h</v>
+<v>SystemController\SystemController\SystemTerminal</v>
 <v>SystemController\SystemController\SystemTerminal\SerialTerminal.c</v>
 <v>SystemController\SystemController\SystemTerminal\SerialTerminal.h</v>
 <v>SystemController\SystemController\cyapicallbacks.h</v>
@@ -87,20 +92,7 @@
 <v>SystemController\SystemController\Generated_Source\PSoC5\cycodeshareexport.ld</v>
 <v>SystemController\SystemController\main.c</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>SystemController</v>
-<v>SystemController\SystemController</v>
-<v>SystemController\SystemController\TopDesign</v>
-<v>SystemController\SystemController\SystemController.cydwr</v>
-<v>SystemController\SystemController\Commands</v>
-<v>SystemController\SystemController\CpuController</v>
-<v>SystemController\SystemController\MemoryController</v>
-<v>SystemController\SystemController\Process</v>
-<v>SystemController\SystemController\SystemTerminal</v>
-<v>SystemController\SystemController\cyapicallbacks.h</v>
-<v>SystemController\SystemController\Generated_Source</v>
-<v>SystemController\SystemController\main.c</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\ScratchPad">
 <ExpandedNodeIds>
@@ -112,14 +104,7 @@
 <v>SystemController\SystemController\Z80Controller\Z80Controller.cysch</v>
 <v>SystemController\SystemController\Z80Controller\Z80Controller.cysym</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>SystemController</v>
-<v>SystemController\SystemController</v>
-<v>SystemController\SystemController\ScratchPad</v>
-<v>SystemController\SystemController\TopDesign</v>
-<v>SystemController\SystemController\TopDesign\TopDesign.cysch</v>
-<v>SystemController\SystemController\Z80Controller</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController">
 <ExpandedNodeIds>
@@ -210,46 +195,7 @@
 <v>SystemController\SystemController\SystemController.rpt</v>
 <v>SystemController\SystemController\SystemController_timing.html</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>SystemController</v>
-<v>SystemController\SystemController</v>
-<v>SystemController\SystemController\CortexM3</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\BusController.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CommandHandler.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CommandParser.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CPU_CLK.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CPUCLK_FAST.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CpuCommands.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CpuController.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\D.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\IOController.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\IOProcessor.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\LsbA.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\MemoryCommands.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\MemoryController.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\MemoryManager.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\MemoryManagerCommands.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\MsbA.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\RingBuffer.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\SerialTerminal.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\SysCtrlReg.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\SysCtrlReg_PM.lst</v>
-<v>SystemController\SystemController\CortexM3\ARM_GCC_493\Debug\Listing Files\SysTerminal.lst</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
 <TreeKeysV2>
@@ -263,7 +209,7 @@
 <v>SystemController\SystemController\PSoC 5LP Architecture TRM</v>
 <v>SystemController\SystemController\CY8C58LP Family Datasheet</v>
 <v>SystemController\SystemController\System Reference Guides</v>
-<v>SystemController\SystemController\System Reference Guides\cy_boot_v5_40</v>
+<v>SystemController\SystemController\System Reference Guides\cy_boot_v5_50</v>
 <v>SystemController\SystemController\Project Datasheet</v>
 <v>SystemController\SystemController\and_v1_0.pdf</v>
 <v>SystemController\SystemController\BasicCounter_v1_0.pdf</v>
@@ -280,29 +226,7 @@
 <v>SystemController\SystemController\or_v1_0.pdf</v>
 <v>SystemController\SystemController\UART_v2_50.pdf</v>
 </ExpandedNodeIds>
-<VisibleNodeIds>
-<v>SystemController</v>
-<v>SystemController\SystemController</v>
-<v>SystemController\SystemController\PSoC 5LP Architecture TRM</v>
-<v>SystemController\SystemController\CY8C58LP Family Datasheet</v>
-<v>SystemController\SystemController\System Reference Guides</v>
-<v>SystemController\SystemController\System Reference Guides\cy_boot_v5_40</v>
-<v>SystemController\SystemController\Project Datasheet</v>
-<v>SystemController\SystemController\and_v1_0.pdf</v>
-<v>SystemController\SystemController\BasicCounter_v1_0.pdf</v>
-<v>SystemController\SystemController\cy_clock_v2_20</v>
-<v>SystemController\SystemController\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>SystemController\SystemController\cy_constant_v1_0</v>
-<v>SystemController\SystemController\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>SystemController\SystemController\cy_pins_v2_20</v>
-<v>SystemController\SystemController\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>SystemController\SystemController\CyControlReg_v1_80.pdf</v>
-<v>SystemController\SystemController\mux_v1_10</v>
-<v>SystemController\SystemController\mux_v1_10\mux_v1_10.pdf</v>
-<v>SystemController\SystemController\not_v1_0.pdf</v>
-<v>SystemController\SystemController\or_v1_0.pdf</v>
-<v>SystemController\SystemController\UART_v2_50.pdf</v>
-</VisibleNodeIds>
+<VisibleNodeIds />
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
 </CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
@@ -311,7 +235,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\SystemController.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\SystemController.cydsn\main.c" />
+<name v=".\SystemController.cydsn\MemoryManager.c" />
+<name v=".\SystemController.cydsn\MemoryManagerCommands.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -319,7 +245,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="965, 742" SelectedTabbedMdiWindow="2daa7301-7691-437b-b0ed-a9cd4a92c3b5"><DocumentWindow Key="272ac009-08e0-444d-a388-65918ead93cc" Guid="2daa7301-7691-437b-b0ed-a9cd4a92c3b5" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="928, 742" SelectedTabbedMdiWindow="edb1d4c7-2681-48df-a3cb-7c75cf2cde99"><DocumentWindow Key="aab3deaf-de23-4153-aec1-258ea2e17605" Guid="edb1d4c7-2681-48df-a3cb-7c75cf2cde99" /><DocumentWindow Key="0328d20e-c810-4592-800f-790f6946cceb" Guid="ee037401-f0d6-416d-b397-258f0bdcbb20" /><DocumentWindow Key="4b38759e-e3c8-4bfd-bf83-9ccabc8abc39" Guid="93625d95-0664-4802-9c49-1af388e3fbc1" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Debug" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

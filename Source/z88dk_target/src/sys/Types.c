@@ -1,6 +1,6 @@
 #include "Types.h"
 
-//const char* EndOfLine = "\r\n";
+const char* EndOfLine = "\r\n";
 const char NewLineChar = '\n';
 const char CarriageReturnChar = '\r';
 

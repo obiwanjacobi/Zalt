@@ -13,7 +13,7 @@ int main()
 {
     CpuController_Init();
     BusController_Init();
-    //MemoryManager_Init();
+    MemoryManager_Init();
     IOProcessor_Init();
     
     SerialTerminal_Start(&g_serialTerminal);

@@ -19,7 +19,7 @@
 #define int32_min INT32_MIN
 #define int32_max INT32_MAX
 
-//extern const char* EndOfLine;
+extern const char* EndOfLine;
 extern const char NewLineChar;
 extern const char CarriageReturnChar;
 

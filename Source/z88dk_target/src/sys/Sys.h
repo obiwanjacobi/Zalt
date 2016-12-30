@@ -69,6 +69,7 @@ bool_t Async_Wait(AsyncResult* asyncResult);
 uint16_t String_Copy(const char* source, char* buffer, uint16_t capacity);
 /// Compares strx to stry for max capacity characters and returns a signed integer result.
 int16_t String_Compare(const char* strx, const char* stry, uint16_t capacity);
+int16_t String_CompareExact(const char* strx, const char* stry, uint16_t capacity);
 /// Returns the number of character (excl. NULL).
 uint16_t String_GetLength(const char* source, uint16_t capacity);
 

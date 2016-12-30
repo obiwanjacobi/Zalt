@@ -1,3 +1,4 @@
 Stream.c
 StreamReader.c
+StreamWriter.c
 ConsoleStreamProvider.c
