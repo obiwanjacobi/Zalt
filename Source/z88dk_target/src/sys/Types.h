@@ -87,4 +87,5 @@ extern const uint16_t Collection8_MaxCapacity;
 //typedef void* handle_t;
 #define handle_t	void*
 
+
 #endif	//__TYPES_H__

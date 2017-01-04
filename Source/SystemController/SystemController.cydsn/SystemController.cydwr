@@ -317,6 +317,7 @@
     <Group key="Interrupt">
       <Data key="0f12ccb4-60df-4fa3-95b3-93dbcddb6df9/6082d9c3-a648-429b-b42d-1463809cb807" value="Z80Ctrl_ISR_IO" />
       <Data key="3a8b5809-ee45-463e-ae65-9b79347f836d/6082d9c3-a648-429b-b42d-1463809cb807" value="Z80Ctrl_ISR_IO" />
+      <Data key="9bea3048-9ad8-422f-85fa-57e4338e862f" value="TimerISR" />
       <Data key="a1b4b198-2ead-4cd2-91bb-99a894f6fdd0/6082d9c3-a648-429b-b42d-1463809cb807" value="Z80Ctrlr_ISR_IO_OUT" />
       <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/10dce1ed-dd83-44c0-9cff-cc3ee25204cd" value="SysTerminal_RXInternalInterrupt" />
       <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/0758f7e0-b58c-4a6b-bb59-e7d003cac7de" value="SysTerminal_TXInternalInterrupt" />
@@ -333,6 +334,7 @@
       <Data key="7958b69f-7c23-4ab7-9fb4-7a254f8379e0" value="DebugPin2" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="RxSysTerminal" />
       <Data key="a268a901-c0fd-488f-9488-6e000c24fbaa" value="DebugPin1" />
+      <Data key="b409f4a7-5b01-4d03-891d-b9d78f612e3d" value="ExtInt" />
       <Data key="c84de3e6-d64a-4794-8eed-4ece9660cdc6" value="Tx_1" />
       <Data key="deb042ab-085a-4c6b-b0a7-f53d28976b42" value="BusCtrl" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="ExtBus" />
@@ -3430,9 +3432,10 @@
   <Group key="Interrupt">
     <Data key="0f12ccb4-60df-4fa3-95b3-93dbcddb6df9/6082d9c3-a648-429b-b42d-1463809cb807" value="1" />
     <Data key="3a8b5809-ee45-463e-ae65-9b79347f836d/6082d9c3-a648-429b-b42d-1463809cb807" value="1" />
+    <Data key="9bea3048-9ad8-422f-85fa-57e4338e862f" value="2" />
     <Data key="a1b4b198-2ead-4cd2-91bb-99a894f6fdd0/6082d9c3-a648-429b-b42d-1463809cb807" value="1" />
-    <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/10dce1ed-dd83-44c0-9cff-cc3ee25204cd" value="2" />
-    <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/0758f7e0-b58c-4a6b-bb59-e7d003cac7de" value="3" />
+    <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/10dce1ed-dd83-44c0-9cff-cc3ee25204cd" value="3" />
+    <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/0758f7e0-b58c-4a6b-bb59-e7d003cac7de" value="4" />
     <Data key="d410e14c-1f8b-47c0-b572-fefd96b1071b" value="1" />
   </Group>
   <Group key="Pin2">
@@ -3591,6 +3594,14 @@
     </Group>
     <Group key="a268a901-c0fd-488f-9488-6e000c24fbaa">
       <Group key="0">
+        <Data key="Port Format" value="15,0" />
+      </Group>
+    </Group>
+    <Group key="b409f4a7-5b01-4d03-891d-b9d78f612e3d">
+      <Group key="0">
+        <Data key="Port Format" value="15,1" />
+      </Group>
+      <Group key="1">
         <Data key="Port Format" value="15,0" />
       </Group>
     </Group>

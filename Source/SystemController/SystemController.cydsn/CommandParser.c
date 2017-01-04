@@ -1,6 +1,12 @@
 #include "CommandParser.h"
 #include <stdlib.h>
 
+const char* OK = "OK";
+const char* ACK = "ACK";
+const char* SUSPENDED = "Suspended";
+const char* INCOMPLETE = "Command is Incomplete";
+
+
 static char g_Commands[][5] = {
     "mw",   // memory-write
     "mr",   // memory-read

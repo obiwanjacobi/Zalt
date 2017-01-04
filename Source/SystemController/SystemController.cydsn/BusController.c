@@ -14,7 +14,7 @@ void BusController_EnableExternalBus(uint8_t enable)
     SysCtrlReg_Write(ctrlReg);
 }
 
-void BusController_EnableDataBusOutput(uint8_t enable)
+void BusController_EnableDataBusOutput(bool_t enable)
 {
     uint8_t ctrlReg = SysCtrlReg_Read();
     

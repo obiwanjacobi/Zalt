@@ -4,10 +4,10 @@
 #include <project.h>
 #include "RingBuffer.h"
 
-static const char* OK = "OK";
-static const char* ACK = "ACK";
-static const char* SUSPENDED = "Suspended";
-static const char* INCOMPLETE = "Command is Incomplete";
+const char* OK;
+const char* ACK;
+const char* SUSPENDED;
+const char* INCOMPLETE;
 
     
 #define COMMAND_NONE            0

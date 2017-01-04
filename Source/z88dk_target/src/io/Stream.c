@@ -17,6 +17,8 @@ result_t StreamProvider_Construct()
 	return ConsoleStreamProvider == NULL ? E_NULLPTR : S_OK;
 }
 
+//#define Stream_Construct(p) Stream_Construct__fast(p)
+//Stream* FastAPI(Stream_Construct__fast(uint16_t length))
 Stream* Stream_Construct(uint16_t length)
 {
 	Stream* stream = Thread_Alloc(length);
@@ -24,10 +26,7 @@ Stream* Stream_Construct(uint16_t length)
 	return stream;
 }
 
-void Stream_Destruct(Stream* stream)
-{
-	Thread_Free(stream);
-}
+#define Stream_Destruct(p) Thread_Free(p)
 
 Stream* Stream_Open(const char* location, StreamFlags access)
 {
@@ -49,6 +48,7 @@ Stream* Stream_Open(const char* location, StreamFlags access)
 	return stream;
 }
 
+//result_t FastAPI(Stream_Close__fast(Stream* stream))
 result_t Stream_Close(Stream* stream)
 {
 	if (stream == NULL) return E_NULLPTR;
@@ -62,6 +62,7 @@ result_t Stream_Close(Stream* stream)
 	return S_OK;
 }
 
+//uint16_t API(Stream_Read(Stream* stream, uint8_t* buffer, uint16_t capacity))
 uint16_t Stream_Read(Stream* stream, uint8_t* buffer, uint16_t capacity)
 {
 	AsyncResult* result;
@@ -75,6 +76,7 @@ uint16_t Stream_Read(Stream* stream, uint8_t* buffer, uint16_t capacity)
 	return stream->StreamProvider->fnEndReadStream(stream, result);
 }
 
+//uint16_t API(Stream_Write(Stream* stream, const uint8_t* buffer, uint16_t length))
 uint16_t Stream_Write(Stream* stream, const uint8_t* buffer, uint16_t length)
 {
 	AsyncResult* result;
@@ -89,6 +91,8 @@ uint16_t Stream_Write(Stream* stream, const uint8_t* buffer, uint16_t length)
 	return stream->StreamProvider->fnEndWriteStream(stream, result);
 }
 
-bool_t Stream_HasFlags(Stream* stream, StreamFlags flags) {
+//bool_t API(Stream_HasFlags(Stream* stream, StreamFlags flags))
+bool_t Stream_HasFlags(Stream* stream, StreamFlags flags)
+{
 	return (stream->Flags & flags) != 0;
 }

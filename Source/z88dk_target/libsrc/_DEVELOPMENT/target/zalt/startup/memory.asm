@@ -4,7 +4,7 @@
 
 ; the data that is used to fill memory on reset
 defc	bios_memory_fill_opcode		=	$FF		; rst $38
-defc	bios_memory_page_size		= 	$0800	; 4k page size
+defc	bios_memory_page_size		= 	$1000	; 4k page size
 defc	memorymanager_memmaptable_fill	=	$FF		; selects memory bank 0
 
 ; public function

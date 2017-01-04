@@ -10,5 +10,7 @@ enum _heapFlags {
 typedef enum _heapFlags HeapFlags;
 
 Heap* Heap_Construct(HeapFlags flags);
+//Heap* FastAPI(Heap_Construct__fast(HeapFlags flags));
+//#define  Heap_Construct(p)  Heap_Construct__fast(p)
 
 #endif //__HEAP_H__

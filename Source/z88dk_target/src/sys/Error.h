@@ -1,6 +1,7 @@
 #ifndef __ERROR_H__
 #define __ERROR_H__
 
+#include "api.h"
 #include <stdint.h>
 
 typedef uint16_t result_t;
@@ -23,10 +24,13 @@ typedef uint16_t result_t;
 #define E_OUTOFMEMORY       E_ERROR_BASE + 9
 
 #define Succeeded(r)	((r) < E_ERROR_BASE)
-#define Failed(r)		((r) > E_ERROR_BASE-1)
+#define Failed(r)		((r) > E_ERROR_BASE - 1)
 
 // (thread) global error
 void Error_Set(result_t error);
+//void FastAPI(Error_Set__fast(result_t error));
+//#define Error_Set(p) Error_Set__fast(p)
+
 result_t Error_Get();
 
 #endif //__ERROR_H__

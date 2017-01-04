@@ -15,7 +15,7 @@ void main()
 {
 	void* memory;
 	RingBuffer* buffer = NULL;
-
+	
 	// setup
 	init();
 	memory = Thread_Alloc(RingBuffer_size);

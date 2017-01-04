@@ -18,8 +18,10 @@
             "args": [
                 "zcc",
                 "+zalt",
-                "-vn",
-                "-SO3", 
+                //"-vn",
+                "-m", 
+                "-SO3",
+                "-DDEBUG",
                 "-clib=sdcc_iy",
                 "--max-allocs-per-node200000",
                 "@_zalt.lst",

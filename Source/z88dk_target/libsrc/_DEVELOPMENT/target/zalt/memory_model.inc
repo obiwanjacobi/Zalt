@@ -39,6 +39,10 @@ section code_crt_exit
 section code_crt_return
 section code_crt_common
 
+; zalt
+section zalt_system
+section zalt_lib
+
 section code_driver
 section code_font
 section code_clib

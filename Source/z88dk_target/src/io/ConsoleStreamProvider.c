@@ -1,6 +1,6 @@
 #include "ConsoleStreamProvider.h"
 #include "../sys/Async.h"
-#include <stdio.h>
+#include "../sys/System.h"
 
 const char* ConsoleProtocol = "con";
 const uint8_t ConsoleStreamProvider_size = sizeof(StreamProvider);
@@ -30,7 +30,7 @@ AsyncResult* ConsoleStreamProvider_BeginReadStream(Stream* stream, uint8_t* buff
     if (capacity == 0) { Error_Set(E_ARGNOTINRANGE); return NULL; }
     //if ((stream->Flags & streamAccess_Read) == 0) { Error_Set(E_NOACCESS); return NULL;}
 
-    buffer[0] = getchar();
+    buffer[0] = System_DebugConsole_In();
     stream->Position += 1;
 
     result = Thread_Alloc(AsyncResult_size);
@@ -59,7 +59,7 @@ AsyncResult* ConsoleStreamProvider_BeginWriteStream(Stream* stream, const uint8_
     //if ((stream->Flags & streamAccess_Write) == 0) { Error_Set(E_NOACCESS); return NULL;}
 
     for(i = 0; i < length; i++) {
-        putchar(buffer[i]);
+        System_DebugConsole_Out(buffer[i]);
     }
 
     i++;    // from zero-based index to count

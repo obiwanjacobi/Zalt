@@ -3,7 +3,7 @@
 
 #include <project.h>
 
-// hardware IO addresses
+// CPU-Board hardware IO addresses
 #define IO_MemoryManagerUnit_Base           0x08FF
 #define IO_MemoryManagerUnit_Data_ReadTable     (IO_MemoryManagerUnit_Base|0x600)
 #define IO_MemoryManagerUnit_Data_WriteTable    (IO_MemoryManagerUnit_Base|0x700)

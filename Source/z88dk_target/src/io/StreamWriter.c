@@ -1,6 +1,7 @@
 #include "Io.h"
 
 
+//uint16_t API(StreamWriter_Write(Stream* stream, const uint8_t* source, uint16_t length))
 uint16_t StreamWriter_Write(Stream* stream, const uint8_t* source, uint16_t length)
 {
     uint16_t written = 0;
@@ -19,6 +20,7 @@ uint16_t StreamWriter_Write(Stream* stream, const uint8_t* source, uint16_t leng
     return written;
 }
 
+//uint16_t API(StreamWriter_WriteLine(Stream* stream, const uint8_t* source, uint16_t length))
 uint16_t StreamWriter_WriteLine(Stream* stream, const uint8_t* source, uint16_t length)
 {
     uint16_t written = StreamWriter_Write(stream, source, length);

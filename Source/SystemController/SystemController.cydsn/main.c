@@ -1,11 +1,13 @@
 #include <project.h>
 #include "SerialTerminal.h"
-
 #include "BusController.h"
 #include "CpuController.h"
 #include "MemoryController.h"
 #include "MemoryManager.h"
 #include "IOProcessor.h"
+#include "InterruptProcessor.h"
+// devices
+#include "KeyBoard.h"
 
 static SerialTerminal g_serialTerminal;
 
@@ -15,6 +17,7 @@ int main()
     BusController_Init();
     MemoryManager_Init();
     IOProcessor_Init();
+    InterruptProcessor_Init();
     
     SerialTerminal_Start(&g_serialTerminal);
     
@@ -24,6 +27,7 @@ int main()
     SerialTerminal_WriteLine("Ready (Suspended).");
     
     uint8_t haltMessageDisplayed = 0;
+    uint16_t lastRxBufferSize = 0;
     
     for(;;)
     {
@@ -36,6 +40,14 @@ int main()
         {
             // todo: check for buffer full
             // Z80 is not reading them quick enough
+            
+            uint16_t rxSize = SysTerminal_GetRxBufferSize();
+            
+            if (lastRxBufferSize < rxSize)
+            {
+                KeyBoard_Signal();
+                lastRxBufferSize = rxSize;
+            }
         }
         
         // temp

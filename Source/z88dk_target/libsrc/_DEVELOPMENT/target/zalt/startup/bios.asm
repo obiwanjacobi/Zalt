@@ -19,7 +19,8 @@ isr_null_vector:
 ifdef DEBUG
 	halt			; break if debug build
 endif
-	reti;			; do nothing, return from interrupt
+	ei				; lets do that again
+	reti			; do nothing, return from interrupt
 
 ;	hl contains the source address of illegal call
 bios_trap_illegal:

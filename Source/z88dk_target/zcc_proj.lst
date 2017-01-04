@@ -4,6 +4,8 @@ src/sys/Heap.c
 src/sys/Thread.c
 src/sys/Async.c
 src/sys/String.c
+src/sys/System.c
+src/sys/System.asm
 src/io/Stream.c
 src/io/StreamReader.c
 src/io/StreamWriter.c

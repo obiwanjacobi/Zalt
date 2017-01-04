@@ -170,9 +170,9 @@ BiosFn6:
 ;
 
 ; ISR Table is located at page 1 ($0100, I=1).
-defc isr_table_index = 1            ; used to initialie I register
-defc isr_table_address = $0100      ; hi-byte is same as the isr_table_index
-defc isr_table_address_end = isr_table_address + $0100
+defc isr_table_address 	= $0100		; hi-byte is same as the isr_table_index
+defc isr_table_index 	= 1         ; used to initialie I register
+defc isr_table_address_end = isr_table_address + $0100	; 256 byte of isr table
 
 defs isr_table_address - ASMPC
 
@@ -242,10 +242,67 @@ defw	isr_null_vector		; Address of ISR #60
 defw	isr_null_vector		; Address of ISR #61
 defw	isr_null_vector		; Address of ISR #62
 defw	isr_null_vector		; Address of ISR #63
-
-; reserve room for complete table
-defs isr_table_address_end - ASMPC
-
-; for full table this would be the last ISR vector
-;defw	isr_null_vector		; Address of ISR #127
-
+defw	isr_null_vector		; Address of ISR #64
+defw	isr_null_vector		; Address of ISR #65
+defw	isr_null_vector		; Address of ISR #66
+defw	isr_null_vector		; Address of ISR #67
+defw	isr_null_vector		; Address of ISR #68
+defw	isr_null_vector		; Address of ISR #69
+defw	isr_null_vector		; Address of ISR #70
+defw	isr_null_vector		; Address of ISR #71
+defw	isr_null_vector		; Address of ISR #72
+defw	isr_null_vector		; Address of ISR #73
+defw	isr_null_vector		; Address of ISR #74
+defw	isr_null_vector		; Address of ISR #75
+defw	isr_null_vector		; Address of ISR #76
+defw	isr_null_vector		; Address of ISR #77
+defw	isr_null_vector		; Address of ISR #78
+defw	isr_null_vector		; Address of ISR #79
+defw	isr_null_vector		; Address of ISR #80
+defw	isr_null_vector		; Address of ISR #81
+defw	isr_null_vector		; Address of ISR #82
+defw	isr_null_vector		; Address of ISR #83
+defw	isr_null_vector		; Address of ISR #84
+defw	isr_null_vector		; Address of ISR #85
+defw	isr_null_vector		; Address of ISR #86
+defw	isr_null_vector		; Address of ISR #87
+defw	isr_null_vector		; Address of ISR #88
+defw	isr_null_vector		; Address of ISR #89
+defw	isr_null_vector		; Address of ISR #90
+defw	isr_null_vector		; Address of ISR #91
+defw	isr_null_vector		; Address of ISR #92
+defw	isr_null_vector		; Address of ISR #93
+defw	isr_null_vector		; Address of ISR #94
+defw	isr_null_vector		; Address of ISR #95
+defw	isr_null_vector		; Address of ISR #96
+defw	isr_null_vector		; Address of ISR #97
+defw	isr_null_vector		; Address of ISR #98
+defw	isr_null_vector		; Address of ISR #99
+defw	isr_null_vector		; Address of ISR #100
+defw	isr_null_vector		; Address of ISR #101
+defw	isr_null_vector		; Address of ISR #102
+defw	isr_null_vector		; Address of ISR #103
+defw	isr_null_vector		; Address of ISR #104
+defw	isr_null_vector		; Address of ISR #105
+defw	isr_null_vector		; Address of ISR #106
+defw	isr_null_vector		; Address of ISR #107
+defw	isr_null_vector		; Address of ISR #108
+defw	isr_null_vector		; Address of ISR #109
+defw	isr_null_vector		; Address of ISR #110
+defw	isr_null_vector		; Address of ISR #111
+defw	isr_null_vector		; Address of ISR #112
+defw	isr_null_vector		; Address of ISR #113
+defw	isr_null_vector		; Address of ISR #114
+defw	isr_null_vector		; Address of ISR #115
+defw	isr_null_vector		; Address of ISR #116
+defw	isr_null_vector		; Address of ISR #117
+defw	isr_null_vector		; Address of ISR #118
+defw	isr_null_vector		; Address of ISR #119
+defw	isr_null_vector		; Address of ISR #120
+defw	isr_null_vector		; Address of ISR #121
+defw	isr_null_vector		; Address of ISR #122
+defw	isr_null_vector		; Address of ISR #123
+defw	isr_null_vector		; Address of ISR #124
+defw	isr_null_vector		; Address of ISR #125
+defw	isr_null_vector		; Address of ISR #126
+defw	isr_null_vector		; Address of ISR #127

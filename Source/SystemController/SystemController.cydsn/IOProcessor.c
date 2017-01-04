@@ -2,6 +2,8 @@
 #include "BusController.h"
 #include "CpuController.h"
 #include "SerialTerminal.h"
+// devices
+#include "KeyBoard.h"
 
 #include <stdlib.h>
 
@@ -77,7 +79,8 @@ inline void IOProcessor_InputDispatch(IOInfo* ioInfo)
             data = testData;
             break;
         case IO_Serial:
-            data = SysTerminal_GetChar();
+            //data = SysTerminal_GetChar();
+            data = KeyBoard_GetKey();
             break;
         default:
             break;

@@ -2,6 +2,7 @@
 #include "sys/Sys.h"
 #include "io/Io.h"
 
+#include "sys/System.h"
 
 static const uint8_t MaxCommandLength = 6;
 
@@ -14,7 +15,7 @@ enum _command {
 };
 
 // sorted alpabetacilay
-static char* Commands[] = {
+static const char* Commands[] = {
     "dump",
     "help",
     "reg",
@@ -57,6 +58,8 @@ bool_t ExecuteCommand(uint8_t cmdIndex, RingBuffer* inputBuffer, Stream* console
         case commandReg:
             ExecuteReg(inputBuffer, console);
         break;
+        case commandQuit:
+            return false;
     }
     return true;
 }
@@ -65,9 +68,8 @@ bool_t Dispatch(RingBuffer* inputBuffer, Stream* console)
 {
     uint8_t cmdIndex = 0;
     while(Commands[cmdIndex] != NULL) {
-        if (String_Compare(Commands[cmdIndex], inputBuffer->Buffer, MaxCommandLength) == 0) {
-            if (cmdIndex == commandQuit) return false;
-
+        if (String_Compare(Commands[cmdIndex], inputBuffer->Buffer, 
+                String_GetLength(Commands[cmdIndex], 0)) == 0) {
             return ExecuteCommand(cmdIndex, inputBuffer, console);
         }
         cmdIndex += 1;

@@ -20,19 +20,23 @@ ThreadId Thread_GetId(Thread* thread)
 	return thread->Id;
 }
 
-Heap* Thread_GetHeap(Thread* thread)
+Heap* FastAPI(Thread_GetHeap__fast(Thread* thread))
 {
 	return thread->Heap;
 }
 
 /// Allocates from the current thread heap.
-void* Thread_Alloc(uint16_t length) {
+//void* FastAPI(Thread_Alloc__fast(uint16_t length))
+void* Thread_Alloc(uint16_t length)
+{
 	if (length == 0) return NULL;
 	return Heap_Alloc(CurrentThread.Heap, length);
 }
 
 /// Frees to the current thread heap.
-void Thread_Free(void* memory) {
+//void FastAPI(Thread_Free__fast(void* memory))
+void Thread_Free(void* memory)
+{
 	if (memory == NULL) return;
     Heap_Free(CurrentThread.Heap, memory);
 }

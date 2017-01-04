@@ -1,7 +1,7 @@
 #ifndef __BUSCONTROLLER_H__
 #define __BUSCONTROLLER_H__
 
-#include <project.h>
+#include "SystemController.h"
 
 // bus state flags
 #define RETURN_TO_RESET     0x01
@@ -31,7 +31,7 @@ void BusController_Release();
 uint8_t BusController_IsAcquired();
 
 // enable data bus outputs for write
-void BusController_EnableDataBusOutput(uint8_t enable);
+void BusController_EnableDataBusOutput(bool_t enable);
 
 #endif  //__BUSCONTROLLER_H__
 

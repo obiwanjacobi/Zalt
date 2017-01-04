@@ -2,6 +2,7 @@
 #include "RingBuffer.h"
 #include "io/Io.h"
 
+#include "sys/Debug.h"
 
 static Stream* Console;
 
@@ -21,7 +22,7 @@ extern void PrintLogo(Stream*);
 
 void Monitor_Start(RingBuffer* inputBuffer)
 {
-    if (inputBuffer == NULL) return;
+    dGuard(inputBuffer == NULL);
 
     OpenConsole();
     PrintLogo(Console);
