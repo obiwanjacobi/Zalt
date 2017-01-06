@@ -317,7 +317,9 @@
     <Group key="Interrupt">
       <Data key="0f12ccb4-60df-4fa3-95b3-93dbcddb6df9/6082d9c3-a648-429b-b42d-1463809cb807" value="Z80Ctrl_ISR_IO" />
       <Data key="3a8b5809-ee45-463e-ae65-9b79347f836d/6082d9c3-a648-429b-b42d-1463809cb807" value="Z80Ctrl_ISR_IO" />
+      <Data key="3a8b5809-ee45-463e-ae65-9b79347f836d/52354381-3b0b-4db8-9435-9e71cae086e0" value="Z80Ctrl_ISR_INT" />
       <Data key="9bea3048-9ad8-422f-85fa-57e4338e862f" value="TimerISR" />
+      <Data key="8956b891-9a1c-4b7e-81af-553ea738ee08" value="ISR_HALT" />
       <Data key="a1b4b198-2ead-4cd2-91bb-99a894f6fdd0/6082d9c3-a648-429b-b42d-1463809cb807" value="Z80Ctrlr_ISR_IO_OUT" />
       <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/10dce1ed-dd83-44c0-9cff-cc3ee25204cd" value="SysTerminal_RXInternalInterrupt" />
       <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/0758f7e0-b58c-4a6b-bb59-e7d003cac7de" value="SysTerminal_TXInternalInterrupt" />
@@ -3432,7 +3434,9 @@
   <Group key="Interrupt">
     <Data key="0f12ccb4-60df-4fa3-95b3-93dbcddb6df9/6082d9c3-a648-429b-b42d-1463809cb807" value="1" />
     <Data key="3a8b5809-ee45-463e-ae65-9b79347f836d/6082d9c3-a648-429b-b42d-1463809cb807" value="1" />
-    <Data key="9bea3048-9ad8-422f-85fa-57e4338e862f" value="2" />
+    <Data key="3a8b5809-ee45-463e-ae65-9b79347f836d/52354381-3b0b-4db8-9435-9e71cae086e0" value="2" />
+    <Data key="9bea3048-9ad8-422f-85fa-57e4338e862f" value="4" />
+    <Data key="8956b891-9a1c-4b7e-81af-553ea738ee08" value="7" />
     <Data key="a1b4b198-2ead-4cd2-91bb-99a894f6fdd0/6082d9c3-a648-429b-b42d-1463809cb807" value="1" />
     <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/10dce1ed-dd83-44c0-9cff-cc3ee25204cd" value="3" />
     <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/0758f7e0-b58c-4a6b-bb59-e7d003cac7de" value="4" />

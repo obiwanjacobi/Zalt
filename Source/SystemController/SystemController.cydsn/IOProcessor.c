@@ -2,6 +2,7 @@
 #include "BusController.h"
 #include "CpuController.h"
 #include "SerialTerminal.h"
+#include "Debugger.h"
 // devices
 #include "KeyBoard.h"
 
@@ -58,6 +59,9 @@ inline void IOProcessor_OutputDispatch(IOInfo* ioInfo)
 {
     switch(ioInfo->Address)
     {
+        case IO_DEBUGGER:
+            Debugger_IO_OnOutput(ioInfo->Data);
+            break;
         case IO_TEST_LOOP:
             testData = ioInfo->Data;
             break;
@@ -75,6 +79,9 @@ inline void IOProcessor_InputDispatch(IOInfo* ioInfo)
     
     switch(ioInfo->Address)
     {
+        case IO_DEBUGGER:
+            data = Debugger_IO_OnInput();
+            break;
         case IO_TEST_LOOP:
             data = testData;
             break;

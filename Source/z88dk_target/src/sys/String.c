@@ -1,7 +1,6 @@
 #include "Sys.h"
 #include <string.h>
 
-//uint16_t API(String_Copy(const char* source, char* buffer, uint16_t capacity))
 uint16_t String_Copy(const char* source, char* buffer, uint16_t capacity)
 {
     if (source == NULL) { Error_Set(E_NULLPTR); return 0; }
@@ -11,7 +10,6 @@ uint16_t String_Copy(const char* source, char* buffer, uint16_t capacity)
     return strlcpy(buffer, (char*)source, capacity);
 }
 
-//int16_t API(String_Compare(const char* strx, const char* stry, uint16_t capacity))
 int16_t String_Compare(const char* strx, const char* stry, uint16_t capacity)
 {
     if (strx == NULL) { Error_Set(E_NULLPTR); return 0; }
@@ -23,7 +21,6 @@ int16_t String_Compare(const char* strx, const char* stry, uint16_t capacity)
     return strnicmp((char*)strx, (char*)stry, capacity);
 }
 
-//int16_t API(String_CompareExact(const char* strx, const char* stry, uint16_t capacity))
 int16_t String_CompareExact(const char* strx, const char* stry, uint16_t capacity)
 {
     if (strx == NULL) { Error_Set(E_NULLPTR); return 0; }
@@ -35,7 +32,6 @@ int16_t String_CompareExact(const char* strx, const char* stry, uint16_t capacit
     return strncmp((char*)strx, (char*)stry, capacity);
 }
 
-//uint16_t API(String_GetLength(const char* source, uint16_t capacity))
 uint16_t String_GetLength(const char* source, uint16_t capacity)
 {
     if (source == NULL) { Error_Set(E_NULLPTR); return 0; }

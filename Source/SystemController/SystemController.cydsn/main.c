@@ -6,6 +6,7 @@
 #include "MemoryManager.h"
 #include "IOProcessor.h"
 #include "InterruptProcessor.h"
+#include "Debugger.h"
 // devices
 #include "KeyBoard.h"
 
@@ -18,6 +19,7 @@ int main()
     MemoryManager_Init();
     IOProcessor_Init();
     InterruptProcessor_Init();
+    Debugger_Init();
     
     SerialTerminal_Start(&g_serialTerminal);
     
@@ -26,11 +28,13 @@ int main()
     // echo back that the system is ready but halted.
     SerialTerminal_WriteLine("Ready (Suspended).");
     
-    uint8_t haltMessageDisplayed = 0;
-    uint16_t lastRxBufferSize = 0;
+    //uint8_t haltMessageDisplayed = 0;
+    //uint16_t lastRxBufferSize = 0;
     
     for(;;)
     {
+        Debugger_PrintRegisterValues();
+        
         if (g_serialTerminal.IsActive)
         {
             // pump incoming data to handlers
@@ -41,17 +45,18 @@ int main()
             // todo: check for buffer full
             // Z80 is not reading them quick enough
             
+            /*
             uint16_t rxSize = SysTerminal_GetRxBufferSize();
             
             if (lastRxBufferSize < rxSize)
             {
                 KeyBoard_Signal();
                 lastRxBufferSize = rxSize;
-            }
+            }*/
         }
         
         // temp
-        if (CyPins_ReadPin(ExtBus_CpuHalt) == 0)
+        /*if (CyPins_ReadPin(ExtBus_CpuHalt) == 0)
         {
             if (haltMessageDisplayed == 0)
             {
@@ -78,7 +83,7 @@ int main()
                 SerialTerminal_WriteLine("- CPU Continued.");
             }
             haltMessageDisplayed = 0;
-        }
+        }*/
     }
 }
 

@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 
-//void FastAPI(System_DebugConsole_Log__fast(const char* text))
-void System_DebugConsole_Log(const char* text)
+//void System_DebugConsole_Log(const char* text)
+void FastCall(System_DebugConsole_Log__fast(const char* text))
 {
     if (text == NULL) return;
 
@@ -13,7 +13,6 @@ void System_DebugConsole_Log(const char* text)
     }
 }
 
-//void API(System_DebugConsole_LogAssertFailed(const char* file, uint16_t line))
 void System_DebugConsole_LogAssertFailed(const char* file, uint16_t line)
 {
     char buf[6];

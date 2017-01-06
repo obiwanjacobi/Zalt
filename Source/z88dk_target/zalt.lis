@@ -700,11 +700,12 @@
 42    0000              ; zalt
 43    0000              section zalt_system
 44    0000              section zalt_lib
-45    0000              
-46    0000              section code_driver
-47    0000              section code_font
-48    0000              section code_clib
-49    0000                include "../../clib_code.inc"
+45    0000              section zalt_debug
+46    0000              
+47    0000              section code_driver
+48    0000              section code_font
+49    0000              section code_clib
+50    0000                include "../../clib_code.inc"
 1     0000              
 2     0000              ;; clib code segments ;;;;;;;;;
 3     0000              
@@ -769,14 +770,14 @@
 62    0000              
 63    0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 64    0000              
-50    0000              section code_lib
-51    0000              section code_compiler
-52    0000              section code_user
-53    0000              
-54    0000              section rodata_driver
-55    0000              section rodata_font
-56    0000              section rodata_clib
-57    0000                include "../../clib_rodata.inc"
+51    0000              section code_lib
+52    0000              section code_compiler
+53    0000              section code_user
+54    0000              
+55    0000              section rodata_driver
+56    0000              section rodata_font
+57    0000              section rodata_clib
+58    0000                include "../../clib_rodata.inc"
 1     0000              
 2     0000              ;; clib rodata segments ;;;;;;;
 3     0000              
@@ -794,39 +795,39 @@
 15    0000              
 16    0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 17    0000              
-58    0000                ;;section rodata_error_strings
-59    0000                ;;section rodata_error_string_end
-60    0000                ;;defb 0
-61    0000              section rodata_lib
-62    0000              section rodata_compiler
-63    0000              section rodata_user
-64    0000              
-65    0000              SECTION CODE_END
-66    0000              
-67    0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-68    0000              
-69    0000              SECTION DATA
-70    0000              
-71    0000              IF __crt_org_data
-72    0000              
-73    0000                 org __crt_org_data
-74    0000              
-75    0000              ELSE
-76    0000              
-77    0000                 IF __crt_model
-78    0000              
-79    0000                    "DATA section address must be specified for rom models"
-80    0000              
-81    0000                 ENDIF
-82    0000              
-83    0000              ENDIF
-84    0000              
-85    0000  00          defb 0
-86    0001              
-87    0001              section smc_driver
-88    0000              section smc_font
-89    0000              section smc_clib
-90    0000                include "../../clib_smc.inc"
+59    0000                ;;section rodata_error_strings
+60    0000                ;;section rodata_error_string_end
+61    0000                ;;defb 0
+62    0000              section rodata_lib
+63    0000              section rodata_compiler
+64    0000              section rodata_user
+65    0000              
+66    0000              SECTION CODE_END
+67    0000              
+68    0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+69    0000              
+70    0000              SECTION DATA
+71    0000              
+72    0000              IF __crt_org_data
+73    0000              
+74    0000                 org __crt_org_data
+75    0000              
+76    0000              ELSE
+77    0000              
+78    0000                 IF __crt_model
+79    0000              
+80    0000                    "DATA section address must be specified for rom models"
+81    0000              
+82    0000                 ENDIF
+83    0000              
+84    0000              ENDIF
+85    0000              
+86    0000  00          defb 0
+87    0001              
+88    0001              section smc_driver
+89    0000              section smc_font
+90    0000              section smc_clib
+91    0000                include "../../clib_smc.inc"
 1     0000              
 2     0000              ;; clib self-modifying code ;;;
 3     0000              
@@ -836,14 +837,14 @@
 7     0000              
 8     0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 9     0000              
-91    0000              section smc_lib
-92    0000              section smc_compiler
-93    0000              section smc_user
-94    0000              
-95    0000              section data_driver
-96    0000              section data_font
-97    0000              section data_clib
-98    0000                include "../../clib_data.inc"
+92    0000              section smc_lib
+93    0000              section smc_compiler
+94    0000              section smc_user
+95    0000              
+96    0000              section data_driver
+97    0000              section data_font
+98    0000              section data_clib
+99    0000                include "../../clib_data.inc"
 1     0000              
 2     0000              ;; clib data segments ;;;;;;;;;
 3     0000              
@@ -861,42 +862,42 @@
 15    0000              
 16    0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 17    0000              
-99    0000                ;;section data_fcntl_stdio_heap_head
-100   0000                ;;section data_fcntl_stdio_heap_body
-101   0000                ;;section data_fcntl_stdio_heap_tail
-102   0000                ;;section data_fcntl_fdtable_body
-103   0000              section data_lib
-104   0000              section data_compiler
-105   0000              section data_user
-106   0000              
-107   0000              SECTION DATA_END
-108   0000              
-109   0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-110   0000              
-111   0000              SECTION BSS
-112   0000              
-113   0000              IF __crt_org_bss
-114   0000              
-115   0000                 org __crt_org_bss
-116   0000              
-117   0000              ELSE
-118   0000              
-119   0000                 IF __crt_model
-120   0000              
-121   0000                    org -1
-122   0000              
-123   0000                 ENDIF
-124   0000              
-125   0000              ENDIF
-126   0000              
-127   0000  00          defb 0
-128   0001              
-129   0001              section BSS_UNINITIALIZED
-130   0000              
-131   0000              section bss_driver
-132   0000              section bss_font
-133   0000              section bss_clib
-134   0000                include "../../clib_bss.inc"
+100   0000                ;;section data_fcntl_stdio_heap_head
+101   0000                ;;section data_fcntl_stdio_heap_body
+102   0000                ;;section data_fcntl_stdio_heap_tail
+103   0000                ;;section data_fcntl_fdtable_body
+104   0000              section data_lib
+105   0000              section data_compiler
+106   0000              section data_user
+107   0000              
+108   0000              SECTION DATA_END
+109   0000              
+110   0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+111   0000              
+112   0000              SECTION BSS
+113   0000              
+114   0000              IF __crt_org_bss
+115   0000              
+116   0000                 org __crt_org_bss
+117   0000              
+118   0000              ELSE
+119   0000              
+120   0000                 IF __crt_model
+121   0000              
+122   0000                    org -1
+123   0000              
+124   0000                 ENDIF
+125   0000              
+126   0000              ENDIF
+127   0000              
+128   0000  00          defb 0
+129   0001              
+130   0001              section BSS_UNINITIALIZED
+131   0000              
+132   0000              section bss_driver
+133   0000              section bss_font
+134   0000              section bss_clib
+135   0000                include "../../clib_bss.inc"
 1     0000              
 2     0000              ;; clib bss segments ;;;;;;;;;;
 3     0000              
@@ -914,21 +915,21 @@
 15    0000              
 16    0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 17    0000              
-135   0000              section bss_lib
-136   0000              section bss_compiler
-137   0000              section bss_user
-138   0000              
-139   0000              SECTION BSS_END
-140   0000              
-141   0000              ;; end memory model ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-142   0000              
+136   0000              section bss_lib
+137   0000              section bss_compiler
+138   0000              section bss_user
+139   0000              
+140   0000              SECTION BSS_END
+141   0000              
+142   0000              ;; end memory model ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 143   0000              
-144   0000                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-145   0000              
-146   0000              ENDIF
-147   0000              
-148   0000              ;; end memory model ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-149   0000              
+144   0000              
+145   0000                 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+146   0000              
+147   0000              ENDIF
+148   0000              
+149   0000              ;; end memory model ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+150   0000              
 22    0000              
 23    0000              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 24    0000              ;; GLOBAL SYMBOLS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -1819,259 +1820,317 @@
 14    0000              extern bios_reset_init
 15    0000              extern bios_trap_illegal
 16    0000              
-17    0000              module page0
-18    0000              
-19    0000              ; Declares fixed addresses and startup routines
-20    0000              
-21    0000              ;
-22    0000              ; Page-0 memory layout
-23    0000              ;
-24    0000              
-25    0000              	;defs 0x0000 - ASMPC
-26    0000              ; address = 0x0000
-27    0000              ; !RESET and RST00
-28    0000  F3          	di						; from warm boot (rst00), interrupts may be enabled
-29    0001  C3 03 02    	jp	bios_reset_init
-30    0004              
-31    0004  00 00 00 00 	defs 0x0008 - ASMPC
-32    0008              	; address = 0x0008
-33    0008              	; RTS08
-34    0008              	;	di					; if you need interrupts disabled, do that here
-35    0008  C3 78 00    	jp	BiosFn1
-36    000B              
-37    000B              
-38    000B  00 00 00 00 00 
+17    0000              ifdef DEBUG
+18    0000              extern debug_save_registers
+19    0000              extern debug_infopoint
+20    0000              endif
+21    0000              
+22    0000              module page0
+23    0000              
+24    0000              ; Declares fixed addresses and startup routines
+25    0000              
+26    0000              ;
+27    0000              ; Page-0 memory layout
+28    0000              ;
+29    0000              
+30    0000              	;defs 0x0000 - ASMPC
+31    0000              ; address = 0x0000
+32    0000              ; !RESET and RST00
+33    0000  F3          	di						; from warm boot (rst00), interrupts may be enabled
+34    0001  C3 04 02    	jp	bios_reset_init
+35    0004              
+36    0004  00 00 00 00 	defs 0x0008 - ASMPC
+37    0008              	; address = 0x0008
+38    0008              	; RTS08
+39    0008              	;	di					; if you need interrupts disabled, do that here
+40    0008  C3 7B 00    	jp	BiosFn1
+41    000B              
+42    000B              
+43    000B  00 00 00 00 00 
                         	defs 0x0010 - ASMPC
-39    0010              	; address = 0x0010
-40    0010              	; RST10
-41    0010              	;	di					; if you need interrupts disabled, do that here
-42    0010  C3 78 00    	jp	BiosFn2
-43    0013              
-44    0013  00 00 00 00 00 
+44    0010              	; address = 0x0010
+45    0010              	; RST10
+46    0010              	;	di					; if you need interrupts disabled, do that here
+47    0010  C3 7B 00    	jp	BiosFn2
+48    0013              
+49    0013  00 00 00 00 00 
                         	defs 0x0018 - ASMPC
-45    0018              	; address = 0x0018
-46    0018              	; RST18
-47    0018              	;	di					; if you need interrupts disabled, do that here
-48    0018  C3 78 00    	jp	BiosFn3
-49    001B              
-50    001B              
-51    001B  00 00 00 00 00 
+50    0018              	; address = 0x0018
+51    0018              	; RST18
+52    0018              	;	di					; if you need interrupts disabled, do that here
+53    0018  C3 7B 00    	jp	BiosFn3
+54    001B              
+55    001B              
+56    001B  00 00 00 00 00 
                         	defs 0x0020 - ASMPC
-52    0020              	; address = 0x0020
-53    0020              	; RST20
-54    0020              	;	di					; if you need interrupts disabled, do that here
-55    0020  C3 78 00    	jp	BiosFn4
-56    0023              
-57    0023              
-58    0023  00 00 00 00 00 
+57    0020              	; address = 0x0020
+58    0020              	; RST20
+59    0020              	;	di					; if you need interrupts disabled, do that here
+60    0020  C3 7B 00    	jp	BiosFn4
+61    0023              
+62    0023              
+63    0023  00 00 00 00 00 
                         	defs 0x0028 - ASMPC
-59    0028              	; address = 0x0028
-60    0028              	; RST28
-61    0028              	;	di					; if you need interrupts disabled, do that here
-62    0028  C3 78 00    	jp	BiosFn5
-63    002B              
-64    002B              
-65    002B  00 00 00 00 00 
+64    0028              	; address = 0x0028
+65    0028              	; RST28
+66    0028              	;	di					; if you need interrupts disabled, do that here
+67    0028  C3 7B 00    	jp	BiosFn5
+68    002B              
+69    002B              
+70    002B  00 00 00 00 00 
                         	defs 0x0030 - ASMPC
-66    0030              	; address = 0x0030
-67    0030              	; RST30
-68    0030              	;	di					; if you need interrupts disabled, do that here
-69    0030  C3 78 00    	jp	BiosFn6
-70    0033              
-71    0033              
-72    0033  00 00 00 00 00 
+71    0030              	; address = 0x0030
+72    0030              	; RST30
+73    0030              	;	di					; if you need interrupts disabled, do that here
+74    0030  C3 7B 00    	jp	BiosFn6
+75    0033              
+76    0033              
+77    0033  00 00 00 00 00 
                         	defs 0x0038 - ASMPC
-73    0038              	; address = 0x0038
-74    0038              	; RST38 and IM1
-75    0038              	; used to trap illegal jumps and interrupt mode
-76    0038  F3          	di							; disable interrupts
-77    0039              ifdef DEBUG
-78    0039              	call debug_save_registers	; save cpu state
-79    0039              endif
-80    0039  C3 02 02    	jp	bios_trap_illegal		; call the handler for illegal calls.
-81    003C              
-82    003C              
-83    003C              ; bios vars
-84    003C  00 00 00 00 	defs 0x0040 - ASMPC
-85    0040              bios_var_ram_top_page:
-86    0040  00          	defb $00		; last valid ram page
-87    0041              bios_var_ram_top:
-88    0041  00 00       	defw $0000		; last valid ram address on last page
-89    0043              bios_var_ram_active_page:
-90    0043  00          	defb $00		; current active ram page
-91    0044              
-92    0044              
-93    0044  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+78    0038              	; address = 0x0038
+79    0038              	; RST38 and IM1
+80    0038              	; used to trap illegal jumps and interrupt mode
+81    0038  F3          	di							; disable interrupts
+82    0039              ifdef DEBUG
+83    0039              	call debug_save_registers	; save cpu state
+84    0039              endif
+85    0039  C3 03 02    	jp	bios_trap_illegal		; call the handler for illegal calls.
+86    003C              
+87    003C              
+88    003C              ; bios vars
+89    003C  00 00 00 00 	defs 0x0040 - ASMPC
+90    0040              bios_var_ram_top_page:
+91    0040  00          	defb $00		; last valid ram page
+92    0041              bios_var_ram_top:
+93    0041  00 00       	defw $0000		; last valid ram address on last page
+94    0043              bios_var_ram_active_page:
+95    0043  00          	defb $00		; current active ram page
+96    0044              
+97    0044              
+98    0044  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
       0064  00 00 
                         	defs 0x0066 - ASMPC
-94    0066              	; address = 0x0066
-95    0066              	; !NMI
-96    0066              ifdef DEBUG
-97    0066              	call debug_save_registers	; save cpu state
-98    0066              	call debug_info_point		; communicate InfoPoint to SystemController
-99    0066              endif
-100   0066  ED 45       	retn
-101   0068              
-102   0068              
-103   0068              
-104   0068              ; When a program calls an RST function its PC is stored on the SP.
-105   0068              ; The RST function can define an additional byte (or two) immediate after the RST instruction.
-106   0068              ; This extra information would have meaning for the RST operation.
-107   0068              
-108   0068              ; This method reads the single byte that follows the RST instruction
-109   0068              ; and adjusts the returns address to return control after that byte.
-110   0068              ; rst{n} defb $xx
-111   0068              ; pre-condition:
-112   0068              ;	The SP contains a direct return address used to return from this method
-113   0068              ;	and it contains the return address from where the RST method was called -
-114   0068              ;	that will be adjusted.
-115   0068              ; post-condition:
-116   0068              ;	Register a will contain the extra RST byte and the RST return address is adjusted.
-117   0068              bios_load_byte_instruction:
-118   0068  D1          	pop de		; this is the immediate return address and must be preserved.
-119   0069  E1          	pop	hl		; this is the RST return address and must be adjusted
-120   006A  7E          	ld a, (hl)	; get the extra byte
-121   006B  23          	inc hl		; set RST return address past the data byte
-122   006C  E5          	push hl		; put RST return address back on stack
-123   006D  D5          	push de		; as well as the immediate return address
-124   006E  C9          	ret
-125   006F              
-126   006F              ; This method reads two bytes (a word) that follows the RST instruction
-127   006F              ; and adjusts the returns address to return control after that word.
-128   006F              ; rst{n} defw $xxxx
-129   006F              ; pre-condition:
-130   006F              ;	The SP contains a direct return address used to return from this method
-131   006F              ;	and it contains the return address from where the RST method was called -
-132   006F              ;	that will be adjusted.
-133   006F              ;	The word bytes are little endian: so the first is LSB and the next is MSB.
-134   006F              ; post-condition:
-135   006F              ;	Register bc will contain the extra RST bytes and the RST return address is adjusted.
-136   006F              ;	Register c contains the first (lsb) and b contains the second (msb) byte after the RST instruction.
-137   006F              bios_load_word_instruction:
-138   006F  D1          	pop de		; this is the immediate return address and must be preserved.
-139   0070  E1          	pop	hl		; this is the RST return address and must be adjusted
-140   0071  4E          	ld c, (hl)	; get the first extra byte
-141   0072  23          	inc hl		; prepare to get the next data byte
-142   0073  46          	ld b, (hl)	; get the next extra byte
-143   0074  23          	inc hl		; set RST return address past the data word
-144   0075  E5          	push hl		; put RST return address back on stack
-145   0076  D5          	push de		; as well as the immediate return address
-146   0077  C9          	ret
-147   0078              
-148   0078              BiosFn1:
-149   0078              ; bios function #1
-150   0078              
-151   0078              BiosFn2:
-152   0078              ; bios function #2
-153   0078              
-154   0078              BiosFn3:
-155   0078              ; bios function #3
-156   0078              
-157   0078              BiosFn4:
-158   0078              ; bios function #4
-159   0078              
-160   0078              BiosFn5:
-161   0078              ; bios function #5
-162   0078              
-163   0078              BiosFn6:
-164   0078              ; bios function #6
-165   0078  76          	halt
-166   0079              
-167   0079              
-168   0079              ;
-169   0079              ; ISR Table (IM2) of 16-bit jump addresses (I=1) 256 bytes max
-170   0079              ;
-171   0079              
-172   0079              ; ISR Table is located at page 1 ($0100, I=1).
-173   0079              defc isr_table_address 	= $0100		; hi-byte is same as the isr_table_index
-174   0079              defc isr_table_index 	= 1         ; used to initialie I register
-175   0079              defc isr_table_address_end = isr_table_address + $0100	; 256 byte of isr table
-176   0079              
-177   0079  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-      0099  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-      00B9  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-      00D9  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-      00F9  00 00 00 00 00 00 00 
+99    0066              	; address = 0x0066
+100   0066              	; !NMI
+101   0066              ;ifdef DEBUG
+102   0066              ;	call debug_save_registers	; save cpu state
+103   0066  CD 78 00    	call debug_infopoint		; communicate InfoPoint to SystemController
+104   0069              ;endif
+105   0069  ED 45       	retn
+106   006B              
+107   006B              
+108   006B              
+109   006B              ; When a program calls an RST function its PC is stored on the SP.
+110   006B              ; The RST function can define an additional byte (or two) immediate after the RST instruction.
+111   006B              ; This extra information would have meaning for the RST operation.
+112   006B              
+113   006B              ; This method reads the single byte that follows the RST instruction
+114   006B              ; and adjusts the returns address to return control after that byte.
+115   006B              ; rst{n} defb $xx
+116   006B              ; pre-condition:
+117   006B              ;	The SP contains a direct return address used to return from this method
+118   006B              ;	and it contains the return address from where the RST method was called -
+119   006B              ;	that will be adjusted.
+120   006B              ; post-condition:
+121   006B              ;	Register a will contain the extra RST byte and the RST return address is adjusted.
+122   006B              bios_load_byte_instruction:
+123   006B  D1          	pop de		; this is the immediate return address and must be preserved.
+124   006C  E1          	pop	hl		; this is the RST return address and must be adjusted
+125   006D  7E          	ld a, (hl)	; get the extra byte
+126   006E  23          	inc hl		; set RST return address past the data byte
+127   006F  E5          	push hl		; put RST return address back on stack
+128   0070  D5          	push de		; as well as the immediate return address
+129   0071  C9          	ret
+130   0072              
+131   0072              ; This method reads two bytes (a word) that follows the RST instruction
+132   0072              ; and adjusts the returns address to return control after that word.
+133   0072              ; rst{n} defw $xxxx
+134   0072              ; pre-condition:
+135   0072              ;	The SP contains a direct return address used to return from this method
+136   0072              ;	and it contains the return address from where the RST method was called -
+137   0072              ;	that will be adjusted.
+138   0072              ;	The word bytes are little endian: so the first is LSB and the next is MSB.
+139   0072              ; post-condition:
+140   0072              ;	Register bc will contain the extra RST bytes and the RST return address is adjusted.
+141   0072              ;	Register c contains the first (lsb) and b contains the second (msb) byte after the RST instruction.
+142   0072              bios_load_word_instruction:
+143   0072  D1          	pop de		; this is the immediate return address and must be preserved.
+144   0073  E1          	pop	hl		; this is the RST return address and must be adjusted
+145   0074  4E          	ld c, (hl)	; get the first extra byte
+146   0075  23          	inc hl		; prepare to get the next data byte
+147   0076  46          	ld b, (hl)	; get the next extra byte
+148   0077  23          	inc hl		; set RST return address past the data word
+149   0078  E5          	push hl		; put RST return address back on stack
+150   0079  D5          	push de		; as well as the immediate return address
+151   007A  C9          	ret
+152   007B              
+153   007B              BiosFn1:
+154   007B              ; bios function #1
+155   007B              
+156   007B              BiosFn2:
+157   007B              ; bios function #2
+158   007B              
+159   007B              BiosFn3:
+160   007B              ; bios function #3
+161   007B              
+162   007B              BiosFn4:
+163   007B              ; bios function #4
+164   007B              
+165   007B              BiosFn5:
+166   007B              ; bios function #5
+167   007B              
+168   007B              BiosFn6:
+169   007B              ; bios function #6
+170   007B  76          	halt
+171   007C              
+172   007C              
+173   007C              ;
+174   007C              ; ISR Table (IM2) of 16-bit jump addresses (I=1) 256 bytes max
+175   007C              ;
+176   007C              
+177   007C              ; ISR Table is located at page 1 ($0100, I=1).
+178   007C              defc isr_table_address 	= $0100		; hi-byte is same as the isr_table_index
+179   007C              defc isr_table_index 	= 1         ; used to initialie I register
+180   007C              defc isr_table_address_end = isr_table_address + $0100	; 256 byte of isr table
+181   007C              
+182   007C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      009C  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      00BC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      00DC  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+      00FC  00 00 00 00 
                         defs isr_table_address - ASMPC
-178   0100              
-179   0100              ; The lo address byte (A1-A7: A0=0) is put on the databus by the interrupting device.
-180   0100              ; The hi address byte (A8-A15) is supplied by the I register that is initialized to (page) 1.
-181   0100  00 02       defw	isr_null_vector		; Address of ISR #0
-182   0102  00 02       defw	isr_null_vector		; Address of ISR #1
-183   0104  00 02       defw	isr_null_vector		; Address of ISR #2
-184   0106  00 02       defw	isr_null_vector		; Address of ISR #3
-185   0108  00 02       defw	isr_null_vector		; Address of ISR #4
-186   010A  00 02       defw	isr_null_vector		; Address of ISR #5
-187   010C  00 02       defw	isr_null_vector		; Address of ISR #6
-188   010E  00 02       defw	isr_null_vector		; Address of ISR #7
-189   0110  00 02       defw	isr_null_vector		; Address of ISR #8
-190   0112  00 02       defw	isr_null_vector		; Address of ISR #9
-191   0114  00 02       defw	isr_null_vector		; Address of ISR #10
-192   0116  00 02       defw	isr_null_vector		; Address of ISR #11
-193   0118  00 02       defw	isr_null_vector		; Address of ISR #12
-194   011A  00 02       defw	isr_null_vector		; Address of ISR #13
-195   011C  00 02       defw	isr_null_vector		; Address of ISR #14
-196   011E  00 02       defw	isr_null_vector		; Address of ISR #15
-197   0120  00 02       defw	isr_null_vector		; Address of ISR #16
-198   0122  00 02       defw	isr_null_vector		; Address of ISR #17
-199   0124  00 02       defw	isr_null_vector		; Address of ISR #18
-200   0126  00 02       defw	isr_null_vector		; Address of ISR #19
-201   0128  00 02       defw	isr_null_vector		; Address of ISR #20
-202   012A  00 02       defw	isr_null_vector		; Address of ISR #21
-203   012C  00 02       defw	isr_null_vector		; Address of ISR #22
-204   012E  00 02       defw	isr_null_vector		; Address of ISR #23
-205   0130  00 02       defw	isr_null_vector		; Address of ISR #24
-206   0132  00 02       defw	isr_null_vector		; Address of ISR #25
-207   0134  00 02       defw	isr_null_vector		; Address of ISR #26
-208   0136  00 02       defw	isr_null_vector		; Address of ISR #27
-209   0138  00 02       defw	isr_null_vector		; Address of ISR #28
-210   013A  00 02       defw	isr_null_vector		; Address of ISR #29
-211   013C  00 02       defw	isr_null_vector		; Address of ISR #30
-212   013E  00 02       defw	isr_null_vector		; Address of ISR #31
-213   0140  00 02       defw	isr_null_vector		; Address of ISR #32
-214   0142  00 02       defw	isr_null_vector		; Address of ISR #33
-215   0144  00 02       defw	isr_null_vector		; Address of ISR #34
-216   0146  00 02       defw	isr_null_vector		; Address of ISR #35
-217   0148  00 02       defw	isr_null_vector		; Address of ISR #36
-218   014A  00 02       defw	isr_null_vector		; Address of ISR #37
-219   014C  00 02       defw	isr_null_vector		; Address of ISR #38
-220   014E  00 02       defw	isr_null_vector		; Address of ISR #39
-221   0150  00 02       defw	isr_null_vector		; Address of ISR #40
-222   0152  00 02       defw	isr_null_vector		; Address of ISR #41
-223   0154  00 02       defw	isr_null_vector		; Address of ISR #42
-224   0156  00 02       defw	isr_null_vector		; Address of ISR #43
-225   0158  00 02       defw	isr_null_vector		; Address of ISR #44
-226   015A  00 02       defw	isr_null_vector		; Address of ISR #45
-227   015C  00 02       defw	isr_null_vector		; Address of ISR #46
-228   015E  00 02       defw	isr_null_vector		; Address of ISR #47
-229   0160  00 02       defw	isr_null_vector		; Address of ISR #48
-230   0162  00 02       defw	isr_null_vector		; Address of ISR #49
-231   0164  00 02       defw	isr_null_vector		; Address of ISR #50
-232   0166  00 02       defw	isr_null_vector		; Address of ISR #51
-233   0168  00 02       defw	isr_null_vector		; Address of ISR #52
-234   016A  00 02       defw	isr_null_vector		; Address of ISR #53
-235   016C  00 02       defw	isr_null_vector		; Address of ISR #54
-236   016E  00 02       defw	isr_null_vector		; Address of ISR #55
-237   0170  00 02       defw	isr_null_vector		; Address of ISR #56
-238   0172  00 02       defw	isr_null_vector		; Address of ISR #57
-239   0174  00 02       defw	isr_null_vector		; Address of ISR #58
-240   0176  00 02       defw	isr_null_vector		; Address of ISR #59
-241   0178  00 02       defw	isr_null_vector		; Address of ISR #60
-242   017A  00 02       defw	isr_null_vector		; Address of ISR #61
-243   017C  00 02       defw	isr_null_vector		; Address of ISR #62
-244   017E  00 02       defw	isr_null_vector		; Address of ISR #63
-245   0180              
-246   0180              ; reserve room for complete table
-247   0180  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-      01A0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-      01C0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-      01E0  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
-                        defs isr_table_address_end - ASMPC
-248   0200              
-249   0200              ; for full table this would be the last ISR vector
-250   0200              ;defw	isr_null_vector		; Address of ISR #127
-251   0200              
-252   0200              
+183   0100              
+184   0100              ; The lo address byte (A1-A7: A0=0) is put on the databus by the interrupting device.
+185   0100              ; The hi address byte (A8-A15) is supplied by the I register that is initialized to (page) 1.
+186   0100  00 02       defw	isr_null_vector		; Address of ISR #0
+187   0102  00 02       defw	isr_null_vector		; Address of ISR #1
+188   0104  00 02       defw	isr_null_vector		; Address of ISR #2
+189   0106  00 02       defw	isr_null_vector		; Address of ISR #3
+190   0108  00 02       defw	isr_null_vector		; Address of ISR #4
+191   010A  00 02       defw	isr_null_vector		; Address of ISR #5
+192   010C  00 02       defw	isr_null_vector		; Address of ISR #6
+193   010E  00 02       defw	isr_null_vector		; Address of ISR #7
+194   0110  00 02       defw	isr_null_vector		; Address of ISR #8
+195   0112  00 02       defw	isr_null_vector		; Address of ISR #9
+196   0114  00 02       defw	isr_null_vector		; Address of ISR #10
+197   0116  00 02       defw	isr_null_vector		; Address of ISR #11
+198   0118  00 02       defw	isr_null_vector		; Address of ISR #12
+199   011A  00 02       defw	isr_null_vector		; Address of ISR #13
+200   011C  00 02       defw	isr_null_vector		; Address of ISR #14
+201   011E  00 02       defw	isr_null_vector		; Address of ISR #15
+202   0120  00 02       defw	isr_null_vector		; Address of ISR #16
+203   0122  00 02       defw	isr_null_vector		; Address of ISR #17
+204   0124  00 02       defw	isr_null_vector		; Address of ISR #18
+205   0126  00 02       defw	isr_null_vector		; Address of ISR #19
+206   0128  00 02       defw	isr_null_vector		; Address of ISR #20
+207   012A  00 02       defw	isr_null_vector		; Address of ISR #21
+208   012C  00 02       defw	isr_null_vector		; Address of ISR #22
+209   012E  00 02       defw	isr_null_vector		; Address of ISR #23
+210   0130  00 02       defw	isr_null_vector		; Address of ISR #24
+211   0132  00 02       defw	isr_null_vector		; Address of ISR #25
+212   0134  00 02       defw	isr_null_vector		; Address of ISR #26
+213   0136  00 02       defw	isr_null_vector		; Address of ISR #27
+214   0138  00 02       defw	isr_null_vector		; Address of ISR #28
+215   013A  00 02       defw	isr_null_vector		; Address of ISR #29
+216   013C  00 02       defw	isr_null_vector		; Address of ISR #30
+217   013E  00 02       defw	isr_null_vector		; Address of ISR #31
+218   0140  00 02       defw	isr_null_vector		; Address of ISR #32
+219   0142  00 02       defw	isr_null_vector		; Address of ISR #33
+220   0144  00 02       defw	isr_null_vector		; Address of ISR #34
+221   0146  00 02       defw	isr_null_vector		; Address of ISR #35
+222   0148  00 02       defw	isr_null_vector		; Address of ISR #36
+223   014A  00 02       defw	isr_null_vector		; Address of ISR #37
+224   014C  00 02       defw	isr_null_vector		; Address of ISR #38
+225   014E  00 02       defw	isr_null_vector		; Address of ISR #39
+226   0150  00 02       defw	isr_null_vector		; Address of ISR #40
+227   0152  00 02       defw	isr_null_vector		; Address of ISR #41
+228   0154  00 02       defw	isr_null_vector		; Address of ISR #42
+229   0156  00 02       defw	isr_null_vector		; Address of ISR #43
+230   0158  00 02       defw	isr_null_vector		; Address of ISR #44
+231   015A  00 02       defw	isr_null_vector		; Address of ISR #45
+232   015C  00 02       defw	isr_null_vector		; Address of ISR #46
+233   015E  00 02       defw	isr_null_vector		; Address of ISR #47
+234   0160  00 02       defw	isr_null_vector		; Address of ISR #48
+235   0162  00 02       defw	isr_null_vector		; Address of ISR #49
+236   0164  00 02       defw	isr_null_vector		; Address of ISR #50
+237   0166  00 02       defw	isr_null_vector		; Address of ISR #51
+238   0168  00 02       defw	isr_null_vector		; Address of ISR #52
+239   016A  00 02       defw	isr_null_vector		; Address of ISR #53
+240   016C  00 02       defw	isr_null_vector		; Address of ISR #54
+241   016E  00 02       defw	isr_null_vector		; Address of ISR #55
+242   0170  00 02       defw	isr_null_vector		; Address of ISR #56
+243   0172  00 02       defw	isr_null_vector		; Address of ISR #57
+244   0174  00 02       defw	isr_null_vector		; Address of ISR #58
+245   0176  00 02       defw	isr_null_vector		; Address of ISR #59
+246   0178  00 02       defw	isr_null_vector		; Address of ISR #60
+247   017A  00 02       defw	isr_null_vector		; Address of ISR #61
+248   017C  00 02       defw	isr_null_vector		; Address of ISR #62
+249   017E  00 02       defw	isr_null_vector		; Address of ISR #63
+250   0180  00 02       defw	isr_null_vector		; Address of ISR #64
+251   0182  00 02       defw	isr_null_vector		; Address of ISR #65
+252   0184  00 02       defw	isr_null_vector		; Address of ISR #66
+253   0186  00 02       defw	isr_null_vector		; Address of ISR #67
+254   0188  00 02       defw	isr_null_vector		; Address of ISR #68
+255   018A  00 02       defw	isr_null_vector		; Address of ISR #69
+256   018C  00 02       defw	isr_null_vector		; Address of ISR #70
+257   018E  00 02       defw	isr_null_vector		; Address of ISR #71
+258   0190  00 02       defw	isr_null_vector		; Address of ISR #72
+259   0192  00 02       defw	isr_null_vector		; Address of ISR #73
+260   0194  00 02       defw	isr_null_vector		; Address of ISR #74
+261   0196  00 02       defw	isr_null_vector		; Address of ISR #75
+262   0198  00 02       defw	isr_null_vector		; Address of ISR #76
+263   019A  00 02       defw	isr_null_vector		; Address of ISR #77
+264   019C  00 02       defw	isr_null_vector		; Address of ISR #78
+265   019E  00 02       defw	isr_null_vector		; Address of ISR #79
+266   01A0  00 02       defw	isr_null_vector		; Address of ISR #80
+267   01A2  00 02       defw	isr_null_vector		; Address of ISR #81
+268   01A4  00 02       defw	isr_null_vector		; Address of ISR #82
+269   01A6  00 02       defw	isr_null_vector		; Address of ISR #83
+270   01A8  00 02       defw	isr_null_vector		; Address of ISR #84
+271   01AA  00 02       defw	isr_null_vector		; Address of ISR #85
+272   01AC  00 02       defw	isr_null_vector		; Address of ISR #86
+273   01AE  00 02       defw	isr_null_vector		; Address of ISR #87
+274   01B0  00 02       defw	isr_null_vector		; Address of ISR #88
+275   01B2  00 02       defw	isr_null_vector		; Address of ISR #89
+276   01B4  00 02       defw	isr_null_vector		; Address of ISR #90
+277   01B6  00 02       defw	isr_null_vector		; Address of ISR #91
+278   01B8  00 02       defw	isr_null_vector		; Address of ISR #92
+279   01BA  00 02       defw	isr_null_vector		; Address of ISR #93
+280   01BC  00 02       defw	isr_null_vector		; Address of ISR #94
+281   01BE  00 02       defw	isr_null_vector		; Address of ISR #95
+282   01C0  00 02       defw	isr_null_vector		; Address of ISR #96
+283   01C2  00 02       defw	isr_null_vector		; Address of ISR #97
+284   01C4  00 02       defw	isr_null_vector		; Address of ISR #98
+285   01C6  00 02       defw	isr_null_vector		; Address of ISR #99
+286   01C8  00 02       defw	isr_null_vector		; Address of ISR #100
+287   01CA  00 02       defw	isr_null_vector		; Address of ISR #101
+288   01CC  00 02       defw	isr_null_vector		; Address of ISR #102
+289   01CE  00 02       defw	isr_null_vector		; Address of ISR #103
+290   01D0  00 02       defw	isr_null_vector		; Address of ISR #104
+291   01D2  00 02       defw	isr_null_vector		; Address of ISR #105
+292   01D4  00 02       defw	isr_null_vector		; Address of ISR #106
+293   01D6  00 02       defw	isr_null_vector		; Address of ISR #107
+294   01D8  00 02       defw	isr_null_vector		; Address of ISR #108
+295   01DA  00 02       defw	isr_null_vector		; Address of ISR #109
+296   01DC  00 02       defw	isr_null_vector		; Address of ISR #110
+297   01DE  00 02       defw	isr_null_vector		; Address of ISR #111
+298   01E0  00 02       defw	isr_null_vector		; Address of ISR #112
+299   01E2  00 02       defw	isr_null_vector		; Address of ISR #113
+300   01E4  00 02       defw	isr_null_vector		; Address of ISR #114
+301   01E6  00 02       defw	isr_null_vector		; Address of ISR #115
+302   01E8  00 02       defw	isr_null_vector		; Address of ISR #116
+303   01EA  00 02       defw	isr_null_vector		; Address of ISR #117
+304   01EC  00 02       defw	isr_null_vector		; Address of ISR #118
+305   01EE  00 02       defw	isr_null_vector		; Address of ISR #119
+306   01F0  00 02       defw	isr_null_vector		; Address of ISR #120
+307   01F2  00 02       defw	isr_null_vector		; Address of ISR #121
+308   01F4  00 02       defw	isr_null_vector		; Address of ISR #122
+309   01F6  00 02       defw	isr_null_vector		; Address of ISR #123
+310   01F8  00 02       defw	isr_null_vector		; Address of ISR #124
+311   01FA  00 02       defw	isr_null_vector		; Address of ISR #125
+312   01FC  00 02       defw	isr_null_vector		; Address of ISR #126
+313   01FE  00 02       defw	isr_null_vector		; Address of ISR #127
+314   0200              
 627   0200                 include "startup/bios.asm"
 1     0200              ;
 2     0200              ; bios.asm
@@ -2094,127 +2153,285 @@
 19    0200              ifdef DEBUG
 20    0200              	halt			; break if debug build
 21    0200              endif
-22    0200  ED 4D       	reti;			; do nothing, return from interrupt
-23    0202              
-24    0202              ;	hl contains the source address of illegal call
-25    0202              bios_trap_illegal:
-26    0202              ifdef DEBUG
-27    0202              	halt			; break if debug build
-28    0202              endif
-29    0202  C7          	rst $00			; reset
-30    0203              
-31    0203              ; Interrupts are disabled.
-32    0203              bios_reset_init:
-33    0203  AF          	xor a
-34    0204  47          	ld b, a
-35    0205  4F          	ld c, a
-36    0206  57          	ld d, a
-37    0207  5F          	ld e, a
-38    0208  67          	ld h, a
-39    0209  6F          	ld l, a
-40    020A  DD 21 00 00 	ld ix, $0000
-41    020E  FD 21 00 00 	ld iy, $0000
-42    0212              
-43    0212  ED 57       	ld	a, i			; cold boot/hard reset would init I to $00
-44    0214  FE 00       	cp	a, $00			; is I zero?
-45    0216  20 10       	jr  nz, resetWarm	; nope - warm boot
-46    0218              
-47    0218              	; initialze ram
-48    0218  21 FF FF    	ld hl, $FFFF						; hard-coded ram top (64k)
-49    021B  AF          	xor a								; memory page $00
-50    021C  22 41 00    	ld (bios_var_ram_top), hl			; init bios vars
-51    021F  32 43 00    	ld (bios_var_ram_active_page), a	; init to first page
-52    0222              
-53    0222              	; !! TEMP !!
-54    0222              	;ld hl, bios_memory_page_size	; start of program memory (first page is reserved)
-55    0222              	;call bios_memory_init			; call routine to clear/fill program memory
-56    0222              
-57    0222              	; initialize Interrupt mode
-58    0222  3E 01       	ld	a, isr_table_index      ; load I with page address for isr_vector_table
-59    0224  ED 47       	ld	i, a			        ; for the ISR jump table (at $0100)
-60    0226  ED 5E       	im	2				        ; for IM2
-61    0228              
-62    0228              ; bios_reset_init jumps here if it detects a warm reset
-63    0228              .resetWarm
-64    0228              	; TODO reset all registers (except I and R)
-65    0228  2A 41 00    	ld hl, (bios_var_ram_top)	; load ram-top
-66    022B  F9          	ld sp, hl					; Stack Pointer at Ram Top
-67    022C              
-68    022C  FB          	ei					; turn on interrupts
-69    022D  C3 30 02    	jp __Start			; jmp to C main entry point
-70    0230              
-71    0230              
-72    0230              
-73    0230              
-74    0230              
-75    0230              
-76    0230              
-628   0230              
-629   0230              
-630   0230              ;**************************************************************
-631   0230              ENDIF
-632   0230              ;**************************************************************
-633   0230              
-634   0230              __Start:
-635   0230                 ; parse command line
-636   0230                 ; (optional)
-637   0230              
-638   0230                 ; initialize data section
-639   0230                 include "../clib_init_data.inc"
-1     0230              
-2     0230                 ; initialize data section
-3     0230                 ; data section is always at least one byte
-4     0230              
-5     0230                 IF (__crt_model = 1)
-6     0230              
-7     0230                    ; rom model + data section is not compressed
-8     0230              
-9     0230                    EXTERN __CODE_END_head
-10    0230                    EXTERN __DATA_head, __DATA_END_tail
-11    0230              
-12    0230                    ld hl,__CODE_END_head
-13    0230                    ld de,__DATA_head
-14    0230                    ld bc,__DATA_END_tail - __DATA_head
-15    0230              
-16    0230                    ldir
-17    0230              
-18    0230                 ENDIF
-19    0230              
-20    0230                 IF (__crt_model >= 2)
-21    0230              
-22    0230                    ; rom model + data section is compressed
-23    0230              
-24    0230                    EXTERN __CODE_END_head, __DATA_head
-25    0230              
-26    0230                    ld hl,__CODE_END_head
-27    0230                    ld de,__DATA_head
-28    0230              
-29    0230                    EXTERN asm_dzx7_standard
-30    0230                    call asm_dzx7_standard
-31    0230              
-32    0230                 ENDIF
-33    0230              
-640   0230              
-641   0230                 ; initialize bss section
-642   0230                 include "../clib_init_bss.inc"
-1     0230              
-2     0230                 ; initialize bss section
-3     0230              
-4     0230                 IF (__crt_model | __crt_initialize_bss)
-5     0230              
-6     0230                       EXTERN asm_memset
-7     0230                       EXTERN __BSS_UNINITIALIZED_tail, __BSS_END_tail
-8     0230              
-9     0230                       ld hl,__BSS_UNINITIALIZED_tail
-10    0230                       ld bc,__BSS_END_tail - __BSS_UNINITIALIZED_tail
-11    0230              
-12    0230                       ld e,0
-13    0230                       call asm_memset
-14    0230              
-15    0230                 ENDIF
-16    0230              
-643   0230              
-644   0230              SECTION code_crt_init          ; user and library initialization
+22    0200  FB          	ei				; lets do that again
+23    0201  ED 4D       	reti			; do nothing, return from interrupt
+24    0203              
+25    0203              ;	hl contains the source address of illegal call
+26    0203              bios_trap_illegal:
+27    0203              ifdef DEBUG
+28    0203              	halt			; break if debug build
+29    0203              endif
+30    0203  C7          	rst $00			; reset
+31    0204              
+32    0204              ; Interrupts are disabled.
+33    0204              bios_reset_init:
+34    0204  AF          	xor a
+35    0205  47          	ld b, a
+36    0206  4F          	ld c, a
+37    0207  57          	ld d, a
+38    0208  5F          	ld e, a
+39    0209  67          	ld h, a
+40    020A  6F          	ld l, a
+41    020B  DD 21 00 00 	ld ix, $0000
+42    020F  FD 21 00 00 	ld iy, $0000
+43    0213              
+44    0213  ED 57       	ld	a, i			; cold boot/hard reset would init I to $00
+45    0215  FE 00       	cp	a, $00			; is I zero?
+46    0217  20 10       	jr  nz, resetWarm	; nope - warm boot
+47    0219              
+48    0219              	; initialze ram
+49    0219  21 FF FF    	ld hl, $FFFF						; hard-coded ram top (64k)
+50    021C  AF          	xor a								; memory page $00
+51    021D  22 41 00    	ld (bios_var_ram_top), hl			; init bios vars
+52    0220  32 43 00    	ld (bios_var_ram_active_page), a	; init to first page
+53    0223              
+54    0223              	; !! TEMP !!
+55    0223              	;ld hl, bios_memory_page_size	; start of program memory (first page is reserved)
+56    0223              	;call bios_memory_init			; call routine to clear/fill program memory
+57    0223              
+58    0223              	; initialize Interrupt mode
+59    0223  3E 01       	ld	a, isr_table_index      ; load I with page address for isr_vector_table
+60    0225  ED 47       	ld	i, a			        ; for the ISR jump table (at $0100)
+61    0227  ED 5E       	im	2				        ; for IM2
+62    0229              
+63    0229              ; bios_reset_init jumps here if it detects a warm reset
+64    0229              .resetWarm
+65    0229              	; TODO reset all registers (except I and R)
+66    0229  2A 41 00    	ld hl, (bios_var_ram_top)	; load ram-top
+67    022C  F9          	ld sp, hl					; Stack Pointer at Ram Top
+68    022D              
+69    022D  FB          	ei					; turn on interrupts
+70    022E  C3 8A 00    	jp __Start			; jmp to C main entry point
+71    0231              
+72    0231              
+73    0231              
+74    0231              
+75    0231              
+76    0231              
+77    0231              
+628   0231                 include "startup/debug.asm"
+1     0231              ;
+2     0231              ; debug routines
+3     0231              ;
+4     0231              
+5     0231              ;ifdef DEBUG
+6     0231              
+7     0231              public debug_infopoint
+8     0231              public debug_save_registers
+9     0231              ;public debug_restore_registers
+10    0231              ;public debug_restore_registers_all
+11    0231              
+12    0231              section zalt_debug
+13    0000              
+14    0000              ; IO port on the SystemController that is used for debug InfoPoints
+15    0000              defc	debug_system_controller_port	=	$00
+16    0000              
+17    0000              ; (2 sets of 4 regs + 2 index regs and 2 cpu regs) times 2 bytes (24 bytes total)
+18    0000              defc	debug_vars_size	= 24
+19    0000              
+20    0000              ; allocate space for debug vars
+21    0000              debug_vars:
+22    0000  18 00       defb debug_vars_size, $00
+23    0002              
+24    0002              defc	debug_var_base	=	debug_vars
+25    0002              defc	debug_var_af	=	debug_var_base	+	$00
+26    0002              defc	debug_var_bc	=	debug_var_base	+	$02
+27    0002              defc	debug_var_de	=	debug_var_base	+	$04
+28    0002              defc	debug_var_hl	=	debug_var_base	+	$06
+29    0002              defc	debug_var_ix	=	debug_var_base	+	$08
+30    0002              defc	debug_var_iy	=	debug_var_base	+	$0A
+31    0002              defc	debug_var_sp	=	debug_var_base	+	$0C
+32    0002              defc	debug_var_pc	=	debug_var_base	+	$0E
+33    0002              defc	debug_var_af2	=	debug_var_base	+	$10
+34    0002              defc	debug_var_bc2	=	debug_var_base	+	$12
+35    0002              defc	debug_var_de2	=	debug_var_base	+	$14
+36    0002              defc	debug_var_hl2	=	debug_var_base	+	$18
+37    0002              
+38    0002              
+39    0002              ; Saves all registers in debug vars.
+40    0002              ; Corrects for calling this sub-routine. So SP is saved as if before this call.
+41    0002              ; pre-condition:
+42    0002              ;	call-ret
+43    0002              ; post-condition:
+44    0002              ;	All registers retain their values (alternates also).
+45    0002              debug_save_registers:
+46    0002              	; bc, de and hl
+47    0002  ED 43 00 00 	ld (debug_var_bc), bc	; store bc
+48    0006  ED 53 00 00 	ld (debug_var_de), de	; store de
+49    000A  22 00 00    	ld (debug_var_hl), hl	; store hl
+50    000D  D9          	exx						; switch to alternate registers
+51    000E  ED 43 00 00 	ld (debug_var_bc2), bc	; store bc'
+52    0012  ED 53 00 00 	ld (debug_var_de2), de	; store de'
+53    0016  22 00 00    	ld (debug_var_hl2), hl	; store hl'
+54    0019  D9          	exx						; switch back
+55    001A  DD 22 00 00 	ld (debug_var_ix), ix	; store ix
+56    001E  FD 22 00 00 	ld (debug_var_iy), iy	; store iy
+57    0022              	; pc
+58    0022  E3          	ex (sp), hl				; swap hl onto the stack and get return address (pc)
+59    0023  22 00 00    	ld (debug_var_pc), hl	; store pc
+60    0026              	; sp
+61    0026  E1          	pop hl					; sp is now as before when we were called
+62    0027  ED 73 00 00 	ld (debug_var_sp), sp	; store sp
+63    002B  2A 00 00    	ld hl, (debug_var_pc)	; load saved pc
+64    002E  E5          	push hl					; restore return address
+65    002F              	; af
+66    002F  F5          	push af					; ld hl, af
+67    0030  E1          	pop hl
+68    0031  22 00 00    	ld (debug_var_af), hl	; store af
+69    0034              	; af'
+70    0034  08          	ex af, af				; switch to alternate af
+71    0035  F5          	push af					; ld hl, af
+72    0036  E1          	pop hl
+73    0037  22 00 00    	ld (debug_var_af2), hl	; store af'
+74    003A  08          	ex af, af				; switch af back
+75    003B  2A 00 00    	ld hl, (debug_var_hl)	; restore hl value
+76    003E  C9          	ret
+77    003F              
+78    003F              
+79    003F              ; Restores all registers (incl. alternates) to saved values (debug_save_registers).
+80    003F              ; ALSO RESTORES PC AND SP!
+81    003F              ; THIS MEANS THAT THE RETURN ADDRESS IS CHANGED TO THE SAVED PC VALUE!!
+82    003F              ; AND THE SP IS ALSO RESTORED TO THE SAVED VALUE!!
+83    003F              debug_restore_registers_all:
+84    003F  ED 7B 00 00 	ld sp, (debug_var_sp)	; load saved sp value
+85    0043  2A 00 00    	ld hl, (debug_var_pc)	; load the saved pc value
+86    0046  E5          	push hl					; set as new return address
+87    0047              
+88    0047              	; ... and we're doomed
+89    0047              
+90    0047              	; VVVVV fall thru! VVVVV
+91    0047              
+92    0047              ; Restores all registers (incl. alternates) to saved values (debug_save_registers).
+93    0047              ; Does not restore pc and sp!
+94    0047              debug_restore_registers:
+95    0047              	; af'
+96    0047  08          	ex af, af
+97    0048  2A 00 00    	ld hl, (debug_var_af2)
+98    004B  E5          	push hl
+99    004C  F1          	pop af
+100   004D              
+101   004D              	; af
+102   004D  08          	ex af, af
+103   004E  2A 00 00    	ld hl, (debug_var_af)
+104   0051  E5          	push hl
+105   0052  F1          	pop af
+106   0053              
+107   0053              	; bc', de', hl'
+108   0053  D9          	exx
+109   0054  2A 00 00    	ld hl, (debug_var_bc2)
+110   0057  44          	ld b, h
+111   0058  4D          	ld c, l
+112   0059  2A 00 00    	ld hl, (debug_var_de2)
+113   005C  54          	ld d, h
+114   005D  5D          	ld e, l
+115   005E  2A 00 00    	ld hl, (debug_var_hl2)
+116   0061              
+117   0061              	; bc, de, hl
+118   0061  D9          	exx
+119   0062  2A 00 00    	ld hl, (debug_var_bc)
+120   0065  44          	ld b, h
+121   0066  4D          	ld c, l
+122   0067  2A 00 00    	ld hl, (debug_var_de)
+123   006A  54          	ld d, h
+124   006B  5D          	ld e, l
+125   006C  2A 00 00    	ld hl, (debug_var_hl)
+126   006F              
+127   006F              	; ix and iy
+128   006F  DD 2A 00 00 	ld ix, (debug_var_ix)
+129   0073  FD 2A 00 00 	ld iy, (debug_var_iy)
+130   0077  C9          	ret
+131   0078              
+132   0078              
+133   0078              ; Communicates with the System Controller to relay the information that makes up an InfoPoint.
+134   0078              ; Mainly CPU-register values. debug_save_registers must be called first.
+135   0078              ; The SystemController can halt (BUSREQ) the CPU in order to retrieve data from memory (DMA).
+136   0078              debug_infopoint:
+137   0078  01 00 00    	ld bc, debug_system_controller_port	; set io port
+138   007B              
+139   007B              	; for now we only check for no-command (zero)
+140   007B  ED 78       	in a, (c)							; ask system controller if we're debugging
+141   007D              ;	ret z								; exit if not so
+142   007D              
+143   007D              	; prepare to dump registers
+144   007D  1E 18       	ld e, debug_vars_size				; size of register value block
+145   007F  21 00 00    	ld hl, debug_vars					; start address of register value block
+146   0082              
+147   0082              .debug_infopoint_loop
+148   0082  7E          	ld a, (hl)
+149   0083  ED 79       	out (c), a
+150   0085  23          	inc hl
+151   0086  1D          	dec e
+152   0087  20 F9       	jr nz, debug_infopoint_loop
+153   0089              
+154   0089  C9          	ret
+155   008A              
+156   008A              ;endif	; DEBUG
+157   008A              
+629   008A              
+630   008A              ;**************************************************************
+631   008A              ENDIF
+632   008A              ;**************************************************************
+633   008A              
+634   008A              __Start:
+635   008A                 ; parse command line
+636   008A                 ; (optional)
+637   008A              
+638   008A                 ; initialize data section
+639   008A                 include "../clib_init_data.inc"
+1     008A              
+2     008A                 ; initialize data section
+3     008A                 ; data section is always at least one byte
+4     008A              
+5     008A                 IF (__crt_model = 1)
+6     008A              
+7     008A                    ; rom model + data section is not compressed
+8     008A              
+9     008A                    EXTERN __CODE_END_head
+10    008A                    EXTERN __DATA_head, __DATA_END_tail
+11    008A              
+12    008A                    ld hl,__CODE_END_head
+13    008A                    ld de,__DATA_head
+14    008A                    ld bc,__DATA_END_tail - __DATA_head
+15    008A              
+16    008A                    ldir
+17    008A              
+18    008A                 ENDIF
+19    008A              
+20    008A                 IF (__crt_model >= 2)
+21    008A              
+22    008A                    ; rom model + data section is compressed
+23    008A              
+24    008A                    EXTERN __CODE_END_head, __DATA_head
+25    008A              
+26    008A                    ld hl,__CODE_END_head
+27    008A                    ld de,__DATA_head
+28    008A              
+29    008A                    EXTERN asm_dzx7_standard
+30    008A                    call asm_dzx7_standard
+31    008A              
+32    008A                 ENDIF
+33    008A              
+640   008A              
+641   008A                 ; initialize bss section
+642   008A                 include "../clib_init_bss.inc"
+1     008A              
+2     008A                 ; initialize bss section
+3     008A              
+4     008A                 IF (__crt_model | __crt_initialize_bss)
+5     008A              
+6     008A                       EXTERN asm_memset
+7     008A                       EXTERN __BSS_UNINITIALIZED_tail, __BSS_END_tail
+8     008A              
+9     008A                       ld hl,__BSS_UNINITIALIZED_tail
+10    008A                       ld bc,__BSS_END_tail - __BSS_UNINITIALIZED_tail
+11    008A              
+12    008A                       ld e,0
+13    008A                       call asm_memset
+14    008A              
+15    008A                 ENDIF
+16    008A              
+643   008A              
+644   008A              SECTION code_crt_init          ; user and library initialization
 645   0005              SECTION code_crt_main
 646   0000              
 647   0000                 ; call user program

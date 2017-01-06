@@ -14,6 +14,11 @@ public bios_var_ram_active_page
 extern bios_reset_init
 extern bios_trap_illegal
 
+ifdef DEBUG
+extern debug_save_registers
+extern debug_infopoint
+endif
+
 module page0
 
 ; Declares fixed addresses and startup routines
@@ -93,10 +98,10 @@ bios_var_ram_active_page:
 	defs 0x0066 - ASMPC
 	; address = 0x0066
 	; !NMI
-ifdef DEBUG
+;ifdef DEBUG
 	call debug_save_registers	; save cpu state
-	call debug_info_point		; communicate InfoPoint to SystemController
-endif
+	call debug_infopoint		; communicate InfoPoint to SystemController
+;endif
 	retn
 
 	

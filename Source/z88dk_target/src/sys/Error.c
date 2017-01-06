@@ -2,8 +2,8 @@
 #include "Sys.h"
 #include "Thread.h"
 
-void Error_Set(result_t error)
-//void FastAPI(Error_Set__fast(result_t error))
+//void Error_Set(result_t error)
+void FastCall(Error_Set__fast(result_t error))
 {
     Thread_GetCurrent()->LastError = error;
 }

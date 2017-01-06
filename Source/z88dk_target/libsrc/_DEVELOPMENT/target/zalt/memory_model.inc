@@ -42,6 +42,7 @@ section code_crt_common
 ; zalt
 section zalt_system
 section zalt_lib
+section zalt_debug
 
 section code_driver
 section code_font

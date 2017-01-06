@@ -17,17 +17,18 @@ public bios_trap_illegal
 ; a dummy isr for initializing the isr vector table
 isr_null_vector:
 ifdef DEBUG
-	halt			; break if debug build
+	;halt			; break if debug build
 endif
 	ei				; lets do that again
-	reti			; do nothing, return from interrupt
+	reti			; return from interrupt
 
 ;	hl contains the source address of illegal call
 bios_trap_illegal:
 ifdef DEBUG
-	halt			; break if debug build
+	;halt			; break if debug build
 endif
-	rst $00			; reset
+	;rst $00			; reset
+	halt
 	
 ; Interrupts are disabled.
 bios_reset_init:

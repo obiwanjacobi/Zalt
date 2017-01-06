@@ -7,14 +7,14 @@ const AsyncState asyncState_CompletedSync = 0x0A;
 
 const uint8_t AsyncResult_size = sizeof(AsyncResult);
 
-//bool_t FastAPI(Async_IsComplete__fast(AsyncResult* asyncResult))
-bool_t Async_IsComplete(AsyncResult* asyncResult)
+//bool_t Async_IsComplete(AsyncResult* asyncResult)
+bool_t FastCall(Async_IsComplete__fast(AsyncResult* asyncResult))
 {
     return ((asyncResult->State & asyncState_Completed) == 0) ? false : true;
 }
 
-//bool_t FastAPI(Async_Wait__fast(AsyncResult* asyncResult))
-bool_t Async_Wait(AsyncResult* asyncResult)
+//bool_t Async_Wait(AsyncResult* asyncResult)
+bool_t FastCall(Async_Wait__fast(AsyncResult* asyncResult))
 {
     asyncResult;
     return true;

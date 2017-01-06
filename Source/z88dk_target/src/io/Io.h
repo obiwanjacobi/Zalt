@@ -39,21 +39,15 @@ typedef struct _stream Stream;
 //		append			:	write content to the end of the existing content.
 //		
 Stream* Stream_Open(const char* location, StreamFlags flags);
-//Stream* API(Stream_Open(const char* location, StreamFlags flags));
 
-result_t Stream_Close(Stream* stream);
-//result_t FastAPI(Stream_Close__fast(Stream* stream));
-//#define Stream_Close(p) Stream_Close__fast(p)
+//result_t Stream_Close(Stream* stream);
+result_t FastCall(Stream_Close__fast(Stream* stream));
+#define Stream_Close(p) Stream_Close__fast(p)
 
 // sync read/write
 uint16_t Stream_Read(Stream* stream, uint8_t* buffer, uint16_t capacity);
-//uint16_t API(Stream_Read(Stream* stream, uint8_t* buffer, uint16_t capacity));
-
 uint16_t Stream_Write(Stream* stream, const uint8_t* buffer, uint16_t length);
-//uint16_t API(Stream_Write(Stream* stream, const uint8_t* buffer, uint16_t length));
-
 bool_t Stream_HasFlags(Stream* stream, StreamFlags flags);
-//bool_t API(Stream_HasFlags(Stream* stream, StreamFlags flags));
 
 
 extern const char* ConsoleProtocol;
@@ -64,19 +58,14 @@ extern const char* ConsoleProtocol;
 //
 
 bool_t StreamReader_TryReadByte(Stream* stream, uint8_t* outByte);
-//bool_t API(StreamReader_TryReadByte(Stream* stream, uint8_t* outByte));
-
 uint16_t StreamReader_ReadLine(Stream* stream, uint8_t* buffer, uint16_t capacity);
-//uint16_t API(StreamReader_ReadLine(Stream* stream, uint8_t* buffer, uint16_t capacity));
 
 
 //
 // StreamWriter
 //
 
-//uint16_t API(StreamWriter_Write(Stream* stream, const uint8_t* source, uint16_t length));
 uint16_t StreamWriter_Write(Stream* stream, const uint8_t* source, uint16_t length);
-//uint16_t API(StreamWriter_WriteLine(Stream* stream, const uint8_t* source, uint16_t length));
 uint16_t StreamWriter_WriteLine(Stream* stream, const uint8_t* source, uint16_t length);
 
 

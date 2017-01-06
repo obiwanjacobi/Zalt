@@ -2,15 +2,14 @@
 
 #include <stdio.h>
 
-//bool_t API(StreamReader_TryReadByte(Stream* stream, uint8_t* outByte))
 bool_t StreamReader_TryReadByte(Stream* stream, uint8_t* outByte)
 {
     return Stream_Read(stream, outByte, 1) == 0 ? false : true;
 }
 
-//#define GetByte(p) GetByte__fast(p)
-//uint8_t FastAPI(GetByte__fast(Stream* stream))
-uint8_t GetByte(Stream* stream)
+//uint8_t GetByte(Stream* stream)
+#define GetByte(p) GetByte__fast(p)
+uint8_t FastAPI(GetByte__fast(Stream* stream))
 {
     uint8_t b = 0;
 	while(b == 0) {
@@ -20,7 +19,6 @@ uint8_t GetByte(Stream* stream)
     return b;
 }
 
-//uint16_t API(StreamReader_ReadLine(Stream* stream, uint8_t* buffer, uint16_t capacity))
 uint16_t StreamReader_ReadLine(Stream* stream, uint8_t* buffer, uint16_t capacity)
 {
     uint16_t index = 0;

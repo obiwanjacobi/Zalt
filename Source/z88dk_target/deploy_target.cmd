@@ -12,7 +12,7 @@ m4 zalt_crt_0.asm.m4 > zalt_crt_0.asm
 
 @cd ..\..\..
 :: build libs
-CALL WinMake zalt
+CALL target\zalt\BuildZaltLibs DEBUG
 
 @cd %ORIGIN%
 ::pause

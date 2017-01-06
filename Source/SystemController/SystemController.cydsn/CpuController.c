@@ -8,7 +8,6 @@ void CpuController_Init()
     CyPins_ClearPin(ExtBus_CpuRst);
     CyPins_SetPin(ExtBus_CpuClk);
     CyPins_SetPin(ExtBus_CpuWait);
-    CyPins_SetPin(ExtBus_CpuHalt);
     
     CpuController_SetClockDivider(3);
     CpuController_SetClockMode(CPUMODE_NORMAL_FAST);

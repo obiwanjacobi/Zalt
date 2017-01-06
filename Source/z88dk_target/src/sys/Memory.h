@@ -29,18 +29,18 @@ typedef enum {
 typedef enum {
 	None = 			0,
 	FixedLocation = 0x10,
-	Locked = 		0x20
+	Pinned = 		0x20
 	
 } AllocationFlags;
 
 typedef enum {
 	None,	// unused/free
-	Bios,
+	System,
 	Stack,
 	Heap,
 	Data,
-	Prog,
-	Resc,
+	Program,
+	Resource,
 	
 } MemoryUsage
 

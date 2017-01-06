@@ -9,14 +9,11 @@ extern void FastAPI(System_DebugConsole_Out__fast(uint8_t data));
 
 extern uint8_t System_DebugConsole_In();
 
-void System_DebugConsole_Log(const char* text);
-//void FastAPI(System_DebugConsole_Log__fast(const char* text));
-//#define System_DebugConsole_Log(p) System_DebugConsole_Log__fast(p)
+//void System_DebugConsole_Log(const char* text);
+void FastCall(System_DebugConsole_Log__fast(const char* text));
+#define System_DebugConsole_Log(p) System_DebugConsole_Log__fast(p)
 
 void System_DebugConsole_LogAssertFailed(const char* file, uint16_t line);
-//void API(System_DebugConsole_LogAssertFailed(const char* file, uint16_t line));
 
-#define System_EnableInterrupts()   __asm ei __endasm;
-#define System_DisableInterrupts()   __asm di __endasm;
 
 #endif  //__SYSTEM_H__

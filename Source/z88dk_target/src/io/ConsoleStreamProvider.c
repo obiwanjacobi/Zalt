@@ -62,11 +62,10 @@ AsyncResult* ConsoleStreamProvider_BeginWriteStream(Stream* stream, const uint8_
         System_DebugConsole_Out(buffer[i]);
     }
 
-    i++;    // from zero-based index to count
-    stream->Position += i;
+    stream->Position += length;
 
     consoleAsyncResult.State = asyncState_CompletedSync;
-    consoleAsyncResult.TotalBytes = i;
+    consoleAsyncResult.TotalBytes = length;
     return (AsyncResult*)&consoleAsyncResult;
 }
 
@@ -78,7 +77,7 @@ uint16_t ConsoleStreamProvider_EndWriteStream(Stream* stream, AsyncResult* async
     return consoleAsyncResult.TotalBytes;
 }
 
-StreamProvider* ConsoleStreamProvider_Construct(void* memory)
+StreamProvider* FastCall(ConsoleStreamProvider_Construct__fast(void* memory))
 {
     StreamProvider* provider = (StreamProvider*)memory;
     if (memory == NULL) { Error_Set(E_NULLPTR); return NULL; }

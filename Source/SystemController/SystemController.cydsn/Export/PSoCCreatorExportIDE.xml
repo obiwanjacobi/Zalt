@@ -58,6 +58,8 @@
           <File BuildType="BUILD" Toolchain="">IOProcessor.h</File>
           <File BuildType="BUILD" Toolchain="">InterruptProcessor.c</File>
           <File BuildType="BUILD" Toolchain="">InterruptProcessor.h</File>
+          <File BuildType="BUILD" Toolchain="">Debugger.h</File>
+          <File BuildType="BUILD" Toolchain="">Debugger.c</File>
           <File BuildType="BUILD" Toolchain="">CommandHandler.c</File>
           <File BuildType="BUILD" Toolchain="">CommandHandler.h</File>
           <File BuildType="BUILD" Toolchain="">CommandParser.c</File>
@@ -71,6 +73,7 @@
           <File BuildType="BUILD" Toolchain="">SystemController.h</File>
           <File BuildType="BUILD" Toolchain="">Keyboard.h</File>
           <File BuildType="BUILD" Toolchain="">KeyBoard.c</File>
+          <File BuildType="BUILD" Toolchain="">TimerDevice.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\marc\Documents\HardwareProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\Generated_Source\PSoC5">
@@ -164,6 +167,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ExtInt_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_ISR_INT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_ISR_INT.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_HALT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_HALT.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\marc\Documents\HardwareProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\Export\ARM_GCC_Generic">

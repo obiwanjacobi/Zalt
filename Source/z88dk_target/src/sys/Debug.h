@@ -14,6 +14,9 @@
 #define dLog(s)                 System_DebugConsole_Log(s);
 #define dLogIf(c, s)            if (c) System_DebugConsole_Log(s);
 
+// communicates with system controller
+#define dInfoPoint()            __asm halt __endasm
+
 #else   //!DEBUG
 
 #define dAssert(c)
@@ -23,6 +26,8 @@
 
 #define dLog(s)
 #define dLogIf(c, s)
+
+#define dInfoPoint()
 
 #endif  //DEBUG
 
