@@ -21,3 +21,4 @@
 @threads/threads_sdcc_iy.lst
 @z80/z80_sdcc_iy.lst
 @target/zalt/driver/driver.lst
+@target/zalt/system/_system.lst

@@ -60,6 +60,7 @@
           <File BuildType="BUILD" Toolchain="">InterruptProcessor.h</File>
           <File BuildType="BUILD" Toolchain="">Debugger.h</File>
           <File BuildType="BUILD" Toolchain="">Debugger.c</File>
+          <File BuildType="BUILD" Toolchain="">IoAddresses.h</File>
           <File BuildType="BUILD" Toolchain="">CommandHandler.c</File>
           <File BuildType="BUILD" Toolchain="">CommandHandler.h</File>
           <File BuildType="BUILD" Toolchain="">CommandParser.c</File>

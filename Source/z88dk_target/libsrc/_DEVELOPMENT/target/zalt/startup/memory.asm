@@ -15,7 +15,7 @@ public bios_memory_page_switch
 ; imports
 
 ; start of module
-section bios_memory
+section code_zalt_system
 
 ; Determines the top of RAM in 4k blocks
 ; pre-conditions:

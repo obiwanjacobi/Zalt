@@ -10,6 +10,7 @@ static volatile bool_t InterruptsAreEnabled;
 
 void InterruptProcessor_Init()
 {
+    InterruptsAreEnabled = true;
     NextVector = INTERRUPT_VECTOR_NONE;
     InterruptController_SetInterrupt(false);
     Z80Ctrl_ISR_INT_StartEx(InterruptProcessor_ISR_OnInterrupt);

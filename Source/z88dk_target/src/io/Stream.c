@@ -2,12 +2,6 @@
 #include "ConsoleStreamProvider.h"
 #include <string.h>
 
-const StreamFlags streamFlags_CanSeek = 0x01;
-const StreamFlags streamFlags_CanRead = 0x02;
-const StreamFlags streamFlags_CanWrite = 0x04;
-const StreamFlags streamAccess_Read = 0x10;
-const StreamFlags streamAccess_Write = 0x20;
-const StreamFlags streamTransport_Block = 0x80;
 
 static StreamProvider* ConsoleStreamProvider;
 
@@ -90,7 +84,7 @@ uint16_t Stream_Write(Stream* stream, const uint8_t* buffer, uint16_t length)
 	return stream->StreamProvider->fnEndWriteStream(stream, result);
 }
 
-bool_t Stream_HasFlags(Stream* stream, StreamFlags flags)
+bool_t Stream_HasFlags(const Stream* stream, StreamFlags flags)
 {
-	return (stream->Flags & flags) != 0;
+	return (stream->Flags & flags) != 0 ? true : false;
 }

@@ -13,11 +13,12 @@ public bios_var_ram_active_page
 ; imports
 extern bios_reset_init
 extern bios_trap_illegal
+extern keyboard_isr
 
-ifdef DEBUG
+;ifdef DEBUG
 extern debug_save_registers
 extern debug_infopoint
-endif
+;endif
 
 module page0
 
@@ -89,10 +90,10 @@ endif
 	defs 0x0040 - ASMPC
 bios_var_ram_top_page:
 	defb $00		; last valid ram page
-bios_var_ram_top:
-	defw $0000		; last valid ram address on last page
 bios_var_ram_active_page:
 	defb $00		; current active ram page
+bios_var_ram_top:
+	defw $0000		; last valid ram address on last page
 
 
 	defs 0x0066 - ASMPC
@@ -184,7 +185,7 @@ defs isr_table_address - ASMPC
 ; The lo address byte (A1-A7: A0=0) is put on the databus by the interrupting device.
 ; The hi address byte (A8-A15) is supplied by the I register that is initialized to (page) 1.
 defw	isr_null_vector		; Address of ISR #0
-defw	isr_null_vector		; Address of ISR #1
+defw	keyboard_isr		; Address of ISR #1
 defw	isr_null_vector		; Address of ISR #2
 defw	isr_null_vector		; Address of ISR #3
 defw	isr_null_vector		; Address of ISR #4

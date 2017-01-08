@@ -102,19 +102,22 @@ typedef struct _streamProvider StreamProvider;
 struct _stream {
 	// flags
 	StreamFlags Flags;
-	// total capacity of the stream
+	// total length of the stream (0 if unknown)
 	uint16_t Length;
-	// position of reading or writing the content in the stream.
+	// position of reading and/or writing the content in the stream.
 	uint16_t Position;
-	// pointer to the provider
+	// pointer to the provider that owns the stream
 	StreamProvider* StreamProvider;
+	
+	// providers may allocate larger streams for custom data
+	
 };
 
 /// Initializes all the stream providers. Call on setup.
 result_t StreamProvider_Construct();
 
 // seek
-uint16_t Stream_GetPosition(Stream* stream);
+uint16_t Stream_GetPosition(const Stream* stream);
 result_t Stream_SetPosition(Stream* stream, uint16_t pos);
 result_t Stream_Seek(Stream* stream, SeekStart startAt, uint16_t pos);
 

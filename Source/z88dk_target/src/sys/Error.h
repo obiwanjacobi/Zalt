@@ -22,6 +22,7 @@ typedef uint16_t result_t;
 #define E_NOTINITIALIZED    E_ERROR_BASE + 7
 #define E_NOACCESS          E_ERROR_BASE + 8
 #define E_OUTOFMEMORY       E_ERROR_BASE + 9
+#define E_ALREADYOPEN       E_ERROR_BASE + 10
 
 #define Succeeded(r)	((r) < E_ERROR_BASE)
 #define Failed(r)		((r) > E_ERROR_BASE - 1)

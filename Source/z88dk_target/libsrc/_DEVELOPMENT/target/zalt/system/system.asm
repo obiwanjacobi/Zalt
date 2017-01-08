@@ -1,25 +1,21 @@
+include "io_addresses.asm"
+
 ;
 ; Implements C API for the System Controller IO
 ;
 
-section zalt_system
+section code_zalt_system
 
 
-; SystemController IO addresses
-defc    bios_sysctrl_testecho       =   $00     ; stores last value, can be read back
-defc    bios_sysctrl_terminal       =   $10     ; user terminal 
-defc    bios_sysctrl_debugconsole   =   $20     ; debug console
-
-
-; export
-public _System_DebugConsole_Out
+; exports
+;public _System_DebugConsole_Out
 public _System_DebugConsole_Out__fast
 public _System_DebugConsole_In
 
 public bios_sysctrl_debugconsole_in
 public bios_sysctrl_debugconsole_out
 
-; import
+; imports
 
 
 ;

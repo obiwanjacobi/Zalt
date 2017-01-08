@@ -10,12 +10,14 @@
 #define FastCall(fn)	fn __z88dk_fastcall
 #define FastAPI(fn)	    fn __z88dk_fastcall
 #define API(fn)	        fn __z88dk_callee
+#define ISR(fn)	        fn __z88dk_fastcall
 #endif
 
 #ifdef __SCCZ80
 #define FastCall(fn)	fn 
 #define FastAPI(fn)	    __FASTCALL__ fn
 #define API(fn)	        __CALLEE__ fn
+#define ISR(fn)	    __FASTCALL__ fn
 #endif
 
 #endif	//__API_H__

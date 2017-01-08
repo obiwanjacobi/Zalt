@@ -12,11 +12,13 @@
 typedef uint8_t	StreamProviderId;
 
 typedef uint8_t StreamFlags;
-extern const StreamFlags streamFlags_CanSeek;
-extern const StreamFlags streamFlags_CanRead;
-extern const StreamFlags streamFlags_CanWrite;
-extern const StreamFlags streamAccess_Read;
-extern const StreamFlags streamAccess_Write;
+#define streamFlags_None	 	0x00
+#define streamFlags_CanSeek 	0x01
+#define streamFlags_CanRead  	0x02
+#define streamFlags_CanWrite  	0x04
+#define streamAccess_Read  		0x10
+#define streamAccess_Write  	0x20
+#define streamTransport_Block  	0x80
 
 enum _streamSeekStart {
 	Begin,
@@ -47,9 +49,9 @@ result_t FastCall(Stream_Close__fast(Stream* stream));
 // sync read/write
 uint16_t Stream_Read(Stream* stream, uint8_t* buffer, uint16_t capacity);
 uint16_t Stream_Write(Stream* stream, const uint8_t* buffer, uint16_t length);
-bool_t Stream_HasFlags(Stream* stream, StreamFlags flags);
+bool_t Stream_HasFlags(const Stream* stream, StreamFlags flags);
 
-
+// protocol name for console streams
 extern const char* ConsoleProtocol;
 
 

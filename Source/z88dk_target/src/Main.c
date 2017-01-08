@@ -13,20 +13,16 @@ void init()
 
 void main()
 {
-	//void* memory;
-	//RingBuffer* buffer = NULL;
+	void* memory;
+	RingBuffer* buffer = NULL;
 	
-	System_DebugConsole_Log("1");
-	dInfoPoint();
-	System_DebugConsole_Log("2");
-
 	// setup
-	//init();
-	//memory = Thread_Alloc(RingBuffer_size);
-	//buffer = RingBuffer_Construct(memory);
+	init();
+	memory = Thread_Alloc(RingBuffer_size);
+	buffer = RingBuffer_Construct(memory);
 
-	//Monitor_Start(buffer);
+	Monitor_Start(buffer);
 	
 	// teardown
-	//Thread_Free(memory);
+	Thread_Free(memory);
 }

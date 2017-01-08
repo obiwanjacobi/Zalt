@@ -2,6 +2,7 @@
 #include "BusController.h"
 #include "CpuController.h"
 #include "SerialTerminal.h"
+#include "IoAddresses.h"
 #include "Debugger.h"
 // devices
 #include "KeyBoard.h"

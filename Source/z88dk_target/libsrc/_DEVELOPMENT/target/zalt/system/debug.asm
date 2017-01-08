@@ -1,17 +1,17 @@
+include "io_addresses.asm"
+
 ;
 ; debug routines
 ;
 
 ;ifdef DEBUG
+section code_zalt_debug
+
 
 public debug_infopoint
 public debug_save_registers
 ;public debug_restore_registers
 ;public debug_restore_registers_all
-
-
-; IO port on the SystemController that is used for debug InfoPoints
-defc	debug_system_controller_port	=	$00
 
 ; (2 sets of 4 regs + 2 index regs and 2 cpu regs) times 2 bytes (24 bytes total)
 defc	debug_vars_size	= 24
@@ -20,19 +20,32 @@ defc	debug_vars_size	= 24
 debug_vars:
 defb debug_vars_size, $00
 
+defc	debug_var_af_offset		=	$00
+defc	debug_var_bc_offset		=	$02
+defc	debug_var_de_offset		=	$04
+defc	debug_var_hl_offset		=	$06
+defc	debug_var_ix_offset		=	$08
+defc	debug_var_iy_offset		=	$0A
+defc	debug_var_sp_offset		=	$0C
+defc	debug_var_pc_offset		=	$0E
+defc	debug_var_af2_offset	=	$10
+defc	debug_var_bc2_offset	=	$12
+defc	debug_var_de2_offset	=	$14
+defc	debug_var_hl2_offset	=	$18
+
 defc	debug_var_base	=	debug_vars
-defc	debug_var_af	=	debug_var_base	+	$00
-defc	debug_var_bc	=	debug_var_base	+	$02
-defc	debug_var_de	=	debug_var_base	+	$04
-defc	debug_var_hl	=	debug_var_base	+	$06
-defc	debug_var_ix	=	debug_var_base	+	$08
-defc	debug_var_iy	=	debug_var_base	+	$0A
-defc	debug_var_sp	=	debug_var_base	+	$0C
-defc	debug_var_pc	=	debug_var_base	+	$0E
-defc	debug_var_af2	=	debug_var_base	+	$10
-defc	debug_var_bc2	=	debug_var_base	+	$12
-defc	debug_var_de2	=	debug_var_base	+	$14
-defc	debug_var_hl2	=	debug_var_base	+	$18
+defc	debug_var_af	=	debug_var_base	+ 	debug_var_af_offset	
+defc	debug_var_bc	=	debug_var_base	+	debug_var_bc_offset	
+defc	debug_var_de	=	debug_var_base	+	debug_var_de_offset	
+defc	debug_var_hl	=	debug_var_base	+	debug_var_hl_offset	
+defc	debug_var_ix	=	debug_var_base	+	debug_var_ix_offset	
+defc	debug_var_iy	=	debug_var_base	+	debug_var_iy_offset	
+defc	debug_var_sp	=	debug_var_base	+	debug_var_sp_offset	
+defc	debug_var_pc	=	debug_var_base	+	debug_var_pc_offset	
+defc	debug_var_af2	=	debug_var_base	+	debug_var_af2_offset
+defc	debug_var_bc2	=	debug_var_base	+	debug_var_bc2_offset
+defc	debug_var_de2	=	debug_var_base	+	debug_var_de2_offset
+defc	debug_var_hl2	=	debug_var_base	+	debug_var_hl2_offset
 
 
 ; Saves all registers in debug vars.
@@ -131,11 +144,11 @@ debug_restore_registers:
 ; Mainly CPU-register values. debug_save_registers must be called first.
 ; The SystemController can halt (BUSREQ) the CPU in order to retrieve data from memory (DMA).
 debug_infopoint:
-	ld bc, debug_system_controller_port	; set io port
+	ld bc, debug_sysctrl_port			; set io port
 
 	; for now we only check for no-command (zero)
 	in a, (c)							; ask system controller if we're debugging
-;	ret z								; exit if not so
+	ret z								; exit if not so
 
 	; prepare to dump registers
 	ld e, debug_vars_size				; size of register value block

@@ -7,14 +7,12 @@
 #include "System.h"
 
 #define dAssert(c)              if (!(c)) { System_DebugConsole_LogAssertFailed(__FILE__, __LINE__); __asm halt __endasm; }
-#define dGuard(c)               if (c) return;
-#define dGuardVal(c, v)         if (c) return v;
+#define dGuard(c)               if (c) { return; }
+#define dGuardVal(c, v)         if (c) { return v; }
+#define dGuardErr(c, e)         if (c) { Error_Set(e); return; }
 #define dGuardErrVal(c, e, v)   if (c) { Error_Set(e); return v; }
-                                                                          
 #define dLog(s)                 System_DebugConsole_Log(s);
-#define dLogIf(c, s)            if (c) System_DebugConsole_Log(s);
-
-// communicates with system controller
+#define dLogIf(c, s)            if (c) { System_DebugConsole_Log(s); }
 #define dInfoPoint()            __asm halt __endasm
 
 #else   //!DEBUG
@@ -22,11 +20,10 @@
 #define dAssert(c)
 #define dGuard(c)
 #define dGuardVal(c, v)
+#define dGuardErr(c, e)
 #define dGuardErrVal(c, e, v)
-
 #define dLog(s)
 #define dLogIf(c, s)
-
 #define dInfoPoint()
 
 #endif  //DEBUG

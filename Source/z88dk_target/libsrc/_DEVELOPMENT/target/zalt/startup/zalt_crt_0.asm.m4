@@ -97,7 +97,6 @@ IF __crt_org_code = 0
    ; page0 and isr_vectortable have a fixed org
    include "startup/page0.asm"
    include "startup/bios.asm"
-   include "startup/debug.asm"
    
 ;**************************************************************
 ENDIF

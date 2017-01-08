@@ -29,7 +29,6 @@ int main()
     SerialTerminal_WriteLine("Ready (Suspended).");
     
     //uint8_t haltMessageDisplayed = 0;
-    //uint16_t lastRxBufferSize = 0;
     
     for(;;)
     {
@@ -45,14 +44,8 @@ int main()
             // todo: check for buffer full
             // Z80 is not reading them quick enough
             
-            /*
-            uint16_t rxSize = SysTerminal_GetRxBufferSize();
-            
-            if (lastRxBufferSize < rxSize)
-            {
+            if(SysTerminal_GetRxBufferSize() > 0)
                 KeyBoard_Signal();
-                lastRxBufferSize = rxSize;
-            }*/
         }
         
         // temp

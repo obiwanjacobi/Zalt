@@ -6,21 +6,21 @@ setlocal ENABLEDELAYEDEXPANSION
 copy /Y target\zalt\clib_cfg.asm . 1> nul
 copy /Y target\zalt\clib_target_cfg.asm . 1> nul
 
-echo   zalt_sccz80.lib
+::echo   zalt_sccz80.lib
 
-z80asm -xzalt_sccz80 -D%1 -D__SCCZ80 @target/zalt/library/zalt_sccz80.lst
-move /Y zalt_sccz80.lib lib/sccz80/zalt.lib
+::z80asm -xzalt_sccz80 -D%1 -D__SCCZ80 @target/zalt/library/zalt_sccz80.lst
+::move /Y zalt_sccz80.lib lib/sccz80/zalt.lib
 
-del /S *.o > nul 2>&1
-del /S *.err > nul 2>&1
+::del /S *.o > nul 2>&1
+::del /S *.err > nul 2>&1
 
-echo   zalt_sdcc_ix.lib
+::echo   zalt_sdcc_ix.lib
 
-z80asm -xzalt_sdcc_ix -D%1 -D__SDCC -D__SDCC_IX @target/zalt/library/zalt_sdcc_ix.lst
-move /Y zalt_sdcc_ix.lib lib/sdcc_ix/zalt.lib
+::z80asm -xzalt_sdcc_ix -D%1 -D__SDCC -D__SDCC_IX @target/zalt/library/zalt_sdcc_ix.lst
+::move /Y zalt_sdcc_ix.lib lib/sdcc_ix/zalt.lib
 
-del /S *.o > nul 2>&1
-del /S *.err > nul 2>&1
+::del /S *.o > nul 2>&1
+::del /S *.err > nul 2>&1
 
 echo   zalt_sdcc_iy.lib
 

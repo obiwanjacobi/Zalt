@@ -1,7 +1,7 @@
 #ifndef __IOPROCESSORER_H__
 #define __IOPROCESSORER_H__
     
-#include <project.h>
+#include "SystemController.h"
 
 // Mode flags
 #define MODE_NONE    0
@@ -20,17 +20,6 @@ typedef struct
     
 } IOInfo;
     
-//
-// IO Addresses for SystemController peripherals
-//
-
-// port for PSoc <=> Z80 debug communication
-#define IO_DEBUGGER     0x00
-
-// test loop IO address
-#define IO_TEST_LOOP    0x10
-// fixed (debug) serial commlink to PC
-#define IO_Serial       0x20
 
 void IOProcessor_Init();
 
