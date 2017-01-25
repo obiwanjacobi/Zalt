@@ -17,6 +17,7 @@ extern keyboard_isr
 
 ;ifdef DEBUG
 extern debug_save_registers
+extern debug_restore_registers
 extern debug_infopoint
 ;endif
 
@@ -100,8 +101,9 @@ bios_var_ram_top:
 	; address = 0x0066
 	; !NMI
 ;ifdef DEBUG
-	call debug_save_registers	; save cpu state
-	call debug_infopoint		; communicate InfoPoint to SystemController
+	call debug_save_registers		; save cpu state
+	call debug_infopoint			; communicate InfoPoint to SystemController
+	call debug_restore_registers	; restore register state
 ;endif
 	retn
 

@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+#include "../sys/System.h"
+
 bool_t StreamReader_TryReadByte(Stream* stream, uint8_t* outByte)
 {
     return Stream_Read(stream, outByte, 1) == 0 ? false : true;
@@ -15,6 +17,8 @@ uint8_t FastAPI(GetByte__fast(Stream* stream))
 	while(b == 0) {
         // TODO: check return value
         Stream_Read(stream, &b, 1);
+        
+        if (b) System_DebugConsole_Out(b);
     }
     return b;
 }

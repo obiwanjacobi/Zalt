@@ -2,8 +2,15 @@
 #define __KEYBOARD_H__
 
 #include "SystemController.h"
+#include "Message.h"
     
-// returns the key pressed
+void KeyBoard_Init();
+// called to handle an USB virtual device message
+void KeyBoard_Handle(Message* message, uint8_t length);
+
+// returns false when buffer is full
+bool_t KeyBoard_SetKey(uint8_t key);
+// returns zero when no keys available
 uint8_t KeyBoard_GetKey();
 
 // signal that a key stroke is available

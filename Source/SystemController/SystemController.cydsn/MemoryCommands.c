@@ -108,7 +108,7 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
     mem.Address = command->Address;
     mem.Buffer = NULL;
     mem.Length = command->Length;
-    mem.SpinCountTimeout = mem.Length == 0 ? 0x1FF : 0;
+    mem.SpinCountTimeout = mem.Length == 0 ? 0x2FF : 0;
     
     // signal ready to receive file
     SerialTerminal_WriteLine(ACK);

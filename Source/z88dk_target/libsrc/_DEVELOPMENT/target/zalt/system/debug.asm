@@ -10,7 +10,7 @@ section code_zalt_debug
 
 public debug_infopoint
 public debug_save_registers
-;public debug_restore_registers
+public debug_restore_registers
 ;public debug_restore_registers_all
 
 ; (2 sets of 4 regs + 2 index regs and 2 cpu regs) times 2 bytes (24 bytes total)
@@ -100,7 +100,7 @@ debug_restore_registers_all:
 	; VVVVV fall thru! VVVVV
 	
 ; Restores all registers (incl. alternates) to saved values (debug_save_registers).
-; Does not restore pc and sp!
+; Does *NOT* restore pc and sp!
 debug_restore_registers:
 	; af'
 	ex af, af
@@ -116,22 +116,14 @@ debug_restore_registers:
 	
 	; bc', de', hl'
 	exx
-	ld hl, (debug_var_bc2)
-	ld b, h
-	ld c, l
-	ld hl, (debug_var_de2)
-	ld d, h
-	ld e, l
+	ld bc, (debug_var_bc2)
+	ld de, (debug_var_de2)
 	ld hl, (debug_var_hl2)
 	
 	; bc, de, hl
 	exx
-	ld hl, (debug_var_bc)
-	ld b, h
-	ld c, l
-	ld hl, (debug_var_de)
-	ld d, h
-	ld e, l
+	ld bc, (debug_var_bc)
+	ld de, (debug_var_de)
 	ld hl, (debug_var_hl)
 	
 	; ix and iy
@@ -142,7 +134,7 @@ debug_restore_registers:
 	
 ; Communicates with the System Controller to relay the information that makes up an InfoPoint.
 ; Mainly CPU-register values. debug_save_registers must be called first.
-; The SystemController can halt (BUSREQ) the CPU in order to retrieve data from memory (DMA).
+; The SystemController can halt the CPU (BUSREQ) in order to retrieve data from memory (DMA).
 debug_infopoint:
 	ld bc, debug_sysctrl_port			; set io port
 

@@ -8,23 +8,30 @@
 #include "InterruptProcessor.h"
 #include "Debugger.h"
 // devices
+#include "UsbProcessor.h"
 #include "KeyBoard.h"
 
 static SerialTerminal g_serialTerminal;
 
-int main()
+void init()
 {
     CpuController_Init();
     BusController_Init();
     MemoryManager_Init();
     IOProcessor_Init();
     InterruptProcessor_Init();
+    KeyBoard_Init();
     Debugger_Init();
-    
-    SerialTerminal_Start(&g_serialTerminal);
+}
+
+int main()
+{
+    init();
     
     CyGlobalIntEnable; /* Enable global interrupts. */
-    
+    SerialTerminal_Start(&g_serialTerminal);
+    UsbProcessor_Start();
+        
     // echo back that the system is ready but halted.
     SerialTerminal_WriteLine("Ready (Suspended).");
     
@@ -32,20 +39,13 @@ int main()
     
     for(;;)
     {
+        UsbProcessor_Receive();
         Debugger_PrintRegisterValues();
         
         if (g_serialTerminal.IsActive)
         {
             // pump incoming data to handlers
             SerialTerminal_ReceiveCommand(&g_serialTerminal);
-        }
-        else
-        {
-            // todo: check for buffer full
-            // Z80 is not reading them quick enough
-            
-            if(SysTerminal_GetRxBufferSize() > 0)
-                KeyBoard_Signal();
         }
         
         // temp

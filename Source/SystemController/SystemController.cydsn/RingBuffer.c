@@ -94,9 +94,15 @@ inline void RingBuffer_AdjustReadIndex(RingBuffer* ringBuffer, uint16_t bytesRea
     ringBuffer->ReadIndex += bytesRead;
 }
 
-inline uint8_t RingBuffer_IsEmpty(RingBuffer* ringBuffer)
+inline bool_t RingBuffer_IsEmpty(RingBuffer* ringBuffer)
 {
-    return ringBuffer->ReadIndex == ringBuffer->WriteIndex;
+    return ringBuffer->ReadIndex == ringBuffer->WriteIndex ? true : false;
 }
+
+inline bool_t RingBuffer_IsFull(RingBuffer* ringBuffer)
+{
+    return RingBuffer_getLength(ringBuffer) == ringBuffer->Length - 1 ? true : false;
+}
+
 
 /* [] END OF FILE */
