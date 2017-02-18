@@ -17,8 +17,6 @@ uint8_t FastAPI(GetByte__fast(Stream* stream))
 	while(b == 0) {
         // TODO: check return value
         Stream_Read(stream, &b, 1);
-        
-        if (b) System_DebugConsole_Out(b);
     }
     return b;
 }

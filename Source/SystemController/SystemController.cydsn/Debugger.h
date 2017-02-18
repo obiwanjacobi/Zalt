@@ -9,6 +9,8 @@ void Debugger_ISR_OnHaltInterrupt();
 uint8_t Debugger_IO_OnInput();
 void Debugger_IO_OnOutput(uint8 data);
 
+void Debugger_RemoteBreak();
+void Debugger_RemoteContinue();
 void Debugger_PrintRegisterValues();
 
 #endif  //__DEBUGGER_H__

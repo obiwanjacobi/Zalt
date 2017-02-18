@@ -32,7 +32,7 @@ endif
 	
 ; Interrupts are disabled.
 bios_reset_init:
-	xor a
+	xor a, a
 	ld b, a
 	ld c, a
 	ld d, a
@@ -48,7 +48,7 @@ bios_reset_init:
 
 	; initialze ram
 	ld hl, $FFFF						; hard-coded ram top (64k)
-	xor a								; memory page $00
+	xor a, a							; memory page $00
 	ld (bios_var_ram_top), hl			; init bios vars
 	ld (bios_var_ram_active_page), a	; init to first page
 
@@ -71,7 +71,51 @@ bios_reset_init:
 	jp __Start			; jmp to C main entry point
 
 	
+	
+; When a program calls an RST function its PC is stored on the SP.
+; The RST function can define an additional byte (or two) immediate after the RST instruction.
+; This extra information would have meaning for the RST operation.
 
+; This method reads the single byte that follows the RST instruction
+; and adjusts the returns address to return control after that byte.
+; rst{n} defb $xx
+; pre-condition:
+;	The SP contains a direct return address used to return from this method
+;	and it contains the return address from where the RST method was called -
+;	that will be adjusted.
+; post-condition:
+;	Register a will contain the extra RST byte and the RST return address is adjusted.
+bios_load_byte_instruction:
+	pop de		; this is the immediate return address and must be preserved.
+	pop	hl		; this is the RST return address and must be adjusted
+	ld a, (hl)	; get the extra byte
+	inc hl		; set RST return address past the data byte
+	push hl		; put RST return address back on stack
+	push de		; as well as the immediate return address
+	ret
+
+; This method reads two bytes (a word) that follows the RST instruction
+; and adjusts the returns address to return control after that word.
+; rst{n} defw $xxxx
+; pre-condition:
+;	The SP contains a direct return address used to return from this method
+;	and it contains the return address from where the RST method was called -
+;	that will be adjusted.
+;	The word bytes are little endian: so the first is LSB and the next is MSB.
+; post-condition:
+;	Register bc will contain the extra RST bytes and the RST return address is adjusted.
+;	Register c contains the first (lsb) and b contains the second (msb) byte after the RST instruction.
+bios_load_word_instruction:
+	pop de		; this is the immediate return address and must be preserved.
+	pop	hl		; this is the RST return address and must be adjusted
+	ld c, (hl)	; get the first extra byte
+	inc hl		; prepare to get the next data byte
+	ld b, (hl)	; get the next extra byte
+	inc hl		; set RST return address past the data word
+	push hl		; put RST return address back on stack
+	push de		; as well as the immediate return address
+	ret
+	
 	
 	
 	

@@ -3,8 +3,8 @@
 ;
 
 ; exports
-public bios_load_byte_instruction
-public bios_load_word_instruction
+public bios_interrupt_disable
+public bios_interrupt_enable
 ; export bios vars
 public bios_var_ram_top_page
 public bios_var_ram_page
@@ -15,11 +15,13 @@ extern bios_reset_init
 extern bios_trap_illegal
 extern keyboard_isr
 
-;ifdef DEBUG
+;IFDEF DEBUG
 extern debug_save_registers
 extern debug_restore_registers
-extern debug_infopoint
-;endif
+extern debug_breakpoint
+extern debug_monitor
+;ENDIF
+
 
 module page0
 
@@ -72,8 +74,11 @@ module page0
 	defs 0x0030 - ASMPC
 	; address = 0x0030
 	; RST30
-	;	di					; if you need interrupts disabled, do that here
-	jp	BiosFn6
+	; software debug breakpoint
+;IFDEF DEBUG
+	call debug_breakpoint
+;ENDIF
+	ret
 
 	
 	defs 0x0038 - ASMPC
@@ -81,9 +86,9 @@ module page0
 	; RST38 and IM1
 	; used to trap illegal jumps and interrupt mode
 	di							; disable interrupts
-ifdef DEBUG
+;IFDEF DEBUG
 	call debug_save_registers	; save cpu state
-endif
+;ENDIF
 	jp	bios_trap_illegal		; call the handler for illegal calls.
 
 	
@@ -95,64 +100,20 @@ bios_var_ram_active_page:
 	defb $00		; current active ram page
 bios_var_ram_top:
 	defw $0000		; last valid ram address on last page
+bios_interrupt_enable_count:	; counts nested calls to bios_interrupt_disable
+	defb $00
 
 
 	defs 0x0066 - ASMPC
 	; address = 0x0066
 	; !NMI
-;ifdef DEBUG
-	call debug_save_registers		; save cpu state
-	call debug_infopoint			; communicate InfoPoint to SystemController
-	call debug_restore_registers	; restore register state
-;endif
+;IFDEF DEBUG
+	call debug_monitor			; communicate debug info to SystemController
+;ENDIF
 	retn
 
 	
-	
-; When a program calls an RST function its PC is stored on the SP.
-; The RST function can define an additional byte (or two) immediate after the RST instruction.
-; This extra information would have meaning for the RST operation.
 
-; This method reads the single byte that follows the RST instruction
-; and adjusts the returns address to return control after that byte.
-; rst{n} defb $xx
-; pre-condition:
-;	The SP contains a direct return address used to return from this method
-;	and it contains the return address from where the RST method was called -
-;	that will be adjusted.
-; post-condition:
-;	Register a will contain the extra RST byte and the RST return address is adjusted.
-bios_load_byte_instruction:
-	pop de		; this is the immediate return address and must be preserved.
-	pop	hl		; this is the RST return address and must be adjusted
-	ld a, (hl)	; get the extra byte
-	inc hl		; set RST return address past the data byte
-	push hl		; put RST return address back on stack
-	push de		; as well as the immediate return address
-	ret
-
-; This method reads two bytes (a word) that follows the RST instruction
-; and adjusts the returns address to return control after that word.
-; rst{n} defw $xxxx
-; pre-condition:
-;	The SP contains a direct return address used to return from this method
-;	and it contains the return address from where the RST method was called -
-;	that will be adjusted.
-;	The word bytes are little endian: so the first is LSB and the next is MSB.
-; post-condition:
-;	Register bc will contain the extra RST bytes and the RST return address is adjusted.
-;	Register c contains the first (lsb) and b contains the second (msb) byte after the RST instruction.
-bios_load_word_instruction:
-	pop de		; this is the immediate return address and must be preserved.
-	pop	hl		; this is the RST return address and must be adjusted
-	ld c, (hl)	; get the first extra byte
-	inc hl		; prepare to get the next data byte
-	ld b, (hl)	; get the next extra byte
-	inc hl		; set RST return address past the data word
-	push hl		; put RST return address back on stack
-	push de		; as well as the immediate return address
-	ret
-	
 BiosFn1:
 ; bios function #1
 	
@@ -167,10 +128,42 @@ BiosFn4:
 
 BiosFn5:
 ; bios function #5
-
-BiosFn6:
-; bios function #6
+	di
 	halt
+	ret
+
+
+; disables (maskable) interrupts and increments counter
+; pre-condition:
+;	call-ret
+; post-condition:
+;	leaves all regs untouched
+bios_interrupt_disable:
+	di
+	push af
+	ld a, (bios_interrupt_enable_count)
+	inc a
+	ld (bios_interrupt_enable_count), a
+	pop af
+	ret
+
+; decrements counter and enables (maskable) interrupts when count=0
+; pre-condition:
+;	call-ret
+; post-condition:
+;	leaves all regs untouched
+bios_interrupt_enable:
+	push af
+	ld a, (bios_interrupt_enable_count)
+	dec a
+	ld (bios_interrupt_enable_count), a
+	jr z, bios_interrupt_enable_done
+	pop af
+	ret
+.bios_interrupt_enable_done
+	pop af
+	ei
+	ret
 
 
 ;
@@ -180,7 +173,7 @@ BiosFn6:
 ; ISR Table is located at page 1 ($0100, I=1).
 defc isr_table_address 	= $0100		; hi-byte is same as the isr_table_index
 defc isr_table_index 	= 1         ; used to initialie I register
-defc isr_table_address_end = isr_table_address + $0100	; 256 byte of isr table
+defc isr_table_address_end = isr_table_address + $0100	; 256 bytes of isr table
 
 defs isr_table_address - ASMPC
 

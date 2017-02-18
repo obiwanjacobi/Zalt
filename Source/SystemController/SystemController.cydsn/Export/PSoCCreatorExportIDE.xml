@@ -73,6 +73,8 @@
           <File BuildType="BUILD" Toolchain="">MemoryCommands.h</File>
           <File BuildType="BUILD" Toolchain="">MemoryManagerCommands.c</File>
           <File BuildType="BUILD" Toolchain="">MemoryManagerCommands.h</File>
+          <File BuildType="BUILD" Toolchain="">DebugCommands.h</File>
+          <File BuildType="BUILD" Toolchain="">DebugCommands.c</File>
           <File BuildType="BUILD" Toolchain="">SystemController.h</File>
           <File BuildType="BUILD" Toolchain="">Keyboard.h</File>
           <File BuildType="BUILD" Toolchain="">KeyBoard.c</File>

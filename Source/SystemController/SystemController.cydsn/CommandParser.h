@@ -21,6 +21,7 @@ const char* INCOMPLETE;
 #define COMMAND_TERMINAL_OFF    8
 #define COMMAND_MEMORYMANAGER   9
 #define COMMAND_BANKSWITCH     10
+#define COMMAND_DEBUG          11
 
 typedef struct
 {

@@ -15,7 +15,7 @@
  *  - The current address of the HALT instruction is read and checked against known bios addresses.
  *      Otherwise it is a program debug break point.
  *  - The Debugger triggers an NMI signal (active low) to execute the NMI interrupt handler in the Z80 bios.
- *  - There the Z80 code communicates with the PSoC Debugger using the debug IO port (0x00).
+ *  - There the Z80 code communicates with the PSoC Debugger using the debug IO port.
  *  
  *  - Z80=>Debugger: are we debugging? NMI could be trigger by something else.
  *      Debugger=>Z80: true/false
@@ -30,6 +30,7 @@
 typedef enum
 {
     DebugCommand_None,
+    DebugCommand_Pause,
     DebugCommand_DumpRegisters,
     
 } DebugCommand;
@@ -71,6 +72,7 @@ typedef enum
     DebugState_Handshake,
     DebugState_ReceiveRegisters,
     DebugState_PrintRegisters,
+    DebugState_Pause,
     
 } DebugState;
 
@@ -105,6 +107,27 @@ void Debugger_Init()
     ISR_HALT_StartEx(Debugger_ISR_OnHaltInterrupt);
 }
 
+void Debugger_RemoteBreak()
+{
+    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    
+    InterruptProcessor_Enable(false);
+    
+    DebuggerState = DebugState_Pause;
+    DebuggerRegState = DebugRegister_None;
+    
+    // pulse NMI
+    InterruptController_SetNmi(true);
+    // wait for next M1 cycle (NMI-ack)
+    while(CyPins_ReadPin(ExtBus_CpuM1) != 0);
+    InterruptController_SetNmi(false);
+}
+
+void Debugger_RemoteContinue()
+{
+    DebuggerState = DebugState_None;
+}
+
 void Debugger_ReleaseCpuHalt()
 {
     // pulse NMI
@@ -135,6 +158,37 @@ void Debugger_FormatRegister16(char* buffer, const char* reg, uint16_t value)
     strcat(buffer, "h ");
 }
 
+// Z80 flag bits
+#define flagS 7
+#define flagZ 6
+#define flagH 4
+#define flagPV 2
+#define flagN 1
+#define flagC 0
+
+void Debugger_FormatFlags(char* buffer, uint16_t value)
+{
+    buffer[0] = 0;
+    
+    bool_t z = ((value & flagZ) > 0);
+    bool_t c = ((value & flagC) > 0);
+    bool_t h = ((value & flagH) > 0);
+    bool_t pv = ((value & flagPV) > 0);
+    bool_t n = ((value & flagN) > 0);
+    bool_t s = ((value & flagS) > 0);
+    
+    if (!z) strcat(buffer, "N");
+    strcat(buffer, "Z,");
+    
+    if (!c) strcat(buffer, "N");
+    strcat(buffer, "C,");
+    
+    if (s) strcat(buffer, "-,"); else strcat(buffer, "+,");
+    if (pv) strcat(buffer, "O/E,"); else strcat(buffer, "NO/O,");
+    if (n) strcat(buffer, "[Add]"); else strcat(buffer, "[Sub]");
+}
+
+
 static const char* NewLine = "\r\n";
 
 void Debugger_PrintRegisterValues()
@@ -143,6 +197,9 @@ void Debugger_PrintRegisterValues()
     DebuggerState = DebugState_None;
     
     char buffer[16];
+    Debugger_FormatFlags(buffer, DebugCpuRegisters.AF);
+    SysTerminal_PutString(buffer);
+    SysTerminal_PutString(NewLine);
     Debugger_FormatRegister16(buffer, "AF", DebugCpuRegisters.AF);
     SysTerminal_PutString(buffer);
     Debugger_FormatRegister16(buffer, "BC", DebugCpuRegisters.BC);
@@ -163,6 +220,9 @@ void Debugger_PrintRegisterValues()
     SysTerminal_PutString(buffer);
     SysTerminal_PutString(NewLine);
     
+    Debugger_FormatFlags(buffer, DebugCpuRegisters.AF2);
+    SysTerminal_PutString(buffer);
+    SysTerminal_PutString(NewLine);
     Debugger_FormatRegister16(buffer, "AF'", DebugCpuRegisters.AF2);
     SysTerminal_PutString(buffer);
     Debugger_FormatRegister16(buffer, "BC'", DebugCpuRegisters.BC2);
@@ -282,6 +342,15 @@ uint8_t Debugger_IO_OnInput()
             DebuggerRegState = DebugRegister_None;
             DebuggerRegState++;
             break;
+        
+        case DebugState_Pause:
+            data = DebugCommand_Pause;
+            break;
+        
+        case DebugState_None:
+            InterruptProcessor_Enable(true);
+            break;
+            
         default:
             break;
     }
@@ -300,6 +369,7 @@ void Debugger_IO_OnOutput(uint8 data)
                 InterruptProcessor_Enable(true);
             }
             break;
+            
         default:
             break;
     }

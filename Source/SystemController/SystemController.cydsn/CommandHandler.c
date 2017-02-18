@@ -2,6 +2,7 @@
 #include "MemoryCommands.h"
 #include "MemoryManagerCommands.h"
 #include "CpuCommands.h"
+#include "DebugCommands.h"
 #include "CommandParser.h"
 
 #include <stdlib.h>
@@ -62,6 +63,9 @@ uint16_t CommandHandler_DispatchCommand(SerialTerminal* serialTerminal, Terminal
             break;
         case COMMAND_BANKSWITCH:
             bytesRead = BankSwitch_Execute(serialTerminal, command);
+            break;
+        case COMMAND_DEBUG:
+            bytesRead = Debug_Execute(serialTerminal, command);
             break;
     }
     

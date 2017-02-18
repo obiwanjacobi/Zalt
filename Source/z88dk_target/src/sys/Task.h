@@ -36,12 +36,6 @@ bool_t name(parameters)             \
         case 0:
 
 
-/** MACRO: Declares a 'Task' procedure 'Execute'.
- *  Same as Task_Begin(name)
- */
-#define Task_Begin    Task_Begin(Execute)
-
-
 /** MACRO: Declare the end of the 'Task' procedure
  *  Exits the task procedure.
  */
