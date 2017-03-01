@@ -1,41 +1,35 @@
 #include "UsbOutput.h"
-#include "Devices\Devices.h"
 #include "Protocol\MessageHeader.h"
+#include "Usb.h"
 
 UsbOutput::UsbOutput(Usb* usb)
 	: UsbEndPoint(usb, LIBUSB_ENDPOINT_OUT | EP2)
-{
-}
+{ }
 
-void UsbOutput::post(MessageHeader* msg)
+void UsbOutput::post(unique_ptr<MessageHeader>& msg)
 {
-	_messages.append(msg);
+	_messages.push_back(move(msg));
 	next();
 }
 
 bool UsbOutput::next()
 {
 	if (isBusy()) return false;
-	if (_messages.length() == 0) return false;
+	if (_messages.size() == 0) return false;
 
-	return submit(_messages.at(0));
+	return submit(_messages.front().get());
 }
 
-void UsbOutput::onCompleted(int length)
+void UsbOutput::onCompleted(Message* message, enum libusb_transfer_status status, int length)
 {
-	UsbEndPoint::onCompleted(length);
+	UsbEndPoint::onCompleted(message, status, length);
 
-	MessageHeader* msg = _messages.at(0);
-	_messages.removeFirst();
+	unique_ptr<MessageHeader> msg = std::move(_messages.front());
+	_messages.pop_front();
+
+	msg->Handler(&msg->Message, MakeMessageStatus(status), msg->UserData);
+	
 	next();
 
-	msg->Handler(&msg->Message, msg->UserData);
-}
-
-void UsbOutput::onError(enum libusb_transfer_status status)
-{
-	UsbEndPoint::onError(status);
-
-	_messages.removeFirst();
-	next();
+	// msg should be deleted here...
 }

@@ -1,19 +1,16 @@
 #include "KeyBoardDevice.h"
-#include "Devices.h"
-#include "Protocol/MessageHeader.h"
 #include <QEvent>
 #include <QFocusEvent>
 #include <iostream>
 
 KeyBoardDevice::KeyBoardDevice(Usb* usb) 
+	: Device::Device(usb)
 {
-	_usb = usb;
 	_enable = false;
 }
 
 KeyBoardDevice::~KeyBoardDevice() 
-{
-}
+{ }
 
 bool KeyBoardDevice::initialize(QObject* owner, QAbstractButton* target)
 {
@@ -25,29 +22,6 @@ bool KeyBoardDevice::initialize(QObject* owner, QAbstractButton* target)
 void KeyBoardDevice::onEnable(bool enable)
 {
 	_enable = enable;
-}
-
-void KeyBoardDevice::KeyBoardMessageHandler(Message* msg, void* userData)
-{
-	((KeyBoardDevice*)userData)->onMessage(msg);
-}
-
-void KeyBoardDevice::onMessage(Message* msg)
-{
-	std::cout << (char)msg->Data[0];
-}
-
-void KeyBoardDevice::onKeyPress(QKeyEvent* keyEvent)
-{
-	// TODO: send to USB
-	//std::cout << (char)keyEvent->key();
-
-	MessageHeader* msg = MessageHeader::New(KeyBoardMessageHandler, Devices::Keyboard, (uint8_t)KeyboardMessageTypes::KeyInput);
-	msg->UserData = this;
-	msg->Message.KeyboardInput.Key = keyEvent->key();
-	msg->Message.KeyboardInput.Modifiers = keyEvent->modifiers();
-
-	_usb->output()->post(msg);
 }
 
 bool KeyBoardDevice::eventFilter(QObject* o, QEvent* e)
@@ -63,3 +37,31 @@ bool KeyBoardDevice::eventFilter(QObject* o, QEvent* e)
 
 	return QObject::eventFilter(o, e);
 }
+
+void KeyBoardDevice::onKeyPress(QKeyEvent* keyEvent)
+{
+	unique_ptr<MessageHeader> msg = newMessage(keyEvent->key(), keyEvent->modifiers());
+
+	post(msg);
+}
+
+//
+// USB
+//
+
+void KeyBoardDevice::onMessageCompleted(Message* msg)
+{
+	std::cout << (char)msg->Data[0];
+}
+
+unique_ptr<MessageHeader> KeyBoardDevice::newMessage(uint8_t key, uint8_t modifiers)
+{
+	unique_ptr<MessageHeader> msg = Device::newMessage((uint8_t)KeyboardMessageTypes::KeyInput);
+
+	msg->Message.KeyboardInput.Key = key;
+	msg->Message.KeyboardInput.Modifiers = modifiers;
+
+	return msg;
+}
+
+

@@ -3,6 +3,7 @@
 #include <QObject>
 
 class Usb;
+class Message;
 class MessageHeader;
 
 typedef unsigned char EndPointId;
@@ -38,15 +39,14 @@ protected:
 	// Usb has to be open
 	bool initialize(libusb_device_handle* handle);
 	bool submit(MessageHeader* msgHeader);
+	bool receive(Message* message);
 
-	virtual void onCompleted(int length) { _busy = false; }
-	virtual void onError(enum libusb_transfer_status status) { _busy = false; }
+	virtual void onCompleted(Message* message, enum libusb_transfer_status status, int length) { _busy = false; }
 
 private:
 	Usb* _usb;
 	libusb_transfer* _transfer;
 	bool _busy;
 
-	void onCallback();
 	static void Callback(libusb_transfer* transfer);
 };

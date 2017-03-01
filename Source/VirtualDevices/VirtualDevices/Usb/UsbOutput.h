@@ -2,6 +2,10 @@
 #include "UsbEndPoint.h"
 #include "Protocol\Message.h"
 
+#include <deque>
+#include <memory>
+using namespace std;
+
 class Usb;
 
 class UsbOutput : public UsbEndPoint
@@ -11,13 +15,14 @@ class UsbOutput : public UsbEndPoint
 public:
 	UsbOutput(Usb* usb);
 
-	void post(MessageHeader* msg);
+	void post(unique_ptr<MessageHeader>& msg);
 
 protected:
-	void onCompleted(int length) override;
-	void onError(enum libusb_transfer_status status) override;
+	void onCompleted(Message* message, enum libusb_transfer_status status, int length) override;
+
 private:
-	QList<MessageHeader*> _messages;
+	deque<unique_ptr<MessageHeader>> _messages;
+
 
 	bool next();
 };

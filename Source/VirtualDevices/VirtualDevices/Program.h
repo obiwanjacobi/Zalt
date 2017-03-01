@@ -1,7 +1,11 @@
 #pragma once
 #include "Devices/KeyBoardDevice.h"
+#include "Devices/FileSystemDevice.h"
+#include "Devices/UsbTest.h"
 #include "Usb/Usb.h"
 #include <QtWidgets/QApplication>
+#include <memory>
+
 
 class Program : public QApplication
 {
@@ -19,11 +23,22 @@ public:
 	void installKeyBoardDevice(QObject* owner, QAbstractButton* target) {
 		_keyBoardDevice->initialize(owner, target);
 	}
+
 	KeyBoardDevice* keyBoardDevice() const {
-		return _keyBoardDevice;
+		return _keyBoardDevice.get();
+	}
+
+	FileSystemDevice* fileSystemDevice() const {
+		return _fileSystemDevice.get();
+	}
+
+	UsbTest* usbTest() const {
+		return _usbTest.get();
 	}
 
 private: 
 	Usb _usb;
-	KeyBoardDevice* _keyBoardDevice;
+	std::unique_ptr<KeyBoardDevice> _keyBoardDevice;
+	std::unique_ptr<FileSystemDevice> _fileSystemDevice;
+	std::unique_ptr<UsbTest> _usbTest;
 };

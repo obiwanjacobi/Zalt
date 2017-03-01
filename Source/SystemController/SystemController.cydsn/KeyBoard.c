@@ -11,7 +11,7 @@ void KeyBoard_Init()
     RingBuffer_Init(&Keys, KeyBuffer, MAX_KEY_BUFFER_SIZE);
 }
 
-void KeyBoard_Handle(Message* message, uint8_t length)
+void KeyBoard_Handle(Message* message)
 {
     switch(message->Type)
     {

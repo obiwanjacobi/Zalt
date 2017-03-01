@@ -36,12 +36,26 @@ void UsbProcessor_CheckConfig()
     }
 }
 
-void UsbProcessor_Dispatch(Message* message, uint8_t length)
+void UsbProcessor_Send(Message* message)
+{
+    // don't send if the previous message has not completed.
+    while (USB_IN_BUFFER_EMPTY != USB_GetEPState(ENDPOINT_INPUT)) { }
+    
+    USB_LoadInEP(ENDPOINT_INPUT, (const uint8_t*)message, sizeof(Message));
+}
+
+void UsbProcessor_Dispatch(Message* message)
 {
     switch(message->DevId)
     {
-        case Keyboard:
-            KeyBoard_Handle(message, length);
+        case deviceNone:
+            // test loop-back
+            UsbProcessor_Send(message);
+            break;
+        case deviceKeyboard:
+            KeyBoard_Handle(message);
+            break;
+        case deviceFileSystem:
             break;
     }
 }
@@ -55,6 +69,7 @@ void UsbProcessor_Receive()
         // Number of received data bytes.
         uint8_t length = USB_GetEPCount(ENDPOINT_OUTPUT);
 
+        // TODO: Check length against sizeof(Message)
         USB_ReadOutEP(ENDPOINT_OUTPUT, PacketBuffer, length);
 
         // TODO: exit if not ready?
@@ -62,12 +77,11 @@ void UsbProcessor_Receive()
         while (USB_OUT_BUFFER_FULL == USB_GetEPState(ENDPOINT_OUTPUT)) { }
         
         // TODO: take dispatch out of the USB receive loop/lock?
-        UsbProcessor_Dispatch((Message*)PacketBuffer, length);
+        UsbProcessor_Dispatch((Message*)PacketBuffer);
         
         // re-enable to receive more from host
         UsbProcessor_Enable(true);
     }
 }
-
 
 /* [] END OF FILE */

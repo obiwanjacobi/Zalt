@@ -6,7 +6,7 @@
     
 void KeyBoard_Init();
 // called to handle an USB virtual device message
-void KeyBoard_Handle(Message* message, uint8_t length);
+void KeyBoard_Handle(Message* message);
 
 // returns false when buffer is full
 bool_t KeyBoard_SetKey(uint8_t key);

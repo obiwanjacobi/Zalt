@@ -139,7 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Devices\FileSystemDevice.cpp" />
     <ClCompile Include="Devices\KeyBoardDevice.cpp" />
+    <ClCompile Include="Devices\UsbTest.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_KeyBoardDevice.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -208,6 +210,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Program.cpp" />
+    <ClCompile Include="Protocol\Protocol.cpp" />
     <ClCompile Include="UI\virtualdevices.cpp" />
     <ClCompile Include="Usb\Usb.cpp" />
     <ClCompile Include="Usb\UsbEndPoint.cpp" />
@@ -256,7 +259,34 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Devices\Devices.h" />
+    <ClInclude Include="Devices\Device.h" />
+    <CustomBuild Include="Devices\FileSystemDevice.h">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </Command>
+    </CustomBuild>
+    <ClInclude Include="Devices\UsbTest.h" />
     <ClInclude Include="Protocol\Message.h" />
     <ClInclude Include="Protocol\MessageHeader.h" />
     <CustomBuild Include="Usb\Usb.h">

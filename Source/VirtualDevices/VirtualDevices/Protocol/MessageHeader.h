@@ -2,7 +2,29 @@
 
 #include "Message.h"
 
-typedef void(*MessageHandler)(Message* msg, void* userData);
+#include<iostream>
+#include <memory>
+using namespace std;
+
+enum class MessageStatus {
+	// same order as libusb_transfer_status
+	Completed,
+	Error,
+	Timedout,
+	Cancelled,
+	Stalled,
+	DeviceLost,
+	Overflow,
+
+	// extra
+	Pending,
+	Received,
+};
+
+MessageStatus MakeMessageStatus(enum libusb_transfer_status status);
+
+typedef void(*MessageHandler)(Message* msg, MessageStatus status, void* userData);
+
 
 class MessageHeader
 {
@@ -15,13 +37,13 @@ public:
 
 	Message Message;
 
-	static MessageHeader* New(MessageHandler handler, Devices devId, uint8_t type) {
-		MessageHeader* msgHdr = (MessageHeader*)new uint8_t[sizeof(MessageHeader)];
+	static unique_ptr<MessageHeader> New(MessageHandler handler, Devices devId, uint8_t type) {
+		unique_ptr<MessageHeader> msgHdr = make_unique<MessageHeader>();
 		msgHdr->Handler = handler;
 		msgHdr->Timeout = 0;
 		msgHdr->Message.DevId = (uint8_t)devId;
 		msgHdr->Message.Type = type;
-		//msgHdr->Message.Length = length;
+
 		return msgHdr;
 	}
 };

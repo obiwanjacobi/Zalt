@@ -1,8 +1,14 @@
 #pragma once
 #include "Usb\Usb.h"
+#include "Device.h"
+#include "Protocol/MessageHeader.h"
+
 #include <QObject>
 #include <QKeyEvent>
 #include <QtWidgets/QPushButton>
+
+#include <memory>
+using namespace std;
 
 #define BUFFER_SIZE	16
 
@@ -11,7 +17,7 @@ enum class KeyboardMessageTypes {
 	KeyInput
 };
 
-class KeyBoardDevice : public QObject
+class KeyBoardDevice : public QObject, public Device<KeyBoardDevice>
 {
 	Q_OBJECT
 
@@ -22,6 +28,12 @@ public:
 	bool initialize(QObject* owner, QAbstractButton* target);
 	bool eventFilter(QObject* o, QEvent* e) override;
 
+	static inline Devices DeviceType() {
+		return Devices::Keyboard;
+	}
+
+	void onMessageCompleted(Message* msg);
+
 private:
 	QObject* _target;
 	bool _enable;
@@ -29,6 +41,6 @@ private:
 
 	void onEnable(bool enable);
 	void onKeyPress(QKeyEvent* keyEvent);
-	void onMessage(Message* msg);
-	static void KeyBoardMessageHandler(Message* msg, void* userData);
+	
+	unique_ptr<MessageHeader> newMessage(uint8_t key, uint8_t modifiers);
 };

@@ -12,6 +12,9 @@ public:
 	VirtualDevices(QWidget *parent = 0);
 	~VirtualDevices();
 
+public slots:
+	void onUsbTest(bool checked);
+
 private:
 	Ui::VirtualDevicesClass ui;
 };

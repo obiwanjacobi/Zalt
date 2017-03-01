@@ -27,9 +27,9 @@ QT_BEGIN_NAMESPACE
 class Ui_VirtualDevicesClass
 {
 public:
-    QAction *actionExit;
     QWidget *centralWidget;
     QPushButton *keyboard;
+    QPushButton *usbTest;
     QMenuBar *menuBar;
     QMenu *menu_Exit;
     QToolBar *mainToolBar;
@@ -40,9 +40,6 @@ public:
         if (VirtualDevicesClass->objectName().isEmpty())
             VirtualDevicesClass->setObjectName(QStringLiteral("VirtualDevicesClass"));
         VirtualDevicesClass->resize(520, 289);
-        actionExit = new QAction(VirtualDevicesClass);
-        actionExit->setObjectName(QStringLiteral("actionExit"));
-        actionExit->setMenuRole(QAction::QuitRole);
         centralWidget = new QWidget(VirtualDevicesClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         keyboard = new QPushButton(centralWidget);
@@ -57,6 +54,15 @@ public:
         keyboard->setCursor(QCursor(Qt::CrossCursor));
         keyboard->setContextMenuPolicy(Qt::NoContextMenu);
         keyboard->setCheckable(true);
+        usbTest = new QPushButton(centralWidget);
+        usbTest->setObjectName(QStringLiteral("usbTest"));
+        usbTest->setGeometry(QRect(302, 10, 141, 61));
+        QFont font1;
+        font1.setPointSize(12);
+        font1.setBold(true);
+        font1.setWeight(75);
+        usbTest->setFont(font1);
+        usbTest->setCursor(QCursor(Qt::PointingHandCursor));
         VirtualDevicesClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(VirtualDevicesClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -81,11 +87,8 @@ public:
     void retranslateUi(QMainWindow *VirtualDevicesClass)
     {
         VirtualDevicesClass->setWindowTitle(QApplication::translate("VirtualDevicesClass", "VirtualDevices", 0));
-        actionExit->setText(QApplication::translate("VirtualDevicesClass", "Exit", 0));
-#ifndef QT_NO_TOOLTIP
-        actionExit->setToolTip(QApplication::translate("VirtualDevicesClass", "Exits the app", 0));
-#endif // QT_NO_TOOLTIP
         keyboard->setText(QApplication::translate("VirtualDevicesClass", "KeyBoard", 0));
+        usbTest->setText(QApplication::translate("VirtualDevicesClass", "Test USB", 0));
         menu_Exit->setTitle(QApplication::translate("VirtualDevicesClass", "&Exit", 0));
     } // retranslateUi
 

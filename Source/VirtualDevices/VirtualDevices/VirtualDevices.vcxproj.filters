@@ -104,6 +104,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_Usb.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="Devices\FileSystemDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Protocol\Protocol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Devices\UsbTest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="UI\virtualdevices.h">
@@ -133,6 +142,9 @@
     <CustomBuild Include="Usb\Usb.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="Devices\FileSystemDevice.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_virtualdevices.h">
@@ -144,7 +156,10 @@
     <ClInclude Include="Protocol\MessageHeader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Devices\Devices.h">
+    <ClInclude Include="Devices\Device.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Devices\UsbTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

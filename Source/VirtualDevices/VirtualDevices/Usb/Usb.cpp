@@ -4,9 +4,9 @@
 
 Usb::Usb()
 {
-	_handle = NULL;
-	_input = new UsbInput(this);
-	_output = new UsbOutput(this);
+	_handle = nullptr;
+	_input = make_unique<UsbInput>(this);
+	_output = make_unique<UsbOutput>(this);
 	_last_error = libusb_init(&_context);
 }
 
@@ -20,7 +20,7 @@ bool Usb::open()
 {
 	_handle = libusb_open_device_with_vid_pid(_context, 0xDEAD, 0xBEEF);
 
-	if (_handle != NULL)
+	if (_handle != nullptr)
 	{
 		_input->initialize(_handle);
 		_output->initialize(_handle);
@@ -32,13 +32,13 @@ bool Usb::open()
 
 void Usb::close()
 {
-	if (_handle != NULL)
+	if (_handle != nullptr)
 	{
 		_input->cancel();
 		_output->cancel();
 
 		libusb_close(_handle);
-		_handle = NULL;
+		_handle = nullptr;
 	}
 }
 
