@@ -941,7 +941,7 @@ QSPI_BUS
 Text Label 2950 1200 0    60   ~ 0
 SDRAM_BUS
 Text Notes 8700 11050 0    60   ~ 0
-TODO:\n- Remove duplicate QSPI pins from MCU (wait till PCB layout)
+TODO:\n- Remove duplicate QSPI pins from MCU (wait till PCB layout)\n- Use MCO1/MCO2 (clock out) from MCU to clock EVE
 $Comp
 L Crystal_Small Y?
 U 1 1 58A04AAE
