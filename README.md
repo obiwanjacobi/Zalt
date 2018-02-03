@@ -4,16 +4,14 @@ Zalt is a home brew Z80 computer with a modern(isch) chipset.
 
 ## Zalt Z80 Computer
 
-Made by Marc Jacobi 2016
-|  |
+| Made by Marc Jacobi 2016 |
 | --- |
 | blog: https://jacobielectronix.wordpress.com/category/zalt/
 | email: obiwanjacobi@hotmail.com
 
 <br/>
 
-Modules:
-|  |
+| Modules: |
 | --- | --- |
 | CPU Board | (v1.0) |
 | Decoder Board | (v1.0) |
@@ -22,8 +20,7 @@ Modules:
 
 <br/>
 
-Folders:
-|  |   |
+| Folders: |   |
 | --- | --- |
 | BusSpy Board | module (handwired)
 | CPU Board v1.0 - locked | module (in production)
