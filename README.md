@@ -11,7 +11,7 @@ Zalt is a home brew Z80 computer with a modern(isch) chipset.
 
 <br/>
 
-| Modules: |
+| Modules: | |
 | --- | --- |
 | CPU Board | (v1.0) |
 | Decoder Board | (v1.0) |
