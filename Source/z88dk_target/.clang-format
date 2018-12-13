@@ -1,0 +1,7 @@
+AlignEscapedNewlinesLeft: true
+AllowShortFunctionsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: true
+BinPackParameters: true
+BreakBeforeBraces: Allman
+ColumnLimit: 120
+IndentWidth: 4

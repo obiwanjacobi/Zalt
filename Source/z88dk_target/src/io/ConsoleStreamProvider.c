@@ -37,11 +37,7 @@ result_t ConsoleStreamProvider_TryOpenStreamAsync(AsyncThis *async, const char *
     uri;
     access;
 
-    if (stream == NULL)
-    {
-        async->_result = asyncResult_Error;
-        return E_NULLPTR;
-    }
+    dGuardValAsync(stream == NULL, E_NULLPTR);
 
     stream->Flags = streamFlags_CanRead | streamFlags_CanWrite;
     DebugConsole = (ConsoleStream *)stream;
@@ -57,28 +53,15 @@ uint16_t ConsoleStreamProvider_ReadStreamAsync(AsyncThis *async, Stream *stream,
 
     async->_state == asyncResult_Error;
 
-    if (stream == NULL)
-    {
-        Error_Set(E_NULLPTR);
-        return 0;
-    }
-    if (buffer == NULL)
-    {
-        Error_Set(E_ARGNULLOREMPTY);
-        return 0;
-    }
-    if (capacity == 0)
-    {
-        Error_Set(E_ARGNOTINRANGE);
-        return 0;
-    }
-    //if ((stream->Flags & streamAccess_Read) == 0) { Error_Set(E_NOACCESS); return 0;}
+    dGuardErrVal(stream == NULL, E_NULLPTR, 0);
+    dGuardErrVal(buffer == NULL, E_ARGNULLOREMPTY, 0);
+    dGuardErrVal(capacity == 0, E_ARGNOTINRANGE, 0);
+    // dGuardErrVal((stream->Flags & streamAccess_Read) == 0, E_NOACCESS, 0);
 
     consoleStream = ConsoleStream_FromStream(stream);
     for (index = 0; index < CONSOLESTREAM_BUFFERSIZE && index < capacity; index++)
     {
-        if (consoleStream->InputBuffer[index] == 0)
-            break;
+        if (consoleStream->InputBuffer[index] == 0) break;
         buffer[index] = consoleStream->InputBuffer[index];
         consoleStream->InputBuffer[index] = 0;
     }
@@ -88,27 +71,16 @@ uint16_t ConsoleStreamProvider_ReadStreamAsync(AsyncThis *async, Stream *stream,
     return index;
 }
 
-uint16_t ConsoleStreamProvider_WriteStreamAsync(AsyncThis *async, Stream *stream, const uint8_t *buffer, uint16_t length)
+uint16_t ConsoleStreamProvider_WriteStreamAsync(AsyncThis *async, Stream *stream, const uint8_t *buffer,
+                                                uint16_t length)
 {
     uint16_t i;
     async->_result = asyncResult_Error;
 
-    if (stream == NULL)
-    {
-        Error_Set(E_NULLPTR);
-        return 0;
-    }
-    if (buffer == NULL)
-    {
-        Error_Set(E_ARGNULLOREMPTY);
-        return 0;
-    }
-    if (length == 0)
-    {
-        Error_Set(E_ARGNOTINRANGE);
-        return 0;
-    }
-    //if ((stream->Flags & streamAccess_Write) == 0) { Error_Set(E_NOACCESS); return 0;}
+    dGuardErrVal(stream == NULL, E_NULLPTR, 0);
+    dGuardErrVal(buffer == NULL, E_ARGNULLOREMPTY, 0);
+    dGuardErrVal(length == 0, E_ARGNOTINRANGE, 0);
+    // dGuardErrVal((stream->Flags & streamAccess_Write) == 0, E_NOACCESS, 0);
 
     for (i = 0; i < length; i++)
     {
@@ -120,49 +92,10 @@ uint16_t ConsoleStreamProvider_WriteStreamAsync(AsyncThis *async, Stream *stream
     return length;
 }
 
-// uint16_t ConsoleStreamProvider_EndReadStream(Stream *stream, AsyncResult *asyncResult)
-// {
-//     if (stream == NULL)
-//     {
-//         Error_Set(E_NULLPTR);
-//         return 0;
-//     }
-//     if (asyncResult == NULL)
-//     {
-//         Error_Set(E_ARGNULLOREMPTY);
-//         return 0;
-//     }
-//     if (asyncResult != (AsyncResult *)&consoleAsyncResult)
-//     {
-//         Error_Set(E_NOTINITIALIZED);
-//         return 0;
-//     }
-//     return consoleAsyncResult.TotalBytes;
-// }
-
-// uint16_t ConsoleStreamProvider_EndWriteStream(Stream *stream, AsyncResult *asyncResult)
-// {
-//     if (stream == NULL)
-//     {
-//         Error_Set(E_NULLPTR);
-//         return 0;
-//     }
-//     if (asyncResult == NULL)
-//     {
-//         Error_Set(E_ARGNULLOREMPTY);
-//         return 0;
-//     }
-//     if (asyncResult != (AsyncResult *)&consoleAsyncResult)
-//     {
-//         Error_Set(E_NOTINITIALIZED);
-//         return 0;
-//     }
-//     return consoleAsyncResult.TotalBytes;
-// }
-
 StreamProvider *FastCall(ConsoleStreamProvider_Construct__fast(void *memory))
 {
     StreamProvider *provider = (StreamProvider *)memory;
+
     if (memory == NULL)
     {
         Error_Set(E_NULLPTR);
@@ -187,14 +120,9 @@ void ISR(KeyBoard_OnKey__isr(uint8_t key))
     {
         return;
     }
-    if (DebugConsole->InputBuffer[0] == 0)
-        DebugConsole->InputBuffer[0] = key;
-    if (DebugConsole->InputBuffer[1] == 0)
-        DebugConsole->InputBuffer[1] = key;
-    if (DebugConsole->InputBuffer[2] == 0)
-        DebugConsole->InputBuffer[2] = key;
-    if (DebugConsole->InputBuffer[3] == 0)
-        DebugConsole->InputBuffer[3] = key;
-    if (DebugConsole->InputBuffer[4] == 0)
-        DebugConsole->InputBuffer[4] = key;
+    if (DebugConsole->InputBuffer[0] == 0) DebugConsole->InputBuffer[0] = key;
+    if (DebugConsole->InputBuffer[1] == 0) DebugConsole->InputBuffer[1] = key;
+    if (DebugConsole->InputBuffer[2] == 0) DebugConsole->InputBuffer[2] = key;
+    if (DebugConsole->InputBuffer[3] == 0) DebugConsole->InputBuffer[3] = key;
+    if (DebugConsole->InputBuffer[4] == 0) DebugConsole->InputBuffer[4] = key;
 }
