@@ -47,8 +47,8 @@ result_t FastCall(Stream_Close__fast(Stream *stream));
 #define Stream_Close(p) Stream_Close__fast(p)
 
 // sync read/write
-uint16_t Stream_ReadAsync(Stream *stream, uint8_t *buffer, uint16_t capacity);
-uint16_t Stream_WriteAsync(Stream *stream, const uint8_t *buffer, uint16_t length);
+uint16_t Stream_Read(Stream *stream, uint8_t *buffer, uint16_t capacity);
+uint16_t Stream_Write(Stream *stream, const uint8_t *buffer, uint16_t length);
 bool_t Stream_HasFlags(const Stream *stream, StreamFlags flags);
 
 // protocol name for console streams

@@ -6,31 +6,30 @@
     "tasks": [
         {
             "label": "build",
-            "type": "shell",
-            // "command": "zcc +zalt -vn -m -SO3 -DDEBUG -Ca-DDEBUG -clib=sdcc_iy --max-allocs-per-node200000 '@_zalt.lst' -o zalt",
-            "command": "C:\\z88dk\\bin\\zcc",
-            "args": [
-                //"zcc",
-                "+zalt",
-                "-vn",
-                "-m",
-                "-SO3",
-                "-DDEBUG",
-                "-Ca-DDEBUG",
-                "-clib=sdcc_iy",
-                "--max-allocs-per-node200000",
-                // "@_zalt.lst",
-                "-o zalt"
-            ],
+            "type": "process",
+            //"command": "cmd /C z88dk zcc +zalt -vn -m -SO3 -DDEBUG -Ca-DDEBUG -clib=sdcc_iy --max-allocs-per-node200000 -o zalt",
+            "command": "make.cmd",
+            // "args": [
+            //     "zcc",
+            //     "+zalt",
+            //     "-vn",
+            //     "-m",
+            //     "-SO3",
+            //     "-DDEBUG",
+            //     "-Ca-DDEBUG",
+            //     "-clib=sdcc_iy",
+            //     "--max-allocs-per-node200000",
+            //     "-o zalt"
+            // ],
             "options": {
-                "cwd": "${workspaceRoot}"
+                "cwd": "${workspaceRoot}",
             },
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
             "presentation": {
-                "reveal": "always",
+                "reveal": "always"
             },
             "problemMatcher": {
                 "owner": "z88dk",
@@ -50,6 +49,7 @@
         },
         {
             "label": "compile-debug",
+            "type": "shell",
             "command": "zcc",
             "args": [
                 "+zalt",
@@ -62,10 +62,11 @@
                 "\"${file}\"",
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}\""
-            ],
+            ]
         },
         {
             "label": "compile",
+            "type": "shell",
             "command": "zcc",
             "args": [
                 "+zalt",
@@ -76,10 +77,11 @@
                 "\"${file}\"",
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}\""
-            ],
+            ]
         },
         {
             "label": "compile-lst",
+            "type": "shell",
             "command": "zcc",
             "args": [
                 "+zalt",
@@ -89,18 +91,20 @@
                 "\"@${file}\"",
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}\""
-            ],
+            ]
         },
         {
             "label": "assemble",
+            "type": "shell",
             "command": "z80asm",
             "args": [
                 "\"${file}\""
-            ],
+            ]
         },
         {
             "label": "deploy",
-            "command": "${workspaceRoot}\\deploy_target.cmd",
+            "type": "shell",
+            "command": "${workspaceRoot}\\deploy_target.cmd"
         }
     ]
 }
