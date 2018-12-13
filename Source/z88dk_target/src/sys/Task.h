@@ -1,6 +1,10 @@
 #ifndef __TASK_H__
 #define __TASK_H__
 
+//
+// clang-format off
+//
+
 /** \file Task.h
  *  The Task implementation is based on macros forming a switch statement. 
  *  It is possible to jump in and out of switch-cases and together
@@ -83,4 +87,8 @@ bool_t name(parameters)             \
     if (_yield_) { return false; }
 
 
-#endif  //__TASK_H__
+//
+// clang-format on
+//
+
+#endif //__TASK_H__

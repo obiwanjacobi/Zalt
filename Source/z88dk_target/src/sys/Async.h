@@ -3,14 +3,10 @@
 
 #include "Sys.h"
 
-struct _asyncResult {
-    AsyncState State;
+struct _asyncThis
+{
+    uint16_t _state;
+    Async_Result _result;
 };
 
-
-//bool_t Async_IsComplete(AsyncResult* asyncResult);
-bool_t FastCall(Async_IsComplete__fast(AsyncResult* asyncResult));
-#define Async_IsComplete(p) Async_IsComplete__fast(p)
-
-
-#endif  //__ASYNC_H__
+#endif //__ASYNC_H__

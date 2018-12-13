@@ -1,37 +1,37 @@
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
-    "version": "0.1.0",
-    "windows": {
-        "command": "cmd",
-        "args": [
-            "/C",
-            "z88dk"
-        ]
-    },
-    "isShellCommand": true,
-    "showOutput": "always",
+    "version": "2.0.0",
     "echoCommand": true,
     "tasks": [
         {
-            "taskName": "build",
+            "label": "build",
+            "type": "shell",
+            // "command": "zcc +zalt -vn -m -SO3 -DDEBUG -Ca-DDEBUG -clib=sdcc_iy --max-allocs-per-node200000 '@_zalt.lst' -o zalt",
+            "command": "C:\\z88dk\\bin\\zcc",
             "args": [
-                "zcc",
+                //"zcc",
                 "+zalt",
                 "-vn",
-                "-m", 
-                //"--list",
+                "-m",
                 "-SO3",
                 "-DDEBUG",
                 "-Ca-DDEBUG",
                 "-clib=sdcc_iy",
                 "--max-allocs-per-node200000",
-                "@_zalt.lst",
-                "-o",
-                "zalt"
+                // "@_zalt.lst",
+                "-o zalt"
             ],
-            "isBuildCommand": true,
-            "suppressTaskName": true,
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+            },
             "problemMatcher": {
                 "owner": "z88dk",
                 "fileLocation": [
@@ -49,9 +49,9 @@
             }
         },
         {
-            "taskName": "compile-debug",
+            "label": "compile-debug",
+            "command": "zcc",
             "args": [
-                "zcc",
                 "+zalt",
                 "-clib=sdcc_iy",
                 "--max-allocs-per-node200000",
@@ -63,12 +63,11 @@
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}\""
             ],
-            "suppressTaskName": true
         },
         {
-            "taskName": "compile",
+            "label": "compile",
+            "command": "zcc",
             "args": [
-                "zcc",
                 "+zalt",
                 "-SO2",
                 "-clib=sdcc_iy",
@@ -78,12 +77,11 @@
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}\""
             ],
-            "suppressTaskName": true
         },
         {
-            "taskName": "compile-lst",
+            "label": "compile-lst",
+            "command": "zcc",
             "args": [
-                "zcc",
                 "+zalt",
                 "-clib=sdcc_iy",
                 "--max-allocs-per-node200000",
@@ -92,23 +90,17 @@
                 "-o",
                 "\"${fileDirname}\\${fileBasenameNoExtension}\""
             ],
-            "suppressTaskName": true
         },
         {
-            "taskName": "assemble",
+            "label": "assemble",
+            "command": "z80asm",
             "args": [
-                "z80asm",
                 "\"${file}\""
             ],
-            "suppressTaskName": true
         },
         {
-            "taskName": "deploy",
-            "args": [
-                "${workspaceRoot}\\deploy_target.cmd"
-            ],
-            "suppressTaskName": true,
-            "echoCommand": false
+            "label": "deploy",
+            "command": "${workspaceRoot}\\deploy_target.cmd",
         }
     ]
 }

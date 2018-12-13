@@ -58,68 +58,64 @@ Delete Dir ->	truncate on meta stream.
 					
 ******************************************************************************/
 
+// virtual functions definitions for a stream provider:
+typedef uint16_t (*CanProvide)(const char *protocol);
+typedef result_t (*TryOpenStream)(AsyncThis *async, const char *uri, StreamFlags access, Stream *outStream);
+typedef result_t (*TryCloseStream)(Stream *stream);
+typedef uint16_t (*ReadStream)(AsyncThis *async, Stream *stream, uint8_t *buffer, uint16_t capacity);
+typedef uint16_t (*WriteStream)(AsyncThis *async, Stream *stream, const uint8_t *buffer, uint16_t length);
 
-// virtual functions for a stream provider:
-typedef uint16_t (*CanProvide)(const char* protocol);
-typedef result_t (*TryOpenStream)(const char* uri, StreamFlags access, Stream* outStream);
-typedef result_t (*TryCloseStream)(Stream* stream);
-typedef AsyncResult* (*BeginReadStream)(Stream* stream, uint8_t* buffer, uint16_t capacity);
-typedef uint16_t (*EndReadStream)(Stream* stream, AsyncResult* asyncResult);
-typedef AsyncResult* (*BeginWriteStream)(Stream* stream, const uint8_t* buffer, uint16_t length);
-typedef uint16_t (*EndWriteStream)(Stream* stream, AsyncResult* asyncResult);
-
-struct _streamProvider {
+struct _streamProvider
+{
 	// numeric identification of the StreamProvider.
 	StreamProviderId Id;
-	
+
 	// returns the number of bytes its stream structure requires.
 	// returns 0 if the provider can not provide a stream for the protocol
 	// uint16_t CanProvide(const char* protocol) const;
 	CanProvide fnCanProvide;
-	
+
 	// Opens the physical stream to the stream source (smart IO device)
 	// returns an error code, or S_OK if successful. Each StreamProvider may have specific error codes.
 	// result_t TryOpenStream(Uri* uri, StreamFlags flags, Stream** outStream);
 	TryOpenStream fnTryOpenStream;
-	
+
 	// Closes the physical stream and cleans up resources (both on the Z80 as well as the smart IO device).
 	// returns an error code, or S_OK if successful. Each StreamProvider may have specific error codes.
 	// result_t TryCloseStream(Stream* stream);
 	TryCloseStream fnTryCloseStream;
 
 	// methods for reading async
-	BeginReadStream fnBeginReadStream;
-	EndReadStream fnEndReadStream;
+	ReadStream fnReadStream;
 
 	// methods for writing async
-	BeginWriteStream fnBeginWriteStream;
-	EndWriteStream fnEndWriteStream;
+	WriteStream fnWriteStream;
 };
+
 typedef struct _streamProvider StreamProvider;
 // Each StreamProvider implementation supplies a factory method for constructing/initializing this struct.
 
 // basis for managing streams.
-struct _stream {
+struct _stream
+{
 	// flags
 	StreamFlags Flags;
-	// total length of the stream (0 if unknown)
+	// total length of the stream (0xFFFF if unknown)
 	uint16_t Length;
 	// position of reading and/or writing the content in the stream.
 	uint16_t Position;
 	// pointer to the provider that owns the stream
-	StreamProvider* StreamProvider;
-	
+	StreamProvider *StreamProvider;
+
 	// providers may allocate larger streams for custom data
-	
 };
 
 /// Initializes all the stream providers. Call on setup.
 result_t StreamProvider_Construct();
 
 // seek
-uint16_t Stream_GetPosition(const Stream* stream);
-result_t Stream_SetPosition(Stream* stream, uint16_t pos);
-result_t Stream_Seek(Stream* stream, SeekStart startAt, uint16_t pos);
+uint16_t Stream_GetPosition(const Stream *stream);
+result_t Stream_SetPosition(Stream *stream, uint16_t pos);
+result_t Stream_Seek(Stream *stream, SeekStart startAt, uint16_t pos);
 
-
-#endif 	//__STREAM_H__
+#endif //__STREAM_H__

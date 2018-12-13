@@ -1,21 +1,23 @@
 #include "Async.h"
 
-const AsyncState asyncState_None = 0x00;
-const AsyncState asyncState_Pending = 0x01;
-const AsyncState asyncState_Completed = 0x02;
-const AsyncState asyncState_CompletedSync = 0x0A;
+const uint8_t AsyncThis_size = sizeof(AsyncThis);
 
-const uint8_t AsyncResult_size = sizeof(AsyncResult);
-
-//bool_t Async_IsComplete(AsyncResult* asyncResult)
-bool_t FastCall(Async_IsComplete__fast(AsyncResult* asyncResult))
+//bool_t Async_Construct(AsyncThis* async)
+void FastCall(Async_Construct__fast(AsyncThis *async))
 {
-    return ((asyncResult->State & asyncState_Completed) == 0) ? false : true;
+    async->_result = asyncResult_None;
+    async->_state = 0;
 }
 
-//bool_t Async_Wait(AsyncResult* asyncResult)
-bool_t FastCall(Async_Wait__fast(AsyncResult* asyncResult))
+//bool_t Async_IsComplete(AsyncThis* async)
+bool_t FastCall(Async_IsComplete__fast(AsyncThis *async))
 {
-    asyncResult;
+    return async->_state == asyncResult_Completed;
+}
+
+//bool_t Async_Wait(AsyncThis* async)
+bool_t FastCall(Async_Wait__fast(AsyncThis *async))
+{
+    async;
     return true;
 }

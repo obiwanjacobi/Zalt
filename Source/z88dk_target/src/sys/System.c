@@ -1,19 +1,20 @@
 #include "System.h"
 #include <stdlib.h>
 
-
 //void System_DebugConsole_Log(const char* text)
-void FastCall(System_DebugConsole_Log__fast(const char* text))
+void FastCall(System_DebugConsole_Log__fast(const char *text))
 {
-    if (text == NULL) return;
+    if (text == NULL)
+        return;
 
-    while(*text != NULL) {
+    while (*text != NULL)
+    {
         System_DebugConsole_Out(*text);
         text += 1;
     }
 }
 
-void System_DebugConsole_LogAssertFailed(const char* file, uint16_t line)
+void System_DebugConsole_LogAssertFailed(const char *file, uint16_t line)
 {
     char buf[6];
     buf[0] = 0;
@@ -24,4 +25,3 @@ void System_DebugConsole_LogAssertFailed(const char* file, uint16_t line)
     System_DebugConsole_Log("' at line ");
     System_DebugConsole_Log(buf);
 }
-
