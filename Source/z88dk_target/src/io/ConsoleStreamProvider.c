@@ -36,19 +36,26 @@ result_t ConsoleStreamProvider_TryOpenStreamAsync(AsyncThis *async, const char *
 {
     uri;
     access;
+
     if (stream == NULL)
+    {
+        async->_result = asyncResult_Error;
         return E_NULLPTR;
+    }
 
     stream->Flags = streamFlags_CanRead | streamFlags_CanWrite;
     DebugConsole = (ConsoleStream *)stream;
 
+    async->_result = asyncResult_Completed;
     return S_OK;
 }
 
 uint16_t ConsoleStreamProvider_ReadStreamAsync(AsyncThis *async, Stream *stream, uint8_t *buffer, uint16_t capacity)
 {
     uint8_t index;
-    ConsoleStream *consoleStream = ConsoleStream_FromStream(stream);
+    ConsoleStream *consoleStream;
+
+    async->_state == asyncResult_Error;
 
     if (stream == NULL)
     {
@@ -67,6 +74,7 @@ uint16_t ConsoleStreamProvider_ReadStreamAsync(AsyncThis *async, Stream *stream,
     }
     //if ((stream->Flags & streamAccess_Read) == 0) { Error_Set(E_NOACCESS); return 0;}
 
+    consoleStream = ConsoleStream_FromStream(stream);
     for (index = 0; index < CONSOLESTREAM_BUFFERSIZE && index < capacity; index++)
     {
         if (consoleStream->InputBuffer[index] == 0)
@@ -75,15 +83,16 @@ uint16_t ConsoleStreamProvider_ReadStreamAsync(AsyncThis *async, Stream *stream,
         consoleStream->InputBuffer[index] = 0;
     }
 
-    stream->Position += index;
-
     async->_result = asyncResult_Completed;
+    stream->Position += index;
     return index;
 }
 
 uint16_t ConsoleStreamProvider_WriteStreamAsync(AsyncThis *async, Stream *stream, const uint8_t *buffer, uint16_t length)
 {
     uint16_t i;
+    async->_result = asyncResult_Error;
+
     if (stream == NULL)
     {
         Error_Set(E_NULLPTR);
@@ -106,6 +115,7 @@ uint16_t ConsoleStreamProvider_WriteStreamAsync(AsyncThis *async, Stream *stream
         System_DebugConsole_Out(buffer[i]);
     }
 
+    async->_result = asyncResult_Completed;
     stream->Position += length;
     return length;
 }

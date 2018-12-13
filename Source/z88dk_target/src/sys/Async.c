@@ -12,7 +12,7 @@ void FastCall(Async_Construct__fast(AsyncThis *async))
 //bool_t Async_IsComplete(AsyncThis* async)
 bool_t FastCall(Async_IsComplete__fast(AsyncThis *async))
 {
-    return async->_state == asyncResult_Completed;
+    return async->_state == asyncResult_Completed || async->_state == asyncResult_Error;
 }
 
 //bool_t Async_Wait(AsyncThis* async)

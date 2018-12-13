@@ -80,7 +80,7 @@ result_t FastAPI(Stream_Close__fast(Stream *stream))
 uint16_t Stream_Read(Stream *stream, uint8_t *buffer, uint16_t capacity)
 {
 	AsyncThis async;
-	Async_Result result;
+	uint16_t read = 0;
 
 	if (stream == NULL)
 	{
@@ -101,17 +101,16 @@ uint16_t Stream_Read(Stream *stream, uint8_t *buffer, uint16_t capacity)
 	Async_Construct(&async);
 	while (!Async_IsComplete(&async))
 	{
-		stream->StreamProvider->fnReadStream(&async, stream, buffer, capacity);
+		read += stream->StreamProvider->fnReadStream(&async, stream, buffer, capacity);
 	}
 
-	// TODO: get length!
-	return 0;
+	return read;
 }
 
 uint16_t Stream_Write(Stream *stream, const uint8_t *buffer, uint16_t length)
 {
 	AsyncThis async;
-	Async_Result *result;
+	uint16_t written = 0;
 
 	if (length == 0)
 		return 0;
@@ -134,11 +133,10 @@ uint16_t Stream_Write(Stream *stream, const uint8_t *buffer, uint16_t length)
 	Async_Construct(&async);
 	while (!Async_IsComplete(&async))
 	{
-		stream->StreamProvider->fnWriteStream(&async, stream, buffer, length);
+		written += stream->StreamProvider->fnWriteStream(&async, stream, buffer, length);
 	}
 
-	// TODO: get length!
-	return 0;
+	return written;
 }
 
 bool_t Stream_HasFlags(const Stream *stream, StreamFlags flags)
