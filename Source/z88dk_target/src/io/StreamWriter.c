@@ -8,9 +8,6 @@ uint16_t StreamWriter_Write(Stream *stream, const char_t *source, uint16_t lengt
     dGuardErrVal(source == NULL, E_ARGNULLOREMPTY, 0);
     dGuardErrVal(length == 0, E_ARGNOTINRANGE, 0);
 
-    written = Stream_Write(stream, source, length);
-    if (written == 0) return 0;
-
     while (written < length)
     {
         uint16_t part = Stream_Write(stream, &source[written], length - written);

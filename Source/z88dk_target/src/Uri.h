@@ -1,11 +1,13 @@
 #ifndef __URI_H__
 #define __URI_H__
 
+#include "Types.h"
+
 typedef struct
 {
-	const char* Raw;	
+    const char_t *Raw;
 } Uri;
 
-Uri* Uri_Construct(const char* uri);
+Uri *Uri_Construct(const char_t *uri);
 
-#endif	//__URI_H__
+#endif //__URI_H__

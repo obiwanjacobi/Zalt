@@ -31,6 +31,7 @@
 #define dGuardVal(c, v)
 #define dGuardErr(c, e)
 #define dGuardErrVal(c, e, v)
+#define dGuardValAsync(c, v)
 #define dLog(s)
 #define dLogIf(c, s)
 #define dBreakpoint()

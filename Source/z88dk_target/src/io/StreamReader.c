@@ -29,10 +29,11 @@ uint8_t FastAPI(GetByte__fast(Stream *stream))
 uint16_t StreamReader_ReadLine(Stream *stream, uint8_t *buffer, uint16_t capacity)
 {
     uint16_t index = 0;
-    uint8_t b = GetByte(stream);
+    uint8_t b;
 
     dGuardErrVal(stream == NULL, E_NULLPTR, 0);
 
+    b = GetByte(stream);
     // skip any left-over new line chars
     while (b == NewLineChar || b == CarriageReturnChar)
     {
