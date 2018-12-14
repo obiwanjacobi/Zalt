@@ -1,11 +1,10 @@
 #include "System.h"
 #include <stdlib.h>
 
-//void System_DebugConsole_Log(const char* text)
-void FastCall(System_DebugConsole_Log__fast(const char *text))
+// void System_DebugConsole_Log(const char* text)
+void FastCall(System_DebugConsole_Log__fast(const char_t *text))
 {
-    if (text == NULL)
-        return;
+    if (text == NULL) return;
 
     while (*text != NULL)
     {
@@ -14,9 +13,9 @@ void FastCall(System_DebugConsole_Log__fast(const char *text))
     }
 }
 
-void System_DebugConsole_LogAssertFailed(const char *file, uint16_t line)
+void System_DebugConsole_LogAssertFailed(const char_t *file, uint16_t line)
 {
-    char buf[6];
+    char_t buf[6];
     buf[0] = 0;
     utoa(line, buf, 10);
 

@@ -2,7 +2,7 @@
 #include "../sys/Async.h"
 #include "../sys/System.h"
 
-const char *ConsoleProtocol = "con";
+const char_t *ConsoleProtocol = "con";
 const uint8_t ConsoleStreamProvider_size = sizeof(StreamProvider);
 static const uint8_t ConsoleStream_size = sizeof(ConsoleStream);
 
@@ -23,7 +23,7 @@ typedef struct _consoleStream ConsoleStream;
 
 static ConsoleStream *DebugConsole;
 
-uint16_t ConsoleStreamProvider_CanProvide(const char *protocol)
+uint16_t ConsoleStreamProvider_CanProvide(const char_t *protocol)
 {
     if (String_Compare(protocol, ConsoleProtocol, 3) == 0)
     {
@@ -32,7 +32,8 @@ uint16_t ConsoleStreamProvider_CanProvide(const char *protocol)
     return 0;
 }
 
-result_t ConsoleStreamProvider_TryOpenStreamAsync(AsyncThis *async, const char *uri, StreamFlags access, Stream *stream)
+result_t ConsoleStreamProvider_TryOpenStreamAsync(AsyncThis *async, const char_t *uri, StreamFlags access,
+                                                  Stream *stream)
 {
     uri;
     access;

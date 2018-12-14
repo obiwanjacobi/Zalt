@@ -4,7 +4,11 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+typedef uint8_t char_t;
+
 /// standard types value ranges
+#define char_min 0
+#define char_max UINT8_MAX
 #define uint8_min 0
 #define uint8_max UINT8_MAX
 #define uint16_min 0
@@ -18,15 +22,14 @@
 #define int32_min INT32_MIN
 #define int32_max INT32_MAX
 
-extern const char *EndOfLine;
-extern const char NewLineChar;
-extern const char CarriageReturnChar;
+extern const char_t NewLineChar;
+extern const char_t CarriageReturnChar;
 
 // our own bool
 enum _bool_t
 {
-	false,
-	true
+    false,
+    true
 };
 typedef enum _bool_t bool_t;
 
@@ -35,14 +38,14 @@ typedef enum _bool_t bool_t;
 // variable length struct
 struct _smallArray8
 {
-	// total capacity of array.
-	uint8_t Capacity;
-	union {
-		// the data content uint8_t[Capacity]
-		uint8_t Data[1];
-		// the string content char[Capacity]
-		char Text[1];
-	};
+    // total capacity of array.
+    uint8_t Capacity;
+    union {
+        // the data content uint8_t[Capacity]
+        uint8_t Data[1];
+        // the string content char[Capacity]
+        char_t Text[1];
+    };
 };
 typedef struct _smallArray8 SmallArray8;
 extern const uint8_t SmallArray8_size;
@@ -53,14 +56,14 @@ extern const uint8_t SmallArray8_MaxCapacity;
 // variable length struct
 struct _array8
 {
-	// total capacity of array.
-	uint16_t Capacity;
-	union {
-		// the data content uint8_t[Capacity]
-		uint8_t Data[1];
-		// the string content char[Capacity]
-		char Text[1];
-	};
+    // total capacity of array.
+    uint16_t Capacity;
+    union {
+        // the data content uint8_t[Capacity]
+        uint8_t Data[1];
+        // the string content char_t[Capacity]
+        char_t Text[1];
+    };
 };
 typedef struct _array8 Array8;
 extern const uint8_t Array8_size;
@@ -69,26 +72,26 @@ extern const uint16_t Array8_MaxCapacity;
 // variable length struct
 struct _collection8
 {
-	// length of used array content.
-	uint16_t Length;
+    // length of used array content.
+    uint16_t Length;
 
-	// Same as Array8:
-	// total capacity of array.
-	uint16_t Capacity;
-	union {
-		// the data content uint8_t[Capacity]
-		uint8_t Data[1];
-		// the string content char[Capacity]
-		char Text[1];
-	};
+    // Same as Array8:
+    // total capacity of array.
+    uint16_t Capacity;
+    union {
+        // the data content uint8_t[Capacity]
+        uint8_t Data[1];
+        // the string content char_t[Capacity]
+        char_t Text[1];
+    };
 };
 typedef struct _collection8 Collection8;
 extern const uint8_t Collection8_size;
 extern const uint16_t Collection8_MaxCapacity;
 
 // an opaque handle to something
-//typedef void* handle_t;
-#define handle_t void *
+typedef void *handle_t;
+// #define handle_t void *
 
 // generic pointer
 typedef void *ptr_t;

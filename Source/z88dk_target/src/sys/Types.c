@@ -1,8 +1,7 @@
 #include "Types.h"
 
-const char* EndOfLine = "\r\n";
-const char NewLineChar = '\n';
-const char CarriageReturnChar = '\r';
+const char_t NewLineChar = '\n';
+const char_t CarriageReturnChar = '\r';
 
 const uint8_t SmallArray8_size = sizeof(SmallArray8);
 const uint8_t SmallArray8_MaxCapacity = uint8_max;
