@@ -24,11 +24,12 @@ copy /Y target\zalt\clib_target_cfg.asm . 1> nul
 
 echo   zalt_sdcc_iy.lib
 
+del /S *.err > nul 2>&1
+
 z80asm --IXIY -xzalt_sdcc_iy -D%1 -D__SDCC -D__SDCC_IY @target/zalt/library/zalt_sdcc_iy.lst
 move /Y zalt_sdcc_iy.lib lib/sdcc_iy/zalt.lib
 
 del /S *.o > nul 2>&1
-del /S *.err > nul 2>&1
 
 del clib_cfg.asm > nul 2>&1
 del clib_target_cfg.asm > nul 2>&1

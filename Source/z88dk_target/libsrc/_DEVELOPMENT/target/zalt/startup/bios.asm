@@ -16,19 +16,18 @@ public bios_trap_illegal
 
 ; a dummy isr for initializing the isr vector table
 isr_null_vector:
-ifdef DEBUG
-	;halt			; break if debug build
-endif
+IF DEBUG
+	halt			; break if debug build
+ENDIF
 	ei				; lets do that again
 	reti			; return from interrupt
 
 ;	hl contains the source address of illegal call
 bios_trap_illegal:
-ifdef DEBUG
-	;halt			; break if debug build
-endif
-	;rst $00			; reset
-	halt
+IF DEBUG
+	halt			; break if debug build
+ENDIF
+	rst $00			; reset
 	
 ; Interrupts are disabled.
 bios_reset_init:
@@ -115,7 +114,3 @@ bios_load_word_instruction:
 	push hl		; put RST return address back on stack
 	push de		; as well as the immediate return address
 	ret
-	
-	
-	
-	

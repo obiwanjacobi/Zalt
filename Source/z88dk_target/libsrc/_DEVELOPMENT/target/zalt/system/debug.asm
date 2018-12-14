@@ -4,7 +4,7 @@ include "io_addresses.asm"
 ; debug routines
 ;
 
-;IFDEF DEBUG
+IF DEBUG
 section code_zalt_debug
 
 ; exports
@@ -200,4 +200,4 @@ debug_breakpoint:
 	call bios_interrupt_enable
 	ret
 
-;ENDIF	; DEBUG
+ENDIF	; DEBUG

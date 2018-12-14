@@ -1,9 +1,9 @@
 #ifndef __SYS_H__
 #define __SYS_H__
 
-#include "Types.h"
-#include "Error.h"
 #include "Debug.h"
+#include "Error.h"
+#include "Types.h"
 #include "api.h"
 
 //
@@ -28,7 +28,7 @@ typedef struct _thread Thread;
 /// returns current executing thread.
 Thread *Thread_GetCurrent();
 /// Retrieves thread owned heap.
-//Heap* Thread_GetHeap(Thread* thread);
+// Heap* Thread_GetHeap(Thread* thread);
 Heap *FastCall(Thread_GetHeap__fast(Thread *thread));
 #define Thread_GetHeap(p) Thread_GetHeap__fast(p)
 
@@ -37,12 +37,12 @@ Heap *FastCall(Thread_GetHeap__fast(Thread *thread));
 //
 
 /// Allocates from the current thread heap.
-//void* Thread_Alloc(uint16_t length);
+// void* Thread_Alloc(uint16_t length);
 void *FastCall(Thread_Alloc__fast(uint16_t length));
 #define Thread_Alloc(p) Thread_Alloc__fast(p)
 
 /// Frees to the current thread heap.
-//void Thread_Free(void* memory);
+// void Thread_Free(void* memory);
 void FastCall(Thread_Free__fast(void *memory));
 #define Thread_Free(p) Thread_Free__fast(p)
 
@@ -64,17 +64,17 @@ enum _asyncResult
 typedef enum _asyncResult Async_Result;
 
 /// initializes the AsyncThis struct.
-//void Async_Construct(AsyncThis* async);
+// void Async_Construct(AsyncThis* async);
 void FastCall(Async_Construct__fast(AsyncThis *async));
 #define Async_Construct(p) Async_Construct__fast(p)
 
 /// indicates if the async operation has completed.
-//bool_t Async_IsComplete(AsyncThis* async);
+// bool_t Async_IsComplete(AsyncThis* async);
 bool_t FastCall(Async_IsComplete__fast(AsyncThis *async));
 #define Async_IsComplete(p) Async_IsComplete__fast(p)
 
 /// Suspends execution until the operation is completed.
-//bool_t Async_Wait(AsyncThis* async);
+// bool_t Async_Wait(AsyncThis* async);
 bool_t FastCall(Async_Wait__fast(AsyncThis *async));
 #define Async_Wait(p) Async_Wait__fast(p)
 
@@ -85,30 +85,24 @@ bool_t FastCall(Async_Wait__fast(AsyncThis *async));
  *   Async_WaitUntil(async, <condition>);
  * }
  * Async_EndFn()
- * 
+ *
  * Async Function delcaration:
  * Async_Result <fn-name>(AsyncThis* async) {}
  */
 
-#define Async_Declaration(name) \
-    Async_Result name(AsyncThis *async);
+#define Async_Declaration(name) Async_Result name(AsyncThis *async);
 
-#define Async_DeclarationWithParameters(name, parameters) \
-    Async_Result name(AsyncThis *async, parameters);
+#define Async_DeclarationWithParameters(name, parameters) Async_Result name(AsyncThis *async, parameters);
 
 /** MACRO: Declare an async function 'name'.
  *  \return Returns an indication if the task has yielded (pending) or simply exited (completed).
  */
-#define Async_Function(name)            \
-    Async_Result name(AsyncThis *async) \
-        Async_Scope(async)
+#define Async_Function(name) Async_Result name(AsyncThis *async) Async_Scope()
 
 /** MACRO: Declare an async function 'name' with parameters.
  *  \return Returns an indication if the task has yielded (pending) or simply exited (completed).
  */
-#define Async_FunctionWithParams(name, parameters)  \
-    Async_Result name(AsyncThis *async, parameters) \
-        Async_Scope(async)
+#define Async_FunctionWithParams(name, parameters) Async_Result name(AsyncThis *async, parameters) Async_Scope()
 
 /** MACRO: start an async scope inside a function.
  */
@@ -130,8 +124,7 @@ bool_t FastCall(Async_Wait__fast(AsyncThis *async));
 /** MACRO: Declare the end of the async function.
  *  Exits the async function (completed).
  */
-#define Async_EndFn() \
-    Async_End(async) return async->_result;
+#define Async_EndFn() Async_End(async) return async->_result;
 
 /** MACRO: Exits the async function immediately.
  *  \return Returns error from the async function.

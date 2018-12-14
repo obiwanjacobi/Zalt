@@ -15,12 +15,12 @@ extern bios_reset_init
 extern bios_trap_illegal
 extern keyboard_isr
 
-;IFDEF DEBUG
+IF DEBUG
 extern debug_save_registers
 extern debug_restore_registers
 extern debug_breakpoint
 extern debug_monitor
-;ENDIF
+ENDIF
 
 
 module page0
@@ -75,9 +75,9 @@ module page0
 	; address = 0x0030
 	; RST30
 	; software debug breakpoint
-;IFDEF DEBUG
+IF DEBUG
 	call debug_breakpoint
-;ENDIF
+ENDIF
 	ret
 
 	
@@ -86,9 +86,9 @@ module page0
 	; RST38 and IM1
 	; used to trap illegal jumps and interrupt mode
 	di							; disable interrupts
-;IFDEF DEBUG
+IF DEBUG
 	call debug_save_registers	; save cpu state
-;ENDIF
+ENDIF
 	jp	bios_trap_illegal		; call the handler for illegal calls.
 
 	
@@ -107,9 +107,9 @@ bios_interrupt_enable_count:	; counts nested calls to bios_interrupt_disable
 	defs 0x0066 - ASMPC
 	; address = 0x0066
 	; !NMI
-;IFDEF DEBUG
+IF DEBUG
 	call debug_monitor			; communicate debug info to SystemController
-;ENDIF
+ENDIF
 	retn
 
 	
