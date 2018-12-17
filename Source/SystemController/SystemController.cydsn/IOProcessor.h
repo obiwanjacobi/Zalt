@@ -24,9 +24,9 @@ typedef struct
 void IOProcessor_Init();
 
 // for system use, don't call
-inline void IOProcessor_ISR_OnIOInterrupt();
-inline void IOProcessor_OutputDispatch(IOInfo* ioInfo);
-inline void IOProcessor_InputDispatch(IOInfo* ioInfo);
+void IOProcessor_ISR_OnIOInterrupt();
+void IOProcessor_OutputDispatch(IOInfo* ioInfo);
+void IOProcessor_InputDispatch(IOInfo* ioInfo);
     
 void IOProcessor_ReleaseCpuWait();
 

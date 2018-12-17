@@ -59,7 +59,7 @@ uint8_t RingBuffer_WriteByte(RingBuffer* ringBuffer, uint8_t data)
     return 1;
 }
 
-inline uint8_t RingBuffer_Peek(RingBuffer* ringBuffer)
+uint8_t RingBuffer_Peek(RingBuffer* ringBuffer)
 {
     return ringBuffer->Buffer[ringBuffer->ReadIndex];
 }
@@ -84,22 +84,22 @@ uint16_t RingBuffer_getLength(RingBuffer* ringBuffer)
     return ringBuffer->WriteIndex - ringBuffer->ReadIndex;
 }
 
-inline uint8_t* RingBuffer_getReadPtr(RingBuffer* ringBuffer)
+uint8_t* RingBuffer_getReadPtr(RingBuffer* ringBuffer)
 {
     return &ringBuffer->Buffer[ringBuffer->ReadIndex];
 }
 
-inline void RingBuffer_AdjustReadIndex(RingBuffer* ringBuffer, uint16_t bytesRead)
+void RingBuffer_AdjustReadIndex(RingBuffer* ringBuffer, uint16_t bytesRead)
 {
     ringBuffer->ReadIndex += bytesRead;
 }
 
-inline bool_t RingBuffer_IsEmpty(RingBuffer* ringBuffer)
+bool_t RingBuffer_IsEmpty(RingBuffer* ringBuffer)
 {
     return ringBuffer->ReadIndex == ringBuffer->WriteIndex ? true : false;
 }
 
-inline bool_t RingBuffer_IsFull(RingBuffer* ringBuffer)
+bool_t RingBuffer_IsFull(RingBuffer* ringBuffer)
 {
     return RingBuffer_getLength(ringBuffer) == ringBuffer->Length - 1 ? true : false;
 }

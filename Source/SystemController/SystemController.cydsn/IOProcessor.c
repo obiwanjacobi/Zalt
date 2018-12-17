@@ -31,7 +31,7 @@ void IOProcessor_ReleaseCpuWait()
     Z80Ctrl_WaitCtrlReg_Write(0);
 }
 
-inline void IOProcessor_ISR_OnIOInterrupt()
+void IOProcessor_ISR_OnIOInterrupt()
 {
     if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
     
@@ -56,7 +56,7 @@ inline void IOProcessor_ISR_OnIOInterrupt()
     IOProcessor_ReleaseCpuWait();
 }
 
-inline void IOProcessor_OutputDispatch(IOInfo* ioInfo)
+void IOProcessor_OutputDispatch(IOInfo* ioInfo)
 {
     switch(ioInfo->Address)
     {
@@ -74,7 +74,7 @@ inline void IOProcessor_OutputDispatch(IOInfo* ioInfo)
     }
 }
 
-inline void IOProcessor_InputDispatch(IOInfo* ioInfo)
+void IOProcessor_InputDispatch(IOInfo* ioInfo)
 {
     uint8_t data = 0;
     

@@ -8,7 +8,7 @@
 void InterruptProcessor_Init();
 
 // interrupt handler for Z80 interrupt acknowledge (IM2)
-inline void InterruptProcessor_ISR_OnInterrupt();
+void InterruptProcessor_ISR_OnInterrupt();
 
 // indicates if a call to InterruptProcesor_Interrupt will succeed
 bool_t InterruptProcesor_CanInterrupt();

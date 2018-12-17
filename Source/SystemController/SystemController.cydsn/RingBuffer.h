@@ -19,11 +19,11 @@ uint8_t RingBuffer_ReadByte(RingBuffer* ringBuffer);
 uint8_t RingBuffer_WriteByte(RingBuffer* ringBuffer, uint8_t data);
 uint8_t RingBuffer_Read(RingBuffer* ringBuffer, uint8_t* buffer, uint8_t maxLength, uint8_t match);
 
-inline uint8_t RingBuffer_Peek(RingBuffer* ringBuffer);
+uint8_t RingBuffer_Peek(RingBuffer* ringBuffer);
 uint8_t RingBuffer_PeekLastWritten(RingBuffer* ringBuffer);
 
-inline bool_t RingBuffer_IsEmpty(RingBuffer* ringBuffer);
-inline bool_t RingBuffer_IsFull(RingBuffer* ringBuffer);
+bool_t RingBuffer_IsEmpty(RingBuffer* ringBuffer);
+bool_t RingBuffer_IsFull(RingBuffer* ringBuffer);
 uint16_t RingBuffer_getLength(RingBuffer* ringBuffer);
 
 #endif  //__RINGBUFFER_H__

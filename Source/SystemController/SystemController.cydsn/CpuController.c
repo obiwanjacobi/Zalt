@@ -24,7 +24,7 @@ void CpuController_Reset(uint8_t active)
         CyPins_ClearPin(ExtBus_CpuRst);
 }
 
-inline uint8_t CpuController_IsResetActive()
+uint8_t CpuController_IsResetActive()
 {
     return CyPins_ReadPin(ExtBus_CpuRst) == 0;
 }
@@ -95,7 +95,7 @@ uint8_t CpuController_WaitCycles(uint16_t numberOfCycles)
     return 1;
 }
 
-inline uint8_t CpuController_IsCpuHalted()
+uint8_t CpuController_IsCpuHalted()
 {
     return CyPins_ReadPin(ExtBus_CpuHalt) == 0;
 }

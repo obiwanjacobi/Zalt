@@ -9,11 +9,11 @@
 void MemoryManager_Init();
 void MemoryManager_WriteNullTable();
 
-inline uint8_t MemoryManager_ReadTableData(uint8_t mapIndex);
-inline void MemoryManager_WriteTableData(uint8_t mapIndex, uint8_t data);
+uint8_t MemoryManager_ReadTableData(uint8_t mapIndex);
+void MemoryManager_WriteTableData(uint8_t mapIndex, uint8_t data);
 
-inline void MemoryManager_SelectTable(uint8_t tableIndex);
-inline void MemoryManager_SelectTableIO(uint8_t tableIndex);
+void MemoryManager_SelectTable(uint8_t tableIndex);
+void MemoryManager_SelectTableIO(uint8_t tableIndex);
 
 
 

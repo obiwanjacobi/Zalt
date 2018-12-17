@@ -172,7 +172,7 @@ void Debugger_FormatFlags(char* buffer, uint16_t value)
     
     bool_t z = ((value & flagZ) > 0);
     bool_t c = ((value & flagC) > 0);
-    bool_t h = ((value & flagH) > 0);
+    // bool_t h = ((value & flagH) > 0);
     bool_t pv = ((value & flagPV) > 0);
     bool_t n = ((value & flagN) > 0);
     bool_t s = ((value & flagS) > 0);

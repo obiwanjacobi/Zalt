@@ -1,0 +1,7 @@
+zalt
+zalt_CODE.bin
+zalt.map
+zcc_opt.def
+zcc_proj.lst
+
+*.c.asm

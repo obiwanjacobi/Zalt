@@ -19,7 +19,7 @@ void *Heap_Alloc(Heap *heap, uint16_t length)
 {
     if (heap != &crt_heap)
     {
-        SetError(E_NOTOWNED);
+        Error_Set(E_NOTOWNED);
         return NULL;
     }
     return malloc(length);
@@ -27,9 +27,11 @@ void *Heap_Alloc(Heap *heap, uint16_t length)
 
 void Heap_Free(Heap *heap, void *memory)
 {
+    dGuardErr(memory == NULL, E_ARGNULLOREMPTY);
+    if (heap != &crt_heap)
     {
-        SetError(E_NOTOWNED);
-        return NULL;
+        Error_Set(E_NOTOWNED);
+        return;
     }
     free(memory);
 }

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
-  <block name="ExtBus" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="MsbA" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CPUCLK_FAST" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ClockDivider" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ClkSrcMux" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="CPU_CLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="cy_constant_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="SysCtrlReg" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <register name="SysCtrlReg_CONTROL_REG" address="0x40006476" bitWidth="8" desc="" hidden="false" />
   </block>
-  <block name="RxSysTerminal" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ExtBus" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="CPU_CLK" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_constant_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ClockDivider" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="D" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="SysTerminal" BASE="0x0" SIZE="0x0" desc="UART" visible="true" hidden="false">
     <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="RXInternalInterrupt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -38,10 +37,12 @@
     </register>
   </block>
   <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="TxSysTerminal" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="D" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="RxSysTerminal" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="LsbA" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="cy_constant_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="TxSysTerminal" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ClkSrcMux" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ExtInt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="TimerISR" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="TimerClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />

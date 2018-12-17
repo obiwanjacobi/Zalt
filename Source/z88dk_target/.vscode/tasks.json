@@ -6,21 +6,8 @@
     "tasks": [
         {
             "label": "build",
-            "type": "process",
-            //"command": "cmd /C z88dk zcc +zalt -vn -m -SO3 -DDEBUG -Ca-DDEBUG -clib=sdcc_iy --max-allocs-per-node200000 -o zalt",
-            "command": "make.cmd",
-            // "args": [
-            //     "zcc",
-            //     "+zalt",
-            //     "-vn",
-            //     "-m",
-            //     "-SO3",
-            //     "-DDEBUG",
-            //     "-Ca-DDEBUG",
-            //     "-clib=sdcc_iy",
-            //     "--max-allocs-per-node200000",
-            //     "-o zalt"
-            // ],
+            "type": "shell",
+            "command": "./make.cmd",
             "options": {
                 "cwd": "${workspaceRoot}",
             },
@@ -48,50 +35,10 @@
             }
         },
         {
-            "label": "compile-debug",
+            "label": "compile-verbose",
             "type": "shell",
-            "command": "zcc",
-            "args": [
-                "+zalt",
-                "-clib=sdcc_iy",
-                "--max-allocs-per-node200000",
-                "-m",
-                "--list",
-                "-s",
-                "-g",
-                "\"${file}\"",
-                "-o",
-                "\"${fileDirname}\\${fileBasenameNoExtension}\""
-            ]
-        },
-        {
-            "label": "compile",
-            "type": "shell",
-            "command": "zcc",
-            "args": [
-                "+zalt",
-                "-SO2",
-                "-clib=sdcc_iy",
-                "--max-allocs-per-node200000",
-                "-m",
-                "\"${file}\"",
-                "-o",
-                "\"${fileDirname}\\${fileBasenameNoExtension}\""
-            ]
-        },
-        {
-            "label": "compile-lst",
-            "type": "shell",
-            "command": "zcc",
-            "args": [
-                "+zalt",
-                "-clib=sdcc_iy",
-                "--max-allocs-per-node200000",
-                "-m",
-                "\"@${file}\"",
-                "-o",
-                "\"${fileDirname}\\${fileBasenameNoExtension}\""
-            ]
+            "command": "./verbose.cmd",
+            "group": "build",
         },
         {
             "label": "assemble",
@@ -99,12 +46,14 @@
             "command": "z80asm",
             "args": [
                 "\"${file}\""
-            ]
+            ],
+            "group": "build",
         },
         {
             "label": "deploy",
             "type": "shell",
-            "command": "${workspaceRoot}\\deploy_target.cmd"
+            "command": "${workspaceRoot}\\deploy_target.cmd",
+            "group": "none",
         }
     ]
 }

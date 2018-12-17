@@ -15,14 +15,14 @@ void MemoryManager_WriteNullTable()
     }
 }
 
-inline uint8_t MemoryManager_ReadTableData(uint8_t mapIndex)
+uint8_t MemoryManager_ReadTableData(uint8_t mapIndex)
 {
     mapIndex &= 0x0F;
     // index is most-significant-nibble
     return IOController_Input((IO_MemoryManagerUnit_Data_ReadTable | mapIndex << ADDRESS_SHIFT));
 }
 
-inline void MemoryManager_WriteTableData(uint8_t mapIndex, uint8_t data)
+void MemoryManager_WriteTableData(uint8_t mapIndex, uint8_t data)
 {
     mapIndex &= 0x0F;
     // index is most-significant-nibble
@@ -30,13 +30,13 @@ inline void MemoryManager_WriteTableData(uint8_t mapIndex, uint8_t data)
 }
 
 // writes to the register that selects the mem-map table for operational use
-inline void MemoryManager_SelectTable(uint8_t tableIndex)
+void MemoryManager_SelectTable(uint8_t tableIndex)
 {
     IOController_Output(IO_MemoryManagerUnit_Table, tableIndex);
 }
 
 // writes to the register that selects the mem-map table for io/modification
-inline void MemoryManager_SelectTableIO(uint8_t tableIndex)
+void MemoryManager_SelectTableIO(uint8_t tableIndex)
 {
     IOController_Output(IO_MemoryManagerUnit_TableIO, tableIndex);
 }
