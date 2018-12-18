@@ -45,24 +45,35 @@ extern "C"
         }                               \
     } while (0)
 
-#define RUN_TESTS(name)                                  \
-    int main(int argc, char *argv[])                     \
-    {                                                    \
-        tests_run = 0;                                   \
-        argc = 1;                                        \
-        const char *result;                              \
-        printf("\n\nRUNNING: %s\n", argv[0]);            \
-        result = name();                                 \
-        if (result != 0)                                 \
-        {                                                \
-            printf("\n\nFAILED: %s\n", result);          \
-        }                                                \
-        else                                             \
-        {                                                \
-            printf("\n\nALL TESTS PASSED\n");            \
-        }                                                \
-        printf("Tests run: %d\n", tests_run);            \
-        exit(result == 0 ? EXIT_SUCCESS : EXIT_FAILURE); \
+#define mu_run_test_suite(testsuite)       \
+    do                                     \
+    {                                      \
+        const char *message;               \
+        printf("\n===%s", " " #testsuite); \
+        message = testsuite();             \
+        if (message)                       \
+        {                                  \
+            return message;                \
+        }                                  \
+    } while (0)
+
+#define RUN_TESTS(name)                                          \
+    int main(int argc, char *argv[])                             \
+    {                                                            \
+        tests_run = 0;                                           \
+        argc = 1;                                                \
+        const char *result;                                      \
+        printf("\n\nRUNNING: %s\n", argv[0]);                    \
+        result = name();                                         \
+        if (result != 0)                                         \
+        {                                                        \
+            printf("\n\n>> FAILED: %s\n", result);               \
+        }                                                        \
+        else                                                     \
+        {                                                        \
+            printf("\n\n>> ALL TESTS PASSED (%d)\n", tests_run); \
+        }                                                        \
+        exit(result == 0 ? EXIT_SUCCESS : EXIT_FAILURE);         \
     }
 
     extern int tests_run;

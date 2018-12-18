@@ -1,5 +1,3 @@
-/* file minunit_example.c */
-
 #include "minunit.h"
 #include <stdio.h>
 
@@ -7,14 +5,16 @@
 #include "z88dk_stubs.c"
 
 // test files
+#include "Sys/ErrorTests.c"
 #include "sys/AsyncTests.c"
 
 int tests_run = 0;
 
 static const char *all_tests()
 {
-    mu_run_test(Async_testSuite);
-    return 0;
+    mu_run_test_suite(Async_testSuite);
+    mu_run_test_suite(Error_testSuite);
+    return NULL;
 }
 
 RUN_TESTS(all_tests);
