@@ -50,6 +50,12 @@
             "group": "build",
         },
         {
+            "label": "test",
+            "type": "shell",
+            "command": "./_tests.unit/RunTests.cmd",
+            "group": "test",
+        },
+        {
             "label": "deploy",
             "type": "shell",
             "command": "${workspaceRoot}\\deploy_target.cmd",

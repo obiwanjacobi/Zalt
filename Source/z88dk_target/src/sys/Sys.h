@@ -124,7 +124,12 @@ bool_t FastCall(Async_Wait__fast(AsyncThis *async));
 /** MACRO: Declare the end of the async function.
  *  Exits the async function (completed).
  */
-#define Async_EndFn() Async_End(async) return async->_result;
+#define Async_EndFn()                       \
+    }                                       \
+    async->_state = 0;                      \
+    async->_result = asyncResult_Completed; \
+    return async->_result;                  \
+    }
 
 /** MACRO: Exits the async function immediately.
  *  \return Returns error from the async function.
