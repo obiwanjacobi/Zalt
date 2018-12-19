@@ -31,8 +31,9 @@ static const char *Async_Construct_test()
     AsyncThis async;
     Async_Construct(&async);
 
-    mu_assert(async.Result == asyncResult_None, "_result not initialized");
-    mu_assert(async.State == 0, "_state not initialized");
+    mu_assert(async.Result == asyncResult_None, "Result not initialized");
+    mu_assert(async.State == 0, "State not initialized");
+    mu_assert_success();
     return NULL;
 }
 
@@ -51,6 +52,7 @@ static const char *Async_Fn_WaitUntil_test()
     // one last call
     result = testAsyncFn_WaitUntil(&async);
     mu_assert(result == asyncResult_Completed, "did not report Completed");
+    mu_assert_success();
     return NULL;
 }
 
@@ -69,6 +71,7 @@ static const char *Async_Fn_YieldUntil_test()
     // one last call
     result = testAsyncFn_YieldUntil(&async);
     mu_assert(result == asyncResult_Completed, "did not report Completed");
+    mu_assert_success();
     return NULL;
 }
 
@@ -86,11 +89,14 @@ static const char *Async_IsCompleted_IsPending_test()
     // one last call
     testAsyncFn_YieldUntil(&async);
     mu_assert(Async_IsCompleted(&async), "did not report Completed");
+    mu_assert_success();
     return NULL;
 }
 
 static const char *Async_testSuite()
 {
+    Error_Set(S_OK);
+
     mu_run_test(Async_Construct_test);
     mu_run_test(Async_Fn_WaitUntil_test);
     mu_run_test(Async_Fn_YieldUntil_test);

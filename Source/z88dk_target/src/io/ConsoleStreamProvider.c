@@ -101,11 +101,7 @@ StreamProvider *FastCall(ConsoleStreamProvider_Construct__fast(void *memory))
 {
     StreamProvider *provider = (StreamProvider *)memory;
 
-    if (memory == NULL)
-    {
-        Error_Set(E_NULLPTR);
-        return NULL;
-    }
+    dGuardErrVal(memory == NULL, E_NULLPTR, NULL);
 
     DebugConsole = NULL;
 

@@ -11,12 +11,14 @@ static const char *String_Copy_test_FullStringCopied()
 {
     const uint16_t length = 12; // strlen
     char_t buffer[capacity];
+
     uint16_t result = String_Copy(expected, buffer, capacity);
 
     mu_assert(result == length, "result");
     mu_assert(buffer[0] == 'H', "first char");
     mu_assert(buffer[11] == '!', "last char");
     mu_assert(buffer[12] == 0, "null termination");
+    mu_assert_success();
     return NULL;
 }
 
@@ -32,6 +34,7 @@ static const char *String_Copy_test_PartStringCopied()
     mu_assert(buffer[0] == 'H', "first char");
     mu_assert(buffer[6] == 'W', "last char");
     mu_assert(buffer[7] == 0, "null termination");
+    mu_assert_success();
     return NULL;
 }
 
@@ -42,6 +45,7 @@ static const char *String_Compare_test_Smaller()
     int16_t result = String_Compare(expected, test, 0);
 
     mu_assert(result < 0, "not smaller");
+    mu_assert_success();
     return NULL;
 }
 
@@ -52,6 +56,7 @@ static const char *String_Compare_test_Bigger()
     int16_t result = String_Compare(expected, test, 0);
 
     mu_assert(result > 0, "not bigger");
+    mu_assert_success();
     return NULL;
 }
 
@@ -60,6 +65,7 @@ static const char *String_Compare_test_NoLength()
     int16_t result = String_Compare(expected, test, 0);
 
     mu_assert(result == 0, "not equal");
+    mu_assert_success();
     return NULL;
 }
 
@@ -68,6 +74,7 @@ static const char *String_Compare_test_FullLength()
     int16_t result = String_Compare(expected, test, 12);
 
     mu_assert(result == 0, "not equal");
+    mu_assert_success();
     return NULL;
 }
 
@@ -76,6 +83,7 @@ static const char *String_Compare_test_MoreLength()
     int16_t result = String_Compare(expected, test, 20);
 
     mu_assert(result == 0, "not equal");
+    mu_assert_success();
     return NULL;
 }
 
@@ -84,6 +92,7 @@ static const char *String_Compare_test_PartLength()
     int16_t result = String_Compare(expected, test, 8);
 
     mu_assert(result == 0, "not equal");
+    mu_assert_success();
     return NULL;
 }
 
@@ -93,6 +102,7 @@ static const char *String_Compare_test_PartLengthNoCase()
     int16_t result = String_Compare(expected, test, 8);
 
     mu_assert(result == 0, "not equal");
+    mu_assert_success();
     return NULL;
 }
 
@@ -102,6 +112,7 @@ static const char *String_CompareExact_test_PartLengthNoCase()
     int16_t result = String_CompareExact(expected, test, 8);
 
     mu_assert(result != 0, "equal");
+    mu_assert_success();
     return NULL;
 }
 
@@ -110,6 +121,7 @@ static const char *String_CompareExact_test_PartLengthCase()
     int16_t result = String_CompareExact(expected, test, 8);
 
     mu_assert(result == 0, "not equal");
+    mu_assert_success();
     return NULL;
 }
 
@@ -118,6 +130,7 @@ static const char *String_GetLength_test()
     int16_t result = String_GetLength(expected, 13);
 
     mu_assert(result == 12, "length");
+    mu_assert_success();
     return NULL;
 }
 
@@ -126,6 +139,7 @@ static const char *String_GetLength_test_NoCapacity()
     int16_t result = String_GetLength(expected, 0);
 
     mu_assert(result == 12, "length");
+    mu_assert_success();
     return NULL;
 }
 
@@ -134,6 +148,7 @@ static const char *String_GetLength_test_CapacityTooSmall()
     int16_t result = String_GetLength(expected, 10);
 
     mu_assert(result == 10, "length");
+    mu_assert_success();
     return NULL;
 }
 
@@ -141,6 +156,7 @@ static const char *String_GetLength_test_CapacityTooSmall()
 
 static const char *String_testSuite()
 {
+    Error_Set(S_OK);
     mu_run_test(String_Copy_test_FullStringCopied);
     mu_run_test(String_Copy_test_PartStringCopied);
     mu_run_test(String_Compare_test_Smaller);

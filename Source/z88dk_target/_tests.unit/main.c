@@ -1,4 +1,5 @@
 #include "minunit.h"
+#include "utils.h"
 #include <stdio.h>
 
 #include "Zalt_stubs.c"
@@ -14,14 +15,15 @@
 
 int tests_run = 0;
 
+// there are dependencies between tests (init of globals)
 static const char *all_tests()
 {
     // sys
-    mu_run_test_suite(Async_testSuite);
-    mu_run_test_suite(Error_testSuite);
-    mu_run_test_suite(String_testSuite);
-    mu_run_test_suite(Heap_testSuite);
     mu_run_test_suite(Thread_testSuite);
+    mu_run_test_suite(Heap_testSuite);
+    mu_run_test_suite(Error_testSuite);
+    mu_run_test_suite(Async_testSuite);
+    mu_run_test_suite(String_testSuite);
     // io
     mu_run_test_suite(Stream_testSuite);
 
