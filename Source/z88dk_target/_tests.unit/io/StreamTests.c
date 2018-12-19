@@ -16,7 +16,7 @@ static const char *Stream_Construct_test()
 
 static const char *Stream_Open_test()
 {
-    Stream *stream = Stream_Open("con", streamFlags_CanRead);
+    Stream *stream = Stream_Open(ConsoleProtocol, streamFlags_CanRead);
     mu_assert(stream != NULL, "no stream allocated");
     mu_assert_success();
     return NULL;

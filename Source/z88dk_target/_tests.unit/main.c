@@ -19,8 +19,8 @@ int tests_run = 0;
 static const char *all_tests()
 {
     // sys
-    mu_run_test_suite(Thread_testSuite);
     mu_run_test_suite(Heap_testSuite);
+    mu_run_test_suite(Thread_testSuite);
     mu_run_test_suite(Error_testSuite);
     mu_run_test_suite(Async_testSuite);
     mu_run_test_suite(String_testSuite);
