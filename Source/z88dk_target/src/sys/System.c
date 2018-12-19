@@ -1,7 +1,7 @@
 #include "System.h"
 #include <stdlib.h>
 
-// void System_DebugConsole_Log(const char* text)
+// void System_DebugConsole_Log(const char_t* text)
 void FastCall(System_DebugConsole_Log__fast(const char_t *text))
 {
     if (text == NULL) return;

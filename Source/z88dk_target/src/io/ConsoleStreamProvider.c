@@ -1,5 +1,6 @@
 #include "ConsoleStreamProvider.h"
 #include "../sys/Async.h"
+#include "../sys/Debug.h"
 #include "../sys/System.h"
 
 const char_t *ConsoleProtocol = "con";
@@ -38,12 +39,13 @@ result_t ConsoleStreamProvider_TryOpenStreamAsync(AsyncThis *async, const char_t
     uri;
     access;
 
+    dGuardErrVal(async == NULL, E_NULLPTR, 0);
     dGuardValAsync(stream == NULL, E_NULLPTR);
 
     stream->Flags = streamFlags_CanRead | streamFlags_CanWrite;
     DebugConsole = (ConsoleStream *)stream;
 
-    async->_result = asyncResult_Completed;
+    async->Result = asyncResult_Completed;
     return S_OK;
 }
 
@@ -52,12 +54,13 @@ uint16_t ConsoleStreamProvider_ReadStreamAsync(AsyncThis *async, Stream *stream,
     uint8_t index;
     ConsoleStream *consoleStream;
 
-    async->_state == asyncResult_Error;
+    async->State == asyncResult_Error;
 
+    dGuardErrVal(async == NULL, E_NULLPTR, 0);
     dGuardErrVal(stream == NULL, E_NULLPTR, 0);
     dGuardErrVal(buffer == NULL, E_ARGNULLOREMPTY, 0);
     dGuardErrVal(capacity == 0, E_ARGNOTINRANGE, 0);
-    // dGuardErrVal((stream->Flags & streamAccess_Read) == 0, E_NOACCESS, 0);
+    dGuardErrVal((stream->Flags & streamAccess_Read) == 0, E_NOACCESS, 0);
 
     consoleStream = ConsoleStream_FromStream(stream);
     for (index = 0; index < CONSOLESTREAM_BUFFERSIZE && index < capacity; index++)
@@ -67,7 +70,7 @@ uint16_t ConsoleStreamProvider_ReadStreamAsync(AsyncThis *async, Stream *stream,
         consoleStream->InputBuffer[index] = 0;
     }
 
-    async->_result = asyncResult_Completed;
+    async->Result = asyncResult_Completed;
     stream->Position += index;
     return index;
 }
@@ -76,19 +79,20 @@ uint16_t ConsoleStreamProvider_WriteStreamAsync(AsyncThis *async, Stream *stream
                                                 uint16_t length)
 {
     uint16_t i;
-    async->_result = asyncResult_Error;
+    async->Result = asyncResult_Error;
 
+    dGuardErrVal(async == NULL, E_NULLPTR, 0);
     dGuardErrVal(stream == NULL, E_NULLPTR, 0);
     dGuardErrVal(buffer == NULL, E_ARGNULLOREMPTY, 0);
     dGuardErrVal(length == 0, E_ARGNOTINRANGE, 0);
-    // dGuardErrVal((stream->Flags & streamAccess_Write) == 0, E_NOACCESS, 0);
+    dGuardErrVal((stream->Flags & streamAccess_Write) == 0, E_NOACCESS, 0);
 
     for (i = 0; i < length; i++)
     {
         System_DebugConsole_Out(buffer[i]);
     }
 
-    async->_result = asyncResult_Completed;
+    async->Result = asyncResult_Completed;
     stream->Position += length;
     return length;
 }

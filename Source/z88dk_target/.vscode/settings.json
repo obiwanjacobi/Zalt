@@ -1,7 +1,9 @@
 {
     "files.associations": {
         "string.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "sys.h": "c",
+        "types.h": "c"
     },
     "files.exclude": {
         "**/.git": true,

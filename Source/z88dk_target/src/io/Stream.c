@@ -1,5 +1,6 @@
 #include "Stream.h"
 #include "../sys/Async.h"
+#include "../sys/Debug.h"
 #include "ConsoleStreamProvider.h"
 #include <string.h>
 
@@ -44,7 +45,7 @@ Stream *Stream_Open(const char_t *location, StreamFlags access)
     stream->StreamProvider = ConsoleStreamProvider;
 
     Async_Construct(&async);
-    while (Async_IsPending(&async))
+    while (!Async_IsDone(&async))
     {
         result = ConsoleStreamProvider->fnTryOpenStream(&async, location, access, stream);
 
@@ -85,7 +86,7 @@ uint16_t Stream_Read(Stream *stream, uint8_t *buffer, uint16_t capacity)
     dGuardErrVal(stream->StreamProvider->fnReadStream == NULL, E_NOTSUPPORTED, 0);
 
     Async_Construct(&async);
-    while (Async_IsPending(&async))
+    while (!Async_IsDone(&async))
     {
         read += stream->StreamProvider->fnReadStream(&async, stream, buffer, capacity);
     }
@@ -105,7 +106,7 @@ uint16_t Stream_Write(Stream *stream, const uint8_t *buffer, uint16_t length)
     dGuardErrVal(stream->StreamProvider->fnWriteStream == NULL, E_NOTSUPPORTED, 0);
 
     Async_Construct(&async);
-    while (Async_IsPending(&async))
+    while (!Async_IsDone(&async))
     {
         written += stream->StreamProvider->fnWriteStream(&async, stream, buffer, length);
     }

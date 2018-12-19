@@ -1,7 +1,6 @@
 #ifndef __SYS_H__
 #define __SYS_H__
 
-#include "Debug.h"
 #include "Error.h"
 #include "Types.h"
 #include "api.h"
@@ -31,10 +30,6 @@ Thread *Thread_GetCurrent();
 // Heap* Thread_GetHeap(Thread* thread);
 Heap *FastCall(Thread_GetHeap__fast(Thread *thread));
 #define Thread_GetHeap(p) Thread_GetHeap__fast(p)
-
-//
-// Memory
-//
 
 /// Allocates from the current thread heap.
 // void* Thread_Alloc(uint16_t length);
@@ -83,12 +78,9 @@ bool_t FastCall(Async_IsError__fast(AsyncThis *async));
 bool_t FastCall(Async_IsPending__fast(AsyncThis *async));
 #define Async_IsPending(p) Async_IsPending__fast(p)
 
-/// Suspends execution until the operation is completed.
-// void Async_Wait("Async_Result (asyncFn*)(AsyncThis*, ...)")
-#define Async_Wait(asyncFn)                \
-    while (asyncFn != asyncResult_Pending) \
-    {                                      \
-    }
+/// indicates if the async operation is done either success or error.
+// bool_t Async_IsDone(AsyncThis* async);
+#define Async_IsDone(p) (Async_IsCompleted__fast(p) || Async_IsError__fast(p))
 
 /**
  * Usage example:
@@ -121,43 +113,43 @@ bool_t FastCall(Async_IsPending__fast(AsyncThis *async));
 #define Async_Scope()           \
     {                           \
         bool_t _yield_ = false; \
-        switch (async->_state)  \
+        switch (async->State)   \
         {                       \
         case 0:
 
 /** MACRO: ends an async scope inside a function (completed).
  */
-#define Async_End()                         \
-    }                                       \
-    async->_state = 0;                      \
-    async->_result = asyncResult_Completed; \
+#define Async_End()                        \
+    }                                      \
+    async->State = 0;                      \
+    async->Result = asyncResult_Completed; \
     }
 
 /** MACRO: Declare the end of the async function.
  *  Exits the async function (completed).
  */
-#define Async_EndFn()                       \
-    }                                       \
-    async->_state = 0;                      \
-    async->_result = asyncResult_Completed; \
-    return async->_result;                  \
+#define Async_EndFn()                      \
+    }                                      \
+    async->State = 0;                      \
+    async->Result = asyncResult_Completed; \
+    return async->Result;                  \
     }
 
 /** MACRO: Exits the async function immediately.
  *  \return Returns error from the async function.
  */
-#define Async_Abort()                   \
-    async->_state = 0;                  \
-    async->_result = asyncResult_Error; \
-    return async->_result;
+#define Async_Abort()                  \
+    async->State = 0;                  \
+    async->Result = asyncResult_Error; \
+    return async->Result;
 
 /** MACRO: Exits the async function immediately.
  *  \return Returns completed from the async function.
  */
-#define Async_Return()                      \
-    async->_state = 0;                      \
-    async->_result = asyncResult_Completed; \
-    return async->_result;
+#define Async_Return()                     \
+    async->State = 0;                      \
+    async->Result = asyncResult_Completed; \
+    return async->Result;
 
 //
 // clang-format off
@@ -167,10 +159,10 @@ bool_t FastCall(Async_IsPending__fast(AsyncThis *async));
  *  The expression is evaluated before the async function is exited (pending).
  */
 #define Async_WaitUntil(expression)    \
-    async->_state = __LINE__; case __LINE__:  \
+    async->State = __LINE__; case __LINE__:  \
     if (!(expression)) {                      \
-        async->_result = asyncResult_Pending; \
-        return async->_result;                \
+        async->Result = asyncResult_Pending; \
+        return async->Result;                \
     }
 
 /** MACRO: Yields from the async function until the expression evaluates to true.
@@ -179,10 +171,10 @@ bool_t FastCall(Async_IsPending__fast(AsyncThis *async));
  */
 #define Async_YieldUntil(expression)   \
     _yield_ = true;                           \
-    async->_state = __LINE__; case __LINE__:  \
+    async->State = __LINE__; case __LINE__:  \
     if (_yield_ || !(expression)) {           \
-        async->_result = asyncResult_Pending; \
-        return async->_result;                \
+        async->Result = asyncResult_Pending; \
+        return async->Result;                \
     }
 
 /** MACRO: Yields from the async function.
@@ -193,8 +185,8 @@ bool_t FastCall(Async_IsPending__fast(AsyncThis *async));
     _yield_ = true;                           \
     _state = __LINE__; case __LINE__:         \
     if (_yield_) {                            \
-        async->_result = asyncResult_Pending; \
-        return async->_result;                \
+        async->Result = asyncResult_Pending; \
+        return async->Result;                \
     }
 
 
@@ -209,9 +201,9 @@ bool_t FastCall(Async_IsPending__fast(AsyncThis *async));
 /// Copies the string from source to dest but never more than capacity bytes (incl. NULL).
 uint16_t String_Copy(const char_t *source, char_t *buffer, uint16_t capacity);
 
-/// Compares strx to stry for max capacity characters and returns a signed integer result.
-int16_t String_Compare(const char_t *strx, const char_t *stry, uint16_t capacity);
-int16_t String_CompareExact(const char_t *strx, const char_t *stry, uint16_t capacity);
+/// Compares strx to stry for max length characters and returns a signed integer result.
+int16_t String_Compare(const char_t *strx, const char_t *stry, uint16_t length);
+int16_t String_CompareExact(const char_t *strx, const char_t *stry, uint16_t length);
 
 /// Returns the number of character (excl. NULL).
 uint16_t String_GetLength(const char_t *source, uint16_t capacity);

@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-typedef uint8_t char_t;
+typedef unsigned char char_t;
 
 /// standard types value ranges
 #define char_min 0

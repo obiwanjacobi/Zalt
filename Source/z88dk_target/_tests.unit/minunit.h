@@ -22,8 +22,6 @@ extern "C"
 
 #define log_err(message) printf("\tError: %s\n", message)
 
-    // #define mu_suite_start() char *message = NULL
-
 #define mu_assert(test, message) \
     do                           \
     {                            \

@@ -5,8 +5,8 @@
 
 struct _asyncThis
 {
-    uint16_t _state;
-    Async_Result _result;
+    uint16_t State;
+    Async_Result Result;
 };
 
 #endif //__ASYNC_H__

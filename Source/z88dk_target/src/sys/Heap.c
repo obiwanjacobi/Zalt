@@ -1,4 +1,5 @@
 #include "Heap.h"
+#include "Debug.h"
 #include <malloc.h>
 
 #define Page4k 0x1000

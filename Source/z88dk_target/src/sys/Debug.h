@@ -15,7 +15,7 @@
 #define dGuardVal(c, v)         if (c) { return v; }
 #define dGuardErr(c, e)         if (c) { Error_Set(e); return; }
 #define dGuardErrVal(c, e, v)   if (c) { Error_Set(e); return v; }
-#define dGuardValAsync(c, v)    if (c) { async->_result = asyncResult_Error; return v; }
+#define dGuardValAsync(c, v)    if (c) { async->Result = asyncResult_Error; return v; }
 #define dLog(s)                 System_DebugConsole_Log(s);
 #define dLogIf(c, s)            if (c) { System_DebugConsole_Log(s); }
 #define dBreakpoint()           __asm rst $30 __endasm

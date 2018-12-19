@@ -31,8 +31,8 @@ static const char *Async_Construct_test()
     AsyncThis async;
     Async_Construct(&async);
 
-    mu_assert(async._result == asyncResult_None, "_result not initialized");
-    mu_assert(async._state == 0, "_state not initialized");
+    mu_assert(async.Result == asyncResult_None, "_result not initialized");
+    mu_assert(async.State == 0, "_state not initialized");
     return NULL;
 }
 

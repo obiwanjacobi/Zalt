@@ -1,27 +1,29 @@
 #include "TestTasks.h"
 #include "io/Io.h"
+#include "sys/Debug.h"
 
 static uint16_t _task = 0;
-static Stream* Console;
+static Stream *Console;
 static uint8_t Key;
 
 bool_t HasKey()
 {
-    if (Stream_Read(Console, &Key, 1) > 0) {
+    if (Stream_Read(Console, &Key, 1) > 0)
+    {
         return true;
     }
     return false;
 }
 
-
 Task_Begin(Task1_Execute)
 {
     Console = Stream_Open(ConsoleProtocol, streamAccess_Read | streamAccess_Write);
 
-    while(true) {
+    while (true)
+    {
         Task_WaitUntil(HasKey());
         System_DebugConsole_Out(Key);
-        //dBreakpoint();
+        // dBreakpoint();
     }
 }
 Task_End

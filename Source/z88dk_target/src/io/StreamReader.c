@@ -1,8 +1,7 @@
-#include "Io.h"
-
-#include <stdio.h>
-
+#include "../sys/Debug.h"
 #include "../sys/System.h"
+#include "Io.h"
+#include <stdio.h>
 
 bool_t StreamReader_TryReadByte(Stream *stream, uint8_t *outByte)
 {

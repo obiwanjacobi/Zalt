@@ -1,4 +1,5 @@
 #include "Thread.h"
+#include "Debug.h"
 #include "Heap.h"
 
 static Thread CurrentThread;
