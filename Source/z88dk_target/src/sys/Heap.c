@@ -29,7 +29,7 @@ void *Heap_Alloc(Heap *heap, uint16_t length)
 
 void Heap_Free(Heap *heap, void *memory)
 {
-    dGuardErrVal(heap == NULL, E_NULLPTR, NULL);
+    dGuardErr(heap == NULL, E_NULLPTR);
     dGuardErr(memory == NULL, E_ARGNULLOREMPTY);
     if (heap != &crt_heap)
     {

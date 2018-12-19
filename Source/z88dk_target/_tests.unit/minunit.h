@@ -45,26 +45,24 @@ extern "C"
         }                               \
     } while (0)
 
-#define mu_run_test_suite(testsuite)       \
-    do                                     \
-    {                                      \
-        const char *message;               \
-        printf("\n===%s", " " #testsuite); \
-        message = testsuite();             \
-        if (message)                       \
-        {                                  \
-            return message;                \
-        }                                  \
+#define mu_run_test_suite(testsuite)         \
+    do                                       \
+    {                                        \
+        const char *message;                 \
+        printf("\n===%s\t", " " #testsuite); \
+        message = testsuite();               \
+        if (message)                         \
+        {                                    \
+            return message;                  \
+        }                                    \
     } while (0)
 
 #define RUN_TESTS(name)                                                 \
     int main(int argc, char *argv[])                                    \
     {                                                                   \
         tests_run = 0;                                                  \
-        argc = 1;                                                       \
-        const char *result;                                             \
         printf("\n\nRUNNING: %s\n", argv[0]);                           \
-        result = name();                                                \
+        const char *result = name();                                    \
         if (result != 0)                                                \
         {                                                               \
             printf("\n\n>> TEST %d FAILED: %s\n\n", tests_run, result); \

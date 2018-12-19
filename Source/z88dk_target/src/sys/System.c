@@ -6,7 +6,7 @@ void FastCall(System_DebugConsole_Log__fast(const char_t *text))
 {
     if (text == NULL) return;
 
-    while (*text != NULL)
+    while (*text != 0)
     {
         System_DebugConsole_Out(*text);
         text += 1;

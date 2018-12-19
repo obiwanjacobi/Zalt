@@ -12,8 +12,6 @@ result_t StreamProvider_Construct()
     return ConsoleStreamProvider == NULL ? E_NULLPTR : S_OK;
 }
 
-// Stream* Stream_Construct(uint16_t length)
-#define Stream_Construct(p) Stream_Construct__fast(p)
 Stream *FastAPI(Stream_Construct__fast(uint16_t length))
 {
     Stream *stream = Thread_Alloc(length);
@@ -27,8 +25,12 @@ Stream *Stream_Open(const char_t *location, StreamFlags access)
 {
     result_t result;
     Stream *stream;
-    uint16_t size = 0;
+    uint16_t size;
     AsyncThis async;
+
+    dGuardErrVal(ConsoleStreamProvider == NULL, E_NOTINITIALIZED, NULL);
+    dGuardErrVal(ConsoleStreamProvider->fnCanProvide == NULL, E_NOTINITIALIZED, NULL);
+    dGuardErrVal(ConsoleStreamProvider->fnTryOpenStream == NULL, E_NOTINITIALIZED, NULL);
 
     // TODO: parse location into parts
 

@@ -8,57 +8,56 @@
 Interaction between StreamProvider and Stream API:
 
 Stream_Open ->	Parse Uri
-                        ->	Find StreamProvider by calling CanProvide on all registered providers.
-                        ->	Use the non-zero return value to allocate memory for Stream struct.
-                        ->  Call StreamProvider->TryOpenStream to initialize the Stream struct.
-                                -> Open Stream source (smart IO device). Typically involves IO.
-                                        The smart IO device locates the resource and starts transfering
-                                        content to its internal cache memory.
-                                -> StreamProvider contacts the MemoryManager to allocate a memory page (4k).
-                                -> The reserved memory page is communicated to smart IO device and
-                                        (DMA/DP-RAM) transfer can begin (async) - be careful with this!
-                                -> The StreamProvider stores any extra information at the end of the Stream struct.
-                        -> If unsuccessful, set error code and return null.
-                        -> If successful, tag the Stream with the StreamProvider and return Stream.
+        ->	Find StreamProvider by calling CanProvide on all registered providers.
+        ->	Use the non-zero return value to allocate memory for Stream struct.
+        ->  Call StreamProvider->TryOpenStream to initialize the Stream struct.
+                -> Open Stream source (smart IO device). Typically involves IO.
+                        The smart IO device locates the resource and starts transfering
+                        content to its internal cache memory.
+                -> StreamProvider contacts the MemoryManager to allocate a memory page (4k).
+                -> The reserved memory page is communicated to smart IO device and
+                        (DMA/DP-RAM) transfer can begin (async) - be careful with this!
+                -> The StreamProvider stores any extra information at the end of the Stream struct.
+        -> If unsuccessful, set error code and return null.
+        -> If successful, tag the Stream with the StreamProvider and return Stream.
 
 
 Stream_Read ->	Determine Stream-state:
-                                -> Nothing has been loaded in yet:
-                                        Call StreamProvider to bring in the first block (sync).
-                                        ->	StreamProvider calls Smart IO Device retrieve transfer status.
-                                        <fall through>
-                                -> Not everything can be read from current memory block:
-                                        Call StreamProvider to bring in the next block (async)
-                                        ->	StreamProvider calls Smart IO Device to start transfer process.
-                                        Empty out existing data and return byte processed (adjust Stream pos).
-                                -> The complete Read can come from current memory block:
-                                        Adjust Stream position and copy content data into buffer.
+        -> Nothing has been loaded in yet:
+                Call StreamProvider to bring in the first block (sync).
+                ->	StreamProvider calls Smart IO Device retrieve transfer status.
+                <fall through>
+        -> Not everything can be read from current memory block:
+                Call StreamProvider to bring in the next block (async)
+                ->	StreamProvider calls Smart IO Device to start transfer process.
+                Empty out existing data and return byte processed (adjust Stream pos).
+        -> The complete Read can come from current memory block:
+                Adjust Stream position and copy content data into buffer.
 
 Stream_Seek ->	Determine Stream-state:
-                                -> Nothing has been loaded in yet:
-                                        Call StreamProvider to re-position the Stream
-                                        ->	StreamProvider calls Smart IO Device with repos info (sync).
-                                -> Requested pos is not in current buffer:
-                                        -> Call StreamProvider to re-position the Stream
-                                        ->	StreamProvider calls Smart IO Device with repos info (sync).
-                                -> Requested pos IS in current buffer:
-                                        Simply return.
+        -> Nothing has been loaded in yet:
+                Call StreamProvider to re-position the Stream
+                ->	StreamProvider calls Smart IO Device with repos info (sync).
+        -> Requested pos is not in current buffer:
+                -> Call StreamProvider to re-position the Stream
+                ->	StreamProvider calls Smart IO Device with repos info (sync).
+        -> Requested pos IS in current buffer:
+                Simply return.
                                         
 
 Create File ->	Stream_Open with create-flag will create a new file with a temp name and default attributes.
-                                Stream_Open with create- and meta-flag will create a new file with specified attributes.
-                                After the meta-stream is closed, that content stream can be opened specifying the name
-used previously.
+                Stream_Open with create- and meta-flag will create a new file with specified attributes.
+                After the meta-stream is closed, that content stream can be opened specifying the name
+                used previously.
 
 Delete File	->	Stream_Open with truncate- and meta-flags will delete the specified file.
-                                Both meta- and content-streams will be deleted.
-                                Calling Stream_Open with the truncate-flag on the content stream will empty out the
-file, but not delete it.
+                        Both meta- and content-streams will be deleted.
+                        Calling Stream_Open with the truncate-flag on the content stream will empty out the
+                        file, but not delete it.
 
 Create Dir ->	Stream_Open with create- and meta-flags will create the directory. Cannot use without meta-flag.
 Delete Dir ->	truncate on meta stream.
 
-                                        
 
 ******************************************************************************/
 
@@ -116,6 +115,10 @@ struct _stream
 
 /// Initializes all the stream providers. Call on setup.
 result_t StreamProvider_Construct();
+
+// Stream* Stream_Construct(uint16_t length)
+Stream *FastAPI(Stream_Construct__fast(uint16_t length));
+#define Stream_Construct(p) Stream_Construct__fast(p)
 
 // seek
 uint16_t Stream_GetPosition(const Stream *stream);

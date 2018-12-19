@@ -3,10 +3,6 @@
 #include "../sys/Debug.h"
 #include "../sys/System.h"
 
-const char_t *ConsoleProtocol = "con";
-const uint8_t ConsoleStreamProvider_size = sizeof(StreamProvider);
-static const uint8_t ConsoleStream_size = sizeof(ConsoleStream);
-
 #define CONSOLESTREAM_BUFFERSIZE 5
 struct _consoleStream
 {
@@ -18,6 +14,10 @@ struct _consoleStream
     uint8_t InputBuffer[CONSOLESTREAM_BUFFERSIZE];
 };
 typedef struct _consoleStream ConsoleStream;
+
+const char_t *ConsoleProtocol = "con";
+const uint8_t ConsoleStreamProvider_size = sizeof(StreamProvider);
+static const uint8_t ConsoleStream_size = sizeof(ConsoleStream);
 
 #define ConsoleStream_FromStream(stream) ((ConsoleStream *)stream)
 #define ConsoleStream_ToStream(consoleStream) (&((consoleStream)->base.Stream))
@@ -54,7 +54,7 @@ uint16_t ConsoleStreamProvider_ReadStreamAsync(AsyncThis *async, Stream *stream,
     uint8_t index;
     ConsoleStream *consoleStream;
 
-    async->State == asyncResult_Error;
+    async->State = asyncResult_Error;
 
     dGuardErrVal(async == NULL, E_NULLPTR, 0);
     dGuardErrVal(stream == NULL, E_NULLPTR, 0);
@@ -121,10 +121,8 @@ StreamProvider *FastCall(ConsoleStreamProvider_Construct__fast(void *memory))
 // keyboard device is sending chars
 void ISR(KeyBoard_OnKey__isr(uint8_t key))
 {
-    if (DebugConsole == NULL)
-    {
-        return;
-    }
+    if (DebugConsole == NULL) return;
+
     if (DebugConsole->InputBuffer[0] == 0) DebugConsole->InputBuffer[0] = key;
     if (DebugConsole->InputBuffer[1] == 0) DebugConsole->InputBuffer[1] = key;
     if (DebugConsole->InputBuffer[2] == 0) DebugConsole->InputBuffer[2] = key;
