@@ -7,7 +7,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "./make.cmd",
+            "command": "./build.cmd",
             "options": {
                 "cwd": "${workspaceRoot}",
             },
@@ -16,7 +16,12 @@
                 "isDefault": true
             },
             "presentation": {
-                "reveal": "always"
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
             },
             "problemMatcher": {
                 "owner": "z88dk",
@@ -35,6 +40,20 @@
             }
         },
         {
+            "label": "test",
+            "type": "shell",
+            "command": "./_tests.unit/RunTests.cmd",
+            "group": "test",
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            }
+        },
+        {
             "label": "compile-verbose",
             "type": "shell",
             "command": "./verbose.cmd",
@@ -48,12 +67,6 @@
                 "\"${file}\""
             ],
             "group": "build",
-        },
-        {
-            "label": "test",
-            "type": "shell",
-            "command": "./_tests.unit/RunTests.cmd",
-            "group": "test",
         },
         {
             "label": "deploy",
