@@ -18,6 +18,7 @@ Heap *FastCall(Heap_Construct__fast(HeapFlags flags))
 
 void *Heap_Alloc(Heap *heap, uint16_t length)
 {
+    dGuardErrVal(heap == NULL, E_NULLPTR, NULL);
     if (heap != &crt_heap)
     {
         Error_Set(E_NOTOWNED);
@@ -28,6 +29,7 @@ void *Heap_Alloc(Heap *heap, uint16_t length)
 
 void Heap_Free(Heap *heap, void *memory)
 {
+    dGuardErrVal(heap == NULL, E_NULLPTR, NULL);
     dGuardErr(memory == NULL, E_ARGNULLOREMPTY);
     if (heap != &crt_heap)
     {
