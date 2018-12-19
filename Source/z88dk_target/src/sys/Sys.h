@@ -69,14 +69,26 @@ void FastCall(Async_Construct__fast(AsyncThis *async));
 #define Async_Construct(p) Async_Construct__fast(p)
 
 /// indicates if the async operation has completed.
-// bool_t Async_IsComplete(AsyncThis* async);
-bool_t FastCall(Async_IsComplete__fast(AsyncThis *async));
-#define Async_IsComplete(p) Async_IsComplete__fast(p)
+// bool_t Async_IsCompleted(AsyncThis* async);
+bool_t FastCall(Async_IsCompleted__fast(AsyncThis *async));
+#define Async_IsCompleted(p) Async_IsCompleted__fast(p)
+
+/// indicates if the async operation has an error.
+// bool_t Async_IsError(AsyncThis* async);
+bool_t FastCall(Async_IsError__fast(AsyncThis *async));
+#define Async_IsError(p) Async_IsError__fast(p)
+
+/// indicates if the async operation is still running.
+// bool_t Async_IsPending(AsyncThis* async);
+bool_t FastCall(Async_IsPending__fast(AsyncThis *async));
+#define Async_IsPending(p) Async_IsPending__fast(p)
 
 /// Suspends execution until the operation is completed.
-// bool_t Async_Wait(AsyncThis* async);
-bool_t FastCall(Async_Wait__fast(AsyncThis *async));
-#define Async_Wait(p) Async_Wait__fast(p)
+// void Async_Wait("Async_Result (asyncFn*)(AsyncThis*, ...)")
+#define Async_Wait(asyncFn)                \
+    while (asyncFn != asyncResult_Pending) \
+    {                                      \
+    }
 
 /**
  * Usage example:

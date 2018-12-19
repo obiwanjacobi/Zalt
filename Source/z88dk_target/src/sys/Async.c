@@ -2,22 +2,27 @@
 
 const uint8_t AsyncThis_size = sizeof(AsyncThis);
 
-//bool_t Async_Construct(AsyncThis* async)
+// bool_t Async_Construct(AsyncThis* async)
 void FastCall(Async_Construct__fast(AsyncThis *async))
 {
     async->_result = asyncResult_None;
     async->_state = 0;
 }
 
-//bool_t Async_IsComplete(AsyncThis* async)
-bool_t FastCall(Async_IsComplete__fast(AsyncThis *async))
+// bool_t Async_IsCompleted(AsyncThis* async)
+bool_t FastCall(Async_IsCompleted__fast(AsyncThis *async))
 {
-    return async->_state == asyncResult_Completed || async->_state == asyncResult_Error;
+    return async->_result == asyncResult_Completed;
 }
 
-//bool_t Async_Wait(AsyncThis* async)
-bool_t FastCall(Async_Wait__fast(AsyncThis *async))
+// bool_t Async_IsError(AsyncThis* async)
+bool_t FastCall(Async_IsError__fast(AsyncThis *async))
 {
-    async;
-    return true;
+    return async->_result == asyncResult_Error;
+}
+
+// bool_t Async_IsPending(AsyncThis* async)
+bool_t FastCall(Async_IsPending__fast(AsyncThis *async))
+{
+    return async->_result == asyncResult_Pending;
 }

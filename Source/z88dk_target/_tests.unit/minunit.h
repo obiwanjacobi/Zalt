@@ -5,6 +5,8 @@
  * @see http://c.learncodethehardway.org/book/ex30.html
  *
  * Created on 27 August 2014, 22:14
+ *
+ * Modified by obiwanjacobi *
  */
 
 #ifndef MINUNIT_H
@@ -57,23 +59,23 @@ extern "C"
         }                                  \
     } while (0)
 
-#define RUN_TESTS(name)                                          \
-    int main(int argc, char *argv[])                             \
-    {                                                            \
-        tests_run = 0;                                           \
-        argc = 1;                                                \
-        const char *result;                                      \
-        printf("\n\nRUNNING: %s\n", argv[0]);                    \
-        result = name();                                         \
-        if (result != 0)                                         \
-        {                                                        \
-            printf("\n\n>> FAILED: %s\n", result);               \
-        }                                                        \
-        else                                                     \
-        {                                                        \
-            printf("\n\n>> ALL TESTS PASSED (%d)\n", tests_run); \
-        }                                                        \
-        exit(result == 0 ? EXIT_SUCCESS : EXIT_FAILURE);         \
+#define RUN_TESTS(name)                                                 \
+    int main(int argc, char *argv[])                                    \
+    {                                                                   \
+        tests_run = 0;                                                  \
+        argc = 1;                                                       \
+        const char *result;                                             \
+        printf("\n\nRUNNING: %s\n", argv[0]);                           \
+        result = name();                                                \
+        if (result != 0)                                                \
+        {                                                               \
+            printf("\n\n>> TEST %d FAILED: %s\n\n", tests_run, result); \
+        }                                                               \
+        else                                                            \
+        {                                                               \
+            printf("\n\n>> ALL %d TESTS PASSED\n\n", tests_run);        \
+        }                                                               \
+        exit(result == 0 ? EXIT_SUCCESS : EXIT_FAILURE);                \
     }
 
     extern int tests_run;

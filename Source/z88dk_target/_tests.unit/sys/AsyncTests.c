@@ -45,12 +45,12 @@ static const char *Async_Fn_WaitUntil_test()
     for (int n = 0; n < ASYNC_COUNT - 1; n++)
     {
         result = testAsyncFn_WaitUntil(&async);
-        mu_assert(result == asyncResult_Pending, "testAsyncFn_WaitUntil did not report Pending");
+        mu_assert(result == asyncResult_Pending, "did not report Pending");
     }
 
     // one last call
     result = testAsyncFn_WaitUntil(&async);
-    mu_assert(result == asyncResult_Completed, "testAsyncFn_WaitUntil did not report Completed");
+    mu_assert(result == asyncResult_Completed, "did not report Completed");
     return NULL;
 }
 
@@ -63,12 +63,29 @@ static const char *Async_Fn_YieldUntil_test()
     for (int n = 0; n < ASYNC_COUNT; n++)
     {
         result = testAsyncFn_YieldUntil(&async);
-        mu_assert(result == asyncResult_Pending, "testAsyncFn_YieldUntil did not report Pending");
+        mu_assert(result == asyncResult_Pending, "did not report Pending");
     }
 
     // one last call
     result = testAsyncFn_YieldUntil(&async);
-    mu_assert(result == asyncResult_Completed, "testAsyncFn_YieldUntil did not report Completed");
+    mu_assert(result == asyncResult_Completed, "did not report Completed");
+    return NULL;
+}
+
+static const char *Async_IsCompleted_IsPending_test()
+{
+    AsyncThis async;
+    Async_Construct(&async);
+
+    for (int n = 0; n < ASYNC_COUNT; n++)
+    {
+        testAsyncFn_YieldUntil(&async);
+        mu_assert(Async_IsPending(&async), "did not report Pending");
+    }
+
+    // one last call
+    testAsyncFn_YieldUntil(&async);
+    mu_assert(Async_IsCompleted(&async), "did not report Completed");
     return NULL;
 }
 
@@ -77,5 +94,6 @@ static const char *Async_testSuite()
     mu_run_test(Async_Construct_test);
     mu_run_test(Async_Fn_WaitUntil_test);
     mu_run_test(Async_Fn_YieldUntil_test);
+    mu_run_test(Async_IsCompleted_IsPending_test);
     return NULL;
 }
