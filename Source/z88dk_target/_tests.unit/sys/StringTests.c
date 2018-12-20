@@ -1,7 +1,6 @@
 #include "minunit.h"
 
-#include "String.h"
-#include "Sys.h"
+#include "../src/sys/Sys.h"
 
 #define capacity 14
 const char_t *expected = "Hello World!";

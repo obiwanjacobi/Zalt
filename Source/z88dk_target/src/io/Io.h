@@ -15,9 +15,11 @@ typedef uint8_t StreamFlags;
 #define streamFlags_CanSeek 0x01
 #define streamFlags_CanRead 0x02
 #define streamFlags_CanWrite 0x04
-#define streamAccess_Read 0x10
-#define streamAccess_Write 0x20
-#define streamTransport_Block 0x80
+#define streamFlags_Reserved 0x08
+#define streamFlags_Create 0x10
+#define streamFlags_Append 0x20
+#define streamFlags_Truncate 0x40
+#define streamFlags_Meta 0x80
 
 enum _streamSeekStart
 {
@@ -35,10 +37,12 @@ typedef struct _stream Stream;
 //		meta			:	open the meta stream instead of the content stream.
 //		truncate		:	truncate the stream. In combination with meta will delete.
 //		read-only		:	request read-only access. May be important when sharing.
-//		read-write		:	request read and write access. May be expensive in terms of resources and
-//performance. 		forward-only	:	request only sequential access from beginning to end. No seeking supported.
-//		create			:	create the resources. Can be used with or without the meta flag. Fails if
-//exists. 		append			:	write content to the end of the existing content.
+//		read-write		:	request read and write access. May be expensive in terms of resources
+// and performance.
+//      forward-only	:	request only sequential access from beginning to end. No seeking supported.
+//		create			:	create the resources. Can be used with or without the meta flag. Fails
+// if exists.
+//      append			:	write content to the end of the existing content.
 //
 Stream *Stream_Open(const char_t *location, StreamFlags flags);
 

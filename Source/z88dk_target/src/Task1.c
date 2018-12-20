@@ -17,7 +17,7 @@ bool_t HasKey()
 
 Task_Begin(Task1_Execute)
 {
-    Console = Stream_Open(ConsoleProtocol, streamAccess_Read | streamAccess_Write);
+    Console = Stream_Open(ConsoleProtocol, streamFlags_CanRead | streamFlags_CanWrite);
 
     while (true)
     {

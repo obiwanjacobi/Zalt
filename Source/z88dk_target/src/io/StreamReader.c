@@ -6,6 +6,7 @@
 bool_t StreamReader_TryReadByte(Stream *stream, uint8_t *outByte)
 {
     dGuardErrVal(stream == NULL, E_NULLPTR, 0);
+    dGuardErrVal(outByte == NULL, E_ARGNULLOREMPTY, 0);
     return Stream_Read(stream, outByte, 1) == 0 ? false : true;
 }
 

@@ -1,8 +1,8 @@
 #include "minunit.h"
 
+#include "../src/io/Io.h"
 #include "../src/io/Stream.h"
-#include "Io.h"
-#include "Sys.h"
+#include "../src/sys/Sys.h"
 
 #define Stream_size sizeof(Stream)
 
@@ -24,7 +24,7 @@ static const char *Stream_Open_test()
 
 static const char *Stream_OpenClose_test()
 {
-    Stream *stream = Stream_Open("con", streamFlags_CanRead);
+    Stream *stream = Stream_Open(ConsoleProtocol, streamFlags_CanRead);
     mu_assert_success();
     Stream_Close(stream);
     mu_assert(stream != NULL, "no stream allocated");

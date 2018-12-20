@@ -3,18 +3,6 @@
 #include "../sys/Debug.h"
 #include "../sys/System.h"
 
-#define CONSOLESTREAM_BUFFERSIZE 5
-struct _consoleStream
-{
-    union {
-        Stream Stream;
-    } base;
-
-    // Console Specific
-    uint8_t InputBuffer[CONSOLESTREAM_BUFFERSIZE];
-};
-typedef struct _consoleStream ConsoleStream;
-
 const char_t *ConsoleProtocol = "con";
 const uint8_t ConsoleStreamProvider_size = sizeof(StreamProvider);
 static const uint8_t ConsoleStream_size = sizeof(ConsoleStream);
@@ -42,7 +30,8 @@ result_t ConsoleStreamProvider_TryOpenStreamAsync(AsyncThis *async, const char_t
     dGuardErrVal(async == NULL, E_NULLPTR, 0);
     dGuardValAsync(stream == NULL, E_NULLPTR);
 
-    stream->Flags = streamFlags_CanRead | streamFlags_CanWrite;
+    // stream->Flags = streamFlags_CanRead | streamFlags_CanWrite;
+    stream->Flags = access;
     DebugConsole = (ConsoleStream *)stream;
 
     async->Result = asyncResult_Completed;
@@ -57,10 +46,10 @@ uint16_t ConsoleStreamProvider_ReadStreamAsync(AsyncThis *async, Stream *stream,
     async->State = asyncResult_Error;
 
     dGuardErrVal(async == NULL, E_NULLPTR, 0);
-    dGuardErrVal(stream == NULL, E_NULLPTR, 0);
-    dGuardErrVal(buffer == NULL, E_ARGNULLOREMPTY, 0);
-    dGuardErrVal(capacity == 0, E_ARGNOTINRANGE, 0);
-    dGuardErrVal((stream->Flags & streamAccess_Read) == 0, E_NOACCESS, 0);
+    dGuardErrValAsync(stream == NULL, E_NULLPTR, 0);
+    dGuardErrValAsync(buffer == NULL, E_ARGNULLOREMPTY, 0);
+    dGuardErrValAsync(capacity == 0, E_ARGNOTINRANGE, 0);
+    dGuardErrValAsync(!(stream->Flags & streamFlags_CanRead), E_NOACCESS, 0);
 
     consoleStream = ConsoleStream_FromStream(stream);
     for (index = 0; index < CONSOLESTREAM_BUFFERSIZE && index < capacity; index++)
@@ -82,10 +71,10 @@ uint16_t ConsoleStreamProvider_WriteStreamAsync(AsyncThis *async, Stream *stream
     async->Result = asyncResult_Error;
 
     dGuardErrVal(async == NULL, E_NULLPTR, 0);
-    dGuardErrVal(stream == NULL, E_NULLPTR, 0);
-    dGuardErrVal(buffer == NULL, E_ARGNULLOREMPTY, 0);
-    dGuardErrVal(length == 0, E_ARGNOTINRANGE, 0);
-    dGuardErrVal((stream->Flags & streamAccess_Write) == 0, E_NOACCESS, 0);
+    dGuardErrValAsync(stream == NULL, E_NULLPTR, 0);
+    dGuardErrValAsync(buffer == NULL, E_ARGNULLOREMPTY, 0);
+    dGuardErrValAsync(length == 0, E_ARGNOTINRANGE, 0);
+    dGuardErrValAsync(!(stream->Flags & streamFlags_CanWrite), E_NOACCESS, 0);
 
     for (i = 0; i < length; i++)
     {

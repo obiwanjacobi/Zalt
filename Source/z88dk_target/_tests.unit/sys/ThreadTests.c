@@ -1,7 +1,7 @@
 #include "minunit.h"
 
-#include "Sys.h"
-#include "Thread.h"
+#include "../src/sys/Sys.h"
+#include "../src/sys/Thread.h"
 
 static const char *Thread_Alloc_test()
 {

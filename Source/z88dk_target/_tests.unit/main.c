@@ -6,7 +6,9 @@
 #include "z88dk_stubs.c"
 
 // test files
+#include "io/StreamReaderTests.c"
 #include "io/StreamTests.c"
+#include "io/StreamWriterTests.c"
 #include "sys/AsyncTests.c"
 #include "sys/ErrorTests.c"
 #include "sys/HeapTests.c"
@@ -26,6 +28,8 @@ static const char *all_tests()
     mu_run_test_suite(String_testSuite);
     // io
     mu_run_test_suite(Stream_testSuite);
+    mu_run_test_suite(StreamReader_testSuite);
+    mu_run_test_suite(StreamWriter_testSuite);
 
     return NULL;
 }
