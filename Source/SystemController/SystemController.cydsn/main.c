@@ -31,17 +31,17 @@ int main()
     CyGlobalIntEnable; /* Enable global interrupts. */
     SerialTerminal_Start(&g_serialTerminal);
     
-    SerialTerminal_WriteLine("Initializing USB.");
-    UsbProcessor_Start();
+    //SerialTerminal_WriteLine("Initializing USB.");
+    //UsbProcessor_Start();
         
     // echo back that the system is ready but halted.
     SerialTerminal_WriteLine("Ready (Suspended).");
     
-    //uint8_t haltMessageDisplayed = 0;
+    uint8_t haltMessageDisplayed = 0;
     
     for(;;)
     {
-        UsbProcessor_Receive();
+        //UsbProcessor_Receive();
         Debugger_PrintRegisterValues();
         
         if (g_serialTerminal.IsActive)
@@ -51,7 +51,7 @@ int main()
         }
         
         // temp
-        /*if (CyPins_ReadPin(ExtBus_CpuHalt) == 0)
+        if (CyPins_ReadPin(ExtBus_CpuHalt) == 0)
         {
             if (haltMessageDisplayed == 0)
             {
@@ -78,7 +78,7 @@ int main()
                 SerialTerminal_WriteLine("- CPU Continued.");
             }
             haltMessageDisplayed = 0;
-        }*/
+        }
     }
 }
 

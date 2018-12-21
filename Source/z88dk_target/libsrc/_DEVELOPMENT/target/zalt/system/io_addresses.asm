@@ -12,8 +12,8 @@ defc	debug_sysctrl_port	        =	$08
 
 ; user terminal 
 ; in/out
-defc    bios_sysctrl_terminal       =   $10
+defc    bios_sysctrl_terminal       =   $20
 
 ; debug console
 ; in/out
-defc    bios_sysctrl_debugconsole   =   $20
+defc    bios_sysctrl_debugconsole   =   $30

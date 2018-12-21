@@ -19,7 +19,14 @@
 #define dGuardErrValAsync(c, e, v)  if (c) { Error_Set(e); async->Result = asyncResult_Error; return v; }
 #define dLog(s)                     System_DebugConsole_Log(s);
 #define dLogIf(c, s)                if (c) { System_DebugConsole_Log(s); }
+
+#ifdef __SDCC
 #define dBreakpoint()               __asm rst $30 __endasm
+#elif __SCCZ80
+#define dBreakpoint()               #asm rst $30 #endasm
+#else
+#define dBreakpoint()
+#endif
 
 //
 // clang-format on

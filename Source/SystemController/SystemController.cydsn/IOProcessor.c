@@ -21,7 +21,7 @@ void IOProcessor_Init()
     g_isrData.Mode = 0;
     
     IOProcessor_ReleaseCpuWait();
-    Z80Ctrl_ISR_IO_Start();
+    Z80Ctrl_ISR_IO_StartEx(IOProcessor_ISR_OnIOInterrupt);
 }
 
 void IOProcessor_ReleaseCpuWait()
@@ -66,9 +66,13 @@ void IOProcessor_OutputDispatch(IOInfo* ioInfo)
         case IO_TEST_LOOP:
             testData = ioInfo->Data;
             break;
+        case IO_Terminal:
+            SysTerminal_PutChar(ioInfo->Data);
+            break;
         case IO_Serial:
             SysTerminal_PutChar(ioInfo->Data);
             break;
+            
         default:
             break;
     }

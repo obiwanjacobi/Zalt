@@ -68,8 +68,7 @@ zalt_00_output_sysctrl_ochar_msg_putc:
 
    ld a, c
    
-   ld bc, $0020
-   ; $20 = char-out
+   ld bc, bios_sysctrl_terminal
    out (c), a
    
    scf

@@ -65,8 +65,7 @@ zalt_00_input_sysctrl_ichar_msg_getc:
    ;   exit    : a=hl=char. carry set if error (hl=0 general error, hl=-1 eof)
    
    
-   ld bc, $0020
-   ; $20 = char-in
+   ld bc, bios_sysctrl_terminal
    in a, (c)
    ld h, 0
    ld l, a
