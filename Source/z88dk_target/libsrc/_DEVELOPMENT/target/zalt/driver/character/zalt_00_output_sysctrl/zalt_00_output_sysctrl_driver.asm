@@ -50,6 +50,7 @@ PUBLIC zalt_00_output_sysctrl
 
 EXTERN OCHAR_MSG_PUTC
 EXTERN character_00_output
+extern bios_sysctrl_terminal
 
 zalt_00_output_sysctrl:
 

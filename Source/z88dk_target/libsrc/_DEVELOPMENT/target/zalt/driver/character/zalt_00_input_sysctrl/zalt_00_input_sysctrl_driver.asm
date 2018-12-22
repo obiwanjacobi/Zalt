@@ -50,6 +50,7 @@ PUBLIC zalt_00_input_sysctrl
 
 EXTERN ICHAR_MSG_GETC
 EXTERN character_00_input
+extern bios_sysctrl_terminal
 
 zalt_00_input_sysctrl:
 

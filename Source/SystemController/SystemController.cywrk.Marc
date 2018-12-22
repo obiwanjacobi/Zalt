@@ -355,14 +355,13 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\SystemController.cydsn\CommandParser.c" />
 <name v=".\SystemController.cydsn\MemoryCommands.c" />
 <name v=".\SystemController.cydsn\CpuCommands.c" />
-<name v=".\SystemController.cydsn\main.c" />
+<name v=".\SystemController.cydsn\CpuController.h" />
+<name v=".\SystemController.cydsn\CpuController.c" />
+<name v=".\SystemController.cydsn\MemoryManagerCommands.c" />
+<name v=".\SystemController.cydsn\DebugCommands.c" />
 <name v=".\SystemController.cydsn\CommandHandler.c" />
-<name v=".\SystemController.cydsn\CommandParser.h" />
-<name v=".\SystemController.cydsn\Debugger.h" />
-<name v=".\SystemController.cydsn\Debugger.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -370,7 +369,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1389, 763" SelectedTabbedMdiWindow="eef76560-18d1-45ce-b5ff-59c0b1414d0a"><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CommandParser.c" Guid="c5833315-3724-4187-a75b-068f13315985" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\MemoryCommands.c" Guid="a57a84ef-6d51-4b18-add5-3f87ec6e52a8" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CpuCommands.c" Guid="a53a6cc0-52d5-429d-9186-7966c66ef101" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\main.c" Guid="f6499d04-d18f-4b99-ad9a-b8eb9266e9c3" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CommandHandler.c" Guid="3f63aae2-c9c7-487b-a123-d4e656043a87" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CommandParser.h" Guid="dff07790-00e5-4e4a-92d0-7e056e1aae66" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\Debugger.h" Guid="d3b0d6ec-6da5-455b-b9b9-afc4404fbd8b" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\Debugger.c" Guid="eef76560-18d1-45ce-b5ff-59c0b1414d0a" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1470, 763" SelectedTabbedMdiWindow="b9e87e75-2cc0-4eb8-8c72-5160174ff416"><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\MemoryCommands.c" Guid="4326aa38-a648-4704-bc4e-ea585d4bdd64" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CpuCommands.c" Guid="4125fe06-78d2-4ccd-93b3-e59a82d8b446" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CpuController.h" Guid="9307bb23-1039-4088-9374-f28739be0d07" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CpuController.c" Guid="f8cccd3f-3d13-4c25-ba00-ba1f71c9333a" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\MemoryManagerCommands.c" Guid="ec29281a-f6c3-4618-a3eb-c60a7b24c1bf" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\DebugCommands.c" Guid="91823e53-a9f7-431d-8369-a36c0baa0187" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CommandHandler.c" Guid="b9e87e75-2cc0-4eb8-8c72-5160174ff416" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Debug" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

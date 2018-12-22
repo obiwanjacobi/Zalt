@@ -15,7 +15,9 @@ defc _CLIB_TARGET_CFG_ASM_ = 1
 ;--------------------------------------------------------------
 
 defc __temp         = 1
-defc __clock_freq   = 4000000          ; Hz
+
+; TODO: zalt has variable clock speeds!
+defc __clock_freq   = 10000000          ; Hz
 
 defc __z80_cpu_info = $01
 

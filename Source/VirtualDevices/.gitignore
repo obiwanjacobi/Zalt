@@ -1,0 +1,6 @@
+*.zip
+*.log
+*suo
+*.user
+*.VC.db
+*.ipch
