@@ -1,4 +1,3 @@
-include "io_addresses.asm"
 
 ;
 ; keyboard device support

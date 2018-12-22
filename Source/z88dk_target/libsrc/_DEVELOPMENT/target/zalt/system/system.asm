@@ -1,4 +1,3 @@
-include "io_addresses.asm"
 
 ;
 ; Implements C API for the System Controller IO
@@ -16,7 +15,7 @@ public bios_sysctrl_debugconsole_in
 public bios_sysctrl_debugconsole_out
 
 ; imports
-
+extern bios_sysctrl_debugconsole
 
 ;
 ; void System_DebugConsole_Out(uint8_t data);

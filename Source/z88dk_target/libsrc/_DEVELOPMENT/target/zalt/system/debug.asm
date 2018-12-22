@@ -1,4 +1,3 @@
-include "io_addresses.asm"
 
 ;
 ; debug routines
@@ -16,6 +15,7 @@ public debug_restore_registers
 ; imports
 extern bios_interrupt_disable
 extern bios_interrupt_enable
+extern debug_sysctrl_port
 
 ; (2 sets of 4 regs + 2 index regs and 2 cpu regs) times 2 bytes (24 bytes total)
 defc	debug_vars_size	= 24
