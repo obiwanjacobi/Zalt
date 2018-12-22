@@ -6,7 +6,7 @@ setlocal ENABLEDELAYEDEXPANSION
 copy /Y target\zalt\clib_cfg.asm . 1> nul
 copy /Y target\zalt\clib_target_cfg.asm . 1> nul
 
-call target\zalt\Preprocess.cmd
+::call %~dp0Preprocess.cmd
 
 ::echo   zalt_sccz80.lib
 
