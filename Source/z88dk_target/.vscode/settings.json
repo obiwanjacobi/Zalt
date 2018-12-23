@@ -1,9 +1,11 @@
 {
     "files.associations": {
-        // use Z80 Assembly vscode extension
-        "*.lis": "z80-asm",
-        "*.inc": "z80-asm",
-        "*.m4": "z80-asm"
+        // use 'Z80 Macro-Assembler' vscode extension
+        "*.lis": "z80-macroasm",
+        "*.inc": "z80-macroasm",
+        "*.m4": "z80-macroasm",
+        "*.sym": "z80-macroasm",
+        "*.map": "z80-macroasm"
     },
     "files.exclude": {
         "**/.git": true,
@@ -13,6 +15,7 @@
         "**/.DS_Store": true,
         "**/*.obj": true,
         "**/*.exe": true,
+        "**/*.o": true,
     },
     "files.autoSave": "afterDelay",
     "C_Cpp.autoAddFileAssociations": false

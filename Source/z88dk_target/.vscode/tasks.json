@@ -23,6 +23,7 @@
                 "showReuseMessage": false,
                 "clear": true
             },
+            // "problemMatcher": "$errmatcher-sjasmplus"
             "problemMatcher": {
                 "owner": "z88dk",
                 "fileLocation": [
