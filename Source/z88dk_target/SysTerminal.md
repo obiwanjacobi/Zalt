@@ -79,7 +79,27 @@ These commands control the Z80 CPU.
 
 `cd <0-7>`
 
-* `0-7` higher numbers divide the clock (source) more resulting in a slower clock.
+For clock-mode `fast`:
+
+* `0` system unstable
+* `1` system unstable
+* `2` +/- 8.0 Mhz
+* `3` +/- 5.0 MHz
+* `4` +/- 2.5 Mhz
+* `5` +/- 1.2 Mhz
+* `6` +/- 560 kHz
+* `7` +/- 280 kHz
+
+For clock-mode `slow`:
+
+* `0` +/- 1100 Hz
+* `1` +/- 545 Hz
+* `2` +/- 272 Hz
+* `3` +/- 136 Hz
+* `4` +/- 68 Hz
+* `5` +/- 34 Hz
+* `6` +/- 17 Hz
+* `7` +/- 8 Hz
 
 ### Clock Pulse
 

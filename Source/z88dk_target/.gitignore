@@ -4,3 +4,4 @@ zcc_opt.def
 zcc_proj.lst
 
 *.c.asm
+*.c.lis

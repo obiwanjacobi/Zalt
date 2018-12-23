@@ -11,9 +11,9 @@
 <CyGuid_f44455c5-3770-4452-b988-0a7a7ff46256 type_name="CyDesigner.Common.ProjMgmt.Model.CyConfigDependencies" version="1">
 <dependency_info name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" xml_contents_version="2">
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
-<file name=".\CortexM3\ARM_GCC_541\Debug\IOProcessor.o">
+<file name=".\CortexM3\ARM_GCC_541\Debug\BusController.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -55,11 +55,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -70,21 +69,14 @@
 <dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\BusController.c" />
 <dep name=".\BusController.h" />
 <dep name=".\CpuController.h" />
-<dep name=".\Debugger.h" />
-<dep name=".\IOProcessor.c" />
-<dep name=".\IOProcessor.h" />
-<dep name=".\IoAddresses.h" />
-<dep name=".\KeyBoard.h" />
-<dep name=".\Message.h" />
-<dep name=".\RingBuffer.h" />
-<dep name=".\SerialTerminal.h" />
 <dep name=".\SystemController.h" />
 <dep name=".\cyapicallbacks.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<file name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<file name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <file name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <file name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <file name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -125,11 +117,10 @@
 <file name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <file name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <file name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<file name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <file name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <file name=".\Generated_Source\PSoC5\core_cm3.h" />
 <file name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<file name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<file name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <file name=".\Generated_Source\PSoC5\cyPm.h" />
 <file name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <file name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -139,87 +130,14 @@
 <file name=".\Generated_Source\PSoC5\cypins.h" />
 <file name=".\Generated_Source\PSoC5\cytypes.h" />
 <file name=".\Generated_Source\PSoC5\project.h" />
+<file name=".\BusController.c" />
 <file name=".\BusController.h" />
 <file name=".\CpuController.h" />
-<file name=".\Debugger.h" />
-<file name=".\IOProcessor.c" />
-<file name=".\IOProcessor.h" />
-<file name=".\IoAddresses.h" />
-<file name=".\KeyBoard.h" />
-<file name=".\Message.h" />
-<file name=".\RingBuffer.h" />
-<file name=".\SerialTerminal.h" />
 <file name=".\SystemController.h" />
 <file name=".\cyapicallbacks.h" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\BusController.o">
-<dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
-<dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
-<dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
-<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\D.h" />
-<dep name=".\Generated_Source\PSoC5\D_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\ExtBus_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\ExtInt_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\ISR_HALT.h" />
-<dep name=".\Generated_Source\PSoC5\LsbA.h" />
-<dep name=".\Generated_Source\PSoC5\LsbA_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\MsbA.h" />
-<dep name=".\Generated_Source\PSoC5\MsbA_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\SysCtrlReg.h" />
-<dep name=".\Generated_Source\PSoC5\SysTerminal.h" />
-<dep name=".\Generated_Source\PSoC5\SysTerminal_IntClock.h" />
-<dep name=".\Generated_Source\PSoC5\Timer.h" />
-<dep name=".\Generated_Source\PSoC5\TimerClock.h" />
-<dep name=".\Generated_Source\PSoC5\TimerISR.h" />
-<dep name=".\Generated_Source\PSoC5\USB.h" />
-<dep name=".\Generated_Source\PSoC5\USB_Dm.h" />
-<dep name=".\Generated_Source\PSoC5\USB_Dm_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\USB_Dp.h" />
-<dep name=".\Generated_Source\PSoC5\USB_Dp_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\USB_audio.h" />
-<dep name=".\Generated_Source\PSoC5\USB_cdc.h" />
-<dep name=".\Generated_Source\PSoC5\USB_cydmac.h" />
-<dep name=".\Generated_Source\PSoC5\USB_ep1_dma.h" />
-<dep name=".\Generated_Source\PSoC5\USB_ep2_dma.h" />
-<dep name=".\Generated_Source\PSoC5\USB_hid.h" />
-<dep name=".\Generated_Source\PSoC5\USB_midi.h" />
-<dep name=".\Generated_Source\PSoC5\USB_msc.h" />
-<dep name=".\Generated_Source\PSoC5\USB_pvt.h" />
-<dep name=".\Generated_Source\PSoC5\Z80Ctrl_ISR_INT.h" />
-<dep name=".\Generated_Source\PSoC5\Z80Ctrl_ISR_IO.h" />
-<dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegA.h" />
-<dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
-<dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
-<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\project.h" />
-<dep name=".\BusController.c" />
-<dep name=".\BusController.h" />
-<dep name=".\CpuController.h" />
-<dep name=".\SystemController.h" />
-<dep name=".\cyapicallbacks.h" />
-</file>
-<file name=".\BusController.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\CommandHandler.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -261,11 +179,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -295,9 +212,11 @@
 <file name=".\DebugCommands.h" />
 <file name=".\MemoryCommands.h" />
 <file name=".\MemoryManagerCommands.h" />
+<file name=".\RingBuffer.h" />
+<file name=".\SerialTerminal.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\CommandParser.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -339,11 +258,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -363,7 +281,7 @@
 <file name=".\CommandParser.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\CpuCommands.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -405,11 +323,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -431,9 +348,10 @@
 <dep name=".\cyapicallbacks.h" />
 </file>
 <file name=".\CpuCommands.c" />
+<file name=".\IOProcessor.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\CpuController.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -475,11 +393,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -497,7 +414,7 @@
 <file name=".\CpuController.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\DebugCommands.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -539,11 +456,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -564,9 +480,10 @@
 <dep name=".\cyapicallbacks.h" />
 </file>
 <file name=".\DebugCommands.c" />
+<file name=".\Debugger.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\Debugger.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -608,11 +525,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -644,15 +560,15 @@
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\CPUCLK_FAST.c" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\CPU_CLK.o">
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\CPUCLK_SLOW.o">
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
 <dep name=".\Generated_Source\PSoC5\cyfitter.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.c" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.c" />
 </file>
-<file name=".\Generated_Source\PSoC5\CPU_CLK.c" />
+<file name=".\Generated_Source\PSoC5\CPUCLK_SLOW.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\Cm3Start.o">
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -1420,7 +1336,7 @@
 <file name=".\Generated_Source\PSoC5\cyutils.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\IOController.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -1462,11 +1378,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -1483,9 +1398,9 @@
 </file>
 <file name=".\IOController.c" />
 <file name=".\IOController.h" />
-<file name=".\CortexM3\ARM_GCC_541\Debug\InterruptController.o">
+<file name=".\CortexM3\ARM_GCC_541\Debug\IOProcessor.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -1527,11 +1442,85 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
+<dep name=".\Generated_Source\PSoC5\cypins.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\project.h" />
+<dep name=".\BusController.h" />
+<dep name=".\CpuController.h" />
+<dep name=".\Debugger.h" />
+<dep name=".\IOProcessor.c" />
+<dep name=".\IOProcessor.h" />
+<dep name=".\IoAddresses.h" />
+<dep name=".\KeyBoard.h" />
+<dep name=".\Message.h" />
+<dep name=".\RingBuffer.h" />
+<dep name=".\SerialTerminal.h" />
+<dep name=".\SystemController.h" />
+<dep name=".\cyapicallbacks.h" />
+</file>
+<file name=".\IOProcessor.c" />
+<file name=".\IoAddresses.h" />
+<file name=".\KeyBoard.h" />
+<file name=".\Message.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\InterruptController.o">
+<dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
+<dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
+<dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
+<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\D.h" />
+<dep name=".\Generated_Source\PSoC5\D_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\ExtBus_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\ExtInt_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\ISR_HALT.h" />
+<dep name=".\Generated_Source\PSoC5\LsbA.h" />
+<dep name=".\Generated_Source\PSoC5\LsbA_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\MsbA.h" />
+<dep name=".\Generated_Source\PSoC5\MsbA_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\SysCtrlReg.h" />
+<dep name=".\Generated_Source\PSoC5\SysTerminal.h" />
+<dep name=".\Generated_Source\PSoC5\SysTerminal_IntClock.h" />
+<dep name=".\Generated_Source\PSoC5\Timer.h" />
+<dep name=".\Generated_Source\PSoC5\TimerClock.h" />
+<dep name=".\Generated_Source\PSoC5\TimerISR.h" />
+<dep name=".\Generated_Source\PSoC5\USB.h" />
+<dep name=".\Generated_Source\PSoC5\USB_Dm.h" />
+<dep name=".\Generated_Source\PSoC5\USB_Dm_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\USB_Dp.h" />
+<dep name=".\Generated_Source\PSoC5\USB_Dp_aliases.h" />
+<dep name=".\Generated_Source\PSoC5\USB_audio.h" />
+<dep name=".\Generated_Source\PSoC5\USB_cdc.h" />
+<dep name=".\Generated_Source\PSoC5\USB_cydmac.h" />
+<dep name=".\Generated_Source\PSoC5\USB_ep1_dma.h" />
+<dep name=".\Generated_Source\PSoC5\USB_ep2_dma.h" />
+<dep name=".\Generated_Source\PSoC5\USB_hid.h" />
+<dep name=".\Generated_Source\PSoC5\USB_midi.h" />
+<dep name=".\Generated_Source\PSoC5\USB_msc.h" />
+<dep name=".\Generated_Source\PSoC5\USB_pvt.h" />
+<dep name=".\Generated_Source\PSoC5\Z80Ctrl_ISR_INT.h" />
+<dep name=".\Generated_Source\PSoC5\Z80Ctrl_ISR_IO.h" />
+<dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegA.h" />
+<dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
+<dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
+<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -1550,7 +1539,7 @@
 <file name=".\InterruptController.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\InterruptProcessor.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -1592,11 +1581,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -1619,7 +1607,7 @@
 <file name=".\InterruptProcessor.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\KeyBoard.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -1661,11 +1649,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -1688,7 +1675,7 @@
 <file name=".\KeyBoard.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\MemoryCommands.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -1730,11 +1717,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -1759,7 +1745,7 @@
 <file name=".\MemoryController.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\MemoryController.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -1801,11 +1787,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -1823,7 +1808,7 @@
 <file name=".\MemoryController.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\MemoryManager.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -1865,11 +1850,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -1891,7 +1875,7 @@
 <file name=".\MemoryManager.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\MemoryManagerCommands.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -1933,11 +1917,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -1961,7 +1944,7 @@
 <file name=".\MemoryManagerCommands.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\RingBuffer.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -2003,11 +1986,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -2026,7 +2008,7 @@
 <file name=".\RingBuffer.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\SerialTerminal.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -2068,11 +2050,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -2094,7 +2075,7 @@
 <file name=".\SerialTerminal.c" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\UsbProcessor.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -2136,11 +2117,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -2162,7 +2142,7 @@
 <file name=".\UsbProcessor.h" />
 <file name=".\CortexM3\ARM_GCC_541\Debug\main.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
-<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\CPUCLK_SLOW.h" />
 <dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
 <dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
 <dep name=".\Generated_Source\PSoC5\CyDmac.h" />
@@ -2204,11 +2184,10 @@
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_RegInD.h" />
 <dep name=".\Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_armcc.h" />
+<dep name=".\Generated_Source\PSoC5\cmsis_compiler.h" />
 <dep name=".\Generated_Source\PSoC5\cmsis_gcc.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3.h" />
 <dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cy_em_eeprom.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
@@ -2247,6 +2226,18 @@
 <file name=".\Generated_Source\PSoC5\cydevicegnu.inc" />
 <file name=".\Generated_Source\PSoC5\cydevicegnu_trm.inc" />
 <file name=".\Generated_Source\PSoC5\cyfittergnu.inc" />
+<file name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<file name=".\Generated_Source\PSoC5\core_cmFunc.h" />
+<file name=".\Generated_Source\PSoC5\core_cmInstr.h" />
+<file name=".\CortexM3\ARM_GCC_541\Debug\CPU_CLK.o">
+<dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\Generated_Source\PSoC5\CPU_CLK.c" />
+</file>
+<file name=".\Generated_Source\PSoC5\CPU_CLK.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\UsbProcessor.o">
 <dep name=".\Generated_Source\PSoC5\CPUCLK_FAST.h" />
 <dep name=".\Generated_Source\PSoC5\CPU_CLK.h" />
@@ -5639,7 +5630,6 @@
 <dep name=".\CortexM3\ARM_GCC_541\Debug\TimerClock.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\Timer.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\Timer_PM.o" />
-<dep name=".\CortexM3\ARM_GCC_541\Debug\CPU_CLK.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\MsbA.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\CPUCLK_FAST.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\SysCtrlReg.o" />
@@ -5670,6 +5660,7 @@
 <dep name=".\CortexM3\ARM_GCC_541\Debug\CySpc.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\cyutils.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o" />
+<dep name=".\CortexM3\ARM_GCC_541\Debug\CPUCLK_SLOW.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\main.o" />
 <dep name=".\CortexM3\ARM_GCC_541\Debug\SystemController.a" />
 <dep name="${CyRoot}\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" />
@@ -5880,6 +5871,7 @@
 <name_val_pair name="DebugCommands.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="Generated_Source\PSoC5\cy_em_eeprom.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og" />
 <name_val_pair name="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CortexM3\ARM_GCC_541\Debug\SystemController.hex" v="-mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,${OutputDir}/${ProjectShortName}.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects" />
+<name_val_pair name="Generated_Source\PSoC5\CPUCLK_SLOW.c" v="-mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -Og" />
 </name>
 <name v="c9323d49-d323-40b8-9b59-cc008d68a989@Release@CortexM3">
 <name_val_pair name=".\SystemTerminal.c" v="-mcpu=cortex-m3 -mthumb -Wno-main -I. -IGenerated_Source\PSoC5 -Wa,-alh=${OutputDir}/${CompileFile}.lst -g -D NDEBUG -Wall -ffunction-sections -Os -ffat-lto-objects" />
@@ -5976,7 +5968,7 @@
 </CyGuid_718b6b01-68ba-4a17-b632-d38dc61ebb3b>
 </dataGuid>
 <dataGuid v="237c8ed1-e161-4c9d-af97-582eda6d6952">
-<CyGuid_d442b0b8-dd66-4eee-b5be-1cb213792b31 type_name="CyDesigner.Device.FitterPSoC.Common.DesignWideResources.DeviceEditor.CyCustomAnalogDevData" version="1" ZoomToPage="False" ZoomScale="0.709925532" ScrollX="0" ScrollY="229">
+<CyGuid_d442b0b8-dd66-4eee-b5be-1cb213792b31 type_name="CyDesigner.Device.FitterPSoC.Common.DesignWideResources.DeviceEditor.CyCustomAnalogDevData" version="1" ZoomToPage="False" ZoomScale="0.709925532" ScrollX="0" ScrollY="208">
 <ComponentStates />
 </CyGuid_d442b0b8-dd66-4eee-b5be-1cb213792b31>
 </dataGuid>
@@ -5989,134 +5981,135 @@
 <CyGuid_925cc1e1-309e-4e08-b0a1-09a83c35b157 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtProjectPSoCExe+CyCodeGenDepUserInfo" version="1">
 <deps_list>
 <v>.\ScratchPad\ScratchPad.cysch</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\USBFS_v3_10.cysym</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\USBFS_v3_10.pdf</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\USBFS_v3_10.cycdx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\USBFS_v3_10.cystate</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_audio.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_audio.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_boot.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_cdc.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_cdc.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_cls.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_descr.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_drv.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_episr.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_hid.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_hid.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_pm.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_std.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_vnd.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_cdc.inf</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_midi.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_midi.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_pvt.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_cydmac.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_msc.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\API\USBFS_msc.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\Properties\Resources.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyadvancedpage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyadvancedpage.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyapicustomizer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyaudio.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyaudiodescriptorpage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyaudiodescriptorpage.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cycdc.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cycdcdescriptorpage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cycdcdescriptorpage.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cycustomizer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsconfig.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsconfig.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsdevice.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsdevice.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsendpoint.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsendpoint.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailshid.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailshid.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsinterface.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsinterface.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailslangid.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailslangid.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsstring.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsstring.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydevice.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydevicedescriptorpage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydevicedescriptorpage.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyhiddescriptorpage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyhiddescriptorpage.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportbase.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportbase.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportbits.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportbits.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportcustom.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportcustom.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportlist.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportlist.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportnumber.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportnumber.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportunit.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportunit.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cystringdescriptorpage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cystringdescriptorpage.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cytemplates.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyusbdescriptor.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyusbparameters.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyaudio2_0.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsepmngt.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsepmngt.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cymidi.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cymididescriptorpage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cymididescriptorpage.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cymiditemplate.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsintassociation.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsintassociation.designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyusbconst.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cywrappercontrol.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cybasedescriptorpage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cybasedescriptorpage.designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyinterruptspage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyinterruptspage.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsbos.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsbos.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsusb20extension.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsusb20extension.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailscontainerid.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailscontainerid.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cymscdescriptorpage.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cymscdescriptorpage.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cymsc.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\Properties\Resources.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyadvancedpage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyaudiodescriptorpage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cycdcdescriptorpage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsconfig.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsdevice.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsendpoint.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailshid.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsinterface.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailslangid.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsstring.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydevicedescriptorpage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyhiddescriptorpage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportbits.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportcustom.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportlist.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportnumber.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyreportunit.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cystringdescriptorpage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsepmngt.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cymididescriptorpage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsintassociation.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cybasedescriptorpage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cyinterruptspage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsbos.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailsusb20extension.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cydetailscontainerid.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\Custom\cymscdescriptorpage.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_10\PSoC5\USBFS_v3_10.cysch</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\USBFS_v3_20.cysym</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\USBFS_v3_20.pdf</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\USBFS_v3_20.cycdx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\USBFS_v3_20.cystate</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\version.cypatch</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_audio.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_audio.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_boot.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_cdc.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_cdc.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_cls.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_descr.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_drv.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_episr.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_hid.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_hid.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_pm.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_std.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_vnd.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_cdc.inf</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_midi.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_midi.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_pvt.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_cydmac.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_msc.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\API\USBFS_msc.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\Properties\Resources.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyadvancedpage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyadvancedpage.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyapicustomizer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyaudio.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyaudiodescriptorpage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyaudiodescriptorpage.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cycdc.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cycdcdescriptorpage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cycdcdescriptorpage.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cycustomizer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsconfig.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsconfig.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsdevice.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsdevice.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsendpoint.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsendpoint.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailshid.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailshid.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsinterface.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsinterface.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailslangid.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailslangid.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsstring.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsstring.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydevice.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydevicedescriptorpage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydevicedescriptorpage.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyhiddescriptorpage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyhiddescriptorpage.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportbase.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportbase.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportbits.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportbits.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportcustom.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportcustom.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportlist.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportlist.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportnumber.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportnumber.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportunit.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportunit.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cystringdescriptorpage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cystringdescriptorpage.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cytemplates.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyusbdescriptor.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyusbparameters.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyaudio2_0.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsepmngt.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsepmngt.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cymidi.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cymididescriptorpage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cymididescriptorpage.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cymiditemplate.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsintassociation.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsintassociation.designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyusbconst.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cywrappercontrol.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cybasedescriptorpage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cybasedescriptorpage.designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyinterruptspage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyinterruptspage.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsbos.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsbos.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsusb20extension.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsusb20extension.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailscontainerid.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailscontainerid.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cymscdescriptorpage.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cymscdescriptorpage.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cymsc.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\Properties\Resources.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyadvancedpage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyaudiodescriptorpage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cycdcdescriptorpage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsconfig.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsdevice.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsendpoint.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailshid.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsinterface.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailslangid.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsstring.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydevicedescriptorpage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyhiddescriptorpage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportbits.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportcustom.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportlist.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportnumber.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyreportunit.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cystringdescriptorpage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsepmngt.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cymididescriptorpage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsintassociation.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cybasedescriptorpage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cyinterruptspage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsbos.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailsusb20extension.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cydetailscontainerid.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\Custom\cymscdescriptorpage.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\USBFS_v3_20\PSoC5\USBFS_v3_20.cysch</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_dma_v1_70\cy_dma_v1_70.cyprimitive</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_dma_v1_70\cy_dma_v1_70.cysym</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_dma_v1_70\cy_dma_v1_70.pdf</v>
@@ -6205,23 +6198,27 @@
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_clock_v2_20\API\clk.c</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_clock_v2_20\API\clk.h</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_clock_v2_20\Custom\custom.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Timer_v2_70.cycdx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Timer_v2_70.cysym</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Timer_v2_70.pdf</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Timer_v2_70.cystate</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\version.cypatch</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\API\Timer.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\API\Timer.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\API\Timer_PM.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Custom\cytimercontrol.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Custom\cytimercontrol.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Custom\CyTimerCustomizer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Custom\TimerParameters.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Custom\Resources.Designer.cs</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Custom\cytimercontrol.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\Custom\Resources.resx</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70\PSoC5\Timer_v2_70.cysch</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_70</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Timer_v2_80.cycdx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Timer_v2_80.cysym</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Timer_v2_80.pdf</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Timer_v2_80.cystate</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\API\Timer.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\API\Timer.h</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\API\Timer_PM.c</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\cycustomizer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\cyparameters.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Resources.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Utils\cyutils.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Utils\cyenums.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Utils\cyclock.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Utils\cyconstants.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Tabs\cytabbase.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Tabs\cytimercontrol.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Tabs\cytimercontrol.Designer.cs</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Resources.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\Custom\Tabs\cytimercontrol.resx</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80\PSoC5\Timer_v2_80.cysch</v>
+<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Timer_v2_80</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_psoc3_timer_v1_0\cy_psoc3_timer_v1_0.cyprimitive</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\cy_psoc3_timer_v1_0\cy_psoc3_timer_v1_0.cysym</v>
 <v>${CyRoot}\psoc\content\CyPrimitives\cyprimitives.cylib\OneTerminal\OneTerminal.cysym</v>
@@ -6335,34 +6332,35 @@
 <v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.cysym</v>
 <v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\B_UART_v2_50\B_UART_v2_50.v</v>
 <v>.\SystemController.cydwr</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cm3gcc.ld</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\Cm3RealView.scat</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\Cm3Start.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\core_cm3.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\core_cm3_psoc5.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CyBootAsmGnu.s</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CyBootAsmRv.s</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CyDmac.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CyDmac.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CyFlash.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CyFlash.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CyLib.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CyLib.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cypins.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cyPm.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cyPm.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CySpc.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CySpc.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cytypes.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cyutils.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\core_cmFunc.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\core_cmInstr.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\Cm3Iar.icf</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\CyBootAsmIar.s</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cmsis_armcc.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_50\PSoC5\API\cmsis_gcc.h</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Em_EEPROM_Dynamic_v2_0\API\cy_em_eeprom.c</v>
-<v>${CyRoot}\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\Em_EEPROM_Dynamic_v2_0\API\cy_em_eeprom.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.c</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cm3gcc.ld</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\Cm3RealView.scat</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\Cm3Start.c</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cm3.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cm3_psoc5.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyBootAsmGnu.s</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyBootAsmRv.s</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyDmac.c</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyDmac.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyFlash.c</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyFlash.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyLib.c</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyLib.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cypins.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cyPm.c</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cyPm.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CySpc.c</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CySpc.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cytypes.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cyutils.c</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cmFunc.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\core_cmInstr.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\Cm3Iar.icf</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\CyBootAsmIar.s</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cmsis_armcc.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cmsis_gcc.h</v>
+<v>..\..\..\..\..\..\PSoC Creator\4.2\Downloads ( 4.2).cylib\cy_boot_v5_80\PSoC5\API\cmsis_compiler.h</v>
 </deps_list>
 <gen_list>
 <v>Generated_Source\PSoC5\cyfitter_cfg.h</v>
@@ -6486,12 +6484,15 @@
 <v>Generated_Source\PSoC5\CyBootAsmIar.s</v>
 <v>Generated_Source\PSoC5\cmsis_armcc.h</v>
 <v>Generated_Source\PSoC5\cmsis_gcc.h</v>
+<v>Generated_Source\PSoC5\cmsis_compiler.h</v>
 <v>Generated_Source\PSoC5\cy_em_eeprom.c</v>
 <v>Generated_Source\PSoC5\cy_em_eeprom.h</v>
 <v>Generated_Source\PSoC5\project.h</v>
 <v>Generated_Source\PSoC5\cycodeshareimport.ld</v>
 <v>Generated_Source\PSoC5\cycodeshareexport.ld</v>
 <v>Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>Generated_Source\PSoC5\CPUCLK_SLOW.c</v>
+<v>Generated_Source\PSoC5\CPUCLK_SLOW.h</v>
 </gen_list>
 <warp_dep>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif</v>
@@ -6501,7 +6502,7 @@
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif</v>
 <v>C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\cy_psoc3.vif</v>
 </warp_dep>
-<deps_time v="131898848495546461" />
+<deps_time v="131900233873960473" />
 <top_block v="ScratchPad" />
 <last_generation v="7" />
 <pdl_path v="" />
@@ -6511,7 +6512,7 @@
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
 <link_deps_times>
-<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="131898896328092852" />
+<name_val_pair name="c9323d49-d323-40b8-9b59-cc008d68a989@Debug@CortexM3" v="131900233291076997" />
 </link_deps_times>
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>

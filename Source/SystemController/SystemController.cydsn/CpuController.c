@@ -12,7 +12,7 @@ void CpuController_Init()
     CpuController_SetClockDivider(3);
     CpuController_SetClockMode(CPUMODE_NORMAL_FAST);
     
-    CPU_CLK_Start();
+    CPUCLK_SLOW_Start();
     CPUCLK_FAST_Start();
 }
 
@@ -85,7 +85,7 @@ uint8_t CpuController_WaitCycles(uint16_t numberOfCycles)
     }
     else if (clkMode & CPUMODE_NORMAL_SLOW)
     {
-        CyDelayCycles(CpuController_GetClockDivider() * numberOfCycles * CPU_CLK_GetDividerRegister());
+        CyDelayCycles(CpuController_GetClockDivider() * numberOfCycles * CPUCLK_SLOW_GetDividerRegister());
     }
     else
     {

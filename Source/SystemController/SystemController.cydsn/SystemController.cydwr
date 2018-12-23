@@ -363,9 +363,9 @@
   </Group>
   <Group key="Component">
     <Group key="v1">
-      <Data key="cy_boot" value="cy_boot_v5_50" />
-      <Data key="Em_EEPROM_Dynamic" value="Em_EEPROM_Dynamic_v2_0" />
-      <Data key="LIN_Dynamic" value="LIN_Dynamic_v3_40" />
+      <Data key="cy_boot" value="cy_boot_v5_80" />
+      <Data key="Em_EEPROM_Dynamic" value="Em_EEPROM_Dynamic_v2_20" />
+      <Data key="LIN_Dynamic" value="LIN_Dynamic_v4_0" />
     </Group>
   </Group>
   <Data key="DataVersionKey" value="2" />
@@ -397,6 +397,8 @@
       <Data key="456d4f64-3c10-4e66-b9d0-8fc864d3b693" value="WR" />
       <Data key="611b220a-c156-4c7d-8107-8e07b1ab30df" value="D" />
       <Data key="7958b69f-7c23-4ab7-9fb4-7a254f8379e0" value="DebugPin2" />
+      <Data key="641048dc-d4dc-4972-b7e8-aead58798ae0/8b77a6c4-10a0-4390-971c-672353e2a49c" value="USB_Dm" />
+      <Data key="641048dc-d4dc-4972-b7e8-aead58798ae0/618a72fc-5ddd-4df5-958f-a3d55102db42" value="USB_Dp" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="RxSysTerminal" />
       <Data key="24264717-dc26-4bd4-ad47-c1e9d7fb8774/8b77a6c4-10a0-4390-971c-672353e2a49c" value="USB_Dm" />
       <Data key="24264717-dc26-4bd4-ad47-c1e9d7fb8774/618a72fc-5ddd-4df5-958f-a3d55102db42" value="USB_Dp" />
@@ -3708,6 +3710,16 @@
     <Group key="7958b69f-7c23-4ab7-9fb4-7a254f8379e0">
       <Group key="0">
         <Data key="Port Format" value="15,1" />
+      </Group>
+    </Group>
+    <Group key="641048dc-d4dc-4972-b7e8-aead58798ae0/8b77a6c4-10a0-4390-971c-672353e2a49c">
+      <Group key="0">
+        <Data key="Port Format" value="15,7" />
+      </Group>
+    </Group>
+    <Group key="641048dc-d4dc-4972-b7e8-aead58798ae0/618a72fc-5ddd-4df5-958f-a3d55102db42">
+      <Group key="0">
+        <Data key="Port Format" value="15,6" />
       </Group>
     </Group>
     <Group key="1425177d-0d0e-4468-8bcc-e638e5509a9b">

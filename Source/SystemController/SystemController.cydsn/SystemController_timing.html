@@ -539,7 +539,7 @@ function getElementsByClass(rootNode, elemName, className)
 <tr> <td class="prop"> Project :</td>
 <td class="proptext"> SystemController</td></tr>
 <tr> <td class="prop"> Build Time :</td>
-<td class="proptext"> 12/21/18 17:54:04</td></tr>
+<td class="proptext"> 12/23/18 08:23:03</td></tr>
 <tr> <td class="prop"> Device :</td>
 <td class="proptext"> CY8C5888LTI-LP097</td></tr>
 <tr> <td class="prop"> Temperature :</td>
@@ -601,7 +601,7 @@ Timing Violation Section</span>
 <tr class="sta_tv tv2">
  <td class = "text_info"> </td>
  <td class = "text_info">CPUCLK_FAST(routed)</td>
- <td class = "text_info">CPU_CLK(routed)</td>
+ <td class = "text_info">CPUCLK_SLOW(routed)</td>
  <td class = "text_info"> </td>
 </tr>
 <tr class="sta_tv tv3">
@@ -612,13 +612,13 @@ Timing Violation Section</span>
 </tr>
 <tr class="sta_tv tv4">
  <td class = "text_info"> </td>
- <td class = "text_info">CPU_CLK(routed)</td>
+ <td class = "text_info">CPUCLK_SLOW(routed)</td>
  <td class = "text_info">CPUCLK_FAST(routed)</td>
  <td class = "text_info"> </td>
 </tr>
 <tr class="sta_tv tv5">
  <td class = "text_info"> </td>
- <td class = "text_info">CPU_CLK(routed)</td>
+ <td class = "text_info">CPUCLK_SLOW(routed)</td>
  <td class = "text_info">CyBUS_CLK</td>
  <td class = "text_info"> </td>
 </tr>
@@ -631,7 +631,7 @@ Timing Violation Section</span>
 <tr class="sta_tv tv7">
  <td class = "text_info"> </td>
  <td class = "text_info">CyBUS_CLK</td>
- <td class = "text_info">CPU_CLK(routed)</td>
+ <td class = "text_info">CPUCLK_SLOW(routed)</td>
  <td class = "text_info"> </td>
 </tr>
 </tbody>
@@ -665,8 +665,8 @@ Clock Summary Section</span>
  <td class = "text_info"></td>
 </tr>
 <tr> 
- <td class = "text_info">CPU_CLK(routed)</td>
- <td class = "text_info">CPU_CLK(routed)</td>
+ <td class = "text_info">CPUCLK_SLOW(routed)</td>
+ <td class = "text_info">CPUCLK_SLOW(routed)</td>
  <td class = "number">1.000&nbsp;kHz</td>
  <td class = "number">1.000&nbsp;kHz</td>
  <td class = "number">87.573&nbsp;MHz</td>
@@ -729,7 +729,7 @@ Clock Summary Section</span>
  <td class = "text_info"></td>
 </tr>
 <tr> 
- <td class = "text_info">CPU_CLK</td>
+ <td class = "text_info">CPUCLK_SLOW</td>
  <td class = "text_info">CyMASTER_CLK</td>
  <td class = "number">1.000&nbsp;kHz</td>
  <td class = "number">1.000&nbsp;kHz</td>
@@ -1433,13 +1433,13 @@ Destination Clock : CPUCLK_FAST(routed) : Positive edge(Required Frequency 36&nb
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Source Clock : CPU_CLK(routed) : Positive edge(Required Frequency 1&nbsp;kHz)</span>
+Source Clock : CPUCLK_SLOW(routed) : Positive edge(Required Frequency 1&nbsp;kHz)</span>
 </a>
 </div><div class="sta_secbody"><div class="sta_sec" >
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Destination Clock : CPU_CLK(routed) : Positive edge(Required Frequency 1&nbsp;kHz)</span>
+Destination Clock : CPUCLK_SLOW(routed) : Positive edge(Required Frequency 1&nbsp;kHz)</span>
 </a>
 </div><div class="sta_secbody"><div class="sta_sec_desc">Path Delay Requirement : 1e+006ns(1&nbsp;kHz)</div>
 <table class="sta_tscs">
@@ -5013,13 +5013,13 @@ Destination Clock : CPUCLK_FAST(routed) : Positive edge</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Source Clock : CPU_CLK(routed) : Positive edge</span>
+Source Clock : CPUCLK_SLOW(routed) : Positive edge</span>
 </a>
 </div><div class="sta_secbody"><div class="sta_sec" >
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Destination Clock : CPU_CLK(routed) : Positive edge</span>
+Destination Clock : CPUCLK_SLOW(routed) : Positive edge</span>
 </a>
 </div><div class="sta_secbody"><table class="sta_tscs">
  <thead> 
@@ -7520,7 +7520,7 @@ Source Clock CPUCLK_FAST(routed)</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Destination Clock CPU_CLK(routed)</span>
+Destination Clock CPUCLK_SLOW(routed)</span>
 </a>
 </div><div class="sta_secbody"><table class="sta_tscs">
  <thead> 
@@ -8280,7 +8280,7 @@ Destination Clock CyBUS_CLK</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Source Clock CPU_CLK(routed)</span>
+Source Clock CPUCLK_SLOW(routed)</span>
 </a>
 </div><div class="sta_secbody"><div class="sta_sec" >
 <div>
@@ -9671,7 +9671,7 @@ Destination Clock CPUCLK_FAST(routed)</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Destination Clock CPU_CLK(routed)</span>
+Destination Clock CPUCLK_SLOW(routed)</span>
 </a>
 </div><div class="sta_secbody"><table class="sta_tscs">
  <thead> 
@@ -10616,7 +10616,7 @@ CPUCLK_FAST(routed)</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-CPU_CLK(routed)</span>
+CPUCLK_SLOW(routed)</span>
 </a>
 </div><div class="sta_secbody"><table class="sta_tscs">
  <thead> 
