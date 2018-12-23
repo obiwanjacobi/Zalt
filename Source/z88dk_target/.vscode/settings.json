@@ -1,4 +1,7 @@
 {
+    "files.associations": {
+        "*.lis": "z80-asm" // use Z80 Assembly vscode extension
+    },
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
@@ -7,5 +10,7 @@
         "**/.DS_Store": true,
         "**/*.obj": true,
         "**/*.exe": true,
-    }
+    },
+    "files.autoSave": "afterDelay",
+    "C_Cpp.autoAddFileAssociations": false
 }
