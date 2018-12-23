@@ -5,3 +5,6 @@ zcc_proj.lst
 
 *.c.asm
 *.c.lis
+
+*.obj
+*.exe
