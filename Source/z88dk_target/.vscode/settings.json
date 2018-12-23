@@ -1,6 +1,9 @@
 {
     "files.associations": {
-        "*.lis": "z80-asm" // use Z80 Assembly vscode extension
+        // use Z80 Assembly vscode extension
+        "*.lis": "z80-asm",
+        "*.inc": "z80-asm",
+        "*.m4": "z80-asm"
     },
     "files.exclude": {
         "**/.git": true,
