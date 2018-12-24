@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'virtualdevices.ui'
 **
-** Created by: Qt User Interface Compiler version 5.7.0
+** Created by: Qt User Interface Compiler version 5.12.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -12,8 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -38,15 +36,15 @@ public:
     void setupUi(QMainWindow *VirtualDevicesClass)
     {
         if (VirtualDevicesClass->objectName().isEmpty())
-            VirtualDevicesClass->setObjectName(QStringLiteral("VirtualDevicesClass"));
+            VirtualDevicesClass->setObjectName(QString::fromUtf8("VirtualDevicesClass"));
         VirtualDevicesClass->resize(520, 289);
         centralWidget = new QWidget(VirtualDevicesClass);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         keyboard = new QPushButton(centralWidget);
-        keyboard->setObjectName(QStringLiteral("keyboard"));
+        keyboard->setObjectName(QString::fromUtf8("keyboard"));
         keyboard->setGeometry(QRect(10, 10, 200, 70));
         QFont font;
-        font.setFamily(QStringLiteral("MS Shell Dlg 2"));
+        font.setFamily(QString::fromUtf8("MS Shell Dlg 2"));
         font.setPointSize(14);
         font.setBold(true);
         font.setWeight(75);
@@ -55,7 +53,7 @@ public:
         keyboard->setContextMenuPolicy(Qt::NoContextMenu);
         keyboard->setCheckable(true);
         usbTest = new QPushButton(centralWidget);
-        usbTest->setObjectName(QStringLiteral("usbTest"));
+        usbTest->setObjectName(QString::fromUtf8("usbTest"));
         usbTest->setGeometry(QRect(302, 10, 141, 61));
         QFont font1;
         font1.setPointSize(12);
@@ -65,16 +63,16 @@ public:
         usbTest->setCursor(QCursor(Qt::PointingHandCursor));
         VirtualDevicesClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(VirtualDevicesClass);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 520, 26));
         menu_Exit = new QMenu(menuBar);
-        menu_Exit->setObjectName(QStringLiteral("menu_Exit"));
+        menu_Exit->setObjectName(QString::fromUtf8("menu_Exit"));
         VirtualDevicesClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(VirtualDevicesClass);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
+        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
         VirtualDevicesClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(VirtualDevicesClass);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
+        statusBar->setObjectName(QString::fromUtf8("statusBar"));
         VirtualDevicesClass->setStatusBar(statusBar);
 
         menuBar->addAction(menu_Exit->menuAction());
@@ -86,10 +84,10 @@ public:
 
     void retranslateUi(QMainWindow *VirtualDevicesClass)
     {
-        VirtualDevicesClass->setWindowTitle(QApplication::translate("VirtualDevicesClass", "VirtualDevices", 0));
-        keyboard->setText(QApplication::translate("VirtualDevicesClass", "KeyBoard", 0));
-        usbTest->setText(QApplication::translate("VirtualDevicesClass", "Test USB", 0));
-        menu_Exit->setTitle(QApplication::translate("VirtualDevicesClass", "&Exit", 0));
+        VirtualDevicesClass->setWindowTitle(QApplication::translate("VirtualDevicesClass", "VirtualDevices", nullptr));
+        keyboard->setText(QApplication::translate("VirtualDevicesClass", "KeyBoard", nullptr));
+        usbTest->setText(QApplication::translate("VirtualDevicesClass", "Test USB", nullptr));
+        menu_Exit->setTitle(QApplication::translate("VirtualDevicesClass", "&Exit", nullptr));
     } // retranslateUi
 
 };

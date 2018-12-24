@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 	
 	if (!program.initialize())
 	{
-		std::cout << "Usb device not found.";
+		std::cout << ">> Usb device not found.\n\n";
 		return -1;
 	}
 
