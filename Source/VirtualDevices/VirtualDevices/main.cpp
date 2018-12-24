@@ -4,6 +4,8 @@
 
 int main(int argc, char *argv[])
 {
+    std::cout << "Zalt Virtual Devices Application\n";
+
 	Program program(argc, argv);
 	
 	if (!program.initialize())

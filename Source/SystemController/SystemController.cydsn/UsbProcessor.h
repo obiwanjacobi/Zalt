@@ -4,7 +4,7 @@
 #include "SystemController.h"
 
 // requires interrupts on
-void UsbProcessor_Start();
+uint8_t UsbProcessor_Start();
 
 void UsbProcessor_Enable(bool_t enable);
 void UsbProcessor_Receive();

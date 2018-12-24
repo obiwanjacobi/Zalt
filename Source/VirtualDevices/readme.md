@@ -14,6 +14,10 @@ Qt Project Settings:
 	* GUI
 	* Widgets
 
+## USB Driver on Windows
+
+Download Zadig http://zadig.akeo.ie/ and configure libusb driver.
+
 ## Description
 
 VirtualDevices is a Qt C++ project that connects to the Zalt System Controller PSoC over USB.

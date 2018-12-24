@@ -75,6 +75,12 @@ uint16_t SerialTerminal_ReceiveBlob(void* ctx, ReceiveCallback fnCallback)
 }
 
 
+void SerialTerminal_Write(const char8* text)
+{
+    if (text != NULL)
+        SysTerminal_PutString(text);
+}
+
 void SerialTerminal_WriteLine(const char8* text)
 {
     if (text != NULL)

@@ -31,9 +31,13 @@ int main()
     CyGlobalIntEnable; /* Enable global interrupts. */
     SerialTerminal_Start(&g_serialTerminal);
     
-    //SerialTerminal_WriteLine("Initializing USB.");
-    //UsbProcessor_Start();
-        
+    SerialTerminal_Write("Initializing USB...");
+    if (UsbProcessor_Start()) {
+        SerialTerminal_WriteLine(" succeeded");
+    } else {
+        SerialTerminal_WriteLine(" not connected");
+    }
+    
     // echo back that the system is ready but halted.
     SerialTerminal_WriteLine("Ready (Suspended).");
     
@@ -41,7 +45,7 @@ int main()
     
     for(;;)
     {
-        //UsbProcessor_Receive();
+        UsbProcessor_Receive();
         Debugger_PrintRegisterValues();
         
         if (g_serialTerminal.IsActive)
