@@ -6,8 +6,8 @@
 void CpuController_Reset(uint8_t active);
 uint8_t CpuController_IsResetActive();
 
-#define CPUMODE_NORMAL_SLOW (1<<5)
-#define CPUMODE_NORMAL_FAST ((1<<5)|(1<<6))
+#define CPUMODE_NORMAL_SLOW (1 << 5)
+#define CPUMODE_NORMAL_FAST ((1 << 5)|(1 << 6))
 #define CPUMODE_STEP        0
 
 void CpuController_Init();

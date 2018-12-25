@@ -18,6 +18,7 @@ uint16_t SerialTerminal_ReceiveCommand(SerialTerminal* serialTerminal);
 typedef uint8_t (ReceiveCallback)(void* ctx, uint8_t data);
 uint16_t SerialTerminal_ReceiveBlob(void* ctx, ReceiveCallback fnCallback);
 
+void SerialTerminal_WriteUint16(uint16_t value, uint8_t radix);
 void SerialTerminal_Write(const char8* text);
 void SerialTerminal_WriteLine(const char8* text);
 

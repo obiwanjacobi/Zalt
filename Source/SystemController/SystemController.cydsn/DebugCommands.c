@@ -44,7 +44,7 @@ uint16_t Debug_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
             break;
             
         default:
-            SerialTerminal_WriteLine("No or invalid sub-command.");
+            SerialTerminal_WriteLine(INCOMPLETE);
             break;
     }
     

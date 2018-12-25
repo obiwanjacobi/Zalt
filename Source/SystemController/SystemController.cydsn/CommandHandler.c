@@ -14,7 +14,7 @@
 // 'to' stop interpretting incoming terminal characters
 uint16_t TerminalOff_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
 {
-    SerialTerminal_WriteLine(OK);
+    SerialTerminal_WriteLine("Terminal is Off - Reset to turn on.");
     serialTerminal->IsActive = 0;
     return 0;
 }

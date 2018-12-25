@@ -99,7 +99,7 @@ uint16_t MemoryRead_CopyToTerminal(uint16_t address, uint16_t length)
 // Memory Write
 //
 // => 'mw' <Address> <Length>
-// <= "ACK"
+// <= "<ACK>"
 // => blob
 // <= bytes
 uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
@@ -111,7 +111,17 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
     mem.SpinCountTimeout = mem.Length == 0 ? 0x2FF : 0;
     
     // signal ready to receive file
-    SerialTerminal_WriteLine(ACK);
+    if (mem.Length == 0)
+    {
+        SerialTerminal_WriteLine("Send bin file...");
+    }
+    else
+    {
+        SerialTerminal_Write("Send bin file of ");
+        SerialTerminal_WriteUint16(mem.Length, 16);
+        SerialTerminal_WriteLine(" bytes");
+    }    
+    
     BusState busState;
     BusController_Open(&busState);
     
@@ -131,13 +141,11 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
     }
     
     BusController_EnableDataBusOutput(0);
-    
-    // MemoryRead_CopyToTerminal(command->Address, bytesRead);
-    
     BusController_Close(&busState);
     
-    SerialTerminal_WriteLine(NULL);
-    SerialTerminal_WriteLine(OK);
+    SerialTerminal_Write("Received and written ");
+    SerialTerminal_WriteUint16(bytesRead, 16);
+    SerialTerminal_WriteLine(" bytes");
     
     return 0;
 }
@@ -157,6 +165,12 @@ uint16_t MemoryRead_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
         command->Length = 0xFF;
     }
     
+    SerialTerminal_Write("Reading ");
+    SerialTerminal_WriteUint16(command->Length, 16);
+    SerialTerminal_Write(" bytes from address ");
+    SerialTerminal_WriteUint16(command->Address, 16);
+    SerialTerminal_WriteLine(":");
+        
     BusState busState;
     BusController_Open(&busState);
     
@@ -182,6 +196,14 @@ uint16_t MemoryFill_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     mem.Address = command->Address;
     mem.Buffer = NULL;
     mem.Length = command->Length == 0 ? 0xFFFF - command->Address : command->Length;
+    
+    SerialTerminal_Write("Filling ");
+    SerialTerminal_WriteUint16(mem.Length, 16);
+    SerialTerminal_Write(" bytes from address ");
+    SerialTerminal_WriteUint16(command->Address, 16);
+    SerialTerminal_Write(" with value ");
+    SerialTerminal_WriteUint16(command->Param3, 16);
+    SerialTerminal_WriteLine(NULL);
     
     BusState busState;
     BusController_Open(&busState);

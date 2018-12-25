@@ -13,6 +13,28 @@ static const char* ClkMode_Fast = "fast";
 static const char* ClkMode_Slow = "slow";
 static const char* ClkMode_Off = "off";
 
+void ClockMode_ReportValue()
+{
+    char* pTxt = "Clock Mode = Step/Off";
+    
+    switch(CpuController_GetClockMode())
+    {
+        case CPUMODE_NORMAL_FAST:
+        pTxt = "Clock Mode = Fast";
+        break;
+        
+        case CPUMODE_NORMAL_SLOW:
+        pTxt = "Clock Mode = Slow";
+        break;
+        
+        case CPUMODE_STEP:
+        default:
+        break;
+    }
+    
+    SerialTerminal_WriteLine(pTxt);
+}
+
 //
 // Clock Mode
 //
@@ -31,16 +53,24 @@ uint16_t ClockMode_Execute(SerialTerminal* serialTerminal, TerminalCommand* comm
         totalRead += CommandParser_Read(buffer, temp, 5);
         
         if (strcasecmp((const char*)temp, ClkMode_Fast) == 0)
+        {
             command->Mode = CPUMODE_NORMAL_FAST;
+        }
         if (strcasecmp((const char*)temp, ClkMode_Slow) == 0)
+        {
             command->Mode = CPUMODE_NORMAL_SLOW;
+        }
         if (strcasecmp((const char*)temp, ClkMode_Step) == 0)
+        {
             command->Mode = CPUMODE_STEP;
+        }
         if (strcasecmp((const char*)temp, ClkMode_Off) == 0)
+        {
             command->Mode = CPUMODE_STEP;
+        }
         
         CpuController_SetClockMode(command->Mode);
-        SerialTerminal_WriteLine(OK);
+        ClockMode_ReportValue();
     }
     else
     {
@@ -48,6 +78,13 @@ uint16_t ClockMode_Execute(SerialTerminal* serialTerminal, TerminalCommand* comm
     }
     
     return totalRead;
+}
+
+void ClockDivider_ReportValue()
+{
+    uint8_t div = CpuController_GetClockDivider();
+    SerialTerminal_Write("Clock Divider = ");
+    SerialTerminal_WriteUint16(div, 10);
 }
 
 //
@@ -72,7 +109,8 @@ uint16_t ClockDivider_Execute(SerialTerminal* serialTerminal, TerminalCommand* c
         
         CpuController_SetClockDivider((uint8_t)command->Number);
         
-        SerialTerminal_WriteLine(OK);
+        ClockDivider_ReportValue();
+        SerialTerminal_WriteLine(NULL);
     }
     else
     {

@@ -5,7 +5,6 @@
 #include "RingBuffer.h"
 
 const char* OK;
-const char* ACK;
 const char* SUSPENDED;
 const char* INCOMPLETE;
 

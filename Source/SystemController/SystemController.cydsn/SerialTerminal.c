@@ -2,6 +2,8 @@
 #include "CommandParser.h"
 #include "CommandHandler.h"
 
+#include <stdio.h>
+
 #define SerialTerminal_RxBufferSize 40
 
 static uint8_t g_rxBuffer[SerialTerminal_RxBufferSize];
@@ -89,4 +91,21 @@ void SerialTerminal_WriteLine(const char8* text)
     SysTerminal_PutString("\r\n");
 }
 
+void SerialTerminal_WriteUint16(uint16_t value, uint8_t radix)
+{
+    char buffer[35];
+    switch(radix)
+    {
+        case 10:
+        sprintf(buffer, "%d", value);
+        break;
+        case 16:
+        sprintf(buffer, "%Xh", value);
+        break;
+        
+        default: 
+        sprintf(buffer, "unsupported radix: %d", radix);
+    }
+    SysTerminal_PutString(buffer);
+}
 /* [] END OF FILE */

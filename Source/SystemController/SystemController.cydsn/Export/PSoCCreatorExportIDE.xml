@@ -78,7 +78,6 @@
           <File BuildType="BUILD" Toolchain="">SystemController.h</File>
           <File BuildType="BUILD" Toolchain="">KeyBoard.h</File>
           <File BuildType="BUILD" Toolchain="">KeyBoard.c</File>
-          <File BuildType="BUILD" Toolchain="">TimerDevice.h</File>
           <File BuildType="BUILD" Toolchain="">Message.h</File>
         </Files>
       </Folder>

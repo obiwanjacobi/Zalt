@@ -40,7 +40,7 @@ void CpuController_SetClockMode(uint8_t mode)
 uint8_t CpuController_GetClockMode()
 {
     uint8_t reg = SysCtrlReg_Read();
-    return reg & 0x30;
+    return (reg & CPUMODE_MASK);
 }
 
 void CpuController_SetClockDivider(uint8_t divider)
@@ -49,7 +49,7 @@ void CpuController_SetClockDivider(uint8_t divider)
     
     uint8_t reg = SysCtrlReg_Read();
     reg &= ~CPUDIVIDER_MASK;
-    reg |= (divider<<2);
+    reg |= (divider << 2);
     SysCtrlReg_Write(reg);
 }
 

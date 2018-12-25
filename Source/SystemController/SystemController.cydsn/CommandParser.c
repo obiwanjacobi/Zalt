@@ -2,7 +2,6 @@
 #include <stdlib.h>
 
 const char* OK = "OK";
-const char* ACK = "ACK";
 const char* SUSPENDED = "Suspended";
 const char* INCOMPLETE = "Command is Incomplete";
 
