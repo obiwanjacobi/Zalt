@@ -1,7 +1,7 @@
 #ifndef __COMMANDHANDLER_H__
 #define __COMMANDHANDLER_H__
 
-#include <project.h>
+#include <SystemController.h>
 #include "CommandParser.h"
 #include "SerialTerminal.h"
     

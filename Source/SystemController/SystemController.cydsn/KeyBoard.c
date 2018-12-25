@@ -17,6 +17,7 @@ void KeyBoard_Handle(Message* message)
     {
         case KEYBOARD_INPUTKEY:
             KeyBoard_SetKey(message->KeyboardInput.Key);
+            SysTerminal_PutChar(message->KeyboardInput.Key);
             break;
     }
 }

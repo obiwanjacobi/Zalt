@@ -18,6 +18,7 @@ static char g_Commands[][5] = {
     "mm",   // memory manager
     "bs",   // bank switch
     "dbg",  // debug
+    "stat", // status
     ""      // end of table
 };
 

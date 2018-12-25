@@ -8,10 +8,6 @@ static const char* MemMgr_Sel = "sel";
 static const char* MemMgr_Get = "get";
 static const char* MemMgr_Put = "put";
 static const char* MemMgr_Nul = "nul";
-#define MM_MODE_SEL     1
-#define MM_MODE_GET     2
-#define MM_MODE_PUT     3
-#define MM_MODE_NUL     4
 
 void MemoryManager_ReportTable(uint8_t table)
 {

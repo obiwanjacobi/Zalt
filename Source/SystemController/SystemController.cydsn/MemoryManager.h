@@ -15,7 +15,7 @@ void MemoryManager_WriteTableData(uint8_t mapIndex, uint8_t data);
 void MemoryManager_SelectTable(uint8_t tableIndex);
 void MemoryManager_SelectTableIO(uint8_t tableIndex);
 
-
+uint8_t MemoryManager_GetCurrentTable();
 
 #endif//__MEMORYMANAGER_H__
 /* [] END OF FILE */

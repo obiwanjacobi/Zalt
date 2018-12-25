@@ -1,7 +1,9 @@
 #include "CommandHandler.h"
 #include "MemoryCommands.h"
 #include "MemoryManagerCommands.h"
+#include "MemoryManager.h"
 #include "CpuCommands.h"
+#include "CpuController.h"
 #include "DebugCommands.h"
 #include "CommandParser.h"
 
@@ -19,6 +21,58 @@ uint16_t TerminalOff_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
     return 0;
 }
 
+
+
+//
+// Status
+//
+// 'stat' reports the current status
+uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
+{
+    // cpu
+    SerialTerminal_Write("CPU ");
+    const char* halted = NULL;
+    const char* suspended = NULL;
+    if (CpuController_IsResetActive())
+    {
+        suspended = SUSPENDED;
+    }
+    if (CpuController_IsCpuHalted())
+    {
+        halted = "halted";
+    }
+    SerialTerminal_Write(suspended);
+    SerialTerminal_Write(" ");
+    SerialTerminal_Write(halted);
+    SerialTerminal_WriteLine(NULL);
+    ClockMode_ReportValue();
+    ClockDivider_ReportValue();
+    
+    SerialTerminal_WriteLine(NULL);
+    
+    // memory
+    uint8_t table = MemoryManager_GetCurrentTable();
+    SerialTerminal_Write("Memory ");
+    MemoryManager_MapAction(MM_MODE_GET, table, -1, 0);
+        
+    // USB
+    SerialTerminal_Write("USB Virtual Devices ");
+    if (USB_GetConfiguration() == 0)
+    {
+        SerialTerminal_Write("not ");
+    }
+    SerialTerminal_Write("connected");
+        
+    SerialTerminal_WriteLine(NULL);
+    
+    
+    if (serialTerminal->IsActive == 0)
+    {
+        SerialTerminal_WriteLine("Terminal is Off");
+    }
+    
+    return 0;
+}
 
 
 
@@ -66,6 +120,9 @@ uint16_t CommandHandler_DispatchCommand(SerialTerminal* serialTerminal, Terminal
             break;
         case COMMAND_DEBUG:
             bytesRead = Debug_Execute(serialTerminal, command);
+            break;
+        case COMMAND_STATUS:
+            bytesRead = Status_Execute(serialTerminal, command);
             break;
     }
     

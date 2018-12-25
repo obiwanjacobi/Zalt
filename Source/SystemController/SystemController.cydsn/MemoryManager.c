@@ -4,6 +4,8 @@
 
 #define ADDRESS_SHIFT   12
 
+static uint8_t _currentTable;
+
 // writes memory-map table data that maps A12-A15 to MA12-MA15.
 // MA16-MA19 remain 0
 void MemoryManager_WriteNullTable()
@@ -33,12 +35,18 @@ void MemoryManager_WriteTableData(uint8_t mapIndex, uint8_t data)
 void MemoryManager_SelectTable(uint8_t tableIndex)
 {
     IOController_Output(IO_MemoryManagerUnit_Table, tableIndex);
+    _currentTable = tableIndex;
 }
 
 // writes to the register that selects the mem-map table for io/modification
 void MemoryManager_SelectTableIO(uint8_t tableIndex)
 {
     IOController_Output(IO_MemoryManagerUnit_TableIO, tableIndex);
+}
+
+uint8_t MemoryManager_GetCurrentTable()
+{
+    return _currentTable;
 }
 
 void MemoryManager_Init()
