@@ -1,7 +1,7 @@
 #include "CpuController.h"
 
-#define CPUMODE_MASK  ((1<<5) | (1<<6))
-#define CPUDIVIDER_MASK         (4 + 8 + 16)
+#define CPUMODE_MASK        ((1 << 5) | (1 << 6))
+#define CPUDIVIDER_MASK     (4 + 8 + 16)
 
 void CpuController_Init()
 {
@@ -67,10 +67,8 @@ void CpuController_PulseClock(uint16_t numberOfPulses)
     for(i = 0; i < numberOfPulses; i++)
     {
         CyPins_SetPin(ExtBus_CpuClk);
-        //CpuController_WaitCycles(1000); // slow
         CyDelay(20);
         CyPins_ClearPin(ExtBus_CpuClk);
-        //CpuController_WaitCycles(1000); // slow
         CyDelay(20);
     }
 }

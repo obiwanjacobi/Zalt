@@ -1,11 +1,7 @@
 #include "MemoryController.h"
 
-//#define SPIN_WAIT 150
-
 inline void SpinWait()
 {
-//    uint8_t spin = SPIN_WAIT;
-//    while (--spin);
     CyDelayUs(1);
 }
 
@@ -18,9 +14,7 @@ uint8_t MemCtrl_Read(uint16_t address)
     CyPins_ClearPin(ExtBus_Rd);
     
     SpinWait();
-    
     uint8_t data = D_Read();
-    //SysTerminal_PutChar(data);
     
     CyPins_SetPin(ExtBus_Rd);
     CyPins_SetPin(ExtBus_MemReq);
@@ -37,8 +31,6 @@ void MemCtrl_Write(uint16_t address, uint8_t data)
     CyPins_ClearPin(ExtBus_Wr);
         
     D_Write(data);
-    //SysTerminal_PutChar(data);
-    
     SpinWait();
     
     CyPins_SetPin(ExtBus_Wr);

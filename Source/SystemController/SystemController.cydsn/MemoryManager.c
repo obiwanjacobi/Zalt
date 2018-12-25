@@ -47,6 +47,7 @@ void MemoryManager_Init()
     BusController_Open(&bus);
     BusController_EnableDataBusOutput(1);
     
+    // write first table for 64k
     MemoryManager_SelectTable(0);
     MemoryManager_SelectTableIO(0);
     MemoryManager_WriteNullTable();

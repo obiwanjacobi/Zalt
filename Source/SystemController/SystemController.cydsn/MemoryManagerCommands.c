@@ -12,13 +12,108 @@ static const char* MemMgr_Nul = "nul";
 #define MM_MODE_GET     2
 #define MM_MODE_PUT     3
 #define MM_MODE_NUL     4
+
+void MemoryManager_ReportTable(uint8_t table)
+{
+    SerialTerminal_Write("Table ");
+    SerialTerminal_WriteUint16(table, 10);
+    SerialTerminal_Write(": ");
+}
+
+void MemoryManager_ReportTableIndex()
+{
+    for(uint8_t index = 0; index < MemMapTableSize; index++)
+    {
+        if (index > 0)
+        {
+            SysTerminal_PutChar(',');
+        }
+        
+        SerialTerminal_WriteUint16(MemoryManager_ReadTableData(index), 10);
+    }
+    SerialTerminal_WriteLine(NULL);
+}
+
+void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, uint8_t value)
+{
+    BusState busState;
+    BusController_Open(&busState);
+    BusController_EnableDataBusOutput(1);
+    
+    switch (mode)
+    {
+        case MM_MODE_SEL:
+            MemoryManager_SelectTable(table);
+            break;
+        case MM_MODE_GET:
+            if (table == -1 )
+            {
+                for(table = 0; table < MemMapTableCount; table++)
+                {
+                    MemoryManager_ReportTable(table);
+                    
+                    MemoryManager_SelectTableIO(table);
+                    
+                    // reading, so disable driving the databus
+                    BusController_EnableDataBusOutput(0);
+                    
+                    MemoryManager_ReportTableIndex();
+                    
+                    BusController_EnableDataBusOutput(1);
+                }
+            }
+            else
+            {
+                MemoryManager_ReportTable(table);
+                    
+                MemoryManager_SelectTableIO(table);
+                // reading, so disable driving the databus
+                BusController_EnableDataBusOutput(0);
+                if (index == -1)
+                {
+                    MemoryManager_ReportTableIndex();
+                }
+                else
+                {
+                    SerialTerminal_WriteUint16(MemoryManager_ReadTableData(index), 10);
+                }
+            }
+            break;
+        case MM_MODE_PUT:
+            MemoryManager_SelectTableIO(table);
+            MemoryManager_WriteTableData(index, value);
+            break;
+        case MM_MODE_NUL:
+            if (table == -1)
+            {
+                for(table = 0; table < MemMapTableCount; table++)
+                {
+                    MemoryManager_SelectTableIO(table);
+                    MemoryManager_WriteNullTable();
+                }
+            }
+            else
+            {
+                MemoryManager_SelectTableIO(table);
+                MemoryManager_WriteNullTable();
+            }
+            break;
+        default:
+            break;
+    }
+    
+    BusController_EnableDataBusOutput(0);
+    BusController_Close(&busState);
+
+}
+
 //
 // Memory Manager
 //
-// 'mm' [sel] [n]  n => operational table index (default = 0)
-// 'mm' [get] [n] [i]  n => table index to modify, i => map index in table
-// 'mm' [put] [n] [i] [v]  n => table index to modify, i => map index in table, v => value to put
-// 'mm' [nul] [n]  => writes null table in [n], or all 256 tables if [n] is ommitted
+// 'mm' sel [n]             n => operational table index (default = 0) (0-255)
+// 'mm' get [n] [i]         n => table index to read (0-255), i => map index in table (1-15)
+// 'mm' put <n> <i> [v]     n => table index to modify (0-255), i => map index in table (1-15), v => value to put (0-255)
+// 'mm' nul [n]             => writes null table in [n], or all (256) tables if [n] is ommitted
 uint16_t MemoryManager_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
 {
     RingBuffer* const buffer = &serialTerminal->RxBuffer;
@@ -70,8 +165,7 @@ uint16_t MemoryManager_Execute(SerialTerminal* serialTerminal, TerminalCommand* 
     }
     if (table == -1)
     {
-        if (command->Mode == MM_MODE_GET ||
-            command->Mode == MM_MODE_PUT)
+        if (command->Mode == MM_MODE_PUT)
         {
             SerialTerminal_WriteLine(INCOMPLETE);
             return totalRead;
@@ -90,65 +184,9 @@ uint16_t MemoryManager_Execute(SerialTerminal* serialTerminal, TerminalCommand* 
             return totalRead;
         }
     }
-        
-    BusState busState;
-    BusController_Open(&busState);
-    BusController_EnableDataBusOutput(1);
-    
-    switch (command->Mode)
-    {
-        case MM_MODE_SEL:
-            MemoryManager_SelectTable(table);
-            break;
-        case MM_MODE_GET:
-            MemoryManager_SelectTableIO(table);
-            // reading, so disable driving the databus
-            BusController_EnableDataBusOutput(0);
-            if (index == -1)
-            {
-                for(index = 0; index < MemMapTableSize; index++)
-                {
-                    if (index > 0)
-                    {
-                        SysTerminal_PutChar(',');
-                    }
-                    
-                    itoa(MemoryManager_ReadTableData(index), (char*)temp, 10);
-                    SysTerminal_PutString((char*)temp);
-                }
-                SerialTerminal_WriteLine(NULL);
-            }
-            else
-            {
-                itoa(MemoryManager_ReadTableData(index), (char*)temp, 10);
-                SerialTerminal_WriteLine((char*)temp);
-            }
-            break;
-        case MM_MODE_PUT:
-            MemoryManager_SelectTableIO(table);
-            MemoryManager_WriteTableData(index, value);
-            break;
-        case MM_MODE_NUL:
-            if (table == -1)
-            {
-                for(table = 0; table < MemMapTableCount; table++)
-                {
-                    MemoryManager_SelectTableIO(table);
-                    MemoryManager_WriteNullTable();
-                }
-            }
-            else
-            {
-                MemoryManager_SelectTableIO(table);
-                MemoryManager_WriteNullTable();
-            }
-            break;
-        default:
-            break;
-    }
-    
-    BusController_EnableDataBusOutput(0);
-    BusController_Close(&busState);
+
+    // perform the operation
+    MemoryManager_MapAction(command->Mode, table, index, value);
     
     SerialTerminal_WriteLine(OK);
     return totalRead;

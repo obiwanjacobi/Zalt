@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\Commands\MemoryCommands.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\Commands\MemoryManagerCommands.c">
 <ExpandedNodeIds>
 <v>SystemController</v>
 <v>SystemController\SystemController</v>
@@ -40,13 +40,13 @@
 <v>SystemController\SystemController\Cpu\IOController.h</v>
 <v>SystemController\SystemController\Devices\KeyBoard.c</v>
 <v>SystemController\SystemController\Devices\KeyBoard.h</v>
+<v>SystemController\SystemController\Memory</v>
 <v>SystemController\SystemController\Memory\BusController.c</v>
 <v>SystemController\SystemController\Memory\BusController.h</v>
 <v>SystemController\SystemController\Memory\MemoryController.c</v>
 <v>SystemController\SystemController\Memory\MemoryController.h</v>
 <v>SystemController\SystemController\Memory\MemoryManager.c</v>
 <v>SystemController\SystemController\Memory\MemoryManager.h</v>
-<v>SystemController\SystemController\Process</v>
 <v>SystemController\SystemController\Process\Debugger.c</v>
 <v>SystemController\SystemController\Process\Debugger.h</v>
 <v>SystemController\SystemController\Process\InterruptProcessor.c</v>
@@ -91,16 +91,13 @@
 <v>SystemController\SystemController\Cpu\IOController.h</v>
 <v>SystemController\SystemController\Devices</v>
 <v>SystemController\SystemController\Memory</v>
+<v>SystemController\SystemController\Memory\BusController.c</v>
+<v>SystemController\SystemController\Memory\BusController.h</v>
+<v>SystemController\SystemController\Memory\MemoryController.c</v>
+<v>SystemController\SystemController\Memory\MemoryController.h</v>
+<v>SystemController\SystemController\Memory\MemoryManager.c</v>
+<v>SystemController\SystemController\Memory\MemoryManager.h</v>
 <v>SystemController\SystemController\Process</v>
-<v>SystemController\SystemController\Process\Debugger.c</v>
-<v>SystemController\SystemController\Process\Debugger.h</v>
-<v>SystemController\SystemController\Process\InterruptProcessor.c</v>
-<v>SystemController\SystemController\Process\InterruptProcessor.h</v>
-<v>SystemController\SystemController\Process\IoAddresses.h</v>
-<v>SystemController\SystemController\Process\IOProcessor.c</v>
-<v>SystemController\SystemController\Process\IOProcessor.h</v>
-<v>SystemController\SystemController\Process\UsbProcessor.c</v>
-<v>SystemController\SystemController\Process\UsbProcessor.h</v>
 <v>SystemController\SystemController\Terminal</v>
 <v>SystemController\SystemController\Terminal\RingBuffer.c</v>
 <v>SystemController\SystemController\Terminal\RingBuffer.h</v>
