@@ -62,8 +62,8 @@ Delete Dir ->	truncate on meta stream.
 ******************************************************************************/
 
 // virtual functions definitions for a stream provider:
-typedef uint16_t (*CanProvide)(const char_t *protocol);
-typedef result_t (*TryOpenStream)(AsyncThis *async, const char_t *uri, StreamFlags access, Stream *outStream);
+typedef uint16_t (*CanProvide)(const char8_t *protocol);
+typedef result_t (*TryOpenStream)(AsyncThis *async, const char8_t *uri, StreamFlags access, Stream *outStream);
 typedef result_t (*TryCloseStream)(Stream *stream);
 typedef uint16_t (*ReadStream)(AsyncThis *async, Stream *stream, uint8_t *buffer, uint16_t capacity);
 typedef uint16_t (*WriteStream)(AsyncThis *async, Stream *stream, const uint8_t *buffer, uint16_t length);

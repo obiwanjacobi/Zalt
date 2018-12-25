@@ -14,21 +14,21 @@ StringBuilder *StringBuilder_Construct(void *memory, uint16_t capacity)
     return builder;
 }
 
-result_t StringBuilder_AppendString(StringBuilder *builder, const char_t *buffer, uint16_t length)
+result_t StringBuilder_AppendString(StringBuilder *builder, const char8_t *buffer, uint16_t length)
 {
-    char_t *start;
+    char8_t *start;
     if (builder == NULL) return E_NULLPTR;
     if (buffer == NULL) return E_ARGNULLOREMPTY;
     if (builder->Capacity - builder->Length < length) return E_BUFFERFULL;
 
     start = &builder->Text[builder->Length];
-    strlcpy(start, (char_t *)buffer, length);
+    strlcpy(start, (char8_t *)buffer, length);
     builder->Length += length;
 
     return S_OK;
 }
 
-result_t StringBuilder_AppendChar(StringBuilder *builder, char_t value)
+result_t StringBuilder_AppendChar(StringBuilder *builder, char8_t value)
 {
     if (builder == NULL) return E_NULLPTR;
     if (builder->Capacity - builder->Length < 2) return E_BUFFERFULL;
@@ -42,7 +42,7 @@ result_t StringBuilder_AppendChar(StringBuilder *builder, char_t value)
 
 result_t StringBuilder_AppendUint8(StringBuilder *builder, uint8_t value, uint8_t base)
 {
-    char_t *start;
+    char8_t *start;
     if (builder == NULL) return E_NULLPTR;
     if (builder->Capacity - builder->Length < 4) return E_BUFFERFULL;
 
@@ -55,7 +55,7 @@ result_t StringBuilder_AppendUint8(StringBuilder *builder, uint8_t value, uint8_
 
 result_t StringBuilder_AppendUint16(StringBuilder *builder, uint16_t value, uint8_t base)
 {
-    char_t *start;
+    char8_t *start;
     if (builder == NULL) return E_NULLPTR;
     if (builder->Capacity - builder->Length < 6) return E_BUFFERFULL;
 

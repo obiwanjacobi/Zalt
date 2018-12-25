@@ -199,14 +199,14 @@ bool_t FastCall(Async_IsPending__fast(AsyncThis *async));
 //
 
 /// Copies the string from source to dest but never more than capacity bytes (incl. NULL).
-uint16_t String_Copy(const char_t *source, char_t *buffer, uint16_t capacity);
+uint16_t String_Copy(const char8_t *source, char8_t *buffer, uint16_t capacity);
 
 /// Compares strx to stry for max length characters and returns a signed integer result.
-int16_t String_Compare(const char_t *strx, const char_t *stry, uint16_t length);
-int16_t String_CompareExact(const char_t *strx, const char_t *stry, uint16_t length);
+int16_t String_Compare(const char8_t *strx, const char8_t *stry, uint16_t length);
+int16_t String_CompareExact(const char8_t *strx, const char8_t *stry, uint16_t length);
 
 /// Returns the number of character (excl. NULL).
-uint16_t String_GetLength(const char_t *source, uint16_t capacity);
+uint16_t String_GetLength(const char8_t *source, uint16_t capacity);
 
 //
 // Relative Pointer

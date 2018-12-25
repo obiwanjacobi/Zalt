@@ -125,13 +125,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_HALT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_HALT.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ExtInt_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TimerISR.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TimerISR.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TimerClock.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TimerClock.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ExtBus_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MsbA_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\MsbA.c</File>

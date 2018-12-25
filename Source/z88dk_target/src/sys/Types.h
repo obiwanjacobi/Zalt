@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-typedef unsigned char char_t;
+typedef unsigned char char8_t;
 
 /// standard types value ranges
 #define char_min 0
@@ -22,8 +22,8 @@ typedef unsigned char char_t;
 #define int32_min INT32_MIN
 #define int32_max INT32_MAX
 
-extern const char_t NewLineChar;
-extern const char_t CarriageReturnChar;
+extern const char8_t NewLineChar;
+extern const char8_t CarriageReturnChar;
 
 // our own bool
 enum _bool_t
@@ -44,7 +44,7 @@ struct _smallArray8
         // the data content uint8_t[Capacity]
         uint8_t Data[1];
         // the string content char[Capacity]
-        char_t Text[1];
+        char8_t Text[1];
     };
 };
 typedef struct _smallArray8 SmallArray8;
@@ -61,8 +61,8 @@ struct _array8
     union {
         // the data content uint8_t[Capacity]
         uint8_t Data[1];
-        // the string content char_t[Capacity]
-        char_t Text[1];
+        // the string content char8_t[Capacity]
+        char8_t Text[1];
     };
 };
 typedef struct _array8 Array8;
@@ -82,7 +82,7 @@ struct _collection8
         // the data content uint8_t[Capacity]
         uint8_t Data[1];
         // the string content char_t[Capacity]
-        char_t Text[1];
+        char8_t Text[1];
     };
 };
 typedef struct _collection8 Collection8;

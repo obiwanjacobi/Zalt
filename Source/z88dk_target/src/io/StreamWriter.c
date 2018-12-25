@@ -1,7 +1,7 @@
 #include "../sys/Debug.h"
 #include "Io.h"
 
-uint16_t StreamWriter_Write(Stream *stream, const char_t *source, uint16_t length)
+uint16_t StreamWriter_Write(Stream *stream, const char8_t *source, uint16_t length)
 {
     uint16_t written = 0;
     dGuardErrVal(stream == NULL, E_NULLPTR, 0);
@@ -17,7 +17,7 @@ uint16_t StreamWriter_Write(Stream *stream, const char_t *source, uint16_t lengt
     return written;
 }
 
-uint16_t StreamWriter_WriteLine(Stream *stream, const char_t *source, uint16_t length)
+uint16_t StreamWriter_WriteLine(Stream *stream, const char8_t *source, uint16_t length)
 {
     uint16_t written = StreamWriter_Write(stream, source, length);
     written += StreamWriter_Write(stream, &NewLineChar, 1);

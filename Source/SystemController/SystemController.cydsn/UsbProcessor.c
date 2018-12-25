@@ -11,20 +11,17 @@
 #define MAX_BUFFER_SIZE 64
 static uint8_t PacketBuffer[MAX_BUFFER_SIZE];
 
-uint8_t UsbProcessor_Start()
+void UsbProcessor_Start()
 {
     USB_Start(USB_PORT, USB_5V_OPERATION);
-    //while (0u == USB_GetConfiguration()) { }
     for(int i = 0; i < 1000; i++)
     {
         if (USB_GetConfiguration()) 
         {
             UsbProcessor_Enable(true);
-            return 1;
+            return;
         }
     }
-    
-    return 0;
 }
 
 void UsbProcessor_Enable(bool_t enable)

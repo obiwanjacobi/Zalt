@@ -2,7 +2,7 @@
 #include "Sys.h"
 #include <string.h>
 
-uint16_t String_Copy(const char_t *source, char_t *buffer, uint16_t capacity)
+uint16_t String_Copy(const char8_t *source, char8_t *buffer, uint16_t capacity)
 {
     const uint16_t maxStrLen = capacity - 1;
     int i;
@@ -27,7 +27,7 @@ uint16_t String_Copy(const char_t *source, char_t *buffer, uint16_t capacity)
     return i;
 }
 
-int16_t String_Compare(const char_t *strx, const char_t *stry, uint16_t length)
+int16_t String_Compare(const char8_t *strx, const char8_t *stry, uint16_t length)
 {
     dGuardErrVal(strx == NULL, E_NULLPTR, 0);
     dGuardErrVal(stry == NULL, E_ARGNULLOREMPTY, 0);
@@ -37,7 +37,7 @@ int16_t String_Compare(const char_t *strx, const char_t *stry, uint16_t length)
     return strnicmp((char *)strx, (char *)stry, length);
 }
 
-int16_t String_CompareExact(const char_t *strx, const char_t *stry, uint16_t length)
+int16_t String_CompareExact(const char8_t *strx, const char8_t *stry, uint16_t length)
 {
     dGuardErrVal(strx == NULL, E_NULLPTR, 0);
     dGuardErrVal(stry == NULL, E_ARGNULLOREMPTY, 0);
@@ -47,7 +47,7 @@ int16_t String_CompareExact(const char_t *strx, const char_t *stry, uint16_t len
     return strncmp((char *)strx, (char *)stry, length);
 }
 
-uint16_t String_GetLength(const char_t *source, uint16_t capacity)
+uint16_t String_GetLength(const char8_t *source, uint16_t capacity)
 {
     dGuardErrVal(source == NULL, E_NULLPTR, 0);
 

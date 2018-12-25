@@ -14,7 +14,7 @@ StringBuilder *StringBuilder_Construct(void *buffer, uint16_t capacity);
 result_t StringBuilder_AppendString(StringBuilder *builder, const char *text, uint16_t length);
 
 // Appends a char to the end of the Collection content.
-result_t StringBuilder_AppendChar(StringBuilder *builder, char_t value);
+result_t StringBuilder_AppendChar(StringBuilder *builder, char8_t value);
 
 // Appends a value to the end of the Collection content.
 result_t StringBuilder_AppendUint8(StringBuilder *builder, uint8_t value, uint8_t base);

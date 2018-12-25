@@ -21,7 +21,7 @@ Stream *FastAPI(Stream_Construct__fast(uint16_t length))
 
 #define Stream_Destruct(p) Thread_Free(p)
 
-Stream *Stream_Open(const char_t *location, StreamFlags access)
+Stream *Stream_Open(const char8_t *location, StreamFlags access)
 {
     result_t result;
     Stream *stream;

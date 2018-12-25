@@ -44,7 +44,7 @@ typedef struct _stream Stream;
 // if exists.
 //      append			:	write content to the end of the existing content.
 //
-Stream *Stream_Open(const char_t *location, StreamFlags flags);
+Stream *Stream_Open(const char8_t *location, StreamFlags flags);
 
 // result_t Stream_Close(Stream* stream);
 result_t FastCall(Stream_Close__fast(Stream *stream));
@@ -56,7 +56,7 @@ uint16_t Stream_Write(Stream *stream, const uint8_t *buffer, uint16_t length);
 bool_t Stream_HasFlags(const Stream *stream, StreamFlags flags);
 
 // protocol name for console streams
-extern const char_t *ConsoleProtocol;
+extern const char8_t *ConsoleProtocol;
 
 //
 // StreamReader

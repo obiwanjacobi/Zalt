@@ -31,12 +31,7 @@ int main()
     CyGlobalIntEnable; /* Enable global interrupts. */
     SerialTerminal_Start(&g_serialTerminal);
     
-    SerialTerminal_Write("Initializing USB...");
-    if (UsbProcessor_Start()) {
-        SerialTerminal_WriteLine(" succeeded");
-    } else {
-        SerialTerminal_WriteLine(" not connected");
-    }
+    UsbProcessor_Start();
     
     // echo back that the system is ready but halted.
     SerialTerminal_WriteLine("Ready (Suspended).");

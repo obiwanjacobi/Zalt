@@ -1,8 +1,8 @@
 #include "System.h"
 #include <stdlib.h>
 
-// void System_DebugConsole_Log(const char_t* text)
-void FastCall(System_DebugConsole_Log__fast(const char_t *text))
+// void System_DebugConsole_Log(const char8_t* text)
+void FastCall(System_DebugConsole_Log__fast(const char8_t *text))
 {
     if (text == NULL) return;
 
@@ -13,9 +13,9 @@ void FastCall(System_DebugConsole_Log__fast(const char_t *text))
     }
 }
 
-void System_DebugConsole_LogAssertFailed(const char_t *file, uint16_t line)
+void System_DebugConsole_LogAssertFailed(const char8_t *file, uint16_t line)
 {
-    char_t buf[6];
+    char8_t buf[6];
     buf[0] = 0;
     utoa(line, buf, 10);
 

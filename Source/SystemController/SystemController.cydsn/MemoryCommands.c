@@ -132,7 +132,7 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
     
     BusController_EnableDataBusOutput(0);
     
-    MemoryRead_CopyToTerminal(command->Address, bytesRead);
+    // MemoryRead_CopyToTerminal(command->Address, bytesRead);
     
     BusController_Close(&busState);
     

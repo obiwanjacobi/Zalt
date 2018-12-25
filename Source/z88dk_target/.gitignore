@@ -7,6 +7,7 @@ zcc_proj.lst
 *.sym
 *.lis
 *.map
+*.err
 
 *.o
 *.obj
