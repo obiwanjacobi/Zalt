@@ -4,7 +4,3 @@ RingBuffer.c
 StringBuilder.c
 Monitor.c
 Monitor.Commands.c
-Main.c
-Task1.c
-Task2.c
-Task3.c
