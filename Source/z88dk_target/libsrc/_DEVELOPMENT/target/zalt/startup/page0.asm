@@ -5,15 +5,15 @@
 ; exports
 public bios_interrupt_disable
 public bios_interrupt_enable
-; export bios vars
-public bios_var_ram_top_page
-public bios_var_ram_page
-public bios_var_ram_active_page
+; constants
+public isr_table_index
 
 ; imports
 extern bios_reset_init
 extern bios_trap_illegal
 extern keyboard_isr
+; vars
+extern bios_interrupt_enable_count
 
 IF DEBUG
 extern debug_save_registers
@@ -92,16 +92,8 @@ ENDIF
 	jp	bios_trap_illegal		; call the handler for illegal calls.
 
 	
-; bios vars
-	defs 0x0040 - ASMPC
-bios_var_ram_top_page:
-	defb $00		; last valid ram page
-bios_var_ram_active_page:
-	defb $00		; current active ram page
-bios_var_ram_top:
-	defw $0000		; last valid ram address on last page
-bios_interrupt_enable_count:	; counts nested calls to bios_interrupt_disable
-	defb $00
+
+
 
 
 	defs 0x0066 - ASMPC

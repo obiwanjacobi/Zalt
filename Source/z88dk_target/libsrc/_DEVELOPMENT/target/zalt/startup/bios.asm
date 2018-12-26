@@ -8,6 +8,9 @@ public isr_null_vector
 public bios_trap_illegal
 
 ; imports
+extern isr_table_index
+extern bios_var_ram_top
+extern bios_var_ram_active_page
 
 
 ;
@@ -62,7 +65,6 @@ bios_reset_init:
 
 ; bios_reset_init jumps here if it detects a warm reset
 .resetWarm
-	; TODO reset all registers (except I and R)
 	ld hl, (bios_var_ram_top)	; load ram-top
 	ld sp, hl					; Stack Pointer at Ram Top
 

@@ -1,4 +1,5 @@
 target/zalt/system/io_addresses.asm
 target/zalt/system/debug.asm
 target/zalt/system/system.asm
+target/zalt/system/system_data.asm
 target/zalt/system/keyboard.asm

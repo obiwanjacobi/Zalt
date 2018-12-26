@@ -68,6 +68,9 @@ section smc_lib
 section smc_compiler
 section smc_user
 
+; zalt
+section data_zalt_system
+
 section data_driver
 section data_font
 section data_clib

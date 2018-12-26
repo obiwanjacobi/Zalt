@@ -1,11 +1,7 @@
 ;
 ; contains routines for managing ram memory
 ;
-
-; the data that is used to fill memory on reset
-defc	bios_memory_fill_opcode		=	$FF		; rst $38
-defc	bios_memory_page_size		= 	$1000	; 4k page size
-defc	memorymanager_memmaptable_fill	=	$FF		; selects memory bank 0
+section code_zalt_system
 
 ; public function
 public bios_memory_init
@@ -14,8 +10,11 @@ public bios_memory_page_switch
 
 ; imports
 
-; start of module
-section code_zalt_system
+
+; the data that is used to fill memory on reset
+defc	bios_memory_fill_opcode		=	$FF		; rst $38
+defc	bios_memory_page_size		= 	$1000	; 4k page size
+defc	memorymanager_memmaptable_fill	=	$FF		; selects memory bank 0
 
 ; Determines the top of RAM in 4k blocks
 ; pre-conditions:
