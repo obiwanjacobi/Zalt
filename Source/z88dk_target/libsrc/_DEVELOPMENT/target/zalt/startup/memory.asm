@@ -3,7 +3,7 @@
 ;
 section code_zalt_system
 
-; public function
+; exports
 public bios_memory_init
 public bios_memory_page_init
 public bios_memory_page_switch

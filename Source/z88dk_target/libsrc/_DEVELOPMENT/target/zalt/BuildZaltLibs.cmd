@@ -8,7 +8,7 @@ copy /Y target\zalt\clib_target_cfg.asm . 1> nul
 
 ::call %~dp0Preprocess.cmd
 
-::echo   zalt_sccz80.lib
+::echo   zalt_sccz80.lib %1
 
 ::z80asm -xzalt_sccz80 -D%1 -D__SCCZ80 @target/zalt/library/zalt_sccz80.lst
 ::move /Y zalt_sccz80.lib lib/sccz80/zalt.lib
@@ -16,7 +16,7 @@ copy /Y target\zalt\clib_target_cfg.asm . 1> nul
 ::del /S *.o > nul 2>&1
 ::del /S *.err > nul 2>&1
 
-::echo   zalt_sdcc_ix.lib
+::echo   zalt_sdcc_ix.lib %1
 
 ::z80asm -xzalt_sdcc_ix -D%1 -D__SDCC -D__SDCC_IX @target/zalt/library/zalt_sdcc_ix.lst
 ::move /Y zalt_sdcc_ix.lib lib/sdcc_ix/zalt.lib
@@ -24,7 +24,7 @@ copy /Y target\zalt\clib_target_cfg.asm . 1> nul
 ::del /S *.o > nul 2>&1
 ::del /S *.err > nul 2>&1
 
-echo   zalt_sdcc_iy.lib
+echo   zalt_sdcc_iy.lib %1
 
 del /S *.err > nul 2>&1
 

@@ -4,7 +4,7 @@
 @SET PATH=%PATH%;C:\z88dk\bin\
 
 :: copy everything from developer location to runtime location
-xcopy "%SOURCEDIR%*.*" %TARGETDIR% /Y /E
+xcopy "%SOURCEDIR%*.*" %TARGETDIR% /Y /E /Q
 
 @cd %TARGETDIR%startup
 :: run transforms (M4)

@@ -3,7 +3,6 @@
 ; debug routines
 ;
 
-IF DEBUG
 section code_zalt_debug
 
 ; exports
@@ -16,6 +15,7 @@ public debug_restore_registers
 extern bios_interrupt_disable
 extern bios_interrupt_enable
 extern debug_sysctrl_port
+extern debug_status
 
 ; (2 sets of 4 regs + 2 index regs and 2 cpu regs) times 2 bytes (24 bytes total)
 defc	debug_vars_size	= 24
@@ -51,8 +51,6 @@ defc	debug_var_bc2	=	debug_var_base	+	debug_var_bc2_offset
 defc	debug_var_de2	=	debug_var_base	+	debug_var_de2_offset
 defc	debug_var_hl2	=	debug_var_base	+	debug_var_hl2_offset
 
-debug_status:
-defb $00
 defc debug_status_none				= $00
 defc debug_status_registers_saved	= $01
 
@@ -193,11 +191,11 @@ debug_dump_registers:
 ; pre-conditions:
 ;	call-ret
 debug_breakpoint:
-	call bios_interrupt_disable
-	call debug_save_registers
-	halt		; wait for NMI
+	di								; we don't want the HALT to be released by another interrupt
+	
+	call debug_save_registers		; TODO: will report return address to this function
+	halt							; wait for NMI
 	call debug_restore_registers
-	call bios_interrupt_enable
+	
+	ei
 	ret
-
-ENDIF	; DEBUG

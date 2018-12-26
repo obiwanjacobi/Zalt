@@ -3,7 +3,7 @@
 
 #include "SystemController.h"
 
-// Z80 Interrupt vecotr for IM2: Bit0 MUST be zero! (even numbers)
+// Z80 Interrupt vector for IM2: Bit0 MUST be zero! (even numbers)
 #define INTERRUPT_VECTOR_NONE       0
 #define INTERRUPT_VECTOR_KEYBOARD   2
     
