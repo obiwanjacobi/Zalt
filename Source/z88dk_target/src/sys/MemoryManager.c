@@ -4,9 +4,12 @@
 MemoryBank *MemoryManager_Bank_Get(ptr_t memory, uint8_t capacity)
 {
     MemoryBank *memBank = memory;
-    
+
     dGuardErrVal(memory == NULL, E_ARGNULLOREMPTY, NULL);
     dGuardErrVal(capacity < MemoryBank_size, E_ARGNOTINRANGE, NULL);
+
+    // assign selected bank for io
+    MemoryManager_Bank_SetId(MemoryManager_Bank_Selected());
 
     memBank->Pages[0] = 0; // bios
     for (int i = BiosCpuMemoryPageCount; i < MaxCpuMemoryPageCount; i++)
@@ -36,4 +39,14 @@ MemoryBankId MemoryManager_Bank_Push(MemoryBank *bank)
 
     MemoryManager_Bank_Select(bankId);
     return bankId;
+}
+
+result_t MemoryManager_Bank_Pop(MemoryBankId bankId)
+{
+    dGuardVal(bankId == 0, E_ARGNOTINRANGE);
+    dGuardVal(bankId != MemoryManager_Bank_Selected(), E_ARGNOTINRANGE);
+
+    --bankId;
+    MemoryManager_Bank_Select(bankId);
+    return S_OK;
 }

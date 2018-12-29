@@ -235,7 +235,7 @@ memorymanager_bank_page_read:
 	rlc l
 	or a, l			; add table index to function code
 	ld b, a			; transfer result from a back to b
-	in l, (c)		; write to the mem-map ram port (b->msb, c->lsb io address)
+	in l, (c)		; read from the mem-map ram port (b->msb, c->lsb io address)
 	ret
 
 
