@@ -3,36 +3,42 @@
 setlocal
 setlocal ENABLEDELAYEDEXPANSION
 
+::set options=-s -m -l
+set options=
+
 copy /Y target\zalt\clib_cfg.asm . 1> nul
 copy /Y target\zalt\clib_target_cfg.asm . 1> nul
 
-::call %~dp0Preprocess.cmd
 
-::echo   zalt_sccz80.lib %1
 
-::z80asm -xzalt_sccz80 -D%1 -D__SCCZ80 @target/zalt/library/zalt_sccz80.lst
-::move /Y zalt_sccz80.lib lib/sccz80/zalt.lib
+echo   zalt_sccz80.lib %1
 
-::del /S *.o > nul 2>&1
-::del /S *.err > nul 2>&1
+z80asm %options% -xzalt_sccz80 -D%1 -D__SCCZ80 @target/zalt/library/zalt_sccz80.lst
+move /Y zalt_sccz80.lib lib/sccz80/zalt.lib
 
-::echo   zalt_sdcc_ix.lib %1
+del /S *.o > nul 2>&1
+del /S *.err > nul 2>&1
 
-::z80asm -xzalt_sdcc_ix -D%1 -D__SDCC -D__SDCC_IX @target/zalt/library/zalt_sdcc_ix.lst
-::move /Y zalt_sdcc_ix.lib lib/sdcc_ix/zalt.lib
 
-::del /S *.o > nul 2>&1
-::del /S *.err > nul 2>&1
+
+echo   zalt_sdcc_ix.lib %1
+
+z80asm %options% -xzalt_sdcc_ix -D%1 -D__SDCC -D__SDCC_IX @target/zalt/library/zalt_sdcc_ix.lst
+move /Y zalt_sdcc_ix.lib lib/sdcc_ix/zalt.lib
+
+del /S *.o > nul 2>&1
+del /S *.err > nul 2>&1
+
+
 
 echo   zalt_sdcc_iy.lib %1
 
-del /S *.err > nul 2>&1
-
 :: compile location: C:\z88dk\libsrc\_DEVELOPMENT\target\zalt
-z80asm -s -m -l --IXIY -xzalt_sdcc_iy -D%1 -D__SDCC -D__SDCC_IY @target/zalt/library/zalt_sdcc_iy.lst
+z80asm %options% --IXIY -xzalt_sdcc_iy -D%1 -D__SDCC -D__SDCC_IY @target/zalt/library/zalt_sdcc_iy.lst
 move /Y zalt_sdcc_iy.lib lib/sdcc_iy/zalt.lib
 
 del /S *.o > nul 2>&1
+del /S *.err > nul 2>&1
 
 del clib_cfg.asm > nul 2>&1
 del clib_target_cfg.asm > nul 2>&1
