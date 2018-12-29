@@ -6,7 +6,7 @@
 
 * Add debug (hardware)logic to trap reading and writing to/from address 0. Check M1 to make sure code execution is ok.
 * Check MemorayManager Table initialization. At startup/power on the `mm get` reports all pages mapped to 255?
-* Monitor MMU IO addresses to intercept table changes and update the current selected mem bank etc.
+* [Done] Monitor MMU IO addresses to intercept table changes and update the current selected mem bank etc.
 
 ## Virtual Devices
 

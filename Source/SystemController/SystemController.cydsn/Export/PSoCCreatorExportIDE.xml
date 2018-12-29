@@ -156,10 +156,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\USB_Dp.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_ISR_IO.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_ISR_IO.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_RegA.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_RegA.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_RegInD.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_RegInD.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Z80Ctrl_WaitCtrlReg_PM.c</File>
@@ -202,6 +198,14 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CPUCLK_SLOW.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CPUCLK_SLOW.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RegLsbA.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RegLsbA.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RegInD.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RegInD.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RegMsbA.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RegMsbA.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_MMU.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_MMU.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\Export\ARM_GCC_Generic">

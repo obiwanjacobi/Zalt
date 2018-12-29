@@ -49,8 +49,16 @@ uint8_t MemoryManager_GetCurrentTable()
     return _currentTable;
 }
 
+// IO handlers to keep internal state in-sync with what the Z80 is doing
+void MemoryManager_OnInterrupt()
+{
+    _currentTable = RegInD_Read();
+}
+
 void MemoryManager_Init()
 {
+    ISR_MMU_StartEx(MemoryManager_OnInterrupt);
+    
     BusState bus;
     BusController_Open(&bus);
     BusController_EnableDataBusOutput(1);

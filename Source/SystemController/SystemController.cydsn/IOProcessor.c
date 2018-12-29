@@ -2,6 +2,7 @@
 #include "BusController.h"
 #include "CpuController.h"
 #include "SerialTerminal.h"
+#include "MemoryManager.h"
 #include "IoAddresses.h"
 #include "Debugger.h"
 // devices
@@ -40,7 +41,7 @@ void IOProcessor_ISR_OnIOInterrupt()
                      (!CyPins_ReadPin(ExtBus_Wr) << 1) |
                     MODE_IO;    // always io
                     
-    g_isrData.Address = Z80Ctrl_RegA_Read();
+    g_isrData.Address = RegLsbA_Read();
     
     uint8_t mode = MODE_IO|MODE_READ;
     if ((g_isrData.Mode & mode) == mode)
@@ -49,7 +50,7 @@ void IOProcessor_ISR_OnIOInterrupt()
     mode = MODE_IO|MODE_WRITE;
     if ((g_isrData.Mode & mode) == mode)
     {
-        g_isrData.Data = Z80Ctrl_RegInD_Read();
+        g_isrData.Data = RegInD_Read();
         IOProcessor_OutputDispatch(&g_isrData);
     }
     
@@ -90,8 +91,10 @@ void IOProcessor_InputDispatch(IOInfo* ioInfo)
         case IO_TEST_LOOP:
             data = testData;
             break;
+        case IO_Terminal:
+            data = SysTerminal_GetChar();
+            break;
         case IO_Serial:
-            //data = SysTerminal_GetChar();
             data = KeyBoard_GetKey();
             break;
         default:

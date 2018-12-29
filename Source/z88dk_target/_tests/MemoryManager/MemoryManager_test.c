@@ -18,5 +18,10 @@ void main()
         newBankId = MemoryManager_Bank_Push(bank);
         bank = MemoryManager_Bank_Get(buffer, MemoryBank_size);
         printf("New Bank: %d, Page at %d = %X\n", newBankId, index, bank->Pages[index]);
+
+        MemoryManager_Bank_Pop(newBankId);
+        bank = MemoryManager_Bank_Get(buffer, MemoryBank_size);
+        bankId = MemoryManager_Bank_Selected();
+        printf("old Bank: %d, Page at %d = %X\n", bankId, index, bank->Pages[index]);
     }
 }
