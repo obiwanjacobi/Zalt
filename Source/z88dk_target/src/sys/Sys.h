@@ -214,10 +214,10 @@ uint16_t String_GetLength(const char8_t *source, uint16_t capacity);
 
 typedef uint16_t relptr_t;
 
-/// Constructs a relative ptr based on the passed regular ptr. Returns base address used.
-ptr_t RelPtr_Construct(relptr_t *relPtr, ptr_t ptr);
+/// Constructs a relative ptr based on the passed regular ptr. Returns relative ptr value.
+relptr_t RelativePtr_Construct(relptr_t *relPtr, ptr_t ptr);
 /// Returns a regular ptr for the relative ptr.
-ptr_t RelPtr_ToPointer__fast(relptr_t *relPtr);
-#define RelPtr_ToPointer(p) RelPtr_ToPointer__fast(p)
+ptr_t RelativePtr_ToPointer__fast(relptr_t *relPtr);
+#define RelativePtr_ToPointer(p) RelativePtr_ToPointer__fast(p)
 
 #endif //__SYS_H__
