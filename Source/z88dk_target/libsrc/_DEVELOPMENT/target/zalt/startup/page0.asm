@@ -10,6 +10,7 @@ public isr_table_index
 
 ; imports
 extern keyboard_isr
+extern memorymanager_memmap_reginit
 ; vars
 extern bios_interrupt_enable_count
 extern bios_var_ram_top
@@ -88,7 +89,9 @@ module page0
 
 ; a dummy isr for initializing the isr vector table
 isr_null_vector:
+IF DEBUG
 	halt			; break if debug build
+ENDIF
 	ei				; lets do that again
 	reti			; return from interrupt
 
@@ -140,7 +143,7 @@ bios_reset_init:
 	ld iy, $0000
 
 	ld	a, i			; cold boot/hard reset would init I to $00
-	cp	a, $00			; is I zero?
+	or	a, a			; is I zero?
 	jr  nz, resetWarm	; nope - warm boot
 
 	; initialze ram
@@ -148,10 +151,6 @@ bios_reset_init:
 	xor a, a							; memory page $00
 	ld (bios_var_ram_top), hl			; init bios vars
 	ld (bios_var_ram_active_page), a	; init to first page
-
-	; !! TEMP !!
-	;ld hl, bios_memory_page_size	; start of program memory (first page is reserved)
-	;call bios_memory_init			; call routine to clear/fill program memory
 	
 	; initialize Interrupt mode
 	ld	a, isr_table_index      ; load I with page address for isr_vector_table
@@ -162,6 +161,8 @@ bios_reset_init:
 .resetWarm
 	ld hl, (bios_var_ram_top)	; load ram-top
 	ld sp, hl					; Stack Pointer at Ram Top
+
+	call memorymanager_memmap_reginit
 
 	ei					; turn on interrupts
 	jp __Start			; jmp to C main entry point
@@ -192,7 +193,7 @@ bios_interrupt_enable:
 	ld a, (bios_interrupt_enable_count)
 	dec a
 	ld (bios_interrupt_enable_count), a
-	jr z, bios_interrupt_enable_done
+	jr nz, bios_interrupt_enable_done
 	pop af
 	ret
 .bios_interrupt_enable_done

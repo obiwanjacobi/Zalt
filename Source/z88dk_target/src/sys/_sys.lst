@@ -5,3 +5,4 @@ Thread.c
 Async.c
 String.c
 System.c
+MemoryManager.c

@@ -22,7 +22,7 @@ architecture MemoryDecoder_rtl OF MemoryDecoder is
 
 
 begin
-
+		-- TODO >>> !!! the 1's here should be Z's !!! <<<
 		-- nMBE[3..0] <= decode MA16+MA17 (MA18+MA19 == 0) Only one MBE active (zero) at a time.
 		nMBE <= "1110" when (MA(7 downto 4) = "0000") and nMEMREQ = '0' else
 					"1101" when (MA(7 downto 4) = "0001") and nMEMREQ = '0' else

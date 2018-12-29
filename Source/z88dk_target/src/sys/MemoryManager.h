@@ -1,49 +1,59 @@
 #ifndef __MemoryManager_H__
 #define __MemoryManager_H__
 
-#include "Types.h"
+#include "Sys.h"
 
-// stores unique page id (bank-id|page-index)
-typedef uint8_t		MemoryPageId;
+// unique memory page id in 1MB address space (0-255)
+typedef uint8_t MemoryPageId;
+// memory page index into 64kB CPU address space (0-15)
+typedef uint8_t MemoryPageIndex;
+// memory bank id (the value in the memory map latch: 0-255)
+typedef uint8_t MemoryBankId;
 
-// bankIndex into max 16 64k banks. pageIndex into max 16 4k pages.
-MemoryPageId MemoryManager_MakePageId(uint8_t bankIndex, uint8_t pageIndex);
+#define MaxCpuMemoryPageCount 16
+#define BiosCpuMemoryPageCount 1
+// bank page count is 16 minus reserved/fixed bios pages
+#define MemoryBankPageCount MaxCpuMemoryPageCount - BiosCpuMemoryPageCount
 
+typedef struct
+{
+    // we still alloc a spot for all pages, so you can use MemoryPageIndex to index the array
+    // (only 1 or 2 bytes lost)
+    MemoryPageId Pages[MaxCpuMemoryPageCount];
+} MemoryBank;
 
-// allocated during bios memory test
-typedef struct {
-	// the page id (source is in 1MB memory address space)
-	MemoryPageId	SourceId;
-	
-	struct MemoryPage* Next;
-	struct MemoryPage* Previous;
-	
-	// init/stack/heap/data/prog etc.
-	uint16_t	Flags;
-	
-} MemoryPage;
+#define MemoryBank_size sizeof(MemoryBank)
 
-// a list of memory pages that are atomic
-typedef struct {
-	MemoryPageId	TargetId;
-	MemoryPage*		Page;
-	
-	struct MemoryEntry* 	Next;
-	
-} MemoryEntry;
+/// Reads the current memory bank page data into 'memory'.
+/// capacity must be at least MemoryBank_size.
+MemoryBank *MemoryManager_Bank_Get(ptr_t memory, uint8_t capacity);
 
-void MemoryManager_Init();
+/// Activates the bank and returns the id for it.
+/// A return value of 0 indicates an error.
+MemoryBankId MemoryManager_Bank_Push(MemoryBank *bank);
 
-typedef enum {
-	Boundary,
-	Test
-	
-} MemoryManager_ScanFlags;
+/// deactivates the bankId (and all others the came after it?)
+result_t MemoryManager_Bank_Pop(MemoryBankId bankId);
 
-// flags for boundary scan or test each memory location
-void MemoryManager_Scan(MemoryManager_ScanFlags flags);
+//
+// extern in asm
+//
 
+// get pages of current selected bank
+extern MemoryPageId FastAPI(MemoryManager_PageAt__fast(MemoryPageIndex pageIndex));
+#define MemoryManager_PageAt(p) MemoryManager_PageAt__fast(p)
 
+// set pages of current selected bank
+extern void MemoryManager_SetPageAt(MemoryPageIndex pageIndex, MemoryPageId pageId);
 
+// operational bank
+extern MemoryBankId MemoryManager_Bank_Selected();
+extern void FastAPI(MemoryManager_Bank_Select__fast(MemoryBankId bankId));
+#define MemoryManager_Bank_Select(p) MemoryManager_Bank_Select__fast(p)
 
-#endif	//__MemoryManager_H__
+// IO bank
+extern MemoryBankId MemoryManager_Bank_Id();
+extern void FastAPI(MemoryManager_Bank_SetId__fast(MemoryBankId bankId));
+#define MemoryManager_Bank_SetId(p) MemoryManager_Bank_SetId__fast(p)
+
+#endif //__MemoryManager_H__

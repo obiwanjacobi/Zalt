@@ -1,0 +1,824 @@
+                                  dZ80 v2.0
+
+              A Portable Zilog Z80, Z180 and Z80GB Disassembler
+                           1996-2002 by Mark Incley
+
+                           E-mail: dz80@inkland.org
+                         Web: http://www.inkland.org
+
+
+                                User's Manual
+
+Contents
+--------
+
+1.0 Overview
+1.1 Requirements
+2.0 Disassembling a file
+2.1 Using An Opcode Map File
+2.2 Creating A Reference File
+3.0 Scripts
+4.0 Command Line Options and Configuration File
+4.1 Configuration File Specifics
+4.2 Configuration File and dZ80 for Windows
+5.0 Frequently Asked Questions
+6.0 Acknowledgements
+7.0 Notices
+
+
+1.0 Overview
+------------
+
+dZ80 is a portable freeware Zilog Z80 Processor Code Disassembler. It will 
+take a raw binary file and disassemble it. It correctly disassembles all known
+undocumented, but often used, instructions, including those using the IXl/IYl
+and IXh/IYh registers, as well as the strange looking "LD r, RLC (IX+4)" type
+instructions. It also supports the Z180 instructions which fill up some holes
+in the EDxx opcode range. As of version 1.50, the Gameboy's Z80 derivative is
+also supported.
+
+dZ80 now includes a powerful scripting language that allows the processing of
+opcodes to be enhanced or overriden. This is covered in section 3.0.
+
+
+1.1 Requirements
+----------------
+
+dZ80 for DOS requires a 80386 or greater processor running MS-DOS (or any
+other DOS) or a DOS box running under one of the many flavours of Windows.
+If you need a Z80 disassembler that will run on lesser processors, dZ80 1.31
+is available from http://www.inkland.org Version 1.31 was
+the last version to contain a 16-bit DOS executable.
+
+dZ80 for Windows requires Windows! :) If you're running Windows 95, you'll
+need to install Internet Explorer 4 (or later).
+
+
+2.0 Disassembling a file
+------------------------
+
+When disassembling a file, dZ80 needs to know four things:
+
+  i.    Whereabouts in the file the data starts. Some files, such as .SNA
+        files (Sinclair ZX Spectrum snapshots) have a 27 byte header before
+        the start of the data. This obviously must be skipped. By default,
+        dZ80 will not skip any bytes, so you must use the -h=[bytes to skip]
+        command line option to instruct dZ80 to skip the correct amount.
+
+  ii.   Whereabouts in the Z80's memory space the file starts. Referring
+        again to the .SNA format, this starts at address 16384, going up to
+        65535. By default, dZ80 assumes that the start of the file corresponds
+        to address 0. To change this, use the -m=[memory base] command line
+        option.
+
+  iii.  Where in the Z80's address space to start the disassembly. By default
+        dZ80 will disassemble from the address specified by -m (or the default
+        of 0). Use the -s=[start disassembly] command line option to change
+        this.
+
+  iv.   Where in the Z80's address space to end the disassembly. By default,
+        dZ80 will disassemble to the end of the loaded source file. Use the
+        -e=[end disassembly] command line option to change this.
+
+
+dZ80 will automatically set the above items i. and ii. to 27 and 16384
+respectively for source files with an extension of ".SNA". More file
+extensions may be supported in future versions.
+
+
+2.1 Using An Opcode Map File
+----------------------------
+
+One common problem when disassembling raw files is that, more often than not,
+data is placed in-between code routines, that disassemblers are usually
+oblivious to, and continue to disassemble as normal, showing up as garbage
+code. There are no fool-proof ways of "guessing" which is data and which is
+code, so I have added support for opcode map files. These files inform dZ80
+which addresses have been executed, and are therefore code, and not data.
+
+There are two ways to get hold of opcode map files:
+
+1. Use Gerton Lunter's "Z80" ZX Spectrum emulator. This has an option to
+   generate opcode map files from an emulation session.
+
+2. Use Raffaele Sena's skip.exe which is included with dZ80.
+   (the source code to skip is included in the dZ80 source code download)
+
+The format of the opcode map files is simply a bit for each instruction
+executed. One bit is used per address, which gives us an 8K map file
+covering the Z80's 64K address space.
+
+This example opcode map file allows dZ80 to disassemble instructions starting
+at addresses 0, 1, 2, 5, 8 and 11, but skips the data bytes inbetween. Skipped
+data is disassembled as "db"'s.
+
+   Bit: 76543210
+
+Byte 0: 00100111 which corresponds to addresses  0, 1, 2 and 5
+Byte 1: 00001001 which corresponds to addresses  8 and 11
+
+As well as using opcode map files directly, you can use dZ80's configuration
+file to add as many data and code regions as you require.
+See Section 4.1 for more information on this.
+
+The DOS distribution of dZ80 contains a utility called "skip", which is a
+tool to generate an opcode map file compatible with dZ80.
+From the skip source code (which is supplied with the source code download of
+dZ80) :
+
+        usage: skip address_range address_range...
+        
+        where: address ranges are in the form:
+        
+               fromaddr-toaddr
+        
+        fromaddr,toaddr are hex values
+        and the addresses in the range fromaddr..toaddr-1 are marked
+        to be skipped
+
+        example: skip 100-200 1000-1234 7000-10000
+        will generate an 'opcode map file' to skip the disassemble
+        of addresses in the ranges 0x0100..0x01FF 0x1000..0x1233  and
+        0x7000..0xFFFF
+
+
+2.2 Creating A Reference File
+-----------------------------
+
+As well as creating a disassembly of Z80 code, dZ80 can create a reference
+file which contains a list of one or more of the following:
+
+  Input ports accessed - e.g. "in a,(#7f)"
+
+  Ouput ports accessed - e.g. "out (#fe),a"
+
+  Addresses accessed - e.g. "ld hl,#1234"
+
+  Indirect addresses accessed - e.g. "ld a,(#1234)"
+
+The reference file shows how many times the above have been referenced, and
+the addresses of the instructions (along with instructions themselves) that 
+referenced them. With dZ80, you can specify which of the above you're
+interested in referencing with the following command line options or
+configuration file directives (described further in section 4.0):
+
+  -xi - Create input port reference
+  -xo - Create output port reference
+  -xa - Create address reference
+  -xn - Create indirect address reference
+
+  -xr - Limits the -xa and -xn references to addresses outside the disassembly
+        range.
+
+These tools are particularly useful for hardware emulator authors, in
+determining which addresses are hardware mapped, etc.
+
+The reference file is, by default, "(name).REF" where (name) is the filename
+of the input file. For example, disassembling "mayhem.sna" with a reference
+command line option will write the reference file to "mayhem.ref". You can
+specify your own reference filename by using the -r=filename command line
+option (see section 4.0).
+
+
+3.0 Scripting
+-------------
+
+dZ80 now includes scripting support which is used to allow traps to be set for
+opcodes. When dZ80 comes across a trapped opcode when disassembling, it calls
+the scripted function that has been registered for that opcode. The scripted
+function can either modify dZ80's existing processing of that opcode (for
+example, adding a comment) or take over control of that opcode from dZ80
+completely, in which case dZ80 carries on with the following instruction after
+the script function has finished.
+
+dZ80 has two types of opcode traps: pre and post. The pre-trap is called for
+an opcode before dZ80 starts processing it. Pre-traps are ideal where comments
+are to be added for existing opcodes, or the opcode processing is to be taken
+over completely by the script. Post-traps are ideal where you want dZ80 to
+process an opcode as normal, but you need to do some processing immediately
+afterwards. For example, processing a RST xx instruction where a stream of
+data immediately follows the RST instruction. The script could interpret this
+stream of data, creating annotated "db"'s before handing control back to dZ80
+to continue disassembling as normal.
+
+A sample script is supplied with dZ80 that's intended for disassembling ZX
+Spectrum snapshots. It amends the disassembly of the "RST" instructions,
+annotating and in some cases processing the data following such an
+instruction. This script has also allowed me to remove the special case EDFB
+opcode "Super Loader Trap" from the core dZ80 code where it didn't really
+belong. It's now sat near the bottom of the Spectrum script file as a pre-trap
+for the ED opcode - it tests whether the following byte is a "FB" and if so,
+takes control from dZ80 and disassembles it as:
+
+	"db $ed,$fb ; super loader trap".
+
+A full Lua scripting language tutorial is beyond the scope of this document.
+You'll need to visit http://www.lua.org to get the low down on this powerful
+language. However for most purposes, taking the supplied example ZX Spectrum
+script and modifying it will suffice :)
+
+Quick start tips for writing dZ80 scripts:
+------------------------------------------
+
+* Single line comments start with --  (Lua 4.0 doesn't have multi-line
+  comments)
+
+        -- This is a comment.
+        --
+        -- Here comes another one.
+        --
+        -- Here it comes....again
+
+* Lua doesn't require line breaks or semi-colons to terminate a statement,
+  so:
+
+  d_AddToDis("he-") d_AddToDis("-llo")
+
+  d_AddToDis("he-")
+  d_AddToDis("-llo")
+
+  d_AddToDis("he-");
+  d_AddToDis("-llo");
+
+  are all perfectly valid and equivalent.
+
+* Lua 4.0 doesn't have built-in support for hexadecimal numbers, so I've added
+  a hex function to Lua that converts a hex string to a decimal.
+
+  Example: d_PreTrap (hex"ff", RST38pre)
+
+* If you want to build up your own disassembly instructions in an opcode trap
+  function, use d_GetByte to retrieve as many opcode bytes as you require.
+  dZ80 automatically notes each byte retrieved for the code bytes column in
+  the disassembly. If you need to read a byte without any commitment
+  (i.e. without dZ80 putting it into the code bytes column) use d_LookByte.
+
+* Use the d_AddToDisTab, d_AddToDis and d_AddComment functions to
+  build up the instruction assembler with any comment it may have.
+
+* When the instruction has been built up, call d_FlushLine() which
+  will add it to the disassembly and increment the "number of
+  instructions disassembled" counter. It also clears the disassembly
+  buffers in preparation for the next instruction to be built up.
+
+* Opcode traps will not be invoked where the code is marked as "data"
+  either through a loaded opcode map file or using the d_SetDataRegion()
+  function.
+
+* Opcode traps are called on both passes of a two pass disassembly.
+  Functions such as d_AddToDis() do nothing on the analysis pass, so
+  you don't particularly have to take into account which pass dZ80
+  is working on when writing scripts - although it is possible to
+  get the current pass using the d_GetPass() function - see below.
+
+* The script initialisation (where the traps are registered) are at
+  the bottom of the script, following the function definitions.
+
+	
+When writing a script, the following dZ80 functions are available:
+------------------------------------------------------------------
+
+d_AddComment(string)
+	
+	Adds a comment to the current instruction that's being disassembled.
+        Note that you don't have to add the comment string "; " itself.
+
+	Example: d_AddComment("Blimey, who'd have thought it?")
+
+
+d_AddToDisTab(string)
+
+	Adds the string to the current instruction disassembly followed by a
+        tab.
+
+	Example: d_AddToDisTab("ld")
+	         d_AddToDis("a, weirdregister")
+
+        There's no reason why you couldn't do:
+         
+           d_AddToDis("ld a, weirdregister")
+
+        but it wouldn't look too pretty among the tabbed disassembly!
+
+
+d_AddToDis(string)
+
+	Adds the string to the current instruction disassembly
+
+	Example: d_AddToDis("wait")
+
+
+d_GetByte()
+
+	Get the next opcode byte and add it to the opcode code bytes string
+
+	Example: local b1
+                 b1 = d_GetByte()
+                 d_DB(b1)
+
+        Note that if d_GetByte() is used to retrieve a byte beyond the
+        end address set for the disassembly, the script will be terminated
+        with a warning message.
+
+
+d_LookByte(offset from current PC)
+
+	Look at the requested byte without commitment (i.e. the byte is not
+        added to code bytes string for the current instruction)
+
+	Example: if d_LookByte(1) == 251 then
+                        d_AddComment("Super Trap Loader")
+                        b1 = d_GetByte()
+                        b2 = d_GetByte()
+                        d_DB(b1, b2)
+                        d_FlushLine()
+                 end
+
+
+d_DB(n[,n][,n][,n])
+
+	Write a single "db" instruction with one or more items on the same
+        line.
+
+	Example: d_DB(b1)
+                 d_DB(237, 176)
+                 d_DB(b1, b2, b3)
+
+        Note that this function will stop when it hits a "nil" type.
+        e.g. d_DB(1, 2, nil, 4) will only process the first two bytes.
+
+
+d_IsCodeByte(addr)
+
+        For a particular memory address, return whether the byte at address
+        is marked as data (0) or code (1)
+
+	Example: if d_IsCodeByte(19)==1 then
+                     d_Message("code")
+                 else
+                     d_Message("data")
+                 end
+
+
+d_GetPC()
+
+	Returns the current value of the PC
+
+	Example: if d_GetPC() == 1234 then
+                     ...do special code...
+                 end
+
+
+d_LookByteAddr(addr)
+
+	Gets the byte at the requested address
+
+        Example: if d_LookByteAddr(0) == 243 then
+                     --...this must be version xx ROM...
+                 end
+
+d_GetPass()
+
+	Get the current disassembly pass. It returns one of the following
+	values:
+
+		0 = initialising
+		1 = writing out pass
+		2 = analysis pass (2 pass - labelled - disassembly only)
+
+	Example: if d_GetPass() ~= 2 then
+                    ...don't do this code during analysis...
+	         end
+
+d_Message(msg)
+
+        Displays the supplied message through stdout (usually the screen)
+
+        Example: d_Message("Still working...please wait!")
+
+
+4.0 Command Line Options and Configuration File
+-----------------------------------------------
+The settings for the command line versions of dZ80 can be changed two ways:
+through the configuration file dz80.ini or via the command line(which takes
+priority over the configuration file).
+
+When dZ80 runs, it attempts to locate a file "dz80.ini" in the current folder.
+If it finds one, it loads and executes it (it's executed because dz80.ini is
+actually a Lua script).
+
+Following is a table of command line options with the dz80.ini directive
+counterparts. Please note that the dz80.ini directives are case sensitive.
+
+!       Special case switch to prevent dZ80 from automatically loading
+        and processing dz80.ini. The pling must be the first item on the
+        command line.
+
+        Example: dz80 ! file.bin file.asm
+
+
+-h=nn   Specifies the size of a files header. i.e. how many bytes to skip
+        to get to the start of the memory snapshot. The default is 27 for
+        files with an extension of ".SNA" (ZX Spectrum Snapshot Files) and
+        zero for anything else.
+
+	Configuration file directive: fileheadersize=nn
+
+
+-m=nn   Specifies the location in memory where the source file starts. For
+        example, if you were disassembling a file "ROM.BIN" which was
+        originally located at address 16384, you would use
+        "DZ80 -m=16384 ROM.BIN". The default is 16384 for files with an
+        extension of ".SNA", and zero for anything else.
+
+	Configuration file directive: filebaseaddr=nn
+
+
+-s=nn   Specifies the address to start the disassembly from. If this is larger
+        than the ending address (see below) then they are exchanged.
+
+	Configuration file directive: disstart=nn
+
+
+-e=nn   Specifies the address to end the disassembly. If this is less than
+        the starting address (see above) then they are exchanged.
+
+	Configuration file directive: disend=nn
+
+
+-u      Instructs dZ80 to disassemble in upper case. By default, dZ80 will 
+        disassemble in lower case.
+
+	Configuration file directive: uppercase=0|1
+
+		0 - lowecase disassembly (default)
+		1 - uppercase disassembly
+
+
+-n      Omits the opcode hex dump from the disassembly.
+
+	Configuration file directive: opcodecolumn=0|1
+
+		0 - don't show the hex opcode bytes
+		1 - show the hex opcode bytes (default)
+
+		
+-a      Omits the Z80's PC addresses from the disassembly.
+
+	Configuration file directive: addresscolumn=0|1
+
+		0 - don't show the address column 
+		1 - show the address column (default)
+
+
+-l      Create a labelled output file. This instructs dZ80 to scan the source
+        file twice. On the first pass, it scans the code to determine which
+        addresses are CALLed, JumPed, JR'd or DJNZ'd to. On the second pass,
+        it performs the disassembly as usual, but prefixes instructions which
+        are refrenced with a label of the format "lxxxx", where xxxx is the
+        PC address for it. This is useful for creating source code that can
+        be assembled.
+	
+	Configuration file directive: labelledoutput=0|1
+
+		0 - create normal disassembly (1 pass - default)
+		1 - create labelled disassembly (2 pass)
+
+
+-b      When used with the above -l, dZ80 will not use labels in the
+        disassembly. For example
+
+        Without -b (default)       With -b
+
+        l0000: inc a               l0000: inc a
+               jr nz,l0000                jr nz,#0000
+
+	Configuration file directive: labelreference=0|1
+
+		0 - don't use label references
+		1 - use label references (default)
+
+
+-o=opcode-map-file
+        Instructs dZ80 to use the specified opcode map file to determine
+	which instructions to disassemble, thereby allowing dZ80 to skip
+        addresses that contain (what is marked as) data and not code. These
+        map files are normally created by Z80 emulators (such as
+        Gerton Lunter's "Z80" ZX Spectrum Emulator).
+
+	Configuration file directive: opmapfile="opmap filename"
+		(note that the file name must be enclosed in quotes)
+
+
+-xi     Create a reference file of all input ports accessed. Note that as dZ80
+        is a disassembler, and not an emulator, it can only create a reference
+        of ports accessed directly, and not through a register. I.e. dZ80
+        will reference "IN A,($FE)" but not "IN A,(C)".
+
+	Configuration file directive: inportreference=0|1
+
+		0 - don't create reference (default)
+		1 - create reference
+
+
+-xo     Create a reference file of all output ports accessed. Note that as
+        dZ80 is a disassembler, and not an emulator, it can only create a
+        reference of ports accessed directly, and not through a register.
+        I.e. dZ80 will reference "OUT ($FE),A" but not "OUT (C),A".
+
+	Configuration file directive: outportreference=0|1
+
+		0 - don't create reference (default)
+		1 - create reference
+
+
+-xa     Create a reference file of all addresses accessed. 
+
+	Configuration file directive: addressreference=0|1
+
+		0 - don't create reference (default)
+		1 - create reference
+
+		
+-xn     Create a reference file of all addresses indirectly accessed.
+
+	Configuration file directive: indirectaddressreference=0|1
+
+		0 - don't create reference (default)
+		1 - create reference
+
+
+-xr     Limit both the address and indirect address references to those
+        outside the disassembly range. This can help in finding hardware
+        mapped addresses.
+
+	Configuration file directive: limitreferences=0|1
+
+		0 - don't limit references (default)
+		1 - limit references as described above
+
+
+-r=file Instructs dZ80 to use an alternate reference filename when using
+        one of the -x reference switches above. By default, dZ80 takes the
+        source filename, and appends ".ref".
+        E.g. dZ80 -xa -r=test.ref mayhem.sna mayhem.asm
+	
+	Configuration file directive: referencefile="reference file name"
+		(note that the file name must be enclosed in quotes)
+
+                
+-z=cpu  Sets the CPU type. Must be Z80GB (the Gameboy Z80 derivative), Z80
+        or Z180. The default is Z80.
+
+	Configuration file directive: cpu="type"
+                where type is "Z80" (default), "Z180" or "Z80GB"
+		(note that the cpu type must be enclosed in quotes)
+
+-w      Instructs dZ80 not to insert blank lines after "ret" type instructions.
+
+	Configuration file directive: autoblanklines=0|1
+
+		0 - don't use automatic blank lines to make the disassembly
+		    more readable.
+		1 - use automatic blank lines (default)
+
+
+-d=     Override dZ80's default string of "db" for the define-byte directive
+        in dZ80's output. E.g. -d="defb"
+
+	Configuration file directive: db="(db)"
+		(note that the string must be enclosed in quotes)
+
+
+-f=     Override dZ80's default string of "; " to represent the start of a
+        comment in dZ80's output. E.g. -f="# "
+
+	Configuration file directive: comment="(comment)"
+		(note that the string must be enclosed in quotes)
+
+
+-p=     Set dZ80's prefix for numbers. E.g. dz80 -p="0x" will produce such
+        code as "ld hl,0x1234".
+
+	Configuration file directive: numprefix="(prefix)"
+		(note that the string must be enclosed in quotes)
+
+
+-y=     Set dZ80's suffix for numbers. E.g. dz80 -y="h" -p="0" will produce
+        code as "ld hl,01234h"
+
+	Configuration file directive: numsuffix="(suffix)"
+		(note that the string must be enclosed in quotes)
+
+
+-i=     Sets the radix for dz80. Must be 8 (octal), 10 (decimal) or 16 (hex)
+        e.g. dz80 -i=16. The default is 16.
+
+	Configuration file directive: radix=r
+		where r is 8, 10 or 16 (default)
+
+
+-j      Instructs dZ80 to add relative displacements as comments. dZ80
+        versions prior to 2.0 did this by default.
+
+	Configuration file directive: relativejumpcomment=0|1
+
+		0 - don't add relative displacement comments (default)
+		1 - do add relative displacement comments
+
+
+-q	Instructs dZ80 to operate quietly - that is, without the summary and current
+	pass displayed.
+
+	Configuration file directive: quiet=0|1
+
+		0 - operate normally (default)
+		1 - operate quietly
+	
+
+-k=file Instructs dZ80 to load and use the specified script file. See section 3.0
+	for details on using scripts with dZ80.
+
+	Configuration file directive: script="script file name"
+		(note that the file name must be enclosed in quotes)
+
+
+-v      Show version information
+
+
+4.1 Configuration File Specifics
+--------------------------------
+
+The following configuration directives allow the input and output files to
+be selected and are equivalent to passing them on the command line.
+
+	inputfile="input.bin"
+	outputfile="output.asm"
+
+	which is equivalent to the command line version:
+		"dz80 input.bin output.asm"
+
+Because the dZ80 configuration file is not a straight text file but a Lua
+script that is executed, it's possible to make calls to the following
+dZ80 functions (as well as using Lua's standard functions of course) which
+in combination with conditional code make it very flexible.
+
+d_SetCodeRegion(start, len)
+
+	Flags a region of the Z80's memory as code. By default, all of the
+        Z80's address space is marked as code, unless an opcode map file is
+        loaded (see section 2.1) or the function d_SetDataRegion()
+        (see below) has been used.
+
+        Example: d_SetCodeRegion(19, 5)
+                 -- mark the 5 bytes between addresses 19 and 23 as code
+
+        N.B. Specifying an opcode map file (opmapfile="opmap filename")
+             in the dz80.ini file will clobber any
+             d_SetCodeRegion/d_SetDataRegion settings.
+
+
+d_SetDataRegion(start, len)
+
+	Flags a region of the Z80's memory as data, so that dZ80 will not
+        attempt to decode it but disassemble it as "db"'s. By default, all
+	of the Z80's address space is marked as code, unless an opcode map
+	file is loaded (see section 2.1) or this function is used.
+
+        Example: d_SetDataRegion(19, 5)
+                 -- mark the 5 bytes between addresses 19 and 23 as code
+
+        N.B. Specifying an opcode map file (opmapfile="opmap filename")
+             in the dz80.ini file will clobber any
+             d_SetCodeRegion/d_SetDataRegion settings.
+
+
+d_Exist("filename")
+
+	Determine whether a file exists. It returns the following values:
+		0 - the file doesn't exist
+		1 - the file does exist
+
+	Examples:
+
+                if d_Exist("desktop\\myproject.asm") then
+			outputfile="desktop\\myproject.asm"
+		else
+			outputfile="newfile.asm"
+		end
+
+		inputfile="rom.bin"
+                if d_Exist("rom.map") then
+			opmapfile="rom.map"
+		end
+
+
+4.2 Configuration File and dZ80 for Windows
+-------------------------------------------
+
+The Windows version of dZ80 (dZ80w) stores its configuration settings in the
+Windows registry. However, when selecting a file to disassemble that has a
+dz80.ini file in the same folder, dZ80w will ask whether you would like to
+import the settings from dz80.ini. The settings will then be saved out in the
+registry as normal when you close down dZ80w. You can optionally instruct
+dZ80w to always ignore or always import the dz80.ini file to bypass this
+prompt.
+
+If you import a configuration file that modifies the opcode map by using
+d_SetCodeRegion() or d_SetDataRegion(), dZ80 for Windows will write out
+the resulting opcode map to dz80-ini.map in the same folder as the imported
+dz80.ini and it will be selected for use.
+
+
+5.0 Frequently Asked Questions
+------------------------------
+
+Q.      Are you charging for this software?
+
+A.      No. This software is free!
+
+
+Q. 	Where can I find out more information on Lua?
+
+A. 	http://www.lua.org
+
+
+Q.      Can I get the source code for dZ80?
+
+A.      The source code for the command line version of dZ80 is freely
+        available for downloading from http://www.inkland.org
+        If you make any feature additions or modifications, please let me
+        know, so that I can make the changes to the base version.
+
+	Please note that as of dZ80 2.0, you will also require the Lua 4.0
+        source code download too. This is available from http://www.lua.org
+
+
+Q.	Can I have the source code to the Windows version of dZ80?
+
+A.	No :)
+       
+        
+Q.      Can I distribute dZ80?
+
+A.      You can, if you distribute the whole installation package unmodified.
+        (dz80dxxx.ZIP where xxx is the version number, e.g. dz80d130.ZIP)
+        Do not distribute the extracted files. Similarly, the source code
+        archive of dZ80 (dz80sxxx.ZIP) may be distributed as long as the ZIP
+        is not modified at all.
+
+
+Q.      Where's the 16-bit version of dZ80 gone?
+
+A.      Free time to play with my pet projects is always a problem, so
+        dropping the 16-bit version of dZ80 was always tempting :)
+        Dropping it allows me to keep the source code cleaner
+        (no more ugly HUGE pointers) and have one less version to
+        maintain, test and debug. Anyway, I'm sure no-one will notice ;)
+
+
+6.0 Acknowledgements
+--------------------
+
+Thanks to Roberto Ierusalimschy, Waldemar Celes and
+Luiz Henrique de Figueiredo at TeCGraf for the Lua scripting language.
+http://www.lua.org
+
+Thanks to Bruno G. for the information on the Zilog Z180.
+
+Thanks to Kevin Thacker for suggesting the references feature.
+
+Graeme Hinton has done a Macintosh conversion of dZ80. You can get this from
+http://www.hinton.demon.co.uk/archive/macide.html
+
+The DOS version of dZ80 was compiled with DJGPP. DJGPP is a 32-bit MSDOS port
+of the GNU C/C++ compiler and development tools, by DJ Delorie and friends.
+DJ Delorie's DJGPP WEB page is at http://www.delorie.com/djgpp
+
+In accordance with the CWSDPMI distribution (which is used to enable dZ80
+to run under plain DOS, which has no DPMI server)
+CWSDPMI is Copyright (C) 1995,1996  Charles W Sandmann(sandmann@clio.rice.edu)
+You have the right to receive the source code and/or binary updates for
+CWSDPMI. These are available from, among other DJGPP mirrors, the FTP site
+below.
+
+All of the above stuff is available from ftp.simtel.net in the
+/pub/simtelnet/gnu directory.
+
+Feel free to e-mail me at dz80@inkland.org if you have any
+suggestions or questions regarding dZ80.
+
+
+7.0 Notices
+-----------
+
+I have made this software available as freeware, however I still retain the 
+copyright on dZ80. If you wish to distribute dZ80, please distribute the
+installation package unmodified, rather than the extracted files.
+
+Users of dZ80 must accept this disclaimer of warranty:
+
+dZ80 IS SUPPLIED AS IS. THE AUTHOR DISCLAIMS ALL WARRANTIES, EXPRESSED OR
+IMPLIED, INCLUDING, WITHOUT LIMITATION, THE WARRANTIES OF MERCHANTABILITY
+AND OF FITNESS FOR ANY PURPOSE. THE AUTHOR ASSUMES NO LIABILITY FOR DAMAGES,
+DIRECT OR CONSEQUENTIAL, WHICH MAY RESULT FROM THE USE OF dZ80.

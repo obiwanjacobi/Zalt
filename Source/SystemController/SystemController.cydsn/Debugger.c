@@ -5,6 +5,7 @@
 #include "CpuController.h"
 
 #include "stdlib.h"
+#include "stdio.h"
 
 /* Interaction between Debugger and the Z80
  * 
@@ -151,20 +152,16 @@ void Debugger_ISR_OnHaltInterrupt()
 
 void Debugger_FormatRegister16(char* buffer, const char* reg, uint16_t value)
 {
-    strcpy(buffer, reg);
-    strcat(buffer, "=");
-    utoa(value, buffer + strlen(buffer), 16);
-    strupr(buffer);
-    strcat(buffer, "h ");
+    sprintf(buffer, "%s=%04Xh ", reg, value);
 }
 
-// Z80 flag bits
-#define flagS 7
-#define flagZ 6
-#define flagH 4
-#define flagPV 2
-#define flagN 1
-#define flagC 0
+// Z80 flag masks
+#define flagS 1 << 7
+#define flagZ 1 << 6
+// #define flagH 1 << 4
+#define flagPV 1 << 2
+#define flagN 1 << 1
+#define flagC 1 << 0
 
 void Debugger_FormatFlags(char* buffer, uint16_t value)
 {
@@ -196,33 +193,35 @@ void Debugger_PrintRegisterValues()
     if (DebuggerState != DebugState_PrintRegisters) return;
     DebuggerState = DebugState_None;
     
+    SysTerminal_PutString(NewLine);
+    
     char buffer[16];
     Debugger_FormatFlags(buffer, DebugCpuRegisters.AF);
     SysTerminal_PutString(buffer);
     SysTerminal_PutString(NewLine);
-    Debugger_FormatRegister16(buffer, "AF", DebugCpuRegisters.AF);
+    Debugger_FormatRegister16(buffer, "AF ", DebugCpuRegisters.AF);
     SysTerminal_PutString(buffer);
-    Debugger_FormatRegister16(buffer, "BC", DebugCpuRegisters.BC);
+    Debugger_FormatRegister16(buffer, "BC ", DebugCpuRegisters.BC);
     SysTerminal_PutString(buffer);
-    Debugger_FormatRegister16(buffer, "DE", DebugCpuRegisters.DE);
+    Debugger_FormatRegister16(buffer, "DE ", DebugCpuRegisters.DE);
     SysTerminal_PutString(buffer);
-    Debugger_FormatRegister16(buffer, "HL", DebugCpuRegisters.HL);
-    SysTerminal_PutString(buffer);
-    SysTerminal_PutString(NewLine);
-    
-    Debugger_FormatRegister16(buffer, "IX", DebugCpuRegisters.IX);
-    SysTerminal_PutString(buffer);
-    Debugger_FormatRegister16(buffer, "IY", DebugCpuRegisters.IY);
-    SysTerminal_PutString(buffer);
-    Debugger_FormatRegister16(buffer, "SP", DebugCpuRegisters.SP);
-    SysTerminal_PutString(buffer);
-    Debugger_FormatRegister16(buffer, "PC", DebugCpuRegisters.PC);
+    Debugger_FormatRegister16(buffer, "HL ", DebugCpuRegisters.HL);
     SysTerminal_PutString(buffer);
     SysTerminal_PutString(NewLine);
     
-    Debugger_FormatFlags(buffer, DebugCpuRegisters.AF2);
+    Debugger_FormatRegister16(buffer, "IX ", DebugCpuRegisters.IX);
+    SysTerminal_PutString(buffer);
+    Debugger_FormatRegister16(buffer, "IY ", DebugCpuRegisters.IY);
+    SysTerminal_PutString(buffer);
+    Debugger_FormatRegister16(buffer, "SP ", DebugCpuRegisters.SP);
+    SysTerminal_PutString(buffer);
+    Debugger_FormatRegister16(buffer, "PC ", DebugCpuRegisters.PC);
     SysTerminal_PutString(buffer);
     SysTerminal_PutString(NewLine);
+    
+//    Debugger_FormatFlags(buffer, DebugCpuRegisters.AF2);
+//    SysTerminal_PutString(buffer);
+//    SysTerminal_PutString(NewLine);
     Debugger_FormatRegister16(buffer, "AF'", DebugCpuRegisters.AF2);
     SysTerminal_PutString(buffer);
     Debugger_FormatRegister16(buffer, "BC'", DebugCpuRegisters.BC2);

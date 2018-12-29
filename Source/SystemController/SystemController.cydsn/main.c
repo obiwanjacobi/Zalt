@@ -59,14 +59,14 @@ int main()
                 haltMessageDisplayed = 1;
                 
                 // when cpu is halted reactivate the terminal
-                if (g_serialTerminal.IsActive == 0)
-                {
-                    // reset cpu and related sysctrl hardware state
-                    CpuController_Reset(1);
-                    IOProcessor_ReleaseCpuWait();
-                    
-                    g_serialTerminal.IsActive = 1;
-                }
+//                if (g_serialTerminal.IsActive == 0)
+//                {
+//                    // reset cpu and related sysctrl hardware state
+//                    CpuController_Reset(1);
+//                    IOProcessor_ReleaseCpuWait();
+//                    
+//                    g_serialTerminal.IsActive = 1;
+//                }
             }
         }
         else

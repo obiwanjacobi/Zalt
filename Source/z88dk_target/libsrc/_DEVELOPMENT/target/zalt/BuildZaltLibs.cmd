@@ -28,7 +28,8 @@ echo   zalt_sdcc_iy.lib %1
 
 del /S *.err > nul 2>&1
 
-z80asm --IXIY -xzalt_sdcc_iy -D%1 -D__SDCC -D__SDCC_IY @target/zalt/library/zalt_sdcc_iy.lst
+:: compile location: C:\z88dk\libsrc\_DEVELOPMENT\target\zalt
+z80asm -s -m -l --IXIY -xzalt_sdcc_iy -D%1 -D__SDCC -D__SDCC_IY @target/zalt/library/zalt_sdcc_iy.lst
 move /Y zalt_sdcc_iy.lib lib/sdcc_iy/zalt.lib
 
 del /S *.o > nul 2>&1

@@ -1,20 +1,32 @@
 ;
 ; contains routines for managing ram memory
 ;
-section code_zalt_system
+
 
 ; exports
 public bios_memory_init
 public bios_memory_page_init
 public bios_memory_page_switch
+public memorymanager_memmap_reginit
+public memorymanager_bank_set
+public memorymanager_bank_setio
+public memorymanager_bank_page_write
+public memorymanager_bank_page_read
+; c entry points
+public _MemoryManager_Bank_Select__fast
+public _MemoryManager_Bank_Selected
+public _MemoryManager_Bank_SetId__fast
+public _MemoryManager_Bank_Id
+public _MemoryManager_PageAt__fast
 
 ; imports
+extern memorymanager_bankid
+extern memorymanager_io_bankid
 
 
 ; the data that is used to fill memory on reset
 defc	bios_memory_fill_opcode		=	$FF		; rst $38
 defc	bios_memory_page_size		= 	$1000	; 4k page size
-defc	memorymanager_memmaptable_fill	=	$FF		; selects memory bank 0
 
 ; Determines the top of RAM in 4k blocks
 ; pre-conditions:
@@ -77,20 +89,6 @@ bios_memory_fill:
 	jr nz, memfill_loop		; msb outer loop
 	ret
 
-; pre-conditions:
-;      call-ret
-; post-conditions:
-;bios_memory_page_init:
-;	xor a						; reset a to $00
-;	ld (bios_var_ram_page), a	; reset memory page
-;	ret
-	
-; pre-conditions:
-;      call-ret
-; post-conditions:
-;bios_memory_page_switch:
-;	ret
-
 
 
 ;
@@ -128,37 +126,118 @@ defc memorymanager_memmapio_tableaddr		=	$0C
 defc memorymanager_memmapio_iotableaddr		=	$0D
 defc memorymanager_memmapio_lsb				=	$FF
 
+
 ; Initializes the mem-map table address registers for mem and io.
 ; This should probably be done by the System Controller...
 ; pre-conditions:
 ;      call-ret
 memorymanager_memmap_reginit:
-	ld c, memorymanager_memmapio_lsb
-	ld b, memorymanager_memmapio_tableaddr
-	out (c), $00
-	ld b, memorymanager_memmapio_iotableaddr
-	out (c), $00
+	xor a, a								; a=0
+	ld hl, memorymanager_bankid
+	ld (hl), a								; reset var
+	ld hl, memorymanager_io_bankid
+	ld (hl), a								; reset var
+	;ld c, memorymanager_memmapio_lsb		; construct io address in bc
+	;ld b, memorymanager_memmapio_tableaddr
+	;out (c), a
+	;ld b, memorymanager_memmapio_iotableaddr
+	;out (c), a
 	ret
 
-; Write a mem-map table data value (d) to the current active mem-map table
-; at the specified table index (b). Both read and write mem-map tables are written.
+; MemoryBankId MemoryManager_Bank_Selected()
+_MemoryManager_Bank_Selected:
+; pre-conditions:
+;		call-ret
+; post-conditinos:
+;		hl contains bank-id
+memorymanager_bank_get:
+	ld hl, memorymanager_bankid
+	ld l, (hl)
+	ld h, 0
+	ret
+
+; void MemoryManager_Bank_Select__fast(MemoryBankId bankId);
+_MemoryManager_Bank_Select__fast:
+; pre-conditions:
+;		call-ret
+;		hl contains bank id (0-255)
+memorymanager_bank_set:
+	ld a, l
+	ld hl, memorymanager_bankid
+	ld (hl), a			; store latest choice
+	ld c, memorymanager_memmapio_lsb		; construct io address in bc
+	ld b, memorymanager_memmapio_tableaddr
+	out (c), a
+	ret	
+
+
+; MemoryBankId MemoryManager_Bank_Id();
+_MemoryManager_Bank_Id:
+; pre-conditions:
+;		call-ret
+; post-conditinos:
+;		hl contains bank-id (for io)
+memorymanager_bank_getio:
+	ld hl, memorymanager_io_bankid
+	ld l, (hl)
+	ld h, 0
+	ret
+
+; void MemoryManager_Bank_SetId__fast(MemoryBankId bankId);
+_MemoryManager_Bank_SetId__fast:
+; pre-conditions:
+;		call-ret
+;		hl contains bank id (0-255)
+memorymanager_bank_setio:
+	ld a, l
+	ld hl, memorymanager_io_bankid
+	ld (hl), a			; store latest choice
+	ld c, memorymanager_memmapio_lsb		; construct io address in bc
+	ld b, memorymanager_memmapio_iotableaddr
+	out (c), a
+	ret	
+
+; Write a mem-map table (bank) data (page-id) value (d) to the current active mem-map table
+; at the specified table index (b).
 ; pre-conditions:
 ;      call-ret
-;		b contains table index (0-15)
-;		d contains the data to write
-memorymanager_memmaptable_current_datawrite:
+;		b contains page index (0-15)
+;		d contains the page-id to write (0-255)
+memorymanager_bank_page_write:
 	ld a, memorymanager_memmapio_data_readtable
 	ld c, memorymanager_memmapio_lsb
 	rlc b			; shift table index to hi nibble
 	rlc b
 	rlc b
 	rlc b
-	or b			; add table index to function code
+	or a, b			; add table index to function code
 	ld b, a			; transfer result from a back to b
 	out (c), d		; write to the mem-map ram port (b->msb, c->lsb io address)
-	inc b			; select mem-map write-table
-	out (c), d
 	ret
+
+
+
+; MemoryPageId MemoryManager_PageAt__fast(MemoryPageIndex pageIndex);
+_MemoryManager_PageAt__fast:
+; Read a mem-map table (bank) data (page-id) value (a) from the current active mem-map table
+; at the specified table index (b).
+; pre-conditions:
+;      call-ret
+;		hl contains page index (0-15)
+; post-conditinos:
+;		hl contains page-id
+memorymanager_bank_page_read:
+	ld a, memorymanager_memmapio_data_readtable
+	ld c, memorymanager_memmapio_lsb
+	rlc l			; shift table index to hi nibble
+	rlc l
+	rlc l
+	rlc l
+	or a, l			; add table index to function code
+	ld b, a			; transfer result from a back to b
+	in l, (c)		; write to the mem-map ram port (b->msb, c->lsb io address)
+	ret
+
 
 
 ; Writes all mem-map table data values for the current active mem-map table
@@ -168,12 +247,13 @@ memorymanager_memmaptable_current_datawrite:
 memorymanager_memmaptable_current_init:
 	ld a, memorymanager_memmapio_data_readtable
 	ld c, memorymanager_memmapio_lsb
-	ld d, memorymanager_memmaptable_fill	; $FF fill value
+	ld d, 0
 .memmapinit_nexttableindex
 	ld b, a			; transfer result
 	out (c), d		; write to the mem-map ram port (b->msb, c->lsb io address)
 	inc b			; select mem-map write-table
 	out (c), d
+	inc d
 	add a, $10		; add 1 to the table index nibble
 	jr nc, memmapinit_nexttableindex
 	ret
