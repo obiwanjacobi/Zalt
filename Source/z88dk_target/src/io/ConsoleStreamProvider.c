@@ -4,8 +4,8 @@
 #include "../sys/System.h"
 
 const char8_t *ConsoleProtocol = "con";
-const uint8_t ConsoleStreamProvider_size = sizeof(StreamProvider);
-static const uint8_t ConsoleStream_size = sizeof(ConsoleStream);
+const uint8_t ConsoleStreamProvider_size = (uint8_t)sizeof(StreamProvider);
+static const uint8_t ConsoleStream_size = (uint8_t)sizeof(ConsoleStream);
 
 #define ConsoleStream_FromStream(stream) ((ConsoleStream *)stream)
 #define ConsoleStream_ToStream(consoleStream) (&((consoleStream)->base.Stream))

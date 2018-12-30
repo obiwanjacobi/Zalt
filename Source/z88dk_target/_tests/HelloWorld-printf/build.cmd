@@ -1,2 +1,2 @@
 @ECHO OFF
-call ../make helloworld
+call ../make helloworld %1

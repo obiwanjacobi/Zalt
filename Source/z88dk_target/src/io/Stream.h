@@ -62,11 +62,19 @@ Delete Dir ->	truncate on meta stream.
 ******************************************************************************/
 
 // virtual functions definitions for a stream provider:
+#ifdef __SDCC
 typedef uint16_t (*CanProvide)(const char8_t *protocol);
 typedef result_t (*TryOpenStream)(AsyncThis *async, const char8_t *uri, StreamFlags access, Stream *outStream);
 typedef result_t (*TryCloseStream)(Stream *stream);
 typedef uint16_t (*ReadStream)(AsyncThis *async, Stream *stream, uint8_t *buffer, uint16_t capacity);
 typedef uint16_t (*WriteStream)(AsyncThis *async, Stream *stream, const uint8_t *buffer, uint16_t length);
+#else
+#define CanProvide void *
+#define TryOpenStream void *
+#define TryCloseStream void *
+#define ReadStream void *
+#define WriteStream void *
+#endif
 
 struct _streamProvider
 {
@@ -117,7 +125,11 @@ struct _stream
 result_t StreamProvider_Construct();
 
 // Stream* Stream_Construct(uint16_t length)
+#ifdef __SDCC
 Stream *FastAPI(Stream_Construct__fast(uint16_t length));
+#else
+Stream *Stream_Construct__fast(uint16_t length);
+#endif
 #define Stream_Construct(p) Stream_Construct__fast(p)
 
 // seek

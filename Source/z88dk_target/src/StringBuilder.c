@@ -1,12 +1,13 @@
 #include "StringBuilder.h"
+#include "sys/Debug.h"
 #include <stdlib.h>
 #include <string.h>
 
-StringBuilder *StringBuilder_Construct(void *memory, uint16_t capacity)
+StringBuilder *StringBuilder_Construct(ptr_t memory, uint16_t capacity)
 {
     StringBuilder *builder = (StringBuilder *)memory;
-    if (memory == NULL) return NULL;
-    if (capacity < StringBuilder_size) return NULL;
+    dGuardErrVal(memory == NULL, E_ARGNULLOREMPTY, NULL);
+    dGuardErrVal(capacity < StringBuilder_size, E_ARGNOTINRANGE, NULL);
 
     builder->Capacity = capacity - StringBuilder_size;
     builder->Length = 0;
@@ -17,9 +18,9 @@ StringBuilder *StringBuilder_Construct(void *memory, uint16_t capacity)
 result_t StringBuilder_AppendString(StringBuilder *builder, const char8_t *buffer, uint16_t length)
 {
     char8_t *start;
-    if (builder == NULL) return E_NULLPTR;
-    if (buffer == NULL) return E_ARGNULLOREMPTY;
-    if (builder->Capacity - builder->Length < length) return E_BUFFERFULL;
+    dGuardVal(builder == NULL, E_NULLPTR);
+    dGuardVal(buffer == NULL, E_ARGNULLOREMPTY);
+    dGuardVal(builder->Capacity - builder->Length < length, E_BUFFERFULL);
 
     start = &builder->Text[builder->Length];
     strlcpy(start, (char8_t *)buffer, length);
@@ -30,8 +31,8 @@ result_t StringBuilder_AppendString(StringBuilder *builder, const char8_t *buffe
 
 result_t StringBuilder_AppendChar(StringBuilder *builder, char8_t value)
 {
-    if (builder == NULL) return E_NULLPTR;
-    if (builder->Capacity - builder->Length < 2) return E_BUFFERFULL;
+    dGuardVal(builder == NULL, E_NULLPTR);
+    dGuardVal(builder->Capacity - builder->Length < 2, E_BUFFERFULL);
 
     builder->Text[builder->Length] = value;
     builder->Length += 1;
@@ -43,8 +44,8 @@ result_t StringBuilder_AppendChar(StringBuilder *builder, char8_t value)
 result_t StringBuilder_AppendUint8(StringBuilder *builder, uint8_t value, uint8_t base)
 {
     char8_t *start;
-    if (builder == NULL) return E_NULLPTR;
-    if (builder->Capacity - builder->Length < 4) return E_BUFFERFULL;
+    dGuardVal(builder == NULL, E_NULLPTR);
+    dGuardVal(builder->Capacity - builder->Length < 4, E_BUFFERFULL);
 
     start = &builder->Text[builder->Length];
     itoa(value, start, base);
@@ -56,8 +57,8 @@ result_t StringBuilder_AppendUint8(StringBuilder *builder, uint8_t value, uint8_
 result_t StringBuilder_AppendUint16(StringBuilder *builder, uint16_t value, uint8_t base)
 {
     char8_t *start;
-    if (builder == NULL) return E_NULLPTR;
-    if (builder->Capacity - builder->Length < 6) return E_BUFFERFULL;
+    dGuardVal(builder == NULL, E_NULLPTR);
+    dGuardVal(builder->Capacity - builder->Length < 6, E_BUFFERFULL);
 
     start = &builder->Text[builder->Length];
     itoa(value, start, base);

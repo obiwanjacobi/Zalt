@@ -8,10 +8,10 @@ typedef Collection8 StringBuilder;
 #define StringBuilder_size Collection8_size
 
 // constructs a Collection struct in the passed buffer.
-StringBuilder *StringBuilder_Construct(void *buffer, uint16_t capacity);
+StringBuilder *StringBuilder_Construct(ptr_t buffer, uint16_t capacity);
 
 // Appends a string to the end of the Collection content.
-result_t StringBuilder_AppendString(StringBuilder *builder, const char *text, uint16_t length);
+result_t StringBuilder_AppendString(StringBuilder *builder, const char8_t *text, uint16_t length);
 
 // Appends a char to the end of the Collection content.
 result_t StringBuilder_AppendChar(StringBuilder *builder, char8_t value);

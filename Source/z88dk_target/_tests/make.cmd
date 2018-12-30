@@ -3,7 +3,10 @@ SET PATH=%PATH%;C:\z88dk\bin\
 
 set zalt_lib=../../zalt_c.lib
 
-@echo Compiling %1
+set debug=-DDEBUG -Ca-DDEBUG -Cl-DDEBUG
+set include=-I%~dp0..\src -I%~dp0..\src\sys -I%~dp0..\src\io
 
-:: zcc +zalt -SO2 -DDEBUG -Ca-DDEBUG -clib=sdcc_iy --max-allocs-per-node200000 %1.c -l%zalt_lib% --c-code-in-asm -m -a --list
-zcc +zalt -SO2 -DDEBUG -Ca-DDEBUG -clib=sdcc_iy --max-allocs-per-node200000 %1.c -l%zalt_lib% -o %1 -vn %2
+@echo Compiling %1 (%2)
+
+:: zcc +zalt %debug% -SO2 -clib=%2 %1.c -l%zalt_lib% --c-code-in-asm -m -a --list
+zcc +zalt %debug% %include% -SO2 -clib=%2 %1.c -l%zalt_lib% -o %1 -vn %3

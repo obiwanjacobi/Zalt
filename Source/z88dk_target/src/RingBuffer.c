@@ -2,7 +2,7 @@
 #include "sys/Debug.h"
 #include "sys/Error.h"
 
-const uint16_t RingBuffer_size = sizeof(RingBuffer);
+const uint16_t RingBuffer_size = (uint16_t)sizeof(RingBuffer);
 const uint16_t RingBuffer_MaxCapacity = 256;
 
 RingBuffer *RingBuffer_Construct(void *memory)

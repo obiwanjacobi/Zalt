@@ -5,9 +5,41 @@
     "echoCommand": true,
     "tasks": [
         {
-            "label": "build",
+            "label": "build sdcc",
             "type": "shell",
-            "command": "./build.cmd",
+            "command": "./build.cmd sdcc_iy",
+            "options": {
+                "cwd": "${workspaceRoot}",
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": {
+                "owner": "sdcc",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):\\s+(warning|error)\\s+(\\d+):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "severity": 3,
+                    "code": 4,
+                    "message": 5
+                }
+            }
+        },
+        {
+            "label": "build sccz80",
+            "type": "shell",
+            "command": "./build.cmd sccz80",
             "options": {
                 "cwd": "${workspaceRoot}",
             },
@@ -23,15 +55,14 @@
                 "showReuseMessage": false,
                 "clear": true
             },
-            // "problemMatcher": "$errmatcher-sjasmplus"
             "problemMatcher": {
-                "owner": "z88dk",
+                "owner": "sccz80",
                 "fileLocation": [
                     "relative",
                     "${workspaceRoot}"
                 ],
                 "pattern": {
-                    "regexp": "^(.*):(\\d+):\\s+(warning|error)\\s+(\\d+):\\s+(.*)$",
+                    "regexp": "^sccz80:.(.*).\\s+L:(\\d+)\\s+(Error|Warning):#(\\d+):(.*)$",
                     "file": 1,
                     "line": 2,
                     "severity": 3,
@@ -57,7 +88,7 @@
         {
             "label": "compile-verbose",
             "type": "shell",
-            "command": "./verbose.cmd",
+            "command": "./verbose.cmd sdcc_iy",
             "group": "build",
         },
         {

@@ -1,12 +1,13 @@
 #include "RingBuffer.h"
-#include "sys/Sys.h"
 #include "io/Io.h"
+#include "sys/Sys.h"
 
 #include "sys/System.h"
 
 static const uint8_t MaxCommandLength = 6;
 
-enum _command {
+enum _command
+{
     commandDump,
     commandHelp,
     commandReg,
@@ -15,61 +16,54 @@ enum _command {
 };
 
 // sorted alpabetacilay
-static const char* Commands[] = {
-    "dump",
-    "help",
-    "reg",
-    "quit",
-    NULL
-};
+static const char *Commands[] = {"dump", "help", "reg", "quit", NULL};
 
-void PrintLogo(Stream* console)
+void PrintLogo(Stream *console)
 {
     StreamWriter_WriteLine(console, "Zalt Monitor v1.0", 17);
 }
 
-void ExecuteDump(RingBuffer* inputBuffer, Stream* console)
+void ExecuteDump(RingBuffer *inputBuffer, Stream *console)
 {
-
 }
 
-void ExecuteHelp(Stream* console)
+void ExecuteHelp(Stream *console)
 {
     StreamWriter_WriteLine(console, "quit - Exits the monitor", 24);
     StreamWriter_WriteLine(console, "dump - dumps memory: [address] [length]", 39);
     StreamWriter_WriteLine(console, "reg - displays CPU register values: [name]", 42);
 }
 
-void ExecuteReg(RingBuffer* inputBuffer, Stream* console)
+void ExecuteReg(RingBuffer *inputBuffer, Stream *console)
 {
-
 }
 
-
-bool_t ExecuteCommand(uint8_t cmdIndex, RingBuffer* inputBuffer, Stream* console)
+bool_t ExecuteCommand(uint8_t cmdIndex, RingBuffer *inputBuffer, Stream *console)
 {
-    switch(cmdIndex) {
-        case commandDump:
-            ExecuteDump(inputBuffer, console);
+    switch (cmdIndex)
+    {
+    case commandDump:
+        ExecuteDump(inputBuffer, console);
         break;
-        case commandHelp:
-            ExecuteHelp(console);
+    case commandHelp:
+        ExecuteHelp(console);
         break;
-        case commandReg:
-            ExecuteReg(inputBuffer, console);
+    case commandReg:
+        ExecuteReg(inputBuffer, console);
         break;
-        case commandQuit:
-            return false;
+    case commandQuit:
+        return false;
     }
     return true;
 }
 
-bool_t Dispatch(RingBuffer* inputBuffer, Stream* console)
+bool_t Dispatch(RingBuffer *inputBuffer, Stream *console)
 {
     uint8_t cmdIndex = 0;
-    while(Commands[cmdIndex] != NULL) {
-        if (String_Compare(Commands[cmdIndex], inputBuffer->Buffer, 
-                String_GetLength(Commands[cmdIndex], 0)) == 0) {
+    while (Commands[cmdIndex] != NULL)
+    {
+        if (String_Compare(Commands[cmdIndex], inputBuffer->Buffer, String_GetLength(Commands[cmdIndex], 0)) == 0)
+        {
             return ExecuteCommand(cmdIndex, inputBuffer, console);
         }
         cmdIndex += 1;

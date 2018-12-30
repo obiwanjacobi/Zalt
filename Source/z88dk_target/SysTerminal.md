@@ -135,8 +135,8 @@ These commands manipulate the Memory Management Unit (MMU) directly.
 
 `bs [b] [p]`
 
-* `b` a memory bank (1-255)
-* `p` a 4k memory page (1-15)
+* `b` a memory bank page (1-255)
+* `p` a 4k memory page index (1-15)
 
 Switches a 4k source block [b] into target page [p] on current mem-map table. This is an easier/simpler version of `mm put`.
 

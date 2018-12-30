@@ -1,5 +1,5 @@
-#include "..\..\src\RingBuffer.h"
-#include "..\..\src\sys\Heap.h"
+#include "Heap.h"
+#include "RingBuffer.h"
 
 static bool_t isEmpty1 = false;
 static bool_t isEmpty2 = false;

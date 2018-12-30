@@ -90,10 +90,17 @@ extern const uint8_t Collection8_size;
 extern const uint16_t Collection8_MaxCapacity;
 
 // an opaque handle to something
+#ifdef __SDCC
 typedef void *handle_t;
-// #define handle_t void *
+#else
+#define handle_t void *
+#endif
 
 // generic pointer
+#ifdef __SDCC
 typedef void *ptr_t;
+#else
+#define ptr_t void *
+#endif
 
 #endif //__TYPES_H__

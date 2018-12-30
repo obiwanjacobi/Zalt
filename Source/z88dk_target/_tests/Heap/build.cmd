@@ -1,2 +1,2 @@
 @ECHO OFF
-call ../make Heap_test
+call ../make Heap_test %1

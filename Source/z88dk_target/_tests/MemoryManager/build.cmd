@@ -1,2 +1,2 @@
 @ECHO OFF
-call ../make MemoryManager_test --list
+call ../make MemoryManager_test %1 --list

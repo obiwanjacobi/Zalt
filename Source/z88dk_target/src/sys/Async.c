@@ -1,9 +1,9 @@
 #include "Async.h"
 #include "Debug.h"
 
-const uint8_t AsyncThis_size = sizeof(AsyncThis);
+const uint8_t AsyncThis_size = (uint8_t)sizeof(AsyncThis);
 
-// bool_t Async_Construct(AsyncThis* async)
+// void Async_Construct(AsyncThis* async)
 void FastCall(Async_Construct__fast(AsyncThis *async))
 {
     dGuardErr(async == NULL, E_NULLPTR);

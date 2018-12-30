@@ -1,2 +1,2 @@
 @ECHO OFF
-call ../make echo
+call ../make echo %1

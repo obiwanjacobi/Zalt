@@ -1,6 +1,5 @@
 #include "Monitor.h"
 #include "RingBuffer.h"
-#include "TestTasks.h"
 #include "io/Stream.h"
 #include "sys/Sys.h"
 #include "sys/Thread.h"
@@ -13,22 +12,15 @@ void GlobalInit()
 
 void main()
 {
-    // void* memory;
-    // RingBuffer* buffer = NULL;
+    void *memory;
+    RingBuffer *buffer = NULL;
 
     // setup
     GlobalInit();
-    // memory = Thread_Alloc(RingBuffer_size);
-    // buffer = RingBuffer_Construct(memory);
-    // Monitor_Start(buffer);
-
-    while (true)
-    {
-        Task1_Execute();
-        Task2_Execute();
-        Task3_Execute();
-    }
+    memory = Thread_Alloc(RingBuffer_size);
+    buffer = RingBuffer_Construct(memory);
+    Monitor_Start(buffer);
 
     // teardown
-    // Thread_Free(memory);
+    Thread_Free(memory);
 }
