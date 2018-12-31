@@ -1,15 +1,15 @@
 #include "minunit.h"
 
-#include "../src/sys/Sys.h"
+#include "Sys.h"
 
 #define capacity 14
-const char_t *expected = "Hello World!";
-const char_t *test = "Hello World!";
+const char8_t *expected = "Hello World!";
+const char8_t *test = "Hello World!";
 
 static const char *String_Copy_test_FullStringCopied()
 {
     const uint16_t length = 12; // strlen
-    char_t buffer[capacity];
+    char8_t buffer[capacity];
 
     uint16_t result = String_Copy(expected, buffer, capacity);
 
@@ -24,7 +24,7 @@ static const char *String_Copy_test_FullStringCopied()
 static const char *String_Copy_test_PartStringCopied()
 {
     const uint16_t length = 8;
-    char_t buffer[capacity];
+    char8_t buffer[capacity];
     buffer[7] = ' ';
 
     uint16_t result = String_Copy(expected, buffer, length);
@@ -39,7 +39,7 @@ static const char *String_Copy_test_PartStringCopied()
 
 static const char *String_Compare_test_Smaller()
 {
-    const char_t *test = "Hellp World!";
+    const char8_t *test = "Hellp World!";
 
     int16_t result = String_Compare(expected, test, 0);
 
@@ -50,7 +50,7 @@ static const char *String_Compare_test_Smaller()
 
 static const char *String_Compare_test_Bigger()
 {
-    const char_t *test = "Helln World!";
+    const char8_t *test = "Helln World!";
 
     int16_t result = String_Compare(expected, test, 0);
 
@@ -97,7 +97,7 @@ static const char *String_Compare_test_PartLength()
 
 static const char *String_Compare_test_PartLengthNoCase()
 {
-    const char_t *test = "hello world!";
+    const char8_t *test = "hello world!";
     int16_t result = String_Compare(expected, test, 8);
 
     mu_assert(result == 0, "not equal");
@@ -107,7 +107,7 @@ static const char *String_Compare_test_PartLengthNoCase()
 
 static const char *String_CompareExact_test_PartLengthNoCase()
 {
-    const char_t *test = "hello world!";
+    const char8_t *test = "hello world!";
     int16_t result = String_CompareExact(expected, test, 8);
 
     mu_assert(result != 0, "equal");

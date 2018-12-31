@@ -1,7 +1,7 @@
 #include "minunit.h"
 
-#include "../src/sys/Heap.h"
-#include "../src/sys/Sys.h"
+#include "Heap.h"
+#include "Sys.h"
 
 static const char *Heap_Construct_test()
 {

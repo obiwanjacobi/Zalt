@@ -1,8 +1,8 @@
 #include "minunit.h"
 
-#include "../src/io/ConsoleStreamProvider.h"
-#include "../src/io/Io.h"
-#include "../src/sys/Sys.h"
+#include "ConsoleStreamProvider.h"
+#include "Io.h"
+#include "Sys.h"
 
 #define Stream_size sizeof(Stream)
 

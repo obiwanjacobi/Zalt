@@ -1,7 +1,7 @@
 #include "minunit.h"
 
-#include "../src/sys/Async.h"
-#include "../src/sys/Sys.h"
+#include "Async.h"
+#include "Sys.h"
 
 #define ASYNC_COUNT 10
 static int _static_count = 0;

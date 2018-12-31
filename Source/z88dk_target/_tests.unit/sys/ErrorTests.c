@@ -1,7 +1,7 @@
 #include "minunit.h"
 
-#include "../src/sys/Error.h"
-#include "../src/sys/Sys.h"
+#include "Error.h"
+#include "Sys.h"
 
 static const char *Error_SetGet_test()
 {

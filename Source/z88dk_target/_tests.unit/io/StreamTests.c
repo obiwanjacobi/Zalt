@@ -1,10 +1,10 @@
 #include "minunit.h"
 
-#include "../src/io/Io.h"
-#include "../src/io/Stream.h"
-#include "../src/sys/Sys.h"
+#include "Io.h"
+#include "Stream.h"
+#include "Sys.h"
 
-#define Stream_size sizeof(Stream)
+#define Steam_size sizeof(Stream)
 
 static const char *Stream_Construct_test()
 {
