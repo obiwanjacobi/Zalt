@@ -10,7 +10,13 @@ struct _heap
 } crt_heap;
 
 // Heap* Heap_Construct(HeapFlags flags)
+#ifdef __SDCC
 Heap *FastCall(Heap_Construct__fast(HeapFlags flags))
+#elif __SCCZ80
+Heap __FASTCALL__ *Heap_Construct__fast(HeapFlags flags)
+#else
+Heap *Heap_Construct(HeapFlags flags)
+#endif
 {
     crt_heap.Flags = flags;
     return &crt_heap;

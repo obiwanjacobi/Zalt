@@ -1,0 +1,4 @@
+@target/zalt/system/system.lst
+
+target/zalt/startup/page0.asm
+target/zalt/startup/memory.asm

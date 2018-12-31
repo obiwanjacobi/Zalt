@@ -19,12 +19,16 @@
  *  - There the Z80 code communicates with the PSoC Debugger using the debug IO port.
  *  
  *  - Z80=>Debugger: are we debugging? NMI could be trigger by something else.
- *      Debugger=>Z80: true/false
- *      Debugger=>Console: "Debugpoint at <address>"
+ *      Debugger=>Z80: yes, dump regs (or no, then exit)
  *  - Z80=>Debugger: dump all register values.
- *      Debugger=>Z80: ack/nack
+ *      Debugger=>Z80: ack/nack for each reg value received
  *      Debugger=>Console: print register values.
- *  
+ *  - Z80=>Debugger: what command?
+ *      Debugger=>Z80: paused
+ *      Z80: HALT (again)
+ *      Debugger=>Console: "paused at breakpoint"
+ *      <user> issues commands in console
+ *
  * Thats it for now.
  */
 
@@ -108,15 +112,9 @@ void Debugger_Init()
     ISR_HALT_StartEx(Debugger_ISR_OnHaltInterrupt);
 }
 
-void Debugger_RemoteBreak()
+// returns very quick (M1-cycle)
+void Debugger_PulseNMI()
 {
-    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
-    
-    InterruptProcessor_Enable(false);
-    
-    DebuggerState = DebugState_Pause;
-    DebuggerRegState = DebugRegister_None;
-    
     // pulse NMI
     InterruptController_SetNmi(true);
     // wait for next M1 cycle (NMI-ack)
@@ -124,11 +122,7 @@ void Debugger_RemoteBreak()
     InterruptController_SetNmi(false);
 }
 
-void Debugger_RemoteContinue()
-{
-    DebuggerState = DebugState_None;
-}
-
+// waits until HALT is released
 void Debugger_ReleaseCpuHalt()
 {
     // pulse NMI
@@ -138,7 +132,28 @@ void Debugger_ReleaseCpuHalt()
     InterruptController_SetNmi(false);
 }
 
-void Debugger_ISR_OnHaltInterrupt()
+void Debugger_RemoteBreak()
+{
+    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    
+    InterruptProcessor_Enable(false);
+    
+    DebuggerState = DebugState_Pause;
+    DebuggerRegState = DebugRegister_None;
+    
+    Debugger_PulseNMI();
+}
+
+void Debugger_RemoteContinue()
+{
+    if (DebuggerState != DebugState_None)
+    {
+        DebuggerState = DebugState_None;
+        Debugger_ReleaseCpuHalt();
+    }
+}
+
+void Debugger_ReportRegisters()
 {
     if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
     
@@ -147,7 +162,23 @@ void Debugger_ISR_OnHaltInterrupt()
     DebuggerState = DebugState_Handshake;
     DebuggerRegState = DebugRegister_None;
     
-    Debugger_ReleaseCpuHalt();
+    Debugger_PulseNMI();
+}
+
+void Debugger_ISR_OnHaltInterrupt()
+{
+    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    
+    // halt can also trigger during a debug session
+    if (DebuggerState == DebugState_None)
+    {
+        InterruptProcessor_Enable(false);
+    
+        DebuggerState = DebugState_Handshake;
+        DebuggerRegState = DebugRegister_None;
+    
+        Debugger_ReleaseCpuHalt();
+    }
 }
 
 void Debugger_FormatRegister16(char* buffer, const char* reg, uint16_t value)
@@ -189,10 +220,7 @@ void Debugger_FormatFlags(char* buffer, uint16_t value)
 static const char* NewLine = "\r\n";
 
 void Debugger_PrintRegisterValues()
-{
-    if (DebuggerState != DebugState_PrintRegisters) return;
-    DebuggerState = DebugState_None;
-    
+{    
     SysTerminal_PutString(NewLine);
     
     char buffer[16];
@@ -231,6 +259,41 @@ void Debugger_PrintRegisterValues()
     Debugger_FormatRegister16(buffer, "HL'", DebugCpuRegisters.HL2);
     SysTerminal_PutString(buffer);
     SysTerminal_PutString(NewLine);
+}
+
+static uint8_t _messageShown = 0;
+
+void Debugger_Print()
+{
+    switch(DebuggerState)
+    {
+        case DebugState_PrintRegisters:
+            Debugger_PrintRegisterValues();
+            DebuggerState = DebugState_Pause;
+            break;
+        
+        case DebugState_Pause:
+            if (_messageShown != DebugState_Pause)
+            {
+                SysTerminal_PutString(NewLine);
+                SysTerminal_PutString("- CPU Paused at breakpoint");
+                SysTerminal_PutString(NewLine);
+                _messageShown = DebugState_Pause;
+            }
+            break;
+        
+        case DebugState_None:
+            if (_messageShown != DebugState_None)
+            {
+                SysTerminal_PutString("- CPU running");
+                SysTerminal_PutString(NewLine);
+                _messageShown = DebugState_None;
+            }
+            break;
+        
+        default:
+            break;
+    }
 }
 
 #define MakeMsb(b) b << 8
@@ -312,12 +375,12 @@ bool_t Debugger_ReceiveRegisters(uint8_t data)
         case DebugRegister_H2:
             DebugCpuRegisters.HL2 |= MakeMsb(data);
             
-            DebuggerState = DebugState_None;
+            //DebuggerState = DebugState_None;
             DebuggerRegState = DebugRegister_None;
             return true;    // last
             
         default:
-            DebuggerState = DebugState_None;
+            //DebuggerState = DebugState_None;
             DebuggerRegState = DebugRegister_None;
             return false;    // recover...
     }
@@ -330,7 +393,7 @@ bool_t Debugger_ReceiveRegisters(uint8_t data)
 
 uint8_t Debugger_IO_OnInput()
 {
-    uint8_t data = DebugCommand_None;
+    uint8_t data = DebugCommand_Pause;
     
     switch(DebuggerState)
     {
@@ -341,12 +404,9 @@ uint8_t Debugger_IO_OnInput()
             DebuggerRegState = DebugRegister_None;
             DebuggerRegState++;
             break;
-        
-        case DebugState_Pause:
-            data = DebugCommand_Pause;
-            break;
-        
+                
         case DebugState_None:
+            data = DebugCommand_None;
             InterruptProcessor_Enable(true);
             break;
             

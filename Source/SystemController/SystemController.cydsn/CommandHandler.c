@@ -30,7 +30,6 @@ uint16_t TerminalOff_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
 uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
 {
     // cpu
-    SerialTerminal_Write("CPU ");
     const char* halted = NULL;
     const char* suspended = NULL;
     if (CpuController_IsResetActive())
@@ -41,10 +40,10 @@ uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command
     {
         halted = "halted";
     }
+    SerialTerminal_Write("CPU ");
     SerialTerminal_Write(suspended);
     SerialTerminal_Write(" ");
-    SerialTerminal_Write(halted);
-    SerialTerminal_WriteLine(NULL);
+    SerialTerminal_WriteLine(halted);
     ClockMode_ReportValue();
     ClockDivider_ReportValue();
     
@@ -61,10 +60,7 @@ uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command
     {
         SerialTerminal_Write("not ");
     }
-    SerialTerminal_Write("connected");
-        
-    SerialTerminal_WriteLine(NULL);
-    
+    SerialTerminal_WriteLine("connected");
     
     if (serialTerminal->IsActive == 0)
     {

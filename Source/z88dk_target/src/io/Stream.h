@@ -127,10 +127,13 @@ result_t StreamProvider_Construct();
 // Stream* Stream_Construct(uint16_t length)
 #ifdef __SDCC
 Stream *FastAPI(Stream_Construct__fast(uint16_t length));
-#else
-Stream *Stream_Construct__fast(uint16_t length);
-#endif
 #define Stream_Construct(p) Stream_Construct__fast(p)
+#elif __SCCZ80
+Stream __FASTCALL__ *Stream_Construct__fast(uint16_t length);
+#define Stream_Construct(p) Stream_Construct__fast(p)
+#else
+Stream *Stream_Construct(uint16_t length);
+#endif
 
 // seek
 uint16_t Stream_GetPosition(const Stream *stream);

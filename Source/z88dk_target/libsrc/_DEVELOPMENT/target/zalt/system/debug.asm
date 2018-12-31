@@ -94,7 +94,7 @@ debug_save_registers:
 	ld (hl), debug_status_registers_saved
 	ld hl, (debug_var_hl)	; restore hl value
 	ret
-	
+
 
 ; Restores all registers (incl. alternates) to saved values (debug_save_registers).
 ; ALSO RESTORES PC AND SP!
@@ -163,11 +163,22 @@ debug_monitor:
 	in a, (c)							; ask system controller if we're debugging
 	ret z								; exit if not so (debug_cmd_exit)
 
+	cp a, debug_cmd_wait				; we're on hold
+	call z, debug_sleep                 ; sleep till the System Controller wakes us up
+
 	cp a, debug_cmd_dumpregs
+	; uses a!
 	call z, debug_dump_registers		; dump registers
 
 	jr debug_monitor_get_cmd			; loop while waiting (debug_cmd_wait)
 
+
+; halts till sys-ctrlr wake us again
+; pre-conditions:
+;	call-ret
+debug_sleep:
+	halt			; sleep
+	ret
 
 ; dumps the saved registers to the System Controller
 ; pre-conditions:
@@ -191,11 +202,11 @@ debug_dump_registers:
 ; pre-conditions:
 ;	call-ret
 debug_breakpoint:
-	di								; we don't want the HALT to be released by another interrupt
+	call bios_interrupt_disable		; we don't want the HALT to be released by another interrupt
 	
-	call debug_save_registers		; TODO: will report return address to this function
+	;call debug_save_registers		; TODO: will report return address to this function
 	halt							; wait for NMI
-	call debug_restore_registers
+	;call debug_restore_registers
 	
-	ei
+	call bios_interrupt_enable
 	ret

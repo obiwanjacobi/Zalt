@@ -28,9 +28,9 @@ section rodata_font
 section rodata_clib
 
   include "../../clib_rodata.inc"
-  ;;section rodata_error_strings
-  ;;section rodata_error_string_end
-  ;;defb 0
+  section rodata_error_strings
+  section rodata_error_string_end
+  defb 0
 
 section rodata_lib
 section rodata_compiler
@@ -76,10 +76,10 @@ section data_font
 section data_clib
 
   include "../../clib_data.inc"
-  ;;section data_fcntl_stdio_heap_head
-  ;;section data_fcntl_stdio_heap_body
-  ;;section data_fcntl_stdio_heap_tail
-  ;;section data_fcntl_fdtable_body
+  section data_fcntl_stdio_heap_head
+  section data_fcntl_stdio_heap_body
+  section data_fcntl_stdio_heap_tail
+  section data_fcntl_fdtable_body
 
 section data_lib
 section data_compiler

@@ -28,16 +28,30 @@ typedef struct _thread Thread;
 Thread *Thread_GetCurrent();
 /// Retrieves thread owned heap.
 // Heap* Thread_GetHeap(Thread* thread);
+#ifdef __SDCC
 Heap *FastCall(Thread_GetHeap__fast(Thread *thread));
 #define Thread_GetHeap(p) Thread_GetHeap__fast(p)
+#elif __SCCZ80
+Heap __FASTCALL__ *Thread_GetHeap__fast(Thread *thread);
+#define Thread_GetHeap(p) Thread_GetHeap__fast(p)
+#else
+Heap *Thread_GetHeap(Thread *thread);
+#endif
 
 /// Allocates from the current thread heap.
-// void* Thread_Alloc(uint16_t length);
-void *FastCall(Thread_Alloc__fast(uint16_t length));
+// ptr_t Thread_Alloc(uint16_t length);
+#ifdef __SDCC
+ptr_t FastCall(Thread_Alloc__fast(uint16_t length));
 #define Thread_Alloc(p) Thread_Alloc__fast(p)
+#elif __SCCZ80
+void __FASTCALL__ *Thread_Alloc__fast(uint16_t length);
+#define Thread_Alloc(p) Thread_Alloc__fast(p)
+#else
+ptr_t Thread_Alloc(uint16_t length);
+#endif
 
 /// Frees to the current thread heap.
-// void Thread_Free(void* memory);
+// void Thread_Free(ptr_t memory);
 void FastCall(Thread_Free__fast(void *memory));
 #define Thread_Free(p) Thread_Free__fast(p)
 

@@ -11,7 +11,11 @@
             "options": {
                 "cwd": "${workspaceRoot}",
             },
-            "group": "build",
+            // "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -43,10 +47,11 @@
             "options": {
                 "cwd": "${workspaceRoot}",
             },
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
+            // "group": {
+            //     "kind": "build",
+            //     "isDefault": true
+            // },
             "presentation": {
                 "echo": true,
                 "reveal": "always",

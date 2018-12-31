@@ -18,5 +18,8 @@
         "**/*.o": true,
     },
     "files.autoSave": "afterDelay",
-    "C_Cpp.autoAddFileAssociations": false
+    "C_Cpp.autoAddFileAssociations": false,
+    "editor.insertSpaces": true,
+    "editor.renderWhitespace": "all",
+    "editor.formatOnSave": true
 }

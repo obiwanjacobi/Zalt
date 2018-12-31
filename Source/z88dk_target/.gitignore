@@ -1,6 +1,7 @@
 zcc_opt.def
 zcc_proj.lst
 
+*.dis.asm
 *.c.asm
 *.c.lis
 

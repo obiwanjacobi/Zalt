@@ -86,7 +86,13 @@ uint16_t ConsoleStreamProvider_WriteStreamAsync(AsyncThis *async, Stream *stream
     return length;
 }
 
+#ifdef __SDCC
 StreamProvider *FastCall(ConsoleStreamProvider_Construct__fast(void *memory))
+#elif __SCCZ80
+StreamProvider __FASTCALL__ *ConsoleStreamProvider_Construct__fast(void *memory)
+#else
+StreamProvider *ConsoleStreamProvider_Construct(void *memory)
+#endif
 {
     StreamProvider *provider = (StreamProvider *)memory;
 

@@ -11,7 +11,8 @@ void Debugger_IO_OnOutput(uint8 data);
 
 void Debugger_RemoteBreak();
 void Debugger_RemoteContinue();
-void Debugger_PrintRegisterValues();
+void Debugger_ReportRegisters();
+void Debugger_Print();
 
 #endif  //__DEBUGGER_H__
 

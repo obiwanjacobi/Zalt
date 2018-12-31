@@ -22,7 +22,13 @@ ThreadId FastCall(Thread_GetId(Thread *thread))
     return thread->Id;
 }
 
+#ifdef __SDCC
 Heap *FastCall(Thread_GetHeap__fast(Thread *thread))
+#elif __SCCZ80
+Heap __FASTCALL__ *Thread_GetHeap__fast(Thread *thread)
+#else
+Heap *Thread_GetHeap(Thread *thread)
+#endif
 {
     dGuardErrVal(thread != NULL, E_NULLPTR, NULL);
     return thread->Heap;
@@ -30,7 +36,13 @@ Heap *FastCall(Thread_GetHeap__fast(Thread *thread))
 
 /// Allocates from the current thread heap.
 // void* Thread_Alloc(uint16_t length)
-void *FastCall(Thread_Alloc__fast(uint16_t length))
+#ifdef __SDCC
+ptr_t FastCall(Thread_Alloc__fast(uint16_t length))
+#elif __SCCZ80
+void __FASTCALL__ *Thread_Alloc__fast(uint16_t length)
+#else
+ptr_t Thread_Alloc(uint16_t length)
+#endif
 {
     if (length == 0) return NULL;
     return Heap_Alloc(CurrentThread.Heap, length);

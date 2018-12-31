@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\Cpu\CpuController.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\Process\Debugger.c">
 <ExpandedNodeIds>
 <v>SystemController</v>
 <v>SystemController\SystemController</v>
@@ -31,17 +31,14 @@
 <v>SystemController\SystemController\Commands\MemoryCommands.h</v>
 <v>SystemController\SystemController\Commands\MemoryManagerCommands.c</v>
 <v>SystemController\SystemController\Commands\MemoryManagerCommands.h</v>
-<v>SystemController\SystemController\Cpu</v>
 <v>SystemController\SystemController\Cpu\CpuController.c</v>
 <v>SystemController\SystemController\Cpu\CpuController.h</v>
 <v>SystemController\SystemController\Cpu\InterruptController.c</v>
 <v>SystemController\SystemController\Cpu\InterruptController.h</v>
 <v>SystemController\SystemController\Cpu\IOController.c</v>
 <v>SystemController\SystemController\Cpu\IOController.h</v>
-<v>SystemController\SystemController\Devices</v>
 <v>SystemController\SystemController\Devices\KeyBoard.c</v>
 <v>SystemController\SystemController\Devices\KeyBoard.h</v>
-<v>SystemController\SystemController\Memory</v>
 <v>SystemController\SystemController\Memory\BusController.c</v>
 <v>SystemController\SystemController\Memory\BusController.h</v>
 <v>SystemController\SystemController\Memory\MemoryController.c</v>
@@ -58,7 +55,6 @@
 <v>SystemController\SystemController\Process\IOProcessor.h</v>
 <v>SystemController\SystemController\Process\UsbProcessor.c</v>
 <v>SystemController\SystemController\Process\UsbProcessor.h</v>
-<v>SystemController\SystemController\Terminal</v>
 <v>SystemController\SystemController\Terminal\SerialTerminal.c</v>
 <v>SystemController\SystemController\Terminal\SerialTerminal.h</v>
 <v>SystemController\SystemController\cyapicallbacks.h</v>
@@ -85,22 +81,8 @@
 <v>SystemController\SystemController\Commands\MemoryManagerCommands.c</v>
 <v>SystemController\SystemController\Commands\MemoryManagerCommands.h</v>
 <v>SystemController\SystemController\Cpu</v>
-<v>SystemController\SystemController\Cpu\CpuController.c</v>
-<v>SystemController\SystemController\Cpu\CpuController.h</v>
-<v>SystemController\SystemController\Cpu\InterruptController.c</v>
-<v>SystemController\SystemController\Cpu\InterruptController.h</v>
-<v>SystemController\SystemController\Cpu\IOController.c</v>
-<v>SystemController\SystemController\Cpu\IOController.h</v>
 <v>SystemController\SystemController\Devices</v>
-<v>SystemController\SystemController\Devices\KeyBoard.c</v>
-<v>SystemController\SystemController\Devices\KeyBoard.h</v>
 <v>SystemController\SystemController\Memory</v>
-<v>SystemController\SystemController\Memory\BusController.c</v>
-<v>SystemController\SystemController\Memory\BusController.h</v>
-<v>SystemController\SystemController\Memory\MemoryController.c</v>
-<v>SystemController\SystemController\Memory\MemoryController.h</v>
-<v>SystemController\SystemController\Memory\MemoryManager.c</v>
-<v>SystemController\SystemController\Memory\MemoryManager.h</v>
 <v>SystemController\SystemController\Process</v>
 <v>SystemController\SystemController\Process\Debugger.c</v>
 <v>SystemController\SystemController\Process\Debugger.h</v>
@@ -112,10 +94,6 @@
 <v>SystemController\SystemController\Process\UsbProcessor.c</v>
 <v>SystemController\SystemController\Process\UsbProcessor.h</v>
 <v>SystemController\SystemController\Terminal</v>
-<v>SystemController\SystemController\Terminal\RingBuffer.c</v>
-<v>SystemController\SystemController\Terminal\RingBuffer.h</v>
-<v>SystemController\SystemController\Terminal\SerialTerminal.c</v>
-<v>SystemController\SystemController\Terminal\SerialTerminal.h</v>
 <v>SystemController\SystemController\cyapicallbacks.h</v>
 <v>SystemController\SystemController\Generated_Source</v>
 <v>SystemController\SystemController\main.c</v>
@@ -123,7 +101,7 @@
 <v>SystemController\SystemController\SystemController.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\TopDesign\TopDesign.cysch">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\Z80Controller\Z80Controller.cysch">
 <ExpandedNodeIds>
 <v>SystemController</v>
 <v>SystemController\SystemController</v>
@@ -134,6 +112,9 @@
 <v>SystemController\SystemController\Z80Controller</v>
 <v>SystemController\SystemController\Z80Controller\Z80Controller.cysch</v>
 <v>SystemController\SystemController\Z80Controller\Z80Controller.cysym</v>
+<v>SystemController\SystemController\Z80Controller_old</v>
+<v>SystemController\SystemController\Z80Controller_old\Z80Controller_old.cysch</v>
+<v>SystemController\SystemController\Z80Controller_old\Z80Controller_old.cysym</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>SystemController</v>
@@ -145,6 +126,9 @@
 <v>SystemController\SystemController\Z80Controller</v>
 <v>SystemController\SystemController\Z80Controller\Z80Controller.cysch</v>
 <v>SystemController\SystemController\Z80Controller\Z80Controller.cysym</v>
+<v>SystemController\SystemController\Z80Controller_old</v>
+<v>SystemController\SystemController\Z80Controller_old\Z80Controller_old.cysch</v>
+<v>SystemController\SystemController\Z80Controller_old\Z80Controller_old.cysym</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -368,22 +352,14 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs>
-<name v=".\SystemController.cydsn\Debugger.c" />
-<name v=".\SystemController.cydsn\IoAddresses.h" />
-<name v=".\SystemController.cydsn\IOProcessor.c" />
-<name v=".\SystemController.cydsn\KeyBoard.h" />
-<name v=".\SystemController.cydsn\KeyBoard.c" />
-<name v=".\SystemController.cydsn\InterruptProcessor.h" />
-<name v=".\SystemController.cydsn\InterruptController.h" />
-</OpenDocs>
+<OpenDocs />
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
   Actipro Docking/MDI for WinForms
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1470, 703" SelectedTabbedMdiWindow="fc5c05bf-4c31-403d-9fd4-071db0fe2430"><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\Debugger.c" Guid="a7ea2b99-4c43-47ef-9412-00a869ca77ba" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\IoAddresses.h" Guid="4c507b69-6a08-4e6a-bff3-e3476282f824" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\IOProcessor.c" Guid="9646db50-e273-4699-9afa-d6c6ac56a970" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\KeyBoard.h" Guid="9e5bcb1f-a0d9-4a9d-b50e-d22671ca4eaa" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\KeyBoard.c" Guid="9800dc98-49df-4443-b644-35992462a272" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\InterruptProcessor.h" Guid="f1d3507b-d41d-4745-9ae6-e0273812f70b" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\InterruptController.h" Guid="fc5c05bf-4c31-403d-9fd4-071db0fe2430" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal" /><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Debug" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
