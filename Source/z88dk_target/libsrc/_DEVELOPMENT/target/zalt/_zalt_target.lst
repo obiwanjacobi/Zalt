@@ -1,4 +1,2 @@
 @target/zalt/driver/_driver.lst
 @target/zalt/system/_system.lst
-
-target/zalt/zalt_crt.asm

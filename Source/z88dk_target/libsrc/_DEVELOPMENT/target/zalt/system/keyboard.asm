@@ -12,8 +12,8 @@ public keyboard_isr
 ; C api
 extern _KeyBoard_OnKey__isr
 ; z88dk
-extern asm_z80_push_registers
-extern asm_z80_pop_registers
+extern asm_im2_push_registers
+extern asm_im2_pop_registers
 ; zalt
 extern bios_sysctrl_debugconsole_in
 
@@ -22,7 +22,7 @@ extern bios_sysctrl_debugconsole_in
 ; saves all registers (alternate also)
 ; calls KeyBoard_OnKey__isr (C) with new char
 keyboard_isr:
-    call asm_z80_push_registers
+    call asm_im2_push_registers
     
     call bios_sysctrl_debugconsole_in   ; get keyboard char (a)
     or a, a                             ; non-destructive zero-test
@@ -31,6 +31,6 @@ keyboard_isr:
     call _KeyBoard_OnKey__isr           ; notify new key (non-zero)
 
 .keyboard_isr_skip
-    call asm_z80_pop_registers
+    call asm_im2_pop_registers
     ei
     reti

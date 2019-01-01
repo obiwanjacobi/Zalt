@@ -14,9 +14,6 @@ m4 -DCFG_ASM_PUB %zalt_loc%config.m4 > %zalt_loc%config_zalt_public.inc
 m4 -DCFG_C_DEF %zalt_loc%config.m4 > %zalt_loc%config_zalt.h
 copy /Y %zalt_loc%config_zalt_private.inc %zalt_loc%config_private.inc 1> nul
 
-::cd %zalt_loc%
-::m4 %zalt_loc%zalt_crt.asm.m4 > %zalt_loc%zalt_crt.asm -I%zalt_loc% -I%z88dk_loc%
-::cd %z88dk_loc%
 
 echo   zalt_sccz80.lib %2
 
