@@ -33,10 +33,10 @@ public _MemoryManager_SetPageAt
 _MemoryManager_SetPageAt:
     ld hl, 2        ; to skip over return address
     add hl, sp      ; hl now points to pageIndex param
-    ld d, (hl)      ; pageId in d
+    ld b, (hl)      ; pageIndex in b
     inc hl          ; msb not used
     inc hl          ; hl now points to pageIndex param
-    ld b, (hl)      ; pageIndex in b
+    ld d, (hl)      ; pageId in d
     ; b => page index, d => page-id
     jp  memorymanager_bank_page_write
 

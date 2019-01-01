@@ -21,9 +21,9 @@
 #define dLogIf(c, s)                if (c) { System_DebugConsole_Log(s); }
 
 #ifdef __SDCC
-#define dBreakpoint()               __asm rst $30 __endasm
+#define dBreakpoint()               __asm__("rst $30")
 #elif __SCCZ80
-#define dBreakpoint()               #asm rst $30 #endasm
+#define dBreakpoint()               asm("rst $30")
 #else
 #define dBreakpoint()
 #endif
