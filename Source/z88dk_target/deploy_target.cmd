@@ -10,7 +10,7 @@ xcopy "%SOURCEDIR%*.*" %TARGETDIR% /Y /E /Q
 
 cd %TARGETDIR%
 :: run transforms (M4)
-m4 -dpeaq -I %TARGETDIR% -I C:\z88dk\libsrc\_DEVELOPMENT\ zalt_crt.asm.m4 > zalt_crt.asm
+m4 -dpeaqfl zalt_crt.asm.m4 > zalt_crt.asm
 
 cd ../../
 

@@ -9,7 +9,6 @@ set zalt_loc=%~dp0
 set z88dk_loc=C:\z88dk\libsrc\_DEVELOPMENT\
 
 
-@echo m4 processing
 m4 -DCFG_ASM_DEF %zalt_loc%config.m4 > %zalt_loc%config_zalt_private.inc
 m4 -DCFG_ASM_PUB %zalt_loc%config.m4 > %zalt_loc%config_zalt_public.inc
 m4 -DCFG_C_DEF %zalt_loc%config.m4 > %zalt_loc%config_zalt.h

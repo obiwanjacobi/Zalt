@@ -25,63 +25,61 @@ include(`../crt_rules.inc')
 include(`zalt_rules.inc')
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GLOBAL SYMBOLS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;include(`../clib_const.m4')
+;include "clib_target_constants.inc"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; SET UP MEMORY MODEL ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 include(`crt_memory_map.inc')
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; GLOBAL SYMBOLS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-include "../clib_constants.inc"
-include "clib_target_constants.inc"
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; INSTANTIATE DRIVERS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-dnl
+dnl   these are m4 comments and not rendered to the output
 dnl############################################################
 dnl## LIST OF AVAILABLE DRIVERS WITH STATIC INSTANTIATORS #####
 dnl############################################################
 dnl
 dnl## input streams
-dnl#include(../driver/character/zalt_00_input_sysctrl.m4)
+dnl#include(`../driver/character/zalt_00_input_sysctrl.m4')
 dnl
 dnl## output streams
-dnl#include(../driver/character/zalt_00_output_sysctrl.m4)
+dnl#include(`../driver/character/zalt_00_output_sysctrl.m4')
 dnl
 dnl## file dup
-dnl#include(../../m4_file_dup.m4)dnl
+dnl#include(`../../m4_file_dup.m4')dnl
 dnl
 dnl## empty fd slot
-dnl#include(../../m4_file_absent.m4)dnl
+dnl#include(`../../m4_file_absent.m4')dnl
 dnl
 dnl############################################################
 dnl## INSTANTIATE DRIVERS #####################################
 dnl############################################################
 dnl
 
-include(../../clib_instantiate_begin.m4)
+include(`../clib_instantiate_begin.m4')
 
 ;; fd=0, stdin
 
-include(../driver/character/zalt_00_input_sysctrl.m4)
+include(`driver/character/zalt_00_input_sysctrl.m4')
 m4_zalt_00_input_sysctrl(_stdin, 0x0100)
-dnl#include(../../m4_file_absent.m4)
-dnl#m4_file_absent
 
 ;; fd=1, stdout
 
-include(../driver/character/zalt_00_output_sysctrl.m4)
+include(`driver/character/zalt_00_output_sysctrl.m4')
 m4_zalt_00_output_sysctrl(_stdout, 0x0010)
 
 ;; fd=2, stderr
 
-include(../../m4_file_dup.m4)
+include(`../m4_file_dup.m4')
 m4_file_dup(_stderr, 0x80, __i_fcntl_fdstruct_1)
 
-include(../../clib_instantiate_end.m4)
+include(`../clib_instantiate_end.m4')
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
