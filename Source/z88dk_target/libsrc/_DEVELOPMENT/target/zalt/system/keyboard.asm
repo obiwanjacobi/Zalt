@@ -7,7 +7,6 @@ section code_zalt_system
 
 ; exports
 public keyboard_isr
-public keyboard_lastkey
 
 ; imports
 ; C api

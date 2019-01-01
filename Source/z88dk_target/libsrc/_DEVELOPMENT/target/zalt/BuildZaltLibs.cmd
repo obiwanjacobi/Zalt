@@ -6,8 +6,12 @@ setlocal ENABLEDELAYEDEXPANSION
 ::set options=-s -m -l
 set options=
 
-copy /Y target\zalt\clib_cfg.asm . 1> nul
-copy /Y target\zalt\clib_target_cfg.asm . 1> nul
+:: m4 processing
+m4 -DCFG_ASM_DEF target/zalt/config.m4 > target/zalt/config_zalt_private.inc
+m4 -DCFG_ASM_PUB target/zalt/config.m4 > target/zalt/config_zalt_public.inc
+m4 -DCFG_C_DEF target/zalt/config.m4 > target/zalt/config_zalt.h
+
+copy /Y target\zalt\config_zalt_private.inc config_private.inc 1> nul
 
 
 echo   zalt_sccz80.lib %2
@@ -37,8 +41,8 @@ del /S *.o > nul 2>&1
 ::del /S *.err > nul 2>&1
 
 
-del clib_cfg.asm > nul 2>&1
-del clib_target_cfg.asm > nul 2>&1
-      
+::del clib_cfg.asm > nul 2>&1
+::del clib_target_cfg.asm > nul 2>&1
+
 echo.
 echo Done.

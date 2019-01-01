@@ -10,18 +10,25 @@ dnl############################################################
 ; *) for now
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GLOBAL SYMBOLS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+include "config_zalt_public.inc"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CRT AND CLIB CONFIGURATION ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 include "../crt_defaults.inc"
-include "crt_target_defaults.inc"
-include "../crt_rules.inc"
+include "crt_config.inc"
+include(`../crt_rules.inc')
+include(`zalt_rules.inc')
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; SET UP MEMORY MODEL ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-include "memory_model.inc"
+include(`crt_memory_map.inc')
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GLOBAL SYMBOLS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -81,7 +88,7 @@ include(../../clib_instantiate_end.m4)
 ;; STARTUP ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-SECTION CODE
+section CODE
 
 ; exports
 public __Start, __Exit
@@ -112,8 +119,8 @@ __Start:
    ; initialize bss section
    include "../clib_init_bss.inc"
 
-SECTION code_crt_init          ; user and library initialization
-SECTION code_crt_main
+section code_crt_init          ; user and library initialization
+section code_crt_main
 
    ; call user program
     call _main                  ; hl = return status
@@ -129,8 +136,8 @@ __Exit:
    ; so the stack may be unbalanced here
    push hl                     ; hl = return status
 
-SECTION code_crt_exit          ; user and library cleanup
-SECTION code_crt_return
+section code_crt_exit          ; user and library cleanup
+section code_crt_return
 
    ; close files   
    include "../clib_close.inc"
@@ -146,13 +153,13 @@ zalt_oblivian:
 ;; RUNTIME VARS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-SECTION BSS_UNINITIALIZED
+section BSS_UNINITIALIZED
 
 ; place any uninitialized data here (eg saved stack pointer)
 ; bss and data section initialization will not touch it
 
 include "../clib_variables.inc"
-include "clib_target_variables.inc"
+;include "clib_target_variables.inc"
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; CLIB STUBS ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
