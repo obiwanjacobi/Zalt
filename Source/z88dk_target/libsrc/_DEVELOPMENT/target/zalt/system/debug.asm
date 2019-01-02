@@ -15,7 +15,7 @@ public debug_restore_registers
 extern bios_interrupt_disable
 extern bios_interrupt_enable
 extern debug_sysctrl_port
-extern debug_status
+extern debug_status_var
 extern debug_regs_var
 extern debug_regs_var_size
 
@@ -88,9 +88,9 @@ debug_save_registers:
     ld (debug_regs_var_af2), hl     ; store af'
     
     ex af, af                       ; switch af back
-    ld hl, debug_status             ; set debug status
+    ld hl, debug_status_var             ; set debug status
     ld (hl), debug_status_registers_saved
-    
+
     ld hl, (debug_regs_var_hl)      ; restore hl value
     ld de, (debug_regs_var_de)      ; restore de value
     ret
@@ -132,7 +132,7 @@ debug_restore_registers:
     ld hl, (debug_regs_var_hl2)
     
     ; for now
-    ld hl, debug_status             ; set debug status
+    ld hl, debug_status_var             ; set debug status
     ld (hl), debug_status_none
 
     ; bc, de, hl

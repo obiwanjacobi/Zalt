@@ -5,20 +5,16 @@
 
 ; exports
 public memorymanager_memmap_reginit
+public memorymanager_bank_get
 public memorymanager_bank_set
+public memorymanager_bank_getio
 public memorymanager_bank_setio
 public memorymanager_bank_page_write
 public memorymanager_bank_page_read
-; c entry points
-public _MemoryManager_Bank_Select__fast
-public _MemoryManager_Bank_Selected
-public _MemoryManager_Bank_SetId__fast
-public _MemoryManager_Bank_Id
-public _MemoryManager_PageAt__fast
 
 ; imports
-extern memorymanager_bankid
-extern memorymanager_io_bankid
+extern memorymanager_bankid_var
+extern memorymanager_io_bankid_var
 
 
 ; the data that is used to fill memory on reset
@@ -130,9 +126,9 @@ defc memorymanager_memmapio_lsb                =    $FF
 ;      call-ret
 memorymanager_memmap_reginit:
     xor a, a                                ; a=0
-    ld hl, memorymanager_bankid
+    ld hl, memorymanager_bankid_var
     ld (hl), a                                ; reset var
-    ld hl, memorymanager_io_bankid
+    ld hl, memorymanager_io_bankid_var
     ld (hl), a                                ; reset var
     ;ld c, memorymanager_memmapio_lsb        ; construct io address in bc
     ;ld b, memorymanager_memmapio_tableaddr
@@ -141,26 +137,23 @@ memorymanager_memmap_reginit:
     ;out (c), a
     ret
 
-; MemoryBankId MemoryManager_Bank_Selected()
-_MemoryManager_Bank_Selected:
 ; pre-conditions:
 ;        call-ret
 ; post-conditinos:
 ;        hl contains bank-id
 memorymanager_bank_get:
-    ld hl, memorymanager_bankid
+    ld hl, memorymanager_bankid_var
     ld l, (hl)
     ld h, 0
     ret
 
-; void MemoryManager_Bank_Select__fast(MemoryBankId bankId);
-_MemoryManager_Bank_Select__fast:
+
 ; pre-conditions:
 ;        call-ret
 ;        hl contains bank id (0-255)
 memorymanager_bank_set:
     ld a, l
-    ld hl, memorymanager_bankid
+    ld hl, memorymanager_bankid_var
     ld (hl), a            ; store latest choice
     ld c, memorymanager_memmapio_lsb        ; construct io address in bc
     ld b, memorymanager_memmapio_tableaddr
@@ -168,54 +161,51 @@ memorymanager_bank_set:
     ret    
 
 
-; MemoryBankId MemoryManager_Bank_Id();
-_MemoryManager_Bank_Id:
 ; pre-conditions:
 ;        call-ret
 ; post-conditinos:
 ;        hl contains bank-id (for io)
 memorymanager_bank_getio:
-    ld hl, memorymanager_io_bankid
+    ld hl, memorymanager_io_bankid_var
     ld l, (hl)
     ld h, 0
     ret
 
-; void MemoryManager_Bank_SetId__fast(MemoryBankId bankId);
-_MemoryManager_Bank_SetId__fast:
+
 ; pre-conditions:
 ;        call-ret
 ;        hl contains bank id (0-255)
 memorymanager_bank_setio:
     ld a, l
-    ld hl, memorymanager_io_bankid
+    ld hl, memorymanager_io_bankid_var
     ld (hl), a            ; store latest choice
     ld c, memorymanager_memmapio_lsb        ; construct io address in bc
     ld b, memorymanager_memmapio_iotableaddr
     out (c), a
     ret    
 
-; Write a mem-map table (bank) data (page-id) value (d) to the current active mem-map table
-; at the specified table index (b).
+
+; Write a mem-map table (bank) data (page-id) value (e) to the current active mem-map table
+; at the specified table index (l).
 ; pre-conditions:
 ;      call-ret
-;        b contains page index (0-15)
-;        d contains the page-id to write (0-255)
+;        l contains page index (0-15)
+;        e contains the page-id to write (0-255)
+; post-conditions:
+;       uses: af, bc, e, l
 memorymanager_bank_page_write:
     ld a, memorymanager_memmapio_data_readtable
     ld c, memorymanager_memmapio_lsb
-    rlc b            ; shift table index to hi nibble
-    rlc b
-    rlc b
-    rlc b
-    or a, b            ; add table index to function code
+    rlc l            ; shift table index to hi nibble
+    rlc l
+    rlc l
+    rlc l
+    or a, l            ; add table index to function code
     ld b, a            ; transfer result from a back to b
-    out (c), d        ; write to the mem-map ram port (b->msb, c->lsb io address)
+    out (c), e        ; write to the mem-map ram port (b->msb, c->lsb io address)
     ret
 
 
-
-; MemoryPageId MemoryManager_PageAt__fast(MemoryPageIndex pageIndex);
-_MemoryManager_PageAt__fast:
 ; Read a mem-map table (bank) data (page-id) value (a) from the current active mem-map table
 ; at the specified table index (b).
 ; pre-conditions:

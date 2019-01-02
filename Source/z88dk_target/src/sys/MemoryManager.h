@@ -44,7 +44,12 @@ extern MemoryPageId FastAPI(MemoryManager_PageAt__fast(MemoryPageIndex pageIndex
 #define MemoryManager_PageAt(p) MemoryManager_PageAt__fast(p)
 
 // set pages of current selected bank
+#ifdef __SCCZ80
+extern void API(MemoryManager_SetPageAt__callee(MemoryPageIndex pageIndex, MemoryPageId pageId));
+#define MemoryManager_SetPageAt(p1, p2) MemoryManager_SetPageAt__callee(p1, p2)
+#else
 extern void MemoryManager_SetPageAt(MemoryPageIndex pageIndex, MemoryPageId pageId);
+#endif
 
 // operational bank
 extern MemoryBankId MemoryManager_Bank_Selected();
