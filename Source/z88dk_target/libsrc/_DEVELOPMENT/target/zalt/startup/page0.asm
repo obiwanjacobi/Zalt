@@ -32,12 +32,14 @@ module page0
     ;defs 0x0000 - ASMPC
 ; address = 0x0000
 ; !RESET and RST00
+RST00:
     di                      ; from warm boot (rst00), interrupts may be enabled
     jp  bios_reset_init
 
     defs 0x0008 - ASMPC
     ; address = 0x0008
     ; RTS08
+RST08:
     ;   di                  ; if you need interrupts disabled, do that here
     jp  BiosFn1
 
@@ -45,12 +47,14 @@ module page0
     defs 0x0010 - ASMPC
     ; address = 0x0010
     ; RST10
+RST10:
     ;   di                  ; if you need interrupts disabled, do that here
     jp    BiosFn2
 
     defs 0x0018 - ASMPC
     ; address = 0x0018
     ; RST18
+RST18:
     ;   di                  ; if you need interrupts disabled, do that here
     jp    BiosFn3
 
@@ -58,6 +62,7 @@ module page0
     defs 0x0020 - ASMPC
     ; address = 0x0020
     ; RST20
+RST20:
     ;   di                  ; if you need interrupts disabled, do that here
     jp    BiosFn4
 
@@ -65,6 +70,7 @@ module page0
     defs 0x0028 - ASMPC
     ; address = 0x0028
     ; RST28
+RST28:
     ;   di                  ; if you need interrupts disabled, do that here
     jp    BiosFn5
 
@@ -72,6 +78,7 @@ module page0
     defs 0x0030 - ASMPC
     ; address = 0x0030
     ; RST30
+RST30:
     ; software debug breakpoint
     call debug_breakpoint
     ret
@@ -80,6 +87,7 @@ module page0
     defs 0x0038 - ASMPC
     ; address = 0x0038
     ; RST38 and IM1
+RST38:
     ; used to trap illegal jumps and interrupt mode
     di              ; disable interrupts
     halt            ; break
@@ -99,6 +107,7 @@ ENDIF
     defs 0x0066 - ASMPC
     ; address = 0x0066
     ; !NMI
+NMI66:
     call debug_save_registers
     call debug_monitor            ; communicate debug info to SystemController
     call debug_restore_registers

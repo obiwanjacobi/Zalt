@@ -1,8 +1,6 @@
-#include<stdio.h>
-
-static char* Message = "Zalt says hello to Z88dk!";
+#include <stdio.h>
 
 void main(void)
 {
-	printf(Message);
+    printf("Zalt says hello to Z88dk!");
 }
