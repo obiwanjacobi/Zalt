@@ -12,13 +12,7 @@ result_t StreamProvider_Construct()
     return ConsoleStreamProvider == NULL ? E_NULLPTR : S_OK;
 }
 
-#ifdef __SDCC
 Stream *FastAPI(Stream_Construct__fast(uint16_t length))
-#elif __SCCZ80
-Stream __FASTCALL__ *Stream_Construct__fast(uint16_t length)
-#else
-Stream *Stream_Construct(uint16_t length)
-#endif
 {
     Stream *stream = Thread_Alloc(length);
     memset(stream, 0, length);
