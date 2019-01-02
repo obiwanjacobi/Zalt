@@ -89,6 +89,10 @@ uint16_t CommandHandler_DispatchCommand(SerialTerminal* serialTerminal, Terminal
             bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
             MemoryRead_Execute(serialTerminal, command);
             break;
+        case COMMAND_MEMORYDUMP:
+            bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
+            MemoryDump_Execute(serialTerminal, command);
+            break;
         case COMMAND_MEMORYFILL:
             bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
             MemoryFill_Execute(serialTerminal, command);

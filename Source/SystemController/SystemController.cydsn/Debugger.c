@@ -227,6 +227,7 @@ void Debugger_PrintRegisterValues()
     Debugger_FormatFlags(buffer, DebugCpuRegisters.AF);
     SysTerminal_PutString(buffer);
     SysTerminal_PutString(NewLine);
+    
     Debugger_FormatRegister16(buffer, "AF ", DebugCpuRegisters.AF);
     SysTerminal_PutString(buffer);
     Debugger_FormatRegister16(buffer, "BC ", DebugCpuRegisters.BC);
@@ -237,19 +238,6 @@ void Debugger_PrintRegisterValues()
     SysTerminal_PutString(buffer);
     SysTerminal_PutString(NewLine);
     
-    Debugger_FormatRegister16(buffer, "IX ", DebugCpuRegisters.IX);
-    SysTerminal_PutString(buffer);
-    Debugger_FormatRegister16(buffer, "IY ", DebugCpuRegisters.IY);
-    SysTerminal_PutString(buffer);
-    Debugger_FormatRegister16(buffer, "SP ", DebugCpuRegisters.SP);
-    SysTerminal_PutString(buffer);
-    Debugger_FormatRegister16(buffer, "PC ", DebugCpuRegisters.PC);
-    SysTerminal_PutString(buffer);
-    SysTerminal_PutString(NewLine);
-    
-//    Debugger_FormatFlags(buffer, DebugCpuRegisters.AF2);
-//    SysTerminal_PutString(buffer);
-//    SysTerminal_PutString(NewLine);
     Debugger_FormatRegister16(buffer, "AF'", DebugCpuRegisters.AF2);
     SysTerminal_PutString(buffer);
     Debugger_FormatRegister16(buffer, "BC'", DebugCpuRegisters.BC2);
@@ -257,6 +245,16 @@ void Debugger_PrintRegisterValues()
     Debugger_FormatRegister16(buffer, "DE'", DebugCpuRegisters.DE2);
     SysTerminal_PutString(buffer);
     Debugger_FormatRegister16(buffer, "HL'", DebugCpuRegisters.HL2);
+    SysTerminal_PutString(buffer);
+    SysTerminal_PutString(NewLine);
+    
+    Debugger_FormatRegister16(buffer, "IX ", DebugCpuRegisters.IX);
+    SysTerminal_PutString(buffer);
+    Debugger_FormatRegister16(buffer, "IY ", DebugCpuRegisters.IY);
+    SysTerminal_PutString(buffer);
+    Debugger_FormatRegister16(buffer, "SP ", DebugCpuRegisters.SP);
+    SysTerminal_PutString(buffer);
+    Debugger_FormatRegister16(buffer, "PC ", DebugCpuRegisters.PC);
     SysTerminal_PutString(buffer);
     SysTerminal_PutString(NewLine);
 }

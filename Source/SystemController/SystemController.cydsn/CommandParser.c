@@ -9,6 +9,7 @@ const char* INCOMPLETE = "Command is Incomplete";
 static char g_Commands[][5] = {
     "mw",   // memory-write
     "mr",   // memory-read
+    "md",   // memory-dump
     "mf",   // memory-fill
     "cm",   // clock mode
     "cd",   // clock divider

@@ -12,16 +12,17 @@ const char* INCOMPLETE;
 #define COMMAND_NONE            0
 #define COMMAND_MEMORYWRITE     1
 #define COMMAND_MEMORYREAD      2
-#define COMMAND_MEMORYFILL      3
-#define COMMAND_CLOCKMODE       4
-#define COMMAND_CLOCKDIVIDER    5
-#define COMMAND_CLOCKPULSE      6
-#define COMMAND_CPURESET        7
-#define COMMAND_TERMINAL_OFF    8
-#define COMMAND_MEMORYMANAGER   9
-#define COMMAND_BANKSWITCH     10
-#define COMMAND_DEBUG          11
-#define COMMAND_STATUS         12
+#define COMMAND_MEMORYDUMP      3
+#define COMMAND_MEMORYFILL      4
+#define COMMAND_CLOCKMODE       5
+#define COMMAND_CLOCKDIVIDER    6
+#define COMMAND_CLOCKPULSE      7
+#define COMMAND_CPURESET        8
+#define COMMAND_TERMINAL_OFF    9
+#define COMMAND_MEMORYMANAGER  10
+#define COMMAND_BANKSWITCH     11
+#define COMMAND_DEBUG          12
+#define COMMAND_STATUS         13
     
 typedef struct
 {

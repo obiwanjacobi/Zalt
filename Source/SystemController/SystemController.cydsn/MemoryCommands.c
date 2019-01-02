@@ -69,7 +69,7 @@ uint8_t MemoryWrite_WriteByte(void* ctx, uint8_t data)
     }
 }
 
-uint16_t MemoryRead_CopyToTerminal(uint16_t address, uint16_t length)
+uint16_t MemoryRead_CopyToTerminal(uint16_t address, uint16_t length, const char* format)
 {
     const uint8_t BufferSize = 0xFF;
     uint8_t buffer[BufferSize];
@@ -86,7 +86,14 @@ uint16_t MemoryRead_CopyToTerminal(uint16_t address, uint16_t length)
         mem.Length = l;
         
         MemoryController_Read(&mem);
-        SysTerminal_PutArray(mem.Buffer, mem.Length);
+        if (format == NULL)
+        {
+            SysTerminal_PutArray(mem.Buffer, mem.Length);
+        }
+        else
+        {
+            SerialTerminal_WriteArrayFormat(format, mem.Buffer, mem.Length);
+        }
         
         length -= l;
         bytesRead += l;
@@ -174,7 +181,7 @@ uint16_t MemoryRead_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     BusState busState;
     BusController_Open(&busState);
     
-    MemoryRead_CopyToTerminal(command->Address, command->Length);
+    MemoryRead_CopyToTerminal(command->Address, command->Length, NULL);
     
     BusController_Close(&busState);
     
@@ -184,6 +191,40 @@ uint16_t MemoryRead_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     return 0;
 }
 
+//
+// Memory Dump
+//
+// => 'md' <Address> <Length>
+// <= hex dump
+
+uint16_t MemoryDump_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
+{
+    // some default for no length specified
+    if (command->Length == 0)
+    {
+        command->Length = 0xFF;
+    }
+    
+    SerialTerminal_Write("Reading ");
+    SerialTerminal_WriteUint16(command->Length, 16);
+    SerialTerminal_Write(" bytes from address ");
+    SerialTerminal_WriteUint16(command->Address, 16);
+    SerialTerminal_WriteLine(":");
+        
+    BusState busState;
+    BusController_Open(&busState);
+    
+    SerialTerminal_WriteFormat("Address: %04Xh", command->Address);
+    SerialTerminal_WriteLine(NULL);
+    MemoryRead_CopyToTerminal(command->Address, command->Length, "%02X");
+    
+    BusController_Close(&busState);
+    
+    SerialTerminal_WriteLine(NULL);
+    SerialTerminal_WriteLine(OK);
+    
+    return 0;
+}
 
 //
 // Memory Fill

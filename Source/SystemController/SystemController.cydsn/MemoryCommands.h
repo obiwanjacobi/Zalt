@@ -9,6 +9,7 @@
 uint16_t DmaParseCommandParameters(RingBuffer* buffer, TerminalCommand* command);
 uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* command);
 uint16_t MemoryRead_Execute(SerialTerminal* serialTerminal, TerminalCommand* command);
+uint16_t MemoryDump_Execute(SerialTerminal* serialTerminal, TerminalCommand* command);
 uint16_t MemoryFill_Execute(SerialTerminal* serialTerminal, TerminalCommand* command);
 
 #endif  //__MEMORYCOMMANDS_H__

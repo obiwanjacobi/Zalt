@@ -21,6 +21,8 @@ uint16_t SerialTerminal_ReceiveBlob(void* ctx, ReceiveCallback fnCallback);
 void SerialTerminal_WriteUint16(uint16_t value, uint8_t radix);
 void SerialTerminal_Write(const char8* text);
 void SerialTerminal_WriteLine(const char8* text);
+void SerialTerminal_WriteFormat(const char* format, uint16_t value);
+void SerialTerminal_WriteArrayFormat(const char* format, uint8_t *buffer, uint16_t length);
 
 #endif//__SERIALTERMINAL_H__
 

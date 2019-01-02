@@ -72,9 +72,11 @@ debug_save_registers:
     ld (debug_regs_var_iy), iy      ; store iy
     ; pc & sp
     pop hl                          ; sp is now as before when we were called
-    ld (debug_regs_var_pc), hl      ; store pc
+    pop de                          ; sp is now as before NMI
+    ld (debug_regs_var_pc), de      ; store pc
     ld (debug_regs_var_sp), sp      ; store sp
-    push hl                         ; restore return address
+    push de                         ; restore return addresses
+    push hl
     ; af
     push af                         ; ld hl, af
     pop hl
@@ -88,7 +90,9 @@ debug_save_registers:
     ex af, af                       ; switch af back
     ld hl, debug_status             ; set debug status
     ld (hl), debug_status_registers_saved
+    
     ld hl, (debug_regs_var_hl)      ; restore hl value
+    ld de, (debug_regs_var_de)      ; restore de value
     ret
 
 

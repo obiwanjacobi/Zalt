@@ -37,6 +37,18 @@ Prints out the (binary) characters in memory starting at `address` for `length` 
 
 If `length` is not specified a value of 0xFF (255) is assumed.
 
+### Memory Dump
+
+`md <address> [length]`
+
+* `address` start address (in hex notation)
+* `length` optional length in bytes (in hex notation)
+
+Prints out the hex values in memory starting at `address` for `length` number of bytes.
+Prints two columns of 8 bytes, 16 bytes per row.
+
+If `length` is not specified a value of 0xFF (255) is assumed.
+
 ### Memory Write
 
 `mw <address> [length]`
@@ -117,8 +129,8 @@ These commands manipulate the Memory Management Unit (MMU) directly.
 
 `mm sel [n]`<br/>
 `mm get [n] [i]`<br/>
-`mm put [n] [i] [v]`<br/>
-`mm null [n]`
+`mm put <n> <i> [v]`<br/>
+`mm nul [n]`
 
 * `sel` select/activates a memory map table.
 * `get` get the value (v) from the specified table and index.
@@ -127,9 +139,9 @@ These commands manipulate the Memory Management Unit (MMU) directly.
 
 <br/>
 
-* `n` the memory map table to select (0-255).
+* `n` the memory map table to select (0-255). Default is 0.
 * `i` the map index in that table (0-16).
-* `v` the value that drives MA12-MA19 (0-255).
+* `v` the value that drives MA12-MA19 (0-255). Default is 0.
 
 ### Bank Switch
 
@@ -146,10 +158,11 @@ Commands to aid in debugging the system.
 
 ### Debug
 
-`dbg break|run`
+`dbg brk|run|reg`
 
-* `break` breaks into the running program (NMI).
+* `brk` breaks into the running program (NMI). Cpu is then halted.
 * `run` resumes the Z80 to continue executing the program.
+* `reg` Dumps the Z80 register values.
 
 ### Terminal Off
 
