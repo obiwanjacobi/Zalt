@@ -19,7 +19,7 @@ void main()
             rowCount = 0;
         }
 
-        switch (MemoryManager_PageFlags(pageId))
+        switch (MemoryManager_Page_Flags(pageId))
         {
         case pageNone:
             printf("- ");

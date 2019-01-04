@@ -49,13 +49,13 @@ MemoryBankId MemoryManager_Bank_Push(MemoryBank *bank);
 result_t MemoryManager_Bank_Pop(MemoryBankId bankId);
 
 // returns the page index (0-15) the address is in
-MemoryPageIndex MemoryManager_PageIndex_FromAddress(ptr_t address);
+MemoryPageIndex MemoryManager_Page_IndexFromAddress(ptr_t address);
 
 // returns the page id (0-255) the address is in
-MemoryPageId MemoryManager_PageId_FromAddress(ptr_t address);
+MemoryPageId MemoryManager_Page_IdFromAddress(ptr_t address);
 
 // returns the page flags for the specified page id
-MemoryPageFlags MemoryManager_PageFlags(MemoryPageId pageId);
+MemoryPageFlags MemoryManager_Page_Flags(MemoryPageId pageId);
 
 // returns a ptr to the first byte of the page (in cpu memory)
 ptr_t MemoryManager_Page_BasePtr(MemoryPageIndex pageIndex);
@@ -65,15 +65,15 @@ ptr_t MemoryManager_Page_BasePtr(MemoryPageIndex pageIndex);
 //
 
 // get pages of current selected bank
-extern MemoryPageId FastAPI(MemoryManager_PageAt__fast(MemoryPageIndex pageIndex));
-#define MemoryManager_PageAt(p) MemoryManager_PageAt__fast(p)
+extern MemoryPageId FastAPI(MemoryManager_Page_At__fast(MemoryPageIndex pageIndex));
+#define MemoryManager_Page_At(p) MemoryManager_Page_At__fast(p)
 
 // set pages of current selected bank
 #ifdef __SCCZ80
-extern void API(MemoryManager_SetPageAt__callee(MemoryPageIndex pageIndex, MemoryPageId pageId));
-#define MemoryManager_SetPageAt(p1, p2) MemoryManager_SetPageAt__callee(p1, p2)
+extern void API(MemoryManager_Page_SetAt__callee(MemoryPageIndex pageIndex, MemoryPageId pageId));
+#define MemoryManager_Page_SetAt(p1, p2) MemoryManager_Page_SetAt__callee(p1, p2)
 #else
-extern void MemoryManager_SetPageAt(MemoryPageIndex pageIndex, MemoryPageId pageId);
+extern void MemoryManager_Page_SetAt(MemoryPageIndex pageIndex, MemoryPageId pageId);
 #endif
 
 // operational bank

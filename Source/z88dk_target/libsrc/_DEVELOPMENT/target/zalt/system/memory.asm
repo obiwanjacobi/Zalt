@@ -10,8 +10,8 @@ public memorymanager_bank_get
 public memorymanager_bank_set
 public memorymanager_bank_getio
 public memorymanager_bank_setio
-public memorymanager_bank_page_write
-public memorymanager_bank_page_read
+public memorymanager_page_write
+public memorymanager_page_read
 
 ; imports
 extern memorymanager_bank_id_var
@@ -194,7 +194,7 @@ memorymanager_bank_setio:
 ;        e contains the page-id to write (0-255)
 ; post-conditions:
 ;       uses: af, bc, e, l
-memorymanager_bank_page_write:
+memorymanager_page_write:
     ld a, memorymanager_memmapio_data_readtable
     ld c, memorymanager_memmapio_lsb
     rlc l               ; shift table index to hi nibble
@@ -214,7 +214,7 @@ memorymanager_bank_page_write:
 ;        hl contains page index (0-15)
 ; post-conditions:
 ;        hl contains page-id
-memorymanager_bank_page_read:
+memorymanager_page_read:
     ld a, memorymanager_memmapio_data_readtable
     ld c, memorymanager_memmapio_lsb
     rlc l               ; shift table index to hi nibble

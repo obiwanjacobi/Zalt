@@ -9,14 +9,14 @@ public _MemoryManager_Bank_Select__fast
 public _MemoryManager_Bank_Selected
 public _MemoryManager_Bank_SetId__fast
 public _MemoryManager_Bank_Id
-public _MemoryManager_PageAt__fast
+public _MemoryManager_Page_At__fast
 
 ; imports
 extern memorymanager_bank_get
 extern memorymanager_bank_set
 extern memorymanager_bank_getio
 extern memorymanager_bank_setio
-extern memorymanager_bank_page_read
+extern memorymanager_page_read
 
 
 ; MemoryBankId MemoryManager_Bank_Selected()
@@ -49,7 +49,7 @@ defc _MemoryManager_Bank_Id = memorymanager_bank_getio
 defc _MemoryManager_Bank_SetId__fast = memorymanager_bank_setio
 
 
-; MemoryPageId MemoryManager_PageAt__fast(MemoryPageIndex pageIndex);
+; MemoryPageId MemoryManager_Page_At__fast(MemoryPageIndex pageIndex);
 ; Read a mem-map table (bank) data (page-id) value (a) from the current active mem-map table
 ; at the specified table index (b).
 ; pre-conditions:
@@ -57,4 +57,4 @@ defc _MemoryManager_Bank_SetId__fast = memorymanager_bank_setio
 ;        hl contains page index (0-15)
 ; post-conditinos:
 ;        hl contains page-id
-defc _MemoryManager_PageAt__fast = memorymanager_bank_page_read
+defc _MemoryManager_Page_At__fast = memorymanager_page_read
