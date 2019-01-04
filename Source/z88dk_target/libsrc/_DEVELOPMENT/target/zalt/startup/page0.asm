@@ -18,7 +18,6 @@ extern bios_var_ram_active_page
 ; debug
 extern debug_save_registers
 extern debug_restore_registers
-extern debug_breakpoint
 extern debug_monitor
 
 module page0
@@ -40,7 +39,6 @@ RST00:
     ; address = 0x0008
     ; RTS08
 RST08:
-    ;   di                  ; if you need interrupts disabled, do that here
     jp  BiosFn1
 
 
@@ -48,14 +46,12 @@ RST08:
     ; address = 0x0010
     ; RST10
 RST10:
-    ;   di                  ; if you need interrupts disabled, do that here
     jp    BiosFn2
 
     defs 0x0018 - ASMPC
     ; address = 0x0018
     ; RST18
 RST18:
-    ;   di                  ; if you need interrupts disabled, do that here
     jp    BiosFn3
 
 
@@ -63,7 +59,6 @@ RST18:
     ; address = 0x0020
     ; RST20
 RST20:
-    ;   di                  ; if you need interrupts disabled, do that here
     jp    BiosFn4
 
 
@@ -71,7 +66,6 @@ RST20:
     ; address = 0x0028
     ; RST28
 RST28:
-    ;   di                  ; if you need interrupts disabled, do that here
     jp    BiosFn5
 
 
@@ -79,10 +73,12 @@ RST28:
     ; address = 0x0030
     ; RST30
 RST30:
-    ; software debug breakpoint
-    call debug_breakpoint
+; software debug breakpoint
+; implements setting up a precompiled debug breakpoint
+    call bios_interrupt_disable         ; we don't want the HALT to be released by another interrupt
+    halt                                ; wait for NMI
+    call bios_interrupt_enable
     ret
-
 
     defs 0x0038 - ASMPC
     ; address = 0x0038

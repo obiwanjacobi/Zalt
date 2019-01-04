@@ -15,14 +15,27 @@ typedef uint8_t MemoryBankId;
 // bank page count is 16 minus reserved/fixed bios pages
 #define MemoryBankPageCount MaxCpuMemoryPageCount - BiosCpuMemoryPageCount
 
+typedef enum
+{
+    pageNone,     // does not exist
+    pageReserved, // page used by system
+    pageFound
+
+} MemoryPageFlags;
+
 typedef struct
 {
+    MemoryBankId BankId;
     // we still alloc a spot for all pages, so you can use MemoryPageIndex to index the array
     // (only 1 or 2 bytes lost)
     MemoryPageId Pages[MaxCpuMemoryPageCount];
+
 } MemoryBank;
 
 #define MemoryBank_size sizeof(MemoryBank)
+
+// global init
+void MemoryManager_Init();
 
 /// Reads the current memory bank page data into 'memory'.
 /// capacity must be at least MemoryBank_size.
@@ -34,6 +47,18 @@ MemoryBankId MemoryManager_Bank_Push(MemoryBank *bank);
 
 /// deactivates the bankId (and all others the came after it?)
 result_t MemoryManager_Bank_Pop(MemoryBankId bankId);
+
+// returns the page index (0-15) the address is in
+MemoryPageIndex MemoryManager_PageIndex_FromAddress(ptr_t address);
+
+// returns the page id (0-255) the address is in
+MemoryPageId MemoryManager_PageId_FromAddress(ptr_t address);
+
+// returns the page flags for the specified page id
+MemoryPageFlags MemoryManager_PageFlags(MemoryPageId pageId);
+
+// returns a ptr to the first byte of the page (in cpu memory)
+ptr_t MemoryManager_Page_BasePtr(MemoryPageIndex pageIndex);
 
 //
 // extern in asm

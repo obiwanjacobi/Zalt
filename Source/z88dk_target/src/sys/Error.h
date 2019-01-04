@@ -2,6 +2,7 @@
 #define __ERROR_H__
 
 #include "api.h"
+#include "Types.h"
 #include <stdint.h>
 
 typedef uint8_t result_t;
@@ -47,9 +48,11 @@ typedef uint8_t result_t;
 #define E_ALREADYOPEN E_ERROR_BASE + 10
 // passing an object or handle that belongs to something else
 #define E_NOTOWNED E_ERROR_BASE + 11
+// marker for last error code
+#define E_ERROR_LAST E_ERROR_BASE + 11
 
-#define Succeeded(r) ((r) < E_ERROR_BASE)
-#define Failed(r) ((r) >= E_ERROR_BASE)
+#define Succeeded(r) ((r) <= S_WITHINFO)
+#define Failed(r) ((r) >= E_ERROR_BASE && (r) <= E_ERROR_LAST)
 
 // (thread) global error
 // void Error_Set(result_t error);
@@ -57,5 +60,10 @@ void FastCall(Error_Set__fast(result_t error));
 #define Error_Set(p) Error_Set__fast(p)
 
 result_t Error_Get();
+
+const char8_t *FastCall(Error_ToText__fast(result_t result));
+#define Error_ToText(p) Error_ToText__fast(p)
+
+const char8_t *Error_GetText();
 
 #endif //__ERROR_H__

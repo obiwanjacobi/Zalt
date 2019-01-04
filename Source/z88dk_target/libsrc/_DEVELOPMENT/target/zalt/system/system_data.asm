@@ -6,9 +6,9 @@ section data_zalt_system
 
 ; exports
 public bios_interrupt_enable_count
+public memorymanager_bank_id_var
+public memorymanager_bank_ioid_var
 public debug_status_var
-public memorymanager_bankid_var
-public memorymanager_io_bankid_var
 public debug_regs_var
 public debug_regs_var_size
 
@@ -24,9 +24,9 @@ bios_interrupt_enable_count:	; counts nested calls to bios_interrupt_disable
 ;
 ; memory manager vars
 ;
-memorymanager_bankid_var:
+memorymanager_bank_id_var:
     defb $00        ; the current bank id in the operational latch
-memorymanager_io_bankid_var:
+memorymanager_bank_ioid_var:
     defb $00        ; the current bank id in the configuration latch
 
 ;

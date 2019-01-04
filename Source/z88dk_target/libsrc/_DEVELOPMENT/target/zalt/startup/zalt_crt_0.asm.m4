@@ -101,7 +101,6 @@ IF __crt_org_code = 0
    ; address = 0x0000
    ; page0 has a fixed org
    include "startup/page0.asm"
-   include "startup/memory.asm"
    
 ;**************************************************************
 ENDIF

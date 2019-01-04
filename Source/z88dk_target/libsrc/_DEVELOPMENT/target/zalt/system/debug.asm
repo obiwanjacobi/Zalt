@@ -6,7 +6,6 @@
 section code_zalt_debug
 
 ; exports
-public debug_breakpoint
 public debug_monitor
 public debug_save_registers
 public debug_restore_registers
@@ -165,7 +164,7 @@ debug_monitor:
     ret z                               ; exit if not so (debug_cmd_exit)
 
     cp a, debug_cmd_wait                ; we're on hold
-    jr z, debug_sleep                 ; sleep till the System Controller wakes us up
+    jr z, debug_sleep                   ; sleep till the System Controller wakes us up
 
     cp a, debug_cmd_dumpregs
     ; uses a!
@@ -197,12 +196,3 @@ debug_dump_registers:
     jr nz, debug_dump_registers_loop
     ret
 
-
-; implements setting up a precompiled debug breakpoint
-; pre-conditions:
-;    call-ret
-debug_breakpoint:
-    call bios_interrupt_disable         ; we don't want the HALT to be released by another interrupt
-    halt                                ; wait for NMI
-    call bios_interrupt_enable
-    ret

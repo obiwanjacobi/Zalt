@@ -58,11 +58,6 @@ uint16_t Debug_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
             break;
     }
     
-    if (command->Mode)
-    {
-        SerialTerminal_WriteLine(OK);
-    }
-    
     return totalRead;
 }
 

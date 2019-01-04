@@ -3,8 +3,8 @@
 setlocal
 setlocal ENABLEDELAYEDEXPANSION
 
-::set options=-s -m -l
-set options=
+::set options=
+set options=-s -m -l
 set zalt_loc=%~dp0
 set z88dk_loc=C:\z88dk\libsrc\_DEVELOPMENT\
 

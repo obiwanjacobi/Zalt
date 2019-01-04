@@ -204,12 +204,6 @@ uint16_t MemoryDump_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     {
         command->Length = 0xFF;
     }
-    
-    SerialTerminal_Write("Reading ");
-    SerialTerminal_WriteUint16(command->Length, 16);
-    SerialTerminal_Write(" bytes from address ");
-    SerialTerminal_WriteUint16(command->Address, 16);
-    SerialTerminal_WriteLine(":");
         
     BusState busState;
     BusController_Open(&busState);

@@ -91,6 +91,8 @@ align 4
 section data_align_2
 align 2
 
+section data_zalt_system
+
 section smc_jump_vectors
 section smc_driver
 section smc_font

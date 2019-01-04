@@ -3,5 +3,6 @@ target/zalt/system/debug.asm
 target/zalt/system/system.asm
 target/zalt/system/system_data.asm
 target/zalt/system/keyboard.asm
+target/zalt/system/memory.asm
 target/zalt/system/memory.thunks.asm
 target/zalt/system/memory.thunk.SetPageAt.asm

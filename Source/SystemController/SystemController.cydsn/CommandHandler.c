@@ -30,7 +30,6 @@ uint16_t TerminalOff_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
 uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
 {
     // cpu
-    const char* halted = NULL;
     const char* suspended = NULL;
     if (CpuController_IsResetActive())
     {
@@ -38,12 +37,10 @@ uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command
     }
     if (CpuController_IsCpuHalted())
     {
-        halted = "halted";
+        suspended = "halted";
     }
     SerialTerminal_Write("CPU ");
     SerialTerminal_Write(suspended);
-    SerialTerminal_Write(" ");
-    SerialTerminal_WriteLine(halted);
     ClockMode_ReportValue();
     ClockDivider_ReportValue();
     
