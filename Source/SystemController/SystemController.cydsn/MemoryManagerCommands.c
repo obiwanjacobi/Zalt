@@ -97,6 +97,9 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, uint8_t
         default:
             break;
     }
+
+    // keep io table in sync with mem table
+    MemoryManager_SelectTableIO(MemoryManager_GetCurrentTable());
     
     BusController_EnableDataBusOutput(0);
     BusController_Close(&busState);

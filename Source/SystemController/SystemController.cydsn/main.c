@@ -16,9 +16,9 @@ static SerialTerminal g_serialTerminal;
 void init()
 {
     CpuController_Init();
+    IOProcessor_Init();
     BusController_Init();
     MemoryManager_Init();
-    IOProcessor_Init();
     InterruptProcessor_Init();
     KeyBoard_Init();
     Debugger_Init();

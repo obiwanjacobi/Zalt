@@ -50,8 +50,8 @@ n_maptableoe << memorycontroller:memoryCtrl.nMapTableOE
 iomemmapld << memorycontroller:memoryCtrl.IoMemMapLd
 n_iomaptableoe << memorycontroller:memoryCtrl.nIoMapTableOE
 memrdtablesel << memorycontroller:memoryCtrl.MemRdTableSel
-sparetablesel << <GND>
-sysctrltablesel << <GND>
+sparetablesel << comb.DB_MAX_OUTPUT_PORT_TYPE
+sysctrltablesel << comb.DB_MAX_OUTPUT_PORT_TYPE
 ctrl[0] <> <UNC>
 ctrl[1] <> <UNC>
 io[0] <> <UNC>
@@ -142,9 +142,9 @@ MA[7] => Equal0.IN0
 MA[7] => Equal1.IN0
 MA[7] => Equal2.IN0
 MA[7] => Equal3.IN0
-nMBE[0] <= nMBE.DB_MAX_OUTPUT_PORT_TYPE
-nMBE[1] <= nMBE.DB_MAX_OUTPUT_PORT_TYPE
-nMBE[2] <= nMBE.DB_MAX_OUTPUT_PORT_TYPE
-nMBE[3] <= nMBE.DB_MAX_OUTPUT_PORT_TYPE
+nMBE[0] <= nMBE[0].DB_MAX_OUTPUT_PORT_TYPE
+nMBE[1] <= nMBE[1].DB_MAX_OUTPUT_PORT_TYPE
+nMBE[2] <= nMBE[2].DB_MAX_OUTPUT_PORT_TYPE
+nMBE[3] <= nMBE[3].DB_MAX_OUTPUT_PORT_TYPE
 
 

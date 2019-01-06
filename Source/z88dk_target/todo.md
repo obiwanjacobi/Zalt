@@ -1,4 +1,4 @@
-#TODO Zalt Bios
+# TODO Zalt Bios
 
 * [Done] remove asm vars from page0. Page0 will be read-only.
     => Moved vars to separate file/section system_data.asm
@@ -16,3 +16,18 @@
     * How to work with variable clock speed (config_cpu.m4/__CPU_CLOCK)?
     * Have crt/startup in target library - not swappable
     * library function implementations into a single file. Linker uses the source file boundary to include/exclude code.
+
+## Issues
+
+Bigger issues:
+
+* System Controller generated CPU clock is not max 20MHz but higher. Up to `cd=3` it works, above that the system becomes unstable. At `cd=3` MMU glitches
+
+### Timing issue with U101 (possibly U102)
+At fast clock `cd=3` the latching of the value into U101 is unreliable.
+The 74HTC573 latches the data (D0-D7) when the LE/Load transisitions from HIGH to LOW.
+This signal is produced by the SystemLogic (MaxII) using IOREQ, WR and the address decoding.
+The Z80 timing for the Output instruction (P24/25 of Z80 User Manual) indicates that a problem could exist when the IOREQ and WR lines go HIGH (inactive) in the last part of the last cycle (of the out instruction). I think the data (at higher CPU clock speeds) is unstable at that time.
+
+Seems that U101 LE is triggered during data writes into the MemBankRam. Putting a 10k pullup on U101-LE fixes it (fast clock `cd=2`).
+But why?

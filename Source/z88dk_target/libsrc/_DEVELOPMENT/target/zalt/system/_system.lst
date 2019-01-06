@@ -4,5 +4,7 @@ target/zalt/system/system.asm
 target/zalt/system/system_data.asm
 target/zalt/system/keyboard.asm
 target/zalt/system/memory.asm
-target/zalt/system/memory.thunks.asm
-target/zalt/system/memory.thunk.Page_SetAt.asm
+target/zalt/system/memory.far.asm
+target/zalt/system/memorymanager.asm
+target/zalt/system/memorymanager.thunks.asm
+target/zalt/system/memorymanager.thunk.Page_SetAt.asm

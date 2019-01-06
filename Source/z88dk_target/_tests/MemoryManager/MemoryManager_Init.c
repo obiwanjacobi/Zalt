@@ -27,6 +27,9 @@ void main()
         case pageReserved:
             printf("R ");
             break;
+        case pageError:
+            printf("E ");
+            break;
         case pageFound:
             printf("X ");
             break;

@@ -9,7 +9,7 @@ void CpuController_Init()
     CyPins_SetPin(ExtBus_CpuClk);
     CyPins_SetPin(ExtBus_CpuWait);
     
-    CpuController_SetClockDivider(3);
+    CpuController_SetClockDivider(4);
     CpuController_SetClockMode(CPUMODE_NORMAL_FAST);
     
     CPUCLK_SLOW_Start();

@@ -1,6 +1,6 @@
 Assembler report for SystemLogic
-Sat Jun 25 17:03:07 2016
-Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+Sun Jan 06 08:27:37 2019
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
 ---------------------
@@ -10,7 +10,7 @@ Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/output_files/SystemLogic.pof
+  5. Assembler Device Options: C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Decoder Board v1.0 - locked/Quartus 15/output_files/SystemLogic.pof
   6. Assembler Messages
 
 
@@ -25,7 +25,7 @@ functions, and any output files from any of the foregoing
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Altera Program License 
-Subscription Agreement, the Altera Quartus Prime License Agreement,
+Subscription Agreement, the Altera Quartus II License Agreement,
 the Altera MegaCore Function License Agreement, or other 
 applicable license agreement, including, without limitation, 
 that your use is for the sole purpose of programming logic 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Jun 25 17:03:07 2016 ;
+; Assembler Status      ; Successful - Sun Jan 06 08:27:37 2019 ;
 ; Revision Name         ; SystemLogic                           ;
 ; Top-level Entity Name ; SystemLogic                           ;
 ; Family                ; MAX II                                ;
@@ -53,40 +53,40 @@ agreement for further details.
 +--------+---------+---------------+
 
 
-+--------------------------------------------------------------------------------------------------------+
-; Assembler Generated Files                                                                              ;
-+--------------------------------------------------------------------------------------------------------+
-; File Name                                                                                              ;
-+--------------------------------------------------------------------------------------------------------+
-; C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/output_files/SystemLogic.pof ;
-+--------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                        ;
++------------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                        ;
++------------------------------------------------------------------------------------------------------------------+
+; C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Decoder Board v1.0 - locked/Quartus 15/output_files/SystemLogic.pof ;
++------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/output_files/SystemLogic.pof ;
-+----------------+-----------------------------------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                                                         ;
-+----------------+-----------------------------------------------------------------------------------------------------------------+
-; Device         ; EPM240T100C5                                                                                                    ;
-; JTAG usercode  ; 0x001917E0                                                                                                      ;
-; Checksum       ; 0x00191B60                                                                                                      ;
-+----------------+-----------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Decoder Board v1.0 - locked/Quartus 15/output_files/SystemLogic.pof ;
++----------------+---------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                   ;
++----------------+---------------------------------------------------------------------------------------------------------------------------+
+; Device         ; EPM240T100C5                                                                                                              ;
+; JTAG usercode  ; 0x001916EE                                                                                                                ;
+; Checksum       ; 0x0019196E                                                                                                                ;
++----------------+---------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
 ; Assembler Messages ;
 +--------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Assembler
-    Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Sat Jun 25 17:03:05 2016
+Info: Running Quartus II 64-Bit Assembler
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Sun Jan 06 08:27:36 2019
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off SystemLogic -c SystemLogic
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
-Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 693 megabytes
-    Info: Processing ended: Sat Jun 25 17:03:07 2016
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4742 megabytes
+    Info: Processing ended: Sun Jan 06 08:27:37 2019
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 

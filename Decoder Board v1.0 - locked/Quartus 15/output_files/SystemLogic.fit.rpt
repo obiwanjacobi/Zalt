@@ -1,6 +1,6 @@
 Fitter report for SystemLogic
-Sat Jun 25 17:02:47 2016
-Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+Sun Jan 06 08:27:34 2019
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
 ---------------------
@@ -41,7 +41,7 @@ functions, and any output files from any of the foregoing
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Altera Program License 
-Subscription Agreement, the Altera Quartus Prime License Agreement,
+Subscription Agreement, the Altera Quartus II License Agreement,
 the Altera MegaCore Function License Agreement, or other 
 applicable license agreement, including, without limitation, 
 that your use is for the sole purpose of programming logic 
@@ -51,21 +51,21 @@ agreement for further details.
 
 
 
-+---------------------------------------------------------------------+
-; Fitter Summary                                                      ;
-+-----------------------+---------------------------------------------+
-; Fitter Status         ; Successful - Sat Jun 25 17:02:47 2016       ;
-; Quartus Prime Version ; 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
-; Revision Name         ; SystemLogic                                 ;
-; Top-level Entity Name ; SystemLogic                                 ;
-; Family                ; MAX II                                      ;
-; Device                ; EPM240T100C5                                ;
-; Timing Models         ; Final                                       ;
-; Total logic elements  ; 13 / 240 ( 5 % )                            ;
-; Total pins            ; 80 / 80 ( 100 % )                           ;
-; Total virtual pins    ; 0                                           ;
-; UFM blocks            ; 0 / 1 ( 0 % )                               ;
-+-----------------------+---------------------------------------------+
++------------------------------------------------------------------------+
+; Fitter Summary                                                         ;
++---------------------------+--------------------------------------------+
+; Fitter Status             ; Successful - Sun Jan 06 08:27:34 2019      ;
+; Quartus II 64-Bit Version ; 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
+; Revision Name             ; SystemLogic                                ;
+; Top-level Entity Name     ; SystemLogic                                ;
+; Family                    ; MAX II                                     ;
+; Device                    ; EPM240T100C5                               ;
+; Timing Models             ; Final                                      ;
+; Total logic elements      ; 13 / 240 ( 5 % )                           ;
+; Total pins                ; 80 / 80 ( 100 % )                          ;
+; Total virtual pins        ; 0                                          ;
+; UFM blocks                ; 0 / 1 ( 0 % )                              ;
++---------------------------+--------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -97,7 +97,6 @@ agreement for further details.
 ; Final Placement Optimizations                                              ; Automatically                  ; Automatically                  ;
 ; Fitter Aggressive Routability Optimizations                                ; Automatically                  ; Automatically                  ;
 ; Fitter Initial Placement Seed                                              ; 1                              ; 1                              ;
-; Periphery to Core Placement and Routing Optimization                       ; Off                            ; Off                            ;
 ; Slow Slew Rate                                                             ; Off                            ; Off                            ;
 ; PCI I/O                                                                    ; Off                            ; Off                            ;
 ; Weak Pull-Up Resistor                                                      ; Off                            ; Off                            ;
@@ -132,7 +131,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/output_files/SystemLogic.pin.
+The pin-out file can be found in C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Decoder Board v1.0 - locked/Quartus 15/output_files/SystemLogic.pin.
 
 
 +------------------------------------------------------------------+
@@ -161,7 +160,7 @@ The pin-out file can be found in C:/Users/marc/Documents/Hardware Projects/Z80 C
 ;     -- asynchronous clear/load mode         ; 0                  ;
 ;                                             ;                    ;
 ; Total registers                             ; 0 / 240 ( 0 % )    ;
-; Total LABs                                  ; 5 / 24 ( 21 % )    ;
+; Total LABs                                  ; 4 / 24 ( 17 % )    ;
 ; Logic elements in carry chains              ; 0                  ;
 ; Virtual pins                                ; 0                  ;
 ; I/O pins                                    ; 80 / 80 ( 100 % )  ;
@@ -175,8 +174,8 @@ The pin-out file can be found in C:/Users/marc/Documents/Hardware Projects/Z80 C
 ;                                             ;                    ;
 ; Global clocks                               ; 0 / 4 ( 0 % )      ;
 ; JTAGs                                       ; 0 / 1 ( 0 % )      ;
-; Average interconnect usage (total/H/V)      ; 3.0% / 2.5% / 3.5% ;
-; Peak interconnect usage (total/H/V)         ; 3.0% / 2.5% / 3.5% ;
+; Average interconnect usage (total/H/V)      ; 3.3% / 3.2% / 3.5% ;
+; Peak interconnect usage (total/H/V)         ; 3.3% / 3.2% / 3.5% ;
 ; Maximum fan-out                             ; 4                  ;
 ; Highest non-global fan-out                  ; 4                  ;
 ; Total fan-out                               ; 53                 ;
@@ -239,15 +238,15 @@ The pin-out file can be found in C:/Users/marc/Documents/Hardware Projects/Z80 C
 ; n_iomaptableoe  ; 61    ; 2        ; 8            ; 2            ; 1           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; n_maptabledata  ; 67    ; 2        ; 8            ; 3            ; 2           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; n_maptableoe    ; 64    ; 2        ; 8            ; 3            ; 4           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; n_mbe[0]        ; 74    ; 2        ; 8            ; 4            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; n_mbe[1]        ; 73    ; 2        ; 8            ; 4            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; n_mbe[2]        ; 72    ; 2        ; 8            ; 4            ; 2           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; n_mbe[3]        ; 71    ; 2        ; 8            ; 4            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; n_mbe[0]        ; 74    ; 2        ; 8            ; 4            ; 0           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; n_mbe[1]        ; 73    ; 2        ; 8            ; 4            ; 1           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; n_mbe[2]        ; 72    ; 2        ; 8            ; 4            ; 2           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; n_mbe[3]        ; 71    ; 2        ; 8            ; 4            ; 3           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; n_memmapen      ; 68    ; 2        ; 8            ; 3            ; 1           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; n_memmapoe      ; 69    ; 2        ; 8            ; 3            ; 0           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 ; n_memmapwe      ; 70    ; 2        ; 8            ; 4            ; 4           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; yes                    ; User                 ; 10 pF ; -                    ; -                   ;
-; sparetablesel   ; 57    ; 2        ; 8            ; 2            ; 3           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
-; sysctrltablesel ; 56    ; 2        ; 8            ; 1            ; 0           ; no              ; no             ; no              ; no         ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; sparetablesel   ; 57    ; 2        ; 8            ; 2            ; 3           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
+; sysctrltablesel ; 56    ; 2        ; 8            ; 1            ; 0           ; no              ; no             ; no              ; yes        ; no            ; no       ; Off          ; 3.3-V LVTTL  ; 16mA             ; no                     ; User                 ; 10 pF ; -                    ; -                   ;
 +-----------------+-------+----------+--------------+--------------+-------------+-----------------+----------------+-----------------+------------+---------------+----------+--------------+--------------+------------------+------------------------+----------------------+-------+----------------------+---------------------+
 
 
@@ -534,21 +533,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; LAB clocks            ; 0 / 32 ( 0 % )    ;
 ; LUT chains            ; 0 / 216 ( 0 % )   ;
 ; Local interconnects   ; 32 / 888 ( 4 % )  ;
-; R4s                   ; 16 / 704 ( 2 % )  ;
+; R4s                   ; 18 / 704 ( 3 % )  ;
 +-----------------------+-------------------+
 
 
 +--------------------------------------------------------------------------+
 ; LAB Logic Elements                                                       ;
 +--------------------------------------------+-----------------------------+
-; Number of Logic Elements  (Average = 2.60) ; Number of LABs  (Total = 5) ;
+; Number of Logic Elements  (Average = 3.25) ; Number of LABs  (Total = 4) ;
 +--------------------------------------------+-----------------------------+
-; 1                                          ; 3                           ;
+; 1                                          ; 2                           ;
 ; 2                                          ; 0                           ;
 ; 3                                          ; 0                           ;
 ; 4                                          ; 0                           ;
-; 5                                          ; 2                           ;
-; 6                                          ; 0                           ;
+; 5                                          ; 1                           ;
+; 6                                          ; 1                           ;
 ; 7                                          ; 0                           ;
 ; 8                                          ; 0                           ;
 ; 9                                          ; 0                           ;
@@ -559,43 +558,45 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------------------------------------+
 ; LAB Signals Sourced                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Signals Sourced  (Average = 2.60) ; Number of LABs  (Total = 5) ;
+; Number of Signals Sourced  (Average = 3.25) ; Number of LABs  (Total = 4) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
-; 1                                           ; 3                           ;
+; 1                                           ; 2                           ;
 ; 2                                           ; 0                           ;
 ; 3                                           ; 0                           ;
 ; 4                                           ; 0                           ;
-; 5                                           ; 2                           ;
+; 5                                           ; 1                           ;
+; 6                                           ; 1                           ;
 +---------------------------------------------+-----------------------------+
 
 
 +-------------------------------------------------------------------------------+
 ; LAB Signals Sourced Out                                                       ;
 +-------------------------------------------------+-----------------------------+
-; Number of Signals Sourced Out  (Average = 2.20) ; Number of LABs  (Total = 5) ;
+; Number of Signals Sourced Out  (Average = 2.75) ; Number of LABs  (Total = 4) ;
 +-------------------------------------------------+-----------------------------+
 ; 0                                               ; 0                           ;
-; 1                                               ; 3                           ;
+; 1                                               ; 2                           ;
 ; 2                                               ; 0                           ;
 ; 3                                               ; 0                           ;
-; 4                                               ; 2                           ;
+; 4                                               ; 1                           ;
+; 5                                               ; 1                           ;
 +-------------------------------------------------+-----------------------------+
 
 
 +---------------------------------------------------------------------------+
 ; LAB Distinct Inputs                                                       ;
 +---------------------------------------------+-----------------------------+
-; Number of Distinct Inputs  (Average = 4.40) ; Number of LABs  (Total = 5) ;
+; Number of Distinct Inputs  (Average = 5.50) ; Number of LABs  (Total = 4) ;
 +---------------------------------------------+-----------------------------+
 ; 0                                           ; 0                           ;
 ; 1                                           ; 0                           ;
-; 2                                           ; 1                           ;
+; 2                                           ; 0                           ;
 ; 3                                           ; 0                           ;
 ; 4                                           ; 2                           ;
-; 5                                           ; 1                           ;
+; 5                                           ; 0                           ;
 ; 6                                           ; 0                           ;
-; 7                                           ; 1                           ;
+; 7                                           ; 2                           ;
 +---------------------------------------------+-----------------------------+
 
 
@@ -650,56 +651,56 @@ Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:00
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 2% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 2% of the available device resources in the region that extends from location X0_Y0 to location X8_Y5
+Info (170195): Router estimated average interconnect usage is 3% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 3% of the available device resources in the region that extends from location X0_Y0 to location X8_Y5
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.02 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.01 seconds.
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:00
 Warning (169064): Following 29 pins have no output enable or a GND or VCC output enable - later changes to this connectivity may change fitting results
-    Info (169065): Pin n_busreq has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 23
-    Info (169065): Pin n_reset has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 31
-    Info (169065): Pin ctrl[0] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 52
-    Info (169065): Pin ctrl[1] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 52
-    Info (169065): Pin io[0] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 53
-    Info (169065): Pin io[1] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 53
-    Info (169065): Pin io[2] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 53
-    Info (169065): Pin io[3] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 53
-    Info (169065): Pin io[4] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 53
-    Info (169065): Pin io[5] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 53
-    Info (169065): Pin io[6] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 53
-    Info (169065): Pin io[7] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 53
-    Info (169065): Pin io_ex[0] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[1] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[2] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[3] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[4] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[5] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[6] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[7] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[8] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[9] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[10] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[11] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[12] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[13] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[14] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[15] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
-    Info (169065): Pin io_ex[16] has a permanently disabled output enable File: C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/SystemLogic.vhd Line: 54
+    Info (169065): Pin n_busreq has a permanently disabled output enable
+    Info (169065): Pin n_reset has a permanently disabled output enable
+    Info (169065): Pin ctrl[0] has a permanently disabled output enable
+    Info (169065): Pin ctrl[1] has a permanently disabled output enable
+    Info (169065): Pin io[0] has a permanently disabled output enable
+    Info (169065): Pin io[1] has a permanently disabled output enable
+    Info (169065): Pin io[2] has a permanently disabled output enable
+    Info (169065): Pin io[3] has a permanently disabled output enable
+    Info (169065): Pin io[4] has a permanently disabled output enable
+    Info (169065): Pin io[5] has a permanently disabled output enable
+    Info (169065): Pin io[6] has a permanently disabled output enable
+    Info (169065): Pin io[7] has a permanently disabled output enable
+    Info (169065): Pin io_ex[0] has a permanently disabled output enable
+    Info (169065): Pin io_ex[1] has a permanently disabled output enable
+    Info (169065): Pin io_ex[2] has a permanently disabled output enable
+    Info (169065): Pin io_ex[3] has a permanently disabled output enable
+    Info (169065): Pin io_ex[4] has a permanently disabled output enable
+    Info (169065): Pin io_ex[5] has a permanently disabled output enable
+    Info (169065): Pin io_ex[6] has a permanently disabled output enable
+    Info (169065): Pin io_ex[7] has a permanently disabled output enable
+    Info (169065): Pin io_ex[8] has a permanently disabled output enable
+    Info (169065): Pin io_ex[9] has a permanently disabled output enable
+    Info (169065): Pin io_ex[10] has a permanently disabled output enable
+    Info (169065): Pin io_ex[11] has a permanently disabled output enable
+    Info (169065): Pin io_ex[12] has a permanently disabled output enable
+    Info (169065): Pin io_ex[13] has a permanently disabled output enable
+    Info (169065): Pin io_ex[14] has a permanently disabled output enable
+    Info (169065): Pin io_ex[15] has a permanently disabled output enable
+    Info (169065): Pin io_ex[16] has a permanently disabled output enable
 Warning (169174): The Reserve All Unused Pins setting has not been specified, and will default to 'As output driving ground'.
-Info (144001): Generated suppressed messages file C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/output_files/SystemLogic.fit.smsg
-Info: Quartus Prime Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 935 megabytes
-    Info: Processing ended: Sat Jun 25 17:02:47 2016
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:04
+Info (144001): Generated suppressed messages file C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Decoder Board v1.0 - locked/Quartus 15/output_files/SystemLogic.fit.smsg
+Info: Quartus II 64-Bit Fitter was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 5079 megabytes
+    Info: Processing ended: Sun Jan 06 08:27:34 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/marc/Documents/Hardware Projects/Z80 Computer/Source/SystemLogic/output_files/SystemLogic.fit.smsg.
+The suppressed messages can be found in C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Decoder Board v1.0 - locked/Quartus 15/output_files/SystemLogic.fit.smsg.
 
 

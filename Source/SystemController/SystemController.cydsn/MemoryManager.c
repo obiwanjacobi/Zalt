@@ -1,6 +1,8 @@
 #include "MemoryManager.h"
+#include "CpuController.h"
 #include "IOController.h"
 #include "BusController.h"
+#include "SerialTerminal.h"
 
 #define ADDRESS_SHIFT   12
 
@@ -21,14 +23,14 @@ uint8_t MemoryManager_ReadTableData(uint8_t mapIndex)
 {
     mapIndex &= 0x0F;
     // index is most-significant-nibble
-    return IOController_Input((IO_MemoryManagerUnit_Data_ReadTable | mapIndex << ADDRESS_SHIFT));
+    return IOController_Input(IO_MemoryManagerUnit_Data_ReadTable | (mapIndex << ADDRESS_SHIFT));
 }
 
 void MemoryManager_WriteTableData(uint8_t mapIndex, uint8_t data)
 {
     mapIndex &= 0x0F;
     // index is most-significant-nibble
-    IOController_Output((IO_MemoryManagerUnit_Data_ReadTable | mapIndex << ADDRESS_SHIFT), data);
+    IOController_Output(IO_MemoryManagerUnit_Data_ReadTable | (mapIndex << ADDRESS_SHIFT), data);
 }
 
 // writes to the register that selects the mem-map table for operational use
@@ -49,16 +51,17 @@ uint8_t MemoryManager_GetCurrentTable()
     return _currentTable;
 }
 
-// IO handlers to keep internal state in-sync with what the Z80 is doing
+// IO handler to keep internal state in-sync with what the Z80 is doing
 void MemoryManager_OnInterrupt()
 {
+    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    
     _currentTable = RegInD_Read();
+    SerialTerminal_WriteFormat("T:%d\n", _currentTable);
 }
 
 void MemoryManager_Init()
 {
-    ISR_MMU_StartEx(MemoryManager_OnInterrupt);
-    
     BusState bus;
     BusController_Open(&bus);
     BusController_EnableDataBusOutput(1);
@@ -70,6 +73,8 @@ void MemoryManager_Init()
     
     BusController_EnableDataBusOutput(0);
     BusController_Close(&bus);
+    
+    ISR_MMU_StartEx(MemoryManager_OnInterrupt);
 }
 
 /* [] END OF FILE */

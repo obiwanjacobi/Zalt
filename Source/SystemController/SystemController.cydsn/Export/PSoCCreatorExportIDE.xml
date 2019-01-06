@@ -206,6 +206,8 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RegMsbA.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_MMU.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\ISR_MMU.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RegCtrl.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RegCtrl.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\Export\ARM_GCC_Generic">

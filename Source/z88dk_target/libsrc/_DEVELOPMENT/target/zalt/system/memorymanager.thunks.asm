@@ -10,6 +10,9 @@ public _MemoryManager_Bank_Selected
 public _MemoryManager_Bank_SetId__fast
 public _MemoryManager_Bank_Id
 public _MemoryManager_Page_At__fast
+public _MemoryManager_Page_IndexFromAddress__fast
+public _MemoryManager_Page_IdFromAddress__fast
+public _MemoryManager_Page_BasePtr__fast
 
 ; imports
 extern memorymanager_bank_get
@@ -17,6 +20,9 @@ extern memorymanager_bank_set
 extern memorymanager_bank_getio
 extern memorymanager_bank_setio
 extern memorymanager_page_read
+extern memorymanager_page_indexfromaddress
+extern memorymanager_page_fromaddress
+extern memorymanager_page_basefromindex
 
 
 ; MemoryBankId MemoryManager_Bank_Selected()
@@ -58,3 +64,25 @@ defc _MemoryManager_Bank_SetId__fast = memorymanager_bank_setio
 ; post-conditinos:
 ;        hl contains page-id
 defc _MemoryManager_Page_At__fast = memorymanager_page_read
+
+
+; MemoryPageIndex MemoryManager_Page_IndexFromAddress__fast(ptr_t address);
+; converts the pageIndex in hl into a pageId (hl)
+; pre-conditions:
+;       call-ret
+;       hl contains cpu address ptr
+; post-conditions:
+;       hl contains page index (0-15)
+defc _MemoryManager_Page_IndexFromAddress__fast = memorymanager_page_indexfromaddress
+
+
+; converts the address in hl into a pageId (hl)
+; pre-conditions:
+;       call-ret
+;       hl contains cpu address ptr
+; post-conditions:
+;       hl contains page id (0-255)
+defc _MemoryManager_Page_IdFromAddress__fast = memorymanager_page_fromaddress
+
+
+defc _MemoryManager_Page_BasePtr__fast = memorymanager_page_basefromindex

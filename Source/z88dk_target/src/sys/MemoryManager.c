@@ -26,16 +26,26 @@ void MemoryManager_Init()
         {
             MemoryManager_Page_SetAt(fixedPageIndex, pageId);
 
-            *testAddress = pageId;      // write
-            if (*testAddress == pageId) // read back
-                _pages[pageId] = pageFound;
+            // fairly reliable error test
+            if (*testAddress == pageId - 1)
+            {
+                *testAddress = pageId; // write
+                _pages[pageId] = pageError;
+            }
             else
-                _pages[pageId] = pageNone;
+            {
+                *testAddress = pageId; // write
+
+                if (*testAddress == pageId) // read back
+                    _pages[pageId] = pageFound;
+                else
+                    _pages[pageId] = pageNone;
+            }
         }
     }
 
     // put back what was at our test index
-    MemoryManager_Page_SetAt(fixedPageIndex, restoreThisPage);
+    // MemoryManager_Page_SetAt(fixedPageIndex, restoreThisPage);
 }
 
 MemoryBank *MemoryManager_Bank_Get(ptr_t memory, uint8_t capacity)
@@ -48,7 +58,7 @@ MemoryBank *MemoryManager_Bank_Get(ptr_t memory, uint8_t capacity)
 
     memBank->BankId = MemoryManager_Bank_Selected();
 
-    // assign selected bank for io
+    // assign selected bank for io - !!should already be the same as selected!!
     MemoryManager_Bank_SetId(memBank->BankId);
 
     memBank->Pages[0] = 0; // bios
@@ -70,7 +80,7 @@ MemoryBankId MemoryManager_Bank_Push(MemoryBank *bank)
 
     // we could optimize this and only set pages that actually changed
     // but for that we need to keep track of the originals...
-    // ...and will the extra checking code be more expensive than the SetPageAt calls?
+    // ...and will the extra checking code be more expensive than the Page_SetAt calls?
     for (int i = BiosCpuMemoryPageCount; i < MaxCpuMemoryPageCount; ++i)
     {
         // TODO: test for reserved/fixed pages
@@ -87,26 +97,12 @@ result_t MemoryManager_Bank_Pop(MemoryBankId bankId)
     dGuardVal(bankId != MemoryManager_Bank_Selected(), E_ARGNOTINRANGE);
 
     --bankId;
+    MemoryManager_Bank_SetId(bankId);
     MemoryManager_Bank_Select(bankId);
     return S_OK;
-}
-
-MemoryPageIndex MemoryManager_Page_IndexFromAddress(ptr_t address)
-{
-    return ((uint16_t)address & 0xF000) >> 12;
-}
-
-MemoryPageId MemoryManager_Page_IdFromAddress(ptr_t address)
-{
-    return MemoryManager_Page_At(MemoryManager_Page_IndexFromAddress(address));
 }
 
 MemoryPageFlags MemoryManager_Page_Flags(MemoryPageId pageId)
 {
     return _pages[pageId];
-}
-
-ptr_t MemoryManager_Page_BasePtr(MemoryPageIndex pageIndex)
-{
-    return (ptr_t)(pageIndex << 12);
 }

@@ -2,7 +2,7 @@
 #define __MEMORYMANAGER_H__
 
 #include "IOProcessor.h"
-#include <project.h>
+#include "SystemController.h"
 
 
 #define MemMapTableSize     16
@@ -10,10 +10,10 @@
 
 // CPU-Board hardware IO addresses
 #define IO_MemoryManagerUnit_Base           0x08FF
-#define IO_MemoryManagerUnit_Data_ReadTable     (IO_MemoryManagerUnit_Base|0x600)
-#define IO_MemoryManagerUnit_Data_WriteTable    (IO_MemoryManagerUnit_Base|0x700)
-#define IO_MemoryManagerUnit_Table              (IO_MemoryManagerUnit_Base|0x400)
-#define IO_MemoryManagerUnit_TableIO            (IO_MemoryManagerUnit_Base|0x500)
+#define IO_MemoryManagerUnit_Data_ReadTable     (IO_MemoryManagerUnit_Base|0x600)   // 0x0EFF (1110 1111 1111)
+#define IO_MemoryManagerUnit_Data_WriteTable    (IO_MemoryManagerUnit_Base|0x700)   // 0x0FFF (1111 1111 1111)
+#define IO_MemoryManagerUnit_Table              (IO_MemoryManagerUnit_Base|0x400)   // 0x0CFF (1100 1111 1111)
+#define IO_MemoryManagerUnit_TableIO            (IO_MemoryManagerUnit_Base|0x500)   // 0x0DFF (1101 1111 1111)
 
 void MemoryManager_Init();
 void MemoryManager_WriteNullTable();

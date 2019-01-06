@@ -19,6 +19,7 @@ typedef enum
 {
     pageNone,     // does not exist
     pageReserved, // page used by system
+    pageError,    // error detected, pages are not switching
     pageFound
 
 } MemoryPageFlags;
@@ -48,21 +49,24 @@ MemoryBankId MemoryManager_Bank_Push(MemoryBank *bank);
 /// deactivates the bankId (and all others the came after it?)
 result_t MemoryManager_Bank_Pop(MemoryBankId bankId);
 
-// returns the page index (0-15) the address is in
-MemoryPageIndex MemoryManager_Page_IndexFromAddress(ptr_t address);
-
-// returns the page id (0-255) the address is in
-MemoryPageId MemoryManager_Page_IdFromAddress(ptr_t address);
-
 // returns the page flags for the specified page id
 MemoryPageFlags MemoryManager_Page_Flags(MemoryPageId pageId);
-
-// returns a ptr to the first byte of the page (in cpu memory)
-ptr_t MemoryManager_Page_BasePtr(MemoryPageIndex pageIndex);
 
 //
 // extern in asm
 //
+
+// returns a ptr to the first byte of the page (in cpu memory)
+extern ptr_t MemoryManager_Page_BasePtr__fast(MemoryPageIndex pageIndex);
+#define MemoryManager_Page_BasePtr(p) MemoryManager_Page_BasePtr__fast(p)
+
+// returns the page index (0-15) the address is in
+extern MemoryPageIndex MemoryManager_Page_IndexFromAddress__fast(ptr_t address);
+#define MemoryManager_Page_IndexFromAddress(p) MemoryManager_Page_IndexFromAddress__fast(p)
+
+// returns the page id (0-255) the address is in
+extern MemoryPageId MemoryManager_Page_IdFromAddress__fast(ptr_t address);
+#define MemoryManager_Page_IdFromAddress(p) MemoryManager_Page_IdFromAddress__fast(p)
 
 // get pages of current selected bank
 extern MemoryPageId FastAPI(MemoryManager_Page_At__fast(MemoryPageIndex pageIndex));

@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for SystemLogic
-Sat Jun 25 17:03:27 2016
-Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
+Sun Jan 06 08:27:41 2019
+Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
 
 
 ---------------------
@@ -16,15 +16,13 @@ Quartus Prime Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
   8. Recovery Summary
   9. Removal Summary
  10. Minimum Pulse Width Summary
- 11. Clock Transfers
- 12. Report TCCS
- 13. Report RSKM
- 14. Unconstrained Paths Summary
- 15. Unconstrained Input Ports
- 16. Unconstrained Output Ports
- 17. Unconstrained Input Ports
- 18. Unconstrained Output Ports
- 19. TimeQuest Timing Analyzer Messages
+ 11. Propagation Delay
+ 12. Minimum Propagation Delay
+ 13. Clock Transfers
+ 14. Report TCCS
+ 15. Report RSKM
+ 16. Unconstrained Paths
+ 17. TimeQuest Timing Analyzer Messages
 
 
 
@@ -38,7 +36,7 @@ functions, and any output files from any of the foregoing
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Altera Program License 
-Subscription Agreement, the Altera Quartus Prime License Agreement,
+Subscription Agreement, the Altera Quartus II License Agreement,
 the Altera MegaCore Function License Agreement, or other 
 applicable license agreement, including, without limitation, 
 that your use is for the sole purpose of programming logic 
@@ -48,18 +46,17 @@ agreement for further details.
 
 
 
-+-----------------------------------------------------------------------------+
-; TimeQuest Timing Analyzer Summary                                           ;
-+-----------------------+-----------------------------------------------------+
-; Quartus Prime Version ; Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition ;
-; Timing Analyzer       ; TimeQuest                                           ;
-; Revision Name         ; SystemLogic                                         ;
-; Device Family         ; MAX II                                              ;
-; Device Name           ; EPM240T100C5                                        ;
-; Timing Models         ; Final                                               ;
-; Delay Model           ; Slow Model                                          ;
-; Rise/Fall Delays      ; Unavailable                                         ;
-+-----------------------+-----------------------------------------------------+
++-------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                       ;
++--------------------+----------------------------------------------------+
+; Quartus II Version ; Version 15.0.0 Build 145 04/22/2015 SJ Web Edition ;
+; Revision Name      ; SystemLogic                                        ;
+; Device Family      ; MAX II                                             ;
+; Device Name        ; EPM240T100C5                                       ;
+; Timing Models      ; Final                                              ;
+; Delay Model        ; Slow Model                                         ;
+; Rise/Fall Delays   ; Unavailable                                        ;
++--------------------+----------------------------------------------------+
 
 
 Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
@@ -115,6 +112,242 @@ No paths to report.
 No paths to report.
 
 
++---------------------------------------------------------+
+; Propagation Delay                                       ;
++------------+----------------+--------+----+----+--------+
+; Input Port ; Output Port    ; RR     ; RF ; FR ; FF     ;
++------------+----------------+--------+----+----+--------+
+; a[0]       ; iomemmapld     ; 12.681 ;    ;    ; 12.681 ;
+; a[0]       ; memmapld       ; 13.221 ;    ;    ; 13.221 ;
+; a[0]       ; n_iomaptableoe ; 12.817 ;    ;    ; 12.817 ;
+; a[0]       ; n_maptabledata ; 12.781 ;    ;    ; 12.781 ;
+; a[0]       ; n_maptableoe   ; 12.781 ;    ;    ; 12.781 ;
+; a[0]       ; n_memmapoe     ; 12.776 ;    ;    ; 12.776 ;
+; a[0]       ; n_memmapwe     ; 11.332 ;    ;    ; 11.332 ;
+; a[1]       ; iomemmapld     ; 12.745 ;    ;    ; 12.745 ;
+; a[1]       ; memmapld       ; 13.285 ;    ;    ; 13.285 ;
+; a[1]       ; n_iomaptableoe ; 12.881 ;    ;    ; 12.881 ;
+; a[1]       ; n_maptabledata ; 12.845 ;    ;    ; 12.845 ;
+; a[1]       ; n_maptableoe   ; 12.845 ;    ;    ; 12.845 ;
+; a[1]       ; n_memmapoe     ; 12.840 ;    ;    ; 12.840 ;
+; a[1]       ; n_memmapwe     ; 11.396 ;    ;    ; 11.396 ;
+; a[2]       ; iomemmapld     ; 12.205 ;    ;    ; 12.205 ;
+; a[2]       ; memmapld       ; 12.745 ;    ;    ; 12.745 ;
+; a[2]       ; n_iomaptableoe ; 12.341 ;    ;    ; 12.341 ;
+; a[2]       ; n_maptabledata ; 12.305 ;    ;    ; 12.305 ;
+; a[2]       ; n_maptableoe   ; 12.305 ;    ;    ; 12.305 ;
+; a[2]       ; n_memmapoe     ; 12.300 ;    ;    ; 12.300 ;
+; a[2]       ; n_memmapwe     ; 10.856 ;    ;    ; 10.856 ;
+; a[3]       ; iomemmapld     ; 12.035 ;    ;    ; 12.035 ;
+; a[3]       ; memmapld       ; 12.575 ;    ;    ; 12.575 ;
+; a[3]       ; n_iomaptableoe ; 12.171 ;    ;    ; 12.171 ;
+; a[3]       ; n_maptabledata ; 12.135 ;    ;    ; 12.135 ;
+; a[3]       ; n_maptableoe   ; 12.135 ;    ;    ; 12.135 ;
+; a[3]       ; n_memmapoe     ; 12.130 ;    ;    ; 12.130 ;
+; a[3]       ; n_memmapwe     ; 10.686 ;    ;    ; 10.686 ;
+; a[4]       ; iomemmapld     ; 11.540 ;    ;    ; 11.540 ;
+; a[4]       ; memmapld       ; 12.080 ;    ;    ; 12.080 ;
+; a[4]       ; n_iomaptableoe ; 11.676 ;    ;    ; 11.676 ;
+; a[4]       ; n_maptabledata ; 11.640 ;    ;    ; 11.640 ;
+; a[4]       ; n_maptableoe   ; 11.640 ;    ;    ; 11.640 ;
+; a[4]       ; n_memmapoe     ; 11.635 ;    ;    ; 11.635 ;
+; a[4]       ; n_memmapwe     ; 10.191 ;    ;    ; 10.191 ;
+; a[5]       ; iomemmapld     ; 11.872 ;    ;    ; 11.872 ;
+; a[5]       ; memmapld       ; 12.412 ;    ;    ; 12.412 ;
+; a[5]       ; n_iomaptableoe ; 12.008 ;    ;    ; 12.008 ;
+; a[5]       ; n_maptabledata ; 11.972 ;    ;    ; 11.972 ;
+; a[5]       ; n_maptableoe   ; 11.972 ;    ;    ; 11.972 ;
+; a[5]       ; n_memmapoe     ; 11.967 ;    ;    ; 11.967 ;
+; a[5]       ; n_memmapwe     ; 10.523 ;    ;    ; 10.523 ;
+; a[6]       ; iomemmapld     ; 12.096 ;    ;    ; 12.096 ;
+; a[6]       ; memmapld       ; 12.636 ;    ;    ; 12.636 ;
+; a[6]       ; n_iomaptableoe ; 12.232 ;    ;    ; 12.232 ;
+; a[6]       ; n_maptabledata ; 12.196 ;    ;    ; 12.196 ;
+; a[6]       ; n_maptableoe   ; 12.196 ;    ;    ; 12.196 ;
+; a[6]       ; n_memmapoe     ; 12.191 ;    ;    ; 12.191 ;
+; a[6]       ; n_memmapwe     ; 10.747 ;    ;    ; 10.747 ;
+; a[7]       ; iomemmapld     ; 12.216 ;    ;    ; 12.216 ;
+; a[7]       ; memmapld       ; 12.756 ;    ;    ; 12.756 ;
+; a[7]       ; n_iomaptableoe ; 12.352 ;    ;    ; 12.352 ;
+; a[7]       ; n_maptabledata ; 12.316 ;    ;    ; 12.316 ;
+; a[7]       ; n_maptableoe   ; 12.316 ;    ;    ; 12.316 ;
+; a[7]       ; n_memmapoe     ; 12.311 ;    ;    ; 12.311 ;
+; a[7]       ; n_memmapwe     ; 10.867 ;    ;    ; 10.867 ;
+; a[8]       ; iomemmapld     ; 9.001  ;    ;    ; 9.001  ;
+; a[8]       ; memmapld       ; 9.531  ;    ;    ; 9.531  ;
+; a[9]       ; iomemmapld     ; 8.693  ;    ;    ; 8.693  ;
+; a[9]       ; memmapld       ; 9.220  ;    ;    ; 9.220  ;
+; a[9]       ; n_iomaptableoe ; 8.832  ;    ;    ; 8.832  ;
+; a[9]       ; n_maptabledata ; 8.796  ;    ;    ; 8.796  ;
+; a[9]       ; n_maptableoe   ; 8.796  ;    ;    ; 8.796  ;
+; a[9]       ; n_memmapoe     ; 8.785  ;    ;    ; 8.785  ;
+; a[9]       ; n_memmapwe     ; 7.341  ;    ;    ; 7.341  ;
+; a[10]      ; iomemmapld     ; 9.429  ;    ;    ; 9.429  ;
+; a[10]      ; memmapld       ; 9.969  ;    ;    ; 9.969  ;
+; a[10]      ; n_iomaptableoe ; 9.565  ;    ;    ; 9.565  ;
+; a[10]      ; n_maptabledata ; 9.529  ;    ;    ; 9.529  ;
+; a[10]      ; n_maptableoe   ; 9.529  ;    ;    ; 9.529  ;
+; a[10]      ; n_memmapoe     ; 9.524  ;    ;    ; 9.524  ;
+; a[10]      ; n_memmapwe     ; 8.080  ;    ;    ; 8.080  ;
+; a[11]      ; iomemmapld     ; 11.775 ;    ;    ; 11.775 ;
+; a[11]      ; memmapld       ; 12.315 ;    ;    ; 12.315 ;
+; a[11]      ; n_iomaptableoe ; 11.911 ;    ;    ; 11.911 ;
+; a[11]      ; n_maptabledata ; 11.875 ;    ;    ; 11.875 ;
+; a[11]      ; n_maptableoe   ; 11.875 ;    ;    ; 11.875 ;
+; a[11]      ; n_memmapoe     ; 11.870 ;    ;    ; 11.870 ;
+; a[11]      ; n_memmapwe     ; 10.426 ;    ;    ; 10.426 ;
+; ma[4]      ; n_mbe[0]       ; 7.853  ;    ;    ; 7.853  ;
+; ma[4]      ; n_mbe[1]       ; 7.768  ;    ;    ; 7.768  ;
+; ma[4]      ; n_mbe[2]       ; 7.619  ;    ;    ; 7.619  ;
+; ma[4]      ; n_mbe[3]       ; 7.627  ;    ;    ; 7.627  ;
+; ma[5]      ; n_mbe[0]       ; 8.362  ;    ;    ; 8.362  ;
+; ma[5]      ; n_mbe[1]       ; 8.278  ;    ;    ; 8.278  ;
+; ma[5]      ; n_mbe[2]       ; 8.129  ;    ;    ; 8.129  ;
+; ma[5]      ; n_mbe[3]       ; 8.140  ;    ;    ; 8.140  ;
+; ma[6]      ; n_mbe[0]       ; 9.604  ;    ;    ; 9.604  ;
+; ma[6]      ; n_mbe[1]       ; 9.520  ;    ;    ; 9.520  ;
+; ma[6]      ; n_mbe[2]       ; 9.370  ;    ;    ; 9.370  ;
+; ma[6]      ; n_mbe[3]       ; 9.374  ;    ;    ; 9.374  ;
+; ma[7]      ; n_mbe[0]       ; 9.965  ;    ;    ; 9.965  ;
+; ma[7]      ; n_mbe[1]       ; 9.881  ;    ;    ; 9.881  ;
+; ma[7]      ; n_mbe[2]       ; 9.731  ;    ;    ; 9.731  ;
+; ma[7]      ; n_mbe[3]       ; 9.735  ;    ;    ; 9.735  ;
+; n_ioreq    ; iomemmapld     ; 12.809 ;    ;    ; 12.809 ;
+; n_ioreq    ; memmapld       ; 13.349 ;    ;    ; 13.349 ;
+; n_ioreq    ; n_iomaptableoe ; 12.945 ;    ;    ; 12.945 ;
+; n_ioreq    ; n_maptabledata ; 12.909 ;    ;    ; 12.909 ;
+; n_ioreq    ; n_maptableoe   ; 12.909 ;    ;    ; 12.909 ;
+; n_ioreq    ; n_memmapoe     ; 12.904 ;    ;    ; 12.904 ;
+; n_ioreq    ; n_memmapwe     ; 11.460 ;    ;    ; 11.460 ;
+; n_memreq   ; n_mbe[0]       ; 10.382 ;    ;    ; 10.382 ;
+; n_memreq   ; n_mbe[1]       ; 10.298 ;    ;    ; 10.298 ;
+; n_memreq   ; n_mbe[2]       ; 10.148 ;    ;    ; 10.148 ;
+; n_memreq   ; n_mbe[3]       ; 10.152 ;    ;    ; 10.152 ;
+; n_wr       ; iomemmapld     ; 9.278  ;    ;    ; 9.278  ;
+; n_wr       ; memmapld       ; 9.806  ;    ;    ; 9.806  ;
+; n_wr       ; n_memmapoe     ; 9.370  ;    ;    ; 9.370  ;
+; n_wr       ; n_memmapwe     ; 7.926  ;    ;    ; 7.926  ;
++------------+----------------+--------+----+----+--------+
+
+
++---------------------------------------------------------+
+; Minimum Propagation Delay                               ;
++------------+----------------+--------+----+----+--------+
+; Input Port ; Output Port    ; RR     ; RF ; FR ; FF     ;
++------------+----------------+--------+----+----+--------+
+; a[0]       ; iomemmapld     ; 12.681 ;    ;    ; 12.681 ;
+; a[0]       ; memmapld       ; 13.221 ;    ;    ; 13.221 ;
+; a[0]       ; n_iomaptableoe ; 12.817 ;    ;    ; 12.817 ;
+; a[0]       ; n_maptabledata ; 12.781 ;    ;    ; 12.781 ;
+; a[0]       ; n_maptableoe   ; 12.781 ;    ;    ; 12.781 ;
+; a[0]       ; n_memmapoe     ; 12.776 ;    ;    ; 12.776 ;
+; a[0]       ; n_memmapwe     ; 11.332 ;    ;    ; 11.332 ;
+; a[1]       ; iomemmapld     ; 12.745 ;    ;    ; 12.745 ;
+; a[1]       ; memmapld       ; 13.285 ;    ;    ; 13.285 ;
+; a[1]       ; n_iomaptableoe ; 12.881 ;    ;    ; 12.881 ;
+; a[1]       ; n_maptabledata ; 12.845 ;    ;    ; 12.845 ;
+; a[1]       ; n_maptableoe   ; 12.845 ;    ;    ; 12.845 ;
+; a[1]       ; n_memmapoe     ; 12.840 ;    ;    ; 12.840 ;
+; a[1]       ; n_memmapwe     ; 11.396 ;    ;    ; 11.396 ;
+; a[2]       ; iomemmapld     ; 12.205 ;    ;    ; 12.205 ;
+; a[2]       ; memmapld       ; 12.745 ;    ;    ; 12.745 ;
+; a[2]       ; n_iomaptableoe ; 12.341 ;    ;    ; 12.341 ;
+; a[2]       ; n_maptabledata ; 12.305 ;    ;    ; 12.305 ;
+; a[2]       ; n_maptableoe   ; 12.305 ;    ;    ; 12.305 ;
+; a[2]       ; n_memmapoe     ; 12.300 ;    ;    ; 12.300 ;
+; a[2]       ; n_memmapwe     ; 10.856 ;    ;    ; 10.856 ;
+; a[3]       ; iomemmapld     ; 12.035 ;    ;    ; 12.035 ;
+; a[3]       ; memmapld       ; 12.575 ;    ;    ; 12.575 ;
+; a[3]       ; n_iomaptableoe ; 12.171 ;    ;    ; 12.171 ;
+; a[3]       ; n_maptabledata ; 12.135 ;    ;    ; 12.135 ;
+; a[3]       ; n_maptableoe   ; 12.135 ;    ;    ; 12.135 ;
+; a[3]       ; n_memmapoe     ; 12.130 ;    ;    ; 12.130 ;
+; a[3]       ; n_memmapwe     ; 10.686 ;    ;    ; 10.686 ;
+; a[4]       ; iomemmapld     ; 11.540 ;    ;    ; 11.540 ;
+; a[4]       ; memmapld       ; 12.080 ;    ;    ; 12.080 ;
+; a[4]       ; n_iomaptableoe ; 11.676 ;    ;    ; 11.676 ;
+; a[4]       ; n_maptabledata ; 11.640 ;    ;    ; 11.640 ;
+; a[4]       ; n_maptableoe   ; 11.640 ;    ;    ; 11.640 ;
+; a[4]       ; n_memmapoe     ; 11.635 ;    ;    ; 11.635 ;
+; a[4]       ; n_memmapwe     ; 10.191 ;    ;    ; 10.191 ;
+; a[5]       ; iomemmapld     ; 11.872 ;    ;    ; 11.872 ;
+; a[5]       ; memmapld       ; 12.412 ;    ;    ; 12.412 ;
+; a[5]       ; n_iomaptableoe ; 12.008 ;    ;    ; 12.008 ;
+; a[5]       ; n_maptabledata ; 11.972 ;    ;    ; 11.972 ;
+; a[5]       ; n_maptableoe   ; 11.972 ;    ;    ; 11.972 ;
+; a[5]       ; n_memmapoe     ; 11.967 ;    ;    ; 11.967 ;
+; a[5]       ; n_memmapwe     ; 10.523 ;    ;    ; 10.523 ;
+; a[6]       ; iomemmapld     ; 12.096 ;    ;    ; 12.096 ;
+; a[6]       ; memmapld       ; 12.636 ;    ;    ; 12.636 ;
+; a[6]       ; n_iomaptableoe ; 12.232 ;    ;    ; 12.232 ;
+; a[6]       ; n_maptabledata ; 12.196 ;    ;    ; 12.196 ;
+; a[6]       ; n_maptableoe   ; 12.196 ;    ;    ; 12.196 ;
+; a[6]       ; n_memmapoe     ; 12.191 ;    ;    ; 12.191 ;
+; a[6]       ; n_memmapwe     ; 10.747 ;    ;    ; 10.747 ;
+; a[7]       ; iomemmapld     ; 12.216 ;    ;    ; 12.216 ;
+; a[7]       ; memmapld       ; 12.756 ;    ;    ; 12.756 ;
+; a[7]       ; n_iomaptableoe ; 12.352 ;    ;    ; 12.352 ;
+; a[7]       ; n_maptabledata ; 12.316 ;    ;    ; 12.316 ;
+; a[7]       ; n_maptableoe   ; 12.316 ;    ;    ; 12.316 ;
+; a[7]       ; n_memmapoe     ; 12.311 ;    ;    ; 12.311 ;
+; a[7]       ; n_memmapwe     ; 10.867 ;    ;    ; 10.867 ;
+; a[8]       ; iomemmapld     ; 9.001  ;    ;    ; 9.001  ;
+; a[8]       ; memmapld       ; 9.531  ;    ;    ; 9.531  ;
+; a[9]       ; iomemmapld     ; 8.693  ;    ;    ; 8.693  ;
+; a[9]       ; memmapld       ; 9.220  ;    ;    ; 9.220  ;
+; a[9]       ; n_iomaptableoe ; 8.832  ;    ;    ; 8.832  ;
+; a[9]       ; n_maptabledata ; 8.796  ;    ;    ; 8.796  ;
+; a[9]       ; n_maptableoe   ; 8.796  ;    ;    ; 8.796  ;
+; a[9]       ; n_memmapoe     ; 8.785  ;    ;    ; 8.785  ;
+; a[9]       ; n_memmapwe     ; 7.341  ;    ;    ; 7.341  ;
+; a[10]      ; iomemmapld     ; 9.429  ;    ;    ; 9.429  ;
+; a[10]      ; memmapld       ; 9.969  ;    ;    ; 9.969  ;
+; a[10]      ; n_iomaptableoe ; 9.565  ;    ;    ; 9.565  ;
+; a[10]      ; n_maptabledata ; 9.529  ;    ;    ; 9.529  ;
+; a[10]      ; n_maptableoe   ; 9.529  ;    ;    ; 9.529  ;
+; a[10]      ; n_memmapoe     ; 9.524  ;    ;    ; 9.524  ;
+; a[10]      ; n_memmapwe     ; 8.080  ;    ;    ; 8.080  ;
+; a[11]      ; iomemmapld     ; 11.775 ;    ;    ; 11.775 ;
+; a[11]      ; memmapld       ; 12.315 ;    ;    ; 12.315 ;
+; a[11]      ; n_iomaptableoe ; 11.911 ;    ;    ; 11.911 ;
+; a[11]      ; n_maptabledata ; 11.875 ;    ;    ; 11.875 ;
+; a[11]      ; n_maptableoe   ; 11.875 ;    ;    ; 11.875 ;
+; a[11]      ; n_memmapoe     ; 11.870 ;    ;    ; 11.870 ;
+; a[11]      ; n_memmapwe     ; 10.426 ;    ;    ; 10.426 ;
+; ma[4]      ; n_mbe[0]       ; 7.853  ;    ;    ; 7.853  ;
+; ma[4]      ; n_mbe[1]       ; 7.768  ;    ;    ; 7.768  ;
+; ma[4]      ; n_mbe[2]       ; 7.619  ;    ;    ; 7.619  ;
+; ma[4]      ; n_mbe[3]       ; 7.627  ;    ;    ; 7.627  ;
+; ma[5]      ; n_mbe[0]       ; 8.362  ;    ;    ; 8.362  ;
+; ma[5]      ; n_mbe[1]       ; 8.278  ;    ;    ; 8.278  ;
+; ma[5]      ; n_mbe[2]       ; 8.129  ;    ;    ; 8.129  ;
+; ma[5]      ; n_mbe[3]       ; 8.140  ;    ;    ; 8.140  ;
+; ma[6]      ; n_mbe[0]       ; 9.604  ;    ;    ; 9.604  ;
+; ma[6]      ; n_mbe[1]       ; 9.520  ;    ;    ; 9.520  ;
+; ma[6]      ; n_mbe[2]       ; 9.370  ;    ;    ; 9.370  ;
+; ma[6]      ; n_mbe[3]       ; 9.374  ;    ;    ; 9.374  ;
+; ma[7]      ; n_mbe[0]       ; 9.965  ;    ;    ; 9.965  ;
+; ma[7]      ; n_mbe[1]       ; 9.881  ;    ;    ; 9.881  ;
+; ma[7]      ; n_mbe[2]       ; 9.731  ;    ;    ; 9.731  ;
+; ma[7]      ; n_mbe[3]       ; 9.735  ;    ;    ; 9.735  ;
+; n_ioreq    ; iomemmapld     ; 12.809 ;    ;    ; 12.809 ;
+; n_ioreq    ; memmapld       ; 13.349 ;    ;    ; 13.349 ;
+; n_ioreq    ; n_iomaptableoe ; 12.945 ;    ;    ; 12.945 ;
+; n_ioreq    ; n_maptabledata ; 12.909 ;    ;    ; 12.909 ;
+; n_ioreq    ; n_maptableoe   ; 12.909 ;    ;    ; 12.909 ;
+; n_ioreq    ; n_memmapoe     ; 12.904 ;    ;    ; 12.904 ;
+; n_ioreq    ; n_memmapwe     ; 11.460 ;    ;    ; 11.460 ;
+; n_memreq   ; n_mbe[0]       ; 10.382 ;    ;    ; 10.382 ;
+; n_memreq   ; n_mbe[1]       ; 10.298 ;    ;    ; 10.298 ;
+; n_memreq   ; n_mbe[2]       ; 10.148 ;    ;    ; 10.148 ;
+; n_memreq   ; n_mbe[3]       ; 10.152 ;    ;    ; 10.152 ;
+; n_wr       ; iomemmapld     ; 9.278  ;    ;    ; 9.278  ;
+; n_wr       ; memmapld       ; 9.806  ;    ;    ; 9.806  ;
+; n_wr       ; n_memmapoe     ; 9.370  ;    ;    ; 9.370  ;
+; n_wr       ; n_memmapwe     ; 7.926  ;    ;    ; 7.926  ;
++------------+----------------+--------+----+----+--------+
+
+
 -------------------
 ; Clock Transfers ;
 -------------------
@@ -134,7 +367,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 
 
 +------------------------------------------------+
-; Unconstrained Paths Summary                    ;
+; Unconstrained Paths                            ;
 +---------------------------------+-------+------+
 ; Property                        ; Setup ; Hold ;
 +---------------------------------+-------+------+
@@ -147,112 +380,20 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                         ;
-+------------+--------------------------------------------------------------------------------------+
-; Input Port ; Comment                                                                              ;
-+------------+--------------------------------------------------------------------------------------+
-; a[0]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[1]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[2]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[3]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[4]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[5]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[6]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[7]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[8]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[9]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[10]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[11]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; ma[4]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; ma[5]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; ma[6]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; ma[7]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_ioreq    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_memreq   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_wr       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------+--------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Unconstrained Output Ports                                                                             ;
-+----------------+---------------------------------------------------------------------------------------+
-; Output Port    ; Comment                                                                               ;
-+----------------+---------------------------------------------------------------------------------------+
-; iomemmapld     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; memmapld       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_iomaptableoe ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_maptabledata ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_maptableoe   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_mbe[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_mbe[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_mbe[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_mbe[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_memmapoe     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_memmapwe     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+----------------+---------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                         ;
-+------------+--------------------------------------------------------------------------------------+
-; Input Port ; Comment                                                                              ;
-+------------+--------------------------------------------------------------------------------------+
-; a[0]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[1]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[2]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[3]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[4]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[5]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[6]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[7]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[8]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[9]       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[10]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; a[11]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; ma[4]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; ma[5]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; ma[6]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; ma[7]      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_ioreq    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_memreq   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_wr       ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------+--------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------------------------------+
-; Unconstrained Output Ports                                                                             ;
-+----------------+---------------------------------------------------------------------------------------+
-; Output Port    ; Comment                                                                               ;
-+----------------+---------------------------------------------------------------------------------------+
-; iomemmapld     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; memmapld       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_iomaptableoe ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_maptabledata ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_maptableoe   ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_mbe[0]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_mbe[1]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_mbe[2]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_mbe[3]       ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_memmapoe     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; n_memmapwe     ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+----------------+---------------------------------------------------------------------------------------+
-
-
 +------------------------------------+
 ; TimeQuest Timing Analyzer Messages ;
 +------------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime TimeQuest Timing Analyzer
-    Info: Version 15.1.0 Build 185 10/21/2015 SJ Lite Edition
-    Info: Processing started: Sat Jun 25 17:03:23 2016
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 15.0.0 Build 145 04/22/2015 SJ Web Edition
+    Info: Processing started: Sun Jan 06 08:27:39 2019
 Info: Command: quartus_sta SystemLogic -c SystemLogic
-Info: qsta_default_script.tcl version: #1
+Info: qsta_default_script.tcl version: #11
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
-Info (334003): Started post-fitting delay annotation
-Info (334004): Delay annotation completed successfully
+Info (306004): Started post-fitting delay annotation
+Info (306005): Delay annotation completed successfully
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'SystemLogic.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
@@ -269,10 +410,10 @@ Info (332140): No Minimum Pulse Width paths to report
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 687 megabytes
-    Info: Processing ended: Sat Jun 25 17:03:27 2016
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:03
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4758 megabytes
+    Info: Processing ended: Sun Jan 06 08:27:41 2019
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
