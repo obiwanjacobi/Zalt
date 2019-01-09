@@ -1,6 +1,7 @@
 ; https://github.com/z88dk/z88dk/wiki/FarMemory
 
 IF __SCCZ80
+section code_zalt_system
 
 ; exports
 public lp_gchar
@@ -14,12 +15,13 @@ public lp_pptr
 public lp_plong
 public lp_pdoub
 public l_farcall
+public FA;
 
 ; imports
 extern memorymanager_page_read
 extern memorymanager_page_write
 extern memorymanager_page_indexfromaddress
-extern FA
+;extern FA
 
 
 ; FA -> FA+5 are 6 bytes presently located in the crt0 file.
@@ -164,13 +166,12 @@ lp_gdoub:
 
 
 ; Writing routines have entry e'h'l' = far address:
-;   hl' => points to the CPU memory. This also indicates where the PageId has to be mapped to.
+;   h'l' => points to the CPU memory. This also indicates where the PageId has to be mapped to.
 ;   e'  => contains the pageId of where the target (function or data) resides.
 
 ;write char
 ;Entry:     l = byte to write
 lp_pchar:
-    exx
     call memorymanager_farmem_write_setup
     call memorymanager_farmem_teardown
     ret
@@ -179,7 +180,6 @@ lp_pchar:
 ;write 2 byte integer
 ;Entry:    hl = word to write
 lp_pint:
-    exx
     call memorymanager_farmem_write_setup
     call memorymanager_farmem_teardown
     ret
@@ -188,7 +188,6 @@ lp_pint:
 ;write 3-byte far pointer
 ;Entry:   ehl = far pointer to write
 lp_pptr:
-    exx
     call memorymanager_farmem_write_setup
     call memorymanager_farmem_teardown
     ret
@@ -197,7 +196,6 @@ lp_pptr:
 ;write 4 byte integer
 ;Entry:  dehl = long to write
 lp_plong:
-    exx
     call memorymanager_farmem_write_setup
     call memorymanager_farmem_teardown
     ret
@@ -207,7 +205,6 @@ lp_plong:
 ;Entry:  none
 ;   write the bytes stored in FA -> FA+5 to the far memory address
 lp_pdoub:
-    exx
     call memorymanager_farmem_write_setup
     call memorymanager_farmem_teardown
     ret
@@ -219,10 +216,14 @@ lp_pdoub:
 ;call far memory
 ;Entry:     ehl = far address to call.
 l_farcall:
-    exx
     call memorymanager_farmem_write_setup
     call memorymanager_farmem_teardown
     ret
 
+
+section code_zalt_data
+; seems like FA is nowhere to be found
+FA:
+    defb 6, $00
 
 ENDIF   ;__SCCZ80

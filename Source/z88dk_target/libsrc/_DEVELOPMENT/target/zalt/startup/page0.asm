@@ -110,7 +110,14 @@ NMI66:
     retn
 
 
-
+; critical error (central struct?)
+;   => called from C with extra byte(s). Log and end/restart
+;   => one extra byte is error code. More is error struct (1st byte is magic)
+; memory fault (or use critical error?)
+;   => called from memory manager routines
+; memory switch?
+; far function table (trampoline)
+ 
 BiosFn1:
 ; bios function #1
 
@@ -256,7 +263,7 @@ defs isr_table_address - ASMPC
 ; The lo address byte (A1-A7: A0=0) is put on the databus by the interrupting device.
 ; The hi address byte (A8-A15) is supplied by the I register that is initialized to (page) 1.
 defw    isr_null_vector        ; Address of ISR #0
-defw    keyboard_isr        ; Address of ISR #1
+defw    keyboard_isr           ; Address of ISR #1
 defw    isr_null_vector        ; Address of ISR #2
 defw    isr_null_vector        ; Address of ISR #3
 defw    isr_null_vector        ; Address of ISR #4

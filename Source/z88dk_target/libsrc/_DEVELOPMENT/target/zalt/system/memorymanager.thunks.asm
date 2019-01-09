@@ -13,6 +13,7 @@ public _MemoryManager_Page_At__fast
 public _MemoryManager_Page_IndexFromAddress__fast
 public _MemoryManager_Page_IdFromAddress__fast
 public _MemoryManager_Page_BasePtr__fast
+public _MemoryManager_FarPtr_Construct__fast
 
 ; imports
 extern memorymanager_bank_get
@@ -23,6 +24,7 @@ extern memorymanager_page_read
 extern memorymanager_page_indexfromaddress
 extern memorymanager_page_fromaddress
 extern memorymanager_page_basefromindex
+extern memorymanager_farmem_construct
 
 
 ; MemoryBankId MemoryManager_Bank_Selected()
@@ -85,4 +87,20 @@ defc _MemoryManager_Page_IndexFromAddress__fast = memorymanager_page_indexfromad
 defc _MemoryManager_Page_IdFromAddress__fast = memorymanager_page_fromaddress
 
 
+; converts the pageId (l) into a page base address (hl)
+; pre-conditions:
+;       call-ret
+;       l contains page id (0-255)
+; post-conditions:
+;       hl contains base ptr
 defc _MemoryManager_Page_BasePtr__fast = memorymanager_page_basefromindex
+
+
+
+; Creates a far ptr from a regular ptr (hl).
+; pre-conditions:
+;      call-ret
+;        hl regular ptr
+; post-conditions:
+;       ehl contains far ptr
+defc _MemoryManager_FarPtr_Construct__fast = memorymanager_farmem_construct

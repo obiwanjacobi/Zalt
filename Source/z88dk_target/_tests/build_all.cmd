@@ -1,13 +1,10 @@
 @echo off
 @echo Building Tests...
 
-cd %~dp0Echo-getputchar
+cd %~dp0Stdio
 call build.cmd %1
 
 cd %~dp0Heap
-call build.cmd %1
-
-cd %~dp0HelloWorld-printf
 call build.cmd %1
 
 cd %~dp0MemoryManager

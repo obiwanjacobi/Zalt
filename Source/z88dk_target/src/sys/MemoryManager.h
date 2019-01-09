@@ -1,6 +1,7 @@
 #ifndef __MemoryManager_H__
 #define __MemoryManager_H__
 
+#include "MemoryFar.h"
 #include "Sys.h"
 
 // unique memory page id in 1MB address space (0-255)
@@ -89,5 +90,9 @@ extern void FastAPI(MemoryManager_Bank_Select__fast(MemoryBankId bankId));
 extern MemoryBankId MemoryManager_Bank_Id();
 extern void FastAPI(MemoryManager_Bank_SetId__fast(MemoryBankId bankId));
 #define MemoryManager_Bank_SetId(p) MemoryManager_Bank_SetId__fast(p)
+
+// far ptr
+extern farptr_t FastAPI(MemoryManager_FarPtr_Construct__fast(ptr_t ptr));
+#define MemoryManager_FarPtr_Construct(p) MemoryManager_FarPtr_Construct__fast(p)
 
 #endif //__MemoryManager_H__

@@ -15,6 +15,7 @@ public memorymanager_page_read
 public memorymanager_page_indexfromaddress
 public memorymanager_page_fromaddress
 public memorymanager_page_basefromindex
+public memorymanager_farmem_construct
 
 ; imports
 extern memorymanager_bank_id_var
@@ -204,6 +205,23 @@ memorymanager_page_fromaddress:
     call memorymanager_page_indexfromaddress
     call memorymanager_page_read
     ret
+
+
+
+; Creates a far ptr from a regular ptr (hl).
+; pre-conditions:
+;      call-ret
+;        hl regular ptr
+; post-conditions:
+;       ehl contains far ptr
+memorymanager_farmem_construct:
+    push hl                                         ; save cpu address
+    call memorymanager_page_indexfromaddress        ; memorymanager_page_fromaddress
+    call memorymanager_page_read                    ; page id in l
+    ex de, hl                                       ; page id in e
+    pop hl                                          ; cpu addres in hl
+    ret
+
 
 
 ; Writes all mem-map table data values for the current active mem-map table
