@@ -7,7 +7,6 @@
 
 #define farptr_t void *__far
 #define FarPtrFn(fn) (*__far fn)
-#define FarPtrOf(T) T *__far
 
 // typedef uint8_t *__far farptru8_t;
 // typedef char8_t *__far farptrc8_t;
@@ -17,7 +16,6 @@
 
 typedef void *farptr_t;
 #define FarPtrFn(fn) (*fn)
-#define FarPtrOf(T) T *
 
 // typedef uint8_t *farptru8_t;
 // typedef char8_t *farptrc8_t;

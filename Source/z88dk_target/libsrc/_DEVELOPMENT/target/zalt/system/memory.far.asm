@@ -78,22 +78,74 @@ memorymanager_farmem_read_setup:
 ;       stack contains pageIndex (hi) and pageId (lo)
 ; post-conditions:
 ;       memory restored to original pageId
-memorymanager_farmem_teardown:
+memorymanager_farmem_read_teardown:
     pop bc          ; return address
     exx
+
     pop de
     ld l, d
     ; l = pageIndex, e = pageId
     call memorymanager_page_write
+
     exx
     push bc         ; return address
     ret
 
 
 
-
+; pre-conditions:
+;       call-ret
+;       e'h'l' = far address (hl must be preserved)
+;       dehl is parameter (all must be preserved)
+; post-conditions:
+;       memory changed to far ptr h'l'
+;       params prepared for teardown call
+;       no return val (void)
 memorymanager_farmem_write_setup:
+    pop bc              ; return address
+    exx
+
+; TODO: inline the called memorymanager fn's and optimize further
+
+    ld b, h                                     ; save CPU address to write in bc
+    ld c, l
+    ld a, e                                     ; save pageId for later
+    ; hl = address => l = pageIndex
+    call memorymanager_page_indexfromaddress    ; l contains pageIndex
+    ld d, l                                     ; save pageIndex for later
+    ; l = pageIndex => l = pageId
+    call memorymanager_page_read                ; read current pageId
+    ld e, l                                     ; transfer pageId (lsb only)
+    push de                                     ; prepare pageId (e) and pageIndex (d) for teardown
+    ld l, d                                     ; restore pageIndex in hl
+    ld e, a                                     ; param pageId 
+    ; l = pageIndex, e = pageId
+    call memorymanager_page_write
+    ld h, b                                     ; restore hl
+    ld l, c
+
+    exx
+    push bc             ; return address
     ret
+
+
+
+; restores the pageId at the pageIndex (prepared there by setup)
+; pre-conditions:
+;       call-ret (uses exx)
+;       stack contains pageIndex (hi) and pageId (lo)
+; post-conditions:
+;       memory restored to original pageId
+memorymanager_farmem_write_teardown:
+    pop bc          ; return address
+    pop de
+    ld l, d
+    ; l = pageIndex, e = pageId
+    call memorymanager_page_write
+    push bc         ; return address
+    ret
+
+
 
 ;
 ; -----------------------------------------------------------------------------
@@ -106,8 +158,8 @@ lp_gchar:
     ld l, (hl)
     ld a, l
     ld h, 0
-    call memorymanager_farmem_teardown
-    ret;
+    call memorymanager_farmem_read_teardown
+    ret
 
 
 ;read 2 byte integer
@@ -118,8 +170,9 @@ lp_gint:
     inc hl
     ld d, (hl)
     ex de, hl
-    call memorymanager_farmem_teardown
-    ret;
+    call memorymanager_farmem_read_teardown
+    ret
+
 
 ; reads 3-byte far ptr
 ;Exit:  ehl = far pointer at that location
@@ -132,7 +185,7 @@ lp_gptr:
     ld c, (hl)
     ex de, hl
     ld e, c
-    call memorymanager_farmem_teardown
+    call memorymanager_farmem_read_teardown
     ret
 
 
@@ -150,7 +203,7 @@ lp_glong:
     ex de, hl
     ld e, c
     ld d, b
-    call memorymanager_farmem_teardown
+    call memorymanager_farmem_read_teardown
     ret
 
 
@@ -161,7 +214,7 @@ lp_gdoub:
     ld de, FA
     ld bc, 6
     ldir
-    call memorymanager_farmem_teardown
+    call memorymanager_farmem_read_teardown
     ret
 
 
@@ -173,7 +226,11 @@ lp_gdoub:
 ;Entry:     l = byte to write
 lp_pchar:
     call memorymanager_farmem_write_setup
-    call memorymanager_farmem_teardown
+    push hl
+    exx
+    pop bc
+    ld (hl), c
+    call memorymanager_farmem_write_teardown
     ret
 
 
@@ -181,7 +238,13 @@ lp_pchar:
 ;Entry:    hl = word to write
 lp_pint:
     call memorymanager_farmem_write_setup
-    call memorymanager_farmem_teardown
+    push hl
+    exx
+    pop bc
+    ld (hl), c
+    inc hl
+    ld (hl), b
+    call memorymanager_farmem_write_teardown
     ret
 
 
@@ -189,7 +252,17 @@ lp_pint:
 ;Entry:   ehl = far pointer to write
 lp_pptr:
     call memorymanager_farmem_write_setup
-    call memorymanager_farmem_teardown
+    push hl
+    push de
+    exx
+    pop de
+    pop bc
+    ld (hl), c
+    inc hl
+    ld (hl), b
+    inc hl
+    ld (hl), e
+    call memorymanager_farmem_write_teardown
     ret
 
 
@@ -197,7 +270,19 @@ lp_pptr:
 ;Entry:  dehl = long to write
 lp_plong:
     call memorymanager_farmem_write_setup
-    call memorymanager_farmem_teardown
+    push hl
+    push de
+    exx
+    pop de
+    pop bc
+    ld (hl), c
+    inc hl
+    ld (hl), b
+    inc hl
+    ld (hl), e
+    inc hl
+    ld (hl), d
+    call memorymanager_farmem_write_teardown
     ret
 
 
@@ -206,7 +291,12 @@ lp_plong:
 ;   write the bytes stored in FA -> FA+5 to the far memory address
 lp_pdoub:
     call memorymanager_farmem_write_setup
-    call memorymanager_farmem_teardown
+    exx
+    ex de, hl
+    ld hl, FA
+    ld bc, 6
+    ldir
+    call memorymanager_farmem_write_teardown
     ret
 
 
@@ -216,12 +306,18 @@ lp_pdoub:
 ;call far memory
 ;Entry:     ehl = far address to call.
 l_farcall:
-    call memorymanager_farmem_write_setup
-    call memorymanager_farmem_teardown
+;   setup: push bank
+;   call fn
+;   teardown: pop bank
     ret
 
 
+;
+; -----------------------------------------------------------------------------
+;
+
 section code_zalt_data
+
 ; seems like FA is nowhere to be found
 FA:
     defb 6, $00
