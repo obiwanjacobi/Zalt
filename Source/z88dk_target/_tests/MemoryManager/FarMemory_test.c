@@ -49,7 +49,7 @@ void main()
     farptr_t fp = ManuallySetFarMemData();
     if (fp != NULL)
     {
-        uint8_t *address = fp;
+        farptru8_t address = fp;
         // read far memory
         uint8_t val = *address;
         printf("FarMem value %d (should be 42)\n", val);

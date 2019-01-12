@@ -2,7 +2,15 @@
 #include "Debug.h"
 #include <stdio.h>
 
-static MemoryPageFlags _pages[256];
+typedef struct
+{
+    MemoryPageFlags Flags;
+
+} MemoryPageInfo;
+
+static MemoryPageInfo _pages[256];
+
+const MemoryPageIndex InvalidPageIndex = 0;
 
 void MemoryManager_Init()
 {
@@ -20,7 +28,11 @@ void MemoryManager_Init()
     {
         if (pageId <= thisPage)
         {
-            _pages[pageId] = pageReserved;
+            _pages[pageId].Flags = MakePageFlags(MemoryAccess_Execute, MemoryUsage_System, MemoryStatus_Fixed);
+        }
+        else if (pageId == 15) // hard-coded for now
+        {
+            _pages[pageId].Flags = MakePageFlags(MemoryAccess_ReadWrite, MemoryUsage_Stack, MemoryStatus_Fixed);
         }
         else
         {
@@ -30,22 +42,22 @@ void MemoryManager_Init()
             if (*testAddress == pageId - 1)
             {
                 *testAddress = pageId; // write
-                _pages[pageId] = pageError;
+                _pages[pageId].Flags = -1;
             }
             else
             {
                 *testAddress = pageId; // write
 
                 if (*testAddress == pageId) // read back
-                    _pages[pageId] = pageFound;
+                    _pages[pageId].Flags = MakePageFlags(MemoryAccess_None, MemoryUsage_None, MemoryStatus_Active);
                 else
-                    _pages[pageId] = pageNone;
+                    _pages[pageId].Flags = 0;
             }
         }
     }
 
     // put back what was at our test index
-    // MemoryManager_Page_SetAt(fixedPageIndex, restoreThisPage);
+    MemoryManager_Page_SetAt(fixedPageIndex, restoreThisPage);
 }
 
 MemoryBank *MemoryManager_Bank_Get(ptr_t memory, uint8_t capacity)
@@ -104,5 +116,10 @@ result_t MemoryManager_Bank_Pop(MemoryBankId bankId)
 
 MemoryPageFlags MemoryManager_Page_Flags(MemoryPageId pageId)
 {
-    return _pages[pageId];
+    return _pages[pageId].Flags;
+}
+
+MemoryPageFlags MakePageFlags(MemoryAccess access, MemoryUsage usage, MemoryStatus status)
+{
+    return (access) | (usage << 3) | (status << 6);
 }

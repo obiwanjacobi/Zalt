@@ -11,6 +11,8 @@ typedef uint8_t MemoryPageIndex;
 // memory bank id (the value in the memory map latch: 0-255)
 typedef uint8_t MemoryBankId;
 
+extern const MemoryPageIndex InvalidPageIndex;
+
 #define MaxCpuMemoryPageCount 16
 #define BiosCpuMemoryPageCount 1
 // bank page count is 16 minus reserved/fixed bios pages
@@ -18,17 +20,57 @@ typedef uint8_t MemoryBankId;
 
 typedef enum
 {
-    pageNone,     // does not exist
-    pageReserved, // page used by system
-    pageError,    // error detected, pages are not switching
-    pageFound
+    MemoryAccess_None = 0, // locked - no access
+    MemoryAccess_Read = 1,
+    MemoryAccess_Write = 2,
+    MemoryAccess_ReadWrite = 3,
+    MemoryAccess_Execute = 4,
+    MemoryAccess_ReadExecute = 5,
 
-} MemoryPageFlags;
+} MemoryAccess;
+
+typedef enum
+{
+    MemoryUsage_None, // unused/free
+    MemoryUsage_System,
+    MemoryUsage_Stack,
+    MemoryUsage_Heap,
+    MemoryUsage_Data,
+    MemoryUsage_Program,
+    MemoryUsage_Resource,
+    MemoryUsage_Cache,
+
+} MemoryUsage;
+
+typedef enum
+{
+    MemoryStatus_None,   // no physical memory there
+    MemoryStatus_Active, // memory available (movable)
+    MemoryStatus_Pinned, // currently pinned in cpu space (page index)
+    MemoryStatus_Fixed,  // fixed at current cpu index
+
+} MemoryStatus;
+
+// Access: Bit 0-2
+// Usage: Bit 3-5
+// Status: Bit 6-7
+typedef uint8_t MemoryPageFlags;
+
+#define MemoryPageFlags_Access(flags) (flags & 0x07)
+#define MemoryPageFlags_Usage(flags) ((flags >> 3) & 0x07)
+#define MemoryPageFlags_Status(flags) ((flags >> 6) & 0x03)
+
+#define MemoryPageFlags_HasAccess(flags, access) (flags & access)
+#define MemoryPageFlags_HasUsage(flags, usage) (flags & (usage << 3))
+#define MemoryPageFlags_HasStatus(flags, status) (flags & (status << 6))
+
+MemoryPageFlags MakePageFlags(MemoryAccess access, MemoryUsage usage, MemoryStatus status);
+// #define MakePageFlags(access, usage, status) (access) | (usage << 3) | (status << 6)
 
 typedef struct
 {
     MemoryBankId BankId;
-    // we still alloc a spot for all pages, so you can use MemoryPageIndex to index the array
+    // we alloc a spot for all pages, so you can use MemoryPageIndex to index the array
     // (only 1 or 2 bytes lost)
     MemoryPageId Pages[MaxCpuMemoryPageCount];
 
@@ -52,6 +94,22 @@ result_t MemoryManager_Bank_Pop(MemoryBankId bankId);
 
 // returns the page flags for the specified page id
 MemoryPageFlags MemoryManager_Page_Flags(MemoryPageId pageId);
+
+// lays claim on page
+MemoryPageId MemoryManager_Page_Alloc(MemoryPageFlags flags, uint16_t capacity);
+
+// releases onwership of page(s) (by handle)
+void MemoryManager_Page_Free(MemoryPageId pageId);
+
+// locks memory into active region and returns pointer
+ptr_t MemoryManager_Page_Pin(MemoryPageId pageId, MemoryPageIndex pageIndex);
+
+// releases lock on memory - keep ownership
+void MemoryManager_Page_Unpin(MemoryPageId pageId);
+
+// makes a regular pointer from a far ptr (pin memory before use!)
+ptr_t FastCall(MemoryManager_FarPtr_ToPointer__fast(farptr_t farPtr));
+#define MemoryManager_FarPtr_ToPointer(p) MemoryManager_FarPtr_ToPointer__fast(p)
 
 //
 // extern in asm

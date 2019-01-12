@@ -1,4 +1,5 @@
 #include "Debug.h"
+#include "Memory.h"
 #include "MemoryManager.h"
 #include "Thread.h"
 #include <stdint.h>
@@ -19,19 +20,28 @@ void main()
             rowCount = 0;
         }
 
-        switch (MemoryManager_Page_Flags(pageId))
+        MemoryPageFlags flags = MemoryManager_Page_Flags(pageId);
+        switch (flags)
         {
-        case pageNone:
+        case 0:
             printf("- ");
             break;
-        case pageReserved:
-            printf("R ");
-            break;
-        case pageError:
+        case -1:
             printf("E ");
             break;
-        case pageFound:
-            printf("X ");
+        default:
+            switch (MemoryPageFlags_Usage(flags))
+            {
+            case MemoryUsage_System:
+                printf("B ");
+                break;
+            case MemoryUsage_Stack:
+                printf("S ");
+                break;
+            default:
+                printf("X ");
+                break;
+            }
             break;
         }
         ++rowCount;

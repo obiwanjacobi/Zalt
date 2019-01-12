@@ -5,7 +5,7 @@ if [%1]==[] goto clib
 
 call deploy_target.cmd
 call build_lib.cmd %1
-call %~dp0_tests\build_all.cmd %1
+call build_tests.cmd %1
 
 cd %~dp0
 goto :eof

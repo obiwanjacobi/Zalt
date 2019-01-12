@@ -8,18 +8,18 @@
 #define farptr_t void *__far
 #define FarPtrFn(fn) (*__far fn)
 
-// typedef uint8_t *__far farptru8_t;
-// typedef char8_t *__far farptrc8_t;
-// typedef uint16_t *__far farptru16_t;
+typedef uint8_t *__far farptru8_t;
+typedef char8_t *__far farptrc8_t;
+typedef uint16_t *__far farptru16_t;
 
 #else
 
 typedef void *farptr_t;
 #define FarPtrFn(fn) (*fn)
 
-// typedef uint8_t *farptru8_t;
-// typedef char8_t *farptrc8_t;
-// typedef uint16_t *farptru16_t;
+typedef uint8_t *farptru8_t;
+typedef char8_t *farptrc8_t;
+typedef uint16_t *farptru16_t;
 
 #endif //__SCCZ80
 
