@@ -141,8 +141,15 @@ section code_crt_return
 
    pop hl                      ; hl = return status
 
+
+extern debug_status_var
+extern debug_status_program_end
+
    ; exit program
 zalt_oblivian:
+   ld a, debug_status_program_end
+   ld (debug_status_var), a
+   halt
    ; perhaps we need something to break into the System Controller?
 	jr zalt_oblivian
 

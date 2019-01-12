@@ -5,10 +5,18 @@
 
 section code_zalt_debug
 
+module debug
+
 ; exports
 public debug_monitor
 public debug_save_registers
 public debug_restore_registers
+public debug_breakpoint
+; debug_status_var values
+public debug_status_breakpoint
+public debug_status_unhandled_int
+public debug_status_illegal_trap
+public debug_status_program_end
 
 ; imports
 extern bios_interrupt_disable
@@ -30,7 +38,7 @@ defc    debug_regs_var_pc_offset     =    $0E
 defc    debug_regs_var_af2_offset    =    $10
 defc    debug_regs_var_bc2_offset    =    $12
 defc    debug_regs_var_de2_offset    =    $14
-defc    debug_regs_var_hl2_offset    =    $18
+defc    debug_regs_var_hl2_offset    =    $16
 
 defc    debug_regs_var_base  =    debug_regs_var
 defc    debug_regs_var_af    =    debug_regs_var_base    +    debug_regs_var_af_offset    
@@ -46,9 +54,13 @@ defc    debug_regs_var_bc2   =    debug_regs_var_base    +    debug_regs_var_bc2
 defc    debug_regs_var_de2   =    debug_regs_var_base    +    debug_regs_var_de2_offset
 defc    debug_regs_var_hl2   =    debug_regs_var_base    +    debug_regs_var_hl2_offset
 
-defc debug_status_none               = $00
-defc debug_status_registers_saved    = $01
-
+; debug_status_var values
+defc debug_status_none              = $00
+defc debug_status_breakpoint        = $01
+defc debug_status_sleep             = $02
+defc debug_status_unhandled_int     = $03
+defc debug_status_illegal_trap      = $04
+defc debug_status_program_end       = $FF
 
 
 ; Saves all registers in debug vars.
@@ -87,8 +99,6 @@ debug_save_registers:
     ld (debug_regs_var_af2), hl     ; store af'
     
     ex af, af                       ; switch af back
-    ld hl, debug_status_var             ; set debug status
-    ld (hl), debug_status_registers_saved
 
     ld hl, (debug_regs_var_hl)      ; restore hl value
     ld de, (debug_regs_var_de)      ; restore de value
@@ -109,7 +119,7 @@ debug_restore_registers_all:
     
     ; VVVVV fall thru! VVVVV
     
-; Restores all registers (incl. alternates) to saved values (debug_save_registers).
+; Restores common registers (incl. alternates) to saved values (debug_save_registers).
 ; Does *NOT* restore pc and sp!
 debug_restore_registers:
     ; af'
@@ -150,7 +160,7 @@ debug_restore_registers:
 defc  debug_cmd_exit = 0
 defc  debug_cmd_wait = 1
 defc  debug_cmd_dumpregs = 2
-
+defc  debug_cmd_status = 3
 
 ; Communicates with the System Controller to relay the debug information.
 ; Mainly CPU-register values. debug_save_registers must be called first.
@@ -166,17 +176,26 @@ debug_monitor:
     cp a, debug_cmd_wait                ; we're on hold
     jr z, debug_sleep                   ; sleep till the System Controller wakes us up
 
-    cp a, debug_cmd_dumpregs
-    ; uses a!
-    call z, debug_dump_registers        ; dump registers
+    cp a, debug_cmd_status              ; system controller ask for debug status var
+    jr z, debug_send_status             ; send it
 
+    cp a, debug_cmd_dumpregs
+    jr z, debug_dump_registers          ; dump registers
+
+; cmd not implemented
     jr debug_monitor_get_cmd            ; loop for next cmd
 
 ; halts till sys-ctrlr wake us again
-; pre-conditions:
-;    call-ret
 .debug_sleep
-    halt            ; sleep
+    ld a, debug_status_sleep
+    ld (debug_status_var), a
+    halt                                ; sleep
+    jr debug_monitor_get_cmd
+
+; sends debug status to system controller
+.debug_send_status
+    ld a, (debug_status_var)
+    out (c), a
     jr debug_monitor_get_cmd
 
 ; dumps the saved registers to the System Controller
@@ -194,5 +213,15 @@ debug_dump_registers:
     inc hl
     dec e
     jr nz, debug_dump_registers_loop
-    ret
+    jr debug_monitor_get_cmd
 
+
+; continuation of rst30
+; leaves all regs untouched
+debug_breakpoint:
+    push af
+    ld a, debug_status_breakpoint
+    ld (debug_status_var), a
+    pop af
+    halt                                ; wait for NMI
+    jp bios_interrupt_enable

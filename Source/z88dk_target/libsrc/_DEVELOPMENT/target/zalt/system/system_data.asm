@@ -5,7 +5,7 @@ section data_zalt_system
 
 
 ; exports
-public bios_interrupt_enable_count
+public bios_interrupt_enable_count_var
 public memorymanager_bank_id_var
 public memorymanager_bank_ioid_var
 public debug_status_var
@@ -18,7 +18,7 @@ public debug_regs_var_size
 ;
 ; system vars
 ;
-bios_interrupt_enable_count:	; counts nested calls to bios_interrupt_disable
+bios_interrupt_enable_count_var:	; counts nested calls to bios_interrupt_disable
     defb $00
 
 ;

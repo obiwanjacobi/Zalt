@@ -9,24 +9,31 @@
 
 /* Interaction between Debugger and the Z80
  * 
+ * Z80 initiates a debug interaction:
+ *
  *  - Z80 issues a HALT instruction and the Halt signal goes low (active) on the Z80.
  *  - Debugger has an interrupt on the Halt signal an the OnHaltInterrupt handler executes.
  *  - Debugger disables all (maskable) interrupts that can be issued to the Z80.
  *      We don't want the HALT instruction to continue because of a maskable interrupt.
- *  - The current address of the HALT instruction is read and checked against known bios addresses.
- *      Otherwise it is a program debug break point.
  *  - The Debugger triggers an NMI signal (active low) to execute the NMI interrupt handler in the Z80 bios.
  *  - There the Z80 code communicates with the PSoC Debugger using the debug IO port.
  *  
- *  - Z80=>Debugger: are we debugging? NMI could be trigger by something else.
- *      Debugger=>Z80: yes, dump regs (or no, then exit)
+ *  - Z80=>Debugger: what do you want me to do?/are we debugging? (NMI could be trigger by something else.)
+ *      Debugger=>Z80: give me the debug status
+ *      Z80=>Debugger: debug status
+ *  Breakpoint:
+ *      Debugger=>Z80: dump regs
  *  - Z80=>Debugger: dump all register values.
  *      Debugger=>Z80: ack/nack for each reg value received
  *      Debugger=>Console: print register values.
- *  - Z80=>Debugger: what command?
- *      Debugger=>Z80: paused
+ *  - Debugger=>Z80: paused/sleep
  *      Z80: HALT (again)
  *      Debugger=>Console: "paused at breakpoint"
+ *      <user> issues commands in console
+ *  Sleep:
+ *      Debugger=>Z80: continue to sleep
+ *  Program End:
+ *      Debugger=>Console: "Program Finished"
  *      <user> issues commands in console
  *
  * Thats it for now.
@@ -37,8 +44,20 @@ typedef enum
     DebugCommand_None,
     DebugCommand_Pause,
     DebugCommand_DumpRegisters,
+    DebugCommand_GetStatus,
     
 } DebugCommand;
+
+typedef enum
+{
+    RemoteDebugStatus_None,
+    RemoteDebugStatus_Breakpoint,
+    RemoteDebugStatus_Sleep,
+    RemoteDebugStatus_UnhandledInterrupt,
+    RemoteDebugStatus_IllegalTrap,
+    RemoteDebugStatus_ProgramFinished = 0xFF
+    
+} RemoteDebugStatus;
 
 typedef enum 
 {
@@ -75,7 +94,9 @@ typedef enum
 {
     DebugState_None,
     DebugState_Handshake,
-    DebugState_ReceiveRegisters,
+    DebugState_GetStatus,
+    DebugState_GetRegisters,
+    DebugState_ReceivingRegisters,
     DebugState_PrintRegisters,
     DebugState_Pause,
     
@@ -83,22 +104,23 @@ typedef enum
 
 typedef struct 
 {
-    uint16_t    AF;
-    uint16_t    BC;
-    uint16_t    DE;
-    uint16_t    HL;
-    uint16_t    IX;
-    uint16_t    IY;
-    uint16_t    SP;
-    uint16_t    PC;
-    uint16_t    AF2;
-    uint16_t    BC2;
-    uint16_t    DE2;
-    uint16_t    HL2;
+    uint16_t AF;
+    uint16_t BC;
+    uint16_t DE;
+    uint16_t HL;
+    uint16_t IX;
+    uint16_t IY;
+    uint16_t SP;
+    uint16_t PC;
+    uint16_t AF2;
+    uint16_t BC2;
+    uint16_t DE2;
+    uint16_t HL2;
     
 } CpuRegisters;
 
 static DebugState DebuggerState;
+static RemoteDebugStatus RemoteDebuggerStatus;
 static DebugRegister DebuggerRegState;
 static CpuRegisters DebugCpuRegisters;
 
@@ -157,11 +179,14 @@ void Debugger_ReportRegisters()
 {
     if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
     
-    InterruptProcessor_Enable(false);
+    if (DebuggerState == DebugState_None)
+    {
+        InterruptProcessor_Enable(false);
+    }
     
-    DebuggerState = DebugState_Handshake;
+    DebuggerState = DebugState_GetRegisters;
     DebuggerRegState = DebugRegister_None;
-    
+
     Debugger_PulseNMI();
 }
 
@@ -259,7 +284,33 @@ void Debugger_PrintRegisterValues()
     SysTerminal_PutString(NewLine);
 }
 
-static uint8_t _messageShown = 0;
+void Debugger_PrintStatus()
+{
+    switch(RemoteDebuggerStatus)
+    {
+        case RemoteDebugStatus_Breakpoint:
+            SysTerminal_PutString("breakpoint");
+            break;
+            
+        case RemoteDebugStatus_IllegalTrap:
+            SysTerminal_PutString("illegal opcode execution ($FF)");
+            break;
+            
+        case RemoteDebugStatus_ProgramFinished:
+            SysTerminal_PutString("program finished");
+            break;
+
+        case RemoteDebugStatus_UnhandledInterrupt:
+            SysTerminal_PutString("unhandled interrupt");
+            break;
+        
+        default:
+        case RemoteDebugStatus_Sleep:
+            break;
+    }
+}
+
+static DebugState _messageShown = 0;
 
 void Debugger_Print()
 {
@@ -274,12 +325,13 @@ void Debugger_Print()
             if (_messageShown != DebugState_Pause)
             {
                 SysTerminal_PutString(NewLine);
-                SysTerminal_PutString("- CPU Paused at breakpoint");
+                SysTerminal_PutString("- CPU Paused: ");
+                Debugger_PrintStatus();
                 SysTerminal_PutString(NewLine);
                 _messageShown = DebugState_Pause;
             }
             break;
-        
+            
         case DebugState_None:
             if (_messageShown != DebugState_None)
             {
@@ -373,12 +425,10 @@ bool_t Debugger_ReceiveRegisters(uint8_t data)
         case DebugRegister_H2:
             DebugCpuRegisters.HL2 |= MakeMsb(data);
             
-            //DebuggerState = DebugState_None;
             DebuggerRegState = DebugRegister_None;
             return true;    // last
             
         default:
-            //DebuggerState = DebugState_None;
             DebuggerRegState = DebugRegister_None;
             return false;    // recover...
     }
@@ -389,6 +439,29 @@ bool_t Debugger_ReceiveRegisters(uint8_t data)
     return false;
 }
 
+void DetermineNextState()
+{
+    switch(RemoteDebuggerStatus)
+    {
+        case RemoteDebugStatus_Breakpoint:
+            DebuggerState = DebugState_GetRegisters;
+            break;
+        case RemoteDebugStatus_IllegalTrap:
+            DebuggerState = DebugState_Pause;
+            break;
+        case RemoteDebugStatus_ProgramFinished:
+            DebuggerState = DebugState_Pause;
+            break;
+        case RemoteDebugStatus_Sleep:
+            DebuggerState = DebugState_Pause;
+            break;
+        default:
+        case RemoteDebugStatus_None:
+            DebuggerState = DebugState_None;
+            break;
+    }
+}
+
 uint8_t Debugger_IO_OnInput()
 {
     uint8_t data = DebugCommand_Pause;
@@ -396,9 +469,14 @@ uint8_t Debugger_IO_OnInput()
     switch(DebuggerState)
     {
         case DebugState_Handshake:
+            data = DebugCommand_GetStatus;
+            DebuggerState = DebugState_GetStatus;
+            break;
+        
+        case DebugState_GetRegisters:
             data = DebugCommand_DumpRegisters;
             // next up: receive register values
-            DebuggerState = DebugState_ReceiveRegisters;
+            DebuggerState = DebugState_ReceivingRegisters;
             DebuggerRegState = DebugRegister_None;
             DebuggerRegState++;
             break;
@@ -409,6 +487,7 @@ uint8_t Debugger_IO_OnInput()
             break;
             
         default:
+            // data = DebugCommand_Pause;
             break;
     }
     
@@ -419,14 +498,15 @@ void Debugger_IO_OnOutput(uint8 data)
 {
     switch(DebuggerState)
     {
-        case DebugState_ReceiveRegisters:
-            if (Debugger_ReceiveRegisters(data))
-            {
-                DebuggerState = DebugState_PrintRegisters;
-                InterruptProcessor_Enable(true);
-            }
+        case DebugState_GetStatus:
+            RemoteDebuggerStatus = data;
+            DetermineNextState();
             break;
-            
+        case DebugState_ReceivingRegisters:
+            if (Debugger_ReceiveRegisters(data))
+                DebuggerState = DebugState_PrintRegisters;
+            break;
+        
         default:
             break;
     }

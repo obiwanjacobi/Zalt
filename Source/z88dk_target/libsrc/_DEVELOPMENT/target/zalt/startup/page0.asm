@@ -12,13 +12,16 @@ public isr_table_index
 extern keyboard_isr
 extern memorymanager_memmap_reginit
 ; vars
-extern bios_interrupt_enable_count
-extern bios_var_ram_top
-extern bios_var_ram_active_page
+extern bios_interrupt_enable_count_var
 ; debug
 extern debug_save_registers
 extern debug_restore_registers
 extern debug_monitor
+extern debug_breakpoint
+extern debug_status_var
+extern debug_status_breakpoint
+extern debug_status_unhandled_int
+extern debug_status_illegal_trap
 
 module page0
 
@@ -76,9 +79,8 @@ RST30:
 ; software debug breakpoint
 ; implements setting up a precompiled debug breakpoint
     call bios_interrupt_disable         ; we don't want the HALT to be released by another interrupt
-    halt                                ; wait for NMI
-    call bios_interrupt_enable
-    ret
+    jp debug_breakpoint                 ; calls bios_interrupt_enable
+
 
     defs 0x0038 - ASMPC
     ; address = 0x0038
@@ -86,6 +88,8 @@ RST30:
 RST38:
     ; used to trap illegal jumps and interrupt mode
     di              ; disable interrupts
+    ld a, debug_status_illegal_trap
+    ld (debug_status_var), a
     halt            ; break
     rst $00         ; reset
 
@@ -93,6 +97,8 @@ RST38:
 ; a dummy isr for initializing the isr vector table
 isr_null_vector:
 IF DEBUG
+    ld a, debug_status_unhandled_int
+    ld (debug_status_var), a
     halt            ; break if debug build
 ENDIF
     ei              ; lets do that again
@@ -177,9 +183,9 @@ bios_reset_init:
 bios_interrupt_disable:
     di
     push af
-    ld a, (bios_interrupt_enable_count)
+    ld a, (bios_interrupt_enable_count_var)
     inc a
-    ld (bios_interrupt_enable_count), a
+    ld (bios_interrupt_enable_count_var), a
     pop af
     ret
 
@@ -190,9 +196,9 @@ bios_interrupt_disable:
 ;    leaves all regs untouched
 bios_interrupt_enable:
     push af
-    ld a, (bios_interrupt_enable_count)
+    ld a, (bios_interrupt_enable_count_var)
     dec a
-    ld (bios_interrupt_enable_count), a
+    ld (bios_interrupt_enable_count_var), a
     jr nz, bios_interrupt_enable_done
     pop af
     ret
