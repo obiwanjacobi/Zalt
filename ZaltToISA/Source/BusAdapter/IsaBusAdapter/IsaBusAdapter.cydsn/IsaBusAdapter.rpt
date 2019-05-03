@@ -1,0 +1,1611 @@
+Loading plugins phase: Elapsed time ==> 0s.252ms
+<CYPRESSTAG name="CyDsfit arguments...">
+cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\IsaBusAdapter.cyprj -d CY8C5888LTI-LP097 -s C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+</CYPRESSTAG>
+<CYPRESSTAG name="Design elaboration results...">
+</CYPRESSTAG>
+Elaboration phase: Elapsed time ==> 1s.704ms
+<CYPRESSTAG name="HDL generation results...">
+</CYPRESSTAG>
+HDL generation phase: Elapsed time ==> 0s.046ms
+<CYPRESSTAG name="Synthesis results...">
+
+     | | | | | | |
+   _________________
+  -|               |-
+  -|               |-
+  -|               |-
+  -|    CYPRESS    |-
+  -|               |-
+  -|               |-   Warp Verilog Synthesis Compiler: Version 6.3 IR 41
+  -|               |-   Copyright (C) 1991-2001 Cypress Semiconductor
+   |_______________|
+     | | | | | | |
+
+======================================================================
+Compiling:  IsaBusAdapter.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\IsaBusAdapter.cyprj -dcpsoc3 IsaBusAdapter.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  IsaBusAdapter.v
+Program  :   C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\IsaBusAdapter.cyprj -dcpsoc3 IsaBusAdapter.v -verilog
+======================================================================
+
+======================================================================
+Compiling:  IsaBusAdapter.v
+Program  :   vlogfe
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\IsaBusAdapter.cyprj -dcpsoc3 -verilog IsaBusAdapter.v
+======================================================================
+
+vlogfe V6.3 IR 41:  Verilog parser
+Mon Mar 25 17:50:38 2019
+
+
+======================================================================
+Compiling:  IsaBusAdapter.v
+Program  :   vpp
+Options  :    -yv2 -q10 IsaBusAdapter.v
+======================================================================
+
+vpp V6.3 IR 41:  Verilog Pre-Processor
+Mon Mar 25 17:50:39 2019
+
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\FreqDiv_v1_0\FreqDiv_v1_0.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'
+Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
+
+vpp:  No errors.
+
+Library 'work' => directory 'lcpsoc3'
+General_symbol_table
+General_symbol_table
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Using control file 'IsaBusAdapter.ctl'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\FreqDiv_v1_0\FreqDiv_v1_0.v (line 79, col 40):  Note: Substituting module 'add_vi_vv' for '+'.
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\FreqDiv_v1_0\FreqDiv_v1_0.v (line 88, col 40):  Note: Substituting module 'add_vi_vv' for '+'.
+
+vlogfe:  No errors.
+
+
+======================================================================
+Compiling:  IsaBusAdapter.v
+Program  :   tovif
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\IsaBusAdapter.cyprj -dcpsoc3 -verilog IsaBusAdapter.v
+======================================================================
+
+tovif V6.3 IR 41:  High-level synthesis
+Mon Mar 25 17:50:39 2019
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\codegentemp\IsaBusAdapter.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\FreqDiv_v1_0\FreqDiv_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\codegentemp\IsaBusAdapter.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+
+tovif:  No errors.
+
+
+======================================================================
+Compiling:  IsaBusAdapter.v
+Program  :   topld
+Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\IsaBusAdapter.cyprj -dcpsoc3 -verilog IsaBusAdapter.v
+======================================================================
+
+topld V6.3 IR 41:  Synthesis and optimization
+Mon Mar 25 17:50:39 2019
+
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\work\cypress.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\ieee\work\stdlogic.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\lpmpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\rtlpkg.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_mthv.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\stdlogic\mod_genv.vif'.
+Linking 'C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\codegentemp\IsaBusAdapter.ctl'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\FreqDiv_v1_0\FreqDiv_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cy_psoc3_inc.v'.
+Linking 'C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\codegentemp\IsaBusAdapter.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\mod_cnst.vif'.
+Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\lcpsoc3\stdlogic\cpsoc3.vif'.
+
+----------------------------------------------------------
+Detecting unused logic.
+----------------------------------------------------------
+    User names
+	\FreqDiv_1:MODULE_1:b_31\
+	\FreqDiv_1:MODULE_1:b_30\
+	\FreqDiv_1:MODULE_1:b_29\
+	\FreqDiv_1:MODULE_1:b_28\
+	\FreqDiv_1:MODULE_1:b_27\
+	\FreqDiv_1:MODULE_1:b_26\
+	\FreqDiv_1:MODULE_1:b_25\
+	\FreqDiv_1:MODULE_1:b_24\
+	\FreqDiv_1:MODULE_1:b_23\
+	\FreqDiv_1:MODULE_1:b_22\
+	\FreqDiv_1:MODULE_1:b_21\
+	\FreqDiv_1:MODULE_1:b_20\
+	\FreqDiv_1:MODULE_1:b_19\
+	\FreqDiv_1:MODULE_1:b_18\
+	\FreqDiv_1:MODULE_1:b_17\
+	\FreqDiv_1:MODULE_1:b_16\
+	\FreqDiv_1:MODULE_1:b_15\
+	\FreqDiv_1:MODULE_1:b_14\
+	\FreqDiv_1:MODULE_1:b_13\
+	\FreqDiv_1:MODULE_1:b_12\
+	\FreqDiv_1:MODULE_1:b_11\
+	\FreqDiv_1:MODULE_1:b_10\
+	\FreqDiv_1:MODULE_1:b_9\
+	\FreqDiv_1:MODULE_1:b_8\
+	\FreqDiv_1:MODULE_1:b_7\
+	\FreqDiv_1:MODULE_1:b_6\
+	\FreqDiv_1:MODULE_1:b_5\
+	\FreqDiv_1:MODULE_1:b_4\
+	\FreqDiv_1:MODULE_1:b_3\
+	\FreqDiv_1:MODULE_1:b_2\
+	\FreqDiv_1:MODULE_1:b_1\
+	\FreqDiv_1:MODULE_1:b_0\
+	\FreqDiv_1:MODULE_1:g2:a0:a_31\
+	\FreqDiv_1:MODULE_1:g2:a0:a_30\
+	\FreqDiv_1:MODULE_1:g2:a0:a_29\
+	\FreqDiv_1:MODULE_1:g2:a0:a_28\
+	\FreqDiv_1:MODULE_1:g2:a0:a_27\
+	\FreqDiv_1:MODULE_1:g2:a0:a_26\
+	\FreqDiv_1:MODULE_1:g2:a0:a_25\
+	\FreqDiv_1:MODULE_1:g2:a0:a_24\
+	\FreqDiv_1:MODULE_1:g2:a0:b_31\
+	\FreqDiv_1:MODULE_1:g2:a0:b_30\
+	\FreqDiv_1:MODULE_1:g2:a0:b_29\
+	\FreqDiv_1:MODULE_1:g2:a0:b_28\
+	\FreqDiv_1:MODULE_1:g2:a0:b_27\
+	\FreqDiv_1:MODULE_1:g2:a0:b_26\
+	\FreqDiv_1:MODULE_1:g2:a0:b_25\
+	\FreqDiv_1:MODULE_1:g2:a0:b_24\
+	\FreqDiv_1:MODULE_1:g2:a0:b_23\
+	\FreqDiv_1:MODULE_1:g2:a0:b_22\
+	\FreqDiv_1:MODULE_1:g2:a0:b_21\
+	\FreqDiv_1:MODULE_1:g2:a0:b_20\
+	\FreqDiv_1:MODULE_1:g2:a0:b_19\
+	\FreqDiv_1:MODULE_1:g2:a0:b_18\
+	\FreqDiv_1:MODULE_1:g2:a0:b_17\
+	\FreqDiv_1:MODULE_1:g2:a0:b_16\
+	\FreqDiv_1:MODULE_1:g2:a0:b_15\
+	\FreqDiv_1:MODULE_1:g2:a0:b_14\
+	\FreqDiv_1:MODULE_1:g2:a0:b_13\
+	\FreqDiv_1:MODULE_1:g2:a0:b_12\
+	\FreqDiv_1:MODULE_1:g2:a0:b_11\
+	\FreqDiv_1:MODULE_1:g2:a0:b_10\
+	\FreqDiv_1:MODULE_1:g2:a0:b_9\
+	\FreqDiv_1:MODULE_1:g2:a0:b_8\
+	\FreqDiv_1:MODULE_1:g2:a0:b_7\
+	\FreqDiv_1:MODULE_1:g2:a0:b_6\
+	\FreqDiv_1:MODULE_1:g2:a0:b_5\
+	\FreqDiv_1:MODULE_1:g2:a0:b_4\
+	\FreqDiv_1:MODULE_1:g2:a0:b_3\
+	\FreqDiv_1:MODULE_1:g2:a0:b_2\
+	\FreqDiv_1:MODULE_1:g2:a0:b_1\
+	\FreqDiv_1:MODULE_1:g2:a0:b_0\
+	\FreqDiv_1:MODULE_1:g2:a0:s_31\
+	\FreqDiv_1:MODULE_1:g2:a0:s_30\
+	\FreqDiv_1:MODULE_1:g2:a0:s_29\
+	\FreqDiv_1:MODULE_1:g2:a0:s_28\
+	\FreqDiv_1:MODULE_1:g2:a0:s_27\
+	\FreqDiv_1:MODULE_1:g2:a0:s_26\
+	\FreqDiv_1:MODULE_1:g2:a0:s_25\
+	\FreqDiv_1:MODULE_1:g2:a0:s_24\
+	\FreqDiv_1:MODULE_1:g2:a0:s_23\
+	\FreqDiv_1:MODULE_1:g2:a0:s_22\
+	\FreqDiv_1:MODULE_1:g2:a0:s_21\
+	\FreqDiv_1:MODULE_1:g2:a0:s_20\
+	\FreqDiv_1:MODULE_1:g2:a0:s_19\
+	\FreqDiv_1:MODULE_1:g2:a0:s_18\
+	\FreqDiv_1:MODULE_1:g2:a0:s_17\
+	\FreqDiv_1:MODULE_1:g2:a0:s_16\
+	\FreqDiv_1:MODULE_1:g2:a0:s_15\
+	\FreqDiv_1:MODULE_1:g2:a0:s_14\
+	\FreqDiv_1:MODULE_1:g2:a0:s_13\
+	\FreqDiv_1:MODULE_1:g2:a0:s_12\
+	\FreqDiv_1:MODULE_1:g2:a0:s_11\
+	\FreqDiv_1:MODULE_1:g2:a0:s_10\
+	\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_31\
+	\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_30\
+	\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_29\
+	\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_28\
+	\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_27\
+	\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_26\
+	\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_25\
+
+    Synthesized names
+	\FreqDiv_1:add_vi_vv_MODGEN_1_31\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_30\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_29\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_28\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_27\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_26\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_25\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_24\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_23\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_22\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_21\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_20\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_19\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_18\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_17\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_16\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_15\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_14\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_13\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_12\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_11\
+	\FreqDiv_1:add_vi_vv_MODGEN_1_10\
+
+Deleted 101 User equations/components.
+Deleted 22 Synthesized equations/components.
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing one to tmpOE__LED_net_0
+Aliasing tmpOE__Btn_net_0 to tmpOE__LED_net_0
+Aliasing Net_187 to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_23\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_22\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_21\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_20\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_19\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_18\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_17\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_16\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_15\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_14\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_13\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_12\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_11\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:a_10\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ to tmpOE__LED_net_0
+Removing Lhs of wire one[7] = tmpOE__LED_net_0[1]
+Removing Lhs of wire tmpOE__Btn_net_0[10] = tmpOE__LED_net_0[1]
+Removing Lhs of wire Net_187[18] = zero[6]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_9\[29] = \FreqDiv_1:MODULE_1:g2:a0:s_9\[189]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_8\[30] = \FreqDiv_1:MODULE_1:g2:a0:s_8\[190]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_7\[31] = \FreqDiv_1:MODULE_1:g2:a0:s_7\[191]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_6\[32] = \FreqDiv_1:MODULE_1:g2:a0:s_6\[192]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_5\[33] = \FreqDiv_1:MODULE_1:g2:a0:s_5\[193]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_4\[34] = \FreqDiv_1:MODULE_1:g2:a0:s_4\[194]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_3\[35] = \FreqDiv_1:MODULE_1:g2:a0:s_3\[195]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_2\[36] = \FreqDiv_1:MODULE_1:g2:a0:s_2\[196]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_1\[37] = \FreqDiv_1:MODULE_1:g2:a0:s_1\[197]
+Removing Lhs of wire \FreqDiv_1:add_vi_vv_MODGEN_1_0\[38] = \FreqDiv_1:MODULE_1:g2:a0:s_0\[198]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_23\[79] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_22\[80] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_21\[81] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_20\[82] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_19\[83] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_18\[84] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_17\[85] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_16\[86] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_15\[87] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_14\[88] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_13\[89] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_12\[90] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_11\[91] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_10\[92] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_9\[93] = \FreqDiv_1:MODIN1_9\[94]
+Removing Lhs of wire \FreqDiv_1:MODIN1_9\[94] = \FreqDiv_1:count_9\[19]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_8\[95] = \FreqDiv_1:MODIN1_8\[96]
+Removing Lhs of wire \FreqDiv_1:MODIN1_8\[96] = \FreqDiv_1:count_8\[20]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_7\[97] = \FreqDiv_1:MODIN1_7\[98]
+Removing Lhs of wire \FreqDiv_1:MODIN1_7\[98] = \FreqDiv_1:count_7\[21]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_6\[99] = \FreqDiv_1:MODIN1_6\[100]
+Removing Lhs of wire \FreqDiv_1:MODIN1_6\[100] = \FreqDiv_1:count_6\[22]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_5\[101] = \FreqDiv_1:MODIN1_5\[102]
+Removing Lhs of wire \FreqDiv_1:MODIN1_5\[102] = \FreqDiv_1:count_5\[23]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_4\[103] = \FreqDiv_1:MODIN1_4\[104]
+Removing Lhs of wire \FreqDiv_1:MODIN1_4\[104] = \FreqDiv_1:count_4\[24]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_3\[105] = \FreqDiv_1:MODIN1_3\[106]
+Removing Lhs of wire \FreqDiv_1:MODIN1_3\[106] = \FreqDiv_1:count_3\[25]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_2\[107] = \FreqDiv_1:MODIN1_2\[108]
+Removing Lhs of wire \FreqDiv_1:MODIN1_2\[108] = \FreqDiv_1:count_2\[26]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_1\[109] = \FreqDiv_1:MODIN1_1\[110]
+Removing Lhs of wire \FreqDiv_1:MODIN1_1\[110] = \FreqDiv_1:count_1\[27]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:a_0\[111] = \FreqDiv_1:MODIN1_0\[112]
+Removing Lhs of wire \FreqDiv_1:MODIN1_0\[112] = \FreqDiv_1:count_0\[28]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\[236] = tmpOE__LED_net_0[1]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\[237] = tmpOE__LED_net_0[1]
+
+------------------------------------------------------
+Aliased 0 equations, 49 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Substituting virtuals - pass 1:
+
+Note:  Expanding virtual equation for 'tmpOE__LED_net_0' (cost = 0):
+tmpOE__LED_net_0 <=  ('1') ;
+
+Note:  Expanding virtual equation for 'zero' (cost = 0):
+zero <=  ('0') ;
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_9\' (cost = 4):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_9\ <= ((\FreqDiv_1:count_8\ and \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_8\' (cost = 20):
+\FreqDiv_1:MODULE_1:g2:a0:s_8\ <= ((not \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\ and \FreqDiv_1:count_8\)
+	OR (not \FreqDiv_1:count_8\ and \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\ <= (\FreqDiv_1:count_0\);
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_0\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:s_0\ <= (not \FreqDiv_1:count_0\);
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_17\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_17\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_10\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_10\ <= ((\FreqDiv_1:count_9\ and \FreqDiv_1:count_8\ and \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\));
+
+
+Substituting virtuals - pass 2:
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_9\' (cost = 30):
+\FreqDiv_1:MODULE_1:g2:a0:s_9\ <= ((not \FreqDiv_1:count_8\ and \FreqDiv_1:count_9\)
+	OR (not \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\ and \FreqDiv_1:count_9\)
+	OR (not \FreqDiv_1:count_9\ and \FreqDiv_1:count_8\ and \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_2\' (cost = 4):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_2\ <= ((\FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_1\' (cost = 20):
+\FreqDiv_1:MODULE_1:g2:a0:s_1\ <= ((not \FreqDiv_1:count_0\ and \FreqDiv_1:count_1\)
+	OR (not \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_18\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_18\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_11\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_11\ <=  ('0') ;
+
+
+Substituting virtuals - pass 3:
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_3\' (cost = 5):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_3\ <= ((\FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_2\' (cost = 30):
+\FreqDiv_1:MODULE_1:g2:a0:s_2\ <= ((not \FreqDiv_1:count_1\ and \FreqDiv_1:count_2\)
+	OR (not \FreqDiv_1:count_0\ and \FreqDiv_1:count_2\)
+	OR (not \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_19\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_19\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_12\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_12\ <=  ('0') ;
+
+
+Substituting virtuals - pass 4:
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_4\' (cost = 6):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_4\ <= ((\FreqDiv_1:count_3\ and \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_3\' (cost = 40):
+\FreqDiv_1:MODULE_1:g2:a0:s_3\ <= ((not \FreqDiv_1:count_2\ and \FreqDiv_1:count_3\)
+	OR (not \FreqDiv_1:count_1\ and \FreqDiv_1:count_3\)
+	OR (not \FreqDiv_1:count_0\ and \FreqDiv_1:count_3\)
+	OR (not \FreqDiv_1:count_3\ and \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_20\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_20\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_13\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_13\ <=  ('0') ;
+
+
+Substituting virtuals - pass 5:
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_5\' (cost = 7):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_5\ <= ((\FreqDiv_1:count_4\ and \FreqDiv_1:count_3\ and \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_4\' (cost = 50):
+\FreqDiv_1:MODULE_1:g2:a0:s_4\ <= ((not \FreqDiv_1:count_3\ and \FreqDiv_1:count_4\)
+	OR (not \FreqDiv_1:count_2\ and \FreqDiv_1:count_4\)
+	OR (not \FreqDiv_1:count_1\ and \FreqDiv_1:count_4\)
+	OR (not \FreqDiv_1:count_0\ and \FreqDiv_1:count_4\)
+	OR (not \FreqDiv_1:count_4\ and \FreqDiv_1:count_3\ and \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_21\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_21\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_14\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_14\ <=  ('0') ;
+
+
+Substituting virtuals - pass 6:
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_6\' (cost = 8):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_6\ <= ((\FreqDiv_1:count_5\ and \FreqDiv_1:count_4\ and \FreqDiv_1:count_3\ and \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_5\' (cost = 60):
+\FreqDiv_1:MODULE_1:g2:a0:s_5\ <= ((not \FreqDiv_1:count_4\ and \FreqDiv_1:count_5\)
+	OR (not \FreqDiv_1:count_3\ and \FreqDiv_1:count_5\)
+	OR (not \FreqDiv_1:count_2\ and \FreqDiv_1:count_5\)
+	OR (not \FreqDiv_1:count_1\ and \FreqDiv_1:count_5\)
+	OR (not \FreqDiv_1:count_0\ and \FreqDiv_1:count_5\)
+	OR (not \FreqDiv_1:count_5\ and \FreqDiv_1:count_4\ and \FreqDiv_1:count_3\ and \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_22\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_22\ <=  ('0') ;
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_15\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_15\ <=  ('0') ;
+
+
+Substituting virtuals - pass 7:
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_7\' (cost = 9):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_7\ <= ((\FreqDiv_1:count_6\ and \FreqDiv_1:count_5\ and \FreqDiv_1:count_4\ and \FreqDiv_1:count_3\ and \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_6\' (cost = 70):
+\FreqDiv_1:MODULE_1:g2:a0:s_6\ <= ((not \FreqDiv_1:count_5\ and \FreqDiv_1:count_6\)
+	OR (not \FreqDiv_1:count_4\ and \FreqDiv_1:count_6\)
+	OR (not \FreqDiv_1:count_3\ and \FreqDiv_1:count_6\)
+	OR (not \FreqDiv_1:count_2\ and \FreqDiv_1:count_6\)
+	OR (not \FreqDiv_1:count_1\ and \FreqDiv_1:count_6\)
+	OR (not \FreqDiv_1:count_0\ and \FreqDiv_1:count_6\)
+	OR (not \FreqDiv_1:count_6\ and \FreqDiv_1:count_5\ and \FreqDiv_1:count_4\ and \FreqDiv_1:count_3\ and \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_23\' (cost = 0):
+\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_23\ <=  ('0') ;
+
+
+Substituting virtuals - pass 8:
+
+Note:  Expanding virtual equation for '\FreqDiv_1:MODULE_1:g2:a0:s_7\' (cost = 80):
+\FreqDiv_1:MODULE_1:g2:a0:s_7\ <= ((not \FreqDiv_1:count_6\ and \FreqDiv_1:count_7\)
+	OR (not \FreqDiv_1:count_5\ and \FreqDiv_1:count_7\)
+	OR (not \FreqDiv_1:count_4\ and \FreqDiv_1:count_7\)
+	OR (not \FreqDiv_1:count_3\ and \FreqDiv_1:count_7\)
+	OR (not \FreqDiv_1:count_2\ and \FreqDiv_1:count_7\)
+	OR (not \FreqDiv_1:count_1\ and \FreqDiv_1:count_7\)
+	OR (not \FreqDiv_1:count_0\ and \FreqDiv_1:count_7\)
+	OR (not \FreqDiv_1:count_7\ and \FreqDiv_1:count_6\ and \FreqDiv_1:count_5\ and \FreqDiv_1:count_4\ and \FreqDiv_1:count_3\ and \FreqDiv_1:count_2\ and \FreqDiv_1:count_1\ and \FreqDiv_1:count_0\));
+
+
+Substituting virtuals - pass 9:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 33 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+------------------------------------------------------
+Alias Detection
+------------------------------------------------------
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\ to zero
+Aliasing \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\ to zero
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\[207] = zero[6]
+Removing Lhs of wire \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\[217] = zero[6]
+
+------------------------------------------------------
+Aliased 0 equations, 2 wires.
+------------------------------------------------------
+
+----------------------------------------------------------
+Circuit simplification
+----------------------------------------------------------
+
+Eliminating unused logic - pass 1:
+
+
+Eliminating unused logic - pass 2:
+
+
+Substituting virtuals - pass 1:
+
+
+----------------------------------------------------------
+Circuit simplification results:
+
+	Expanded 0 signals.
+	Turned 0 signals into soft nodes.
+	Maximum default expansion cost was set at 3.
+----------------------------------------------------------
+
+topld:  No errors.
+
+CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp
+Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
+Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\IsaBusAdapter.cyprj -dcpsoc3 IsaBusAdapter.v -verilog
+</CYPRESSTAG>
+Warp synthesis phase: Elapsed time ==> 0s.575ms
+<CYPRESSTAG name="Fitter results...">
+<CYPRESSTAG name="Fitter startup details...">
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Monday, 25 March 2019 17:50:39
+Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\ZaltToISA\Source\BusAdapter\IsaBusAdapter\IsaBusAdapter.cydsn\IsaBusAdapter.cyprj -d CY8C5888LTI-LP097 IsaBusAdapter.v -verilog
+</CYPRESSTAG>
+<CYPRESSTAG name="Design parsing">
+Design parsing phase: Elapsed time ==> 0s.010ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Tech Mapping">
+<CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
+    Removed wire end \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_24\ kept zero
+    Removed wire end \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_16\ kept zero
+    Removed wire end \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\ kept \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\
+Assigning clock Clock to clock ILO because it is a pass-through
+<CYPRESSTAG name="Global Clock Selection" icon="FILE_RPT_TECHM">
+</CYPRESSTAG>
+<CYPRESSTAG name="UDB Clock/Enable Remapping Results">
+</CYPRESSTAG>
+<CYPRESSTAG name="UDB Routed Clock Assignment">
+    Routed Clock: ILO
+        Effective Clock: ILO
+        Enable Signal: True
+</CYPRESSTAG>
+
+Removing unused cells resulting from optimization
+Done removing unused cells.
+<CYPRESSTAG name="Duplicate Macrocell detection">
+</CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Duplicate Macrocell detection">
+
+Removing duplicate macrocells
+    Removing \FreqDiv_1:count_9_split\, Duplicate of \FreqDiv_1:count_8_split\ 
+    MacroCell: Name=\FreqDiv_1:count_9_split\, Mode=(Combinatorial)
+        Total # of inputs        : 12
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_9\ * 
+              \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * !\FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_9_split\ (fanout=1)
+
+End removing duplicate macrocells: used 1 pass
+</CYPRESSTAG>
+<CYPRESSTAG name="Design Equations" icon="FILE_RPT_EQUATION">
+
+------------------------------------------------------------
+Design Equations
+------------------------------------------------------------
+    <CYPRESSTAG name="Pin listing">
+
+    ------------------------------------------------------------
+    Pin listing
+    ------------------------------------------------------------
+
+    Pin : Name = LED(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: AUTO
+            Out Sync Option: NOSYNC
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: CMOS_OUT
+            VTrip: EITHER
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL, ROUTABLE
+            Initial Value: 0
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => LED(0)__PA ,
+            pin_input => Net_181 ,
+            pad => LED(0)_PAD );
+        Properties:
+        {
+        }
+
+    Pin : Name = Btn(0)
+        Attributes:
+            In Group/Port: True
+            In Sync Option: NOSYNC
+            Out Sync Option: AUTO
+            Interrupt generated: False
+            Interrupt mode: NONE
+            Drive mode: RES_PULL_UP
+            VTrip: CMOS
+            Slew: FAST
+            Input Sync needed: False
+            Output Sync needed: False
+            SC shield enabled: False
+            POR State: ANY
+            LCD Mode: COMMON
+            Register Mode: RegComb
+            CaSense Mode: NEITHER
+            Treat as pin: True
+            Is OE Registered: False
+            Uses Analog: False
+            Can contain Digital: True
+            Is SIO: False
+            SIO Output Buf: NONREGULATED
+            SIO Input Buf: SINGLE_ENDED
+            SIO HiFreq: LOW
+            SIO Hyst: DISABLED
+            SIO Vtrip: MULTIPLIER_0_5
+            SIO Multiplier Index: 0
+            SIO RefSel: VCC_IO
+            Required Capabilities: DIGITAL, ROUTABLE
+            Initial Value: 1
+            IO Voltage: 0
+        PORT MAP (
+            pa_out => Btn(0)__PA ,
+            fb => Net_185 ,
+            pad => Btn(0)_PAD );
+        Properties:
+        {
+        }
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Macrocell listing" icon="FILE_RPT_EQUATION">
+
+    ------------------------------------------------------------
+    Macrocell listing
+    ------------------------------------------------------------
+
+    MacroCell: Name=Net_181_split, Mode=(Combinatorial)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \FreqDiv_1:not_last_reset\ * !\FreqDiv_1:count_9\
+        );
+        Output = Net_181_split (fanout=1)
+
+    MacroCell: Name=\FreqDiv_1:count_8_split\, Mode=(Combinatorial)
+        Total # of inputs        : 12
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_9\ * 
+              \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * !\FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_8_split\ (fanout=2)
+
+    MacroCell: Name=Net_181_split_2, Mode=(Combinatorial)
+        Total # of inputs        : 12
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !Net_181 * Net_185 * \FreqDiv_1:count_9\ * \FreqDiv_1:count_8\ * 
+              \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * \FreqDiv_1:count_5\ * 
+              !\FreqDiv_1:count_4\ * !\FreqDiv_1:count_3\ * 
+              \FreqDiv_1:count_2\ * \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = Net_181_split_2 (fanout=1)
+
+    MacroCell: Name=Net_181_split_1, Mode=(Combinatorial)
+        Total # of inputs        : 12
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_181 * Net_185 * \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * 
+              \FreqDiv_1:count_6\ * \FreqDiv_1:count_5\ * \FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * !\FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\ * Net_181_split
+        );
+        Output = Net_181_split_1 (fanout=1)
+
+    MacroCell: Name=\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\, Mode=(Combinatorial)
+        Total # of inputs        : 8
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * \FreqDiv_1:count_5\ * 
+              \FreqDiv_1:count_4\ * \FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\ (fanout=2)
+
+    MacroCell: Name=Net_181, Mode=(T-Register)
+        Total # of inputs        : 5
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !Net_181 * Net_185 * !\FreqDiv_1:not_last_reset\
+            + Net_181_split_1
+            + Net_181_split_2
+        );
+        Output = Net_181 (fanout=4)
+
+    MacroCell: Name=\FreqDiv_1:not_last_reset\, Mode=(D-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !Net_185 * !\FreqDiv_1:not_last_reset\
+        );
+        Output = \FreqDiv_1:not_last_reset\ (fanout=14)
+
+    MacroCell: Name=\FreqDiv_1:count_9\, Mode=(T-Register)
+        Total # of inputs        : 5
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_8\ * 
+              \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\
+            + \FreqDiv_1:count_8_split\
+        );
+        Output = \FreqDiv_1:count_9\ (fanout=7)
+
+    MacroCell: Name=\FreqDiv_1:count_8\, Mode=(T-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * 
+              \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\
+            + \FreqDiv_1:count_8_split\
+        );
+        Output = \FreqDiv_1:count_8\ (fanout=8)
+
+    MacroCell: Name=\FreqDiv_1:count_7\, Mode=(T-Register)
+        Total # of inputs        : 12
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_9\ * 
+              \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * !\FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+            + Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * \FreqDiv_1:count_4\ * \FreqDiv_1:count_3\ * 
+              \FreqDiv_1:count_2\ * \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_7\ (fanout=8)
+
+    MacroCell: Name=\FreqDiv_1:count_6\, Mode=(T-Register)
+        Total # of inputs        : 12
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_9\ * 
+              \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * !\FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+            + Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_5\ * 
+              \FreqDiv_1:count_4\ * \FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_6\ (fanout=8)
+
+    MacroCell: Name=\FreqDiv_1:count_5\, Mode=(T-Register)
+        Total # of inputs        : 12
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_9\ * 
+              \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * !\FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+            + Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_4\ * 
+              \FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * \FreqDiv_1:count_1\ * 
+              \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_5\ (fanout=8)
+
+    MacroCell: Name=\FreqDiv_1:count_4\, Mode=(T-Register)
+        Total # of inputs        : 6
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_3\ * 
+              \FreqDiv_1:count_2\ * \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_4\ (fanout=8)
+
+    MacroCell: Name=\FreqDiv_1:count_3\, Mode=(T-Register)
+        Total # of inputs        : 12
+        Total # of product terms : 6
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 6 pterms
+        !(
+              !Net_185
+            + !\FreqDiv_1:not_last_reset\
+            + \FreqDiv_1:count_9\ * \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * 
+              \FreqDiv_1:count_6\ * \FreqDiv_1:count_5\ * 
+              !\FreqDiv_1:count_4\ * !\FreqDiv_1:count_3\
+            + !\FreqDiv_1:count_2\
+            + !\FreqDiv_1:count_1\
+            + !\FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_3\ (fanout=9)
+
+    MacroCell: Name=\FreqDiv_1:count_2\, Mode=(T-Register)
+        Total # of inputs        : 4
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_1\ * 
+              \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_2\ (fanout=9)
+
+    MacroCell: Name=\FreqDiv_1:count_1\, Mode=(T-Register)
+        Total # of inputs        : 3
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_1\ (fanout=10)
+
+    MacroCell: Name=\FreqDiv_1:count_0\, Mode=(T-Register)
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\
+        );
+        Output = \FreqDiv_1:count_0\ (fanout=11)
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Datapath listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Status register listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="StatusI register listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Sync listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Control register listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Count7 listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="DRQ listing">
+    </CYPRESSTAG>
+    <CYPRESSTAG name="Interrupt listing">
+    </CYPRESSTAG>
+</CYPRESSTAG>
+<CYPRESSTAG name="Technology mapping summary" expanded>
+
+------------------------------------------------------------
+Technology mapping summary
+------------------------------------------------------------
+
+Resource Type                 : Used : Free :  Max :  % Used
+============================================================
+Digital Clocks                :    0 :    8 :    8 :  0.00 %
+Analog Clocks                 :    0 :    4 :    4 :  0.00 %
+CapSense Buffers              :    0 :    2 :    2 :  0.00 %
+Digital Filter Block          :    0 :    1 :    1 :  0.00 %
+Interrupts                    :    0 :   32 :   32 :  0.00 %
+IO                            :    5 :   43 :   48 : 10.42 %
+Segment LCD                   :    0 :    1 :    1 :  0.00 %
+CAN 2.0b                      :    0 :    1 :    1 :  0.00 %
+I2C                           :    0 :    1 :    1 :  0.00 %
+USB                           :    0 :    1 :    1 :  0.00 %
+DMA Channels                  :    0 :   24 :   24 :  0.00 %
+Timer                         :    0 :    4 :    4 :  0.00 %
+UDB                           :      :      :      :        
+  Macrocells                  :   17 :  175 :  192 :  8.85 %
+  Unique P-terms              :   25 :  359 :  384 :  6.51 %
+  Total P-terms               :   29 :      :      :        
+  Datapath Cells              :    0 :   24 :   24 :  0.00 %
+  Status Cells                :    0 :   24 :   24 :  0.00 %
+  Control Cells               :    0 :   24 :   24 :  0.00 %
+Opamp                         :    0 :    4 :    4 :  0.00 %
+Comparator                    :    0 :    4 :    4 :  0.00 %
+Delta-Sigma ADC               :    0 :    1 :    1 :  0.00 %
+LPF                           :    0 :    2 :    2 :  0.00 %
+SAR ADC                       :    0 :    2 :    2 :  0.00 %
+Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
+DAC                           :      :      :      :        
+  VIDAC                       :    0 :    4 :    4 :  0.00 %
+</CYPRESSTAG>
+Technology Mapping: Elapsed time ==> 0s.090ms
+Tech Mapping phase: Elapsed time ==> 0s.163ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Placement">
+Initial Analog Placement Results:
+IO_2@[IOP=(2)][IoId=(2)] : Btn(0) (fixed)
+IO_1@[IOP=(2)][IoId=(1)] : LED(0) (fixed)
+Analog Placement phase: Elapsed time ==> 0s.057ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Routing">
+Analog Routing phase: Elapsed time ==> 0s.000ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Analog Code Generation">
+============ Analog Final Answer Routes ============
+Dump of CyAnalogRoutingResultsDB
+Map of net to items {
+}
+Map of item to net {
+}
+Mux Info {
+}
+Dump of CyP35AnalogRoutingResultsDB
+IsVddaHalfUsedForComp = False
+IsVddaHalfUsedForSar0 = False
+IsVddaHalfUsedForSar1 = False
+Analog Code Generation phase: Elapsed time ==> 0s.328ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Digital Placement">
+<CYPRESSTAG name="Detailed placement messages">
+I2076: Total run-time: 0.7 sec.
+
+</CYPRESSTAG>
+<CYPRESSTAG name="PLD Packing">
+<CYPRESSTAG name="PLD Packing Summary" expanded>
+
+------------------------------------------------------------
+PLD Packing Summary
+------------------------------------------------------------
+            Resource Type : Used : Free :  Max :  % Used
+    ====================================================
+                     PLDs :    8 :   40 :   48 :  16.67%
+
+<CYPRESSTAG name="PLD Statistics">
+
+        PLD Resource Type :     Average/LAB
+    =======================================
+                   Inputs :            8.50
+                   Pterms :            3.25
+               Macrocells :            2.13
+</CYPRESSTAG>
+<CYPRESSTAG name="Packed PLD Contents">
+Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
+</CYPRESSTAG>
+PLD Packing: Elapsed time ==> 0s.001ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Partitioning">
+<CYPRESSTAG name="Initial Partitioning Summary">
+Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+<CYPRESSTAG name="Final Partitioning Summary">
+Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
+Partitioning: Elapsed time ==> 0s.010ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Final Placement Summary">
+
+------------------------------------------------------------
+Final Placement Summary
+------------------------------------------------------------
+
+       Resource Type :      Count : Avg Inputs : Avg Outputs
+    ========================================================
+                 UDB :          4 :      10.25 :       4.25
+<CYPRESSTAG name="Final Placement Details">
+<CYPRESSTAG name="Component Details">
+
+------------------------------------------------------------
+Component Placement Details
+------------------------------------------------------------
+UDB [UDB=(0,0)] is empty.
+UDB [UDB=(0,1)] is empty.
+UDB [UDB=(0,2)] is empty.
+UDB [UDB=(0,3)] is empty.
+UDB [UDB=(0,4)] contents:
+LAB@[UDB=(0,4)][LB=0] #macrocells=4, #inputs=12, #pterms=4
+{
+    [McSlotId=0]:     MacroCell: Name=\FreqDiv_1:count_8_split\, Mode=(Combinatorial) @ [UDB=(0,4)][LB=0][MC=0]
+        Total # of inputs        : 12
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_9\ * 
+              \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * !\FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_8_split\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\FreqDiv_1:count_5\, Mode=(T-Register) @ [UDB=(0,4)][LB=0][MC=1]
+        Total # of inputs        : 12
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_9\ * 
+              \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * !\FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+            + Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_4\ * 
+              \FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * \FreqDiv_1:count_1\ * 
+              \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_5\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\FreqDiv_1:count_6\, Mode=(T-Register) @ [UDB=(0,4)][LB=0][MC=2]
+        Total # of inputs        : 12
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_9\ * 
+              \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * !\FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+            + Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_5\ * 
+              \FreqDiv_1:count_4\ * \FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_6\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\FreqDiv_1:count_7\, Mode=(T-Register) @ [UDB=(0,4)][LB=0][MC=3]
+        Total # of inputs        : 12
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_9\ * 
+              \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * !\FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+            + Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_6\ * 
+              \FreqDiv_1:count_5\ * \FreqDiv_1:count_4\ * \FreqDiv_1:count_3\ * 
+              \FreqDiv_1:count_2\ * \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_7\ (fanout=8)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(0,4)][LB=1] #macrocells=3, #inputs=12, #pterms=8
+{
+    [McSlotId=0]:     MacroCell: Name=\FreqDiv_1:count_3\, Mode=(T-Register) @ [UDB=(0,4)][LB=1][MC=0]
+        Total # of inputs        : 12
+        Total # of product terms : 6
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 6 pterms
+        !(
+              !Net_185
+            + !\FreqDiv_1:not_last_reset\
+            + \FreqDiv_1:count_9\ * \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * 
+              \FreqDiv_1:count_6\ * \FreqDiv_1:count_5\ * 
+              !\FreqDiv_1:count_4\ * !\FreqDiv_1:count_3\
+            + !\FreqDiv_1:count_2\
+            + !\FreqDiv_1:count_1\
+            + !\FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_3\ (fanout=9)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\, Mode=(Combinatorial) @ [UDB=(0,4)][LB=1][MC=1]
+        Total # of inputs        : 8
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * \FreqDiv_1:count_5\ * 
+              \FreqDiv_1:count_4\ * \FreqDiv_1:count_3\ * \FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\ (fanout=2)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=\FreqDiv_1:count_4\, Mode=(T-Register) @ [UDB=(0,4)][LB=1][MC=2]
+        Total # of inputs        : 6
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_3\ * 
+              \FreqDiv_1:count_2\ * \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_4\ (fanout=8)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]: (empty)
+}
+
+UDB [UDB=(0,5)] contents:
+LAB@[UDB=(0,5)][LB=0] #macrocells=1, #inputs=12, #pterms=1
+{
+    [McSlotId=0]:     MacroCell: Name=Net_181_split_2, Mode=(Combinatorial) @ [UDB=(0,5)][LB=0][MC=0]
+        Total # of inputs        : 12
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              !Net_181 * Net_185 * \FreqDiv_1:count_9\ * \FreqDiv_1:count_8\ * 
+              \FreqDiv_1:count_7\ * \FreqDiv_1:count_6\ * \FreqDiv_1:count_5\ * 
+              !\FreqDiv_1:count_4\ * !\FreqDiv_1:count_3\ * 
+              \FreqDiv_1:count_2\ * \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\
+        );
+        Output = Net_181_split_2 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+LAB@[UDB=(0,5)][LB=1] #macrocells=1, #inputs=12, #pterms=1
+{
+    [McSlotId=0]:     MacroCell: Name=Net_181_split_1, Mode=(Combinatorial) @ [UDB=(0,5)][LB=1][MC=0]
+        Total # of inputs        : 12
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_181 * Net_185 * \FreqDiv_1:count_8\ * \FreqDiv_1:count_7\ * 
+              \FreqDiv_1:count_6\ * \FreqDiv_1:count_5\ * \FreqDiv_1:count_4\ * 
+              !\FreqDiv_1:count_3\ * !\FreqDiv_1:count_2\ * 
+              \FreqDiv_1:count_1\ * \FreqDiv_1:count_0\ * Net_181_split
+        );
+        Output = Net_181_split_1 (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]: (empty)
+}
+
+UDB [UDB=(1,0)] is empty.
+UDB [UDB=(1,1)] is empty.
+UDB [UDB=(1,2)] is empty.
+UDB [UDB=(1,3)] is empty.
+UDB [UDB=(1,4)] contents:
+LAB@[UDB=(1,4)][LB=0] #macrocells=1, #inputs=4, #pterms=2
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=\FreqDiv_1:count_8\, Mode=(T-Register) @ [UDB=(1,4)][LB=0][MC=3]
+        Total # of inputs        : 4
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * 
+              \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\
+            + \FreqDiv_1:count_8_split\
+        );
+        Output = \FreqDiv_1:count_8\ (fanout=8)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(1,4)][LB=1] #macrocells=1, #inputs=3, #pterms=1
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]: (empty)
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=\FreqDiv_1:count_1\, Mode=(T-Register) @ [UDB=(1,4)][LB=1][MC=3]
+        Total # of inputs        : 3
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_1\ (fanout=10)
+        Properties               : 
+        {
+        }
+}
+
+UDB [UDB=(1,5)] contents:
+LAB@[UDB=(1,5)][LB=0] #macrocells=4, #inputs=9, #pterms=7
+{
+    [McSlotId=0]:     MacroCell: Name=Net_181, Mode=(T-Register) @ [UDB=(1,5)][LB=0][MC=0]
+        Total # of inputs        : 5
+        Total # of product terms : 3
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 3 pterms
+        (
+              !Net_181 * Net_185 * !\FreqDiv_1:not_last_reset\
+            + Net_181_split_1
+            + Net_181_split_2
+        );
+        Output = Net_181 (fanout=4)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=1]:     MacroCell: Name=\FreqDiv_1:not_last_reset\, Mode=(D-Register) @ [UDB=(1,5)][LB=0][MC=1]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        !(
+              !Net_185 * !\FreqDiv_1:not_last_reset\
+        );
+        Output = \FreqDiv_1:not_last_reset\ (fanout=14)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]:     MacroCell: Name=Net_181_split, Mode=(Combinatorial) @ [UDB=(1,5)][LB=0][MC=2]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              \FreqDiv_1:not_last_reset\ * !\FreqDiv_1:count_9\
+        );
+        Output = Net_181_split (fanout=1)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=3]:     MacroCell: Name=\FreqDiv_1:count_9\, Mode=(T-Register) @ [UDB=(1,5)][LB=0][MC=3]
+        Total # of inputs        : 5
+        Total # of product terms : 2
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 2 pterms
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_8\ * 
+              \FreqDiv_1:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\
+            + \FreqDiv_1:count_8_split\
+        );
+        Output = \FreqDiv_1:count_9\ (fanout=7)
+        Properties               : 
+        {
+        }
+}
+
+LAB@[UDB=(1,5)][LB=1] #macrocells=2, #inputs=4, #pterms=2
+{
+    [McSlotId=0]: (empty)
+    [McSlotId=1]:     MacroCell: Name=\FreqDiv_1:count_0\, Mode=(T-Register) @ [UDB=(1,5)][LB=1][MC=1]
+        Total # of inputs        : 2
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\
+        );
+        Output = \FreqDiv_1:count_0\ (fanout=11)
+        Properties               : 
+        {
+        }
+
+    [McSlotId=2]: (empty)
+    [McSlotId=3]:     MacroCell: Name=\FreqDiv_1:count_2\, Mode=(T-Register) @ [UDB=(1,5)][LB=1][MC=3]
+        Total # of inputs        : 4
+        Total # of product terms : 1
+        List of special equations: 
+            Clock  = (ClockBlock_1k)
+            Clock Enable: True
+        Main Equation            : 1 pterm
+        (
+              Net_185 * \FreqDiv_1:not_last_reset\ * \FreqDiv_1:count_1\ * 
+              \FreqDiv_1:count_0\
+        );
+        Output = \FreqDiv_1:count_2\ (fanout=9)
+        Properties               : 
+        {
+        }
+}
+
+UDB [UDB=(2,0)] is empty.
+UDB [UDB=(2,1)] is empty.
+UDB [UDB=(2,2)] is empty.
+UDB [UDB=(2,3)] is empty.
+UDB [UDB=(2,4)] is empty.
+UDB [UDB=(2,5)] is empty.
+UDB [UDB=(3,0)] is empty.
+UDB [UDB=(3,1)] is empty.
+UDB [UDB=(3,2)] is empty.
+UDB [UDB=(3,3)] is empty.
+UDB [UDB=(3,4)] is empty.
+UDB [UDB=(3,5)] is empty.
+Intr container @ [IntrContainer=(0)]: empty
+Drq container @ [DrqContainer=(0)]: empty
+Port 0 contains the following IO cells:
+Port 1 contains the following IO cells:
+Port 2 contains the following IO cells:
+[IoId=1]: 
+Pin : Name = LED(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: AUTO
+        Out Sync Option: NOSYNC
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: CMOS_OUT
+        VTrip: EITHER
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL, ROUTABLE
+        Initial Value: 0
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => LED(0)__PA ,
+        pin_input => Net_181 ,
+        pad => LED(0)_PAD );
+    Properties:
+    {
+    }
+
+[IoId=2]: 
+Pin : Name = Btn(0)
+    Attributes:
+        In Group/Port: True
+        In Sync Option: NOSYNC
+        Out Sync Option: AUTO
+        Interrupt generated: False
+        Interrupt mode: NONE
+        Drive mode: RES_PULL_UP
+        VTrip: CMOS
+        Slew: FAST
+        Input Sync needed: False
+        Output Sync needed: False
+        SC shield enabled: False
+        POR State: ANY
+        LCD Mode: COMMON
+        Register Mode: RegComb
+        CaSense Mode: NEITHER
+        Treat as pin: True
+        Is OE Registered: False
+        Uses Analog: False
+        Can contain Digital: True
+        Is SIO: False
+        SIO Output Buf: NONREGULATED
+        SIO Input Buf: SINGLE_ENDED
+        SIO HiFreq: LOW
+        SIO Hyst: DISABLED
+        SIO Vtrip: MULTIPLIER_0_5
+        SIO Multiplier Index: 0
+        SIO RefSel: VCC_IO
+        Required Capabilities: DIGITAL, ROUTABLE
+        Initial Value: 1
+        IO Voltage: 0
+    PORT MAP (
+        pa_out => Btn(0)__PA ,
+        fb => Net_185 ,
+        pad => Btn(0)_PAD );
+    Properties:
+    {
+    }
+
+Port 3 contains the following IO cells:
+Port 12 contains the following IO cells:
+Port 15 contains the following IO cells:
+ARM group 0: empty
+CAN group 0: empty
+Cache group 0: empty
+CapSense group 0: empty
+Clock group 0: 
+    Clock Block @ F(Clock,0): 
+    clockblockcell: Name =ClockBlock
+        PORT MAP (
+            imo => ClockBlock_IMO ,
+            pllout => ClockBlock_PLL_OUT ,
+            ilo => ClockBlock_ILO ,
+            clk_100k => ClockBlock_100k ,
+            clk_1k => ClockBlock_1k ,
+            clk_32k => ClockBlock_32k ,
+            xtal => ClockBlock_XTAL ,
+            clk_32k_xtal => ClockBlock_XTAL_32KHZ ,
+            clk_sync => ClockBlock_MASTER_CLK ,
+            clk_bus_glb => ClockBlock_BUS_CLK ,
+            clk_bus => ClockBlock_BUS_CLK_local );
+        Properties:
+        {
+        }
+Comparator group 0: empty
+DFB group 0: empty
+DSM group 0: empty
+Decimator group 0: empty
+EMIF group 0: empty
+I2C group 0: empty
+LCD group 0: empty
+LVD group 0: empty
+PICU group 0: empty
+PM group 0: empty
+SC group 0: empty
+SPC group 0: empty
+Timer group 0: empty
+USB group 0: empty
+VIDAC group 0: empty
+OpAmp group 0: empty
+CsAbuf group 0: empty
+Vref group 0: empty
+LPF group 0: empty
+SAR group 0: empty
+ANAIF group 0: empty
+PHUB group 0: empty
+</CYPRESSTAG>
+<CYPRESSTAG name="Port Configuration Details">
+
+------------------------------------------------------------
+Port Configuration report
+------------------------------------------------------------
+     |     |       | Interrupt |                  |        | 
+Port | Pin | Fixed |      Type |       Drive Mode |   Name | Connections
+-----+-----+-------+-----------+------------------+--------+------------
+   2 |   1 |     * |      NONE |         CMOS_OUT | LED(0) | In(Net_181)
+     |   2 |     * |      NONE |      RES_PULL_UP | Btn(0) | FB(Net_185)
+------------------------------------------------------------------------
+</CYPRESSTAG>
+</CYPRESSTAG>
+</CYPRESSTAG>
+Digital component placer commit/Report: Elapsed time ==> 0s.029ms
+Digital Placement phase: Elapsed time ==> 1s.042ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Digital Routing">
+"C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "IsaBusAdapter_r.vh2" --pcf-path "IsaBusAdapter.pco" --des-name "IsaBusAdapter" --dsf-path "IsaBusAdapter.dsf" --sdc-path "IsaBusAdapter.sdc" --lib-path "IsaBusAdapter_r.lib"
+Routing successful.
+Digital Routing phase: Elapsed time ==> 1s.659ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream Generation">
+Bitstream Generation phase: Elapsed time ==> 0s.236ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Bitstream Verification">
+Bitstream Verification phase: Elapsed time ==> 0s.036ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Static timing analysis">
+Timing report is in IsaBusAdapter_timing.html.
+Static timing analysis phase: Elapsed time ==> 0s.319ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Data reporting">
+Data reporting phase: Elapsed time ==> 0s.000ms
+</CYPRESSTAG>
+<CYPRESSTAG name="Database update...">
+Design database save phase: Elapsed time ==> 0s.200ms
+</CYPRESSTAG>
+cydsfit: Elapsed time ==> 4s.108ms
+</CYPRESSTAG>
+Fitter phase: Elapsed time ==> 4s.109ms
+Info: fit.M0045: Generation of disabled sheet defines resulted in name collisions or name changes due to a sheet name not being a valid C identifier. The following names were changed to avoid the collision(s)/illegal names: Isa Bus, Zalt Bus, Bus Ctrl.
+API generation phase: Elapsed time ==> 1s.236ms
+Dependency generation phase: Elapsed time ==> 0s.023ms
+Cleanup phase: Elapsed time ==> 0s.002ms
