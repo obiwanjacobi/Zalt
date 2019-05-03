@@ -183,7 +183,7 @@ bool_t FastCall(Async_IsPending__fast(AsyncThis *async));
  */
 #define Async_Yield()                         \
     _yield_ = true;                           \
-    _state = __LINE__; case __LINE__:         \
+    async->State = __LINE__; case __LINE__:         \
     if (_yield_) {                            \
         async->Result = asyncResult_Pending; \
         return async->Result;                \

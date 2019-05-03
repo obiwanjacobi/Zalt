@@ -21,5 +21,6 @@
     "C_Cpp.autoAddFileAssociations": false,
     "editor.insertSpaces": true,
     "editor.renderWhitespace": "all",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "explorer.openEditors.visible": 0
 }
