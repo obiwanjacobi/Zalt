@@ -143,9 +143,9 @@
         <Data key="clk_key_bus_usedivider" value="False" />
         <Data key="clock_version" value="v1" />
         <Data key="derive_type" value="BUILTIN" />
-        <Data key="desired_freq" value="33" />
+        <Data key="desired_freq" value="25" />
         <Data key="desired_unit" value="6" />
-        <Data key="divider" value="2" />
+        <Data key="divider" value="3" />
         <Data key="domain" value="0" />
         <Data key="enabled" value="True" />
         <Data key="minus_accuracy" value="0.05" />
@@ -300,6 +300,7 @@
   <Data key="DataVersionKey" value="2" />
   <Group key="DMA">
     <Data key="815ace70-681d-4f95-beb5-917b1248874a" value="1" />
+    <Data key="859c4886-eaec-4740-a662-69ab75c56d9f" value="4" />
     <Data key="ef38a4e0-571c-4ed0-b05a-ff06eb110d34" value="1" />
     <Data key="f673061f-b0d9-4b48-af51-0828ca1a8b12" value="3" />
     <Data key="fff6de7b-d229-44b3-b767-f18f726dc91a" value="1" />
@@ -311,22 +312,27 @@
     </Group>
     <Group key="DMA">
       <Data key="815ace70-681d-4f95-beb5-917b1248874a" value="G_DMA" />
+      <Data key="859c4886-eaec-4740-a662-69ab75c56d9f" value="DMA_Frame" />
       <Data key="ef38a4e0-571c-4ed0-b05a-ff06eb110d34" value="B_DMA" />
       <Data key="f673061f-b0d9-4b48-af51-0828ca1a8b12" value="DMA_Line" />
       <Data key="fff6de7b-d229-44b3-b767-f18f726dc91a" value="R_DMA" />
     </Group>
     <Group key="Interrupt">
       <Data key="6e277a9f-369b-478a-8c1d-8d225ee25dab" value="B_DMA_INT" />
+      <Data key="046bde49-ea57-41b1-837c-c02d75e61a0e" value="DMA_Line_Int" />
       <Data key="3612b74f-cfc0-4433-847b-960e99f8c887" value="G_DMA_INT" />
+      <Data key="c2bee740-d9cb-41d3-ace8-fd00fccf6831" value="DMA_Frame_Int" />
       <Data key="f609e854-a6d1-461f-9c2f-3c83cbda0c63" value="R_DMA_INT" />
     </Group>
     <Group key="Pin">
       <Data key="5c7d7068-fbf5-4964-a0a2-302695954bdb" value="VGA_G_out" />
+      <Data key="15fadf16-3419-43eb-a88c-c91ea85a8baf" value="Dbg_DmaLine" />
       <Data key="421723b5-1d59-4c02-a56e-61e9605d29f9" value="VGA_R_out" />
       <Data key="77715107-f8d5-47e5-a629-0fb83101ac6b" value="RGB" />
       <Data key="b117018f-8cbe-4430-97b6-8ce048d8540e" value="aBlankLvl" />
       <Data key="bf565bbd-5718-49df-a282-b09b8af2074f" value="SyncH" />
       <Data key="c82f6ff7-81fb-4132-a823-f083c282d709" value="VGA_B_out" />
+      <Data key="d0612d9c-85b1-46a1-a9ba-ffa9f44b919d" value="Dbg_VgaDataClk" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="SyncV" />
     </Group>
   </Group>
@@ -3421,6 +3427,13 @@
         <Data key="Vector" value="-1" />
       </Group>
     </Group>
+    <Group key="046bde49-ea57-41b1-837c-c02d75e61a0e">
+      <Group key="CortexM3">
+        <Data key="Assigned" value="True" />
+        <Data key="Priority" value="4" />
+        <Data key="Vector" value="-1" />
+      </Group>
+    </Group>
     <Group key="3612b74f-cfc0-4433-847b-960e99f8c887">
       <Group key="CortexM3">
         <Data key="Assigned" value="True" />
@@ -3446,6 +3459,11 @@
       </Group>
       <Group key="2">
         <Data key="Port Format" value="3,5" />
+      </Group>
+    </Group>
+    <Group key="15fadf16-3419-43eb-a88c-c91ea85a8baf">
+      <Group key="0">
+        <Data key="Port Format" value="0,6" />
       </Group>
     </Group>
     <Group key="421723b5-1d59-4c02-a56e-61e9605d29f9">
@@ -3489,6 +3507,11 @@
       </Group>
       <Group key="2">
         <Data key="Port Format" value="15,2" />
+      </Group>
+    </Group>
+    <Group key="d0612d9c-85b1-46a1-a9ba-ffa9f44b919d">
+      <Group key="0">
+        <Data key="Port Format" value="0,7" />
       </Group>
     </Group>
     <Group key="e851a3b9-efb8-48be-bbb8-b303b216c393">

@@ -174,7 +174,7 @@
         <register>
           <name>VGA_D_out_CONTROL_REG</name>
           <description>No description available</description>
-          <addressOffset>0x40006472</addressOffset>
+          <addressOffset>0x40006470</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -195,7 +195,7 @@
         <register>
           <name>LineCount_Lo_STATUS_REG</name>
           <description>No description available</description>
-          <addressOffset>0x40006468</addressOffset>
+          <addressOffset>0x40006568</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -204,7 +204,7 @@
         <register>
           <name>LineCount_Lo_MASK_REG</name>
           <description>No description available</description>
-          <addressOffset>0x40006488</addressOffset>
+          <addressOffset>0x40006588</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -213,7 +213,7 @@
         <register>
           <name>LineCount_Lo_STATUS_AUX_CTL_REG</name>
           <description>No description available</description>
-          <addressOffset>0x40006498</addressOffset>
+          <addressOffset>0x40006598</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>

@@ -539,7 +539,7 @@ function getElementsByClass(rootNode, elemName, className)
 <tr> <td class="prop"> Project :</td>
 <td class="proptext"> CharacterVga</td></tr>
 <tr> <td class="prop"> Build Time :</td>
-<td class="proptext"> 05/03/19 18:11:31</td></tr>
+<td class="proptext"> 05/05/19 15:08:57</td></tr>
 <tr> <td class="prop"> Device :</td>
 <td class="proptext"> CY8C5888LTI-LP097</td></tr>
 <tr> <td class="prop"> Temperature :</td>
@@ -617,15 +617,15 @@ Clock Summary Section</span>
  <td class = "text_info">CyMASTER_CLK</td>
  <td class = "number">75.556&nbsp;MHz</td>
  <td class = "number">75.556&nbsp;MHz</td>
- <td class = "number">166.085&nbsp;MHz</td>
+ <td class = "number">166.113&nbsp;MHz</td>
  <td class = "text_info"></td>
 </tr>
 <tr> 
  <td class = "text_info">CyBUS_CLK</td>
  <td class = "text_info">CyMASTER_CLK</td>
- <td class = "number">37.778&nbsp;MHz</td>
- <td class = "number">37.778&nbsp;MHz</td>
- <td class = "number">166.085&nbsp;MHz</td>
+ <td class = "number">25.185&nbsp;MHz</td>
+ <td class = "number">25.185&nbsp;MHz</td>
+ <td class = "number">166.113&nbsp;MHz</td>
  <td class = "text_info"></td>
 </tr>
 <tr> 
@@ -633,7 +633,7 @@ Clock Summary Section</span>
  <td class = "text_info">CyMASTER_CLK</td>
  <td class = "number">25.185&nbsp;MHz</td>
  <td class = "number">25.185&nbsp;MHz</td>
- <td class = "number">37.441&nbsp;MHz</td>
+ <td class = "number">39.869&nbsp;MHz</td>
  <td class = "text_info"></td>
 </tr>
 <tr> 
@@ -672,7 +672,7 @@ Setup Subsection</span>
 <div>
 <a href="#" style="text-decoration: none; color: inherit;">
 <span class="sec_head"><span style="font-family: monospace;">+</span>
-Source Clock : CyBUS_CLK : Positive edge(Required Frequency 37.7778&nbsp;MHz)</span>
+Source Clock : CyBUS_CLK : Positive edge(Required Frequency 25.1852&nbsp;MHz)</span>
 </a>
 </div><div class="sta_secbody"><div class="sta_sec" >
 <div>
@@ -695,74 +695,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_2</td>
- <td class = "text_info">VGA_D_reg_2/main_0</td>
- <td class = "number">166.085&nbsp;MHz</td>
- <td class = "number">6.021</td>
- <td class = "number">7.214</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_2</td>
- <td class = "number">1.435</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">Net_283_2</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_2</td>
- <td class = "text_info">VGA_D_reg_2/main_0</td>
- <td class = "number">2.129</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell30</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_2</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">2.457</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_4</td>
  <td class = "text_info">VGA_D_reg_4/main_0</td>
- <td class = "number">166.362&nbsp;MHz</td>
- <td class = "number">6.011</td>
- <td class = "number">7.224</td>
+ <td class = "number">166.113&nbsp;MHz</td>
+ <td class = "number">6.020</td>
+ <td class = "number">7.215</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -782,7 +719,7 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tbody>
 <tr> 
  <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
@@ -796,11 +733,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
  <td class = "text_info">Net_283_4</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_4</td>
  <td class = "text_info">VGA_D_reg_4/main_0</td>
- <td class = "number">2.119</td>
+ <td class = "number">2.128</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell28</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">macrocell29</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_D_reg_4</td>
  <td class = "text_info"></td>
@@ -821,137 +758,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_0</td>
- <td class = "text_info">VGA_D_reg_0/main_0</td>
- <td class = "number">166.445&nbsp;MHz</td>
- <td class = "number">6.008</td>
- <td class = "number">7.227</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_0</td>
- <td class = "number">1.435</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">Net_283_0</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_0</td>
- <td class = "text_info">VGA_D_reg_0/main_0</td>
- <td class = "number">2.116</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell32</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_0</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">2.457</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
- <td class = "text_info">VGA_D_reg_7/main_0</td>
- <td class = "number">166.694&nbsp;MHz</td>
- <td class = "number">5.999</td>
- <td class = "number">7.236</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
- <td class = "number">1.435</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">Net_283_7</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
- <td class = "text_info">VGA_D_reg_7/main_0</td>
- <td class = "number">2.107</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell25</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_7</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">2.457</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_3</td>
  <td class = "text_info">VGA_D_reg_3/main_0</td>
- <td class = "number">166.722&nbsp;MHz</td>
- <td class = "number">5.998</td>
- <td class = "number">7.237</td>
+ <td class = "number">166.611&nbsp;MHz</td>
+ <td class = "number">6.002</td>
+ <td class = "number">7.233</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -971,7 +782,7 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tbody>
 <tr> 
  <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
@@ -985,11 +796,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
  <td class = "text_info">Net_283_3</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_3</td>
  <td class = "text_info">VGA_D_reg_3/main_0</td>
- <td class = "number">2.106</td>
+ <td class = "number">2.110</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell29</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">macrocell30</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_D_reg_3</td>
  <td class = "text_info"></td>
@@ -1010,11 +821,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_1</td>
- <td class = "text_info">VGA_D_reg_1/main_0</td>
- <td class = "number">166.778&nbsp;MHz</td>
- <td class = "number">5.996</td>
- <td class = "number">7.239</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_2</td>
+ <td class = "text_info">VGA_D_reg_2/main_0</td>
+ <td class = "number">166.750&nbsp;MHz</td>
+ <td class = "number">5.997</td>
+ <td class = "number">7.238</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1034,7 +845,70 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tbody>
 <tr> 
  <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_2</td>
+ <td class = "number">1.435</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_283_2</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_2</td>
+ <td class = "text_info">VGA_D_reg_2/main_0</td>
+ <td class = "number">2.105</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell31</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_D_reg_2</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">2.457</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_1</td>
+ <td class = "text_info">VGA_D_reg_1/main_0</td>
+ <td class = "number">166.861&nbsp;MHz</td>
+ <td class = "number">5.993</td>
+ <td class = "number">7.242</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">controlcell1</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
@@ -1048,11 +922,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
  <td class = "text_info">Net_283_1</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_1</td>
  <td class = "text_info">VGA_D_reg_1/main_0</td>
- <td class = "number">2.104</td>
+ <td class = "number">2.101</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell31</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">macrocell32</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_D_reg_1</td>
  <td class = "text_info"></td>
@@ -1075,9 +949,9 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tr> 
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_5</td>
  <td class = "text_info">VGA_D_reg_5/main_0</td>
- <td class = "number">166.973&nbsp;MHz</td>
- <td class = "number">5.989</td>
- <td class = "number">7.246</td>
+ <td class = "number">167.029&nbsp;MHz</td>
+ <td class = "number">5.987</td>
+ <td class = "number">7.248</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1097,7 +971,7 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tbody>
 <tr> 
  <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
@@ -1111,11 +985,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
  <td class = "text_info">Net_283_5</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_5</td>
  <td class = "text_info">VGA_D_reg_5/main_0</td>
- <td class = "number">2.097</td>
+ <td class = "number">2.095</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell27</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">macrocell28</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_D_reg_5</td>
  <td class = "text_info"></td>
@@ -1138,9 +1012,9 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tr> 
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_6</td>
  <td class = "text_info">VGA_D_reg_6/main_0</td>
- <td class = "number">166.973&nbsp;MHz</td>
- <td class = "number">5.989</td>
- <td class = "number">7.246</td>
+ <td class = "number">167.084&nbsp;MHz</td>
+ <td class = "number">5.985</td>
+ <td class = "number">7.250</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1160,7 +1034,7 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tbody>
 <tr> 
  <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
@@ -1174,13 +1048,139 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
  <td class = "text_info">Net_283_6</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_6</td>
  <td class = "text_info">VGA_D_reg_6/main_0</td>
- <td class = "number">2.097</td>
+ <td class = "number">2.093</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell27</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_D_reg_6</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">2.457</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
+ <td class = "text_info">VGA_D_reg_7/main_0</td>
+ <td class = "number">167.140&nbsp;MHz</td>
+ <td class = "number">5.983</td>
+ <td class = "number">7.252</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">controlcell1</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
+ <td class = "number">1.435</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_283_7</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
+ <td class = "text_info">VGA_D_reg_7/main_0</td>
+ <td class = "number">2.091</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell26</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_6</td>
+ <td class = "text_info">VGA_D_reg_7</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">2.457</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_0</td>
+ <td class = "text_info">VGA_D_reg_0/main_0</td>
+ <td class = "number">167.196&nbsp;MHz</td>
+ <td class = "number">5.981</td>
+ <td class = "number">7.254</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">controlcell1</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_0</td>
+ <td class = "number">1.435</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_283_0</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_0</td>
+ <td class = "text_info">VGA_D_reg_0/main_0</td>
+ <td class = "number">2.089</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell33</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_D_reg_0</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
  <td class = "number">2.457</td>
@@ -1230,11 +1230,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">\VideoController:v_count_r_5\/main_1</td>
- <td class = "number">37.441&nbsp;MHz</td>
- <td class = "number">26.709</td>
- <td class = "number">12.997</td>
+ <td class = "number">39.869&nbsp;MHz</td>
+ <td class = "number">25.082</td>
+ <td class = "number">14.624</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1254,28 +1254,28 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5_split\/main_1</td>
- <td class = "number">10.004</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split\/main_0</td>
+ <td class = "number">8.953</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell85</td>
- <td class = "text_info">U(1,2)</td>
+ <td class = "text_info">U(0,2)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VideoController:v_count_r_5_split\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split\/main_1</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split\/main_0</td>
  <td class = "text_info">\VideoController:v_count_r_5_split\/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -1286,11 +1286,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
  <td class = "text_info">\VideoController:v_count_r_5_split\</td>
  <td class = "text_info">\VideoController:v_count_r_5_split\/q</td>
  <td class = "text_info">\VideoController:v_count_r_5_split_3\/main_11</td>
- <td class = "number">2.087</td>
+ <td class = "number">2.089</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell88</td>
- <td class = "text_info">U(1,2)</td>
+ <td class = "text_info">U(0,2)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VideoController:v_count_r_5_split_3\</td>
  <td class = "text_info">\VideoController:v_count_r_5_split_3\/main_11</td>
@@ -1304,11 +1304,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
  <td class = "text_info">\VideoController:v_count_r_5_split_3\</td>
  <td class = "text_info">\VideoController:v_count_r_5_split_3\/q</td>
  <td class = "text_info">\VideoController:v_count_r_5\/main_1</td>
- <td class = "number">6.596</td>
+ <td class = "number">6.018</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell53</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">macrocell54</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VideoController:v_count_r_5\</td>
  <td class = "text_info"></td>
@@ -1329,11 +1329,110 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/q</td>
  <td class = "text_info">\VideoController:v_count_r_5\/main_1</td>
- <td class = "number">39.640&nbsp;MHz</td>
- <td class = "number">25.227</td>
- <td class = "number">14.479</td>
+ <td class = "number">42.321&nbsp;MHz</td>
+ <td class = "number">23.629</td>
+ <td class = "number">16.077</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell49</td>
+ <td class = "text_info">U(2,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_0\</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_0\</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split\/main_1</td>
+ <td class = "number">7.500</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell85</td>
+ <td class = "text_info">U(0,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split\</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split\/main_1</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split\/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split\</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split\/q</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split_3\/main_11</td>
+ <td class = "number">2.089</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell88</td>
+ <td class = "text_info">U(0,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split_3\</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split_3\/main_11</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split_3\/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split_3\</td>
+ <td class = "text_info">\VideoController:v_count_r_5_split_3\/q</td>
+ <td class = "text_info">\VideoController:v_count_r_5\/main_1</td>
+ <td class = "number">6.018</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell54</td>
+ <td class = "text_info">U(2,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_count_r_5\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">2.457</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/main_3</td>
+ <td class = "number">42.963&nbsp;MHz</td>
+ <td class = "number">23.276</td>
+ <td class = "number">16.430</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1353,63 +1452,63 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tbody>
 <tr> 
  <td class = "text_info">macrocell47</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(3,4)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_1\</td>
- <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/clock_0</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_1\</td>
- <td class = "text_info">\VideoController:v_state_r_1\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5_split\/main_0</td>
- <td class = "number">8.522</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/main_0</td>
+ <td class = "number">8.391</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell85</td>
- <td class = "text_info">U(1,2)</td>
+ <td class = "text_info">macrocell77</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split\/main_0</td>
- <td class = "text_info">\VideoController:v_count_r_5_split\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/main_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/q</td>
  <td class = "number">2.345</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_3\/main_11</td>
- <td class = "number">2.087</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_0_split_7\/main_11</td>
+ <td class = "number">4.139</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell88</td>
- <td class = "text_info">U(1,2)</td>
+ <td class = "text_info">macrocell82</td>
+ <td class = "text_info">U(2,3)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_3\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_3\/main_11</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_3\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_0_split_7\</td>
+ <td class = "text_info">\VideoController:v_state_r_0_split_7\/main_11</td>
+ <td class = "text_info">\VideoController:v_state_r_0_split_7\/q</td>
  <td class = "number">2.345</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_3\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_3\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5\/main_1</td>
- <td class = "number">6.596</td>
+ <td class = "text_info">\VideoController:v_state_r_0_split_7\</td>
+ <td class = "text_info">\VideoController:v_state_r_0_split_7\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/main_3</td>
+ <td class = "number">2.724</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell53</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">macrocell49</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5\</td>
+ <td class = "text_info">\VideoController:v_state_r_0\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
  <td class = "number">2.457</td>
@@ -1428,11 +1527,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5\/main_0</td>
- <td class = "number">39.739&nbsp;MHz</td>
- <td class = "number">25.164</td>
- <td class = "number">14.542</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/main_1</td>
+ <td class = "number">42.989&nbsp;MHz</td>
+ <td class = "number">23.262</td>
+ <td class = "number">16.444</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1450,65 +1549,65 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </tr>
 </thead> 
 <tbody>
+<tr> 
+ <td class = "text_info">macrocell47</td>
+ <td class = "text_info">U(3,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/clock_0</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/main_0</td>
+ <td class = "number">8.391</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell77</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/main_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\/main_11</td>
+ <td class = "number">4.139</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell80</td>
+ <td class = "text_info">U(2,3)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\/main_11</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/main_1</td>
+ <td class = "number">2.710</td>
+</tr>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\/main_1</td>
- <td class = "number">9.069</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell86</td>
- <td class = "text_info">U(1,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\/main_1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\/main_11</td>
- <td class = "number">2.075</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell87</td>
- <td class = "text_info">U(1,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\/main_11</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5\/main_0</td>
- <td class = "number">5.998</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell53</td>
- <td class = "text_info">U(3,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
  <td class = "number">2.457</td>
@@ -1527,290 +1626,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_state_r_1\/main_1</td>
- <td class = "number">41.127&nbsp;MHz</td>
- <td class = "number">24.315</td>
- <td class = "number">15.391</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell34</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "number">6.972</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell8</td>
- <td class = "text_info">U(2,5)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "number">5.651</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell10</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
- <td class = "text_info">\VideoController:h_state_r_1\/main_1</td>
- <td class = "number">3.670</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell33</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_1\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">2.457</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_state_r_0\/main_1</td>
- <td class = "number">41.127&nbsp;MHz</td>
- <td class = "number">24.315</td>
- <td class = "number">15.391</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell34</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "number">6.972</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell8</td>
- <td class = "text_info">U(2,5)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "number">5.651</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell10</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
- <td class = "text_info">\VideoController:h_state_r_0\/main_1</td>
- <td class = "number">3.670</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell34</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">2.457</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">VGA_LineCnt_2/q</td>
- <td class = "text_info">VGA_LineCnt_8/main_4</td>
- <td class = "number">41.825&nbsp;MHz</td>
- <td class = "number">23.909</td>
- <td class = "number">15.797</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="6">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell66</td>
- <td class = "text_info">U(2,5)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_LineCnt_2</td>
- <td class = "text_info">VGA_LineCnt_2/clock_0</td>
- <td class = "text_info">VGA_LineCnt_2/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_LineCnt_2</td>
- <td class = "text_info">VGA_LineCnt_2/q</td>
- <td class = "text_info">\VideoController:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_8\/main_5</td>
- <td class = "number">9.939</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell19</td>
- <td class = "text_info">U(1,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_8\</td>
- <td class = "text_info">\VideoController:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_8\/main_5</td>
- <td class = "text_info">\VideoController:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_8\/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_8\</td>
- <td class = "text_info">\VideoController:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_8\/q</td>
- <td class = "text_info">VGA_LineCnt_8/main_4</td>
- <td class = "number">8.293</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell60</td>
- <td class = "text_info">U(2,5)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_LineCnt_8</td>
- <td class = "text_info"></td>
- <td class = "text_info">SETUP</td>
- <td class = "number">2.457</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\VideoController:v_state_r_1\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5\/main_0</td>
- <td class = "number">42.164&nbsp;MHz</td>
- <td class = "number">23.717</td>
- <td class = "number">15.989</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/main_1</td>
+ <td class = "number">42.989&nbsp;MHz</td>
+ <td class = "number">23.262</td>
+ <td class = "number">16.444</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1830,63 +1650,63 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 <tbody>
 <tr> 
  <td class = "text_info">macrocell47</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(3,4)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_1\</td>
- <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/clock_0</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_1\</td>
- <td class = "text_info">\VideoController:v_state_r_1\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\/main_0</td>
- <td class = "number">7.622</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/main_0</td>
+ <td class = "number">8.391</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell86</td>
- <td class = "text_info">U(1,1)</td>
+ <td class = "text_info">macrocell77</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\/main_0</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/main_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/q</td>
  <td class = "number">2.345</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_1\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\/main_11</td>
- <td class = "number">2.075</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\/main_11</td>
+ <td class = "number">4.139</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell87</td>
- <td class = "text_info">U(1,1)</td>
+ <td class = "text_info">macrocell80</td>
+ <td class = "text_info">U(2,3)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\/main_11</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\/main_11</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\/q</td>
  <td class = "number">2.345</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\</td>
- <td class = "text_info">\VideoController:v_count_r_5_split_2\/q</td>
- <td class = "text_info">\VideoController:v_count_r_5\/main_0</td>
- <td class = "number">5.998</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_3\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/main_1</td>
+ <td class = "number">2.710</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell53</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">macrocell49</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_count_r_5\</td>
+ <td class = "text_info">\VideoController:v_state_r_0\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
  <td class = "number">2.457</td>
@@ -1905,11 +1725,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_8\/main_2</td>
- <td class = "number">42.402&nbsp;MHz</td>
- <td class = "number">23.584</td>
- <td class = "number">16.122</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/q</td>
+ <td class = "text_info">Net_304_2/main_0</td>
+ <td class = "number">45.370&nbsp;MHz</td>
+ <td class = "number">22.041</td>
+ <td class = "number">17.665</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -1927,65 +1747,65 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </tr>
 </thead> 
 <tbody>
-<tr> 
- <td class = "text_info">macrocell34</td>
- <td class = "text_info">U(2,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "number">6.972</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell8</td>
- <td class = "text_info">U(2,5)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "number">5.651</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell10</td>
- <td class = "text_info">U(2,0)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"> </td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
- <td class = "text_info">\VideoController:h_count_r_8\/main_2</td>
- <td class = "number">2.939</td>
-</tr>
 <tr> 
  <td class = "text_info">macrocell37</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">U(3,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_8\</td>
+ <td class = "text_info">\VideoController:h_count_r_9\</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/clock_0</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:h_count_r_9\</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/q</td>
+ <td class = "text_info">line_dma_split/main_3</td>
+ <td class = "number">5.884</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell23</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">line_dma_split</td>
+ <td class = "text_info">line_dma_split/main_3</td>
+ <td class = "text_info">line_dma_split/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">line_dma_split</td>
+ <td class = "text_info">line_dma_split/q</td>
+ <td class = "text_info">line_dma/main_11</td>
+ <td class = "number">2.097</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell15</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">line_dma</td>
+ <td class = "text_info">line_dma/main_11</td>
+ <td class = "text_info">line_dma/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">line_dma</td>
+ <td class = "text_info">line_dma/q</td>
+ <td class = "text_info">Net_304_2/main_0</td>
+ <td class = "number">6.038</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell74</td>
+ <td class = "text_info">U(3,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_304_2</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
  <td class = "number">2.457</td>
@@ -2004,11 +1824,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_7\/main_2</td>
- <td class = "number">42.402&nbsp;MHz</td>
- <td class = "number">23.584</td>
- <td class = "number">16.122</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/q</td>
+ <td class = "text_info">Net_304_1/main_0</td>
+ <td class = "number">45.370&nbsp;MHz</td>
+ <td class = "number">22.041</td>
+ <td class = "number">17.665</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2027,64 +1847,64 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell34</td>
- <td class = "text_info">U(2,2)</td>
+ <td class = "text_info">macrocell37</td>
+ <td class = "text_info">U(3,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:h_count_r_9\</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/clock_0</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "number">6.972</td>
+ <td class = "text_info">\VideoController:h_count_r_9\</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/q</td>
+ <td class = "text_info">line_dma_split/main_3</td>
+ <td class = "number">5.884</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell8</td>
- <td class = "text_info">U(2,5)</td>
+ <td class = "text_info">macrocell23</td>
+ <td class = "text_info">U(3,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
+ <td class = "text_info">line_dma_split</td>
+ <td class = "text_info">line_dma_split/main_3</td>
+ <td class = "text_info">line_dma_split/q</td>
  <td class = "number">2.345</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "number">5.651</td>
+ <td class = "text_info">line_dma_split</td>
+ <td class = "text_info">line_dma_split/q</td>
+ <td class = "text_info">line_dma/main_11</td>
+ <td class = "number">2.097</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell10</td>
- <td class = "text_info">U(2,0)</td>
+ <td class = "text_info">macrocell15</td>
+ <td class = "text_info">U(3,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
+ <td class = "text_info">line_dma</td>
+ <td class = "text_info">line_dma/main_11</td>
+ <td class = "text_info">line_dma/q</td>
  <td class = "number">2.345</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
- <td class = "text_info">\VideoController:h_count_r_7\/main_2</td>
- <td class = "number">2.939</td>
+ <td class = "text_info">line_dma</td>
+ <td class = "text_info">line_dma/q</td>
+ <td class = "text_info">Net_304_1/main_0</td>
+ <td class = "number">6.038</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell38</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">macrocell75</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_7\</td>
+ <td class = "text_info">Net_304_1</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
  <td class = "number">2.457</td>
@@ -2103,11 +1923,11 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_6\/main_2</td>
- <td class = "number">42.402&nbsp;MHz</td>
- <td class = "number">23.584</td>
- <td class = "number">16.122</td>
+ <td class = "text_info">\VideoController:v_count_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_count_r_9\/main_2</td>
+ <td class = "number">45.374&nbsp;MHz</td>
+ <td class = "number">22.039</td>
+ <td class = "number">17.667</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2126,64 +1946,262 @@ Destination Clock : PixelClock : Positive edge(Required Frequency 25.1852&nbsp;M
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell34</td>
+ <td class = "text_info">macrocell59</td>
  <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_count_r_0\</td>
+ <td class = "text_info">\VideoController:v_count_r_0\/clock_0</td>
+ <td class = "text_info">\VideoController:v_count_r_0\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "number">6.972</td>
+ <td class = "text_info">\VideoController:v_count_r_0\</td>
+ <td class = "text_info">\VideoController:v_count_r_0\/q</td>
+ <td class = "text_info">\VideoController:MODULE_3:g2:a0:g1:z1:s0:g1:u0:b_8\/main_7</td>
+ <td class = "number">8.683</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell8</td>
- <td class = "text_info">U(2,5)</td>
+ <td class = "text_info">macrocell20</td>
+ <td class = "text_info">U(0,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/main_1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
+ <td class = "text_info">\VideoController:MODULE_3:g2:a0:g1:z1:s0:g1:u0:b_8\</td>
+ <td class = "text_info">\VideoController:MODULE_3:g2:a0:g1:z1:s0:g1:u0:b_8\/main_7</td>
+ <td class = "text_info">\VideoController:MODULE_3:g2:a0:g1:z1:s0:g1:u0:b_8\/q</td>
  <td class = "number">2.345</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\</td>
- <td class = "text_info">\VideoController:h_count_r_5_split\/q</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "number">5.651</td>
+ <td class = "text_info">\VideoController:MODULE_3:g2:a0:g1:z1:s0:g1:u0:b_8\</td>
+ <td class = "text_info">\VideoController:MODULE_3:g2:a0:g1:z1:s0:g1:u0:b_8\/q</td>
+ <td class = "text_info">\VideoController:v_count_r_9_split\/main_11</td>
+ <td class = "number">3.249</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell10</td>
+ <td class = "text_info">macrocell83</td>
+ <td class = "text_info">U(0,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_count_r_9_split\</td>
+ <td class = "text_info">\VideoController:v_count_r_9_split\/main_11</td>
+ <td class = "text_info">\VideoController:v_count_r_9_split\/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_count_r_9_split\</td>
+ <td class = "text_info">\VideoController:v_count_r_9_split\/q</td>
+ <td class = "text_info">\VideoController:v_count_r_9\/main_2</td>
+ <td class = "number">2.085</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell50</td>
+ <td class = "text_info">U(1,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_count_r_9\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">2.457</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/main_0</td>
+ <td class = "number">45.469&nbsp;MHz</td>
+ <td class = "number">21.993</td>
+ <td class = "number">17.713</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell47</td>
+ <td class = "text_info">U(3,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/clock_0</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\/main_0</td>
+ <td class = "number">8.391</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell78</td>
  <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/main_11</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\/main_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\/q</td>
  <td class = "number">2.345</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"> </td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\</td>
- <td class = "text_info">\VideoController:h_count_r_6_split_5\/q</td>
- <td class = "text_info">\VideoController:h_count_r_6\/main_2</td>
- <td class = "number">2.939</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\/main_11</td>
+ <td class = "number">2.031</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell39</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">macrocell79</td>
+ <td class = "text_info">U(2,0)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_6\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\/main_11</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/main_0</td>
+ <td class = "number">3.549</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell48</td>
+ <td class = "text_info">U(2,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info"></td>
+ <td class = "text_info">SETUP</td>
+ <td class = "number">2.457</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/main_0</td>
+ <td class = "number">45.469&nbsp;MHz</td>
+ <td class = "number">21.993</td>
+ <td class = "number">17.713</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="6">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell47</td>
+ <td class = "text_info">U(3,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/clock_0</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:newline_r\</td>
+ <td class = "text_info">\VideoController:newline_r\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\/main_0</td>
+ <td class = "number">8.391</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell78</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\/main_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_1\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\/main_11</td>
+ <td class = "number">2.031</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell79</td>
+ <td class = "text_info">U(2,0)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\/main_11</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"> </td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\</td>
+ <td class = "text_info">\VideoController:v_state_r_1_split_2\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_0\/main_0</td>
+ <td class = "number">3.549</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell49</td>
+ <td class = "text_info">U(2,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_0\</td>
  <td class = "text_info"></td>
  <td class = "text_info">SETUP</td>
  <td class = "number">2.457</td>
@@ -2238,314 +2256,9 @@ Destination Clock : PixelClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_5</td>
- <td class = "text_info">VGA_D_reg_5/main_0</td>
- <td class = "number">15.766</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_5</td>
- <td class = "number">0.434</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_283_5</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_5</td>
- <td class = "text_info">VGA_D_reg_5/main_0</td>
- <td class = "number">2.097</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell27</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_5</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_6</td>
- <td class = "text_info">VGA_D_reg_6/main_0</td>
- <td class = "number">15.766</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_6</td>
- <td class = "number">0.434</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_283_6</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_6</td>
- <td class = "text_info">VGA_D_reg_6/main_0</td>
- <td class = "number">2.097</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell26</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_6</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_1</td>
- <td class = "text_info">VGA_D_reg_1/main_0</td>
- <td class = "number">15.773</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_1</td>
- <td class = "number">0.434</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_283_1</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_1</td>
- <td class = "text_info">VGA_D_reg_1/main_0</td>
- <td class = "number">2.104</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell31</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_1</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_3</td>
- <td class = "text_info">VGA_D_reg_3/main_0</td>
- <td class = "number">15.775</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_3</td>
- <td class = "number">0.434</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_283_3</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_3</td>
- <td class = "text_info">VGA_D_reg_3/main_0</td>
- <td class = "number">2.106</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell29</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_3</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
- <td class = "text_info">VGA_D_reg_7/main_0</td>
- <td class = "number">15.776</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
- <td class = "number">0.434</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_283_7</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
- <td class = "text_info">VGA_D_reg_7/main_0</td>
- <td class = "number">2.107</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell25</td>
- <td class = "text_info">U(3,4)</td>
- <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_7</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_0</td>
  <td class = "text_info">VGA_D_reg_0/main_0</td>
- <td class = "number">15.785</td>
+ <td class = "number">28.994</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2565,7 +2278,7 @@ Destination Clock : PixelClock : Positive edge</span>
 <tbody>
 <tr> 
  <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
@@ -2579,11 +2292,11 @@ Destination Clock : PixelClock : Positive edge</span>
  <td class = "text_info">Net_283_0</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_0</td>
  <td class = "text_info">VGA_D_reg_0/main_0</td>
- <td class = "number">2.116</td>
+ <td class = "number">2.089</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell32</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">macrocell33</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_D_reg_0</td>
  <td class = "text_info"> </td>
@@ -2604,9 +2317,9 @@ Destination Clock : PixelClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_4</td>
- <td class = "text_info">VGA_D_reg_4/main_0</td>
- <td class = "number">15.788</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
+ <td class = "text_info">VGA_D_reg_7/main_0</td>
+ <td class = "number">28.996</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2626,27 +2339,210 @@ Destination Clock : PixelClock : Positive edge</span>
 <tbody>
 <tr> 
  <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_4</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
  <td class = "number">0.434</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">Net_283_4</td>
- <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_4</td>
- <td class = "text_info">VGA_D_reg_4/main_0</td>
- <td class = "number">2.119</td>
+ <td class = "text_info">Net_283_7</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_7</td>
+ <td class = "text_info">VGA_D_reg_7/main_0</td>
+ <td class = "number">2.091</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell26</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_D_reg_7</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_6</td>
+ <td class = "text_info">VGA_D_reg_6/main_0</td>
+ <td class = "number">28.998</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">controlcell1</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_6</td>
+ <td class = "number">0.434</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_283_6</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_6</td>
+ <td class = "text_info">VGA_D_reg_6/main_0</td>
+ <td class = "number">2.093</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell27</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_D_reg_6</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_5</td>
+ <td class = "text_info">VGA_D_reg_5/main_0</td>
+ <td class = "number">29.000</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">controlcell1</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_5</td>
+ <td class = "number">0.434</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_283_5</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_5</td>
+ <td class = "text_info">VGA_D_reg_5/main_0</td>
+ <td class = "number">2.095</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell28</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_4</td>
+ <td class = "text_info">VGA_D_reg_5</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_1</td>
+ <td class = "text_info">VGA_D_reg_1/main_0</td>
+ <td class = "number">29.006</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">controlcell1</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_1</td>
+ <td class = "number">0.434</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_283_1</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_1</td>
+ <td class = "text_info">VGA_D_reg_1/main_0</td>
+ <td class = "number">2.101</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell32</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_D_reg_1</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2667,7 +2563,7 @@ Destination Clock : PixelClock : Positive edge</span>
 <tr> 
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_2</td>
  <td class = "text_info">VGA_D_reg_2/main_0</td>
- <td class = "number">15.798</td>
+ <td class = "number">29.010</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2687,7 +2583,7 @@ Destination Clock : PixelClock : Positive edge</span>
 <tbody>
 <tr> 
  <td class = "text_info">controlcell1</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
@@ -2701,13 +2597,135 @@ Destination Clock : PixelClock : Positive edge</span>
  <td class = "text_info">Net_283_2</td>
  <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_2</td>
  <td class = "text_info">VGA_D_reg_2/main_0</td>
- <td class = "number">2.129</td>
+ <td class = "number">2.105</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell31</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_D_reg_2</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_3</td>
+ <td class = "text_info">VGA_D_reg_3/main_0</td>
+ <td class = "number">29.015</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">controlcell1</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_3</td>
+ <td class = "number">0.434</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_283_3</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_3</td>
+ <td class = "text_info">VGA_D_reg_3/main_0</td>
+ <td class = "number">2.110</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell30</td>
- <td class = "text_info">U(3,4)</td>
+ <td class = "text_info">U(2,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">VGA_D_reg_2</td>
+ <td class = "text_info">VGA_D_reg_3</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_4</td>
+ <td class = "text_info">VGA_D_reg_4/main_0</td>
+ <td class = "number">29.033</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">controlcell1</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/busclk</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_4</td>
+ <td class = "number">0.434</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_283_4</td>
+ <td class = "text_info">\VGA_D_out:Sync:ctrl_reg\/control_4</td>
+ <td class = "text_info">VGA_D_reg_4/main_0</td>
+ <td class = "number">2.128</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell29</td>
+ <td class = "text_info">U(2,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_D_reg_4</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2754,9 +2772,9 @@ Destination Clock : PixelClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">\VideoController:h_count_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_2\/main_1</td>
- <td class = "number">2.952</td>
+ <td class = "text_info">Net_304_2/q</td>
+ <td class = "text_info">Net_304_2/main_1</td>
+ <td class = "number">2.958</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2775,28 +2793,28 @@ Destination Clock : PixelClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell45</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">macrocell74</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_0\</td>
- <td class = "text_info">\VideoController:h_count_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:h_count_r_0\/q</td>
+ <td class = "text_info">Net_304_2</td>
+ <td class = "text_info">Net_304_2/clock_0</td>
+ <td class = "text_info">Net_304_2/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
+ <td class = "text_info">macrocell74</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_0\</td>
- <td class = "text_info">\VideoController:h_count_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_2\/main_1</td>
- <td class = "number">2.077</td>
+ <td class = "text_info">Net_304_2</td>
+ <td class = "text_info">Net_304_2/q</td>
+ <td class = "text_info">Net_304_2/main_1</td>
+ <td class = "number">2.083</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell43</td>
- <td class = "text_info">U(2,1)</td>
+ <td class = "text_info">macrocell74</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_2\</td>
+ <td class = "text_info">Net_304_2</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2815,69 +2833,8 @@ Destination Clock : PixelClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:h_count_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_1\/main_0</td>
- <td class = "number">2.952</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell45</td>
- <td class = "text_info">U(2,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_0\</td>
- <td class = "text_info">\VideoController:h_count_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:h_count_r_0\/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_0\</td>
- <td class = "text_info">\VideoController:h_count_r_0\/q</td>
- <td class = "text_info">\VideoController:h_count_r_1\/main_0</td>
- <td class = "number">2.077</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell44</td>
- <td class = "text_info">U(2,1)</td>
- <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_count_r_1\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">VGA_LineCnt_9/q</td>
- <td class = "text_info">VGA_LineCnt_9/main_0</td>
+ <td class = "text_info">\CharClock:count_1\/q</td>
+ <td class = "text_info">Net_282/main_4</td>
  <td class = "number">2.959</td>
  <td class = "text_info"></td>
 </tr>
@@ -2897,28 +2854,28 @@ Destination Clock : PixelClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell59</td>
- <td class = "text_info">U(0,1)</td>
+ <td class = "text_info">macrocell72</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">VGA_LineCnt_9</td>
- <td class = "text_info">VGA_LineCnt_9/clock_0</td>
- <td class = "text_info">VGA_LineCnt_9/q</td>
+ <td class = "text_info">\CharClock:count_1\</td>
+ <td class = "text_info">\CharClock:count_1\/clock_0</td>
+ <td class = "text_info">\CharClock:count_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell59</td>
- <td class = "text_info">U(0,1)</td>
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">VGA_LineCnt_9</td>
- <td class = "text_info">VGA_LineCnt_9/q</td>
- <td class = "text_info">VGA_LineCnt_9/main_0</td>
+ <td class = "text_info">\CharClock:count_1\</td>
+ <td class = "text_info">\CharClock:count_1\/q</td>
+ <td class = "text_info">Net_282/main_4</td>
  <td class = "number">2.084</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell59</td>
- <td class = "text_info">U(0,1)</td>
+ <td class = "text_info">macrocell25</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">VGA_LineCnt_9</td>
+ <td class = "text_info">Net_282</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2937,9 +2894,9 @@ Destination Clock : PixelClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">Net_304_0/q</td>
- <td class = "text_info">Net_304_0/main_1</td>
- <td class = "number">2.961</td>
+ <td class = "text_info">\CharClock:count_1\/q</td>
+ <td class = "text_info">\CharClock:count_2\/main_3</td>
+ <td class = "number">2.959</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -2958,28 +2915,28 @@ Destination Clock : PixelClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell75</td>
- <td class = "text_info">U(2,2)</td>
+ <td class = "text_info">macrocell72</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">Net_304_0</td>
- <td class = "text_info">Net_304_0/clock_0</td>
- <td class = "text_info">Net_304_0/q</td>
+ <td class = "text_info">\CharClock:count_1\</td>
+ <td class = "text_info">\CharClock:count_1\/clock_0</td>
+ <td class = "text_info">\CharClock:count_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell75</td>
- <td class = "text_info">U(2,2)</td>
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">Net_304_0</td>
- <td class = "text_info">Net_304_0/q</td>
- <td class = "text_info">Net_304_0/main_1</td>
- <td class = "number">2.086</td>
+ <td class = "text_info">\CharClock:count_1\</td>
+ <td class = "text_info">\CharClock:count_1\/q</td>
+ <td class = "text_info">\CharClock:count_2\/main_3</td>
+ <td class = "number">2.084</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell75</td>
- <td class = "text_info">U(2,2)</td>
+ <td class = "text_info">macrocell71</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">Net_304_0</td>
+ <td class = "text_info">\CharClock:count_2\</td>
  <td class = "text_info"> </td>
  <td class = "text_info">HOLD</td>
  <td class = "number">0.000</td>
@@ -2998,8 +2955,69 @@ Destination Clock : PixelClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\CharClock:count_2\/q</td>
- <td class = "text_info">Net_282/main_2</td>
+ <td class = "text_info">\CharClock:count_1\/q</td>
+ <td class = "text_info">\CharClock:count_1\/main_2</td>
+ <td class = "number">2.959</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell72</td>
+ <td class = "text_info">U(3,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\CharClock:count_1\</td>
+ <td class = "text_info">\CharClock:count_1\/clock_0</td>
+ <td class = "text_info">\CharClock:count_1\/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell72</td>
+ <td class = "text_info">U(3,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\CharClock:count_1\</td>
+ <td class = "text_info">\CharClock:count_1\/q</td>
+ <td class = "text_info">\CharClock:count_1\/main_2</td>
+ <td class = "number">2.084</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell72</td>
+ <td class = "text_info">U(3,5)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\CharClock:count_1\</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">VGA_LineCnt_2/q</td>
+ <td class = "text_info">VGA_LineCnt_3/main_4</td>
  <td class = "number">2.962</td>
  <td class = "text_info"></td>
 </tr>
@@ -3019,8 +3037,252 @@ Destination Clock : PixelClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell70</td>
- <td class = "text_info">U(0,2)</td>
+ <td class = "text_info">macrocell67</td>
+ <td class = "text_info">U(1,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_LineCnt_2</td>
+ <td class = "text_info">VGA_LineCnt_2/clock_0</td>
+ <td class = "text_info">VGA_LineCnt_2/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_LineCnt_2</td>
+ <td class = "text_info">VGA_LineCnt_2/q</td>
+ <td class = "text_info">VGA_LineCnt_3/main_4</td>
+ <td class = "number">2.087</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell66</td>
+ <td class = "text_info">U(1,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_LineCnt_3</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">VGA_LineCnt_2/q</td>
+ <td class = "text_info">VGA_LineCnt_2/main_3</td>
+ <td class = "number">2.962</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell67</td>
+ <td class = "text_info">U(1,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_LineCnt_2</td>
+ <td class = "text_info">VGA_LineCnt_2/clock_0</td>
+ <td class = "text_info">VGA_LineCnt_2/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell67</td>
+ <td class = "text_info">U(1,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_LineCnt_2</td>
+ <td class = "text_info">VGA_LineCnt_2/q</td>
+ <td class = "text_info">VGA_LineCnt_2/main_3</td>
+ <td class = "number">2.087</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell67</td>
+ <td class = "text_info">U(1,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_LineCnt_2</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\CharClock:count_0\/q</td>
+ <td class = "text_info">\CharClock:count_0\/main_2</td>
+ <td class = "number">2.971</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell73</td>
+ <td class = "text_info">U(2,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\CharClock:count_0\</td>
+ <td class = "text_info">\CharClock:count_0\/clock_0</td>
+ <td class = "text_info">\CharClock:count_0\/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell73</td>
+ <td class = "text_info">U(2,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\CharClock:count_0\</td>
+ <td class = "text_info">\CharClock:count_0\/q</td>
+ <td class = "text_info">\CharClock:count_0\/main_2</td>
+ <td class = "number">2.096</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell73</td>
+ <td class = "text_info">U(2,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\CharClock:count_0\</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">VGA_LineCnt_9/q</td>
+ <td class = "text_info">VGA_LineCnt_9/main_0</td>
+ <td class = "number">2.973</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell60</td>
+ <td class = "text_info">U(2,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_LineCnt_9</td>
+ <td class = "text_info">VGA_LineCnt_9/clock_0</td>
+ <td class = "text_info">VGA_LineCnt_9/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell60</td>
+ <td class = "text_info">U(2,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_LineCnt_9</td>
+ <td class = "text_info">VGA_LineCnt_9/q</td>
+ <td class = "text_info">VGA_LineCnt_9/main_0</td>
+ <td class = "number">2.098</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell60</td>
+ <td class = "text_info">U(2,4)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">VGA_LineCnt_9</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info">HOLD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Skew</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\CharClock:count_2\/q</td>
+ <td class = "text_info">Net_282/main_3</td>
+ <td class = "number">2.973</td>
+ <td class = "text_info"></td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="4">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell71</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\CharClock:count_2\</td>
  <td class = "text_info">\CharClock:count_2\/clock_0</td>
@@ -3033,12 +3295,12 @@ Destination Clock : PixelClock : Positive edge</span>
  <td class = "number">1</td>
  <td class = "text_info">\CharClock:count_2\</td>
  <td class = "text_info">\CharClock:count_2\/q</td>
- <td class = "text_info">Net_282/main_2</td>
- <td class = "number">2.087</td>
+ <td class = "text_info">Net_282/main_3</td>
+ <td class = "number">2.098</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell24</td>
- <td class = "text_info">U(0,2)</td>
+ <td class = "text_info">macrocell25</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">Net_282</td>
  <td class = "text_info"> </td>
@@ -3059,9 +3321,9 @@ Destination Clock : PixelClock : Positive edge</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\CharClock:count_0\/q</td>
- <td class = "text_info">Net_282/main_4</td>
- <td class = "number">2.963</td>
+ <td class = "text_info">\CharClock:count_2\/q</td>
+ <td class = "text_info">\CharClock:count_2\/main_2</td>
+ <td class = "number">2.973</td>
  <td class = "text_info"></td>
 </tr>
 <tr class="sta_path">
@@ -3080,270 +3342,26 @@ Destination Clock : PixelClock : Positive edge</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell72</td>
- <td class = "text_info">U(0,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_0\</td>
- <td class = "text_info">\CharClock:count_0\/clock_0</td>
- <td class = "text_info">\CharClock:count_0\/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_0\</td>
- <td class = "text_info">\CharClock:count_0\/q</td>
- <td class = "text_info">Net_282/main_4</td>
- <td class = "number">2.088</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell24</td>
- <td class = "text_info">U(0,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">Net_282</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\CharClock:count_0\/q</td>
- <td class = "text_info">\CharClock:count_2\/main_2</td>
- <td class = "number">2.963</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell72</td>
- <td class = "text_info">U(0,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_0\</td>
- <td class = "text_info">\CharClock:count_0\/clock_0</td>
- <td class = "text_info">\CharClock:count_0\/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_0\</td>
- <td class = "text_info">\CharClock:count_0\/q</td>
- <td class = "text_info">\CharClock:count_2\/main_2</td>
- <td class = "number">2.088</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell70</td>
- <td class = "text_info">U(0,2)</td>
+ <td class = "text_info">macrocell71</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\CharClock:count_2\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\CharClock:count_0\/q</td>
- <td class = "text_info">\CharClock:count_1\/main_1</td>
- <td class = "number">2.963</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell72</td>
- <td class = "text_info">U(0,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_0\</td>
- <td class = "text_info">\CharClock:count_0\/clock_0</td>
- <td class = "text_info">\CharClock:count_0\/q</td>
+ <td class = "text_info">\CharClock:count_2\/clock_0</td>
+ <td class = "text_info">\CharClock:count_2\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
+ <td class = "text_info">macrocell71</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_0\</td>
- <td class = "text_info">\CharClock:count_0\/q</td>
- <td class = "text_info">\CharClock:count_1\/main_1</td>
- <td class = "number">2.088</td>
+ <td class = "text_info">\CharClock:count_2\</td>
+ <td class = "text_info">\CharClock:count_2\/q</td>
+ <td class = "text_info">\CharClock:count_2\/main_2</td>
+ <td class = "number">2.098</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell71</td>
- <td class = "text_info">U(0,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_1\</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\CharClock:count_1\/q</td>
- <td class = "text_info">Net_282/main_3</td>
- <td class = "number">2.967</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell71</td>
- <td class = "text_info">U(0,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_1\</td>
- <td class = "text_info">\CharClock:count_1\/clock_0</td>
- <td class = "text_info">\CharClock:count_1\/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_1\</td>
- <td class = "text_info">\CharClock:count_1\/q</td>
- <td class = "text_info">Net_282/main_3</td>
- <td class = "number">2.092</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell24</td>
- <td class = "text_info">U(0,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">Net_282</td>
- <td class = "text_info"> </td>
- <td class = "text_info">HOLD</td>
- <td class = "number">0.000</td>
-</tr>
-<tr> 
- <td class = "text_info">Clock</td>
- <td class = "text_info"> </td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info"></td>
- <td class = "text_info">Skew</td>
- <td class = "number">0.000</td>
-</tr>
-</tbody>
- </table> 
-</td>
-</tr>
-<tr> 
- <td class = "text_info">\CharClock:count_1\/q</td>
- <td class = "text_info">\CharClock:count_2\/main_1</td>
- <td class = "number">2.967</td>
- <td class = "text_info"></td>
-</tr>
-<tr class="sta_path">
-<td class="sta_path"  colspan="4">
-<table class="sta_path">
- <thead> 
-<tr> 
-<th>Type</th>
-<th>Location</th>
-<th>Fanout</th>
-<th>Instance/Net</th>
-<th>Source</th>
-<th>Dest</th>
-<th>Delay (ns)</th>
-</tr>
-</thead> 
-<tbody>
-<tr> 
- <td class = "text_info">macrocell71</td>
- <td class = "text_info">U(0,2)</td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_1\</td>
- <td class = "text_info">\CharClock:count_1\/clock_0</td>
- <td class = "text_info">\CharClock:count_1\/q</td>
- <td class = "number">0.875</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">\CharClock:count_1\</td>
- <td class = "text_info">\CharClock:count_1\/q</td>
- <td class = "text_info">\CharClock:count_2\/main_1</td>
- <td class = "number">2.092</td>
-</tr>
-<tr> 
- <td class = "text_info">macrocell70</td>
- <td class = "text_info">U(0,2)</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
  <td class = "text_info">\CharClock:count_2\</td>
  <td class = "text_info"> </td>
@@ -3395,9 +3413,9 @@ PixelClock</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">VGA_B_out(1)_PAD</td>
- <td class = "number">47.441</td>
+ <td class = "number">44.265</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -3416,28 +3434,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
- <td class = "number">12.821</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
+ <td class = "number">9.003</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">RGBI_0_split</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -3448,7 +3466,7 @@ PixelClock</span>
  <td class = "text_info">RGBI_0_split</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "text_info">RGBI_0/main_10</td>
- <td class = "number">2.085</td>
+ <td class = "number">2.687</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell3</td>
@@ -3466,10 +3484,10 @@ PixelClock</span>
  <td class = "text_info">RGBI_0</td>
  <td class = "text_info">RGBI_0/q</td>
  <td class = "text_info">VGA_B_out(1)/pin_input</td>
- <td class = "number">11.809</td>
+ <td class = "number">11.849</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell8</td>
+ <td class = "text_info">iocell9</td>
  <td class = "text_info">P3[7]</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_B_out(1)</td>
@@ -3500,9 +3518,9 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">VGA_G_out(1)_PAD</td>
- <td class = "number">47.267</td>
+ <td class = "number">44.091</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -3521,28 +3539,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
- <td class = "number">12.821</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
+ <td class = "number">9.003</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">RGBI_0_split</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -3553,7 +3571,7 @@ PixelClock</span>
  <td class = "text_info">RGBI_0_split</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "text_info">RGBI_0/main_10</td>
- <td class = "number">2.085</td>
+ <td class = "number">2.687</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell3</td>
@@ -3571,10 +3589,10 @@ PixelClock</span>
  <td class = "text_info">RGBI_0</td>
  <td class = "text_info">RGBI_0/q</td>
  <td class = "text_info">VGA_G_out(1)/pin_input</td>
- <td class = "number">11.809</td>
+ <td class = "number">11.849</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell5</td>
+ <td class = "text_info">iocell6</td>
  <td class = "text_info">P3[4]</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_G_out(1)</td>
@@ -3605,9 +3623,9 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">VGA_B_out(0)_PAD</td>
- <td class = "number">46.871</td>
+ <td class = "number">43.695</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -3626,28 +3644,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
- <td class = "number">12.821</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
+ <td class = "number">9.003</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">RGBI_0_split</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -3658,7 +3676,7 @@ PixelClock</span>
  <td class = "text_info">RGBI_0_split</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "text_info">RGBI_0/main_10</td>
- <td class = "number">2.085</td>
+ <td class = "number">2.687</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell3</td>
@@ -3676,10 +3694,10 @@ PixelClock</span>
  <td class = "text_info">RGBI_0</td>
  <td class = "text_info">RGBI_0/q</td>
  <td class = "text_info">VGA_B_out(0)/pin_input</td>
- <td class = "number">11.809</td>
+ <td class = "number">11.849</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell7</td>
+ <td class = "text_info">iocell8</td>
  <td class = "text_info">P3[6]</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_B_out(0)</td>
@@ -3710,9 +3728,9 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">VGA_R_out(2)_PAD</td>
- <td class = "number">46.198</td>
+ <td class = "number">43.035</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -3731,28 +3749,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
- <td class = "number">12.821</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
+ <td class = "number">9.003</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">RGBI_0_split</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -3763,7 +3781,7 @@ PixelClock</span>
  <td class = "text_info">RGBI_0_split</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "text_info">RGBI_0/main_10</td>
- <td class = "number">2.085</td>
+ <td class = "number">2.687</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell3</td>
@@ -3781,10 +3799,10 @@ PixelClock</span>
  <td class = "text_info">RGBI_0</td>
  <td class = "text_info">RGBI_0/q</td>
  <td class = "text_info">VGA_R_out(2)/pin_input</td>
- <td class = "number">10.732</td>
+ <td class = "number">10.785</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell3</td>
+ <td class = "text_info">iocell4</td>
  <td class = "text_info">P3[2]</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_R_out(2)</td>
@@ -3815,9 +3833,9 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">VGA_R_out(1)_PAD</td>
- <td class = "number">46.182</td>
+ <td class = "number">43.019</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -3836,28 +3854,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
- <td class = "number">12.821</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
+ <td class = "number">9.003</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">RGBI_0_split</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -3868,7 +3886,7 @@ PixelClock</span>
  <td class = "text_info">RGBI_0_split</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "text_info">RGBI_0/main_10</td>
- <td class = "number">2.085</td>
+ <td class = "number">2.687</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell3</td>
@@ -3886,10 +3904,10 @@ PixelClock</span>
  <td class = "text_info">RGBI_0</td>
  <td class = "text_info">RGBI_0/q</td>
  <td class = "text_info">VGA_R_out(1)/pin_input</td>
- <td class = "number">10.732</td>
+ <td class = "number">10.785</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell2</td>
+ <td class = "text_info">iocell3</td>
  <td class = "text_info">P3[1]</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_R_out(1)</td>
@@ -3920,9 +3938,9 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">VGA_R_out(0)_PAD</td>
- <td class = "number">45.823</td>
+ <td class = "number">42.660</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -3941,28 +3959,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
- <td class = "number">12.821</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
+ <td class = "number">9.003</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">RGBI_0_split</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -3973,7 +3991,7 @@ PixelClock</span>
  <td class = "text_info">RGBI_0_split</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "text_info">RGBI_0/main_10</td>
- <td class = "number">2.085</td>
+ <td class = "number">2.687</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell3</td>
@@ -3991,10 +4009,10 @@ PixelClock</span>
  <td class = "text_info">RGBI_0</td>
  <td class = "text_info">RGBI_0/q</td>
  <td class = "text_info">VGA_R_out(0)/pin_input</td>
- <td class = "number">10.732</td>
+ <td class = "number">10.785</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell1</td>
+ <td class = "text_info">iocell2</td>
  <td class = "text_info">P3[0]</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_R_out(0)</td>
@@ -4025,9 +4043,9 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">VGA_B_out(2)_PAD</td>
- <td class = "number">43.642</td>
+ <td class = "number">40.454</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -4046,28 +4064,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
- <td class = "number">12.821</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
+ <td class = "number">9.003</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell1</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">RGBI_0_split</td>
- <td class = "text_info">RGBI_0_split/main_8</td>
+ <td class = "text_info">RGBI_0_split/main_7</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -4078,7 +4096,7 @@ PixelClock</span>
  <td class = "text_info">RGBI_0_split</td>
  <td class = "text_info">RGBI_0_split/q</td>
  <td class = "text_info">RGBI_0/main_10</td>
- <td class = "number">2.085</td>
+ <td class = "number">2.687</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell3</td>
@@ -4096,10 +4114,10 @@ PixelClock</span>
  <td class = "text_info">RGBI_0</td>
  <td class = "text_info">RGBI_0/q</td>
  <td class = "text_info">VGA_B_out(2)/pin_input</td>
- <td class = "number">8.067</td>
+ <td class = "number">8.095</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell9</td>
+ <td class = "text_info">iocell10</td>
  <td class = "text_info">P15[2]</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_B_out(2)</td>
@@ -4130,9 +4148,9 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">VGA_G_out(2)_PAD</td>
- <td class = "number">43.498</td>
+ <td class = "number">38.096</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -4151,28 +4169,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">RGBI_1/main_3</td>
- <td class = "number">12.821</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">RGBI_1/main_2</td>
+ <td class = "number">9.003</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell2</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">RGBI_1</td>
- <td class = "text_info">RGBI_1/main_3</td>
+ <td class = "text_info">RGBI_1/main_2</td>
  <td class = "text_info">RGBI_1/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -4183,10 +4201,10 @@ PixelClock</span>
  <td class = "text_info">RGBI_1</td>
  <td class = "text_info">RGBI_1/q</td>
  <td class = "text_info">VGA_G_out(2)/pin_input</td>
- <td class = "number">12.119</td>
+ <td class = "number">10.535</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell6</td>
+ <td class = "text_info">iocell7</td>
  <td class = "text_info">P3[5]</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_G_out(2)</td>
@@ -4217,9 +4235,9 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "text_info">VGA_G_out(0)_PAD</td>
- <td class = "number">41.666</td>
+ <td class = "number">36.257</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -4238,28 +4256,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">U(2,2)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">RGBI_1/main_3</td>
- <td class = "number">12.821</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">RGBI_1/main_2</td>
+ <td class = "number">9.003</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell2</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">RGBI_1</td>
- <td class = "text_info">RGBI_1/main_3</td>
+ <td class = "text_info">RGBI_1/main_2</td>
  <td class = "text_info">RGBI_1/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -4270,10 +4288,10 @@ PixelClock</span>
  <td class = "text_info">RGBI_1</td>
  <td class = "text_info">RGBI_1/q</td>
  <td class = "text_info">VGA_G_out(0)/pin_input</td>
- <td class = "number">11.034</td>
+ <td class = "number">9.443</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell4</td>
+ <td class = "text_info">iocell5</td>
  <td class = "text_info">P3[3]</td>
  <td class = "number">1</td>
  <td class = "text_info">VGA_G_out(0)</td>
@@ -4304,9 +4322,201 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/q</td>
+ <td class = "text_info">Dbg_DmaLine(0)_PAD</td>
+ <td class = "number">36.207</td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="3">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell37</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:h_count_r_9\</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/clock_0</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:h_count_r_9\</td>
+ <td class = "text_info">\VideoController:h_count_r_9\/q</td>
+ <td class = "text_info">line_dma_split/main_3</td>
+ <td class = "number">5.884</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell23</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">line_dma_split</td>
+ <td class = "text_info">line_dma_split/main_3</td>
+ <td class = "text_info">line_dma_split/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">line_dma_split</td>
+ <td class = "text_info">line_dma_split/q</td>
+ <td class = "text_info">line_dma/main_11</td>
+ <td class = "number">2.097</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell15</td>
+ <td class = "text_info">U(3,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">line_dma</td>
+ <td class = "text_info">line_dma/main_11</td>
+ <td class = "text_info">line_dma/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">line_dma</td>
+ <td class = "text_info">line_dma/q</td>
+ <td class = "text_info">Dbg_DmaLine(0)/pin_input</td>
+ <td class = "number">7.100</td>
+</tr>
+<tr> 
+ <td class = "text_info">iocell1</td>
+ <td class = "text_info">P0[6]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">Dbg_DmaLine(0)</td>
+ <td class = "text_info">Dbg_DmaLine(0)/pin_input</td>
+ <td class = "text_info">Dbg_DmaLine(0)/pad_out</td>
+ <td class = "number">15.561</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Dbg_DmaLine(0)_PAD</td>
+ <td class = "text_info">Dbg_DmaLine(0)/pad_out</td>
+ <td class = "text_info">Dbg_DmaLine(0)_PAD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Clock path delay</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">SyncV(0)_PAD</td>
+ <td class = "number">33.834</td>
+</tr>
+<tr class="sta_path">
+<td class="sta_path"  colspan="3">
+<table class="sta_path">
+ <thead> 
+<tr> 
+<th>Type</th>
+<th>Location</th>
+<th>Fanout</th>
+<th>Instance/Net</th>
+<th>Source</th>
+<th>Dest</th>
+<th>Delay (ns)</th>
+</tr>
+</thead> 
+<tbody>
+<tr> 
+ <td class = "text_info">macrocell48</td>
+ <td class = "text_info">U(2,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "number">0.875</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">\VideoController:v_state_r_1\</td>
+ <td class = "text_info">\VideoController:v_state_r_1\/q</td>
+ <td class = "text_info">Net_54/main_0</td>
+ <td class = "number">8.953</td>
+</tr>
+<tr> 
+ <td class = "text_info">macrocell14</td>
+ <td class = "text_info">U(0,2)</td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_54</td>
+ <td class = "text_info">Net_54/main_0</td>
+ <td class = "text_info">Net_54/q</td>
+ <td class = "number">2.345</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">Net_54</td>
+ <td class = "text_info">Net_54/q</td>
+ <td class = "text_info">SyncV(0)/pin_input</td>
+ <td class = "number">5.813</td>
+</tr>
+<tr> 
+ <td class = "text_info">iocell11</td>
+ <td class = "text_info">P15[4]</td>
+ <td class = "number">1</td>
+ <td class = "text_info">SyncV(0)</td>
+ <td class = "text_info">SyncV(0)/pin_input</td>
+ <td class = "text_info">SyncV(0)/pad_out</td>
+ <td class = "number">15.848</td>
+</tr>
+<tr> 
+ <td class = "text_info">Route</td>
+ <td class = "text_info"></td>
+ <td class = "number">1</td>
+ <td class = "text_info">SyncV(0)_PAD</td>
+ <td class = "text_info">SyncV(0)/pad_out</td>
+ <td class = "text_info">SyncV(0)_PAD</td>
+ <td class = "number">0.000</td>
+</tr>
+<tr> 
+ <td class = "text_info">Clock</td>
+ <td class = "text_info"> </td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info"></td>
+ <td class = "text_info">Clock path delay</td>
+ <td class = "number">0.000</td>
+</tr>
+</tbody>
+ </table> 
+</td>
+</tr>
+<tr> 
+ <td class = "text_info">\VideoController:h_state_r_1\/q</td>
  <td class = "text_info">SyncH(0)_PAD</td>
- <td class = "number">36.592</td>
+ <td class = "number">30.949</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -4325,28 +4535,28 @@ PixelClock</span>
 <tbody>
 <tr> 
  <td class = "text_info">macrocell34</td>
- <td class = "text_info">U(2,2)</td>
+ <td class = "text_info">U(3,3)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
+ <td class = "text_info">\VideoController:h_state_r_1\</td>
+ <td class = "text_info">\VideoController:h_state_r_1\/clock_0</td>
+ <td class = "text_info">\VideoController:h_state_r_1\/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:h_state_r_0\</td>
- <td class = "text_info">\VideoController:h_state_r_0\/q</td>
- <td class = "text_info">Net_191/main_1</td>
- <td class = "number">9.831</td>
+ <td class = "text_info">\VideoController:h_state_r_1\</td>
+ <td class = "text_info">\VideoController:h_state_r_1\/q</td>
+ <td class = "text_info">Net_191/main_0</td>
+ <td class = "number">4.219</td>
 </tr>
 <tr> 
  <td class = "text_info">macrocell13</td>
- <td class = "text_info">U(3,5)</td>
+ <td class = "text_info">U(2,4)</td>
  <td class = "number">1</td>
  <td class = "text_info">Net_191</td>
- <td class = "text_info">Net_191/main_1</td>
+ <td class = "text_info">Net_191/main_0</td>
  <td class = "text_info">Net_191/q</td>
  <td class = "number">2.345</td>
 </tr>
@@ -4357,10 +4567,10 @@ PixelClock</span>
  <td class = "text_info">Net_191</td>
  <td class = "text_info">Net_191/q</td>
  <td class = "text_info">SyncH(0)/pin_input</td>
- <td class = "number">8.055</td>
+ <td class = "number">8.024</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell11</td>
+ <td class = "text_info">iocell12</td>
  <td class = "text_info">P15[3]</td>
  <td class = "number">1</td>
  <td class = "text_info">SyncH(0)</td>
@@ -4391,9 +4601,9 @@ PixelClock</span>
 </td>
 </tr>
 <tr> 
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">SyncV(0)_PAD</td>
- <td class = "number">33.052</td>
+ <td class = "text_info">Net_282/q</td>
+ <td class = "text_info">Dbg_VgaDataClk(0)_PAD</td>
+ <td class = "number">23.297</td>
 </tr>
 <tr class="sta_path">
 <td class="sta_path"  colspan="3">
@@ -4411,57 +4621,39 @@ PixelClock</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">macrocell48</td>
- <td class = "text_info">U(3,1)</td>
+ <td class = "text_info">macrocell25</td>
+ <td class = "text_info">U(3,5)</td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/clock_0</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
+ <td class = "text_info">Net_282</td>
+ <td class = "text_info">Net_282/clock_0</td>
+ <td class = "text_info">Net_282/q</td>
  <td class = "number">0.875</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">\VideoController:v_state_r_0\</td>
- <td class = "text_info">\VideoController:v_state_r_0\/q</td>
- <td class = "text_info">Net_54/main_1</td>
- <td class = "number">6.795</td>
+ <td class = "text_info">Net_282</td>
+ <td class = "text_info">Net_282/q</td>
+ <td class = "text_info">Dbg_VgaDataClk(0)/pin_input</td>
+ <td class = "number">6.927</td>
 </tr>
 <tr> 
- <td class = "text_info">macrocell14</td>
- <td class = "text_info">U(3,3)</td>
+ <td class = "text_info">iocell13</td>
+ <td class = "text_info">P0[7]</td>
  <td class = "number">1</td>
- <td class = "text_info">Net_54</td>
- <td class = "text_info">Net_54/main_1</td>
- <td class = "text_info">Net_54/q</td>
- <td class = "number">2.345</td>
-</tr>
-<tr> 
- <td class = "text_info">Route</td>
- <td class = "text_info"></td>
- <td class = "number">1</td>
- <td class = "text_info">Net_54</td>
- <td class = "text_info">Net_54/q</td>
- <td class = "text_info">SyncV(0)/pin_input</td>
- <td class = "number">7.189</td>
-</tr>
-<tr> 
- <td class = "text_info">iocell10</td>
- <td class = "text_info">P15[4]</td>
- <td class = "number">1</td>
- <td class = "text_info">SyncV(0)</td>
- <td class = "text_info">SyncV(0)/pin_input</td>
- <td class = "text_info">SyncV(0)/pad_out</td>
- <td class = "number">15.848</td>
+ <td class = "text_info">Dbg_VgaDataClk(0)</td>
+ <td class = "text_info">Dbg_VgaDataClk(0)/pin_input</td>
+ <td class = "text_info">Dbg_VgaDataClk(0)/pad_out</td>
+ <td class = "number">15.495</td>
 </tr>
 <tr> 
  <td class = "text_info">Route</td>
  <td class = "text_info"></td>
  <td class = "number">1</td>
- <td class = "text_info">SyncV(0)_PAD</td>
- <td class = "text_info">SyncV(0)/pad_out</td>
- <td class = "text_info">SyncV(0)_PAD</td>
+ <td class = "text_info">Dbg_VgaDataClk(0)_PAD</td>
+ <td class = "text_info">Dbg_VgaDataClk(0)/pad_out</td>
+ <td class = "text_info">Dbg_VgaDataClk(0)_PAD</td>
  <td class = "number">0.000</td>
 </tr>
 <tr> 
