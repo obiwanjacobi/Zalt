@@ -1,6 +1,6 @@
-update=1-7-2016 17:40:13
+update=2019-07-12 14:03:30
 version=1
-last_client=eeschema
+last_client=kicad
 [general]
 version=1
 [cvpcb]
@@ -46,39 +46,6 @@ LibName14=dip_sockets
 LibName15=pga_sockets
 LibName16=valves
 LibName17=dip_socket_32_300
-[eeschema]
-version=1
-LibDir=../../../../../../../My Program Files/KiCad/kicad-library;../../../../../../../My Program Files/KiCad/Libraries
-[eeschema/libraries]
-LibName1=Z80 CPU Board-rescue
-LibName2=power
-LibName3=device
-LibName4=transistors
-LibName5=conn
-LibName6=linear
-LibName7=regul
-LibName8=memory
-LibName9=xilinx
-LibName10=microcontrollers
-LibName11=analog_switches
-LibName12=texas
-LibName13=audio
-LibName14=interface
-LibName15=digital-audio
-LibName16=philips
-LibName17=display
-LibName18=cypress
-LibName19=siliconi
-LibName20=opto
-LibName21=atmel
-LibName22=contrib
-LibName23=valves
-LibName24=library/Zilog
-LibName25=memory-umc
-LibName26=../../Kicad/syshdr
-LibName27=../../Kicad/G-Link GLT725608
-LibName28=../../Kicad/My 74 Logic
-LibName29=../../Kicad/74ls573
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
@@ -89,3 +56,6 @@ NetFmtName=
 SpiceForceRefPrefix=0
 SpiceUseNetNumbers=0
 LabSize=60
+[eeschema]
+version=1
+LibDir=

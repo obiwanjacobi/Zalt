@@ -1,41 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:switches
-LIBS:relays
-LIBS:motors
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:syshdr
-LIBS:My 74 Logic
-LIBS:CY8CKIT-059
+EESchema Schematic File Version 4
 LIBS:ZaltToISA-cache
-EELAYER 25 0
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -50,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Bus_ISA_16bit J?
+L ZaltToISA-rescue:Bus_ISA_16bit J?
 U 1 1 5C95FCAF
 P 13600 6000
 F 0 "J?" H 13600 8675 50  0000 C CNN
@@ -61,7 +26,7 @@ F 3 "" H 13600 6050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L BUSHDR-A HDR?
+L syshdr:BUSHDR-A HDR?
 U 1 1 5C95FD04
 P 2200 3700
 F 0 "HDR?" H 2000 4800 60  0000 C CNN
@@ -72,7 +37,7 @@ F 3 "" H 2200 3050 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L BUSHDR-B HDR?
+L syshdr:BUSHDR-B HDR?
 U 1 1 5C95FD4D
 P 2200 6350
 F 0 "HDR?" H 2000 7450 60  0000 C CNN
@@ -83,7 +48,7 @@ F 3 "" H 2200 5700 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74HC646 U?
+L My-74-Logic:74HC646 U?
 U 1 1 5C960591
 P 9300 3450
 F 0 "U?" H 9000 4050 50  0000 L BNN
@@ -94,7 +59,7 @@ F 3 "" H 9300 3450 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74HC646 U?
+L My-74-Logic:74HC646 U?
 U 1 1 5C960616
 P 9300 5050
 F 0 "U?" H 9000 5650 50  0000 L BNN
@@ -105,7 +70,7 @@ F 3 "" H 9300 5050 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L 74HC646 U?
+L My-74-Logic:74HC646 U?
 U 1 1 5C96063D
 P 9300 6650
 F 0 "U?" H 9000 7250 50  0000 L BNN
@@ -116,7 +81,7 @@ F 3 "" H 9300 6650 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CY8CKIT-059 M?
+L CY8CKIT-059:CY8CKIT-059 M?
 U 1 1 5C9608B8
 P 5850 5750
 F 0 "M?" H 5500 7400 60  0000 C CNN
@@ -127,39 +92,7 @@ F 3 "" H 5850 5750 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Bus Line
-	14950 2200 14950 3500
-Wire Bus Line
-	14950 3500 14950 3600
-Wire Bus Line
-	14950 3600 14950 3700
-Wire Bus Line
-	14950 3700 14950 3800
-Wire Bus Line
-	14950 3800 14950 3900
-Wire Bus Line
-	14950 3900 14950 4000
-Wire Bus Line
-	14950 4000 14950 4100
-Wire Bus Line
-	14950 4100 14950 4200
-Wire Bus Line
 	14950 2200 10250 2200
-Wire Bus Line
-	10250 2200 10250 2850
-Wire Bus Line
-	10250 2850 10250 2950
-Wire Bus Line
-	10250 2950 10250 3050
-Wire Bus Line
-	10250 3050 10250 3150
-Wire Bus Line
-	10250 3150 10250 3250
-Wire Bus Line
-	10250 3250 10250 3350
-Wire Bus Line
-	10250 3350 10250 3450
-Wire Bus Line
-	10250 3450 10250 3550
 Entry Wire Line
 	10150 3650 10250 3550
 Entry Wire Line
@@ -257,71 +190,7 @@ DB6
 Text Label 14650 3600 0    60   ~ 0
 DB7
 Wire Bus Line
-	15500 2650 15500 4900
-Wire Bus Line
-	15500 4900 15500 5000
-Wire Bus Line
-	15500 5000 15500 5100
-Wire Bus Line
-	15500 5100 15500 5200
-Wire Bus Line
-	15500 5200 15500 5300
-Wire Bus Line
-	15500 5300 15500 5400
-Wire Bus Line
-	15500 5400 15500 5500
-Wire Bus Line
-	15500 5500 15500 5600
-Wire Bus Line
-	15500 5600 15500 5700
-Wire Bus Line
-	15500 5700 15500 5800
-Wire Bus Line
-	15500 5800 15500 5900
-Wire Bus Line
-	15500 5900 15500 6000
-Wire Bus Line
-	15500 6000 15500 6100
-Wire Bus Line
-	15500 6100 15500 6200
-Wire Bus Line
-	15500 6200 15500 6300
-Wire Bus Line
-	15500 6300 15500 6400
-Wire Bus Line
 	15500 2650 10750 2650
-Wire Bus Line
-	10750 2650 10750 4450
-Wire Bus Line
-	10750 4450 10750 4550
-Wire Bus Line
-	10750 4550 10750 4650
-Wire Bus Line
-	10750 4650 10750 4750
-Wire Bus Line
-	10750 4750 10750 4850
-Wire Bus Line
-	10750 4850 10750 4950
-Wire Bus Line
-	10750 4950 10750 5050
-Wire Bus Line
-	10750 5050 10750 5150
-Wire Bus Line
-	10750 5150 10750 6050
-Wire Bus Line
-	10750 6050 10750 6150
-Wire Bus Line
-	10750 6150 10750 6250
-Wire Bus Line
-	10750 6250 10750 6350
-Wire Bus Line
-	10750 6350 10750 6450
-Wire Bus Line
-	10750 6450 10750 6550
-Wire Bus Line
-	10750 6550 10750 6650
-Wire Bus Line
-	10750 6650 10750 6750
 Entry Wire Line
 	15400 6400 15500 6300
 Entry Wire Line
@@ -515,39 +384,7 @@ BA14
 Text Label 10400 6850 0    60   ~ 0
 BA15
 Wire Bus Line
-	950  1950 950  2750
-Wire Bus Line
-	950  2750 950  2850
-Wire Bus Line
-	950  2850 950  2950
-Wire Bus Line
-	950  2950 950  3050
-Wire Bus Line
-	950  3050 950  3150
-Wire Bus Line
-	950  3150 950  3250
-Wire Bus Line
-	950  3250 950  6000
-Wire Bus Line
-	950  6000 950  6100
-Wire Bus Line
 	950  1950 7800 1950
-Wire Bus Line
-	3700 1950 3700 2750
-Wire Bus Line
-	3700 2750 3700 2850
-Wire Bus Line
-	3700 2850 3700 2950
-Wire Bus Line
-	3700 2950 3700 3050
-Wire Bus Line
-	3700 3050 3700 3150
-Wire Bus Line
-	3700 3150 3700 3250
-Wire Bus Line
-	3700 3250 3700 6000
-Wire Bus Line
-	3700 6000 3700 6100
 Entry Wire Line
 	3600 6200 3700 6100
 Entry Wire Line
@@ -644,38 +481,6 @@ Text Label 1050 6100 0    60   ~ 0
 A12
 Text Label 1050 6200 0    60   ~ 0
 A14
-Wire Bus Line
-	7800 1950 7800 4450
-Wire Bus Line
-	7800 4450 7800 4550
-Wire Bus Line
-	7800 4550 7800 4650
-Wire Bus Line
-	7800 4650 7800 4750
-Wire Bus Line
-	7800 4750 7800 4850
-Wire Bus Line
-	7800 4850 7800 4950
-Wire Bus Line
-	7800 4950 7800 5050
-Wire Bus Line
-	7800 5050 7800 5150
-Wire Bus Line
-	7800 5150 7800 6050
-Wire Bus Line
-	7800 6050 7800 6150
-Wire Bus Line
-	7800 6150 7800 6250
-Wire Bus Line
-	7800 6250 7800 6350
-Wire Bus Line
-	7800 6350 7800 6450
-Wire Bus Line
-	7800 6450 7800 6550
-Wire Bus Line
-	7800 6550 7800 6650
-Wire Bus Line
-	7800 6650 7800 6750
 Entry Wire Line
 	7800 4450 7900 4550
 Entry Wire Line
@@ -773,23 +578,7 @@ A14
 Text Label 7900 6850 0    60   ~ 0
 A15
 Wire Bus Line
-	1100 3950 1100 4050
-Wire Bus Line
-	1100 4050 1100 4150
-Wire Bus Line
-	1100 4150 1100 4250
-Wire Bus Line
-	1100 4250 1100 4950
-Wire Bus Line
 	1100 4950 3900 4950
-Wire Bus Line
-	3500 3950 3500 4050
-Wire Bus Line
-	3500 4050 3500 4150
-Wire Bus Line
-	3500 4150 3500 4250
-Wire Bus Line
-	3500 4250 3500 4950
 Entry Wire Line
 	1100 3950 1200 3850
 Entry Wire Line
@@ -838,22 +627,6 @@ Text Label 3250 4050 0    60   ~ 0
 D5
 Text Label 3250 4150 0    60   ~ 0
 D7
-Wire Bus Line
-	8000 2150 8000 2850
-Wire Bus Line
-	8000 2850 8000 2950
-Wire Bus Line
-	8000 2950 8000 3050
-Wire Bus Line
-	8000 3050 8000 3150
-Wire Bus Line
-	8000 3150 8000 3250
-Wire Bus Line
-	8000 3250 8000 3350
-Wire Bus Line
-	8000 3350 8000 3450
-Wire Bus Line
-	8000 3450 8000 3550
 Wire Bus Line
 	3900 2150 8000 2150
 Entry Wire Line
@@ -904,72 +677,6 @@ Text Label 8100 3550 0    60   ~ 0
 D6
 Text Label 8100 3650 0    60   ~ 0
 D7
-Wire Bus Line
-	3900 4950 3900 4850
-Wire Bus Line
-	3900 4850 3900 4750
-Wire Bus Line
-	3900 4750 3900 4650
-Wire Bus Line
-	3900 4650 3900 4550
-Wire Bus Line
-	3900 4550 3900 4450
-Wire Bus Line
-	3900 4450 3900 4350
-Wire Bus Line
-	3900 4350 3900 4250
-Wire Bus Line
-	3900 4250 3900 2150
-Wire Bus Line
-	11950 3100 11950 3200
-Wire Bus Line
-	11950 3200 11950 3500
-Wire Bus Line
-	11950 3500 11950 3700
-Wire Bus Line
-	11950 3700 11950 3900
-Wire Bus Line
-	11950 3900 11950 4100
-Wire Bus Line
-	11950 4100 11950 4400
-Wire Bus Line
-	11950 4400 11950 4500
-Wire Bus Line
-	11950 4500 11950 4600
-Wire Bus Line
-	11950 4600 11950 4700
-Wire Bus Line
-	11950 4700 11950 4800
-Wire Bus Line
-	11950 4800 11950 4900
-Wire Bus Line
-	11950 4900 11950 5000
-Wire Bus Line
-	11950 5000 11950 5100
-Wire Bus Line
-	11950 5100 11950 5200
-Wire Bus Line
-	11950 5200 11950 5300
-Wire Bus Line
-	11950 5300 11950 5400
-Wire Bus Line
-	11950 5400 11950 5500
-Wire Bus Line
-	11950 5500 11950 5600
-Wire Bus Line
-	11950 5600 11950 5700
-Wire Bus Line
-	11950 5700 11950 5800
-Wire Bus Line
-	11950 5800 11950 5900
-Wire Bus Line
-	11950 5900 11950 6000
-Wire Bus Line
-	11950 6000 11950 6100
-Wire Bus Line
-	11950 6100 11950 6300
-Wire Bus Line
-	11950 6300 11950 7950
 Entry Wire Line
 	11950 3500 12050 3600
 Entry Wire Line
@@ -1129,7 +836,7 @@ OSC
 Text Label 12050 4200 0    60   ~ 0
 SRDY
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C969FC1
 P 12800 3250
 F 0 "#PWR?" H 12800 3000 50  0001 C CNN
@@ -1140,7 +847,7 @@ F 3 "" H 12800 3250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C969FE3
 P 11700 4500
 F 0 "#PWR?" H 11700 4250 50  0001 C CNN
@@ -1151,7 +858,7 @@ F 3 "" H 11700 4500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C96A005
 P 11750 6600
 F 0 "#PWR?" H 11750 6350 50  0001 C CNN
@@ -1162,7 +869,7 @@ F 3 "" H 11750 6600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C96A1AF
 P 12550 8650
 F 0 "#PWR?" H 12550 8400 50  0001 C CNN
@@ -1193,7 +900,7 @@ Wire Wire Line
 Wire Wire Line
 	12800 3200 12800 3250
 $Comp
-L +5VD #PWR?
+L power:+5VD #PWR?
 U 1 1 5C96A598
 P 12500 3350
 F 0 "#PWR?" H 12500 3200 50  0001 C CNN
@@ -1208,7 +915,7 @@ Wire Wire Line
 Wire Wire Line
 	12500 3700 12500 3350
 $Comp
-L +5VD #PWR?
+L power:+5VD #PWR?
 U 1 1 5C96A973
 P 11750 6400
 F 0 "#PWR?" H 11750 6250 50  0001 C CNN
@@ -1358,7 +1065,7 @@ Text Label 4650 5650 0    60   ~ 0
 Text Notes 1250 4750 0    60   ~ 0
 Ctrl0
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C97248D
 P 1300 5500
 F 0 "#PWR?" H 1300 5250 50  0001 C CNN
@@ -1369,7 +1076,7 @@ F 3 "" H 1300 5500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C9724C2
 P 4350 6750
 F 0 "#PWR?" H 4350 6500 50  0001 C CNN
@@ -1380,7 +1087,7 @@ F 3 "" H 4350 6750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C9724E2
 P 4500 4100
 F 0 "#PWR?" H 4500 3850 50  0001 C CNN
@@ -1391,7 +1098,7 @@ F 3 "" H 4500 4100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C972502
 P 1550 2450
 F 0 "#PWR?" H 1550 2200 50  0001 C CNN
@@ -1402,7 +1109,7 @@ F 3 "" H 1550 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VD #PWR?
+L power:+5VD #PWR?
 U 1 1 5C972537
 P 6550 4100
 F 0 "#PWR?" H 6550 3950 50  0001 C CNN
@@ -1413,7 +1120,7 @@ F 3 "" H 6550 4100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VD #PWR?
+L power:+5VD #PWR?
 U 1 1 5C972932
 P 4700 6600
 F 0 "#PWR?" H 4700 6450 50  0001 C CNN
@@ -1424,7 +1131,7 @@ F 3 "" H 4700 6600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VD #PWR?
+L power:+5VD #PWR?
 U 1 1 5C972960
 P 3000 5300
 F 0 "#PWR?" H 3000 5150 50  0001 C CNN
@@ -1435,7 +1142,7 @@ F 3 "" H 3000 5300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VD #PWR?
+L power:+5VD #PWR?
 U 1 1 5C972980
 P 2900 2600
 F 0 "#PWR?" H 2900 2450 50  0001 C CNN
@@ -1478,7 +1185,7 @@ Wire Wire Line
 Wire Wire Line
 	4350 6650 4350 6750
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C97361F
 P 6950 4100
 F 0 "#PWR?" H 6950 3850 50  0001 C CNN
@@ -1498,28 +1205,6 @@ Wire Wire Line
 	6400 4350 6700 4350
 Wire Bus Line
 	11950 7950 7350 7950
-Wire Bus Line
-	7350 7950 7350 6150
-Wire Bus Line
-	7350 6150 7350 6050
-Wire Bus Line
-	7350 6050 7350 5950
-Wire Bus Line
-	7350 5950 7350 5250
-Wire Bus Line
-	7350 5250 7350 5150
-Wire Bus Line
-	7350 5150 7350 5050
-Wire Bus Line
-	7350 5050 7350 4950
-Wire Bus Line
-	7350 4950 7350 4850
-Wire Bus Line
-	7350 4850 7350 4750
-Wire Bus Line
-	7350 4750 7350 4650
-Wire Bus Line
-	7350 4650 7350 4550
 Entry Wire Line
 	7250 4450 7350 4550
 Entry Wire Line
@@ -1681,7 +1366,7 @@ PSoC5 kit mods - remove:\n- C7 (P3_2)\n- C9 (P0_4)\n- C12 (P0_2)\n- C13 (P0_3)\n
 Text Notes 3000 6400 0    60   ~ 0
 Wired for IO
 $Comp
-L C C?
+L Device:C C?
 U 1 1 5C97586F
 P 8550 2050
 F 0 "C?" H 8575 2150 50  0000 L CNN
@@ -1692,7 +1377,7 @@ F 3 "" H 8550 2050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L Device:C C?
 U 1 1 5C9758C6
 P 8900 2050
 F 0 "C?" H 8925 2150 50  0000 L CNN
@@ -1703,7 +1388,7 @@ F 3 "" H 8900 2050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C C?
+L Device:C C?
 U 1 1 5C9758ED
 P 9250 2050
 F 0 "C?" H 9275 2150 50  0000 L CNN
@@ -1714,7 +1399,7 @@ F 3 "" H 9250 2050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDD #PWR?
+L power:GNDD #PWR?
 U 1 1 5C97594C
 P 9100 2450
 F 0 "#PWR?" H 9100 2200 50  0001 C CNN
@@ -1725,7 +1410,7 @@ F 3 "" H 9100 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +5VD #PWR?
+L power:+5VD #PWR?
 U 1 1 5C975975
 P 9100 1650
 F 0 "#PWR?" H 9100 1500 50  0001 C CNN
@@ -1768,7 +1453,7 @@ Wire Wire Line
 	9100 2450 9100 2300
 Connection ~ 9100 2300
 $Comp
-L +5VD #PWR?
+L power:+5VD #PWR?
 U 1 1 5C9781EE
 P 12250 8100
 F 0 "#PWR?" H 12250 7950 50  0001 C CNN
@@ -1787,4 +1472,30 @@ NoConn ~ 12700 4100
 NoConn ~ 12700 4300
 Text Notes 6450 5100 0    60   ~ 0
 Used for Debug
+Wire Bus Line
+	1100 3950 1100 4950
+Wire Bus Line
+	3500 3950 3500 4950
+Wire Bus Line
+	14950 2200 14950 4200
+Wire Bus Line
+	10250 2200 10250 3550
+Wire Bus Line
+	950  1950 950  6100
+Wire Bus Line
+	3700 1950 3700 6100
+Wire Bus Line
+	8000 2150 8000 3550
+Wire Bus Line
+	3900 2150 3900 4950
+Wire Bus Line
+	7350 4550 7350 7950
+Wire Bus Line
+	15500 2650 15500 6400
+Wire Bus Line
+	10750 2650 10750 6750
+Wire Bus Line
+	7800 1950 7800 6750
+Wire Bus Line
+	11950 3100 11950 7950
 $EndSCHEMATC

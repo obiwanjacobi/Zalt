@@ -34,7 +34,7 @@ EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
-Title "Z80 Computer"
+Title "Zalt Z80 Computer"
 Date "5 mar 2016"
 Rev ""
 Comp "Canned Bytes"
@@ -2733,9 +2733,9 @@ Wire Wire Line
 Wire Wire Line
 	11050 8150 11850 8150
 Text Label 11100 7650 0    60   ~ 0
-!MemMapEn
-Text Label 11100 7750 0    60   ~ 0
 !MemMapWE
+Text Label 11100 7750 0    60   ~ 0
+!MemMapEn
 Text Label 11100 7850 0    60   ~ 0
 MapTableLd
 Text Label 11100 7950 0    60   ~ 0

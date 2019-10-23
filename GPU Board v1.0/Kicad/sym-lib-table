@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name GPU-Board-v1.0-rescue)(type Legacy)(uri "${KIPRJMOD}/GPU Board v1.0-rescue.lib")(options "")(descr ""))
+  (lib (name stm32f446ze)(type Legacy)(uri ${KIPRJMOD}/stm32f446ze.lib)(options "")(descr ""))
+  (lib (name IS42S16400J)(type Legacy)(uri ${KIPRJMOD}/IS42S16400J.lib)(options "")(descr ""))
+  (lib (name ft813)(type Legacy)(uri ${KIPRJMOD}/ft813.lib)(options "")(descr ""))
+)

@@ -1,34 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:contrib
-LIBS:stm32f446ze
-LIBS:IS42S16400J
-LIBS:ft813
-EELAYER 25 0
+EESchema Schematic File Version 4
+LIBS:GPU Board v1.0-cache
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -345,7 +317,7 @@ Entry Wire Line
 Entry Wire Line
 	1650 3650 1750 3750
 $Comp
-L CP_Small C?
+L Device:CP_Small C?
 U 1 1 589C6198
 P 5050 8950
 F 0 "C?" H 5060 9020 50  0000 L CNN
@@ -356,7 +328,7 @@ F 3 "" H 5050 8950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP_Small C?
+L Device:CP_Small C?
 U 1 1 589C634F
 P 5300 8950
 F 0 "C?" H 5310 9020 50  0000 L CNN
@@ -367,7 +339,7 @@ F 3 "" H 5300 8950 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VDD #PWR?
+L power:VDD #PWR?
 U 1 1 589C69B2
 P 5400 8000
 F 0 "#PWR?" H 5400 7850 50  0001 C CNN
@@ -378,7 +350,7 @@ F 3 "" H 5400 8000 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L power:GND #PWR?
 U 1 1 589C69E4
 P 5950 9400
 F 0 "#PWR?" H 5950 9150 50  0001 C CNN
@@ -389,7 +361,7 @@ F 3 "" H 5950 9400 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VDD #PWR?
+L power:VDD #PWR?
 U 1 1 589C7011
 P 6200 1600
 F 0 "#PWR?" H 6200 1450 50  0001 C CNN
@@ -400,7 +372,7 @@ F 3 "" H 6200 1600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L power:GND #PWR?
 U 1 1 589C8150
 P 2100 4650
 F 0 "#PWR?" H 2100 4400 50  0001 C CNN
@@ -411,7 +383,7 @@ F 3 "" H 2100 4650 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VDD #PWR?
+L power:VDD #PWR?
 U 1 1 589C8474
 P 3300 3850
 F 0 "#PWR?" H 3300 3700 50  0001 C CNN
@@ -422,7 +394,7 @@ F 3 "" H 3300 3850 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L power:GND #PWR?
 U 1 1 589CDEC5
 P 15000 9100
 F 0 "#PWR?" H 15000 8850 50  0001 C CNN
@@ -433,7 +405,7 @@ F 3 "" H 15000 9100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VDD #PWR?
+L power:VDD #PWR?
 U 1 1 589CDECB
 P 15000 8700
 F 0 "#PWR?" H 15000 8550 50  0001 C CNN
@@ -444,7 +416,7 @@ F 3 "" H 15000 8700 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L FT813 U?
+L ft813:FT813 U?
 U 1 1 589E08F4
 P 10950 3750
 F 0 "U?" H 10500 5400 60  0000 C CNN
@@ -455,7 +427,7 @@ F 3 "" H 8600 4650 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L Device:R R?
 U 1 1 589E290C
 P 10150 1700
 F 0 "R?" V 10230 1700 50  0000 C CNN
@@ -466,7 +438,7 @@ F 3 "" H 10150 1700 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L CP_Small C?
+L Device:CP_Small C?
 U 1 1 589E390F
 P 9650 2200
 F 0 "C?" H 9660 2270 50  0000 L CNN
@@ -477,7 +449,7 @@ F 3 "" H 9650 2200 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E410A
 P 14050 8900
 F 0 "C?" H 14060 8970 50  0000 L CNN
@@ -488,7 +460,7 @@ F 3 "" H 14050 8900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E4214
 P 9650 1950
 F 0 "C?" H 9660 2020 50  0000 L CNN
@@ -499,7 +471,7 @@ F 3 "" H 9650 1950 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E4EDC
 P 14300 8900
 F 0 "C?" H 14310 8970 50  0000 L CNN
@@ -510,7 +482,7 @@ F 3 "" H 14300 8900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E4F59
 P 14550 8900
 F 0 "C?" H 14560 8970 50  0000 L CNN
@@ -521,7 +493,7 @@ F 3 "" H 14550 8900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E4FD9
 P 14800 8900
 F 0 "C?" H 14810 8970 50  0000 L CNN
@@ -532,7 +504,7 @@ F 3 "" H 14800 8900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E5058
 P 15050 8900
 F 0 "C?" H 15060 8970 50  0000 L CNN
@@ -543,7 +515,7 @@ F 3 "" H 15050 8900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E5174
 P 15300 8900
 F 0 "C?" H 15310 8970 50  0000 L CNN
@@ -554,7 +526,7 @@ F 3 "" H 15300 8900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E51F9
 P 15550 8900
 F 0 "C?" H 15560 8970 50  0000 L CNN
@@ -565,7 +537,7 @@ F 3 "" H 15550 8900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP_Small C?
+L Device:CP_Small C?
 U 1 1 589E5683
 P 15800 8900
 F 0 "C?" H 15810 8970 50  0000 L CNN
@@ -576,7 +548,7 @@ F 3 "" H 15800 8900 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L power:GND #PWR?
 U 1 1 589E8270
 P 14050 9700
 F 0 "#PWR?" H 14050 9450 50  0001 C CNN
@@ -587,7 +559,7 @@ F 3 "" H 14050 9700 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VDD #PWR?
+L power:VDD #PWR?
 U 1 1 589E8276
 P 14050 9300
 F 0 "#PWR?" H 14050 9150 50  0001 C CNN
@@ -598,7 +570,7 @@ F 3 "" H 14050 9300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E827C
 P 12300 9500
 F 0 "C?" H 12310 9570 50  0000 L CNN
@@ -609,7 +581,7 @@ F 3 "" H 12300 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E8282
 P 12550 9500
 F 0 "C?" H 12560 9570 50  0000 L CNN
@@ -620,7 +592,7 @@ F 3 "" H 12550 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E8288
 P 12800 9500
 F 0 "C?" H 12810 9570 50  0000 L CNN
@@ -631,7 +603,7 @@ F 3 "" H 12800 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E828E
 P 13050 9500
 F 0 "C?" H 13060 9570 50  0000 L CNN
@@ -642,7 +614,7 @@ F 3 "" H 13050 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E8294
 P 13300 9500
 F 0 "C?" H 13310 9570 50  0000 L CNN
@@ -653,7 +625,7 @@ F 3 "" H 13300 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E829A
 P 13550 9500
 F 0 "C?" H 13560 9570 50  0000 L CNN
@@ -664,7 +636,7 @@ F 3 "" H 13550 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E82A0
 P 13800 9500
 F 0 "C?" H 13810 9570 50  0000 L CNN
@@ -675,7 +647,7 @@ F 3 "" H 13800 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP_Small C?
+L Device:CP_Small C?
 U 1 1 589E82A6
 P 15300 9500
 F 0 "C?" H 15310 9570 50  0000 L CNN
@@ -686,7 +658,7 @@ F 3 "" H 15300 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E8899
 P 14050 9500
 F 0 "C?" H 14060 9570 50  0000 L CNN
@@ -697,7 +669,7 @@ F 3 "" H 14050 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E889F
 P 14300 9500
 F 0 "C?" H 14310 9570 50  0000 L CNN
@@ -708,7 +680,7 @@ F 3 "" H 14300 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E88A5
 P 14550 9500
 F 0 "C?" H 14560 9570 50  0000 L CNN
@@ -719,7 +691,7 @@ F 3 "" H 14550 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E88AB
 P 14800 9500
 F 0 "C?" H 14810 9570 50  0000 L CNN
@@ -730,7 +702,7 @@ F 3 "" H 14800 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589E88B1
 P 15050 9500
 F 0 "C?" H 15060 9570 50  0000 L CNN
@@ -741,7 +713,7 @@ F 3 "" H 15050 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP_Small C?
+L Device:CP_Small C?
 U 1 1 589E8DBE
 P 15550 9500
 F 0 "C?" H 15560 9570 50  0000 L CNN
@@ -752,7 +724,7 @@ F 3 "" H 15550 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CP_Small C?
+L Device:CP_Small C?
 U 1 1 589E8E63
 P 15800 9500
 F 0 "C?" H 15810 9570 50  0000 L CNN
@@ -763,7 +735,7 @@ F 3 "" H 15800 9500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VDD #PWR?
+L power:VDD #PWR?
 U 1 1 589ECC5C
 P 10600 1800
 F 0 "#PWR?" H 10600 1650 50  0001 C CNN
@@ -774,7 +746,7 @@ F 3 "" H 10600 1800 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L power:GND #PWR?
 U 1 1 589EDAF3
 P 10850 5550
 F 0 "#PWR?" H 10850 5300 50  0001 C CNN
@@ -785,7 +757,7 @@ F 3 "" H 10850 5550 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR?
+L power:GND #PWR?
 U 1 1 589F1057
 P 15400 8500
 F 0 "#PWR?" H 15400 8250 50  0001 C CNN
@@ -796,7 +768,7 @@ F 3 "" H 15400 8500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L VDD #PWR?
+L power:VDD #PWR?
 U 1 1 589F105D
 P 15400 8100
 F 0 "#PWR?" H 15400 7950 50  0001 C CNN
@@ -807,7 +779,7 @@ F 3 "" H 15400 8100 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589F1069
 P 15050 8300
 F 0 "C?" H 15060 8370 50  0000 L CNN
@@ -818,7 +790,7 @@ F 3 "" H 15050 8300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589F106F
 P 15300 8300
 F 0 "C?" H 15310 8370 50  0000 L CNN
@@ -829,7 +801,7 @@ F 3 "" H 15300 8300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589F1075
 P 15550 8300
 F 0 "C?" H 15560 8370 50  0000 L CNN
@@ -840,7 +812,7 @@ F 3 "" H 15550 8300 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 589F107B
 P 15800 8300
 F 0 "C?" H 15810 8370 50  0000 L CNN
@@ -919,7 +891,7 @@ SDRAM_BUS
 Text Notes 8700 11050 0    60   ~ 0
 TODO:\n- Remove duplicate QSPI pins from MCU (wait till PCB layout)\n- Use MCO1/MCO2 (clock out) from MCU to clock EVE
 $Comp
-L Crystal_Small Y?
+L Device:Crystal_Small Y?
 U 1 1 58A04AAE
 P 5200 7450
 F 0 "Y?" H 5200 7550 50  0000 C CNN
@@ -930,7 +902,7 @@ F 3 "" H 5200 7450 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 58A051BF
 P 4950 7300
 F 0 "C?" H 4960 7370 50  0000 L CNN
@@ -941,7 +913,7 @@ F 3 "" H 4950 7300 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 58A05D89
 P 4950 7600
 F 0 "C?" H 4960 7670 50  0000 L CNN
@@ -952,7 +924,7 @@ F 3 "" H 4950 7600 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR?
+L power:GND #PWR?
 U 1 1 58A06824
 P 4550 7500
 F 0 "#PWR?" H 4550 7250 50  0001 C CNN
@@ -963,7 +935,7 @@ F 3 "" H 4550 7500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L Device:R R?
 U 1 1 58A084ED
 P 5400 7600
 F 0 "R?" V 5480 7600 50  0000 C CNN
@@ -974,7 +946,7 @@ F 3 "" H 5400 7600 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L Crystal_Small Y?
+L Device:Crystal_Small Y?
 U 1 1 58A0CB7E
 P 9800 2600
 F 0 "Y?" H 9800 2700 50  0000 C CNN
@@ -985,7 +957,7 @@ F 3 "" H 9800 2600 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 58A0CB84
 P 9550 2450
 F 0 "C?" H 9560 2520 50  0000 L CNN
@@ -996,7 +968,7 @@ F 3 "" H 9550 2450 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 58A0CB8A
 P 9550 2750
 F 0 "C?" H 9560 2820 50  0000 L CNN
@@ -1007,7 +979,7 @@ F 3 "" H 9550 2750 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GND #PWR?
+L power:GND #PWR?
 U 1 1 58A0CB91
 P 9300 2250
 F 0 "#PWR?" H 9300 2000 50  0001 C CNN
@@ -1317,158 +1289,6 @@ Wire Wire Line
 	2200 3650 1750 3650
 Wire Wire Line
 	2200 3750 1750 3750
-Wire Bus Line
-	3750 1200 3750 1550
-Wire Bus Line
-	3750 1550 3750 1650
-Wire Bus Line
-	3750 1650 3750 1750
-Wire Bus Line
-	3750 1750 3750 1850
-Wire Bus Line
-	3750 1850 3750 1950
-Wire Bus Line
-	3750 1950 3750 2050
-Wire Bus Line
-	3750 2050 3750 2150
-Wire Bus Line
-	3750 2150 3750 2250
-Wire Bus Line
-	3750 2250 3750 2350
-Wire Bus Line
-	3750 2350 3750 2450
-Wire Bus Line
-	3750 2450 3750 2550
-Wire Bus Line
-	3750 2550 3750 2650
-Wire Bus Line
-	3750 2650 3750 2750
-Wire Bus Line
-	3750 2750 3750 2850
-Wire Bus Line
-	3750 2850 3750 2950
-Wire Bus Line
-	3750 2950 3750 3050
-Wire Bus Line
-	3750 3050 3750 3250
-Wire Bus Line
-	3750 3250 3750 3350
-Wire Bus Line
-	5100 1200 5100 4400
-Wire Bus Line
-	5100 4400 5100 4500
-Wire Bus Line
-	5100 4500 5100 5600
-Wire Bus Line
-	8250 1200 8250 2200
-Wire Bus Line
-	8250 2200 8250 2300
-Wire Bus Line
-	8250 2300 8250 3000
-Wire Bus Line
-	8250 3000 8250 3100
-Wire Bus Line
-	8250 3100 8250 3200
-Wire Bus Line
-	8250 3200 8250 3600
-Wire Bus Line
-	8250 3600 8250 3700
-Wire Bus Line
-	8250 3700 8250 3900
-Wire Bus Line
-	8250 3900 8250 4000
-Wire Bus Line
-	8250 4000 8250 4600
-Wire Bus Line
-	8250 4600 8250 4700
-Wire Bus Line
-	8250 4700 8250 4800
-Wire Bus Line
-	8250 4800 8250 4900
-Wire Bus Line
-	8250 4900 8250 5000
-Wire Bus Line
-	8250 5000 8250 5100
-Wire Bus Line
-	8250 5100 8250 5200
-Wire Bus Line
-	8250 5200 8250 5300
-Wire Bus Line
-	8250 5300 8250 5400
-Wire Bus Line
-	8250 5400 8250 5600
-Wire Bus Line
-	8250 5600 8250 5700
-Wire Bus Line
-	8250 5700 8250 5800
-Wire Bus Line
-	8250 5800 8250 5900
-Wire Bus Line
-	8250 5900 8250 6000
-Wire Bus Line
-	8250 6000 8250 6100
-Wire Bus Line
-	8250 6100 8250 6700
-Wire Bus Line
-	8250 6700 8250 6800
-Wire Bus Line
-	8250 6800 8250 6900
-Wire Bus Line
-	8250 6900 8250 7000
-Wire Bus Line
-	8250 7000 8250 7100
-Wire Bus Line
-	8250 7100 8250 7300
-Wire Bus Line
-	8250 7300 8250 7400
-Wire Bus Line
-	8250 7400 8250 7700
-Wire Bus Line
-	8250 7700 8250 7800
-Wire Bus Line
-	8250 7800 8250 8100
-Wire Bus Line
-	8250 8100 8250 8800
-Wire Bus Line
-	1650 1200 1650 1550
-Wire Bus Line
-	1650 1550 1650 1650
-Wire Bus Line
-	1650 1650 1650 1750
-Wire Bus Line
-	1650 1750 1650 1850
-Wire Bus Line
-	1650 1850 1650 1950
-Wire Bus Line
-	1650 1950 1650 2050
-Wire Bus Line
-	1650 2050 1650 2150
-Wire Bus Line
-	1650 2150 1650 2250
-Wire Bus Line
-	1650 2250 1650 2350
-Wire Bus Line
-	1650 2350 1650 2450
-Wire Bus Line
-	1650 2450 1650 2550
-Wire Bus Line
-	1650 2550 1650 2650
-Wire Bus Line
-	1650 2650 1650 2850
-Wire Bus Line
-	1650 2850 1650 2950
-Wire Bus Line
-	1650 2950 1650 3150
-Wire Bus Line
-	1650 3150 1650 3250
-Wire Bus Line
-	1650 3250 1650 3350
-Wire Bus Line
-	1650 3350 1650 3450
-Wire Bus Line
-	1650 3450 1650 3550
-Wire Bus Line
-	1650 3550 1650 3650
 Wire Wire Line
 	6200 1600 6200 1700
 Wire Wire Line
@@ -1977,7 +1797,6 @@ Wire Wire Line
 	15550 8450 15800 8450
 Wire Wire Line
 	15800 8150 15800 8200
-Connection ~ 15800 8150
 Wire Wire Line
 	15550 8200 15550 8150
 Connection ~ 15550 8150
@@ -1998,7 +1817,6 @@ Wire Wire Line
 Connection ~ 15550 8450
 Wire Wire Line
 	15800 8450 15800 8400
-Connection ~ 15800 8450
 Wire Wire Line
 	15400 8100 15400 8150
 Connection ~ 15400 8150
@@ -2006,37 +1824,7 @@ Wire Wire Line
 	15400 8500 15400 8450
 Connection ~ 15400 8450
 Wire Bus Line
-	4900 1000 4900 2300
-Wire Bus Line
-	4900 2300 4900 4100
-Wire Bus Line
-	4900 4100 4900 6500
-Wire Bus Line
-	4900 6500 4900 6600
-Wire Bus Line
 	4900 1000 9100 1000
-Wire Bus Line
-	8450 1000 8450 6200
-Wire Bus Line
-	8450 6200 8450 6300
-Wire Bus Line
-	8450 6300 8450 6400
-Wire Bus Line
-	8450 6400 8450 6500
-Wire Bus Line
-	8450 6500 8450 7900
-Wire Bus Line
-	9100 1000 9100 2850
-Wire Bus Line
-	9100 2850 9100 2950
-Wire Bus Line
-	9100 2950 9100 3050
-Wire Bus Line
-	9100 3050 9100 3150
-Wire Bus Line
-	9100 3150 9100 3250
-Wire Bus Line
-	9100 3250 9100 3550
 Wire Wire Line
 	10250 2950 9200 2950
 Wire Wire Line
@@ -2133,7 +1921,7 @@ Wire Wire Line
 Wire Wire Line
 	9850 2200 9850 2350
 $Comp
-L CP_Small C?
+L Device:CP_Small C?
 U 1 1 58A1BE75
 P 14800 8300
 F 0 "C?" H 14810 8370 50  0000 L CNN
@@ -2148,7 +1936,7 @@ Wire Wire Line
 Wire Wire Line
 	14800 8400 14800 8450
 $Comp
-L C_Small C?
+L Device:C_Small C?
 U 1 1 58A1D4A2
 P 9650 1700
 F 0 "C?" H 9660 1770 50  0000 L CNN
@@ -2188,7 +1976,7 @@ Wire Wire Line
 Wire Wire Line
 	9950 1700 10000 1700
 $Comp
-L STM32F446ZE U?
+L stm32f446ze:STM32F446ZE U?
 U 1 1 5A5B6C21
 P 6700 5600
 F 0 "U?" H 6700 5750 60  0000 C CNN
@@ -2199,7 +1987,7 @@ F 3 "" H 5400 8600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L IS42S16400J U?
+L IS42S16400J:IS42S16400J U?
 U 1 1 5A5B702D
 P 2700 3150
 F 0 "U?" H 2500 4800 60  0000 C CNN
@@ -2209,4 +1997,18 @@ F 3 "" H 3200 4300 60  0000 C CNN
 	1    2700 3150
 	1    0    0    -1  
 $EndComp
+Wire Bus Line
+	5100 1200 5100 5600
+Wire Bus Line
+	4900 1000 4900 6600
+Wire Bus Line
+	8450 1000 8450 7900
+Wire Bus Line
+	9100 1000 9100 3550
+Wire Bus Line
+	3750 1200 3750 3350
+Wire Bus Line
+	1650 1200 1650 3650
+Wire Bus Line
+	8250 1200 8250 8800
 $EndSCHEMATC
