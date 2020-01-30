@@ -1,7 +1,7 @@
 #ifndef __IOCONTROLLER_H__
 #define __IOCONTROLLER_H__
 
-#include <project.h>
+#include "SystemController.h"
 
 // Direct input/output (Bus must be acquired!)
 uint8_t IOController_Input(uint16_t address);

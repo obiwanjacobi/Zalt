@@ -2,18 +2,12 @@
 
 void InterruptController_SetInterrupt(bool_t enable)
 {
-    if (enable)
-        CyPins_ClearPin(ExtInt_CpuInt);
-    else
-        CyPins_SetPin(ExtInt_CpuInt);
+    WriteNotPin(ExtInt_CpuInt, enable);
 }
 
 void InterruptController_SetNmi(bool_t enable)
 {
-    if (enable)
-        CyPins_ClearPin(ExtInt_CpuNmi);
-    else
-        CyPins_SetPin(ExtInt_CpuNmi);
+    WriteNotPin(ExtInt_CpuNmi, enable);
 }
 
 

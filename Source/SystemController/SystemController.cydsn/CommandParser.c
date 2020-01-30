@@ -27,7 +27,7 @@ uint8_t FindCommand(const char* commandCode)
 {
     int i = 0;
 
-    while( 1 )
+    while( true )
     {
         if (strlen(g_Commands[i]) == 0) return 0;   // end of table
         if (strcmp(g_Commands[i], commandCode) == 0) return i + 1;
@@ -66,9 +66,9 @@ uint8_t CommandParser_BuildCommand(TerminalCommand* command, RingBuffer* buffer)
     return bytesRead;
 }
 
-uint8_t CommandParser_ParseNewLine(uint8_t data)
+bool_t CommandParser_ParseNewLine(uint8_t data)
 {
-    uint8_t isNewLine = CommandParser_IsNewLine(data);
+    bool_t isNewLine = CommandParser_IsNewLine(data);
     
     if (isNewLine)
     {
@@ -82,9 +82,9 @@ uint8_t CommandParser_ParseNewLine(uint8_t data)
     return isNewLine;
 }
 
-inline uint8_t CommandParser_IsNewLine(uint8_t data)
+bool_t CommandParser_IsNewLine(uint8_t data)
 {
-    return (data == '\n' || data == '\r');
+    return (data == '\n' || data == '\r') ? true : false;
 }
 
 /* [] END OF FILE */

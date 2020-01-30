@@ -5,9 +5,9 @@
 
 void CpuController_Init()
 {
-    CyPins_ClearPin(ExtBus_CpuRst);
-    CyPins_SetPin(ExtBus_CpuClk);
-    CyPins_SetPin(ExtBus_CpuWait);
+    WriteNotPin(ExtBus_CpuRst, Active);
+    WriteNotPin(ExtBus_CpuWait, Inactive);
+    CyPins_ClearPin(ExtBus_CpuClk);
     
     CpuController_SetClockDivider(4);
     CpuController_SetClockMode(CPUMODE_NORMAL_FAST);
@@ -16,17 +16,14 @@ void CpuController_Init()
     CPUCLK_FAST_Start();
 }
 
-void CpuController_Reset(uint8_t active)
+void CpuController_Reset(active_t active)
 {
-    if (active == 0)        
-        CyPins_SetPin(ExtBus_CpuRst);
-    else
-        CyPins_ClearPin(ExtBus_CpuRst);
+    WriteNotPin(ExtBus_CpuRst, active);
 }
 
-uint8_t CpuController_IsResetActive()
+bool_t CpuController_IsResetActive()
 {
-    return CyPins_ReadPin(ExtBus_CpuRst) == 0;
+    return (ReadNotPin(ExtBus_CpuRst) == Active) ? true : false;
 }
 
 void CpuController_SetClockMode(uint8_t mode)
@@ -93,9 +90,9 @@ uint8_t CpuController_WaitCycles(uint16_t numberOfCycles)
     return 1;
 }
 
-uint8_t CpuController_IsCpuHalted()
+bool_t CpuController_IsCpuHalted()
 {
-    return CyPins_ReadPin(ExtBus_CpuHalt) == 0;
+    return (ReadNotPin(ExtBus_CpuHalt) == Active) ? true : false;
 }
 
 /* [] END OF FILE */

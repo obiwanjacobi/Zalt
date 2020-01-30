@@ -54,25 +54,30 @@ uint8_t MemoryManager_GetCurrentTable()
 // IO handler to keep internal state in-sync with what the Z80 is doing
 void MemoryManager_OnInterrupt()
 {
-    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    if (CpuController_IsResetActive() || BusController_IsAcquiring()) return;
     
     _currentTable = RegInD_Read();
     SerialTerminal_WriteFormat("T:%d\n", _currentTable);
 }
 
-void MemoryManager_Init()
+void MemMgr_InitTableNul(uint8_t tableIndex)
 {
     BusState bus;
     BusController_Open(&bus);
     BusController_EnableDataBusOutput(1);
     
     // write first table for 64k
-    MemoryManager_SelectTable(0);
-    MemoryManager_SelectTableIO(0);
+    MemoryManager_SelectTable(tableIndex);
+    MemoryManager_SelectTableIO(tableIndex);
     MemoryManager_WriteNullTable();
     
     BusController_EnableDataBusOutput(0);
     BusController_Close(&bus);
+}
+
+void MemoryManager_Init()
+{
+    MemMgr_InitTableNul(0);
     
     ISR_MMU_StartEx(MemoryManager_OnInterrupt);
 }

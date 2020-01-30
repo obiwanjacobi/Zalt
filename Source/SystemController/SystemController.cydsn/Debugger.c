@@ -140,7 +140,7 @@ void Debugger_PulseNMI()
     // pulse NMI
     InterruptController_SetNmi(true);
     // wait for next M1 cycle (NMI-ack)
-    while(CyPins_ReadPin(ExtBus_CpuM1) != 0);
+    while(ReadNotPin(ExtBus_CpuM1) != Active);
     InterruptController_SetNmi(false);
 }
 
@@ -150,13 +150,13 @@ void Debugger_ReleaseCpuHalt()
     // pulse NMI
     InterruptController_SetNmi(true);
     // wait for halt to become inactive
-    while(CyPins_ReadPin(ExtBus_CpuHalt) == 0);
+    while(ReadNotPin(ExtBus_CpuHalt) == Active);
     InterruptController_SetNmi(false);
 }
 
 void Debugger_RemoteBreak()
 {
-    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    if (CpuController_IsResetActive() || BusController_IsAcquiring()) return;
     
     InterruptProcessor_Enable(false);
     
@@ -177,7 +177,7 @@ void Debugger_RemoteContinue()
 
 void Debugger_ReportRegisters()
 {
-    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    if (CpuController_IsResetActive() || BusController_IsAcquiring()) return;
     
     if (DebuggerState == DebugState_None)
     {
@@ -192,7 +192,7 @@ void Debugger_ReportRegisters()
 
 void Debugger_ISR_OnHaltInterrupt()
 {
-    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    if (CpuController_IsResetActive() || BusController_IsAcquiring()) return;
     
     // halt can also trigger during a debug session
     if (DebuggerState == DebugState_None)

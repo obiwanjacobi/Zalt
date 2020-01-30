@@ -1,7 +1,7 @@
 #ifndef __MEMORYCONTROLLER_H__
 #define __MEMORYCONTROLLER_H__
 
-#include <project.h>
+#include "SystemController.h"
     
 typedef struct
 {

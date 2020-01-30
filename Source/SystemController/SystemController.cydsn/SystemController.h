@@ -21,14 +21,29 @@
         Usually (PSoC) interrupt driven.
     
 */
-    
+
 typedef enum _bool_t
 {
     false,
     true
-    
-} bool_t;    
-    
+
+} bool_t;
+
+typedef enum _active_t
+{
+    Inactive,
+    Active
+} active_t;
+
+#define ReadNotPin(pinPC)  \
+    CyPins_ReadPin(pinPC) == 0 ? Active : Inactive
+
+#define WriteNotPin(pinPC, active)  \
+    if (active) {CyPins_ClearPin(pinPC);} else {CyPins_SetPin(pinPC);}
+
+#define ActivateNotPin(pinPC)   CyPins_ClearPin(pinPC)
+#define DeactivateNotPin(pinPC) CyPins_SetPin(pinPC)
+
 #endif  //__SYSTEMCONTROLLER_H__
 
 /* [] END OF FILE */

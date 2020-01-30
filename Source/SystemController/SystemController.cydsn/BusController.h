@@ -28,7 +28,8 @@ void BusController_Acquire();
 void BusController_Release();
 
 // indicates if the bus is acquired (non-zero)
-uint8_t BusController_IsAcquired();
+//bool_t BusController_IsAcquired();
+bool_t BusController_IsAcquiring();
 
 // enable data bus outputs for write
 void BusController_EnableDataBusOutput(bool_t enable);

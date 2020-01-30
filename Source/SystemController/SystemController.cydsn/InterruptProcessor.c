@@ -46,7 +46,7 @@ bool_t InterruptProcesor_Interrupt(uint8_t vector)
 
 void InterruptProcessor_ISR_OnInterrupt()
 {
-    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    if (CpuController_IsResetActive() || BusController_IsAcquiring()) return;
     
     // Z80 Controller (design component) has enabled the Data bus for us to write to.
     if (NextVector != INTERRUPT_VECTOR_NONE)

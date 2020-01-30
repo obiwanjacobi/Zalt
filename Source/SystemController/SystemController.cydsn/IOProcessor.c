@@ -34,12 +34,14 @@ void IOProcessor_ReleaseCpuWait()
 
 void IOProcessor_ISR_OnIOInterrupt()
 {
-    if (CpuController_IsResetActive() || BusController_IsAcquired()) return;
+    if (CpuController_IsResetActive() || BusController_IsAcquiring()) return;
     
     // see MODE_Xxx flags
-    g_isrData.Mode = (!CyPins_ReadPin(ExtBus_Rd) << 0) |
-                     (!CyPins_ReadPin(ExtBus_Wr) << 1) |
-                    MODE_IO;    // always io
+    g_isrData.Mode = MODE_IO;    // always io
+    if (ReadNotPin(ExtBus_Rd))
+        g_isrData.Mode |= MODE_READ;
+    if (ReadNotPin(ExtBus_Wr))
+        g_isrData.Mode |= MODE_WRITE;
                     
     g_isrData.Address = RegLsbA_Read();
     

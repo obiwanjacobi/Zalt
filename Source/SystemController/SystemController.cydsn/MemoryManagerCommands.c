@@ -103,7 +103,6 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, uint8_t
     
     BusController_EnableDataBusOutput(0);
     BusController_Close(&busState);
-
 }
 
 //

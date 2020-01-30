@@ -126,7 +126,7 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
     {
         SerialTerminal_Write("Send bin file of ");
         SerialTerminal_WriteUint16(mem.Length, 16);
-        SerialTerminal_WriteLine(" bytes");
+        SerialTerminal_WriteLine("h bytes");
     }    
     
     BusState busState;
@@ -142,7 +142,7 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
         
         if (bytesRead > 0 && mem.Length == 0 && mem.SpinCountTimeout > 0)
         {
-            CyDelay(1);
+            CyDelay(5);
             mem.SpinCountTimeout--;
         }
     }
@@ -152,7 +152,7 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
     
     SerialTerminal_Write("Received and written ");
     SerialTerminal_WriteUint16(bytesRead, 16);
-    SerialTerminal_WriteLine(" bytes");
+    SerialTerminal_WriteLine("h bytes");
     
     return 0;
 }
@@ -174,7 +174,7 @@ uint16_t MemoryRead_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     
     SerialTerminal_Write("Reading ");
     SerialTerminal_WriteUint16(command->Length, 16);
-    SerialTerminal_Write(" bytes from address ");
+    SerialTerminal_Write("h bytes from address ");
     SerialTerminal_WriteUint16(command->Address, 16);
     SerialTerminal_WriteLine(":");
         
@@ -202,14 +202,15 @@ uint16_t MemoryDump_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     // some default for no length specified
     if (command->Length == 0)
     {
-        command->Length = 0xFF;
+        command->Length = 0x100;
     }
-        
-    BusState busState;
-    BusController_Open(&busState);
     
     SerialTerminal_WriteFormat("Address: %04Xh", command->Address);
     SerialTerminal_WriteLine(NULL);
+    
+    BusState busState;
+    BusController_Open(&busState);
+    
     MemoryRead_CopyToTerminal(command->Address, command->Length, "%02X");
     
     BusController_Close(&busState);
@@ -234,11 +235,11 @@ uint16_t MemoryFill_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     
     SerialTerminal_Write("Filling ");
     SerialTerminal_WriteUint16(mem.Length, 16);
-    SerialTerminal_Write(" bytes from address ");
+    SerialTerminal_Write("h bytes from address ");
     SerialTerminal_WriteUint16(command->Address, 16);
     SerialTerminal_Write(" with value ");
     SerialTerminal_WriteUint16(command->Param3, 16);
-    SerialTerminal_WriteLine(NULL);
+    SerialTerminal_WriteLine("h");
     
     BusState busState;
     BusController_Open(&busState);

@@ -10,14 +10,14 @@ uint8_t MemCtrl_Read(uint16_t address)
     LsbA_Write(address & 0x00FF);
     MsbA_Write((address & 0xFF00) >> 8);
     
-    CyPins_ClearPin(ExtBus_MemReq);
-    CyPins_ClearPin(ExtBus_Rd);
+    ActivateNotPin(ExtBus_MemReq);
+    ActivateNotPin(ExtBus_Rd);
     
     SpinWait();
     uint8_t data = D_Read();
     
-    CyPins_SetPin(ExtBus_Rd);
-    CyPins_SetPin(ExtBus_MemReq);
+    DeactivateNotPin(ExtBus_Rd);
+    DeactivateNotPin(ExtBus_MemReq);
     
     return data;
 }
@@ -27,14 +27,14 @@ void MemCtrl_Write(uint16_t address, uint8_t data)
     LsbA_Write(address & 0x00FF);
     MsbA_Write((address & 0xFF00) >> 8);
     
-    CyPins_ClearPin(ExtBus_MemReq);
-    CyPins_ClearPin(ExtBus_Wr);
+    ActivateNotPin(ExtBus_MemReq);
+    ActivateNotPin(ExtBus_Wr);
         
     D_Write(data);
     SpinWait();
     
-    CyPins_SetPin(ExtBus_Wr);
-    CyPins_SetPin(ExtBus_MemReq);
+    DeactivateNotPin(ExtBus_Wr);
+    DeactivateNotPin(ExtBus_MemReq);
 }
 
 void MemoryController_Read(Memory* memory)

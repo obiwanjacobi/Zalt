@@ -40,7 +40,7 @@ uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command
         suspended = "halted";
     }
     SerialTerminal_Write("CPU ");
-    SerialTerminal_Write(suspended);
+    SerialTerminal_WriteLine(suspended);
     ClockMode_ReportValue();
     ClockDivider_ReportValue();
     

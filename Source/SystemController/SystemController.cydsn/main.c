@@ -15,9 +15,9 @@ static SerialTerminal g_serialTerminal;
 
 void init()
 {
+    BusController_Init();
     CpuController_Init();
     IOProcessor_Init();
-    BusController_Init();
     MemoryManager_Init();
     InterruptProcessor_Init();
     KeyBoard_Init();
@@ -50,7 +50,7 @@ int main()
         }
         
         // temp
-//        if (CyPins_ReadPin(ExtBus_CpuHalt) == 0)
+//        if (ReadNotPin(ExtBus_CpuHalt) == Active)
 //        {
 //            if (haltMessageDisplayed == 0)
 //            {
