@@ -35,6 +35,7 @@ int main()
     
     // echo back that the system is ready but halted.
     SerialTerminal_WriteLine("Ready (Suspended).");
+    SerialTerminal_WritePrompt();
     
 //    uint8_t haltMessageDisplayed = 0;
     

@@ -9,6 +9,11 @@
 
 static uint8_t g_rxBuffer[SerialTerminal_RxBufferSize];
 
+void SerialTerminal_WritePrompt()
+{
+    SerialTerminal_Write(">> ");
+}
+
 void SerialTerminal_Start(SerialTerminal* serialTerminal)
 {
     serialTerminal->IsActive = 1;   // on by default
@@ -28,14 +33,16 @@ uint16_t  SerialTerminal_ReceiveCommand(SerialTerminal* serialTerminal)
         
         if (data != 0)
         {
-            if (CommandParser_ParseNewLine(data))
+            if (CommandParser_IsNewLine(data))
             {
                 while (!RingBuffer_IsEmpty(&serialTerminal->RxBuffer))
                 {
                     TerminalCommand cmd;
                     if (CommandParser_BuildCommand(&cmd, &serialTerminal->RxBuffer))
                     {
+                        SerialTerminal_WriteLine(NULL);
                         CommandHandler_DispatchCommand(serialTerminal, &cmd);
+                        SerialTerminal_WritePrompt();
                     }
                     else
                     {
@@ -48,12 +55,15 @@ uint16_t  SerialTerminal_ReceiveCommand(SerialTerminal* serialTerminal)
                         // target buffer may be shorter
                         SysTerminal_PutString((const char*)buffer);
                         SerialTerminal_WriteLine(" - Invalid Command.");
+                        SerialTerminal_WritePrompt();
                     }
                 }
             }
             else
             {
                 RingBuffer_WriteByte(&serialTerminal->RxBuffer, data);
+                // echo back
+                SysTerminal_WriteTxData(data);
             }
         }
     }

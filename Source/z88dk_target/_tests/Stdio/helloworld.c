@@ -2,5 +2,5 @@
 
 void main(void)
 {
-    printf("Zalt says hello to Z88dk!");
+    printf("Zalt says hello to AtomBusMon!");
 }
