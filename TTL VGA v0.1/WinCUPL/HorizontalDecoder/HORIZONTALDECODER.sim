@@ -1,0 +1,234 @@
+%SIGNAL
+PIN  22 =  Astrobe 
+PIN   2 =  H0 
+PIN   3 =  H1 
+PIN   4 =  H2 
+PIN   5 =  H3 
+PIN   6 =  H4 
+PIN   7 =  H5 
+PIN   8 =  H6 
+PIN   9 =  H7 
+PIN  10 =  H8 
+PIN  11 =  H9 
+PIN  18 =  Hblank 
+PIN  20 =  HborderL 
+PIN  17 =  HborderR 
+PIN  21 =  Hclr 
+PIN  19 = !Hsync 
+PIN  23 =  Lstrobe 
+PIN  16 =  Test 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+Astrobe =>
+    H0 & !Hblank & !HborderL & !HborderR
+
+BackPorch =>
+    !H0 & !H1 & !H2 & !H3 & H4 & H5 & H6 & H7 & !H8 & H9
+
+EndOfLine =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9
+
+FrontPorch =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9
+
+Hblank =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9
+  # H8 & !Hblank
+  # !H7 & !Hblank
+  # H4 & !Hblank
+  # H3 & !Hblank
+  # H2 & !Hblank
+  # !H9 & !Hblank
+  # H6 & !Hblank
+  # H5 & !Hblank
+  # H1 & !Hblank
+  # H0 & !Hblank
+
+HblankNot =>
+    H0 & !Hblank
+  # H1 & !Hblank
+  # H2 & !Hblank
+  # H3 & !Hblank
+  # H4 & !Hblank
+  # H5 & !Hblank
+  # H6 & !Hblank
+  # !H7 & !Hblank
+  # H8 & !Hblank
+  # !H9 & !Hblank
+
+HblankRes =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9
+
+HblankSet =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9
+
+HborderL =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9
+  # H9 & !HborderL
+  # H8 & !HborderL
+  # H7 & !HborderL
+  # H4 & !HborderL
+  # H3 & !HborderL
+  # H2 & !HborderL
+  # H5 & !HborderL
+  # H1 & !HborderL
+  # H0 & !HborderL
+
+HborderNotL =>
+    H0 & !HborderL
+  # H1 & !HborderL
+  # H2 & !HborderL
+  # H3 & !HborderL
+  # H4 & !HborderL
+  # H5 & !HborderL
+  # H6 & !HborderL
+  # H7 & !HborderL
+  # H8 & !HborderL
+  # H9 & !HborderL
+
+HborderNotR =>
+    H0 & !HborderR
+  # H1 & !HborderR
+  # H2 & !HborderR
+  # H3 & !HborderR
+  # H4 & !HborderR
+  # H5 & !HborderR
+  # !H6 & !HborderR
+  # H7 & !HborderR
+  # H8 & !HborderR
+  # !H9 & !HborderR
+
+HborderR =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9 & !HborderR
+  # !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9
+  # !H6 & !HborderR
+  # H8 & !HborderR
+  # H7 & !HborderR
+  # H4 & !HborderR
+  # H3 & !HborderR
+  # H2 & !HborderR
+  # H5 & !HborderR
+  # H1 & !HborderR
+  # H0 & !HborderR
+
+HborderResL =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9
+
+HborderResR =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9
+
+HborderSetL =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9
+
+HborderSetR =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & H9
+
+Hclr =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9
+  # !H5 & !Hclr
+  # !H8 & !Hclr
+  # H7 & !Hclr
+  # H4 & !Hclr
+  # H3 & !Hclr
+  # H2 & !Hclr
+  # !H9 & !Hclr
+  # H6 & !Hclr
+  # H1 & !Hclr
+  # H0 & !Hclr
+
+HclrNot =>
+    H0 & !Hclr
+  # H1 & !Hclr
+  # H2 & !Hclr
+  # H3 & !Hclr
+  # H4 & !Hclr
+  # !H5 & !Hclr
+  # H6 & !Hclr
+  # H7 & !Hclr
+  # !H8 & !Hclr
+  # !H9 & !Hclr
+
+HclrRes =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9
+
+HclrSet =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9
+
+Hsync =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9 & Hsync
+  # !H0 & !H1 & !H2 & !H3 & H4 & H5 & H6 & H7 & !H8 & H9
+  # H8 & Hsync
+  # !H7 & Hsync
+  # H3 & Hsync
+  # H2 & Hsync
+  # !H9 & Hsync
+  # H6 & Hsync
+  # H5 & Hsync
+  # H1 & Hsync
+  # H0 & Hsync
+
+HsyncNot =>
+    H0 & !Hsync
+  # H1 & !Hsync
+  # H2 & !Hsync
+  # H3 & !Hsync
+  # !H4 & !Hsync
+  # H5 & !Hsync
+  # H6 & !Hsync
+  # !H7 & !Hsync
+  # H8 & !Hsync
+  # !H9 & !Hsync
+
+HsyncRes =>
+    !H0 & !H1 & !H2 & !H3 & H4 & H5 & H6 & H7 & !H8 & H9
+
+HsyncSet =>
+    !H0 & !H1 & !H2 & !H3 & H4 & !H5 & !H6 & H7 & !H8 & H9
+
+LeftBorder =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9
+
+Lstrobe =>
+    0 
+
+RightBorder =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & H9
+
+Sync =>
+    !H0 & !H1 & !H2 & !H3 & H4 & !H5 & !H6 & H7 & !H8 & H9
+
+Test =>
+    H1
+
+Window =>
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9
+
+Astrobe.oe  =>
+    1 
+
+Hblank.oe  =>
+    1 
+
+HborderL.oe  =>
+    1 
+
+HborderR.oe  =>
+    1 
+
+Hclr.oe  =>
+    1 
+
+Hsync.oe  =>
+    1 
+
+Lstrobe.oe  =>
+    1 
+
+Test.oe  =>
+    1 
+
+%END

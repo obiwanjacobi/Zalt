@@ -1,0 +1,97 @@
+Name     VerticalDecoder;
+PartNo   Zalt-TtlVga-01;
+Date     20-02-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt Ttl Vga Board;
+Location U304 - Z80 Computer / Ttl Vga;
+Device   G22V10;
+/*Format   j;*/
+
+/* 
+ *  The Vertical Decoder contains the decoding of the vertical counter 
+ *  -based on the line strobe output of the horizontal decoder- that identifies
+ *  important stages in writing an entire frame. 
+ *  The display area is identified and due to our design the top- and bottom 
+ *  border as well as the front-porch, sync pulse and back-porch.
+ *
+ *  Signals that are active for more than one (pixel) clock pulse are setup
+ *  using an S-R latch (bottom of this file).
+ *
+ *  Timings are based of the VGA 640x480 @60Hz VGA standard.
+ */
+
+/** input pins **/
+
+/* PIN 1   = clk; */
+/* PIN 13  = !OE; */
+
+PIN 2	 = V0;
+PIN 3   = V1;
+PIN 4   = V2;
+PIN 5   = V3;
+PIN 6   = V4;
+PIN 7   = V5;
+PIN 8   = V6;
+PIN 9   = V7;
+PIN 10  = V8;
+PIN 11  = V9;
+
+/** output pins **/
+
+PIN 23  = Vclr;
+PIN 20  = VborderT;
+PIN 19  = !Vsync;   /* VSync pulse is negative/active low */
+PIN 18  = Vblank;
+PIN 17  = VborderB;
+
+
+/** counter starts at 0 with the top of 480 lines of display area **/
+TopBorder = !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9;
+
+/** Our display window starts at 48 **/
+Window = !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9;
+
+/** The bottom border at 48+384 ends the visible area of the frame **/
+BottomBorder = !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & V7 & V8 & !V9;
+
+/** The front-porch at 480 marks the start of the blanking **/
+FrontPorch = !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9;
+
+/** The Vertical Sync Puls starts at 480+10 and ends when the back-porch starts **/
+Sync = !V0 & V1 & !V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9;
+
+/** The final stretch of the blanking -back-porch- starts at 480+10+2 **/
+BackPorch = !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9;
+
+/** counted till the end of the line (800) **/
+EndOfFrame = V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9;
+
+/** end of frame resets the vertical counter **/
+Vclr = EndOfFrame;
+
+/** Set and Reset conditions for the Latches **/
+VsyncSet = Sync;
+VsyncRes = BackPorch;
+
+VblankSet = FrontPorch;
+VblankRes = EndOfFrame;
+
+VborderSetT = TopBorder;
+VborderResT = Window;
+
+VborderSetB = BottomBorder;
+VborderResB = FrontPorch;
+
+/** Vertical Sync Pulse (negative) **/
+VsyncNot = !(Vsync # VsyncSet);
+Vsync = !(VsyncNot # VsyncRes);
+
+/** Vertical Blank Pulse **/
+VblankNot = !(Vblank # VblankSet);
+Vblank = !(VblankNot # VblankRes);
+
+/** Vertical Border Pulse **/
+VborderNotT = !(VborderT # VborderSetT);
+VborderT = !(VborderNotT # VborderResT);

@@ -1,0 +1,158 @@
+%SIGNAL
+PIN   2 =  V0 
+PIN   3 =  V1 
+PIN   4 =  V2 
+PIN   5 =  V3 
+PIN   6 =  V4 
+PIN   7 =  V5 
+PIN   8 =  V6 
+PIN   9 =  V7 
+PIN  10 =  V8 
+PIN  11 =  V9 
+PIN  18 =  Vblank 
+PIN  17 =  VborderB 
+PIN  20 =  VborderT 
+PIN  23 =  Vclr 
+PIN  19 = !Vsync 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+BackPorch =>
+    !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+BottomBorder =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & V7 & V8 & !V9
+
+EndOfFrame =>
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
+
+FrontPorch =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+Sync =>
+    !V0 & V1 & !V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+TopBorder =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+
+Vblank =>
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
+  # V1 & !Vblank
+  # !V5 & !Vblank
+  # V4 & !Vblank
+  # V9 & !Vblank
+  # !V8 & !Vblank
+  # !V7 & !Vblank
+  # !V6 & !Vblank
+  # V3 & !Vblank
+  # V0 & !Vblank
+  # V2 & !Vblank
+
+VblankNot =>
+    V0 & !Vblank
+  # V1 & !Vblank
+  # V2 & !Vblank
+  # V3 & !Vblank
+  # V4 & !Vblank
+  # !V5 & !Vblank
+  # !V6 & !Vblank
+  # !V7 & !Vblank
+  # !V8 & !Vblank
+  # V9 & !Vblank
+
+VblankRes =>
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
+
+VblankSet =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+VborderNotT =>
+    V0 & !VborderT
+  # V1 & !VborderT
+  # V2 & !VborderT
+  # V3 & !VborderT
+  # V4 & !VborderT
+  # V5 & !VborderT
+  # V6 & !VborderT
+  # V7 & !VborderT
+  # V8 & !VborderT
+  # V9 & !VborderT
+
+VborderResB =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+VborderResT =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
+
+VborderSetB =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & V7 & V8 & !V9
+
+VborderSetT =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+
+VborderT =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
+  # V8 & !VborderT
+  # V7 & !VborderT
+  # V6 & !VborderT
+  # V1 & !VborderT
+  # V5 & !VborderT
+  # V4 & !VborderT
+  # V9 & !VborderT
+  # V3 & !VborderT
+  # V0 & !VborderT
+  # V2 & !VborderT
+
+Vclr =>
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
+
+Vsync =>
+    !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+  # !V3 & Vsync
+  # !V5 & Vsync
+  # V4 & Vsync
+  # V9 & Vsync
+  # !V8 & Vsync
+  # !V7 & Vsync
+  # !V6 & Vsync
+  # !V1 & Vsync
+  # V0 & Vsync
+  # V2 & Vsync
+
+VsyncNot =>
+    V0 & !Vsync
+  # !V1 & !Vsync
+  # V2 & !Vsync
+  # !V3 & !Vsync
+  # V4 & !Vsync
+  # !V5 & !Vsync
+  # !V6 & !Vsync
+  # !V7 & !Vsync
+  # !V8 & !Vsync
+  # V9 & !Vsync
+
+VsyncRes =>
+    !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+VsyncSet =>
+    !V0 & V1 & !V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+Window =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
+
+Vblank.oe  =>
+    1 
+
+VborderT.oe  =>
+    1 
+
+Vclr.oe  =>
+    1 
+
+Vsync.oe  =>
+    1 
+
+%END
