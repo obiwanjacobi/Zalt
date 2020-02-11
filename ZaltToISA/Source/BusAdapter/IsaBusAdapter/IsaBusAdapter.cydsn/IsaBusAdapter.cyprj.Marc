@@ -291,6 +291,21 @@
 <v>Cypress Component Catalog\System\External Memory Interface</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>Cypress Component Catalog</v>
+<v>Cypress Component Catalog\Analog</v>
+<v>Cypress Component Catalog\CapSense</v>
+<v>Cypress Component Catalog\Communications</v>
+<v>Cypress Component Catalog\Digital</v>
+<v>Cypress Component Catalog\Digital\Functions</v>
+<v>Cypress Component Catalog\Digital\Functions\Counter [v3.0]</v>
+<v>Cypress Component Catalog\Digital\Functions\CRC [v2.50]</v>
+<v>Cypress Component Catalog\Digital\Functions\PrISM [v2.20]</v>
+<v>Cypress Component Catalog\Digital\Functions\PRS [v2.40]</v>
+<v>Cypress Component Catalog\Digital\Functions\PWM [v3.30]</v>
+<v>Cypress Component Catalog\Digital\Functions\Quadrature Decoder [v3.0]</v>
+<v>Cypress Component Catalog\Digital\Functions\Shift Register [v2.30]</v>
+<v>Cypress Component Catalog\Digital\Functions\Timer [v2.80]</v>
+<v>Cypress Component Catalog\Digital\Logic</v>
 <v>Cypress Component Catalog\Digital\Logic\And [v1.0]</v>
 <v>Cypress Component Catalog\Digital\Logic\Bufoe [v1.10]</v>
 <v>Cypress Component Catalog\Digital\Logic\D Flip Flop [v1.30]</v>
@@ -317,21 +332,6 @@
 <v>Cypress Component Catalog\Digital\Utility\Basic Counter [v1.0]</v>
 <v>Cypress Component Catalog\Digital\Utility\Debouncer [v1.0]</v>
 <v>Cypress Component Catalog\Digital\Utility\Digital Comparator [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Utility\Down Counter (7-bit) [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Utility\Edge Detector [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Utility\Frequency Divider [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Utility\Glitch Filter [v2.0]</v>
-<v>Cypress Component Catalog\Digital\Utility\Pulse Converter [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Utility\Sync [v1.0]</v>
-<v>Cypress Component Catalog\Digital\Utility\UDB Clock Enable [v1.0]</v>
-<v>Cypress Component Catalog\Display</v>
-<v>Cypress Component Catalog\Filters</v>
-<v>Cypress Component Catalog\Ports and Pins</v>
-<v>Cypress Component Catalog\Ports and Pins\Analog Pin [v2.20]</v>
-<v>Cypress Component Catalog\Ports and Pins\Digital Bidirectional Pin [v2.20]</v>
-<v>Cypress Component Catalog\Ports and Pins\Digital Input Pin [v2.20]</v>
-<v>Cypress Component Catalog\Ports and Pins\Digital Output Pin [v2.20]</v>
-<v>Cypress Component Catalog\Power Supervision</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Off-Chip Component Catalog\Diodes\LED [v1.0]">

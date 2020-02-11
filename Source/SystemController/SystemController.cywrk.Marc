@@ -68,6 +68,8 @@
 <v>SystemController\SystemController\SystemController.h</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>SystemController</v>
+<v>SystemController\SystemController</v>
 <v>SystemController\SystemController\TopDesign</v>
 <v>SystemController\SystemController\SystemController.cydwr</v>
 <v>SystemController\SystemController\Commands</v>
@@ -119,8 +121,6 @@
 <v>SystemController\SystemController\Generated_Source</v>
 <v>SystemController\SystemController\Generated_Source\PSoC5</v>
 <v>SystemController\SystemController\main.c</v>
-<v>SystemController\SystemController\Message.h</v>
-<v>SystemController\SystemController\SystemController.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="SystemController\SystemController\Z80Controller\Z80Controller.cysch">
@@ -374,14 +374,20 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\SystemController.cydsn\CommandParser.c" />
+<name v=".\SystemController.cydsn\main.c" />
+<name v=".\SystemController.cydsn\SerialTerminal.c" />
+<name v=".\SystemController.cydsn\SerialTerminal.h" />
+<name v=".\SystemController.cydsn\CommandParser.h" />
+</OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
   Actipro Docking/MDI for WinForms
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal" /><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1487, 804" SelectedTabbedMdiWindow="6a95a184-3946-40b4-aaf7-958f4a22d559"><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CommandParser.c" Guid="6a95a184-3946-40b4-aaf7-958f4a22d559" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\main.c" Guid="aae0c7e1-c24c-454f-9c0a-2e3df3f1e7b7" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\SerialTerminal.c" Guid="a0943af2-f9ac-48a5-bc45-d3cbf713e795" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\SerialTerminal.h" Guid="f5d2753d-4e8f-437d-8f9e-73d8c9f80674" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\CommandParser.h" Guid="7777de67-5d5f-4b02-93e7-d9ea799cf26f" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Debug" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
