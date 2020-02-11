@@ -46,7 +46,6 @@ typedef struct
 uint8_t CommandParser_BuildCommand(TerminalCommand* command, RingBuffer* buffer);
 uint8_t CommandParser_Read(RingBuffer* buffer, uint8_t* target, uint8_t maxLength);
 
-//bool_t CommandParser_ParseNewLine(uint8_t data);
 bool_t CommandParser_IsNewLine(uint8_t data);
 
 #endif  //__COMMANDPARSER_H__

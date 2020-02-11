@@ -66,22 +66,6 @@ uint8_t CommandParser_BuildCommand(TerminalCommand* command, RingBuffer* buffer)
     return bytesRead;
 }
 
-//bool_t CommandParser_ParseNewLine(uint8_t data)
-//{
-//    bool_t isNewLine = CommandParser_IsNewLine(data);
-//    
-//    if (isNewLine)
-//    {
-//        // we expect \cr\lf
-//        do
-//        {
-//            data = SysTerminal_GetChar();
-//        } while (data == 0);
-//    }
-//    
-//    return isNewLine;
-//}
-
 bool_t CommandParser_IsNewLine(uint8_t data)
 {
     return (data == '\n' || data == '\r') ? true : false;
