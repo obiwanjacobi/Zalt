@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Mon Feb 10 18:07:02 2020 "}
+  {DBtime "Tue Feb 11 20:24:26 2020 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -33,31 +33,31 @@
  {SYMBOL
   {PIN_DEF
    [Ly "PINCON"]
-   {P V0 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
-   {P V1 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
-   {P V2 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
-   {P V3 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
-   {P V4 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
-   {P V5 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
-   {P V6 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
-   {P V7 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
-   {P V8 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
-   {P V9 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
-   {P VBORDERB {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
-   {P VBLANK {Pt "I/O"}{Lq 0}{Ploc 360 20}}
-   {P VSYNC' {Pt "I/O"}{Lq 0}{Ploc 360 40}}
-   {P VBORDERT {Pt "I/O"}{Lq 0}{Ploc 360 60}}
-   {P VCLR {Pt "I/O"}{Lq 0}{Ploc 360 80}}
+   {P V0 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P V1 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P V2 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P V3 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P V4 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P V5 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P V6 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P V7 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P V8 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P V9 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P VBORDERB {Pt "I/O"}{Lq 0}{Ploc 300 20}}
+   {P VBLANK {Pt "I/O"}{Lq 0}{Ploc 300 40}}
+   {P VSYNC' {Pt "I/O"}{Lq 0}{Ploc 300 60}}
+   {P VBORDERT {Pt "I/O"}{Lq 0}{Ploc 300 80}}
+   {P VCLR {Pt "I/O"}{Lq 0}{Ploc 300 100}}
+   {P ACLR {Pt "I/O"}{Lq 0}{Ploc 300 120}}
   }
 
   {PKG
    [Ly "REFDES"]
    [Ts 25][Tj "CB"][Tr 0][Tm "N"]
-   {Rdl 230 250}
+   {Rdl 200 230}
 
    [Ly "PINNUM"]
    [Ts 15][Tj "RC"]
-   {Pnl 120 230}
    {Pnl 120 210}
    {Pnl 120 190}
    {Pnl 120 170}
@@ -69,19 +69,20 @@
    {Pnl 120 50}
    {Pnl 120 30}
    [Ts 15][Tj "LC"]
-   {Pnl 340 30}
-   {Pnl 340 50}
-   {Pnl 340 70}
-   {Pnl 340 90}
+   {Pnl 280 30}
+   {Pnl 280 50}
+   {Pnl 280 70}
+   {Pnl 280 90}
+   {Pnl 280 110}
+   {Pnl 280 130}
 
-   {Sd A 2 3 4 5 6 7 8 9 10 11 17 18 19 20 23}
+   {Sd A 2 3 4 5 6 7 8 9 10 11 17 18 19 20 21 23}
   }
 
   {PIC
    [Ly "GATE"]
    [Ts 15][Tj "LC"][Tr 0][Tm "N"]
-   {R 130 240 330 0}
-   {L 130 220 100 220}
+   {R 130 220 270 0}
    {L 130 200 100 200}
    {L 130 180 100 180}
    {L 130 160 100 160}
@@ -92,32 +93,35 @@
    {L 130 60 100 60}
    {L 130 40 100 40}
    {L 130 20 100 20}
-   {L 330 20 360 20}
-   {C 335 40 5}
-   {L 340 40 360 40}
-   {L 330 60 360 60}
-   {L 330 80 360 80}
+   {L 270 20 300 20}
+   {L 270 40 300 40}
+   {C 275 60 5}
+   {L 280 60 300 60}
+   {L 270 80 300 80}
+   {L 270 100 300 100}
+   {L 270 120 300 120}
    [Ly "PINNAM"]
    [Tj "LC"]
-   {T "V0" 140 220}
-   {T "V1" 140 200}
-   {T "V2" 140 180}
-   {T "V3" 140 160}
-   {T "V4" 140 140}
-   {T "V5" 140 120}
-   {T "V6" 140 100}
-   {T "V7" 140 80}
-   {T "V8" 140 60}
-   {T "V9" 140 40}
-   {T "VBORDERB" 140 20}
+   {T "V0" 140 200}
+   {T "V1" 140 180}
+   {T "V2" 140 160}
+   {T "V3" 140 140}
+   {T "V4" 140 120}
+   {T "V5" 140 100}
+   {T "V6" 140 80}
+   {T "V7" 140 60}
+   {T "V8" 140 40}
+   {T "V9" 140 20}
    [Tj "RC"]
-   {T "VBLANK" 320 20}
-   {T "VSYNC'" 320 40}
-   {T "VBORDERT" 320 60}
-   {T "VCLR" 320 80}
+   {T "VBORDERB" 260 20}
+   {T "VBLANK" 260 40}
+   {T "VSYNC'" 260 60}
+   {T "VBORDERT" 260 80}
+   {T "VCLR" 260 100}
+   {T "ACLR" 260 120}
    [Ly "DEVICE"]
    [Tj "CT"]
-   {T "G22V10" 230 -10}
+   {T "G22V10" 200 -10}
   }
 
   {ATR
@@ -128,7 +132,7 @@
    {EX
     [Ly "ATTR2"]
     [Ts 12][Tj "CT"][Tr 0][Tm "N"]
-    {At PLD \\DISKSTATION\HOME\TEMP\TTLVGA\VERTICALDECODER\VERTICALDECODER 230 240}
+    {At PLD \\DISKSTATION\HOME\TEMP\TTLVGA\VERTICALDECODER\VERTICALDECODER 200 220}
    }
   }
  }
@@ -167,6 +171,8 @@
    {N VBORDERT
    }
    {N VCLR
+   }
+   {N ACLR
    }
   }
 

@@ -40,7 +40,9 @@ PIN 11  = V9;
 
 /** output pins **/
 
-PIN 23  = Vclr;
+PIN 23  = Aclr;
+//PIN 22  = ;
+PIN 21  = Vclr;
 PIN 20  = VborderT;
 PIN 19  = !Vsync;   /* VSync pulse is negative/active low */
 PIN 18  = Vblank;
@@ -69,7 +71,7 @@ BackPorch = !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9;
 EndOfFrame = V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9;
 
 /** end of frame resets the vertical counter **/
-Vclr = EndOfFrame;
+Aclr = Vclr;
 
 /** Set and Reset conditions for the Latches **/
 VsyncSet = Sync;
@@ -84,6 +86,12 @@ VborderResT = Window;
 VborderSetB = BottomBorder;
 VborderResB = FrontPorch;
 
+VclrSet = EndOfFrame;
+VclrRes = TopBorder;
+
+VclrNot = !(Vclr # VclrSet);
+Vclr = !(VclrNot # VclrRes);
+
 /** Vertical Sync Pulse (negative) **/
 VsyncNot = !(Vsync # VsyncSet);
 Vsync = !(VsyncNot # VsyncRes);
@@ -95,3 +103,7 @@ Vblank = !(VblankNot # VblankRes);
 /** Vertical Border Pulse **/
 VborderNotT = !(VborderT # VborderSetT);
 VborderT = !(VborderNotT # VborderResT);
+
+VborderNotB = !(VborderB # VborderSetB);
+VborderB = !(VborderNotB # VborderResB);
+

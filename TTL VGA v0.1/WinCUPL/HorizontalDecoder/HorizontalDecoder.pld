@@ -47,9 +47,7 @@ PIN 20	 = HborderL;
 PIN 19  = !Hsync;   /* HSync pulse is negative/active low */
 PIN 18  = Hblank;
 PIN 17  = HborderR;
-PIN 16 = Test;
-
-Test = H1;
+//PIN 16 = Test;
 
 /** counter starts at 0 with left of 640 display area **/
 LeftBorder = !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9;
@@ -74,8 +72,7 @@ EndOfLine = !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9;
 
 /** end of horizontal line means next line for vertical counter **/
 //Hclr = EndOfLine;
-//Lstrobe = EndOfLine;
-Lstrobe = 'b'0;
+Lstrobe = Hclr;
 
 HclrSet = EndOfLine;
 HclrRes = LeftBorder;

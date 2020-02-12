@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Mon Feb 10 21:16:09 2020
+Created         Tue Feb 11 20:21:06 2020
 Name            HorizontalDecoder
 Partno          Zalt-TtlVga-01
 Revision        01
@@ -32,17 +32,17 @@ FrontPorch =>
     !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9
 
 Hblank =>
-    !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9
-  # H8 & !Hblank
-  # !H7 & !Hblank
-  # H4 & !Hblank
-  # H3 & !Hblank
-  # H2 & !Hblank
+    H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hblank
+  # H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hblank
+  # H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hblank
+  # H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hblank
+  # H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hblank
+  # H5 & !H6 & H7 & !H8 & H9 & !Hblank
+  # H6 & H7 & !H8 & H9 & !Hblank
+  # !H7 & !H8 & H9 & !Hblank
+  # H8 & H9 & !Hblank
   # !H9 & !Hblank
-  # H6 & !Hblank
-  # H5 & !Hblank
-  # H1 & !Hblank
-  # H0 & !Hblank
+  # !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9
 
 HblankNot =>
     H0 & !Hblank
@@ -64,15 +64,15 @@ HblankSet =>
 
 HborderL =>
     !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9
+  # H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H7 & !H8 & !H9 & !HborderL
+  # H1 & !H2 & !H3 & !H4 & !H5 & !H7 & !H8 & !H9 & !HborderL
+  # H2 & !H3 & !H4 & !H5 & !H7 & !H8 & !H9 & !HborderL
+  # H3 & !H4 & !H5 & !H7 & !H8 & !H9 & !HborderL
+  # H4 & !H5 & !H7 & !H8 & !H9 & !HborderL
+  # H5 & !H7 & !H8 & !H9 & !HborderL
+  # H7 & !H8 & !H9 & !HborderL
+  # H8 & !H9 & !HborderL
   # H9 & !HborderL
-  # H8 & !HborderL
-  # H7 & !HborderL
-  # H4 & !HborderL
-  # H3 & !HborderL
-  # H2 & !HborderL
-  # H5 & !HborderL
-  # H1 & !HborderL
-  # H0 & !HborderL
 
 HborderNotL =>
     H0 & !HborderL
@@ -99,17 +99,17 @@ HborderNotR =>
   # !H9 & !HborderR
 
 HborderR =>
-    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9 & !HborderR
-  # !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9
-  # !H6 & !HborderR
-  # H8 & !HborderR
-  # H7 & !HborderR
-  # H4 & !HborderR
-  # H3 & !HborderR
-  # H2 & !HborderR
-  # H5 & !HborderR
-  # H1 & !HborderR
-  # H0 & !HborderR
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9 & HborderR
+  # H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & H9 & !HborderR
+  # H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & H9 & !HborderR
+  # H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & H9 & !HborderR
+  # H3 & !H4 & !H5 & H6 & !H7 & !H8 & H9 & !HborderR
+  # H4 & !H5 & H6 & !H7 & !H8 & H9 & !HborderR
+  # H5 & H6 & !H7 & !H8 & H9 & !HborderR
+  # !H6 & !H7 & !H8 & H9 & !HborderR
+  # H7 & !H8 & H9 & !HborderR
+  # H8 & H9 & !HborderR
+  # !H9 & !HborderR
 
 HborderResL =>
     !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9
@@ -124,16 +124,16 @@ HborderSetR =>
     !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & H9
 
 Hclr =>
-    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9
+    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9 & Hclr
   # !H5 & !Hclr
   # !H8 & !Hclr
   # H7 & !Hclr
   # H4 & !Hclr
   # H3 & !Hclr
   # H2 & !Hclr
+  # H1 & !Hclr
   # !H9 & !Hclr
   # H6 & !Hclr
-  # H1 & !Hclr
   # H0 & !Hclr
 
 HclrNot =>
@@ -155,17 +155,17 @@ HclrSet =>
     !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9
 
 Hsync =>
-    !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hsync
-  # !H0 & !H1 & !H2 & !H3 & H4 & H5 & H6 & H7 & !H8 & H9
-  # H8 & !Hsync
-  # !H7 & !Hsync
-  # H3 & !Hsync
-  # H2 & !Hsync
+    !H0 & !H1 & !H2 & !H3 & H4 & H5 & H6 & H7 & !H8 & H9 & Hsync
+  # H0 & !H1 & !H2 & !H3 & H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hsync
+  # H1 & !H2 & !H3 & H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hsync
+  # H2 & !H3 & H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hsync
+  # H3 & H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hsync
+  # !H4 & !H5 & !H6 & H7 & !H8 & H9 & !Hsync
+  # H5 & !H6 & H7 & !H8 & H9 & !Hsync
+  # H6 & H7 & !H8 & H9 & !Hsync
+  # !H7 & !H8 & H9 & !Hsync
+  # H8 & H9 & !Hsync
   # !H9 & !Hsync
-  # H6 & !Hsync
-  # H5 & !Hsync
-  # H1 & !Hsync
-  # H0 & !Hsync
 
 HsyncNot =>
     H0 & !Hsync
@@ -189,16 +189,13 @@ LeftBorder =>
     !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9
 
 Lstrobe =>
-    0 
+    Hclr
 
 RightBorder =>
     !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & H9
 
 Sync =>
     !H0 & !H1 & !H2 & !H3 & H4 & !H5 & !H6 & H7 & !H8 & H9
-
-Test =>
-    H1
 
 Window =>
     !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9
@@ -222,9 +219,6 @@ Hsync.oe  =>
     1 
 
 Lstrobe.oe  =>
-    1 
-
-Test.oe  =>
     1 
 
 
@@ -274,7 +268,6 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     Lstrobe                     23       V        1       8       4     
     RightBorder                 0        I        1       -       -     
     Sync                        0        I        1       -       -     
-    Test                        16       V        1       12      4     
     Window                      0        I        1       -       -     
     Astrobe             oe      22       D        1       1       0     
     Hblank              oe      18       D        1       1       0     
@@ -283,7 +276,6 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     Hclr                oe      21       D        1       1       0     
     Hsync               oe      19       D        1       1       0     
     Lstrobe             oe      23       D        1       1       0     
-    Test                oe      16       D        1       1       0     
 
 
 LEGEND    D : default variable         F : field      G : group

@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Mon Feb 10 21:16:09 2020 "}
+  {DBtime "Tue Feb 11 20:21:06 2020 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -43,14 +43,13 @@
    {P H7 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
    {P H8 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
    {P H9 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
-   {P TEST {Pt "I/O"}{Lq 0}{Ploc 300 20}}
-   {P HBORDERR {Pt "I/O"}{Lq 0}{Ploc 300 40}}
-   {P HBLANK {Pt "I/O"}{Lq 0}{Ploc 300 60}}
-   {P HSYNC' {Pt "I/O"}{Lq 0}{Ploc 300 80}}
-   {P HBORDERL {Pt "I/O"}{Lq 0}{Ploc 300 100}}
-   {P HCLR {Pt "I/O"}{Lq 0}{Ploc 300 120}}
-   {P ASTROBE {Pt "I/O"}{Lq 0}{Ploc 300 140}}
-   {P LSTROBE {Pt "I/O"}{Lq 0}{Ploc 300 160}}
+   {P HBORDERR {Pt "I/O"}{Lq 0}{Ploc 300 20}}
+   {P HBLANK {Pt "I/O"}{Lq 0}{Ploc 300 40}}
+   {P HSYNC' {Pt "I/O"}{Lq 0}{Ploc 300 60}}
+   {P HBORDERL {Pt "I/O"}{Lq 0}{Ploc 300 80}}
+   {P HCLR {Pt "I/O"}{Lq 0}{Ploc 300 100}}
+   {P ASTROBE {Pt "I/O"}{Lq 0}{Ploc 300 120}}
+   {P LSTROBE {Pt "I/O"}{Lq 0}{Ploc 300 140}}
   }
 
   {PKG
@@ -78,9 +77,8 @@
    {Pnl 280 110}
    {Pnl 280 130}
    {Pnl 280 150}
-   {Pnl 280 170}
 
-   {Sd A 2 3 4 5 6 7 8 9 10 11 16 17 18 19 20 21 22 23}
+   {Sd A 2 3 4 5 6 7 8 9 10 11 17 18 19 20 21 22 23}
   }
 
   {PIC
@@ -99,13 +97,12 @@
    {L 130 20 100 20}
    {L 270 20 300 20}
    {L 270 40 300 40}
-   {L 270 60 300 60}
-   {C 275 80 5}
-   {L 280 80 300 80}
+   {C 275 60 5}
+   {L 280 60 300 60}
+   {L 270 80 300 80}
    {L 270 100 300 100}
    {L 270 120 300 120}
    {L 270 140 300 140}
-   {L 270 160 300 160}
    [Ly "PINNAM"]
    [Tj "LC"]
    {T "H0" 140 200}
@@ -119,14 +116,13 @@
    {T "H8" 140 40}
    {T "H9" 140 20}
    [Tj "RC"]
-   {T "TEST" 260 20}
-   {T "HBORDERR" 260 40}
-   {T "HBLANK" 260 60}
-   {T "HSYNC'" 260 80}
-   {T "HBORDERL" 260 100}
-   {T "HCLR" 260 120}
-   {T "ASTROBE" 260 140}
-   {T "LSTROBE" 260 160}
+   {T "HBORDERR" 260 20}
+   {T "HBLANK" 260 40}
+   {T "HSYNC'" 260 60}
+   {T "HBORDERL" 260 80}
+   {T "HCLR" 260 100}
+   {T "ASTROBE" 260 120}
+   {T "LSTROBE" 260 140}
    [Ly "DEVICE"]
    [Tj "CT"]
    {T "G22V10" 200 -10}
@@ -169,8 +165,6 @@
    {N H8
    }
    {N H9
-   }
-   {N TEST
    }
    {N HBORDERR
    }

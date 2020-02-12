@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Mon Feb 10 18:07:02 2020
+Created         Tue Feb 11 20:24:26 2020
 Name            VerticalDecoder
 Partno          Zalt-TtlVga-01
 Revision        01
@@ -18,6 +18,9 @@ Location        U304 - Z80 Computer / Ttl Vga
 ===============================================================================
                             Expanded Product Terms
 ===============================================================================
+
+Aclr =>
+    Vclr
 
 BackPorch =>
     !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
@@ -39,16 +42,16 @@ TopBorder =>
 
 Vblank =>
     V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
-  # V1 & !Vblank
-  # !V5 & !Vblank
-  # V4 & !Vblank
+  # V0 & !V9 & !Vblank
+  # V1 & !V9 & !Vblank
+  # V2 & !V9 & !Vblank
+  # V3 & !V9 & !Vblank
+  # V4 & !V9 & !Vblank
+  # !V5 & !V9 & !Vblank
+  # !V6 & !V9 & !Vblank
+  # !V7 & V8 & !V9 & !Vblank
+  # !V8 & !V9 & !Vblank
   # V9 & !Vblank
-  # !V8 & !Vblank
-  # !V7 & !Vblank
-  # !V6 & !Vblank
-  # V3 & !Vblank
-  # V0 & !Vblank
-  # V2 & !Vblank
 
 VblankNot =>
     V0 & !Vblank
@@ -67,6 +70,31 @@ VblankRes =>
 
 VblankSet =>
     !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+VborderB =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+  # V0 & !VborderB
+  # V1 & !VborderB
+  # V2 & !VborderB
+  # V3 & !VborderB
+  # !V4 & !VborderB
+  # !V5 & !VborderB
+  # V6 & !VborderB
+  # !V7 & V8 & !VborderB
+  # !V8 & !VborderB
+  # V9 & !VborderB
+
+VborderNotB =>
+    V0 & !VborderB
+  # V1 & !VborderB
+  # V2 & !VborderB
+  # V3 & !VborderB
+  # !V4 & !VborderB
+  # !V5 & !VborderB
+  # V6 & !VborderB
+  # !V7 & !VborderB
+  # !V8 & !VborderB
+  # V9 & !VborderB
 
 VborderNotT =>
     V0 & !VborderT
@@ -94,32 +122,60 @@ VborderSetT =>
 
 VborderT =>
     !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
-  # V8 & !VborderT
-  # V7 & !VborderT
-  # V6 & !VborderT
-  # V1 & !VborderT
-  # V5 & !VborderT
-  # V4 & !VborderT
-  # V9 & !VborderT
-  # V3 & !VborderT
   # V0 & !VborderT
+  # V1 & !VborderT
   # V2 & !VborderT
+  # V3 & !VborderT
+  # V4 & !VborderT
+  # V5 & !VborderT
+  # V6 & !VborderT
+  # V7 & !VborderT
+  # V9 & !VborderT
+  # V8 & !VborderT
 
 Vclr =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+  # !V0 & !Vclr
+  # V4 & !Vclr
+  # !V2 & !Vclr
+  # V1 & !Vclr
+  # !V3 & !Vclr
+  # V6 & !Vclr
+  # V5 & !Vclr
+  # V7 & !Vclr
+  # V8 & !Vclr
+  # !V9 & !Vclr
+
+VclrNot =>
+    !V0 & !Vclr
+  # V1 & !Vclr
+  # !V2 & !Vclr
+  # !V3 & !Vclr
+  # V4 & !Vclr
+  # V5 & !Vclr
+  # V6 & !Vclr
+  # V7 & !Vclr
+  # V8 & !Vclr
+  # !V9 & !Vclr
+
+VclrRes =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+
+VclrSet =>
     V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
 
 Vsync =>
     !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
-  # !V3 & !Vsync
-  # !V5 & !Vsync
-  # V4 & !Vsync
-  # V9 & !Vsync
-  # !V8 & !Vsync
-  # !V7 & !Vsync
-  # !V6 & !Vsync
-  # !V1 & !Vsync
   # V0 & !Vsync
   # V2 & !Vsync
+  # !V3 & !Vsync
+  # V4 & !Vsync
+  # !V5 & !Vsync
+  # !V6 & !Vsync
+  # !V7 & !Vsync
+  # !V8 & !Vsync
+  # V9 & !Vsync
+  # !V1 & !Vsync
 
 VsyncNot =>
     V0 & !Vsync
@@ -142,7 +198,13 @@ VsyncSet =>
 Window =>
     !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
 
+Aclr.oe  =>
+    1 
+
 Vblank.oe  =>
+    1 
+
+VborderB.oe  =>
     1 
 
 VborderT.oe  =>
@@ -163,6 +225,7 @@ Pin Variable                                    Pterms   Max     Min
 Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
 --- --------            ---     ---     ----    ------  ------  -----   
 
+    Aclr                        23       V        1       8       4     
     BackPorch                   0        I        1       -       -     
     BottomBorder                0        I        1       -       -     
     EndOfFrame                  0        I        1       -       -     
@@ -183,22 +246,28 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     VblankNot                   0        I        10      -       -     
     VblankRes                   0        I        1       -       -     
     VblankSet                   0        I        1       -       -     
-    VborderB                    17       V        -       -       -     
+    VborderB                    17       V        11      14      4     
+    VborderNotB                 0        I        10      -       -     
     VborderNotT                 0        I        10      -       -     
     VborderResB                 0        I        1       -       -     
     VborderResT                 0        I        1       -       -     
     VborderSetB                 0        I        1       -       -     
     VborderSetT                 0        I        1       -       -     
     VborderT                    20       V        11      14      4     
-    Vclr                        23       V        1       8       4     
+    Vclr                        21       V        11      12      4     
+    VclrNot                     0        I        10      -       -     
+    VclrRes                     0        I        1       -       -     
+    VclrSet                     0        I        1       -       -     
  !  Vsync                       19       V        11      16      4     
     VsyncNot                    0        I        10      -       -     
     VsyncRes                    0        I        1       -       -     
     VsyncSet                    0        I        1       -       -     
     Window                      0        I        1       -       -     
+    Aclr                oe      23       D        1       1       0     
     Vblank              oe      18       D        1       1       0     
+    VborderB            oe      17       D        1       1       0     
     VborderT            oe      20       D        1       1       0     
-    Vclr                oe      23       D        1       1       0     
+    Vclr                oe      21       D        1       1       0     
     Vsync               oe      19       D        1       1       0     
 
 
