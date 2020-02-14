@@ -16,7 +16,7 @@ Device   G22V10;
  *  The display area is identified and due to our design the top- and bottom 
  *  border as well as the front-porch, sync pulse and back-porch.
  *
- *  Signals that are active for more than one (pixel) clock pulse are setup
+ *  Signals that are active for more than one (line) clock pulse are setup
  *  using an S-R latch (bottom of this file).
  *
  *  Timings are based of the VGA 640x480 @60Hz VGA standard.
@@ -41,7 +41,7 @@ PIN 11  = V9;
 /** output pins **/
 
 PIN 23  = Aclr;
-//PIN 22  = ;
+/*PIN 22  = ;*/
 PIN 21  = Vclr;
 PIN 20  = VborderT;
 PIN 19  = !Vsync;   /* VSync pulse is negative/active low */
@@ -67,7 +67,7 @@ Sync = !V0 & V1 & !V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9;
 /** The final stretch of the blanking -back-porch- starts at 480+10+2 **/
 BackPorch = !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9;
 
-/** counted till the end of the line (800) **/
+/** counted till the end of the frame (525) **/
 EndOfFrame = V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9;
 
 /** end of frame resets the vertical counter **/
@@ -89,10 +89,11 @@ VborderResB = FrontPorch;
 VclrSet = EndOfFrame;
 VclrRes = TopBorder;
 
+/** Counter Reset Pulse **/
 VclrNot = !(Vclr # VclrSet);
 Vclr = !(VclrNot # VclrRes);
 
-/** Vertical Sync Pulse (negative) **/
+/** Vertical Sync Pulse **/
 VsyncNot = !(Vsync # VsyncSet);
 Vsync = !(VsyncNot # VsyncRes);
 

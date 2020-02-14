@@ -1,0 +1,79 @@
+Name     Binary Counter with Asynchronous Clear and Output Enable;
+PartNo   Zalt-TtlVga-01;
+Date     20-02-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt Ttl Vga Board;
+Location Z80 Computer / Ttl Vga;
+Device   G16V8;
+/*Format   j;*/
+
+/* 
+ *
+ */
+
+/** input pins **/
+
+PIN 1   = CLK;
+PIN 2	= CLR;
+PIN 11  = !OE;
+
+/*
+PIN 3   = ;
+PIN 4   = ;
+PIN 5   = ;
+PIN 6   = ;
+PIN 7   = ;
+PIN 8   = ;
+PIN 9   = ;
+*/
+
+/** output pins **/
+
+PIN [12..19] = [Q7..0]; 
+
+
+Append Q0.d = !CLR & !Q0;
+
+Append Q1.d = !CLR & !Q0 & Q1;
+Append Q1.d = !CLR & Q0 & !Q1;
+
+Append Q2.d = !CLR & !Q0 & Q2;
+Append Q2.d = !CLR & !Q1 & Q2;
+Append Q2.d = !CLR & Q0 & Q1 & !Q2;
+
+Append Q3.d = !CLR & !Q0 & Q3;
+Append Q3.d = !CLR & !Q1 & Q3;
+Append Q3.d = !CLR & !Q2 & Q3;
+Append Q3.d = !CLR & Q0 & Q1 & Q2 & !Q3;
+
+Append Q4.d = !CLR & !Q0 & Q4;
+Append Q4.d = !CLR & !Q1 & Q4;
+Append Q4.d = !CLR & !Q2 & Q4;
+Append Q4.d = !CLR & !Q3 & Q4;
+Append Q4.d = !CLR & Q0 & Q1 & Q2 & Q3 & !Q4;
+
+Append Q5.d = !CLR & !Q0 & Q5;
+Append Q5.d = !CLR & !Q1 & Q5;
+Append Q5.d = !CLR & !Q2 & Q5;
+Append Q5.d = !CLR & !Q3 & Q5;
+Append Q5.d = !CLR & !Q4 & Q5;
+Append Q5.d = !CLR & Q0 & Q1 & Q2 & Q3 & Q4 & !Q5;
+
+Append Q6.d = !CLR & !Q0 & Q6;
+Append Q6.d = !CLR & !Q1 & Q6;
+Append Q6.d = !CLR & !Q2 & Q6;
+Append Q6.d = !CLR & !Q3 & Q6;
+Append Q6.d = !CLR & !Q4 & Q6;
+Append Q6.d = !CLR & !Q5 & Q6;
+Append Q6.d = !CLR & Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & !Q6;
+
+Append Q7.d = !CLR & !Q0 & Q7;
+Append Q7.d = !CLR & !Q1 & Q7;
+Append Q7.d = !CLR & !Q2 & Q7;
+Append Q7.d = !CLR & !Q3 & Q7;
+Append Q7.d = !CLR & !Q4 & Q7;
+Append Q7.d = !CLR & !Q5 & Q7;
+Append Q7.d = !CLR & !Q6 & Q7;
+Append Q7.d = !CLR & Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & Q6 & !Q7;

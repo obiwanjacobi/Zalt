@@ -1,0 +1,108 @@
+
+*******************************************************************************
+                                    Binary
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g16v8ms  Library DLIB-h-40-11
+Created         Fri Feb 14 14:25:22 2020
+Name            Binary Counter with Asynchronous Clear and Output Enable
+Partno          Zalt-TtlVga-01
+Revision        01
+Date            20-02-2020
+Designer        Marc Jacobi
+Company         Canned Bytes
+Assembly        Zalt Ttl Vga Board
+Location        Z80 Computer / Ttl Vga
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+Q0.d  =>
+    !CLR & !Q0
+
+Q1.d  =>
+    !CLR & Q0 & !Q1
+  # !CLR & !Q0 & Q1
+
+Q2.d  =>
+    !CLR & Q0 & Q1 & !Q2
+  # !CLR & !Q0 & Q2
+  # !CLR & !Q1 & Q2
+
+Q3.d  =>
+    !CLR & Q0 & Q1 & Q2 & !Q3
+  # !CLR & !Q0 & Q3
+  # !CLR & !Q1 & Q3
+  # !CLR & !Q2 & Q3
+
+Q4.d  =>
+    !CLR & Q0 & Q1 & Q2 & Q3 & !Q4
+  # !CLR & !Q0 & Q4
+  # !CLR & !Q1 & Q4
+  # !CLR & !Q3 & Q4
+  # !CLR & !Q2 & Q4
+
+Q5.d  =>
+    !CLR & Q0 & Q1 & Q2 & Q3 & Q4 & !Q5
+  # !CLR & !Q0 & Q5
+  # !CLR & !Q1 & Q5
+  # !CLR & !Q3 & Q5
+  # !CLR & !Q4 & Q5
+  # !CLR & !Q2 & Q5
+
+Q6.d  =>
+    !CLR & Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & !Q6
+  # !CLR & !Q0 & Q6
+  # !CLR & !Q1 & Q6
+  # !CLR & !Q3 & Q6
+  # !CLR & !Q4 & Q6
+  # !CLR & !Q5 & Q6
+  # !CLR & !Q2 & Q6
+
+Q7.d  =>
+    !CLR & Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & Q6 & !Q7
+  # !CLR & !Q0 & Q7
+  # !CLR & !Q1 & Q7
+  # !CLR & !Q3 & Q7
+  # !CLR & !Q4 & Q7
+  # !CLR & !Q5 & Q7
+  # !CLR & !Q6 & Q7
+  # !CLR & !Q2 & Q7
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    CLK                         1        V        -       -       -     
+    CLR                         2        V        -       -       -     
+ !  OE                          11       V        -       -       -     
+    Q0                          19       V        -       -       -     
+    Q0                  d       19       X        1       8       4     
+    Q1                          18       V        -       -       -     
+    Q1                  d       18       X        2       8       4     
+    Q2                          17       V        -       -       -     
+    Q2                  d       17       X        3       8       4     
+    Q3                          16       V        -       -       -     
+    Q3                  d       16       X        4       8       4     
+    Q4                          15       V        -       -       -     
+    Q4                  d       15       X        5       8       4     
+    Q5                          14       V        -       -       -     
+    Q5                  d       14       X        6       8       4     
+    Q6                          13       V        -       -       -     
+    Q6                  d       13       X        7       8       4     
+    Q7                          12       V        -       -       -     
+    Q7                  d       12       X        8       8       4     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

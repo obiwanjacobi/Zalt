@@ -1,0 +1,154 @@
+{COMPONENT \\DISKSTATION\HOME\TEMP\TTLVGA\BINARYCOUNTER\BINARYCOUNTER.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Fri Feb 14 14:25:22 2020 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P OE' {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P CLK {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P CLR {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P Q7 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P Q6 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P Q5 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P Q4 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P Q3 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P Q2 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P Q1 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P Q0 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 190 270}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 250}
+   {Pnl 120 230}
+   [Ts 15][Tj "RC"]
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+
+   {Sd A 11 1 2 12 13 14 15 16 17 18 19}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 260 250 0}
+   {L 120 240 100 240}
+   {C 125 240 5}
+   {L 130 220 100 220}
+   {L 130 230 140 220 130 210}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "OE'" 140 240}
+   {T "CLK" 140 220}
+   {T "CLR" 140 180}
+   {T "Q7" 140 160}
+   {T "Q6" 140 140}
+   {T "Q5" 140 120}
+   {T "Q4" 140 100}
+   {T "Q3" 140 80}
+   {T "Q2" 140 60}
+   {T "Q1" 140 40}
+   {T "Q0" 140 20}
+   [Tj "RC"]
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "G16V8MS" 190 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD \\DISKSTATION\HOME\TEMP\TTLVGA\BINARYCOUNTER\BINARYCOUNTER 190 260}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N OE'
+   }
+   {N CLK
+   }
+   {N CLR
+   }
+   {N Q7
+   }
+   {N Q6
+   }
+   {N Q5
+   }
+   {N Q4
+   }
+   {N Q3
+   }
+   {N Q2
+   }
+   {N Q1
+   }
+   {N Q0
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

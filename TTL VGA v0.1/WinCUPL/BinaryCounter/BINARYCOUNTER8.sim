@@ -1,0 +1,71 @@
+%SIGNAL
+PIN   1 =  CLK 
+PIN   2 =  CLR 
+PIN  11 = !OE 
+PIN  19 =  Q0 
+PIN  18 =  Q1 
+PIN  17 =  Q2 
+PIN  16 =  Q3 
+PIN  15 =  Q4 
+PIN  14 =  Q5 
+PIN  13 =  Q6 
+PIN  12 =  Q7 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+Q0.d  =>
+    !CLR & !Q0
+
+Q1.d  =>
+    !CLR & Q0 & !Q1
+  # !CLR & !Q0 & Q1
+
+Q2.d  =>
+    !CLR & Q0 & Q1 & !Q2
+  # !CLR & !Q0 & Q2
+  # !CLR & !Q1 & Q2
+
+Q3.d  =>
+    !CLR & Q0 & Q1 & Q2 & !Q3
+  # !CLR & !Q0 & Q3
+  # !CLR & !Q1 & Q3
+  # !CLR & !Q2 & Q3
+
+Q4.d  =>
+    !CLR & Q0 & Q1 & Q2 & Q3 & !Q4
+  # !CLR & !Q0 & Q4
+  # !CLR & !Q1 & Q4
+  # !CLR & !Q3 & Q4
+  # !CLR & !Q2 & Q4
+
+Q5.d  =>
+    !CLR & Q0 & Q1 & Q2 & Q3 & Q4 & !Q5
+  # !CLR & !Q0 & Q5
+  # !CLR & !Q1 & Q5
+  # !CLR & !Q3 & Q5
+  # !CLR & !Q4 & Q5
+  # !CLR & !Q2 & Q5
+
+Q6.d  =>
+    !CLR & Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & !Q6
+  # !CLR & !Q0 & Q6
+  # !CLR & !Q1 & Q6
+  # !CLR & !Q3 & Q6
+  # !CLR & !Q4 & Q6
+  # !CLR & !Q5 & Q6
+  # !CLR & !Q2 & Q6
+
+Q7.d  =>
+    !CLR & Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & Q6 & !Q7
+  # !CLR & !Q0 & Q7
+  # !CLR & !Q1 & Q7
+  # !CLR & !Q3 & Q7
+  # !CLR & !Q4 & Q7
+  # !CLR & !Q5 & Q7
+  # !CLR & !Q6 & Q7
+  # !CLR & !Q2 & Q7
+
+%END

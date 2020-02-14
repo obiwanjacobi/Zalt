@@ -74,12 +74,6 @@ EndOfLine = !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9;
 //Hclr = EndOfLine;
 Lstrobe = Hclr;
 
-HclrSet = EndOfLine;
-HclrRes = LeftBorder;
-HclrNot = !(Hclr # HclrSet);
-Hclr = !(HclrNot # HclrRes);
-
-
 /** video memory address counter strobe on H0 frequency when not in border or blank **/
 Astrobe = H0 & HblankNot & HborderNotL & HborderNotR;
 
@@ -96,7 +90,14 @@ HborderResL = Window;
 HborderSetR = RightBorder;
 HborderResR = FrontPorch;
 
-/** Horizontal Sync Pulse (negative) **/
+HclrSet = EndOfLine;
+HclrRes = LeftBorder;
+
+/** Horizontal Counter Reset **/
+HclrNot = !(Hclr # HclrSet);
+Hclr = !(HclrNot # HclrRes);
+
+/** Horizontal Sync Pulse **/
 HsyncNot = !(Hsync # HsyncSet);
 Hsync = !(HsyncNot # HsyncRes);
 
