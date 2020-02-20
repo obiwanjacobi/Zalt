@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Tue Feb 11 20:21:06 2020
+Created         Wed Feb 19 15:17:54 2020
 Name            HorizontalDecoder
 Partno          Zalt-TtlVga-01
 Revision        01
@@ -20,7 +20,22 @@ Location        U304 - Z80 Computer / Ttl Vga
 ===============================================================================
 
 Astrobe =>
-    H0 & !Hblank & !HborderL & !HborderR
+    CLK & H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H8 & !Hblank & !HborderL & 
+      !HborderR
+  # CLK & H1 & !H2 & !H3 & !H4 & !H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H2 & !H3 & !H4 & !H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H3 & !H4 & !H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H4 & !H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H8 & !Hblank & !HborderL & !HborderR
+  # CLK & !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & H7 & !H8 & H9 & !Hblank & 
+      !HborderL & !HborderR
+  # CLK & !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9 & !Hblank & 
+      !HborderL & !HborderR
+  # CLK & !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H7 & !H8 & !H9 & !Hblank & 
+      !HborderL & !HborderR
+  # CLK & !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & H9 & !Hblank & 
+      !HborderL & !HborderR
 
 BackPorch =>
     !H0 & !H1 & !H2 & !H3 & H4 & H5 & H6 & H7 & !H8 & H9
@@ -127,14 +142,14 @@ Hclr =>
     !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9 & Hclr
   # !H5 & !Hclr
   # !H8 & !Hclr
-  # H7 & !Hclr
   # H4 & !Hclr
   # H3 & !Hclr
   # H2 & !Hclr
   # H1 & !Hclr
+  # H0 & !Hclr
+  # H7 & !Hclr
   # !H9 & !Hclr
   # H6 & !Hclr
-  # H0 & !Hclr
 
 HclrNot =>
     H0 & !Hclr
@@ -230,8 +245,9 @@ Pin Variable                                    Pterms   Max     Min
 Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
 --- --------            ---     ---     ----    ------  ------  -----   
 
-    Astrobe                     22       V        1       10      4     
+    Astrobe                     20       V        11      14      4     
     BackPorch                   0        I        1       -       -     
+    CLK                         1        V        -       -       -     
     EndOfLine                   0        I        1       -       -     
     FrontPorch                  0        I        1       -       -     
     H0                          2        V        -       -       -     
@@ -248,7 +264,7 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     HblankNot                   0        I        10      -       -     
     HblankRes                   0        I        1       -       -     
     HblankSet                   0        I        1       -       -     
-    HborderL                    20       V        10      14      4     
+    HborderL                    22       V        10      10      4     
     HborderNotL                 0        I        10      -       -     
     HborderNotR                 0        I        10      -       -     
     HborderR                    17       V        11      14      4     
@@ -269,9 +285,9 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     RightBorder                 0        I        1       -       -     
     Sync                        0        I        1       -       -     
     Window                      0        I        1       -       -     
-    Astrobe             oe      22       D        1       1       0     
+    Astrobe             oe      20       D        1       1       0     
     Hblank              oe      18       D        1       1       0     
-    HborderL            oe      20       D        1       1       0     
+    HborderL            oe      22       D        1       1       0     
     HborderR            oe      17       D        1       1       0     
     Hclr                oe      21       D        1       1       0     
     Hsync               oe      19       D        1       1       0     

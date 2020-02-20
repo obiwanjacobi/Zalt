@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Tue Feb 11 20:24:26 2020
+Created         Wed Feb 19 14:08:38 2020
 Name            VerticalDecoder
 Partno          Zalt-TtlVga-01
 Revision        01
@@ -21,6 +21,9 @@ Location        U304 - Z80 Computer / Ttl Vga
 
 Aclr =>
     Vclr
+
+Aenable =>
+    !Vblank & !VborderB & !VborderT
 
 BackPorch =>
     !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
@@ -48,7 +51,7 @@ Vblank =>
   # V3 & !V9 & !Vblank
   # V4 & !V9 & !Vblank
   # !V5 & !V9 & !Vblank
-  # !V6 & !V9 & !Vblank
+  # !V6 & V7 & !V9 & !Vblank
   # !V7 & V8 & !V9 & !Vblank
   # !V8 & !V9 & !Vblank
   # V9 & !Vblank
@@ -73,12 +76,12 @@ VblankSet =>
 
 VborderB =>
     !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
-  # V0 & !VborderB
-  # V1 & !VborderB
-  # V2 & !VborderB
-  # V3 & !VborderB
-  # !V4 & !VborderB
-  # !V5 & !VborderB
+  # V0 & !V6 & V7 & !VborderB
+  # V1 & !V6 & V7 & !VborderB
+  # V2 & !V6 & V7 & !VborderB
+  # V3 & !V6 & V7 & !VborderB
+  # !V4 & !V6 & V7 & !VborderB
+  # !V5 & !V6 & V7 & !VborderB
   # V6 & !VborderB
   # !V7 & V8 & !VborderB
   # !V8 & !VborderB
@@ -135,10 +138,10 @@ VborderT =>
 
 Vclr =>
     !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+  # V1 & !Vclr
   # !V0 & !Vclr
   # V4 & !Vclr
   # !V2 & !Vclr
-  # V1 & !Vclr
   # !V3 & !Vclr
   # V6 & !Vclr
   # V5 & !Vclr
@@ -166,6 +169,7 @@ VclrSet =>
 
 Vsync =>
     !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+  # !V1 & !Vsync
   # V0 & !Vsync
   # V2 & !Vsync
   # !V3 & !Vsync
@@ -175,7 +179,6 @@ Vsync =>
   # !V7 & !Vsync
   # !V8 & !Vsync
   # V9 & !Vsync
-  # !V1 & !Vsync
 
 VsyncNot =>
     V0 & !Vsync
@@ -199,6 +202,9 @@ Window =>
     !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
 
 Aclr.oe  =>
+    1 
+
+Aenable.oe  =>
     1 
 
 Vblank.oe  =>
@@ -226,6 +232,7 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
 --- --------            ---     ---     ----    ------  ------  -----   
 
     Aclr                        23       V        1       8       4     
+    Aenable                     22       V        1       10      4     
     BackPorch                   0        I        1       -       -     
     BottomBorder                0        I        1       -       -     
     EndOfFrame                  0        I        1       -       -     
@@ -264,6 +271,7 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     VsyncSet                    0        I        1       -       -     
     Window                      0        I        1       -       -     
     Aclr                oe      23       D        1       1       0     
+    Aenable             oe      22       D        1       1       0     
     Vblank              oe      18       D        1       1       0     
     VborderB            oe      17       D        1       1       0     
     VborderT            oe      20       D        1       1       0     

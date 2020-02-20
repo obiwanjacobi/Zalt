@@ -1,5 +1,6 @@
 %SIGNAL
-PIN  22 =  Astrobe 
+PIN  20 =  Astrobe 
+PIN   1 =  CLK 
 PIN   2 =  H0 
 PIN   3 =  H1 
 PIN   4 =  H2 
@@ -11,7 +12,7 @@ PIN   9 =  H7
 PIN  10 =  H8 
 PIN  11 =  H9 
 PIN  18 =  Hblank 
-PIN  20 =  HborderL 
+PIN  22 =  HborderL 
 PIN  17 =  HborderR 
 PIN  21 =  Hclr 
 PIN  19 = !Hsync 
@@ -23,7 +24,17 @@ PIN  23 =  Lstrobe
 
 %EQUATION
 Astrobe =>
-    H0 & !Hblank & !HborderL & !HborderR
+    CLK & H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H1 & !H2 & !H3 & !H4 & !H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H2 & !H3 & !H4 & !H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H3 & !H4 & !H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H4 & !H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H5 & !H8 & !Hblank & !HborderL & !HborderR
+  # CLK & H8 & !Hblank & !HborderL & !HborderR
+  # CLK & !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & H7 & !H8 & H9 & !Hblank & !HborderL & !HborderR
+  # CLK & !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9 & !Hblank & !HborderL & !HborderR
+  # CLK & !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H7 & !H8 & !H9 & !Hblank & !HborderL & !HborderR
+  # CLK & !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & H9 & !Hblank & !HborderL & !HborderR
 
 BackPorch =>
     !H0 & !H1 & !H2 & !H3 & H4 & H5 & H6 & H7 & !H8 & H9
@@ -130,14 +141,14 @@ Hclr =>
     !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9 & Hclr
   # !H5 & !Hclr
   # !H8 & !Hclr
-  # H7 & !Hclr
   # H4 & !Hclr
   # H3 & !Hclr
   # H2 & !Hclr
   # H1 & !Hclr
+  # H0 & !Hclr
+  # H7 & !Hclr
   # !H9 & !Hclr
   # H6 & !Hclr
-  # H0 & !Hclr
 
 HclrNot =>
     H0 & !Hclr

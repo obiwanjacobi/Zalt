@@ -1,5 +1,6 @@
 %SIGNAL
 PIN  23 =  Aclr 
+PIN  22 =  Aenable 
 PIN   2 =  V0 
 PIN   3 =  V1 
 PIN   4 =  V2 
@@ -23,6 +24,9 @@ PIN  19 = !Vsync
 %EQUATION
 Aclr =>
     Vclr
+
+Aenable =>
+    !Vblank & !VborderB & !VborderT
 
 BackPorch =>
     !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
@@ -50,7 +54,7 @@ Vblank =>
   # V3 & !V9 & !Vblank
   # V4 & !V9 & !Vblank
   # !V5 & !V9 & !Vblank
-  # !V6 & !V9 & !Vblank
+  # !V6 & V7 & !V9 & !Vblank
   # !V7 & V8 & !V9 & !Vblank
   # !V8 & !V9 & !Vblank
   # V9 & !Vblank
@@ -75,12 +79,12 @@ VblankSet =>
 
 VborderB =>
     !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
-  # V0 & !VborderB
-  # V1 & !VborderB
-  # V2 & !VborderB
-  # V3 & !VborderB
-  # !V4 & !VborderB
-  # !V5 & !VborderB
+  # V0 & !V6 & V7 & !VborderB
+  # V1 & !V6 & V7 & !VborderB
+  # V2 & !V6 & V7 & !VborderB
+  # V3 & !V6 & V7 & !VborderB
+  # !V4 & !V6 & V7 & !VborderB
+  # !V5 & !V6 & V7 & !VborderB
   # V6 & !VborderB
   # !V7 & V8 & !VborderB
   # !V8 & !VborderB
@@ -137,10 +141,10 @@ VborderT =>
 
 Vclr =>
     !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+  # V1 & !Vclr
   # !V0 & !Vclr
   # V4 & !Vclr
   # !V2 & !Vclr
-  # V1 & !Vclr
   # !V3 & !Vclr
   # V6 & !Vclr
   # V5 & !Vclr
@@ -168,6 +172,7 @@ VclrSet =>
 
 Vsync =>
     !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+  # !V1 & Vsync
   # V0 & Vsync
   # V2 & Vsync
   # !V3 & Vsync
@@ -177,7 +182,6 @@ Vsync =>
   # !V7 & Vsync
   # !V8 & Vsync
   # V9 & Vsync
-  # !V1 & Vsync
 
 VsyncNot =>
     V0 & !Vsync
@@ -201,6 +205,9 @@ Window =>
     !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
 
 Aclr.oe  =>
+    1 
+
+Aenable.oe  =>
     1 
 
 Vblank.oe  =>

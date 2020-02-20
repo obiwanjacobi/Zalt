@@ -1,15 +1,17 @@
 %SIGNAL
 PIN   1 =  CLK 
 PIN   2 =  CLR 
-PIN  11 = !OE 
-PIN  23 =  Q0 
-PIN  22 =  Q1 
-PIN  21 =  Q2 
-PIN  20 =  Q3 
-PIN  19 =  Q4 
-PIN  18 =  Q5 
-PIN  17 =  Q6 
-PIN  16 =  Q7 
+PIN  13 = !OE 
+PIN  15 =  Q0 
+PIN  14 =  Q1 
+PIN  23 =  Q2 
+PIN  22 =  Q3 
+PIN  21 =  Q4 
+PIN  19 =  Q5 
+PIN  18 =  Q6 
+PIN  17 =  Q7 
+PIN  16 =  Q8 
+PIN  20 =  Q9 
 %END
 
 %FIELD
@@ -19,13 +21,13 @@ PIN  16 =  Q7
 Q0.d  =>
     Q0
 
-Q0.ar Q1.ar Q2.ar Q3.ar Q4.ar Q5.ar Q6.ar Q7.ar  =>
+Q0.ar Q1.ar Q2.ar Q3.ar Q4.ar Q5.ar Q6.ar Q7.ar Q8.ar Q9.ar  =>
     CLR
 
 Q0.oe  =>
     !OE
 
-Q0.sp Q1.sp Q2.sp Q3.sp Q4.sp Q5.sp Q6.sp Q7.sp  =>
+Q0.sp Q1.sp Q2.sp Q3.sp Q4.sp Q5.sp Q6.sp Q7.sp Q8.sp Q9.sp  =>
     0 
 
 Q1.d  =>
@@ -125,5 +127,42 @@ Q7.oe  =>
     !OE
 
 Q7.sp  =>
+    
+Q8.d  =>
+    !Q0 & !Q1 & !Q2 & !Q3 & !Q4 & !Q5 & !Q6 & !Q7 & Q8
+  # Q0 & !Q8
+  # Q1 & !Q8
+  # Q3 & !Q8
+  # Q4 & !Q8
+  # Q5 & !Q8
+  # Q6 & !Q8
+  # Q7 & !Q8
+  # Q2 & !Q8
+
+Q8.ar  =>
+    
+Q8.oe  =>
+    !OE
+
+Q8.sp  =>
+    
+Q9.d  =>
+    !Q0 & !Q1 & !Q2 & !Q3 & !Q4 & !Q5 & !Q6 & !Q7 & !Q8 & Q9
+  # Q0 & !Q9
+  # Q1 & !Q9
+  # Q3 & !Q9
+  # Q4 & !Q9
+  # Q5 & !Q9
+  # Q6 & !Q9
+  # Q7 & !Q9
+  # Q8 & !Q9
+  # Q2 & !Q9
+
+Q9.ar  =>
+    
+Q9.oe  =>
+    !OE
+
+Q9.sp  =>
     
 %END

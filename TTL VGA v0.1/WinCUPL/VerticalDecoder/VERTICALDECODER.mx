@@ -41,7 +41,7 @@ PIN 11  = V9;
 /** output pins **/
 
 PIN 23  = Aclr;
-PIN 22  = !Aenable;
+PIN 22  = Aenable;
 PIN 21  = Vclr;
 PIN 20  = VborderT;
 PIN 19  = !Vsync;   /* VSync pulse is negative/active low */
