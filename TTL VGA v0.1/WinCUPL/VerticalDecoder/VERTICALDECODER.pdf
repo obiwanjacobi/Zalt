@@ -5,7 +5,7 @@
   {Program "CUPL(WM) Version 5.0a"}
   {DBtype "Schematic"}
   {DBvrev 1.01}
-  {DBtime "Wed Feb 19 14:08:38 2020 "}
+  {DBtime "Sun Feb 23 14:19:36 2020 "}
   {DBunit "MIL"}
   {DBgrid 10}
   {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
@@ -48,7 +48,7 @@
    {P VSYNC' {Pt "I/O"}{Lq 0}{Ploc 300 60}}
    {P VBORDERT {Pt "I/O"}{Lq 0}{Ploc 300 80}}
    {P VCLR {Pt "I/O"}{Lq 0}{Ploc 300 100}}
-   {P AENABLE {Pt "I/O"}{Lq 0}{Ploc 300 120}}
+   {P AENABLE' {Pt "I/O"}{Lq 0}{Ploc 300 120}}
    {P ACLR {Pt "I/O"}{Lq 0}{Ploc 300 140}}
   }
 
@@ -101,7 +101,8 @@
    {L 280 60 300 60}
    {L 270 80 300 80}
    {L 270 100 300 100}
-   {L 270 120 300 120}
+   {C 275 120 5}
+   {L 280 120 300 120}
    {L 270 140 300 140}
    [Ly "PINNAM"]
    [Tj "LC"]
@@ -121,7 +122,7 @@
    {T "VSYNC'" 260 60}
    {T "VBORDERT" 260 80}
    {T "VCLR" 260 100}
-   {T "AENABLE" 260 120}
+   {T "AENABLE'" 260 120}
    {T "ACLR" 260 140}
    [Ly "DEVICE"]
    [Tj "CT"]
@@ -176,7 +177,7 @@
    }
    {N VCLR
    }
-   {N AENABLE
+   {N AENABLE'
    }
    {N ACLR
    }

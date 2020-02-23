@@ -1,0 +1,229 @@
+
+*******************************************************************************
+                                    Binary
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g22v10  Library DLIB-h-40-1
+Created         Sun Feb 23 11:33:41 2020
+Name            Binary Counter with Asynchronous Clear and Output Enable
+Partno          Zalt-TtlVga-01
+Revision        01
+Date            20-02-2020
+Designer        Marc Jacobi
+Company         Canned Bytes
+Assembly        Zalt Ttl Vga Board
+Location        Z80 Computer / Ttl Vga
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+Q0.d  =>
+    OE & !Q0
+
+Q0.ar  =>
+    CLR
+
+Q0.oe  =>
+    OE
+
+Q0.sp  =>
+    0 
+
+Q1.d  =>
+    OE & Q0 & !Q1
+  # OE & !Q0 & Q1
+
+Q1.ar  =>
+    CLR
+
+Q1.oe  =>
+    OE
+
+Q1.sp  =>
+    0 
+
+Q2.d  =>
+    OE & Q0 & Q1 & !Q2
+  # OE & !Q0 & Q2
+  # OE & !Q1 & Q2
+
+Q2.ar  =>
+    CLR
+
+Q2.oe  =>
+    OE
+
+Q2.sp  =>
+    0 
+
+Q3.d  =>
+    OE & Q0 & Q1 & Q2 & !Q3
+  # OE & !Q0 & Q3
+  # OE & !Q1 & Q3
+  # OE & !Q2 & Q3
+
+Q3.ar  =>
+    CLR
+
+Q3.oe  =>
+    OE
+
+Q3.sp  =>
+    0 
+
+Q4.d  =>
+    OE & Q0 & Q1 & Q2 & Q3 & !Q4
+  # OE & !Q0 & Q4
+  # OE & !Q1 & Q4
+  # OE & !Q3 & Q4
+  # OE & !Q2 & Q4
+
+Q4.ar  =>
+    CLR
+
+Q4.oe  =>
+    OE
+
+Q4.sp  =>
+    0 
+
+Q5.d  =>
+    OE & Q0 & Q1 & Q2 & Q3 & Q4 & !Q5
+  # OE & !Q0 & Q5
+  # OE & !Q1 & Q5
+  # OE & !Q3 & Q5
+  # OE & !Q4 & Q5
+  # OE & !Q2 & Q5
+
+Q5.ar  =>
+    CLR
+
+Q5.oe  =>
+    OE
+
+Q5.sp  =>
+    0 
+
+Q6.d  =>
+    OE & Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & !Q6
+  # OE & !Q0 & Q6
+  # OE & !Q1 & Q6
+  # OE & !Q3 & Q6
+  # OE & !Q4 & Q6
+  # OE & !Q5 & Q6
+  # OE & !Q2 & Q6
+
+Q6.ar  =>
+    CLR
+
+Q6.oe  =>
+    OE
+
+Q6.sp  =>
+    0 
+
+Q7.d  =>
+    OE & Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & Q6 & !Q7
+  # OE & !Q0 & Q7
+  # OE & !Q1 & Q7
+  # OE & !Q3 & Q7
+  # OE & !Q4 & Q7
+  # OE & !Q5 & Q7
+  # OE & !Q6 & Q7
+  # OE & !Q2 & Q7
+
+Q7.ar  =>
+    CLR
+
+Q7.oe  =>
+    OE
+
+Q7.sp  =>
+    0 
+
+Q8.d  =>
+    OE & Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & Q6 & Q7 & !Q8
+  # OE & !Q0 & Q8
+  # OE & !Q1 & Q8
+  # OE & !Q3 & Q8
+  # OE & !Q4 & Q8
+  # OE & !Q5 & Q8
+  # OE & !Q6 & Q8
+  # OE & !Q7 & Q8
+  # OE & !Q2 & Q8
+
+Q8.ar  =>
+    CLR
+
+Q8.oe  =>
+    OE
+
+Q8.sp  =>
+    0 
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    CLK                         1        V        -       -       -     
+    CLR                         2        V        -       -       -     
+ !  OE                          13       V        -       -       -     
+    Q0                          15       V        -       -       -     
+    Q0                  d       15       X        1       10      4     
+    Q0                  ar      15       X        1       1       1     
+    Q0                  oe      15       X        1       1       1     
+    Q0                  sp      15       X        1       1       1     
+    Q1                          23       V        -       -       -     
+    Q1                  d       23       X        2       8       4     
+    Q1                  ar      23       X        1       1       1     
+    Q1                  oe      23       X        1       1       1     
+    Q1                  sp      23       X        1       1       1     
+    Q2                          22       V        -       -       -     
+    Q2                  d       22       X        3       10      4     
+    Q2                  ar      22       X        1       1       1     
+    Q2                  oe      22       X        1       1       1     
+    Q2                  sp      22       X        1       1       1     
+    Q3                          21       V        -       -       -     
+    Q3                  d       21       X        4       12      4     
+    Q3                  ar      21       X        1       1       1     
+    Q3                  oe      21       X        1       1       1     
+    Q3                  sp      21       X        1       1       1     
+    Q4                          20       V        -       -       -     
+    Q4                  d       20       X        5       14      4     
+    Q4                  ar      20       X        1       1       1     
+    Q4                  oe      20       X        1       1       1     
+    Q4                  sp      20       X        1       1       1     
+    Q5                          19       V        -       -       -     
+    Q5                  d       19       X        6       16      4     
+    Q5                  ar      19       X        1       1       1     
+    Q5                  oe      19       X        1       1       1     
+    Q5                  sp      19       X        1       1       1     
+    Q6                          18       V        -       -       -     
+    Q6                  d       18       X        7       16      4     
+    Q6                  ar      18       X        1       1       1     
+    Q6                  oe      18       X        1       1       1     
+    Q6                  sp      18       X        1       1       1     
+    Q7                          17       V        -       -       -     
+    Q7                  d       17       X        8       14      4     
+    Q7                  ar      17       X        1       1       1     
+    Q7                  oe      17       X        1       1       1     
+    Q7                  sp      17       X        1       1       1     
+    Q8                          16       V        -       -       -     
+    Q8                  d       16       X        9       12      4     
+    Q8                  ar      16       X        1       1       1     
+    Q8                  oe      16       X        1       1       1     
+    Q8                  sp      16       X        1       1       1     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

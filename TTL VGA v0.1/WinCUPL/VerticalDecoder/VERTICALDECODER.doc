@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# 60008009
 Device          g22v10  Library DLIB-h-40-1
-Created         Wed Feb 19 14:08:38 2020
+Created         Sun Feb 23 14:19:36 2020
 Name            VerticalDecoder
 Partno          Zalt-TtlVga-01
 Revision        01
@@ -20,7 +20,7 @@ Location        U304 - Z80 Computer / Ttl Vga
 ===============================================================================
 
 Aclr =>
-    Vclr
+    !Aenable
 
 Aenable =>
     !Vblank & !VborderB & !VborderT
@@ -45,16 +45,16 @@ TopBorder =>
 
 Vblank =>
     V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
-  # V0 & !V9 & !Vblank
-  # V1 & !V9 & !Vblank
-  # V2 & !V9 & !Vblank
-  # V3 & !V9 & !Vblank
-  # V4 & !V9 & !Vblank
-  # !V5 & !V9 & !Vblank
-  # !V6 & V7 & !V9 & !Vblank
-  # !V7 & V8 & !V9 & !Vblank
-  # !V8 & !V9 & !Vblank
   # V9 & !Vblank
+  # V3 & !Vblank
+  # V1 & !Vblank
+  # V0 & !Vblank
+  # !V6 & !Vblank
+  # !V5 & !Vblank
+  # V4 & !Vblank
+  # V2 & !Vblank
+  # !V8 & !Vblank
+  # !V7 & !Vblank
 
 VblankNot =>
     V0 & !Vblank
@@ -76,16 +76,16 @@ VblankSet =>
 
 VborderB =>
     !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
-  # V0 & !V6 & V7 & !VborderB
-  # V1 & !V6 & V7 & !VborderB
-  # V2 & !V6 & V7 & !VborderB
-  # V3 & !V6 & V7 & !VborderB
-  # !V4 & !V6 & V7 & !VborderB
-  # !V5 & !V6 & V7 & !VborderB
-  # V6 & !VborderB
-  # !V7 & V8 & !VborderB
-  # !V8 & !VborderB
   # V9 & !VborderB
+  # V3 & !VborderB
+  # V1 & !VborderB
+  # V0 & !VborderB
+  # V6 & !VborderB
+  # !V5 & !VborderB
+  # !V4 & !VborderB
+  # V2 & !VborderB
+  # !V8 & !VborderB
+  # !V7 & !VborderB
 
 VborderNotB =>
     V0 & !VborderB
@@ -100,16 +100,16 @@ VborderNotB =>
   # V9 & !VborderB
 
 VborderNotT =>
-    V0 & !VborderT
+    !V0 & !VborderT
   # V1 & !VborderT
-  # V2 & !VborderT
-  # V3 & !VborderT
+  # !V2 & !VborderT
+  # !V3 & !VborderT
   # V4 & !VborderT
   # V5 & !VborderT
   # V6 & !VborderT
   # V7 & !VborderT
   # V8 & !VborderT
-  # V9 & !VborderT
+  # !V9 & !VborderT
 
 VborderResB =>
     !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
@@ -121,33 +121,33 @@ VborderSetB =>
     !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & V7 & V8 & !V9
 
 VborderSetT =>
-    !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
 
 VborderT =>
     !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
-  # V0 & !VborderT
-  # V1 & !VborderT
-  # V2 & !VborderT
-  # V3 & !VborderT
-  # V4 & !VborderT
-  # V5 & !VborderT
-  # V6 & !VborderT
-  # V7 & !VborderT
-  # V9 & !VborderT
   # V8 & !VborderT
+  # V7 & !VborderT
+  # V1 & !VborderT
+  # V6 & !VborderT
+  # V5 & !VborderT
+  # V4 & !VborderT
+  # !V2 & !VborderT
+  # !V9 & !VborderT
+  # !V3 & !VborderT
+  # !V0 & !VborderT
 
 Vclr =>
     !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+  # V8 & !Vclr
+  # V7 & !Vclr
   # V1 & !Vclr
-  # !V0 & !Vclr
-  # V4 & !Vclr
-  # !V2 & !Vclr
-  # !V3 & !Vclr
   # V6 & !Vclr
   # V5 & !Vclr
-  # V7 & !Vclr
-  # V8 & !Vclr
+  # V4 & !Vclr
+  # !V2 & !Vclr
   # !V9 & !Vclr
+  # !V3 & !Vclr
+  # !V0 & !Vclr
 
 VclrNot =>
     !V0 & !Vclr
@@ -169,16 +169,16 @@ VclrSet =>
 
 Vsync =>
     !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
-  # !V1 & !Vsync
-  # V0 & !Vsync
-  # V2 & !Vsync
-  # !V3 & !Vsync
-  # V4 & !Vsync
-  # !V5 & !Vsync
-  # !V6 & !Vsync
-  # !V7 & !Vsync
-  # !V8 & !Vsync
   # V9 & !Vsync
+  # V0 & !Vsync
+  # !V6 & !Vsync
+  # !V5 & !Vsync
+  # V4 & !Vsync
+  # V2 & !Vsync
+  # !V8 & !Vsync
+  # !V7 & !Vsync
+  # !V3 & !Vsync
+  # !V1 & !Vsync
 
 VsyncNot =>
     V0 & !Vsync
@@ -232,7 +232,7 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
 --- --------            ---     ---     ----    ------  ------  -----   
 
     Aclr                        23       V        1       8       4     
-    Aenable                     22       V        1       10      4     
+ !  Aenable                     22       V        1       10      4     
     BackPorch                   0        I        1       -       -     
     BottomBorder                0        I        1       -       -     
     EndOfFrame                  0        I        1       -       -     

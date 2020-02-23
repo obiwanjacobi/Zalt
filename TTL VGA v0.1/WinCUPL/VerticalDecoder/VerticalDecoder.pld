@@ -71,8 +71,9 @@ BackPorch = !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9;
 EndOfFrame = V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9;
 
 /** end of frame resets the address counter **/
-Aclr = Vclr;
 Aenable = !Vblank & !VborderT & !VborderB;
+Aclr = !Aenable;
+
 
 
 /** Vertical Clear **/
@@ -97,7 +98,8 @@ VblankNot = !(Vblank # VblankSet);
 Vblank = !(VblankNot # VblankRes);
 
 /** Vertical Border Pulse **/
-VborderSetT = TopBorder;
+/* VborderSetT = BorderTop; <= this does not work! */
+VborderSetT = EndOfFrame;
 VborderResT = Window;
 
 VborderNotT = !(VborderT # VborderSetT);
