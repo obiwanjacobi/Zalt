@@ -138,17 +138,6 @@ F 3 "http://www.lupinek.com/soubory/um61512.pdf" H 8250 4950 50  0001 C CNN
 $EndComp
 $Comp
 L 74xx:74LS139 U8
-U 1 1 5E4CEB46
-P 8100 2300
-F 0 "U8" H 8100 2667 50  0000 C CNN
-F 1 "74LS139" H 8100 2576 50  0000 C CNN
-F 2 "" H 8100 2300 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74LS139" H 8100 2300 50  0001 C CNN
-	1    8100 2300
-	1    0    0    -1  
-$EndComp
-$Comp
-L 74xx:74LS139 U8
 U 3 1 5E4CF552
 P 1450 10050
 F 0 "U8" H 1680 10096 50  0000 L CNN
@@ -165,8 +154,6 @@ Wire Wire Line
 Wire Wire Line
 	4600 1850 5100 1850
 Wire Wire Line
-	4600 1950 5100 1950
-Wire Wire Line
 	4600 2050 5100 2050
 Wire Wire Line
 	4600 2150 5100 2150
@@ -182,8 +169,6 @@ Text Label 4900 1750 0    50   ~ 0
 A3
 Text Label 4900 1850 0    50   ~ 0
 A4
-Text Label 4900 1950 0    50   ~ 0
-A9
 Text Label 4900 2050 0    50   ~ 0
 A5
 Text Label 4900 2150 0    50   ~ 0
@@ -212,16 +197,6 @@ Wire Wire Line
 	6500 2250 7000 2250
 Wire Wire Line
 	6500 2350 7000 2350
-Text Label 6800 1650 0    50   ~ 0
-A10
-Text Label 6800 1750 0    50   ~ 0
-A11
-Text Label 6800 1850 0    50   ~ 0
-A12
-Text Label 6800 1950 0    50   ~ 0
-A13
-Text Label 6800 2050 0    50   ~ 0
-A14
 Text Label 6800 2150 0    50   ~ 0
 A15
 Text Label 6800 2250 0    50   ~ 0
@@ -234,8 +209,6 @@ Entry Wire Line
 	5100 1750 5200 1650
 Entry Wire Line
 	5100 1850 5200 1750
-Entry Wire Line
-	5100 1950 5200 1850
 Entry Wire Line
 	5100 2050 5200 1950
 Entry Wire Line
@@ -774,7 +747,7 @@ F 1 "74LS245" H 4350 5840 50  0000 C CNN
 F 2 "" H 4350 4950 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 4350 4950 50  0001 C CNN
 	1    4350 4950
-	1    0    0    -1  
+	-1   0    0    -1  
 $EndComp
 Entry Wire Line
 	3400 6600 3500 6700
@@ -823,7 +796,7 @@ F 1 "74LS245" H 4350 7790 50  0000 C CNN
 F 2 "" H 4350 6900 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 4350 6900 50  0001 C CNN
 	1    4350 6900
-	1    0    0    -1  
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
 	3500 4450 3850 4450
@@ -922,15 +895,6 @@ F4 "~ControlRegisterEnable" O R 2800 4900 50
 F5 "~BusDriverEnable" O R 2800 4800 50 
 F6 "~AddressEnable" I L 1750 4250 50 
 $EndSheet
-Wire Wire Line
-	3150 4800 3150 5450
-Wire Wire Line
-	3150 7400 3850 7400
-Wire Wire Line
-	3850 5450 3150 5450
-Connection ~ 3150 5450
-Wire Wire Line
-	3150 5450 3150 7400
 Entry Wire Line
 	1250 6300 1350 6400
 Entry Wire Line
@@ -949,7 +913,6 @@ Entry Wire Line
 	1250 7000 1350 7100
 Wire Wire Line
 	1600 7400 1350 7400
-Connection ~ 3150 7400
 Entry Wire Line
 	2850 6400 2950 6500
 Entry Wire Line
@@ -964,8 +927,6 @@ Entry Wire Line
 	2850 6900 2950 7000
 NoConn ~ 4850 6800
 NoConn ~ 4850 6900
-NoConn ~ 4850 7000
-NoConn ~ 4850 7100
 Wire Wire Line
 	1100 5600 1100 7300
 Wire Wire Line
@@ -996,8 +957,6 @@ Wire Wire Line
 	1350 8000 3150 8000
 Wire Wire Line
 	1350 7400 1350 8000
-Wire Wire Line
-	3150 7400 3150 8000
 $Comp
 L power:+5V #PWR023
 U 1 1 5E69E690
@@ -1044,8 +1003,6 @@ Wire Bus Line
 Text Notes 800  9050 0    50   ~ 0
 Z80 interfaces through a 4k Memory Page. \nThe location (bit address) of this memory page is determined by the Bus Decoder.\n\nThe Control Register provides the upper 6 bits A12..A17 of the\nVRAM address and can only be changed through an IO write.\nThe IO address (A0-A7) is also determined by the Bus Decoder.
 Wire Wire Line
-	3850 5350 3800 5350
-Wire Wire Line
 	3800 6800 3800 6900
 Wire Wire Line
 	3850 6900 3800 6900
@@ -1077,7 +1034,7 @@ F 1 "74LS245" H 6450 7790 50  0000 C CNN
 F 2 "" H 6450 6900 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 6450 6900 50  0001 C CNN
 	1    6450 6900
-	1    0    0    -1  
+	-1   0    0    -1  
 $EndComp
 Wire Wire Line
 	6950 6400 7250 6400
@@ -1144,14 +1101,8 @@ BD6
 Text Label 5750 7100 0    50   ~ 0
 BD7
 Wire Wire Line
-	3150 8000 5750 8000
-Wire Wire Line
-	5750 8000 5750 7400
-Wire Wire Line
-	5750 7400 5950 7400
+	3150 8000 5350 8000
 Connection ~ 3150 8000
-Wire Wire Line
-	5950 7300 5900 7300
 $Comp
 L power:GND #PWR031
 U 1 1 5E89F758
@@ -1194,53 +1145,6 @@ Entry Wire Line
 	5500 7200 5600 7100
 Wire Bus Line
 	5500 8250 1250 8250
-$Comp
-L power:+5V #PWR021
-U 1 1 5E4D5D75
-P 3600 5750
-F 0 "#PWR021" H 3600 5600 50  0001 C CNN
-F 1 "+5V" H 3615 5923 50  0000 C CNN
-F 2 "" H 3600 5750 50  0001 C CNN
-F 3 "" H 3600 5750 50  0001 C CNN
-	1    3600 5750
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR026
-U 1 1 5E4D64EC
-P 3600 7250
-F 0 "#PWR026" H 3600 7100 50  0001 C CNN
-F 1 "+5V" H 3615 7423 50  0000 C CNN
-F 2 "" H 3600 7250 50  0001 C CNN
-F 3 "" H 3600 7250 50  0001 C CNN
-	1    3600 7250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:+5V #PWR030
-U 1 1 5E4D69CD
-P 6000 7700
-F 0 "#PWR030" H 6000 7550 50  0001 C CNN
-F 1 "+5V" H 6015 7873 50  0000 C CNN
-F 2 "" H 6000 7700 50  0001 C CNN
-F 3 "" H 6000 7700 50  0001 C CNN
-	1    6000 7700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	5900 7300 5900 7700
-Wire Wire Line
-	5900 7700 6000 7700
-Wire Wire Line
-	3850 7300 3600 7300
-Wire Wire Line
-	3600 7300 3600 7250
-Wire Wire Line
-	3800 5350 3800 5800
-Wire Wire Line
-	3800 5800 3600 5800
-Wire Wire Line
-	3600 5800 3600 5750
 Entry Wire Line
 	7250 6400 7350 6300
 Entry Wire Line
@@ -1269,8 +1173,7 @@ Wire Bus Line
 Wire Wire Line
 	8600 4400 9100 4400
 Wire Wire Line
-	9100 8000 5750 8000
-Connection ~ 5750 8000
+	9100 8000 7100 8000
 Wire Wire Line
 	6900 3450 6900 5150
 Wire Wire Line
@@ -1542,12 +1445,6 @@ F 3 "" H 5950 2700 50  0001 C CNN
 	1    6050 2100
 	1    0    0    -1  
 $EndComp
-Entry Wire Line
-	5200 1550 5300 1650
-Wire Wire Line
-	5300 1650 5550 1650
-Text Label 5350 1650 0    50   ~ 0
-A9
 Wire Wire Line
 	6050 1450 6300 1450
 Wire Wire Line
@@ -1589,7 +1486,6 @@ Wire Wire Line
 Wire Wire Line
 	4450 1450 4150 1450
 NoConn ~ 6500 2550
-NoConn ~ 6500 2450
 Wire Wire Line
 	3800 7000 3800 7100
 Wire Wire Line
@@ -1642,6 +1538,85 @@ Wire Wire Line
 	2400 9300 2400 10150
 Wire Wire Line
 	3350 9300 3350 10150
+Entry Wire Line
+	7000 2450 7100 2350
+Wire Wire Line
+	7000 2450 6500 2450
+Text Label 6800 2050 0    50   ~ 0
+A14
+Text Label 6800 1950 0    50   ~ 0
+A13
+Text Label 6800 1850 0    50   ~ 0
+A12
+Text Label 6800 1750 0    50   ~ 0
+A11
+Text Label 6800 1650 0    50   ~ 0
+A10
+Text Label 6800 2450 0    50   ~ 0
+A9
+$Comp
+L 74xx:74LS139 U8
+U 1 1 5E4CEB46
+P 8100 2300
+F 0 "U8" H 8100 2667 50  0000 C CNN
+F 1 "74LS139" H 8100 2576 50  0000 C CNN
+F 2 "" H 8100 2300 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS139" H 8100 2300 50  0001 C CNN
+	1    8100 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4600 1950 4800 1950
+Wire Wire Line
+	4800 1950 4800 1450
+Wire Wire Line
+	4800 1450 5350 1450
+Wire Wire Line
+	5350 1450 5350 1650
+Wire Wire Line
+	5350 1650 5550 1650
+Wire Wire Line
+	4850 5350 4950 5350
+Wire Wire Line
+	4950 5350 4950 5750
+Wire Wire Line
+	4950 5750 4350 5750
+Connection ~ 4350 5750
+Wire Wire Line
+	4850 7300 4950 7300
+Wire Wire Line
+	4950 7300 4950 7750
+Wire Wire Line
+	4950 7750 4350 7750
+Connection ~ 4350 7750
+Wire Wire Line
+	5350 8000 5350 7400
+Wire Wire Line
+	5350 5450 4850 5450
+Connection ~ 5350 8000
+Wire Wire Line
+	4850 7400 5350 7400
+Connection ~ 5350 7400
+Wire Wire Line
+	5350 7400 5350 5450
+Wire Wire Line
+	3150 4800 3150 8000
+Wire Wire Line
+	6950 7300 7000 7300
+Wire Wire Line
+	7000 7300 7000 7700
+Wire Wire Line
+	7000 7700 6450 7700
+Connection ~ 6450 7700
+Wire Wire Line
+	6950 7400 7100 7400
+Wire Wire Line
+	7100 7400 7100 8000
+Connection ~ 7100 8000
+Wire Wire Line
+	5350 8000 7100 8000
+NoConn ~ 4850 7000
+NoConn ~ 4850 7100
 Wire Bus Line
 	2950 6500 2950 8100
 Wire Bus Line

@@ -58,7 +58,7 @@
         <Data key="derive_type" value="AUTO" />
         <Data key="desired_freq" value="921.6" />
         <Data key="desired_unit" value="3" />
-        <Data key="divider" value="78" />
+        <Data key="divider" value="61" />
         <Data key="domain" value="0" />
         <Data key="enabled" value="True" />
         <Data key="minus_accuracy" value="0.25" />
@@ -78,10 +78,10 @@
       <Group key="cfce93e7-c4f0-4c33-8dc5-adf266ab4ddd">
         <Data key="check_tolerance" value="True" />
         <Data key="clock_version" value="v1" />
-        <Data key="derive_type" value="NAMED_DIVIDER" />
-        <Data key="desired_freq" value="0" />
-        <Data key="desired_unit" value="15" />
-        <Data key="divider" value="2" />
+        <Data key="derive_type" value="NAMED_FREQ" />
+        <Data key="desired_freq" value="20" />
+        <Data key="desired_unit" value="6" />
+        <Data key="divider" value="3" />
         <Data key="domain" value="0" />
         <Data key="enabled" value="True" />
         <Data key="minus_accuracy" value="0.25" />
@@ -110,9 +110,9 @@
         <Data key="enabled" value="True" />
         <Data key="minus_accuracy" value="55" />
         <Data key="minus_tolerance" value="5" />
-        <Data key="name" value="CPU_CLK" />
+        <Data key="name" value="CPUCLK_SLOW" />
         <Data key="named_src_direct_connect" value="False" />
-        <Data key="netlist_name" value="CPU_CLK" />
+        <Data key="netlist_name" value="CPUCLK_SLOW" />
         <Data key="placement" value="AUTO" />
         <Data key="plus_accuracy" value="100" />
         <Data key="plus_tolerance" value="5" />
@@ -153,7 +153,7 @@
         <Data key="check_tolerance" value="True" />
         <Data key="clock_version" value="v1" />
         <Data key="derive_type" value="BUILTIN" />
-        <Data key="desired_freq" value="72" />
+        <Data key="desired_freq" value="56" />
         <Data key="desired_unit" value="6" />
         <Data key="divider" value="0" />
         <Data key="domain" value="0" />
@@ -375,7 +375,7 @@
       <Data key="3a8b5809-ee45-463e-ae65-9b79347f836d/beeb9bab-9e06-471a-8598-33f1f85e58f4" value="Z80Ctrl_BusClk" />
       <Data key="b0162966-0060-4af5-82d1-fcb491ad7619/be0a0e37-ad17-42ca-b5a1-1a654d736358" value="SysTerminal_IntClock" />
       <Data key="cfce93e7-c4f0-4c33-8dc5-adf266ab4ddd" value="CPUCLK_FAST" />
-      <Data key="e6cac836-f889-49b8-9db6-bb05aab6eac3" value="CPU_CLK" />
+      <Data key="e6cac836-f889-49b8-9db6-bb05aab6eac3" value="CPUCLK_SLOW" />
     </Group>
     <Group key="Interrupt">
       <Data key="0f12ccb4-60df-4fa3-95b3-93dbcddb6df9/6082d9c3-a648-429b-b42d-1463809cb807" value="Z80Ctrl_ISR_IO" />

@@ -14,9 +14,9 @@
     <block name="TXInternalInterrupt" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="IntClock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="BUART" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-    <register name="RX_SysTerminal_RX_ADDRESS1" address="0x40006424" bitWidth="8" desc="RX Address1 Register" hidden="false" />
-    <register name="RX_SysTerminal_RX_ADDRESS2" address="0x40006434" bitWidth="8" desc="RX Address2 Register" hidden="false" />
-    <register name="RX_SysTerminal_RX_DATA" address="0x40006444" bitWidth="8" desc="RX Data Register" hidden="false" />
+    <register name="RX_SysTerminal_RX_ADDRESS1" address="0x40006428" bitWidth="8" desc="RX Address1 Register" hidden="false" />
+    <register name="RX_SysTerminal_RX_ADDRESS2" address="0x40006438" bitWidth="8" desc="RX Address2 Register" hidden="false" />
+    <register name="RX_SysTerminal_RX_DATA" address="0x40006448" bitWidth="8" desc="RX Data Register" hidden="false" />
     <register name="RX_SysTerminal_RX_STATUS" address="0x40006462" bitWidth="8" desc="RX status register" hidden="false">
       <field name="SysTerminal_RX_STS_MRKSPC" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
       <field name="SysTerminal_RX_STS_BREAK" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
@@ -26,8 +26,8 @@
       <field name="SysTerminal_RX_STS_FIFO_NOTEMPTY" from="5" to="5" access="R" resetVal="" desc="" hidden="false" />
       <field name="SysTerminal_RX_STS_ADDR_MATCH" from="6" to="6" access="R" resetVal="" desc="" hidden="false" />
     </register>
-    <register name="TX_SysTerminal_TX_DATA" address="0x4000654A" bitWidth="8" desc="TX Data Register" hidden="false" />
-    <register name="TX_SysTerminal_TX_STATUS" address="0x4000656A" bitWidth="8" desc="TX status register" hidden="false">
+    <register name="TX_SysTerminal_TX_DATA" address="0x4000654B" bitWidth="8" desc="TX Data Register" hidden="false" />
+    <register name="TX_SysTerminal_TX_STATUS" address="0x4000656B" bitWidth="8" desc="TX status register" hidden="false">
       <field name="SysTerminal_TX_STS_COMPLETE" from="0" to="0" access="R" resetVal="" desc="" hidden="false" />
       <field name="SysTerminal_TX_STS_FIFO_EMPTY" from="1" to="1" access="R" resetVal="" desc="" hidden="false" />
       <field name="SysTerminal_TX_STS_FIFO_FULL" from="2" to="2" access="R" resetVal="" desc="" hidden="false" />
@@ -35,9 +35,9 @@
     </register>
   </block>
   <block name="RegCtrl" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="RegCtrl_STATUS_REG" address="0x40006566" bitWidth="8" desc="" hidden="false" />
-    <register name="RegCtrl_MASK_REG" address="0x40006586" bitWidth="8" desc="" hidden="false" />
-    <register name="RegCtrl_STATUS_AUX_CTL_REG" address="0x40006596" bitWidth="8" desc="" hidden="false">
+    <register name="RegCtrl_STATUS_REG" address="0x40006466" bitWidth="8" desc="" hidden="false" />
+    <register name="RegCtrl_MASK_REG" address="0x40006486" bitWidth="8" desc="" hidden="false" />
+    <register name="RegCtrl_STATUS_AUX_CTL_REG" address="0x40006496" bitWidth="8" desc="" hidden="false">
       <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
         <value name="ENABLED" value="1" desc="Enable counter" />
         <value name="DISABLED" value="0" desc="Disable counter" />
@@ -99,9 +99,9 @@
     </register>
   </block>
   <block name="RegLsbA" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="RegLsbA_STATUS_REG" address="0x40006568" bitWidth="8" desc="" hidden="false" />
-    <register name="RegLsbA_MASK_REG" address="0x40006588" bitWidth="8" desc="" hidden="false" />
-    <register name="RegLsbA_STATUS_AUX_CTL_REG" address="0x40006598" bitWidth="8" desc="" hidden="false">
+    <register name="RegLsbA_STATUS_REG" address="0x40006469" bitWidth="8" desc="" hidden="false" />
+    <register name="RegLsbA_MASK_REG" address="0x40006489" bitWidth="8" desc="" hidden="false" />
+    <register name="RegLsbA_STATUS_AUX_CTL_REG" address="0x40006499" bitWidth="8" desc="" hidden="false">
       <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
         <value name="ENABLED" value="1" desc="Enable counter" />
         <value name="DISABLED" value="0" desc="Disable counter" />
@@ -130,9 +130,9 @@
   </block>
   <block name="or_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="RegMsbA" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="RegMsbA_STATUS_REG" address="0x40006567" bitWidth="8" desc="" hidden="false" />
-    <register name="RegMsbA_MASK_REG" address="0x40006587" bitWidth="8" desc="" hidden="false" />
-    <register name="RegMsbA_STATUS_AUX_CTL_REG" address="0x40006597" bitWidth="8" desc="" hidden="false">
+    <register name="RegMsbA_STATUS_REG" address="0x40006564" bitWidth="8" desc="" hidden="false" />
+    <register name="RegMsbA_MASK_REG" address="0x40006584" bitWidth="8" desc="" hidden="false" />
+    <register name="RegMsbA_STATUS_AUX_CTL_REG" address="0x40006594" bitWidth="8" desc="" hidden="false">
       <field name="FIFO0" from="5" to="5" access="RW" resetVal="" desc="FIFO0 clear" hidden="false">
         <value name="ENABLED" value="1" desc="Enable counter" />
         <value name="DISABLED" value="0" desc="Disable counter" />
@@ -160,7 +160,7 @@
     </register>
   </block>
   <block name="SysCtrlReg" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-    <register name="SysCtrlReg_CONTROL_REG" address="0x40006475" bitWidth="8" desc="" hidden="false" />
+    <register name="SysCtrlReg_CONTROL_REG" address="0x40006476" bitWidth="8" desc="" hidden="false" />
   </block>
   <block name="nor_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="not_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -1039,7 +1039,7 @@
     <block name="cy_constant_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="IoActiveSate" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="Z80Ctrl_WaitCtrlReg" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
-      <register name="Z80Ctrl_WaitCtrlReg_CONTROL_REG" address="0x40006574" bitWidth="8" desc="" hidden="false" />
+      <register name="Z80Ctrl_WaitCtrlReg_CONTROL_REG" address="0x40006575" bitWidth="8" desc="" hidden="false" />
     </block>
     <block name="BusClk" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="and_9" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />

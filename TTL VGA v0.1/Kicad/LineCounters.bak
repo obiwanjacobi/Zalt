@@ -544,8 +544,6 @@ Wire Wire Line
 Wire Wire Line
 	1700 2150 1700 2300
 Wire Wire Line
-	9100 1950 9550 1950
-Wire Wire Line
 	9100 1550 9550 1550
 Wire Wire Line
 	9100 1650 9550 1650
@@ -561,8 +559,6 @@ Text Notes 9300 1300 0    50   ~ 0
 Max number of product terms\nis not equal amongst all pins. 
 Wire Wire Line
 	9100 4500 9600 4500
-Wire Wire Line
-	9100 4600 9600 4600
 Wire Wire Line
 	9100 4700 9600 4700
 Text Label 9350 4700 0    50   ~ 0
@@ -847,7 +843,6 @@ NoConn ~ 9100 2350
 NoConn ~ 9100 2250
 NoConn ~ 9100 2150
 NoConn ~ 9550 2050
-NoConn ~ 9550 1950
 NoConn ~ 9550 1850
 NoConn ~ 9550 1550
 Wire Wire Line
@@ -881,7 +876,6 @@ NoConn ~ 9100 5000
 NoConn ~ 9100 4900
 NoConn ~ 9100 4800
 NoConn ~ 9600 4700
-NoConn ~ 9600 4600
 NoConn ~ 9600 4500
 NoConn ~ 9600 4400
 Wire Wire Line
@@ -895,6 +889,14 @@ Wire Wire Line
 	8700 5600 8700 5650
 Wire Wire Line
 	4650 7050 4650 7250
+Text HLabel 10250 1950 2    50   Output ~ 0
+Hblank
+Text HLabel 10100 4600 2    50   Output ~ 0
+Vblank
+Wire Wire Line
+	9100 4600 10100 4600
+Wire Wire Line
+	9100 1950 10250 1950
 Wire Bus Line
 	7000 4000 7000 4550
 Wire Bus Line

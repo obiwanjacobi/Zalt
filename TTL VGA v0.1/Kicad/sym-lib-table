@@ -1,4 +1,5 @@
 (sym_lib_table
   (lib (name UM61512A)(type Legacy)(uri ${KIPRJMOD}/UM61512A.lib)(options "")(descr ""))
   (lib (name 22V10)(type Legacy)(uri ${KIPRJMOD}/22V10.lib)(options "")(descr ""))
+  (lib (name syshdr)(type Legacy)(uri C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Kicad/syshdr.lib)(options "")(descr ""))
 )
