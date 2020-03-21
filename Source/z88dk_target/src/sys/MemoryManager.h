@@ -89,7 +89,7 @@ MemoryBank *MemoryManager_Bank_Get(ptr_t memory, uint8_t capacity);
 /// A return value of 0 indicates an error.
 MemoryBankId MemoryManager_Bank_Push(MemoryBank *bank);
 
-/// deactivates the bankId (and all others the came after it?)
+/// deactivates the bankId (and all others the came after it!)
 result_t MemoryManager_Bank_Pop(MemoryBankId bankId);
 
 // returns the page flags for the specified page id
@@ -98,7 +98,7 @@ MemoryPageFlags MemoryManager_Page_Flags(MemoryPageId pageId);
 // lays claim on page
 MemoryPageId MemoryManager_Page_Alloc(MemoryPageFlags flags, uint16_t capacity);
 
-// releases onwership of page(s) (by handle)
+// releases ownership of page(s) (by handle)
 void MemoryManager_Page_Free(MemoryPageId pageId);
 
 // locks memory into active region and returns pointer

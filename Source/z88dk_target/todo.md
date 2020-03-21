@@ -32,9 +32,9 @@ Bigger issues:
 
 ### Timing issue with U101 (possibly U102)
 At fast clock `cd=3` the latching of the value into U101 is unreliable.
-The 74HTC573 latches the data (D0-D7) when the LE/Load transisitions from HIGH to LOW.
+The 74HTC573 latches the data (D0-D7) when the LE/Load transitions from HIGH to LOW.
 This signal is produced by the SystemLogic (MaxII) using IOREQ, WR and the address decoding.
 The Z80 timing for the Output instruction (P24/25 of Z80 User Manual) indicates that a problem could exist when the IOREQ and WR lines go HIGH (inactive) in the last part of the last cycle (of the out instruction). I think the data (at higher CPU clock speeds) is unstable at that time.
 
-Seems that U101 LE is triggered during data writes into the MemBankRam. Putting a 10k pullup on U101-LE fixes it (fast clock `cd=2`).
-But why?
+Seems that U101 LE is triggered during data writes into the MemBankRam. Putting a 10k pullup on U101-LE fixes it (fast clock `cd=2`) [partly].
+But why? -> timing issue? it delay the signal a tiny bit?

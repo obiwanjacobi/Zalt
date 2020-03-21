@@ -29,7 +29,7 @@ F 3 "http://www.ti.com/lit/gpn/sn74LS139" H 4150 2450 50  0001 C CNN
 	2    4150 2450
 	1    0    0    -1  
 $EndComp
-Text HLabel 8650 4550 2    50   Output ~ 0
+Text HLabel 9300 4550 2    50   Output ~ 0
 ~ControlRegisterEnable
 Text HLabel 9900 1200 2    50   Output ~ 0
 ~BusDriverEnable
@@ -605,8 +605,6 @@ Wire Wire Line
 	7300 4650 7300 5000
 Text Label 4750 4600 0    50   ~ 0
 MA2
-Wire Wire Line
-	8100 4550 8650 4550
 $Comp
 L 74xx:74LS00 U?
 U 1 1 5E61D130
@@ -643,12 +641,12 @@ $EndComp
 $Comp
 L 74xx:74LS00 U?
 U 4 1 5E62EF03
-P 9900 2550
-F 0 "U?" H 9900 2875 50  0000 C CNN
-F 1 "74LS00" H 9900 2784 50  0000 C CNN
-F 2 "" H 9900 2550 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 9900 2550 50  0001 C CNN
-	4    9900 2550
+P 8650 4550
+F 0 "U?" H 8650 4875 50  0000 C CNN
+F 1 "74LS00" H 8650 4784 50  0000 C CNN
+F 2 "" H 8650 4550 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74ls00" H 8650 4550 50  0001 C CNN
+	4    8650 4550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -690,6 +688,19 @@ Wire Wire Line
 Connection ~ 9100 1650
 Wire Wire Line
 	9100 1650 9100 1850
+Wire Wire Line
+	8100 4550 8250 4550
+Wire Wire Line
+	8250 4550 8250 4450
+Wire Wire Line
+	8250 4450 8350 4450
+Wire Wire Line
+	8350 4650 8250 4650
+Wire Wire Line
+	8250 4650 8250 4550
+Connection ~ 8250 4550
+Wire Wire Line
+	8950 4550 9300 4550
 Wire Bus Line
 	1450 2400 1450 3000
 Wire Bus Line

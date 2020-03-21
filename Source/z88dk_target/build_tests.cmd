@@ -16,4 +16,7 @@ call build.cmd %1
 cd %~dp0_tests/RingBuffer
 call build.cmd %1
 
+cd %~dp0_tests/VGA
+call build.cmd %1
+
 cd %~dp0
