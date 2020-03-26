@@ -1,5 +1,6 @@
 #include "MemoryManagerCommands.h"
 #include "MemoryManager.h"
+#include "MemoryController.h"
 #include "BusController.h"
 
 #include <stdlib.h>
@@ -8,6 +9,7 @@ static const char* MemMgr_Sel = "sel";
 static const char* MemMgr_Get = "get";
 static const char* MemMgr_Put = "put";
 static const char* MemMgr_Nul = "nul";
+static const char* MemMgr_Tst = "tst";
 
 void MemoryManager_ReportTable(uint8_t table)
 {
@@ -30,11 +32,36 @@ void MemoryManager_ReportTableIndex()
     SerialTerminal_WriteLine(NULL);
 }
 
-void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, uint8_t value)
+void MemMgr_ReportTest(uint8_t page)
+{
+    SerialTerminal_Write("Test memory for page ");
+    SerialTerminal_WriteFormat("%d", page);
+    SerialTerminal_Write("h... ");
+}
+
+void MemMgr_ReportTestResult(TestMemory* memory, TestMemoryResult* result)
+{
+    if (memory->Length > 0)
+    {
+        SerialTerminal_Write("Failed for ");
+        SerialTerminal_WriteFormat("%02X", result->Expected);
+        SerialTerminal_Write("h with ");
+        SerialTerminal_WriteFormat("%02X", result->Actual);
+        SerialTerminal_Write("h at offset ");
+        SerialTerminal_WriteFormat("%04X", memory->Length);
+        SerialTerminal_WriteLine("h");
+    }
+    else
+    {
+        SerialTerminal_WriteLine(OK);
+    }
+}
+
+void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, int16_t value)
 {
     BusState busState;
     BusController_Open(&busState);
-    BusController_EnableDataBusOutput(1);
+    BusController_EnableDataBusOutput(true);
     
     switch (mode)
     {
@@ -94,6 +121,47 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, uint8_t
                 MemoryManager_WriteNullTable();
             }
             break;
+        case MM_MODE_TST:
+            value = table;
+            index = 10;
+            table = -1; // not used
+            TestMemory memory;
+            TestMemoryResult result;
+            
+            uint16 address = (index << 12);
+            
+            uint8_t pageToRestore = MemoryManager_ReadTableData(index);
+            
+            if (value == -1)
+            {
+                for (value = 0; value < MemMapPageCount; value++)
+                {
+                    memory.Length = MemPageLength;
+                    memory.Address = address;
+                    
+                    MemMgr_ReportTest(value);
+                    
+                    MemoryManager_WriteTableData(index, value);
+                    MemoryController_TestMemory(&memory, &result);
+                    
+                    MemMgr_ReportTestResult(&memory, &result);
+                }
+            }
+            else
+            {
+                memory.Length = MemPageLength;
+                memory.Address = address;
+                
+                MemMgr_ReportTest(value);
+                
+                MemoryManager_WriteTableData(index, value);
+                MemoryController_TestMemory(&memory, &result);
+                
+                MemMgr_ReportTestResult(&memory, &result);
+            }
+            
+            MemoryManager_WriteTableData(index, pageToRestore);
+            break;
         default:
             break;
     }
@@ -101,7 +169,7 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, uint8_t
     // keep io table in sync with mem table
     MemoryManager_SelectTableIO(MemoryManager_GetCurrentTable());
     
-    BusController_EnableDataBusOutput(0);
+    BusController_EnableDataBusOutput(false);
     BusController_Close(&busState);
 }
 
@@ -112,6 +180,7 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, uint8_t
 // 'mm' get [n] [i]         n => table index to read (0-255), i => map index in table (1-15)
 // 'mm' put <n> <i> [v]     n => table index to modify (0-255), i => map index in table (1-15), v => value to put (0-255)
 // 'mm' nul [n]             => writes null table in [n], or all (256) tables if [n] is ommitted
+// 'mm' tst [p]             p => the page to test (0-255)
 uint16_t MemoryManager_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
 {
     RingBuffer* const buffer = &serialTerminal->RxBuffer;
@@ -136,6 +205,8 @@ uint16_t MemoryManager_Execute(SerialTerminal* serialTerminal, TerminalCommand* 
             command->Mode = MM_MODE_PUT;
         if (strcasecmp((const char*)temp, MemMgr_Nul) == 0)
             command->Mode = MM_MODE_NUL;
+        if (strcasecmp((const char*)temp, MemMgr_Tst) == 0)
+            command->Mode = MM_MODE_TST;
         
         if (!RingBuffer_IsEmpty(buffer))
         {

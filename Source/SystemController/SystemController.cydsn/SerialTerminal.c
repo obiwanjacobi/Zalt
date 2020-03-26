@@ -47,6 +47,7 @@ uint16_t  SerialTerminal_ReceiveCommand(SerialTerminal* serialTerminal)
                     else
                     {
                         // report back error and empty buffer
+                        SerialTerminal_WriteLine(NULL);
                         SysTerminal_PutString((const char*)cmd.CommandLine);
                         uint16_t length = RingBuffer_getLength(&serialTerminal->RxBuffer);
                         uint8_t buffer[length + 1];
@@ -71,7 +72,6 @@ uint16_t  SerialTerminal_ReceiveCommand(SerialTerminal* serialTerminal)
     return bytesRead;
 }
 
-
 uint16_t SerialTerminal_ReceiveBlob(void* ctx, ReceiveCallback fnCallback)
 {
     uint16_t cnt = 0;
@@ -86,7 +86,6 @@ uint16_t SerialTerminal_ReceiveBlob(void* ctx, ReceiveCallback fnCallback)
     
     return cnt;
 }
-
 
 void SerialTerminal_Write(const char8* text)
 {
@@ -120,33 +119,43 @@ void SerialTerminal_WriteFormat(const char* format, uint16_t value)
     SysTerminal_PutString(txt);
 }
 
-void SerialTerminal_WriteArrayFormat(const char* format, uint8_t *buffer, uint16_t length)
+void SerialTerminal_WriteArrayFormat(const char* format, uint8_t *buffer, uint16_t length, uint16_t address)
 {
     if (format == NULL || format[0] == 0) return;
     if (buffer == NULL) return;
     if (length == 0) return;
     
-    char txt[5];
-    uint8_t rowCount = 0;
+    char txt[10];
+    uint8_t valCount = 0;
+    
     for(uint16_t i = 0; i < length; i++)
     {
-        if (rowCount == 8)
+        if (valCount == 0)
         {
-            SysTerminal_PutString("   ");
+            SerialTerminal_WriteFormat("%04X:   ", address);
+            address += 0x10;
         }
         
-        if (rowCount == 16)
+        if (valCount == 8)
         {
-            SysTerminal_PutString(NewLine);
-            rowCount = 0;
+            SysTerminal_PutString("   ");
         }
         
         sprintf(txt, format, buffer[i]);
         SysTerminal_PutString(txt);
         SysTerminal_PutString(" ");
+                
+        if (valCount == 15)
+        {
+            SysTerminal_PutString(NewLine);
+            valCount = 0;
+            continue;
+        }
         
-        rowCount++;
+        valCount++;
     }
+    
+    SysTerminal_PutString(NewLine);
 }
 
 /* [] END OF FILE */

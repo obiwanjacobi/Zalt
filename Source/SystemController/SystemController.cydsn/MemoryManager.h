@@ -7,6 +7,8 @@
 
 #define MemMapTableSize     16
 #define MemMapTableCount   256
+#define MemMapPageCount    256
+#define MemPageLength     4096
 
 // CPU-Board hardware IO addresses
 #define IO_MemoryManagerUnit_Base           0x08FF

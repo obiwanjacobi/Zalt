@@ -38,21 +38,11 @@ void MemoryManager_Init()
         {
             MemoryManager_Page_SetAt(fixedPageIndex, pageId);
 
-            // fairly reliable error test
-            if (*testAddress == pageId - 1)
-            {
-                *testAddress = pageId; // write
-                _pages[pageId].Flags = -1;
-            }
+            *testAddress = pageId; // write
+            if (*testAddress == pageId) // read back
+                _pages[pageId].Flags = MakePageFlags(MemoryAccess_ReadWrite, MemoryUsage_None, MemoryStatus_Active);
             else
-            {
-                *testAddress = pageId; // write
-
-                if (*testAddress == pageId) // read back
-                    _pages[pageId].Flags = MakePageFlags(MemoryAccess_None, MemoryUsage_None, MemoryStatus_Active);
-                else
-                    _pages[pageId].Flags = 0;
-            }
+                _pages[pageId].Flags = MakePageFlags(MemoryAccess_ReadWrite, MemoryUsage_None, MemoryStatus_None);
         }
     }
 
@@ -74,7 +64,7 @@ MemoryBank *MemoryManager_Bank_Get(ptr_t memory, uint8_t capacity)
     MemoryManager_Bank_SetId(memBank->BankId);
 
     memBank->Pages[0] = 0; // bios
-    for (i = BiosCpuMemoryPageCount; i < MaxCpuMemoryPageCount; ++i)
+    for (i = BiosCpuMemoryPageIndexCount; i < MaxCpuMemoryPageIndexCount; ++i)
     {
         memBank->Pages[i] = MemoryManager_Page_At(i);
     }
@@ -93,13 +83,14 @@ MemoryBankId MemoryManager_Bank_Push(MemoryBank *bank)
     // we could optimize this and only set pages that actually changed
     // but for that we need to keep track of the originals...
     // ...and will the extra checking code be more expensive than the Page_SetAt calls?
-    for (int i = BiosCpuMemoryPageCount; i < MaxCpuMemoryPageCount; ++i)
+    for (int i = BiosCpuMemoryPageIndexCount; i < MaxCpuMemoryPageIndexCount; ++i)
     {
         // TODO: test for reserved/fixed pages
         MemoryManager_Page_SetAt(i, bank->Pages[i]);
     }
 
     MemoryManager_Bank_Select(bank->BankId);
+
     return bank->BankId;
 }
 

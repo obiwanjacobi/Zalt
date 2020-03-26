@@ -96,7 +96,6 @@ defc _MemoryManager_Page_IdFromAddress__fast = memorymanager_page_fromaddress
 defc _MemoryManager_Page_BasePtr__fast = memorymanager_page_basefromindex
 
 
-
 ; Creates a far ptr from a regular ptr (hl).
 ; pre-conditions:
 ;      call-ret

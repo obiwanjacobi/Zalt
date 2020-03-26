@@ -3,7 +3,7 @@ SET PATH=%PATH%;C:\z88dk\bin\
 
 if [%1]==[] goto clib
 
-call deploy_target.cmd
+REM call deploy_target.cmd
 call build_lib.cmd %1
 call build_tests.cmd %1
 

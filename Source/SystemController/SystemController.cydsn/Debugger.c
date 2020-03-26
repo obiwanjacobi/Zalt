@@ -200,7 +200,9 @@ void Debugger_ISR_OnHaltInterrupt()
         InterruptProcessor_Enable(false);
     
         DebuggerState = DebugState_Handshake;
+        RemoteDebuggerStatus = RemoteDebugStatus_None;
         DebuggerRegState = DebugRegister_None;
+       
     
         Debugger_ReleaseCpuHalt();
     }
@@ -303,7 +305,7 @@ void Debugger_PrintStatus()
         case RemoteDebugStatus_UnhandledInterrupt:
             SysTerminal_PutString("unhandled interrupt");
             break;
-        
+                    
         default:
         case RemoteDebugStatus_Sleep:
             break;
@@ -341,6 +343,14 @@ void Debugger_Print()
             }
             break;
         
+        case DebugState_Handshake:
+            if (_messageShown != DebugState_Handshake)
+            {
+                SysTerminal_PutString("- CPU HALT detected");
+                SysTerminal_PutString(NewLine);
+                _messageShown = DebugState_Handshake;
+            }
+            break;
         default:
             break;
     }

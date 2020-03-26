@@ -10,6 +10,9 @@ void main()
     Thread_Construct();
     MemoryManager_Init();
 
+    MemoryBankId bank = MemoryManager_Bank_Selected();
+    printf("Current Bank: %d\n", bank);
+
     uint8_t rowCount = 0;
     for (MemoryPageId pageId = 0; pageId < 255; pageId++)
     {
@@ -26,7 +29,7 @@ void main()
         case 0:
             printf("- ");
             break;
-        case -1:
+        case InvalidMemoryPageFlags:
             printf("E ");
             break;
         default:

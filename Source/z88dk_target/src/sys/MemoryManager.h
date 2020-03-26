@@ -13,19 +13,20 @@ typedef uint8_t MemoryBankId;
 
 extern const MemoryPageIndex InvalidPageIndex;
 
-#define MaxCpuMemoryPageCount 16
-#define BiosCpuMemoryPageCount 1
+#define MaxMemoryPageCount 256
+#define MaxCpuMemoryPageIndexCount 16
+#define BiosCpuMemoryPageIndexCount 1
 // bank page count is 16 minus reserved/fixed bios pages
-#define MemoryBankPageCount MaxCpuMemoryPageCount - BiosCpuMemoryPageCount
+#define MemoryBankPageIndexCount MaxCpuMemoryPageIndexCount - BiosCpuMemoryPageIndexCount
 
 typedef enum
 {
-    MemoryAccess_None = 0, // locked - no access
-    MemoryAccess_Read = 1,
-    MemoryAccess_Write = 2,
-    MemoryAccess_ReadWrite = 3,
-    MemoryAccess_Execute = 4,
-    MemoryAccess_ReadExecute = 5,
+    MemoryAccess_None, // locked - no access
+    MemoryAccess_Read,
+    MemoryAccess_Write,
+    MemoryAccess_ReadWrite,
+    MemoryAccess_Execute,
+    MemoryAccess_ReadExecute,
 
 } MemoryAccess;
 
@@ -55,6 +56,7 @@ typedef enum
 // Usage: Bit 3-5
 // Status: Bit 6-7
 typedef uint8_t MemoryPageFlags;
+#define InvalidMemoryPageFlags 0xFF
 
 #define MemoryPageFlags_Access(flags) (flags & 0x07)
 #define MemoryPageFlags_Usage(flags) ((flags >> 3) & 0x07)
@@ -72,7 +74,7 @@ typedef struct
     MemoryBankId BankId;
     // we alloc a spot for all pages, so you can use MemoryPageIndex to index the array
     // (only 1 or 2 bytes lost)
-    MemoryPageId Pages[MaxCpuMemoryPageCount];
+    MemoryPageId Pages[MaxCpuMemoryPageIndexCount];
 
 } MemoryBank;
 
@@ -89,7 +91,7 @@ MemoryBank *MemoryManager_Bank_Get(ptr_t memory, uint8_t capacity);
 /// A return value of 0 indicates an error.
 MemoryBankId MemoryManager_Bank_Push(MemoryBank *bank);
 
-/// deactivates the bankId (and all others the came after it!)
+/// deactivates the bankId (?and all others the came after it?)
 result_t MemoryManager_Bank_Pop(MemoryBankId bankId);
 
 // returns the page flags for the specified page id
@@ -127,11 +129,11 @@ extern MemoryPageIndex MemoryManager_Page_IndexFromAddress__fast(ptr_t address);
 extern MemoryPageId MemoryManager_Page_IdFromAddress__fast(ptr_t address);
 #define MemoryManager_Page_IdFromAddress(p) MemoryManager_Page_IdFromAddress__fast(p)
 
-// get pages of current selected bank
+// get pages of current selected bank by index
 extern MemoryPageId FastAPI(MemoryManager_Page_At__fast(MemoryPageIndex pageIndex));
 #define MemoryManager_Page_At(p) MemoryManager_Page_At__fast(p)
 
-// set pages of current selected bank
+// set pages of current selected bank by index
 #ifdef __SCCZ80
 extern void API(MemoryManager_Page_SetAt__callee(MemoryPageIndex pageIndex, MemoryPageId pageId));
 #define MemoryManager_Page_SetAt(p1, p2) MemoryManager_Page_SetAt__callee(p1, p2)
@@ -139,12 +141,12 @@ extern void API(MemoryManager_Page_SetAt__callee(MemoryPageIndex pageIndex, Memo
 extern void MemoryManager_Page_SetAt(MemoryPageIndex pageIndex, MemoryPageId pageId);
 #endif
 
-// operational bank
+// operational (active) bank
 extern MemoryBankId MemoryManager_Bank_Selected();
 extern void FastAPI(MemoryManager_Bank_Select__fast(MemoryBankId bankId));
 #define MemoryManager_Bank_Select(p) MemoryManager_Bank_Select__fast(p)
 
-// IO bank
+// bank configuration (IO)
 extern MemoryBankId MemoryManager_Bank_Id();
 extern void FastAPI(MemoryManager_Bank_SetId__fast(MemoryBankId bankId));
 #define MemoryManager_Bank_SetId(p) MemoryManager_Bank_SetId__fast(p)

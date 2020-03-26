@@ -11,6 +11,7 @@ static char g_Commands[][5] = {
     "mr",   // memory-read
     "md",   // memory-dump
     "mf",   // memory-fill
+    "mt",   // memory-test
     "cm",   // clock mode
     "cd",   // clock divider
     "cp",   // clock pulse

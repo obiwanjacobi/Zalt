@@ -30,17 +30,17 @@ uint16_t TerminalOff_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
 uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
 {
     // cpu
-    const char* suspended = NULL;
+    const char* cpuStat = "Running";
     if (CpuController_IsResetActive())
     {
-        suspended = SUSPENDED;
+        cpuStat = SUSPENDED;
     }
     if (CpuController_IsCpuHalted())
     {
-        suspended = "halted";
+        cpuStat = "Halted";
     }
     SerialTerminal_Write("CPU ");
-    SerialTerminal_WriteLine(suspended);
+    SerialTerminal_WriteLine(cpuStat);
     ClockMode_ReportValue();
     ClockDivider_ReportValue();
     
@@ -93,6 +93,10 @@ uint16_t CommandHandler_DispatchCommand(SerialTerminal* serialTerminal, Terminal
         case COMMAND_MEMORYFILL:
             bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
             MemoryFill_Execute(serialTerminal, command);
+            break;
+        case COMMAND_MEMORYTEST:
+            bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
+            MemoryTest_Execute(serialTerminal, command);
             break;
         case COMMAND_CLOCKMODE:
             bytesRead = ClockMode_Execute(serialTerminal, command);

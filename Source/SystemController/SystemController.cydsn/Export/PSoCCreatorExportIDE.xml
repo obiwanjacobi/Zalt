@@ -25,7 +25,7 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="SystemController" Path="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn" Version="5.80" Type="Normal">
+  <Project Name="SystemController" Path="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn" Version="5.90" Type="Normal">
     <CMSIS_SVD_File>SystemController.svd</CMSIS_SVD_File>
     <Datasheet>SystemController_datasheet.pdf</Datasheet>
     <LinkerFiles>

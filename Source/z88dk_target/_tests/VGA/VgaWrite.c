@@ -25,6 +25,7 @@ MemoryBankId SwitchToVideoBankAt(MemoryPageIndex pageIndex)
     return MemoryManager_Bank_Push(bank);
 }
 
+// MemoryManager_Page_BasePtr
 #define VideoAddress_start 0xA000
 #define VideoAddress_end 0xB000
 #define VideoWidth 512

@@ -62,11 +62,36 @@ If `length` is not specified a short timeout is activated to cancel the write-mo
 
 ### Memory Fill
 
-`mf <address> <length> <char>`
+`mf [address] [length] [char]`
 
 * `address` start address (in hex notation)
 * `length` optional length in bytes (in hex notation)
 * `char` the character data to write in each memory location.
+
+If `char` is not specified 0x00 is used.
+If `length` is not specified all memory from the start `address` till 0xFFFF is filled.
+If `address` is not specified the test starts at address 0x0000.
+So issuing just the `mf` command will fill the entire 64k memory address space with 0x00.
+
+### Memory Test
+
+`mt [address] [length]`
+
+* `address` start address (in hex notation - optional)
+* `length` optional length in bytes (in hex notation - optional)
+
+If `length` is not specified all memory from the start `address` till 0xFFFF is tested.
+If `address` is not specified the test starts at address 0x0000.
+So issuing just the `mt` command will test the entire 64k memory address space.
+
+Writes 4 data values to every memory address location and checks each byte stored in memory after each write.
+
+* 0xAA - 0b10101010
+* 0x55 - 0b01010101
+* 0xFF - 0b11111111
+* 0x00 - 0b00000000
+
+If a different value was read back from memory than the test had written, the test stops and prints the failing memory address.
 
 ## `CPU Commands`
 
@@ -130,18 +155,21 @@ These commands manipulate the Memory Management Unit (MMU) directly.
 `mm sel [n]`<br/>
 `mm get [n] [i]`<br/>
 `mm put <n> <i> [v]`<br/>
-`mm nul [n]`
+`mm nul [n]`<br/>
+`mm tst [p]`
 
 * `sel` select/activates a memory map table.
 * `get` get the value (v) from the specified table and index.
 * `put` sets the value into the specified table and index.
 * `nul` resets/inits table to use value 0.
+* `tst` performs a (destructive) Memory Test (`mt`) on the 4k page.
 
 <br/>
 
 * `n` the memory map table to select (0-255). Default is 0.
 * `i` the map index in that table (0-16).
 * `v` the value that drives MA12-MA19 (0-255). Default is 0.
+* `p` the page id (0-255).
 
 ### Bank Switch
 

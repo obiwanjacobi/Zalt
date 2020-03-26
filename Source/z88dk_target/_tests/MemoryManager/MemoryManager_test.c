@@ -7,9 +7,12 @@
 void main()
 {
     Thread_Construct();
+    // make sure the current bank is set for config
+    MemoryManager_Bank_SetId(0);
 
     uint8_t buffer[MemoryBank_size];
     MemoryBank *bank = MemoryManager_Bank_Get(buffer, MemoryBank_size);
+
     if (bank != NULL)
     {
         result_t r;
@@ -17,9 +20,10 @@ void main()
         MemoryBankId bankId = MemoryManager_Bank_Selected();
 
         printf("Bank: %d, Page at %d = %d\n", bankId, index, bank->Pages[index]);
-
+        
         bank->Pages[index] = 20;
         bankId = MemoryManager_Bank_Push(bank);
+
         if (bankId == 0)
         {
             r = Error_Get();
@@ -38,6 +42,6 @@ void main()
 
         bankId = MemoryManager_Bank_Selected();
         bank = MemoryManager_Bank_Get(buffer, MemoryBank_size);
-        printf("old Bank: %d, Page at %d = %d\n", bankId, index, bank->Pages[index]);
+        printf("Old Bank: %d, Page at %d = %d\n", bankId, index, bank->Pages[index]);
     }
 }

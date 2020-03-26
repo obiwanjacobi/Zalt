@@ -71,9 +71,9 @@ uint8_t MemoryWrite_WriteByte(void* ctx, uint8_t data)
 
 uint16_t MemoryRead_CopyToTerminal(uint16_t address, uint16_t length, const char* format)
 {
-    const uint8_t BufferSize = 0xFF;
+    const uint16_t BufferSize = 0x100;
     uint8_t buffer[BufferSize];
-    uint8_t l;
+    uint16_t l;
     uint16_t bytesRead = 0;
     Memory mem;
     mem.Buffer = buffer;
@@ -92,7 +92,7 @@ uint16_t MemoryRead_CopyToTerminal(uint16_t address, uint16_t length, const char
         }
         else
         {
-            SerialTerminal_WriteArrayFormat(format, mem.Buffer, mem.Length);
+            SerialTerminal_WriteArrayFormat(format, mem.Buffer, mem.Length, mem.Address);
         }
         
         length -= l;
@@ -126,14 +126,14 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
     {
         SerialTerminal_Write("Send bin file of ");
         SerialTerminal_WriteUint16(mem.Length, 16);
-        SerialTerminal_WriteLine("h bytes");
+        SerialTerminal_WriteLine("h bytes...");
     }    
     
     BusState busState;
     BusController_Open(&busState);
     
     uint16_t bytesRead = 0;
-    BusController_EnableDataBusOutput(1);
+    BusController_EnableDataBusOutput(true);
     
     // block until all bytes have been read
     while(mem.Length > 0 || mem.SpinCountTimeout > 0)
@@ -147,17 +147,17 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
         }
     }
     
-    BusController_EnableDataBusOutput(0);
+    BusController_EnableDataBusOutput(false);
     BusController_Close(&busState);
     
-    SerialTerminal_Write("Received and written ");
+    SerialTerminal_Write("Received ");
     SerialTerminal_WriteUint16(bytesRead, 16);
-    SerialTerminal_WriteLine("h bytes");
+    SerialTerminal_Write("h bytes written to address ");
+    SerialTerminal_WriteUint16(command->Address, 16);
+    SerialTerminal_WriteLine("h");
     
     return 0;
 }
-
-
 
 //
 // Memory Read
@@ -205,9 +205,6 @@ uint16_t MemoryDump_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
         command->Length = 0x100;
     }
     
-    SerialTerminal_WriteFormat("Address: %04Xh", command->Address);
-    SerialTerminal_WriteLine(NULL);
-    
     BusState busState;
     BusController_Open(&busState);
     
@@ -215,9 +212,7 @@ uint16_t MemoryDump_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     
     BusController_Close(&busState);
     
-    SerialTerminal_WriteLine(NULL);
     SerialTerminal_WriteLine(OK);
-    
     return 0;
 }
 
@@ -243,14 +238,14 @@ uint16_t MemoryFill_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     
     BusState busState;
     BusController_Open(&busState);
-    BusController_EnableDataBusOutput(1);
+    BusController_EnableDataBusOutput(true);
     
     while(mem.Length > 0)
     {
         MemoryController_WriteByte(&mem, command->Param3);
     }
     
-    BusController_EnableDataBusOutput(0);
+    BusController_EnableDataBusOutput(false);
     BusController_Close(&busState);
     
     SerialTerminal_WriteLine(OK);
@@ -258,4 +253,47 @@ uint16_t MemoryFill_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     return bytesRead;
 }
 
+//
+// Memory Test
+//
+// => 'mt' <Address> <Length>
+uint16_t MemoryTest_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
+{
+    TestMemory mem;
+    mem.Address = command->Address;
+    mem.Length = command->Length == 0 ? 0xFFFF - command->Address : command->Length;
+    TestMemoryResult result;
+    
+    SerialTerminal_Write("Testing ");
+    SerialTerminal_WriteUint16(mem.Length, 16);
+    SerialTerminal_Write("h bytes from address ");
+    SerialTerminal_WriteUint16(command->Address, 16);
+    SerialTerminal_WriteLine("h");
+        
+    BusState busState;
+    BusController_Open(&busState);
+    BusController_EnableDataBusOutput(true);
+        
+    MemoryController_TestMemory(&mem, &result);
+    
+    BusController_EnableDataBusOutput(false);
+    BusController_Close(&busState);
+    
+    if (mem.Length > 0)
+    {
+        SerialTerminal_Write("Memory Test failed for ");
+        SerialTerminal_WriteUint16(result.Expected, 16);
+        SerialTerminal_Write("h with ");
+        SerialTerminal_WriteUint16(result.Actual, 16);
+        SerialTerminal_Write("h at address ");
+        SerialTerminal_WriteUint16(mem.Address, 16);
+        SerialTerminal_WriteLine("h");
+    }
+    else
+    {
+        SerialTerminal_WriteLine(OK);
+    }
+    
+    return 0;
+}
 /* [] END OF FILE */
