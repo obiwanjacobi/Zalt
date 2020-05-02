@@ -229,7 +229,7 @@ uint16_t MemoryManager_Execute(SerialTerminal* serialTerminal, TerminalCommand* 
     
     if (command->Mode == 0)
     {
-        SerialTerminal_WriteLine("Use: sel, put, get or nul");
+        SerialTerminal_WriteLine("Use: sel, put, get, tst or nul");
         return totalRead;
     }
     if (table == -1)

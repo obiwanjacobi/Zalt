@@ -5,6 +5,7 @@
 #include "CpuCommands.h"
 #include "CpuController.h"
 #include "DebugCommands.h"
+#include "VgaCommands.h"
 #include "CommandParser.h"
 
 #include <stdlib.h>
@@ -41,9 +42,9 @@ uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command
     }
     SerialTerminal_Write("CPU ");
     SerialTerminal_WriteLine(cpuStat);
+    
     ClockMode_ReportValue();
     ClockDivider_ReportValue();
-    
     SerialTerminal_WriteLine(NULL);
     
     // memory
@@ -124,6 +125,9 @@ uint16_t CommandHandler_DispatchCommand(SerialTerminal* serialTerminal, Terminal
             break;
         case COMMAND_STATUS:
             bytesRead = Status_Execute(serialTerminal, command);
+            break;
+        case COMMAND_VGA:
+            bytesRead = Vga_Execute(serialTerminal, command);
             break;
     }
     

@@ -343,14 +343,14 @@ void Debugger_Print()
             }
             break;
         
-        case DebugState_Handshake:
-            if (_messageShown != DebugState_Handshake)
-            {
-                SysTerminal_PutString("- CPU HALT detected");
-                SysTerminal_PutString(NewLine);
-                _messageShown = DebugState_Handshake;
-            }
-            break;
+//        case DebugState_Handshake:
+//            if (_messageShown != DebugState_Handshake)
+//            {
+//                SysTerminal_PutString("- CPU HALT detected");
+//                SysTerminal_PutString(NewLine);
+//                _messageShown = DebugState_Handshake;
+//            }
+//            break;
         default:
             break;
     }

@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 const char* OK = "OK";
-const char* SUSPENDED = "Suspended";
+const char* SUSPENDED = "CPU Suspended";
 const char* INCOMPLETE = "Command is Incomplete";
 
 
@@ -21,6 +21,7 @@ static char g_Commands[][5] = {
     "bs",   // bank switch
     "dbg",  // debug
     "stat", // status
+    "vga",  // vga
     ""      // end of table
 };
 

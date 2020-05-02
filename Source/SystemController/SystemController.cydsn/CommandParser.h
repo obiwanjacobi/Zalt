@@ -24,6 +24,7 @@ const char* INCOMPLETE;
 #define COMMAND_BANKSWITCH     12
 #define COMMAND_DEBUG          13
 #define COMMAND_STATUS         14
+#define COMMAND_VGA            15
     
 typedef struct
 {

@@ -16,37 +16,27 @@ void WriteControlReg(uint8_t value)
     __asm__("ld hl, 0");                // no return value
 }
 
-MemoryBankId SwitchToVideoBankAt(MemoryPageIndex pageIndex)
+void SwitchToVideoBankAt(MemoryPageIndex pageIndex)
 {
-    uint8_t buffer[MemoryBank_size];
-    MemoryBank *bank = MemoryManager_Bank_Get(buffer, MemoryBank_size);
-    
-    bank->Pages[pageIndex] = 0x3F;
-    return MemoryManager_Bank_Push(bank);
+    MemoryBankId bank = MemoryManager_Bank_Selected();
+    MemoryManager_Bank_SetId(bank);
+    MemoryManager_Page_SetAt(pageIndex, 0x3F);
 }
 
 // MemoryManager_Page_BasePtr
-#define VideoAddress_start 0xA000
-#define VideoAddress_end 0xB000
+#define VideoAddress_start ((uint8_t*)0xA000)
+#define VideoAddress_end ((uint8_t*)0xB000)
 #define VideoWidth 512
-
-uint8_t* videoAddress;
-
-void WriteVideoPage(uint8_t data)
-{
-    *videoAddress = data;
-    videoAddress++;
-    
-    if (videoAddress >= VideoAddress_end)
-        videoAddress = VideoAddress_start;
-}
 
 void FillVideoPage(uint8_t data)
 {
     uint16_t i;
+    uint8_t* videoAddress = VideoAddress_start;
+    
     for (i = 0; i < 0xFFF; i++)
     {
-        WriteVideoPage(data);
+        *videoAddress = data;
+        videoAddress++;
     }
 }
 
@@ -55,10 +45,9 @@ void main(void)
     uint8_t d = 0;
 
     Thread_Construct();
-    videoAddress = VideoAddress_start;
     SwitchToVideoBankAt(10);
     
-    WriteControlReg(0x00);
+    WriteControlReg(0b00101010);
     
     while(true)
     {

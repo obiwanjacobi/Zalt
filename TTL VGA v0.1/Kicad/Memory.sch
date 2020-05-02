@@ -683,7 +683,7 @@ Entry Wire Line
 	5100 5050 5200 4950
 Entry Wire Line
 	5100 5150 5200 5050
-Text HLabel 3000 3450 0    50   Input ~ 0
+Text HLabel 1250 3050 0    50   Input ~ 0
 ~AddressEnable
 Wire Wire Line
 	1150 9300 1450 9300
@@ -1024,7 +1024,6 @@ F 3 "" H 3800 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 2600 7000
-NoConn ~ 2600 7100
 $Comp
 L 74xx:74LS245 U14
 U 1 1 5E852F98
@@ -1418,10 +1417,6 @@ Wire Bus Line
 Wire Bus Line
 	1750 4550 1100 4550
 Wire Wire Line
-	1600 3850 1600 4250
-Wire Wire Line
-	1600 4250 1750 4250
-Wire Wire Line
 	4600 2550 5100 2550
 $Comp
 L 22V10:G22V10 U6
@@ -1474,15 +1469,6 @@ Wire Bus Line
 Connection ~ 7100 1100
 Wire Bus Line
 	7100 1100 9550 1100
-Wire Wire Line
-	3000 3450 3200 3450
-Wire Wire Line
-	3200 3450 3200 3850
-Connection ~ 3200 3450
-Wire Wire Line
-	3200 3450 3550 3450
-Wire Wire Line
-	3200 3850 1600 3850
 Wire Wire Line
 	4450 1450 4150 1450
 NoConn ~ 6500 2550
@@ -1617,6 +1603,66 @@ Wire Wire Line
 	5350 8000 7100 8000
 NoConn ~ 4850 7000
 NoConn ~ 4850 7100
+Text Notes 550  1450 0    50   ~ 0
+We could have registers here that load in a start address for \neach frame. That way a scrolling function can be supported \nin hardware. The software would load a value of the address \nof the start of the next frame based on the direction of scrolling. \nLeft or right would simply increment or decrement the start \naddress. Scrolling up and down would be addding/subtracting \na complete horizontal line worth of bytes.
+Text Notes 750  2650 0    50   ~ 0
+This jumper is to disable the VGA VRAM access (removed).\nThis allows the SystemController to easily perform tests \nand access VRAM without synchronization.\n
+Wire Wire Line
+	1600 3050 1250 3050
+$Comp
+L Device:Jumper JP?
+U 1 1 5EBC403C
+P 1900 3050
+F 0 "JP?" H 1900 3314 50  0000 C CNN
+F 1 "Jumper" H 1900 3223 50  0000 C CNN
+F 2 "" H 1900 3050 50  0001 C CNN
+F 3 "~" H 1900 3050 50  0001 C CNN
+	1    1900 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2200 3050 2450 3050
+Wire Wire Line
+	2450 3050 2450 3450
+Wire Wire Line
+	2450 3450 2950 3450
+Wire Wire Line
+	1500 4250 1500 3450
+Wire Wire Line
+	1500 3450 2450 3450
+Wire Wire Line
+	1500 4250 1750 4250
+Connection ~ 2450 3450
+$Comp
+L Device:R R?
+U 1 1 5EC03DFE
+P 2950 3150
+F 0 "R?" H 3020 3196 50  0000 L CNN
+F 1 "10k" H 3020 3105 50  0000 L CNN
+F 2 "" V 2880 3150 50  0001 C CNN
+F 3 "~" H 2950 3150 50  0001 C CNN
+	1    2950 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2950 3300 2950 3450
+Connection ~ 2950 3450
+Wire Wire Line
+	2950 3450 3550 3450
+Wire Wire Line
+	2950 3000 2950 2900
+$Comp
+L power:+5V #PWR?
+U 1 1 5EC43E14
+P 2950 2900
+F 0 "#PWR?" H 2950 2750 50  0001 C CNN
+F 1 "+5V" H 2965 3073 50  0000 C CNN
+F 2 "" H 2950 2900 50  0001 C CNN
+F 3 "" H 2950 2900 50  0001 C CNN
+	1    2950 2900
+	1    0    0    -1  
+$EndComp
+NoConn ~ 2600 7100
 Wire Bus Line
 	2950 6500 2950 8100
 Wire Bus Line

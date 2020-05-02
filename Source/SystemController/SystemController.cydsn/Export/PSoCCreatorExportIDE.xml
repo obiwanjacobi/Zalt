@@ -75,6 +75,8 @@
           <File BuildType="BUILD" Toolchain="">MemoryManagerCommands.h</File>
           <File BuildType="BUILD" Toolchain="">DebugCommands.h</File>
           <File BuildType="BUILD" Toolchain="">DebugCommands.c</File>
+          <File BuildType="BUILD" Toolchain="">VgaCommands.c</File>
+          <File BuildType="BUILD" Toolchain="">VgaCommands.h</File>
           <File BuildType="BUILD" Toolchain="">SystemController.h</File>
           <File BuildType="BUILD" Toolchain="">KeyBoard.h</File>
           <File BuildType="BUILD" Toolchain="">KeyBoard.c</File>
