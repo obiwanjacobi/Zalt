@@ -28,9 +28,8 @@ void IOController_Output(uint16_t address, uint8_t data)
     LsbA_Write(address & 0x00FF);
     MsbA_Write((address & 0xFF00) >> 8);
     
-    D_Write(data);
-    
     ActivateNotPin(ExtBus_IoReq);
+    D_Write(data);
     ActivateNotPin(ExtBus_Wr);
     
     SpinWaitIO();

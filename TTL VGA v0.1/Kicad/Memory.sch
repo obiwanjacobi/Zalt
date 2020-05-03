@@ -1683,4 +1683,6 @@ Wire Bus Line
 	5200 1100 5200 8100
 Wire Bus Line
 	7100 1100 7100 4600
+Text Notes 7250 1800 0    50   ~ 0
+A16 and A17 are swapped on the 74LS139.\n(but it is wired like this on the perf board)\nThis will fail when using more VRAM chips.\nFix by swapping outputs in U7 (WinCUPL).
 $EndSCHEMATC

@@ -74,9 +74,9 @@ void MemoryController_WriteAddress(uint16_t address, uint8_t data)
     MsbA_Write((address & 0xFF00) >> 8);
     
     ActivateNotPin(ExtBus_MemReq);
-    ActivateNotPin(ExtBus_Wr);
-        
     D_Write(data);
+    ActivateNotPin(ExtBus_Wr);
+
     SpinWait();
     
     DeactivateNotPin(ExtBus_Wr);

@@ -198,77 +198,6 @@ Text Label 3300 2350 0    50   ~ 0
 MA19
 Text Label 3300 2650 0    50   ~ 0
 ~MEMRQ
-$Comp
-L Device:Jumper_NO_Small JP1
-U 1 1 5E73F012
-P 4850 2350
-F 0 "JP1" H 4850 2535 50  0000 C CNN
-F 1 "Jumper_NO_Small" H 4850 2444 50  0000 C CNN
-F 2 "" H 4850 2350 50  0001 C CNN
-F 3 "~" H 4850 2350 50  0001 C CNN
-	1    4850 2350
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper_NO_Small JP2
-U 1 1 5E73FE6D
-P 4850 2450
-F 0 "JP2" H 4850 2635 50  0000 C CNN
-F 1 "Jumper_NO_Small" H 4850 2544 50  0000 C CNN
-F 2 "" H 4850 2450 50  0001 C CNN
-F 3 "~" H 4850 2450 50  0001 C CNN
-	1    4850 2450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper_NO_Small JP3
-U 1 1 5E7405F6
-P 4850 2550
-F 0 "JP3" H 4850 2735 50  0000 C CNN
-F 1 "Jumper_NO_Small" H 4850 2644 50  0000 C CNN
-F 2 "" H 4850 2550 50  0001 C CNN
-F 3 "~" H 4850 2550 50  0001 C CNN
-	1    4850 2550
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper_NO_Small JP4
-U 1 1 5E740C9C
-P 4850 2650
-F 0 "JP4" H 4850 2835 50  0000 C CNN
-F 1 "Jumper_NO_Small" H 4850 2744 50  0000 C CNN
-F 2 "" H 4850 2650 50  0001 C CNN
-F 3 "~" H 4850 2650 50  0001 C CNN
-	1    4850 2650
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4650 2350 4750 2350
-Wire Wire Line
-	4650 2450 4750 2450
-Wire Wire Line
-	4650 2550 4750 2550
-Wire Wire Line
-	4650 2650 4750 2650
-Wire Wire Line
-	4950 2650 5000 2650
-Wire Wire Line
-	5000 2650 5000 2550
-Wire Wire Line
-	5000 2350 4950 2350
-Wire Wire Line
-	4950 2450 5000 2450
-Connection ~ 5000 2450
-Wire Wire Line
-	5000 2450 5000 2350
-Wire Wire Line
-	4950 2550 5000 2550
-Connection ~ 5000 2550
-Wire Wire Line
-	5000 2550 5000 2450
-Wire Wire Line
-	5000 2350 5850 2350
-Connection ~ 5000 2350
 Wire Wire Line
 	7300 2700 7250 2700
 Wire Wire Line
@@ -316,7 +245,7 @@ F 1 "74LS32" H 6150 5234 50  0000 C CNN
 F 2 "" H 6150 5000 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6150 5000 50  0001 C CNN
 	4    6150 5000
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L 74xx:74LS32 U18
@@ -327,7 +256,7 @@ F 1 "74LS32" H 6950 4684 50  0000 C CNN
 F 2 "" H 6950 4450 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS32" H 6950 4450 50  0001 C CNN
 	3    6950 4450
-	1    0    0    -1  
+	1    0    0    1   
 $EndComp
 $Comp
 L 74xx:74LS32 U18
@@ -589,7 +518,7 @@ Wire Wire Line
 	1550 3100 1850 3100
 Text Label 1600 3100 0    50   ~ 0
 BusCLK
-Text Label 9900 1750 0    50   ~ 0
+Text Label 10250 1750 0    50   ~ 0
 ~WAIT
 Text Notes 5700 650  0    50   ~ 0
 TODO: Temporary solution is to stall the CPU when it wants to write to VRAM while the GA is using it...
@@ -673,8 +602,6 @@ Wire Wire Line
 Wire Wire Line
 	9050 1200 9100 1200
 Wire Wire Line
-	9750 1750 10150 1750
-Wire Wire Line
 	7250 850  8300 850 
 Wire Wire Line
 	9100 1200 9100 1650
@@ -701,6 +628,12 @@ Wire Wire Line
 Connection ~ 8250 4550
 Wire Wire Line
 	8950 4550 9300 4550
+Wire Wire Line
+	4650 2350 5850 2350
+Text Notes 9400 2000 0    50   ~ 0
+I dont think this is correct
+Wire Wire Line
+	10450 1750 10150 1750
 Wire Bus Line
 	1450 2400 1450 3000
 Wire Bus Line
