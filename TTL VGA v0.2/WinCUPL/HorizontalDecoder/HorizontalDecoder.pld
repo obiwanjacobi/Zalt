@@ -1,0 +1,116 @@
+Name     HorizontalDecoder;
+PartNo   Zalt-TtlVga-01;
+Date     20-02-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt Ttl Vga Board;
+Location Z80 Computer / Ttl Vga;
+Device   G22V10;
+/*Format   j;*/
+
+/* 
+ *  The Horizontal Decoder contains the decoding of the horizontal counter 
+ *  -based on the pixel clock- that identifies important stages in writing 
+ *  a (horizontal) line. 
+ *  The display area is identified and due to our design the left- and right 
+ *  border as well as the front-porch, sync pulse and back-porch.
+ *
+ *  Signals that are active for more than one (pixel) clock pulse are setup
+ *  using an S-R latch (bottom of this file).
+ *
+ *  Timings are based of the VGA 640x480 @60Hz VGA standard.
+ */
+
+/** input pins **/
+
+PIN 1   = CLK;
+PIN 2   = H0;
+PIN 3   = H1;
+PIN 4   = H2;
+PIN 5   = H3;
+PIN 6   = H4;
+PIN 7   = H5;
+PIN 8   = H6;
+PIN 9   = H7;
+PIN 10  = H8;
+PIN 11  = H9;
+/* PIN 13  = !OE; */
+
+
+/** output pins **/
+
+PIN 23  = Lstrobe;
+PIN 22  = HborderL;
+PIN 21  = Hclr;
+PIN 20  = Astrobe;
+PIN 19  = !Hsync;   /* HSync pulse is negative/active low */
+PIN 18  = Hblank;
+PIN 17  = HborderR;
+/*
+PIN 16 = ;
+PIN 15 = ;
+PIN 14 = ;
+*/
+
+/** counter starts at 0 with left of 640 display area **/
+LeftBorder = !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & !H7 & !H8 & !H9;
+
+/** Our display window starts at 64 **/
+Window = !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & !H9;
+
+/** The right border at 64+512 ends the visible area of the line **/
+RightBorder = !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & H6 & !H7 & !H8 & H9;
+
+/** The front-porch at 640 marks the start of the blanking **/
+FrontPorch = !H0 & !H1 & !H2 & !H3 & !H4 & !H5 & !H6 & H7 & !H8 & H9;
+
+/** The Horizontal Sync Pulse starts at 640+16 and ends when the back-porch starts **/
+Sync = !H0 & !H1 & !H2 & !H3 & H4 & !H5 & !H6 & H7 & !H8 & H9;
+
+/** The final stretch of the blanking -back-porch- starts at 640+16+96 **/
+BackPorch = !H0 & !H1 & !H2 & !H3 & H4 & H5 & H6 & H7 & !H8 & H9;
+
+/** counted till the end of the line (800) **/
+EndOfLine = !H0 & !H1 & !H2 & !H3 & !H4 & H5 & !H6 & !H7 & H8 & H9;
+
+/** End of horizontal line means next line for vertical counter **/
+Lstrobe = Hclr;
+
+/** video memory address counter strobe on Pixel clock (CLK) when not in border or blank **/
+Astrobe = CLK & HblankNot & HborderNotL & HborderNotR;
+
+/** Horizontal Clear **/
+HclrSet = EndOfLine;
+HclrRes = LeftBorder;
+
+HclrNot = !(Hclr # HclrSet);
+Hclr = !(HclrNot # HclrRes);
+
+/** Horizontal Sync Pulse **/
+HsyncSet = Sync;
+HsyncRes = BackPorch;
+
+HsyncNot = !(Hsync # HsyncSet);
+Hsync = !(HsyncNot # HsyncRes);
+
+/** Horizontal Blank Pulse **/
+HblankSet = FrontPorch;
+HblankRes = EndOfLine;
+
+HblankNot = !(Hblank # HblankSet);
+Hblank = !(HblankNot # HblankRes);
+
+/** Horizontal Border Pulse **/
+HborderSetL = LeftBorder;
+HborderResL = Window;
+
+HborderNotL = !(HborderL # HborderSetL);
+HborderL = !(HborderNotL # HborderResL);
+
+HborderSetR = RightBorder;
+HborderResR = FrontPorch;
+
+HborderNotR = !(HborderR # HborderSetR);
+HborderR = !(HborderNotR # HborderResR);
+

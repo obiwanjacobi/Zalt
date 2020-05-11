@@ -57,7 +57,7 @@ void MemoryManager_OnInterrupt()
     if (CpuController_IsResetActive() || BusController_IsAcquiring()) return;
     
     _currentTable = RegInD_Read();
-    SerialTerminal_WriteFormat("T:%d\n", _currentTable);
+    SerialTerminal_WriteFormat("T:%d\r\n", _currentTable);
 }
 
 void MemMgr_InitTableNul(uint8_t tableIndex)

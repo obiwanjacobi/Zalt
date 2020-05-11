@@ -2,8 +2,6 @@
 #include "Thread.h"
 #include "Debug.h"
 #include <stdint.h>
-#include <stdio.h>
-
 
 // $E0 controll register IO address
 // $3F000 - $3FFFF  video memory page
@@ -45,17 +43,24 @@ void FillVideoPage(uint8_t data)
 
 void main(void)
 {
+    int i;
     Thread_Construct();
     SwitchToVideoBankAt(0x0A);
-    
-    WriteControlReg(0);
 
-    uint8_t* videoAddress = VideoAddress_start;
-    *videoAddress = 0;
-    
-    //FillVideoPage(0);
-    printf("Done");
+    uint8_t data = 0;
 
+    for (i = 0; i < 16; i++)
+    {
+        WriteControlReg(i);
+        FillVideoPage(data++);
+        dLog(".");
+    }
+    // uint8_t* videoAddress = VideoAddress_start;
+    // *videoAddress = 0;
+
+    
+    dLog("Done");
+    
     // while(true)
     // { }
 

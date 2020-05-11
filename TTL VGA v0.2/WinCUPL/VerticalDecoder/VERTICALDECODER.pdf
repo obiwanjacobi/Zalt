@@ -1,0 +1,189 @@
+{COMPONENT \\DISKSTATION\HOME\TEMP\TTLVGA\VERTICALDECODER\VERTICALDECODER.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Sun Feb 23 14:19:36 2020 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P V0 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P V1 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P V2 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P V3 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P V4 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P V5 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P V6 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P V7 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P V8 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P V9 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P VBORDERB {Pt "I/O"}{Lq 0}{Ploc 300 20}}
+   {P VBLANK {Pt "I/O"}{Lq 0}{Ploc 300 40}}
+   {P VSYNC' {Pt "I/O"}{Lq 0}{Ploc 300 60}}
+   {P VBORDERT {Pt "I/O"}{Lq 0}{Ploc 300 80}}
+   {P VCLR {Pt "I/O"}{Lq 0}{Ploc 300 100}}
+   {P AENABLE' {Pt "I/O"}{Lq 0}{Ploc 300 120}}
+   {P ACLR {Pt "I/O"}{Lq 0}{Ploc 300 140}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 200 230}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 280 30}
+   {Pnl 280 50}
+   {Pnl 280 70}
+   {Pnl 280 90}
+   {Pnl 280 110}
+   {Pnl 280 130}
+   {Pnl 280 150}
+
+   {Sd A 2 3 4 5 6 7 8 9 10 11 17 18 19 20 21 22 23}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 220 270 0}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 270 20 300 20}
+   {L 270 40 300 40}
+   {C 275 60 5}
+   {L 280 60 300 60}
+   {L 270 80 300 80}
+   {L 270 100 300 100}
+   {C 275 120 5}
+   {L 280 120 300 120}
+   {L 270 140 300 140}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "V0" 140 200}
+   {T "V1" 140 180}
+   {T "V2" 140 160}
+   {T "V3" 140 140}
+   {T "V4" 140 120}
+   {T "V5" 140 100}
+   {T "V6" 140 80}
+   {T "V7" 140 60}
+   {T "V8" 140 40}
+   {T "V9" 140 20}
+   [Tj "RC"]
+   {T "VBORDERB" 260 20}
+   {T "VBLANK" 260 40}
+   {T "VSYNC'" 260 60}
+   {T "VBORDERT" 260 80}
+   {T "VCLR" 260 100}
+   {T "AENABLE'" 260 120}
+   {T "ACLR" 260 140}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "G22V10" 200 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD \\DISKSTATION\HOME\TEMP\TTLVGA\VERTICALDECODER\VERTICALDECODER 200 220}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N V0
+   }
+   {N V1
+   }
+   {N V2
+   }
+   {N V3
+   }
+   {N V4
+   }
+   {N V5
+   }
+   {N V6
+   }
+   {N V7
+   }
+   {N V8
+   }
+   {N V9
+   }
+   {N VBORDERB
+   }
+   {N VBLANK
+   }
+   {N VSYNC'
+   }
+   {N VBORDERT
+   }
+   {N VCLR
+   }
+   {N AENABLE'
+   }
+   {N ACLR
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

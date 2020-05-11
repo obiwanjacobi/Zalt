@@ -1,0 +1,141 @@
+Name     Binary Counter with Asynchronous Clear and Output Enable;
+PartNo   Zalt-TtlVga-01;
+Date     20-02-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt Ttl Vga Board;
+Location Z80 Computer / Ttl Vga;
+Device   G22V10;
+/*Format   j;*/
+
+/* 
+ *
+ */
+
+/** input pins **/
+
+PIN 1   = CLK;
+PIN 2	= CLR;
+PIN 13  = !OE;
+
+/*
+PIN 3   = ;
+PIN 4   = ;
+PIN 5   = ;
+PIN 6   = ;
+PIN 7   = ;
+PIN 8   = ;
+PIN 9   = ;
+PIN 10  = ;
+PIN 11  = ;
+*/
+
+/** output pins **/
+
+PIN 23 = Q2;
+PIN 22 = Q3;
+PIN 21 = Q4;
+PIN 20 = Q9;    /* number of product terms... */
+PIN 19 = Q5;
+PIN 18 = Q6;
+PIN 17 = Q7;
+PIN 16 = Q8;
+PIN 15 = Q0;
+PIN 14 = Q1;
+
+Append Q0.d = !Q0;
+Q0.oe = OE;
+Q0.ar = CLR;
+Q0.sp = 'b'0;
+
+Append Q1.d = !Q0 & Q1;
+Append Q1.d = Q0 & !Q1;
+Q1.oe = OE;
+Q1.ar = CLR;
+Q1.sp = 'b'0;
+
+Append Q2.d = !Q0 & Q2;
+Append Q2.d = !Q1 & Q2;
+Append Q2.d = Q0 & Q1 & !Q2;
+Q2.oe = OE;
+Q2.ar = CLR;
+Q2.sp = 'b'0;
+
+Append Q3.d = !Q0 & Q3;
+Append Q3.d = !Q1 & Q3;
+Append Q3.d = !Q2 & Q3;
+Append Q3.d = Q0 & Q1 & Q2 & !Q3;
+Q3.oe = OE;
+Q3.ar = CLR;
+Q3.sp = 'b'0;
+
+Append Q4.d = !Q0 & Q4;
+Append Q4.d = !Q1 & Q4;
+Append Q4.d = !Q2 & Q4;
+Append Q4.d = !Q3 & Q4;
+Append Q4.d = Q0 & Q1 & Q2 & Q3 & !Q4;
+Q4.oe = OE;
+Q4.ar = CLR;
+Q4.sp = 'b'0;
+
+Append Q5.d = !Q0 & Q5;
+Append Q5.d = !Q1 & Q5;
+Append Q5.d = !Q2 & Q5;
+Append Q5.d = !Q3 & Q5;
+Append Q5.d = !Q4 & Q5;
+Append Q5.d = Q0 & Q1 & Q2 & Q3 & Q4 & !Q5;
+Q5.oe = OE;
+Q5.ar = CLR;
+Q5.sp = 'b'0;
+
+Append Q6.d = !Q0 & Q6;
+Append Q6.d = !Q1 & Q6;
+Append Q6.d = !Q2 & Q6;
+Append Q6.d = !Q3 & Q6;
+Append Q6.d = !Q4 & Q6;
+Append Q6.d = !Q5 & Q6;
+Append Q6.d = Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & !Q6;
+Q6.oe = OE;
+Q6.ar = CLR;
+Q6.sp = 'b'0;
+
+Append Q7.d = !Q0 & Q7;
+Append Q7.d = !Q1 & Q7;
+Append Q7.d = !Q2 & Q7;
+Append Q7.d = !Q3 & Q7;
+Append Q7.d = !Q4 & Q7;
+Append Q7.d = !Q5 & Q7;
+Append Q7.d = !Q6 & Q7;
+Append Q7.d = Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & Q6 & !Q7;
+Q7.oe = OE;
+Q7.ar = CLR;
+Q7.sp = 'b'0;
+
+Append Q8.d = !Q0 & Q8;
+Append Q8.d = !Q1 & Q8;
+Append Q8.d = !Q2 & Q8;
+Append Q8.d = !Q3 & Q8;
+Append Q8.d = !Q4 & Q8;
+Append Q8.d = !Q5 & Q8;
+Append Q8.d = !Q6 & Q8;
+Append Q8.d = !Q7 & Q8;
+Append Q8.d = Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & Q6 & Q7 & !Q8;
+Q8.oe = OE;
+Q8.ar = CLR;
+Q8.sp = 'b'0;
+
+Append Q9.d = !Q0 & Q9;
+Append Q9.d = !Q1 & Q9;
+Append Q9.d = !Q2 & Q9;
+Append Q9.d = !Q3 & Q9;
+Append Q9.d = !Q4 & Q9;
+Append Q9.d = !Q5 & Q9;
+Append Q9.d = !Q6 & Q9;
+Append Q9.d = !Q7 & Q9;
+Append Q9.d = !Q8 & Q9;
+Append Q9.d = Q0 & Q1 & Q2 & Q3 & Q4 & Q5 & Q6 & Q7 & Q8 & !Q9;
+Q9.oe = OE;
+Q9.ar = CLR;
+Q9.sp = 'b'0;
+

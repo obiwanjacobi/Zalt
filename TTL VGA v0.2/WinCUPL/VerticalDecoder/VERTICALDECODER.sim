@@ -1,0 +1,228 @@
+%SIGNAL
+PIN  23 =  Aclr 
+PIN  22 = !Aenable 
+PIN   2 =  V0 
+PIN   3 =  V1 
+PIN   4 =  V2 
+PIN   5 =  V3 
+PIN   6 =  V4 
+PIN   7 =  V5 
+PIN   8 =  V6 
+PIN   9 =  V7 
+PIN  10 =  V8 
+PIN  11 =  V9 
+PIN  18 =  Vblank 
+PIN  17 =  VborderB 
+PIN  20 =  VborderT 
+PIN  21 =  Vclr 
+PIN  19 = !Vsync 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+Aclr =>
+    Aenable
+
+Aenable =>
+    !Vblank & !VborderB & !VborderT
+
+BackPorch =>
+    !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+BottomBorder =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & V7 & V8 & !V9
+
+EndOfFrame =>
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
+
+FrontPorch =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+Sync =>
+    !V0 & V1 & !V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+TopBorder =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+
+Vblank =>
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
+  # V9 & !Vblank
+  # V3 & !Vblank
+  # V1 & !Vblank
+  # V0 & !Vblank
+  # !V6 & !Vblank
+  # !V5 & !Vblank
+  # V4 & !Vblank
+  # V2 & !Vblank
+  # !V8 & !Vblank
+  # !V7 & !Vblank
+
+VblankNot =>
+    V0 & !Vblank
+  # V1 & !Vblank
+  # V2 & !Vblank
+  # V3 & !Vblank
+  # V4 & !Vblank
+  # !V5 & !Vblank
+  # !V6 & !Vblank
+  # !V7 & !Vblank
+  # !V8 & !Vblank
+  # V9 & !Vblank
+
+VblankRes =>
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
+
+VblankSet =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+VborderB =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+  # V9 & !VborderB
+  # V3 & !VborderB
+  # V1 & !VborderB
+  # V0 & !VborderB
+  # V6 & !VborderB
+  # !V5 & !VborderB
+  # !V4 & !VborderB
+  # V2 & !VborderB
+  # !V8 & !VborderB
+  # !V7 & !VborderB
+
+VborderNotB =>
+    V0 & !VborderB
+  # V1 & !VborderB
+  # V2 & !VborderB
+  # V3 & !VborderB
+  # !V4 & !VborderB
+  # !V5 & !VborderB
+  # V6 & !VborderB
+  # !V7 & !VborderB
+  # !V8 & !VborderB
+  # V9 & !VborderB
+
+VborderNotT =>
+    !V0 & !VborderT
+  # V1 & !VborderT
+  # !V2 & !VborderT
+  # !V3 & !VborderT
+  # V4 & !VborderT
+  # V5 & !VborderT
+  # V6 & !VborderT
+  # V7 & !VborderT
+  # V8 & !VborderT
+  # !V9 & !VborderT
+
+VborderResB =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+VborderResT =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
+
+VborderSetB =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & V7 & V8 & !V9
+
+VborderSetT =>
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
+
+VborderT =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
+  # V8 & !VborderT
+  # V7 & !VborderT
+  # V1 & !VborderT
+  # V6 & !VborderT
+  # V5 & !VborderT
+  # V4 & !VborderT
+  # !V2 & !VborderT
+  # !V9 & !VborderT
+  # !V3 & !VborderT
+  # !V0 & !VborderT
+
+Vclr =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+  # V8 & !Vclr
+  # V7 & !Vclr
+  # V1 & !Vclr
+  # V6 & !Vclr
+  # V5 & !Vclr
+  # V4 & !Vclr
+  # !V2 & !Vclr
+  # !V9 & !Vclr
+  # !V3 & !Vclr
+  # !V0 & !Vclr
+
+VclrNot =>
+    !V0 & !Vclr
+  # V1 & !Vclr
+  # !V2 & !Vclr
+  # !V3 & !Vclr
+  # V4 & !Vclr
+  # V5 & !Vclr
+  # V6 & !Vclr
+  # V7 & !Vclr
+  # V8 & !Vclr
+  # !V9 & !Vclr
+
+VclrRes =>
+    !V0 & !V1 & !V2 & !V3 & !V4 & !V5 & !V6 & !V7 & !V8 & !V9
+
+VclrSet =>
+    V0 & !V1 & V2 & V3 & !V4 & !V5 & !V6 & !V7 & !V8 & V9
+
+Vsync =>
+    !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+  # V9 & Vsync
+  # V0 & Vsync
+  # !V6 & Vsync
+  # !V5 & Vsync
+  # V4 & Vsync
+  # V2 & Vsync
+  # !V8 & Vsync
+  # !V7 & Vsync
+  # !V3 & Vsync
+  # !V1 & Vsync
+
+VsyncNot =>
+    V0 & !Vsync
+  # !V1 & !Vsync
+  # V2 & !Vsync
+  # !V3 & !Vsync
+  # V4 & !Vsync
+  # !V5 & !Vsync
+  # !V6 & !Vsync
+  # !V7 & !Vsync
+  # !V8 & !Vsync
+  # V9 & !Vsync
+
+VsyncRes =>
+    !V0 & !V1 & V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+VsyncSet =>
+    !V0 & V1 & !V2 & V3 & !V4 & V5 & V6 & V7 & V8 & !V9
+
+Window =>
+    !V0 & !V1 & !V2 & !V3 & V4 & V5 & !V6 & !V7 & !V8 & !V9
+
+Aclr.oe  =>
+    1 
+
+Aenable.oe  =>
+    1 
+
+Vblank.oe  =>
+    1 
+
+VborderB.oe  =>
+    1 
+
+VborderT.oe  =>
+    1 
+
+Vclr.oe  =>
+    1 
+
+Vsync.oe  =>
+    1 
+
+%END

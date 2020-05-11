@@ -42,7 +42,7 @@ void MemoryManager_Init()
             if (*testAddress == pageId) // read back
                 _pages[pageId].Flags = MakePageFlags(MemoryAccess_ReadWrite, MemoryUsage_None, MemoryStatus_Active);
             else
-                _pages[pageId].Flags = MakePageFlags(MemoryAccess_ReadWrite, MemoryUsage_None, MemoryStatus_None);
+                _pages[pageId].Flags = 0; //MakePageFlags(MemoryAccess_None, MemoryUsage_None, MemoryStatus_None);
         }
     }
 

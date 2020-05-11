@@ -1,0 +1,148 @@
+%SIGNAL
+PIN   1 =  CLK 
+PIN   2 =  CLR 
+PIN  13 = !OE 
+PIN  15 =  Q0 
+PIN  23 =  Q1 
+PIN  22 =  Q2 
+PIN  21 =  Q3 
+PIN  20 =  Q4 
+PIN  19 =  Q5 
+PIN  18 =  Q6 
+PIN  17 =  Q7 
+PIN  16 =  Q8 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+Q0.d  =>
+    !OE & Q0
+
+Q0.ar Q1.ar Q2.ar Q3.ar Q4.ar Q5.ar Q6.ar Q7.ar Q8.ar  =>
+    CLR
+
+Q0.oe  =>
+    !OE
+
+Q0.sp Q1.sp Q2.sp Q3.sp Q4.sp Q5.sp Q6.sp Q7.sp Q8.sp  =>
+    0 
+
+Q1.d  =>
+    !OE & !Q0 & Q1
+  # !OE & Q0 & !Q1
+
+Q1.ar  =>
+    
+Q1.oe  =>
+    !OE
+
+Q1.sp  =>
+    
+Q2.d  =>
+    !OE & !Q0 & !Q1 & Q2
+  # !OE & Q0 & !Q2
+  # !OE & Q1 & !Q2
+
+Q2.ar  =>
+    
+Q2.oe  =>
+    !OE
+
+Q2.sp  =>
+    
+Q3.d  =>
+    !OE & !Q0 & !Q1 & !Q2 & Q3
+  # !OE & Q0 & !Q3
+  # !OE & Q1 & !Q3
+  # !OE & Q2 & !Q3
+
+Q3.ar  =>
+    
+Q3.oe  =>
+    !OE
+
+Q3.sp  =>
+    
+Q4.d  =>
+    !OE & !Q0 & !Q1 & !Q2 & !Q3 & Q4
+  # !OE & Q0 & !Q4
+  # !OE & Q1 & !Q4
+  # !OE & Q3 & !Q4
+  # !OE & Q2 & !Q4
+
+Q4.ar  =>
+    
+Q4.oe  =>
+    !OE
+
+Q4.sp  =>
+    
+Q5.d  =>
+    !OE & !Q0 & !Q1 & !Q2 & !Q3 & !Q4 & Q5
+  # !OE & Q0 & !Q5
+  # !OE & Q1 & !Q5
+  # !OE & Q3 & !Q5
+  # !OE & Q4 & !Q5
+  # !OE & Q2 & !Q5
+
+Q5.ar  =>
+    
+Q5.oe  =>
+    !OE
+
+Q5.sp  =>
+    
+Q6.d  =>
+    !OE & !Q0 & !Q1 & !Q2 & !Q3 & !Q4 & !Q5 & Q6
+  # !OE & Q0 & !Q6
+  # !OE & Q1 & !Q6
+  # !OE & Q3 & !Q6
+  # !OE & Q4 & !Q6
+  # !OE & Q5 & !Q6
+  # !OE & Q2 & !Q6
+
+Q6.ar  =>
+    
+Q6.oe  =>
+    !OE
+
+Q6.sp  =>
+    
+Q7.d  =>
+    !OE & !Q0 & !Q1 & !Q2 & !Q3 & !Q4 & !Q5 & !Q6 & Q7
+  # !OE & Q0 & !Q7
+  # !OE & Q1 & !Q7
+  # !OE & Q3 & !Q7
+  # !OE & Q4 & !Q7
+  # !OE & Q5 & !Q7
+  # !OE & Q6 & !Q7
+  # !OE & Q2 & !Q7
+
+Q7.ar  =>
+    
+Q7.oe  =>
+    !OE
+
+Q7.sp  =>
+    
+Q8.d  =>
+    !OE & !Q0 & !Q1 & !Q2 & !Q3 & !Q4 & !Q5 & !Q6 & !Q7 & Q8
+  # !OE & Q0 & !Q8
+  # !OE & Q1 & !Q8
+  # !OE & Q3 & !Q8
+  # !OE & Q4 & !Q8
+  # !OE & Q5 & !Q8
+  # !OE & Q6 & !Q8
+  # !OE & Q7 & !Q8
+  # !OE & Q2 & !Q8
+
+Q8.ar  =>
+    
+Q8.oe  =>
+    !OE
+
+Q8.sp  =>
+    
+%END

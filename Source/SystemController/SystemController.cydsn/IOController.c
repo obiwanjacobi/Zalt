@@ -2,7 +2,7 @@
 
 void SpinWaitIO()
 {
-    CyDelayUs(1);
+    CyDelayUs(2);
 }
 
 uint8_t IOController_Input(uint16_t address)

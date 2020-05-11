@@ -66,7 +66,15 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, int16_t
     switch (mode)
     {
         case MM_MODE_SEL:
-            MemoryManager_SelectTable(table);
+            if (table == -1 )
+            {
+                table = MemoryManager_GetCurrentTable();
+                SerialTerminal_Write("Selected Table: ");
+                SerialTerminal_WriteUint16(table, 10);
+                SerialTerminal_WriteLine(NULL);
+            }
+            else
+                MemoryManager_SelectTable(table);
             break;
         case MM_MODE_GET:
             if (table == -1 )
@@ -176,7 +184,7 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, int16_t
 //
 // Memory Manager
 //
-// 'mm' sel [n]             n => operational table index (default = 0) (0-255)
+// 'mm' sel [n]             n => operational table index (0-255), if not specified, the active table is reported
 // 'mm' get [n] [i]         n => table index to read (0-255), i => map index in table (1-15)
 // 'mm' put <n> <i> [v]     n => table index to modify (0-255), i => map index in table (1-15), v => value to put (0-255)
 // 'mm' nul [n]             => writes null table in [n], or all (256) tables if [n] is ommitted
@@ -238,10 +246,6 @@ uint16_t MemoryManager_Execute(SerialTerminal* serialTerminal, TerminalCommand* 
         {
             SerialTerminal_WriteLine(INCOMPLETE);
             return totalRead;
-        }
-        else if (command->Mode == MM_MODE_SEL)
-        {
-            table = 0;
         }
     }
     
