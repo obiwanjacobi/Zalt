@@ -1,0 +1,122 @@
+
+*******************************************************************************
+                                     Pixel
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g22v10  Library DLIB-h-40-1
+Created         Tue May 12 18:11:12 2020
+Name            Pixel Data Multiplexer
+Partno          Zalt-TtlVga-01
+Revision        01
+Date            10-05-2020
+Designer        Marc Jacobi
+Company         Canned Bytes
+Assembly        Zalt Ttl Vga Board
+Location        Z80 Computer / Ttl Vga
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+PalA0 =>
+    !PA0 & PA1 & PA2 & PM0 & PM1 & VD6
+  # PA0 & PA1 & PA2 & PM0 & PM1 & VD7
+  # !PA0 & !PA1 & PA2 & PM0 & PM1 & VD4
+  # PA0 & !PA1 & PA2 & PM0 & PM1 & VD5
+  # !PA0 & PA1 & !PA2 & !PM0 & PM1 & VD4
+  # PA0 & PA1 & !PA2 & !PM0 & PM1 & VD6
+  # !PA0 & PA1 & !PA2 & PM0 & PM1 & VD2
+  # PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD4
+  # PA0 & PA1 & !PA2 & PM0 & PM1 & VD3
+  # PA0 & !PA1 & !PA2 & !PM0 & PM1 & VD2
+  # PA0 & !PA1 & !PA2 & PM0 & PM1 & VD1
+  # !PA0 & !PA1 & !PA2 & PM1 & VD0
+  # !PA0 & !PA1 & !PA2 & PM0 & VD0
+
+PalA0.oe  =>
+    videoOn
+
+PalA1 =>
+    !PA0 & PA1 & !PA2 & !PM0 & PM1 & VD5
+  # PA0 & PA1 & !PA2 & !PM0 & PM1 & VD7
+  # !PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD1
+  # !PA0 & !PA1 & !PA2 & !PM0 & PM1 & VD1
+  # PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD5
+  # PA0 & !PA1 & !PA2 & !PM0 & PM1 & VD3
+
+PalA1.oe  =>
+    videoOn
+
+PalA2 =>
+    !PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD2
+  # PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD6
+
+PalA2.oe  =>
+    videoOn
+
+PalA3 =>
+    !PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD3
+  # PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD7
+
+PalA3.oe  =>
+    videoOn
+
+bitAddress =>
+    PA2 , PA1 , PA0
+
+videoOn =>
+    OE & !PM0 & !PM1
+
+PM0.oe  =>
+    0 
+
+PM1.oe  =>
+    0 
+
+videoOn.oe  =>
+    1 
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+ !  OE                          13       V        -       -       -     
+    PA0                         9        V        -       -       -     
+    PA1                         10       V        -       -       -     
+    PA2                         11       V        -       -       -     
+    PM0                         23       V        -       -       -     
+    PM1                         14       V        -       -       -     
+    PalA0                       19       V        13      16      4     
+    PalA0               oe      19       X        1       1       1     
+    PalA1                       18       V        6       16      4     
+    PalA1               oe      18       X        1       1       1     
+    PalA2                       20       V        2       14      4     
+    PalA2               oe      20       X        1       1       1     
+    PalA3                       17       V        2       14      4     
+    PalA3               oe      17       X        1       1       1     
+    VD0                         1        V        -       -       -     
+    VD1                         2        V        -       -       -     
+    VD2                         3        V        -       -       -     
+    VD3                         4        V        -       -       -     
+    VD4                         5        V        -       -       -     
+    VD5                         6        V        -       -       -     
+    VD6                         7        V        -       -       -     
+    VD7                         8        V        -       -       -     
+    bitAddress                  0        F        -       -       -     
+    videoOn                     15       V        1       10      4     
+    PM0                 oe      23       D        1       1       0     
+    PM1                 oe      14       D        1       1       0     
+    videoOn             oe      15       D        1       1       0     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

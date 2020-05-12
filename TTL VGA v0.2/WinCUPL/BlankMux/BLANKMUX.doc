@@ -1,0 +1,79 @@
+
+*******************************************************************************
+                                     Pixel
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g16v8s  Library DLIB-h-40-9
+Created         Mon Feb 24 18:03:50 2020
+Name            Pixel Blank Multiplexer
+Partno          Zalt-TtlVga-01
+Revision        01
+Date            20-02-2020
+Designer        Marc Jacobi
+Company         Canned Bytes
+Assembly        Zalt Ttl Vga Board
+Location        Z80 Computer / Ttl Vga
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+B0 =>
+    D0 & !Hblank & !Vblank
+
+B1 =>
+    D1 & !Hblank & !Vblank
+
+B2 =>
+    D2 & !Hblank & !Vblank
+
+B3 =>
+    D3 & !Hblank & !Vblank
+
+B4 =>
+    D4 & !Hblank & !Vblank
+
+B5 =>
+    D5 & !Hblank & !Vblank
+
+B6 =>
+    D6 & !Hblank & !Vblank
+
+B7 =>
+    D7 & !Hblank & !Vblank
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    B0                          12       V        1       8       4     
+    B1                          13       V        1       8       4     
+    B2                          14       V        1       8       4     
+    B3                          15       V        1       8       4     
+    B4                          16       V        1       8       4     
+    B5                          17       V        1       8       4     
+    B6                          18       V        1       8       4     
+    B7                          19       V        1       8       4     
+    D0                          2        V        -       -       -     
+    D1                          3        V        -       -       -     
+    D2                          4        V        -       -       -     
+    D3                          5        V        -       -       -     
+    D4                          6        V        -       -       -     
+    D5                          7        V        -       -       -     
+    D6                          8        V        -       -       -     
+    D7                          9        V        -       -       -     
+    Hblank                      1        V        -       -       -     
+    Vblank                      11       V        -       -       -     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

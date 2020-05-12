@@ -138,9 +138,9 @@ F 3 "http://www.lupinek.com/soubory/um61512.pdf" H 4600 6750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text HLabel 1450 1650 0    50   Input ~ 0
-VideoMode
+VideoBitSelect
 Text HLabel 1450 4200 0    50   Input ~ 0
-PixelAddress
+VideoBitCount
 Text Notes 4200 7450 0    50   ~ 0
           VD0  VD1  VD2  VD3  VD4  VD5  VD6  VD7\nVM1: | PA = 0                   | PA = 1                    \nVM2: | PA = 0   | PA =1    | PA = 2    | PA = 3\nVM3: | PA0  | PA1 | PA2 | PA3 | PA4 | PA5 | PA6 | PA7\n
 $Comp
@@ -492,12 +492,6 @@ Text Label 8500 1600 0    50   ~ 0
 PD0
 Wire Wire Line
 	4950 5000 5300 5000
-Wire Bus Line
-	1700 1650 1700 2150
-Wire Bus Line
-	1700 4200 1700 4700
-Wire Bus Line
-	1700 2900 1700 3800
 Wire Wire Line
 	4950 5100 5300 5100
 Wire Wire Line
@@ -528,4 +522,12 @@ Text Label 5100 5600 0    50   ~ 0
 PD6
 Text Label 5100 5700 0    50   ~ 0
 PD7
+Wire Bus Line
+	1700 1650 1700 2150
+Wire Bus Line
+	1700 4200 1700 4700
+Wire Bus Line
+	1700 2900 1700 3800
+Text Notes 4200 4100 0    50   ~ 0
+22V10 GAL will fit:\nquad 2:1\ndual 4:1\nsingle 8:1\n\nOE (uses a spare output)
 $EndSCHEMATC

@@ -1,0 +1,193 @@
+{COMPONENT \\DISKSTATION\HOME\TEMP\TTLVGA\BLANKMUX\BLANKMUX.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Mon Feb 24 18:03:50 2020 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P HBLANK {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
+   {P D0 {Pt "INPUT"}{Lq 0}{Ploc 100 300}}
+   {P D1 {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P D2 {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
+   {P D3 {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P D4 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P D5 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P D6 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P D7 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P VBLANK {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P B0 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P B1 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P B2 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P B5 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P B6 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P B7 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P B3 {Pt "I/O"}{Lq 0}{Ploc 280 20}}
+   {P B4 {Pt "I/O"}{Lq 0}{Ploc 280 40}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 190 350}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 330}
+   {Pnl 120 310}
+   {Pnl 120 290}
+   {Pnl 120 270}
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 260 30}
+   {Pnl 260 50}
+
+   {Sd A 1 2 3 4 5 6 7 8 9 11 12 13 14 17 18 19 15 16}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 340 250 0}
+   {L 130 320 100 320}
+   {L 130 300 100 300}
+   {L 130 280 100 280}
+   {L 130 260 100 260}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 250 20 280 20}
+   {L 250 40 280 40}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "HBLANK" 140 320}
+   {T "D0" 140 300}
+   {T "D1" 140 280}
+   {T "D2" 140 260}
+   {T "D3" 140 240}
+   {T "D4" 140 220}
+   {T "D5" 140 200}
+   {T "D6" 140 180}
+   {T "D7" 140 160}
+   {T "VBLANK" 140 140}
+   {T "B0" 140 120}
+   {T "B1" 140 100}
+   {T "B2" 140 80}
+   {T "B5" 140 60}
+   {T "B6" 140 40}
+   {T "B7" 140 20}
+   [Tj "RC"]
+   {T "B3" 240 20}
+   {T "B4" 240 40}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "G16V8S" 190 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD \\DISKSTATION\HOME\TEMP\TTLVGA\BLANKMUX\BLANKMUX 190 340}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N HBLANK
+   }
+   {N D0
+   }
+   {N D1
+   }
+   {N D2
+   }
+   {N D3
+   }
+   {N D4
+   }
+   {N D5
+   }
+   {N D6
+   }
+   {N D7
+   }
+   {N VBLANK
+   }
+   {N B0
+   }
+   {N B1
+   }
+   {N B2
+   }
+   {N B5
+   }
+   {N B6
+   }
+   {N B7
+   }
+   {N B3
+   }
+   {N B4
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

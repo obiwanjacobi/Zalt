@@ -1,0 +1,83 @@
+%SIGNAL
+PIN  13 = !OE 
+PIN   9 =  PA0 
+PIN  10 =  PA1 
+PIN  11 =  PA2 
+PIN  23 =  PM0 
+PIN  14 =  PM1 
+PIN  19 =  PalA0 
+PIN  18 =  PalA1 
+PIN  20 =  PalA2 
+PIN  17 =  PalA3 
+PIN   1 =  VD0 
+PIN   2 =  VD1 
+PIN   3 =  VD2 
+PIN   4 =  VD3 
+PIN   5 =  VD4 
+PIN   6 =  VD5 
+PIN   7 =  VD6 
+PIN   8 =  VD7 
+PIN  15 =  videoOn 
+%END
+
+%FIELD
+FIELD bitAddress = PA2,PA1,PA0
+%END
+
+%EQUATION
+PalA0 =>
+    !PA0 & PA1 & PA2 & PM0 & PM1 & VD6
+  # PA0 & PA1 & PA2 & PM0 & PM1 & VD7
+  # !PA0 & !PA1 & PA2 & PM0 & PM1 & VD4
+  # PA0 & !PA1 & PA2 & PM0 & PM1 & VD5
+  # !PA0 & PA1 & !PA2 & !PM0 & PM1 & VD4
+  # PA0 & PA1 & !PA2 & !PM0 & PM1 & VD6
+  # !PA0 & PA1 & !PA2 & PM0 & PM1 & VD2
+  # PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD4
+  # PA0 & PA1 & !PA2 & PM0 & PM1 & VD3
+  # PA0 & !PA1 & !PA2 & !PM0 & PM1 & VD2
+  # PA0 & !PA1 & !PA2 & PM0 & PM1 & VD1
+  # !PA0 & !PA1 & !PA2 & PM1 & VD0
+  # !PA0 & !PA1 & !PA2 & PM0 & VD0
+
+PalA0.oe  =>
+    videoOn
+
+PalA1 =>
+    !PA0 & PA1 & !PA2 & !PM0 & PM1 & VD5
+  # PA0 & PA1 & !PA2 & !PM0 & PM1 & VD7
+  # !PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD1
+  # !PA0 & !PA1 & !PA2 & !PM0 & PM1 & VD1
+  # PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD5
+  # PA0 & !PA1 & !PA2 & !PM0 & PM1 & VD3
+
+PalA1.oe  =>
+    videoOn
+
+PalA2 =>
+    !PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD2
+  # PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD6
+
+PalA2.oe  =>
+    videoOn
+
+PalA3 =>
+    !PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD3
+  # PA0 & !PA1 & !PA2 & PM0 & !PM1 & VD7
+
+PalA3.oe  =>
+    videoOn
+
+videoOn =>
+    !OE & !PM0 & !PM1
+
+PM0.oe  =>
+    0 
+
+PM1.oe  =>
+    0 
+
+videoOn.oe  =>
+    1 
+
+%END

@@ -33,8 +33,8 @@ F1 "PixelOutput.sch" 50
 F2 "Hblank" I L 8050 1850 50 
 F3 "Vblank" I L 8050 1950 50 
 F4 "VideoData" I L 8050 950 50 
-F5 "VideoMode" I L 8050 1100 50 
-F6 "PixelAddress" I L 8050 1250 50 
+F5 "VideoBitSelect" I L 8050 1150 50 
+F6 "VideoBitCount" I L 8050 1250 50 
 $EndSheet
 $Comp
 L syshdr:BUSHDR-A HDR1

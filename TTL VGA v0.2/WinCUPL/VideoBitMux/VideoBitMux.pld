@@ -1,0 +1,70 @@
+Name     Pixel Data Multiplexer;
+PartNo   Zalt-TtlVga-01;
+Date     10-05-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt Ttl Vga Board;
+Location Z80 Computer / Ttl Vga;
+Device   G22V10;
+/*Format   j;*/
+
+
+/** input pins **/
+
+PIN 1   = VD0;
+PIN 2   = VD1;
+PIN 3   = VD2;
+PIN 4   = VD3;
+PIN 5   = VD4;
+PIN 6   = VD5;
+PIN 7   = VD6;
+PIN 8   = VD7;
+PIN 9   = PA0;
+PIN 10  = PA1;
+PIN 11  = PA2;
+PIN 13  = !OE;
+
+
+/** (input) output pins **/
+
+PIN 23  = PM0;             /* 8 product terms */
+/*PIN 22  = ;*/             /* 10 product terms */
+/*PIN 21  = ;*/             /* 12 product terms */
+PIN 20  = PalA2;             /* 14 product terms */
+PIN 19  = PalA0;             /* 16 product terms */
+PIN 18  = PalA1;             /* 16 product terms */
+PIN 17  = PalA3;             /* 14 product terms */
+/*PIN 16  = ;*/             /* 12 product terms */
+PIN 15  = videoOn;             /* 10 product terms */
+PIN 14  = PM1;             /* 8 product terms */
+
+
+/* Enable Outputs when Video Mode 0 is not selected */
+
+videoOn = !PM0 & !PM1 & OE;
+PalA0.oe = videoOn;
+PalA1.oe = videoOn;
+PalA2.oe = videoOn;
+PalA3.oe = videoOn;
+
+FIELD bitAddress = [PA2, PA1, PA0];
+
+/* Mux expressions */
+
+PalA0 = ( (PM0 & PM1) & ( (bitAddress: 0 & VD0) # (bitAddress: 1 & VD1) # 
+                          (bitAddress: 2 & VD2) # (bitAddress: 3 & VD3) # 
+                          (bitAddress: 4 & VD4) # (bitAddress: 5 & VD5) # 
+                          (bitAddress: 6 & VD6) # (bitAddress: 7 & VD7) ) ) #
+        ( (!PM0 & PM1) & ( (bitAddress: 0 & VD0) # (bitAddress: 1 & VD2) # 
+                           (bitAddress: 2 & VD4) # (bitAddress: 3 & VD6) ) ) #
+        ( (PM0 & !PM1) & ( (bitAddress: 0 & VD0) # (bitAddress: 1 & VD4) ) );
+
+PalA1 = ( (!PM0 & PM1) & ( (bitAddress: 0 & VD1) # (bitAddress: 1 & VD3) # 
+                           (bitAddress: 2 & VD5) # (bitAddress: 3 & VD7) ) ) #
+        ( (PM0 & !PM1) & ( (bitAddress: 0 & VD1) # (bitAddress: 1 & VD5) ) );
+
+PalA2 = ( (PM0 & !PM1) & ( (bitAddress: 0 & VD2) # (bitAddress: 1 & VD6) ) );
+
+PalA3 = ( (PM0 & !PM1) & ( (bitAddress: 0 & VD3) # (bitAddress: 1 & VD7) ) );
+
