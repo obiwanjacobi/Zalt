@@ -1,0 +1,220 @@
+{COMPONENT \\DISKSTATION\HOME\TEMP\TTLVGA\VIDEOMODESMUX\VIDEOMODESMUXMID2.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Wed May 13 12:29:30 2020 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P PA6 {Pt "INPUT"}{Lq 0}{Ploc 100 320}}
+   {P PA7 {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P PA8 {Pt "INPUT"}{Lq 0}{Ploc 100 260}}
+   {P PA9 {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P PA10 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P PA11 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P PA12 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P PA13 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P PA14 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P PA15 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P PA16 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P OE' {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P VMS0 {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P VMS1 {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P VMS2 {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P MA11 {Pt "I/O"}{Lq 0}{Ploc 280 20}}
+   {P MA10 {Pt "I/O"}{Lq 0}{Ploc 280 40}}
+   {P MA9 {Pt "I/O"}{Lq 0}{Ploc 280 60}}
+   {P MA8 {Pt "I/O"}{Lq 0}{Ploc 280 80}}
+   {P MA7 {Pt "I/O"}{Lq 0}{Ploc 280 100}}
+   {P MA6 {Pt "I/O"}{Lq 0}{Ploc 280 120}}
+   {P MA5 {Pt "I/O"}{Lq 0}{Ploc 280 140}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 190 350}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 330}
+   [Ts 15][Tj "RC"]
+   {Pnl 120 290}
+   {Pnl 120 270}
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 260 30}
+   {Pnl 260 50}
+   {Pnl 260 70}
+   {Pnl 260 90}
+   {Pnl 260 110}
+   {Pnl 260 130}
+   {Pnl 260 150}
+
+   {Sd A 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20 21 22 23}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 340 250 0}
+   {L 130 320 100 320}
+   {L 130 330 140 320 130 310}
+   {L 130 280 100 280}
+   {L 130 260 100 260}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 120 80 100 80}
+   {C 125 80 5}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 250 20 280 20}
+   {L 250 40 280 40}
+   {L 250 60 280 60}
+   {L 250 80 280 80}
+   {L 250 100 280 100}
+   {L 250 120 280 120}
+   {L 250 140 280 140}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "PA6" 140 320}
+   {T "PA7" 140 280}
+   {T "PA8" 140 260}
+   {T "PA9" 140 240}
+   {T "PA10" 140 220}
+   {T "PA11" 140 200}
+   {T "PA12" 140 180}
+   {T "PA13" 140 160}
+   {T "PA14" 140 140}
+   {T "PA15" 140 120}
+   {T "PA16" 140 100}
+   {T "OE'" 140 80}
+   {T "VMS0" 140 60}
+   {T "VMS1" 140 40}
+   {T "VMS2" 140 20}
+   [Tj "RC"]
+   {T "MA11" 240 20}
+   {T "MA10" 240 40}
+   {T "MA9" 240 60}
+   {T "MA8" 240 80}
+   {T "MA7" 240 100}
+   {T "MA6" 240 120}
+   {T "MA5" 240 140}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "G22V10" 190 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD \\DISKSTATION\HOME\TEMP\TTLVGA\VIDEOMODESMUX\VIDEOMODESMUXMID2 190 340}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N PA6
+   }
+   {N PA7
+   }
+   {N PA8
+   }
+   {N PA9
+   }
+   {N PA10
+   }
+   {N PA11
+   }
+   {N PA12
+   }
+   {N PA13
+   }
+   {N PA14
+   }
+   {N PA15
+   }
+   {N PA16
+   }
+   {N OE'
+   }
+   {N VMS0
+   }
+   {N VMS1
+   }
+   {N VMS2
+   }
+   {N MA11
+   }
+   {N MA10
+   }
+   {N MA9
+   }
+   {N MA8
+   }
+   {N MA7
+   }
+   {N MA6
+   }
+   {N MA5
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

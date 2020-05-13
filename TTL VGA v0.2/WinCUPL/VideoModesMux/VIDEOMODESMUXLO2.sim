@@ -1,0 +1,111 @@
+%SIGNAL
+PIN  17 =  CD0 
+PIN  16 =  CD1 
+PIN  15 =  CD2 
+PIN  23 =  MA0 
+PIN  22 =  MA1 
+PIN  21 =  MA2 
+PIN  20 =  MA3 
+PIN  19 =  MA4 
+PIN  13 = !OE 
+PIN   1 =  PA0 
+PIN   2 =  PA1 
+PIN   3 =  PA2 
+PIN   4 =  PA3 
+PIN   5 =  PA4 
+PIN   6 =  PA5 
+PIN   7 =  PA6 
+PIN   8 =  PA7 
+PIN   9 =  PA8 
+PIN  10 =  VMS0 
+PIN  11 =  VMS1 
+PIN  14 =  VMS2 
+PIN  18 =  x 
+%END
+
+%FIELD
+FIELD videoMode = VMS2,VMS1,VMS0
+%END
+
+%EQUATION
+CD0 =>
+    PA1 & VMS0 & VMS1 & !VMS2
+  # PA1 & !VMS1 & VMS2
+  # PA0 & !VMS1 & !VMS2
+
+CD1 =>
+    PA2 & !VMS1 & VMS2
+  # PA1 & !VMS1 & !VMS2
+
+CD2 =>
+    PA3 & VMS0 & !VMS1 & VMS2
+  # PA2 & VMS0 & !VMS1 & !VMS2
+
+MA0 =>
+    PA1 & !VMS0 & VMS1 & !VMS2
+  # PA2 & VMS0 & VMS1 & !VMS2
+  # PA3 & !VMS0 & !VMS1 & VMS2
+  # PA4 & VMS0 & !VMS1 & VMS2
+  # PA2 & !VMS0 & !VMS1 & !VMS2
+  # PA3 & VMS0 & !VMS1 & !VMS2
+
+MA0.oe  =>
+    !OE
+
+MA1 =>
+    PA2 & !VMS0 & VMS1 & !VMS2
+  # PA3 & VMS0 & VMS1 & !VMS2
+  # PA4 & !VMS0 & !VMS1 & VMS2
+  # PA5 & VMS0 & !VMS1 & VMS2
+  # PA3 & !VMS0 & !VMS1 & !VMS2
+  # PA4 & VMS0 & !VMS1 & !VMS2
+
+MA1.oe  =>
+    !OE
+
+MA2 =>
+    PA3 & !VMS0 & VMS1 & !VMS2
+  # PA4 & VMS0 & VMS1 & !VMS2
+  # PA5 & !VMS0 & !VMS1 & VMS2
+  # PA6 & VMS0 & !VMS1 & VMS2
+  # PA4 & !VMS0 & !VMS1 & !VMS2
+  # PA5 & VMS0 & !VMS1 & !VMS2
+
+MA2.oe  =>
+    !OE
+
+MA3 =>
+    PA4 & !VMS0 & VMS1 & !VMS2
+  # PA5 & VMS0 & VMS1 & !VMS2
+  # PA6 & !VMS0 & !VMS1 & VMS2
+  # PA7 & VMS0 & !VMS1 & VMS2
+  # PA5 & !VMS0 & !VMS1 & !VMS2
+  # PA6 & VMS0 & !VMS1 & !VMS2
+
+MA3.oe  =>
+    !OE
+
+MA4 =>
+    PA5 & !VMS0 & VMS1 & !VMS2
+  # PA7 & !VMS0 & !VMS1 & VMS2
+  # PA6 & VMS0 & VMS1 & !VMS2
+  # PA8 & VMS0 & !VMS1 & VMS2
+  # PA6 & !VMS0 & !VMS1 & !VMS2
+  # PA7 & VMS0 & !VMS1 & !VMS2
+
+MA4.oe  =>
+    !OE
+
+CD0.oe  =>
+    1 
+
+CD1.oe  =>
+    1 
+
+CD2.oe  =>
+    1 
+
+VMS2.oe  =>
+    0 
+
+%END

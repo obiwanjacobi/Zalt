@@ -1,0 +1,152 @@
+
+*******************************************************************************
+                                     Video
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g22v10  Library DLIB-h-40-1
+Created         Wed May 13 12:28:30 2020
+Name            Video Modes Multiplexer - Low Address and Color Depth
+Partno          Zalt-TtlVga-01
+Revision        01
+Date            20-02-2020
+Designer        Marc Jacobi
+Company         Canned Bytes
+Assembly        Zalt Ttl Vga Board
+Location        Z80 Computer / Ttl Vga
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+CD0 =>
+    PA1 & VMS0 & VMS1 & !VMS2
+  # PA1 & !VMS1 & VMS2
+  # PA0 & !VMS1 & !VMS2
+
+CD1 =>
+    PA2 & !VMS1 & VMS2
+  # PA1 & !VMS1 & !VMS2
+
+CD2 =>
+    PA3 & VMS0 & !VMS1 & VMS2
+  # PA2 & VMS0 & !VMS1 & !VMS2
+
+MA0 =>
+    PA1 & !VMS0 & VMS1 & !VMS2
+  # PA2 & VMS0 & VMS1 & !VMS2
+  # PA3 & !VMS0 & !VMS1 & VMS2
+  # PA4 & VMS0 & !VMS1 & VMS2
+  # PA2 & !VMS0 & !VMS1 & !VMS2
+  # PA3 & VMS0 & !VMS1 & !VMS2
+
+MA0.oe  =>
+    OE
+
+MA1 =>
+    PA2 & !VMS0 & VMS1 & !VMS2
+  # PA3 & VMS0 & VMS1 & !VMS2
+  # PA4 & !VMS0 & !VMS1 & VMS2
+  # PA5 & VMS0 & !VMS1 & VMS2
+  # PA3 & !VMS0 & !VMS1 & !VMS2
+  # PA4 & VMS0 & !VMS1 & !VMS2
+
+MA1.oe  =>
+    OE
+
+MA2 =>
+    PA3 & !VMS0 & VMS1 & !VMS2
+  # PA4 & VMS0 & VMS1 & !VMS2
+  # PA5 & !VMS0 & !VMS1 & VMS2
+  # PA6 & VMS0 & !VMS1 & VMS2
+  # PA4 & !VMS0 & !VMS1 & !VMS2
+  # PA5 & VMS0 & !VMS1 & !VMS2
+
+MA2.oe  =>
+    OE
+
+MA3 =>
+    PA4 & !VMS0 & VMS1 & !VMS2
+  # PA5 & VMS0 & VMS1 & !VMS2
+  # PA6 & !VMS0 & !VMS1 & VMS2
+  # PA7 & VMS0 & !VMS1 & VMS2
+  # PA5 & !VMS0 & !VMS1 & !VMS2
+  # PA6 & VMS0 & !VMS1 & !VMS2
+
+MA3.oe  =>
+    OE
+
+MA4 =>
+    PA5 & !VMS0 & VMS1 & !VMS2
+  # PA7 & !VMS0 & !VMS1 & VMS2
+  # PA6 & VMS0 & VMS1 & !VMS2
+  # PA8 & VMS0 & !VMS1 & VMS2
+  # PA6 & !VMS0 & !VMS1 & !VMS2
+  # PA7 & VMS0 & !VMS1 & !VMS2
+
+MA4.oe  =>
+    OE
+
+videoMode =>
+    VMS2 , VMS1 , VMS0
+
+CD0.oe  =>
+    1 
+
+CD1.oe  =>
+    1 
+
+CD2.oe  =>
+    1 
+
+VMS2.oe  =>
+    0 
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    CD0                         17       V        3       14      4     
+    CD1                         16       V        2       12      4     
+    CD2                         15       V        2       10      4     
+    MA0                         23       V        6       8       4     
+    MA0                 oe      23       X        1       1       1     
+    MA1                         22       V        6       10      4     
+    MA1                 oe      22       X        1       1       1     
+    MA2                         21       V        6       12      4     
+    MA2                 oe      21       X        1       1       1     
+    MA3                         20       V        6       14      4     
+    MA3                 oe      20       X        1       1       1     
+    MA4                         19       V        6       16      4     
+    MA4                 oe      19       X        1       1       1     
+ !  OE                          13       V        -       -       -     
+    PA0                         1        V        -       -       -     
+    PA1                         2        V        -       -       -     
+    PA2                         3        V        -       -       -     
+    PA3                         4        V        -       -       -     
+    PA4                         5        V        -       -       -     
+    PA5                         6        V        -       -       -     
+    PA6                         7        V        -       -       -     
+    PA7                         8        V        -       -       -     
+    PA8                         9        V        -       -       -     
+    VMS0                        10       V        -       -       -     
+    VMS1                        11       V        -       -       -     
+    VMS2                        14       V        -       -       -     
+    videoMode                   0        F        -       -       -     
+    x                           18       V        -       -       -     
+    CD0                 oe      17       D        1       1       0     
+    CD1                 oe      16       D        1       1       0     
+    CD2                 oe      15       D        1       1       0     
+    VMS2                oe      14       D        1       1       0     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

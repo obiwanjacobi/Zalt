@@ -1,0 +1,108 @@
+
+*******************************************************************************
+                                     Video
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g22v10  Library DLIB-h-40-1
+Created         Wed May 13 12:29:51 2020
+Name            Video Modes Multiplexer - Hi Address
+Partno          Zalt-TtlVga-01
+Revision        01
+Date            20-02-2020
+Designer        Marc Jacobi
+Company         Canned Bytes
+Assembly        Zalt Ttl Vga Board
+Location        Z80 Computer / Ttl Vga
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+MA12 =>
+    PA17 & VMS0 & !VMS1 & VMS2
+  # PA16 & !VMS0 & !VMS1 & VMS2
+  # PA15 & VMS0 & !VMS2
+  # PA14 & !VMS0 & !VMS2
+
+MA12.oe  =>
+    OE
+
+MA13 =>
+    PA18 & VMS0 & !VMS1 & VMS2
+  # PA17 & !VMS0 & !VMS1 & VMS2
+  # PA16 & VMS0 & !VMS2
+  # PA15 & !VMS0 & !VMS2
+
+MA13.oe  =>
+    OE
+
+MA14 =>
+    PA15 & !VMS0 & VMS1 & !VMS2
+  # PA18 & !VMS0 & !VMS1 & VMS2
+  # PA16 & !VMS0 & !VMS1 & !VMS2
+  # PA17 & VMS0 & !VMS2
+
+MA14.oe  =>
+    OE
+
+MA15 =>
+    PA18 & VMS0 & !VMS2
+  # PA17 & !VMS0 & !VMS2
+
+MA15.oe  =>
+    OE
+
+MA16 =>
+    PA18 & !VMS0 & !VMS1 & !VMS2
+
+MA16.oe  =>
+    OE
+
+videoMode =>
+    VMS2 , VMS1 , VMS0
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    MA12                        23       V        4       8       4     
+    MA12                oe      23       X        1       1       1     
+    MA13                        22       V        4       10      4     
+    MA13                oe      22       X        1       1       1     
+    MA14                        21       V        4       12      4     
+    MA14                oe      21       X        1       1       1     
+    MA15                        20       V        2       14      4     
+    MA15                oe      20       X        1       1       1     
+    MA16                        19       V        1       16      4     
+    MA16                oe      19       X        1       1       1     
+ !  OE                          13       V        -       -       -     
+    PA14                        1        V        -       -       -     
+    PA15                        2        V        -       -       -     
+    PA16                        3        V        -       -       -     
+    PA17                        4        V        -       -       -     
+    PA18                        5        V        -       -       -     
+    VMS0                        9        V        -       -       -     
+    VMS1                        10       V        -       -       -     
+    VMS2                        11       V        -       -       -     
+    a                           6        V        -       -       -     
+    b                           7        V        -       -       -     
+    c                           8        V        -       -       -     
+    u                           18       V        -       -       -     
+    v                           17       V        -       -       -     
+    videoMode                   0        F        -       -       -     
+    w                           16       V        -       -       -     
+    x                           15       V        -       -       -     
+    y                           14       V        -       -       -     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+

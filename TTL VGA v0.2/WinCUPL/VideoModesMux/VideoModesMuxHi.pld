@@ -1,0 +1,84 @@
+Name     Video Modes Multiplexer - Hi Address and Color Depth;
+PartNo   Zalt-TtlVga-01;
+Date     20-02-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt Ttl Vga Board;
+Location Z80 Computer / Ttl Vga;
+Device   G22V10;
+/*Format   j;*/
+
+/*
+ *  PA: Pixel Address 
+ *  MA: Memory Address
+ *  VMS: Video Mode Select
+ *  CD: Color Depth
+ */
+
+
+/** input pins **/
+
+PIN 1   = PA0;
+PIN 2   = PA1;
+PIN 3   = PA2;
+PIN 4   = PA3;
+PIN 5   = PA16;
+PIN 6   = PA17;
+PIN 7   = PA18;
+PIN 8   = a;
+PIN 9   = b;
+PIN 10  = c;
+PIN 11  = d;
+PIN 13  = !OE;
+
+
+/** output pins **/
+
+PIN 23  = MA14;             /* 8 product terms */
+PIN 22  = MA15;             /* 10 product terms */
+PIN 21  = MA16;             /* 12 product terms */
+PIN 20  = CD0;             /* 14 product terms */
+PIN 19  = CD1;             /* 16 product terms */
+PIN 18  = CD2;             /* 16 product terms */
+PIN 17  = x;             /* 14 product terms */
+
+/* inputs */
+PIN 16  = VMS2;             /* 12 product terms */
+PIN 15  = VMS1;             /* 10 product terms */
+PIN 14  = VMS0;             /* 8 product terms */
+
+MA14.oe = OE;
+MA15.oe = OE;
+MA16.oe = OE;
+
+FIELD videoMode = [VMS2, VMS1, VMS0];
+
+MA14 = videoMode: 0 & PA16 # 
+    videoMode: 1 & PA17 #
+    videoMode: 2 & PA15 #
+    videoMode: 3 & PA17 #
+    videoMode: 4 & PA18;
+
+MA15 = videoMode: 0 & PA17 # 
+    videoMode: 1 & PA18 #
+    videoMode: 2 & PA17 #
+    videoMode: 3 & PA18;
+
+MA16 = videoMode: 0 & PA18;
+
+
+CD0 = videoMode: 0 & PA0 # 
+    videoMode: 1 & PA0 #
+    videoMode: 3 & PA1 #
+    videoMode: 4 & PA1 #
+    videoMode: 5 & PA1;
+
+CD1 = videoMode: 0 & PA1 # 
+    videoMode: 1 & PA1 #
+    videoMode: 4 & PA2 #
+    videoMode: 5 & PA2;
+
+CD2 = videoMode: 1 & PA2 #
+    videoMode: 5 & PA3;
+

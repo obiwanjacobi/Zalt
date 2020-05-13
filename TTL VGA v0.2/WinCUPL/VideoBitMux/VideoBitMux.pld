@@ -9,6 +9,16 @@ Location Z80 Computer / Ttl Vga;
 Device   G22V10;
 /*Format   j;*/
 
+/*
+ *      VD: Video Data [7..0]
+ *          Data output from the VRAM.
+ *      PA: Pixel Address [3..0]
+ *          Pixel Address counter based on 640x480 resolution (with borders)
+ *      PM: Pixel Mode [1..0]
+ *          How the Video Data is to be mapped to Pixels - addressing the Palette.
+ *      PalA: Palette Address [3..0]
+ *          The Palette Address to output to the screen.
+ */ 
 
 /** input pins **/
 
@@ -40,8 +50,9 @@ PIN 15  = videoOn;             /* 10 product terms */
 PIN 14  = PM1;             /* 8 product terms */
 
 
-/* Enable Outputs when Video Mode 0 is not selected */
+/* Enable Outputs when Pixel Mode 0 is not selected */
 
+/* use a spare output to compute the condition (.oe only allows 1 product term) */
 videoOn = !PM0 & !PM1 & OE;
 PalA0.oe = videoOn;
 PalA1.oe = videoOn;

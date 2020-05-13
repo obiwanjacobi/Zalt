@@ -1,0 +1,107 @@
+Name     Video Modes Multiplexer - Low Address;
+PartNo   Zalt-TtlVga-01;
+Date     20-02-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt Ttl Vga Board;
+Location Z80 Computer / Ttl Vga;
+Device   G22V10;
+/*Format   j;*/
+
+/*
+ *  PA: Pixel Address 
+ *  MA: Memory Address
+ *  VMS: Video Mode Select
+ */
+
+
+/** input pins **/
+
+PIN 1   = PA1;
+PIN 2   = PA2;
+PIN 3   = PA3;
+PIN 4   = PA4;
+PIN 5   = PA5;
+PIN 6   = PA6;
+PIN 7   = PA7;
+PIN 8   = PA8;
+PIN 9   = PA9;
+PIN 10  = PA10;
+PIN 11  = PA11;
+PIN 13  = !OE;
+
+
+/** output pins **/
+
+PIN 23  = MA0;             /* 8 product terms */
+PIN 22  = MA1;             /* 10 product terms */
+PIN 21  = MA2;             /* 12 product terms */
+PIN 20  = MA3;             /* 14 product terms */
+PIN 19  = MA4;             /* 16 product terms */
+PIN 18  = MA5;             /* 16 product terms */
+PIN 17  = MA6;             /* 14 product terms */
+
+/* inputs */
+PIN 16  = VMS2;             /* 12 product terms */
+PIN 15  = VMS1;             /* 10 product terms */
+PIN 14  = VMS0;             /* 8 product terms */
+
+MA0.oe = OE;
+MA1.oe = OE;
+MA2.oe = OE;
+MA3.oe = OE;
+MA4.oe = OE;
+MA5.oe = OE;
+MA6.oe = OE;
+
+FIELD videoMode = [VMS2, VMS1, VMS0];
+
+MA0 = videoMode: 0 & PA2 # 
+    videoMode: 1 & PA3 #
+    videoMode: 2 & PA1 #
+    videoMode: 3 & PA2 #
+    videoMode: 4 & PA3 #
+    videoMode: 5 & PA4;
+
+MA1 = videoMode: 0 & PA3 # 
+    videoMode: 1 & PA4 #
+    videoMode: 2 & PA2 #
+    videoMode: 3 & PA3 #
+    videoMode: 4 & PA4 #
+    videoMode: 5 & PA5;
+
+MA2 = videoMode: 0 & PA4 # 
+    videoMode: 1 & PA5 #
+    videoMode: 2 & PA3 #
+    videoMode: 3 & PA4 #
+    videoMode: 4 & PA5 #
+    videoMode: 5 & PA6;
+
+MA3 = videoMode: 0 & PA5 # 
+    videoMode: 1 & PA6 #
+    videoMode: 2 & PA4 #
+    videoMode: 3 & PA5 #
+    videoMode: 4 & PA6 #
+    videoMode: 5 & PA7;
+
+MA4 = videoMode: 0 & PA6 # 
+    videoMode: 1 & PA7 #
+    videoMode: 2 & PA5 #
+    videoMode: 3 & PA6 #
+    videoMode: 4 & PA7 #
+    videoMode: 5 & PA8;
+
+MA5 = videoMode: 0 & PA7 # 
+    videoMode: 1 & PA8 #
+    videoMode: 2 & PA6 #
+    videoMode: 3 & PA7 #
+    videoMode: 4 & PA8 #
+    videoMode: 5 & PA10;
+
+MA6 = videoMode: 0 & PA8 # 
+    videoMode: 1 & PA9 #
+    videoMode: 2 & PA7 #
+    videoMode: 3 & PA8 #
+    videoMode: 4 & PA10 #
+    videoMode: 5 & PA11;
