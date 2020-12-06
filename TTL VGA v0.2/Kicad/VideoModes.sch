@@ -192,10 +192,6 @@ Entry Wire Line
 	9350 3100 9450 3000
 Entry Wire Line
 	9350 3200 9450 3100
-Entry Wire Line
-	9350 3300 9450 3200
-Entry Wire Line
-	9350 3400 9450 3300
 Wire Wire Line
 	9450 1500 10050 1500
 Wire Wire Line
@@ -230,10 +226,6 @@ Wire Wire Line
 	9450 3000 10050 3000
 Wire Wire Line
 	9450 3100 10050 3100
-Wire Wire Line
-	9450 3200 10050 3200
-Wire Wire Line
-	9450 3300 10050 3300
 Text Label 9750 1500 0    50   ~ 0
 MA0
 Text Label 9750 1600 0    50   ~ 0
@@ -268,10 +260,6 @@ Text Label 9750 3000 0    50   ~ 0
 MA15
 Text Label 9750 3100 0    50   ~ 0
 MA16
-Text Label 9750 3200 0    50   ~ 0
-MA17
-Text Label 9750 3300 0    50   ~ 0
-MA18
 Text Notes 9700 1250 0    50   ~ 0
 To VRAM
 Text Label 2900 6750 0    50   ~ 0
@@ -744,7 +732,7 @@ A9
 Text Label 6900 2450 0    50   ~ 0
 A11
 Text Notes 4000 7350 0    50   ~ 0
-Based on Opt0/1 one of 4 Video Modes is selected.\nEverything is based of the 640x480@60Hz timing.\nThe VRAM Address Counter counts visible pixels.\nEach Video Mode maps these pixel addresses to VRAM addresses.\nVM0:off\nVM1: 256x192 - 16 colors (4 bits per pixel)\nVM2: 256x192 - 4 colors (2 bits per pixel)\nVM3: 256x192 - 2 colors (1 bit per pixel)\n
+Based on Opt0/1 one of 4 Video Modes is selected.\nEverything is based of the 640x480@60Hz timing.\nThe VRAM Address Counter counts visible pixels.\nEach Video Mode maps these pixel addresses to VRAM addresses.\nVM0:off\nVM1: 256x192 - 2 colors (1 bit per pixel)\nVM2: 256x192 - 4 colors (2 bits per pixel)\nVM3: 256x192 - 16 colors (4 bits per pixel)\n
 Text HLabel 1200 4300 0    50   Input ~ 0
 PixelAddress
 Wire Bus Line

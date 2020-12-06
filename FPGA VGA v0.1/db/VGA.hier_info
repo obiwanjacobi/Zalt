@@ -1,0 +1,45 @@
+|VGA
+n_reset => ~NO_FANOUT~
+systemClk => ~NO_FANOUT~
+memAddr[0] <= memAddr[0].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[1] <= memAddr[1].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[2] <= memAddr[2].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[3] <= memAddr[3].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[4] <= memAddr[4].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[5] <= memAddr[5].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[6] <= memAddr[6].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[7] <= memAddr[7].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[8] <= memAddr[8].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[9] <= memAddr[9].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[10] <= memAddr[10].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[11] <= memAddr[11].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[12] <= memAddr[12].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[13] <= memAddr[13].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[14] <= memAddr[14].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[15] <= memAddr[15].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[16] <= memAddr[16].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[17] <= memAddr[17].DB_MAX_OUTPUT_PORT_TYPE
+memAddr[18] <= memAddr[18].DB_MAX_OUTPUT_PORT_TYPE
+memData[0] <> <UNC>
+memData[1] <> <UNC>
+memData[2] <> <UNC>
+memData[3] <> <UNC>
+memData[4] <> <UNC>
+memData[5] <> <UNC>
+memData[6] <> <UNC>
+memData[7] <> <UNC>
+memData[8] <> <UNC>
+memData[9] <> <UNC>
+memData[10] <> <UNC>
+memData[11] <> <UNC>
+memData[12] <> <UNC>
+memData[13] <> <UNC>
+memData[14] <> <UNC>
+memData[15] <> <UNC>
+n_memEnable <= n_memEnable.DB_MAX_OUTPUT_PORT_TYPE
+n_memRead <= n_memRead.DB_MAX_OUTPUT_PORT_TYPE
+n_memWrite <= n_memWrite.DB_MAX_OUTPUT_PORT_TYPE
+n_byteLoEn <= n_byteLoEn.DB_MAX_OUTPUT_PORT_TYPE
+n_byteHiEn <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+

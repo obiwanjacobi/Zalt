@@ -1,0 +1,38 @@
+{C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/VGA.vhd} {0 {vcom -work work -2002 -explicit {C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/VGA.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity VGA
+** Error: C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/VGA.vhd(8): near "/": expecting FUNCTION or PROCEDURE or IMPURE or PURE
+
+} {10.0 11.0} {}} {C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/g_register.vhd} {1 {vcom -work work -2002 -explicit {C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/g_register.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity g_register
+-- Compiling architecture synth of g_register
+
+} {} {}} {C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/Controller.vhd} {0 {vcom -work work -2002 -explicit {C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/Controller.vhd}
+Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Controller
+-- Compiling architecture synth of Controller
+** Error: C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/Controller.vhd(81): (vcom-1136) Unknown identifier "clk".
+
+** Error: C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/Controller.vhd(81): Type error resolving infix expression "and" as type ieee.std_logic_1164.STD_LOGIC.
+** Error: C:/Users/marc/Documents/MyProjects/Zalt/Zalt/FPGA VGA v0.1/Controller.vhd(82): VHDL Compiler exiting
+
+} {11.0 12.0 13.0 15.0} {}}

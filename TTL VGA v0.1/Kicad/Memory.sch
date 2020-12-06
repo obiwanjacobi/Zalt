@@ -934,12 +934,12 @@ Wire Wire Line
 $Comp
 L power:GND #PWR022
 U 1 1 5E68F558
-P 4350 5750
-F 0 "#PWR022" H 4350 5500 50  0001 C CNN
-F 1 "GND" H 4355 5577 50  0000 C CNN
-F 2 "" H 4350 5750 50  0001 C CNN
-F 3 "" H 4350 5750 50  0001 C CNN
-	1    4350 5750
+P 4950 5750
+F 0 "#PWR022" H 4950 5500 50  0001 C CNN
+F 1 "GND" H 4955 5577 50  0000 C CNN
+F 2 "" H 4950 5750 50  0001 C CNN
+F 3 "" H 4950 5750 50  0001 C CNN
+	1    4950 5750
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1567,7 +1567,6 @@ Wire Wire Line
 	4950 5350 4950 5750
 Wire Wire Line
 	4950 5750 4350 5750
-Connection ~ 4350 5750
 Wire Wire Line
 	4850 7300 4950 7300
 Wire Wire Line
@@ -1663,6 +1662,8 @@ F 3 "" H 2950 2900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 NoConn ~ 2600 7100
+Text Notes 7250 1800 0    50   ~ 0
+A16 and A17 are swapped on the 74LS139.\n(but it is wired like this on the perf board)\nThis will fail when using more VRAM chips.\nFix by swapping outputs in U7 (WinCUPL).
 Wire Bus Line
 	2950 6500 2950 8100
 Wire Bus Line
@@ -1683,6 +1684,5 @@ Wire Bus Line
 	5200 1100 5200 8100
 Wire Bus Line
 	7100 1100 7100 4600
-Text Notes 7250 1800 0    50   ~ 0
-A16 and A17 are swapped on the 74LS139.\n(but it is wired like this on the perf board)\nThis will fail when using more VRAM chips.\nFix by swapping outputs in U7 (WinCUPL).
+Connection ~ 4950 5750
 $EndSCHEMATC

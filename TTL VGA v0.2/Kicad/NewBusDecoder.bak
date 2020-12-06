@@ -32,4 +32,6 @@ Text HLabel 1650 4000 0    50   Input ~ 0
 BusData
 Text HLabel 6650 5250 2    50   Output ~ 0
 Settings
+Text HLabel 9500 4000 2    50   Output ~ 0
+~PalleteRegStrobe
 $EndSCHEMATC

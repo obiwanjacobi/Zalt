@@ -4,7 +4,7 @@ EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 9 10
+Sheet 9 5
 Title "Zalt TTL VGA"
 Date "2020-02-09"
 Rev "0.1"

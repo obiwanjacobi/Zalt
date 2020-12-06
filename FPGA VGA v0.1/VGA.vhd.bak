@@ -1,0 +1,27 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
+
+entity VGA is
+  port(
+    -- controller
+    pixelClk: in std_logic;
+    syncHor: out std_logic := '0';
+    syncVer: out std_logic := '0';
+  );
+end entity;
+
+architecture rtl of VGA is
+  
+begin
+  -- controller
+  -- cpu bus interface
+  -- external vram (SDRAM controller?)
+  -- palette ram (dual port internal?)
+  -- pixel RGB 
+    -- (external?) DAC?
+    -- pulse density modulation?
+    -- HDMI? https://www.fpga4fun.com/HDMI.html
+  
+end architecture;

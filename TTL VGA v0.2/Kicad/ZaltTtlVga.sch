@@ -26,15 +26,17 @@ F5 "Hblank" O R 1850 1400 50
 F6 "Vblank" O R 1850 1500 50 
 $EndSheet
 $Sheet
-S 8050 800  1100 1250
+S 8750 800  1100 1250
 U 5E4F03C9
 F0 "Pixel Output" 50
 F1 "PixelOutput.sch" 50
-F2 "Hblank" I L 8050 1850 50 
-F3 "Vblank" I L 8050 1950 50 
-F4 "VideoData" I L 8050 950 50 
-F5 "VideoBitSelect" I L 8050 1150 50 
-F6 "VideoBitCount" I L 8050 1250 50 
+F2 "Hblank" I L 8750 1850 50 
+F3 "Vblank" I L 8750 1950 50 
+F4 "VideoData" I L 8750 950 50 
+F5 "VideoBitCount" I L 8750 1250 50 
+F6 "ColorDepthSelect" I L 8750 1150 50 
+F7 "BusData" I L 8750 1450 50 
+F8 "PaletteRegStrobe" I L 8750 1550 50 
 $EndSheet
 $Comp
 L syshdr:BUSHDR-A HDR1
@@ -226,7 +228,6 @@ Wire Wire Line
 	2700 6500 3100 6500
 Wire Wire Line
 	2700 6600 3100 6600
-Connection ~ 3200 4550
 Text Label 5750 5400 0    50   ~ 0
 ~WAIT
 Text Label 5750 5600 0    50   ~ 0
@@ -320,15 +321,15 @@ Wire Wire Line
 Wire Wire Line
 	1500 4900 1500 5200
 $Sheet
-S 4800 800  1000 850 
+S 5250 800  1000 850 
 U 5EBF7A49
 F0 "Video Modes" 50
 F1 "VideoModes.sch" 50
-F2 "PixelAddress" I L 4800 1000 50 
-F3 "VideoAddress" O R 5800 1150 50 
-F4 "VideoModeSelect" I L 4800 1400 50 
-F5 "~VideoEnable" I L 4800 1500 50 
-F6 "VideoMode" O R 5800 1250 50 
+F2 "PixelAddress" I L 5250 1000 50 
+F3 "VideoAddress" O R 6250 1150 50 
+F4 "VideoModeSelect" I L 5250 1400 50 
+F5 "~VideoEnable" I L 5250 1500 50 
+F6 "VideoMode" O R 6250 1250 50 
 $EndSheet
 $Sheet
 S 3300 800  1000 850 
@@ -343,31 +344,29 @@ F6 "BusData" I L 3300 1200 50
 F7 "ScrollRegLoStrobe" I L 3300 1400 50 
 $EndSheet
 $Sheet
-S 4800 2050 1000 1050
+S 5250 2050 1000 1050
 U 5ED39654
 F0 "Bus Interface" 50
 F1 "BusInterface.sch" 50
-F2 "VideoAddress" O R 5800 2300 50 
-F3 "VideoData" O R 5800 2400 50 
-F4 "~BusEnable" I L 4800 2150 50 
-F5 "BusAddressHiStrobe" I L 4800 2800 50 
-F6 "BusData" I L 4800 2450 50 
-F7 "BusAddress" I L 4800 2550 50 
+F2 "VideoAddress" O R 6250 2300 50 
+F3 "VideoData" O R 6250 2400 50 
+F4 "~BusEnable" I L 5250 2150 50 
+F5 "BusAddressHiStrobe" I L 5250 2800 50 
+F6 "BusData" I L 5250 2450 50 
+F7 "BusAddress" I L 5250 2550 50 
 $EndSheet
 $Sheet
-S 6250 800  1000 850 
+S 6700 800  1000 850 
 U 5EDDBCDE
 F0 "Video Memory VRAM" 50
 F1 "VideoMemory.sch" 50
-F2 "VideoAddress" I L 6250 1000 50 
-F3 "~OutputEnable" I L 6250 1400 50 
-F4 "~WriteEnable" I L 6250 1500 50 
-F5 "VideoData" O R 7250 1150 50 
+F2 "VideoAddress" I L 6700 1000 50 
+F3 "~OutputEnable" I L 6700 1400 50 
+F4 "~WriteEnable" I L 6700 1500 50 
+F5 "VideoData" O R 7700 1150 50 
 $EndSheet
 Wire Bus Line
 	4000 4700 6150 4700
-Wire Bus Line
-	3200 4550 5550 4550
 Wire Wire Line
 	3150 1500 3300 1500
 Wire Wire Line
@@ -377,24 +376,24 @@ Wire Bus Line
 Wire Bus Line
 	4550 1150 4550 1000
 Wire Bus Line
-	4550 1000 4800 1000
+	4550 1000 4900 1000
 Wire Bus Line
-	5800 2300 6050 2300
+	6250 2300 6500 2300
 Wire Bus Line
-	6050 2300 6050 1150
+	6500 2300 6500 1150
 Wire Bus Line
-	6050 1000 6250 1000
+	6500 1000 6700 1000
 Wire Bus Line
-	5800 1150 6050 1150
-Connection ~ 6050 1150
+	6250 1150 6500 1150
+Connection ~ 6500 1150
 Wire Bus Line
-	6050 1150 6050 1000
+	6500 1150 6500 1000
 Wire Bus Line
-	7250 1150 7450 1150
+	7700 1150 7900 1150
 Wire Bus Line
-	7450 1150 7450 2400
+	7900 1150 7900 2400
 Wire Bus Line
-	7450 2400 5800 2400
+	7900 2400 6250 2400
 $Sheet
 S 3300 2050 1100 1300
 U 5EED1754
@@ -409,6 +408,7 @@ F7 "BusAddress" I L 3300 2250 50
 F8 "BusCtrl" I L 3300 2350 50 
 F9 "BusData" I L 3300 2450 50 
 F10 "Settings" O R 4400 2450 50 
+F11 "~PalleteRegStrobe" O R 4400 2900 50 
 $EndSheet
 Wire Wire Line
 	3150 1500 3150 3550
@@ -419,56 +419,238 @@ Wire Wire Line
 Wire Wire Line
 	4550 3200 4400 3200
 Wire Wire Line
-	4400 3100 4600 3100
+	4400 3100 4650 3100
 Wire Wire Line
-	4600 3100 4600 3600
+	4650 3100 4650 3650
 Wire Wire Line
-	4600 3600 3050 3600
+	4650 3650 3050 3650
 Wire Wire Line
-	3050 3600 3050 1400
+	3050 3650 3050 1400
 Wire Wire Line
 	4400 2150 4600 2150
 Wire Wire Line
 	4600 2150 4600 1500
 Wire Wire Line
-	4800 2150 4700 2150
+	5250 2150 5150 2150
 Wire Wire Line
-	4700 2150 4700 2250
+	5150 2150 5150 2250
 Wire Wire Line
-	4700 2250 4400 2250
+	5150 2250 4400 2250
 Wire Wire Line
-	4400 2800 4800 2800
+	4400 2800 5250 2800
 Wire Wire Line
-	4700 2150 4700 1850
+	5150 2150 5150 1850
 Wire Wire Line
-	4700 1850 6150 1850
+	5150 1850 6600 1850
 Wire Wire Line
-	6150 1850 6150 1500
+	6600 1850 6600 1500
 Wire Wire Line
-	6150 1500 6250 1500
-Connection ~ 4700 2150
+	6600 1500 6700 1500
+Connection ~ 5150 2150
 Wire Wire Line
-	4600 1500 4800 1500
+	4600 1500 5250 1500
 Wire Bus Line
-	4800 1400 4500 1400
+	5250 1400 4500 1400
 Wire Bus Line
 	4500 1400 4500 2450
 Wire Bus Line
 	4400 2450 4500 2450
 Wire Bus Line
-	1150 4700 3050 4700
+	1150 4700 2700 4700
 Wire Bus Line
-	1000 4550 3200 4550
+	1000 4550 2850 4550
+Wire Wire Line
+	1850 900  3300 900 
+Wire Wire Line
+	1850 1000 3300 1000
+Wire Bus Line
+	3300 1200 2850 1200
+Wire Bus Line
+	2850 1200 2850 2450
+Connection ~ 2850 4550
+Wire Bus Line
+	2850 4550 3200 4550
+Wire Bus Line
+	3300 2450 2850 2450
+Connection ~ 2850 2450
+Wire Bus Line
+	2850 2450 2850 3850
+Wire Bus Line
+	3300 2250 2700 2250
+Wire Bus Line
+	2700 2250 2700 3950
+Connection ~ 2700 4700
+Wire Bus Line
+	2700 4700 3050 4700
+Wire Bus Line
+	5250 2550 5100 2550
+Wire Bus Line
+	5100 2550 5100 3950
+Wire Bus Line
+	5100 3950 2700 3950
+Connection ~ 2700 3950
+Wire Bus Line
+	2700 3950 2700 4700
+Wire Bus Line
+	5250 2450 5000 2450
+Wire Bus Line
+	5000 2450 5000 3850
+Wire Bus Line
+	5000 3850 2850 3850
+Connection ~ 2850 3850
+Wire Bus Line
+	2850 3850 2850 4550
+Wire Bus Line
+	8750 950  7900 950 
+Wire Bus Line
+	7900 950  7900 1150
+Connection ~ 7900 1150
+Entry Wire Line
+	7950 3300 8050 3200
+Entry Wire Line
+	7950 3200 8050 3100
+Entry Wire Line
+	7950 3100 8050 3000
+Wire Wire Line
+	7300 3100 7950 3100
+Wire Wire Line
+	7300 3200 7950 3200
+Wire Wire Line
+	7300 3300 7950 3300
+Wire Bus Line
+	4900 1000 4900 3450
+Wire Bus Line
+	4900 3450 7200 3450
+Connection ~ 4900 1000
+Wire Bus Line
+	4900 1000 5250 1000
+Entry Wire Line
+	7200 3200 7300 3100
+Entry Wire Line
+	7200 3300 7300 3200
+Entry Wire Line
+	7200 3400 7300 3300
+Text Label 7350 3100 0    50   ~ 0
+A0
+Text Label 7350 3200 0    50   ~ 0
+A1
+Text Label 7350 3300 0    50   ~ 0
+A2
+Text Label 7600 2600 0    50   ~ 0
+~CDS0
+Text Label 7600 2700 0    50   ~ 0
+~CDS1
+Text Label 7600 2800 0    50   ~ 0
+~CDS2
+Wire Bus Line
+	6250 1250 6400 1250
+Wire Bus Line
+	6400 1250 6400 2500
+Wire Wire Line
+	7300 2600 7800 2600
+Entry Wire Line
+	7200 2500 7300 2600
+Entry Wire Line
+	7200 2700 7300 2800
+Entry Wire Line
+	7800 2600 7900 2500
+Entry Wire Line
+	7800 2700 7900 2600
+Entry Wire Line
+	7800 2800 7900 2700
+Wire Wire Line
+	7300 2800 7800 2800
+Wire Wire Line
+	7300 2700 7800 2700
+Entry Wire Line
+	7200 2600 7300 2700
+Wire Bus Line
+	6400 2500 7200 2500
+Wire Bus Line
+	8750 1250 8100 1250
+Text Label 7350 2600 0    50   ~ 0
+~VM1
+Text Label 7350 2700 0    50   ~ 0
+~VM2
+Text Label 7350 2800 0    50   ~ 0
+~VM3
+Text Label 7800 3100 0    50   ~ 0
+PA0
+Text Label 7800 3200 0    50   ~ 0
+PA1
+Text Label 7800 3300 0    50   ~ 0
+PA2
+Wire Wire Line
+	6700 1400 6600 1400
+Wire Wire Line
+	6600 1400 6600 600 
+Wire Wire Line
+	6600 600  2300 600 
+Wire Wire Line
+	2300 600  2300 1200
+Wire Wire Line
+	2300 1200 1850 1200
+Wire Bus Line
+	8050 2950 8100 2950
+Wire Bus Line
+	8100 2950 8100 1250
+Wire Bus Line
+	8750 1150 8000 1150
+Wire Bus Line
+	8000 1150 8000 2500
+Wire Bus Line
+	8000 2500 7900 2500
+Wire Bus Line
+	8750 1450 8200 1450
+Wire Bus Line
+	8200 1450 8200 3850
+Wire Bus Line
+	8200 3850 5000 3850
+Connection ~ 5000 3850
+Wire Wire Line
+	4400 2900 4800 2900
+Wire Wire Line
+	4800 2900 4800 3550
+Wire Wire Line
+	4800 3550 8300 3550
+Wire Wire Line
+	8300 3550 8300 1550
+Wire Wire Line
+	8300 1550 8750 1550
+Wire Wire Line
+	1850 1400 2300 1400
+Wire Wire Line
+	1850 1500 2300 1500
+Wire Wire Line
+	8750 1850 8400 1850
+Wire Wire Line
+	8750 1950 8400 1950
+Wire Bus Line
+	7200 2500 7200 2700
+Wire Bus Line
+	7900 2500 7900 2700
 Wire Bus Line
 	4000 4700 4000 5600
 Wire Bus Line
-	1000 4550 1000 6500
+	8050 2950 8050 3200
+Wire Bus Line
+	7200 3200 7200 3450
+Wire Bus Line
+	6150 4700 6150 6000
 Wire Bus Line
 	3200 4550 3200 6500
 Wire Bus Line
-	6150 4700 6150 6000
+	1000 4550 1000 6500
 Wire Bus Line
 	3050 4700 3050 6100
 Wire Bus Line
 	1150 4700 1150 6100
+Text Label 8450 1850 0    50   ~ 0
+Hblank
+Text Label 8450 1950 0    50   ~ 0
+Vblank
+Text Label 2000 1400 0    50   ~ 0
+Hblank
+Text Label 2000 1500 0    50   ~ 0
+Vblank
 $EndSCHEMATC

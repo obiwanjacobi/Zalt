@@ -95,10 +95,6 @@ Wire Wire Line
 	9800 1900 10600 1900
 Wire Wire Line
 	9800 2000 10600 2000
-Wire Wire Line
-	9800 2100 10050 2100
-Wire Wire Line
-	9800 2200 10600 2200
 Text Label 10400 1500 0    50   ~ 0
 R0
 Text Label 10400 1600 0    50   ~ 0
@@ -118,11 +114,6 @@ B1
 Text Label 10400 2300 0    50   ~ 0
 B2
 Wire Wire Line
-	10050 2100 10050 2300
-Connection ~ 10050 2100
-Wire Wire Line
-	10050 2100 10600 2100
-Wire Wire Line
 	10050 2300 10600 2300
 Text Notes 9050 950  0    50   ~ 0
 U19 => BlankMux.pld
@@ -138,11 +129,9 @@ F 3 "http://www.lupinek.com/soubory/um61512.pdf" H 4600 6750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text HLabel 1450 1650 0    50   Input ~ 0
-VideoBitSelect
+ColorDepthSelect
 Text HLabel 1450 4200 0    50   Input ~ 0
 VideoBitCount
-Text Notes 4200 7450 0    50   ~ 0
-          VD0  VD1  VD2  VD3  VD4  VD5  VD6  VD7\nVM1: | PA = 0                   | PA = 1                    \nVM2: | PA = 0   | PA =1    | PA = 2    | PA = 3\nVM3: | PA0  | PA1 | PA2 | PA3 | PA4 | PA5 | PA6 | PA7\n
 $Comp
 L 74xx:74LS251 U?
 U 1 1 5EC21696
@@ -309,7 +298,7 @@ PA2
 Wire Wire Line
 	7550 5800 7200 5800
 Text Label 7350 5800 0    50   ~ 0
-~VM3
+~1bit
 $Comp
 L 74xx:74LS253 U?
 U 1 1 5EC36489
@@ -370,9 +359,9 @@ VD5
 Text Label 5600 4200 0    50   ~ 0
 VD7
 Text Label 5600 3700 0    50   ~ 0
-~VM2
+~2bit
 Text Label 5600 4400 0    50   ~ 0
-~VM2
+~2bit
 Text Label 5600 4600 0    50   ~ 0
 PA0
 Text Label 5600 4700 0    50   ~ 0
@@ -425,7 +414,7 @@ PalA2
 Text Label 5150 2450 0    50   ~ 0
 PalA3
 Text Label 3900 2850 0    50   ~ 0
-~VM1
+~4bit
 Text Label 3900 2750 0    50   ~ 0
 PA0
 Text Label 3900 1550 0    50   ~ 0
@@ -450,26 +439,14 @@ Entry Wire Line
 	1700 1950 1800 2050
 Entry Wire Line
 	1700 2050 1800 2150
-Entry Wire Line
-	1700 2150 1800 2250
 Wire Bus Line
 	1700 1650 1450 1650
-Wire Wire Line
-	1800 1950 2150 1950
-Wire Wire Line
-	1800 2050 2150 2050
-Wire Wire Line
-	1800 2150 2150 2150
-Wire Wire Line
-	1800 2250 2150 2250
 Text Label 1850 1950 0    50   ~ 0
-~VM0
+~CDS0
 Text Label 1850 2050 0    50   ~ 0
-~VM1
+~CDS1
 Text Label 1850 2150 0    50   ~ 0
-~VM2
-Text Label 1850 2250 0    50   ~ 0
-~VM3
+~CDS2
 Text Notes 4350 6750 0    50   ~ 0
 Palette RAM
 Wire Wire Line
@@ -522,12 +499,213 @@ Text Label 5100 5600 0    50   ~ 0
 PD6
 Text Label 5100 5700 0    50   ~ 0
 PD7
+Text Notes 4200 4100 0    50   ~ 0
+22V10 GAL will fit:\nquad 2:1\ndual 4:1\nsingle 8:1\n\nOE (uses a spare output)
+Wire Wire Line
+	4200 5700 3750 5700
+Wire Wire Line
+	4200 5800 3750 5800
+Text Label 3800 5700 0    50   ~ 0
+PalA7
+Wire Wire Line
+	4200 5900 3750 5900
+Wire Wire Line
+	4200 6000 3750 6000
+Wire Wire Line
+	4200 6100 3750 6100
+Text Notes 950  7200 0    50   ~ 0
+Have a Register that selects the Palette\nto switch quickly between presets.\nOnly if not 8-bit color depth.\nStobe allowed mid-frame.
+Text Notes 5250 6300 0    50   ~ 0
+8-bit color depth will bypass the Palette.\nIf we have 8-bit colors.\nIf we choose 15/16-bit colors we need to map.
+$Comp
+L 74xx:74HCT574 U?
+U 1 1 5EBE347D
+P 1900 6050
+F 0 "U?" H 1900 7031 50  0000 C CNN
+F 1 "74HCT574" H 1900 6940 50  0000 C CNN
+F 2 "" H 1900 6050 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74HCT574" H 1900 6050 50  0001 C CNN
+	1    1900 6050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1400 5550 1050 5550
+Wire Wire Line
+	1400 5650 1050 5650
+Wire Wire Line
+	1400 5750 1050 5750
+Wire Wire Line
+	1400 5850 1050 5850
+Wire Wire Line
+	1400 5950 1050 5950
+Wire Wire Line
+	1400 6050 1050 6050
+Wire Wire Line
+	1400 6150 1050 6150
+Wire Wire Line
+	1400 6250 1050 6250
+Entry Wire Line
+	950  5450 1050 5550
+Entry Wire Line
+	950  5550 1050 5650
+Entry Wire Line
+	950  5650 1050 5750
+Entry Wire Line
+	950  5750 1050 5850
+Entry Wire Line
+	950  5850 1050 5950
+Entry Wire Line
+	950  5950 1050 6050
+Entry Wire Line
+	950  6050 1050 6150
+Entry Wire Line
+	950  6150 1050 6250
 Wire Bus Line
-	1700 1650 1700 2150
+	950  5350 850  5350
+Text HLabel 850  5350 0    50   Input ~ 0
+BusData
+Text HLabel 1200 6450 0    50   Input ~ 0
+PaletteRegStrobe
+Wire Wire Line
+	1200 6450 1400 6450
+Text Label 1100 5550 0    50   ~ 0
+BD0
+Text Label 1100 5650 0    50   ~ 0
+BD1
+Text Label 1100 5750 0    50   ~ 0
+BD2
+Text Label 1100 5850 0    50   ~ 0
+BD3
+Text Label 1100 5950 0    50   ~ 0
+BD4
+Text Label 1100 6050 0    50   ~ 0
+BD5
+Text Label 1100 6150 0    50   ~ 0
+BD6
+Text Label 1100 6250 0    50   ~ 0
+BD7
+Wire Wire Line
+	2400 5550 2800 5550
+Wire Wire Line
+	2400 5650 2800 5650
+Wire Wire Line
+	2400 5750 2800 5750
+Wire Wire Line
+	2400 5850 2800 5850
+Wire Wire Line
+	2400 5950 2800 5950
+Wire Wire Line
+	2400 6050 2800 6050
+Wire Wire Line
+	2400 6150 2800 6150
+Wire Wire Line
+	2400 6250 2800 6250
+Text Label 2500 5550 0    50   ~ 0
+PalA4
+Text Label 2500 5650 0    50   ~ 0
+PalA5
+Text Label 2500 5750 0    50   ~ 0
+PalA6
+Text Label 2500 5850 0    50   ~ 0
+PalA7
+Text Label 2500 5950 0    50   ~ 0
+PalA8
+Text Label 2500 6050 0    50   ~ 0
+PalA9
+Text Label 2500 6150 0    50   ~ 0
+PalA10
+Text Label 2500 6250 0    50   ~ 0
+PalA11
+Text Label 3800 5800 0    50   ~ 0
+PalA8
+Text Label 3800 5900 0    50   ~ 0
+PalA9
+Text Label 3800 6000 0    50   ~ 0
+PalA10
+Text Label 3800 6100 0    50   ~ 0
+PalA11
+$Comp
+L 74xx:74LS245 U?
+U 1 1 5EC04F82
+P 2650 3700
+F 0 "U?" H 2650 4681 50  0000 C CNN
+F 1 "74LS245" H 2650 4590 50  0000 C CNN
+F 2 "" H 2650 3700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS245" H 2650 3700 50  0001 C CNN
+	1    2650 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3150 3200 3450 3200
+Wire Wire Line
+	3150 3300 3450 3300
+Wire Wire Line
+	3150 3400 3450 3400
+Wire Wire Line
+	3150 3500 3450 3500
+Wire Wire Line
+	3150 3600 3450 3600
+Wire Wire Line
+	3150 3700 3450 3700
+Wire Wire Line
+	3150 3800 3450 3800
+Wire Wire Line
+	3150 3900 3450 3900
+Text Label 3250 3200 0    50   ~ 0
+PD0
+Text Label 3250 3300 0    50   ~ 0
+PD1
+Text Label 3250 3400 0    50   ~ 0
+PD2
+Text Label 3250 3500 0    50   ~ 0
+PD3
+Text Label 3250 3600 0    50   ~ 0
+PD4
+Text Label 3250 3700 0    50   ~ 0
+PD5
+Text Label 3250 3800 0    50   ~ 0
+PD6
+Text Label 3250 3900 0    50   ~ 0
+PD7
+Wire Wire Line
+	2150 4200 1850 4200
+Text Label 1900 4200 0    50   ~ 0
+~8bit
+Wire Wire Line
+	9800 2100 10150 2100
+Wire Wire Line
+	9800 2200 10050 2200
+Wire Wire Line
+	10050 2200 10050 2300
+Wire Wire Line
+	10600 2200 10150 2200
+Wire Wire Line
+	10150 2200 10150 2100
+Connection ~ 10150 2100
+Wire Wire Line
+	10150 2100 10600 2100
+Wire Wire Line
+	1800 1950 2650 1950
+Wire Wire Line
+	1800 2050 2650 2050
+Wire Wire Line
+	1800 2150 2650 2150
+Text Label 2450 1950 0    50   ~ 0
+~1bit
+Text Label 2450 2050 0    50   ~ 0
+~2bit
+Text Label 2450 2150 0    50   ~ 0
+~4bit
+Wire Wire Line
+	1800 2300 2650 2300
+Wire Bus Line
+	1700 1650 1700 2050
 Wire Bus Line
 	1700 4200 1700 4700
 Wire Bus Line
+	950  5350 950  6150
+Wire Bus Line
 	1700 2900 1700 3800
-Text Notes 4200 4100 0    50   ~ 0
-22V10 GAL will fit:\nquad 2:1\ndual 4:1\nsingle 8:1\n\nOE (uses a spare output)
+Text Label 2450 2300 0    50   ~ 0
+~8bit
 $EndSCHEMATC

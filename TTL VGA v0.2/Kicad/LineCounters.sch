@@ -915,4 +915,6 @@ Wire Bus Line
 	7700 4000 7700 5000
 Wire Bus Line
 	7750 1300 7750 2350
+Text Notes 9500 5250 0    50   ~ 0
+We may need an addition signal besides \n~AddressEnable~ indicate the CPU is \nclear to use the VRAM. This would \nallow some margin between the \nVGA or the CPU taking control.
 $EndSCHEMATC

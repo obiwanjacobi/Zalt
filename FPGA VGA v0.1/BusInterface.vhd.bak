@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
+
+entity BusInterface is
+    port(
+        addr: in std_logic_vector(18 downto 0);
+        data: in std_logic_vector (7 downto 0);
+        n_read: in std_logic;
+        n_write: in std_logic;
+        n_memReq: in std_logic;
+        n_ioReq in std_logic;
+    );
+end entity;
+
+architecture synth for BusInterface is
+
+begin
+
+end architecture;
