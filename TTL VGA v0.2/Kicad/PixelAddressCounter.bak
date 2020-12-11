@@ -244,7 +244,7 @@ Wire Wire Line
 	6750 2750 6750 2950
 Wire Wire Line
 	6750 2950 7100 2950
-Text Notes 850  1900 0    50   ~ 0
+Text Notes 750  2600 0    50   ~ 0
 We have registers here that load in a start address for \neach frame. That way a scrolling function can be supported \nin hardware. The software would load a value of the address \nof the start of the next frame based on the direction of scrolling. \nLeft or right would simply increment or decrement the start \naddress. Scrolling up and down would be addding/subtracting \na complete horizontal line worth of bytes.
 Text Notes 7150 2150 0    50   ~ 0
 U6 => BinaryCounterLo.pld\nU7 => BinaryCounterHi.pld
@@ -533,4 +533,10 @@ Wire Bus Line
 	6000 2400 6000 3750
 Wire Bus Line
 	1100 3600 1100 6650
+Text Notes 800  1300 0    50   ~ 0
+This module counts the pixel-address strobes and generates 18-bit address lines.\nBoth counters count 9-bits. The first (lo) counter generates the 'clock' for the 2nd (hi) counter.\n\nLater this 18-bit pixel address is used as a basis for addressing VRAM.
+Text Notes 600  7500 0    50   ~ 0
+The ScrollRegXxStrobe signals are active when \nthe correct IO address is decoded when the \nCPU wants to write into these registers.
+Text Notes 650  3450 0    50   ~ 0
+Z80 Data Bus
 $EndSCHEMATC

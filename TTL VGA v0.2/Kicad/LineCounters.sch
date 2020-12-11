@@ -899,6 +899,8 @@ Wire Wire Line
 	9100 1950 10250 1950
 Text Notes 6800 3300 0    50   ~ 0
 U1 => HorizontalDecoder.pld\nU5 => VerticalDecoder.pld
+Text Notes 9500 5250 0    50   ~ 0
+We may need an addition signal besides \n~AddressEnable~ indicate the CPU is \nclear to use the VRAM. This would \nallow some margin between the \nVGA or the CPU taking control.
 Wire Bus Line
 	7000 4000 7000 4550
 Wire Bus Line
@@ -915,6 +917,6 @@ Wire Bus Line
 	7700 4000 7700 5000
 Wire Bus Line
 	7750 1300 7750 2350
-Text Notes 9500 5250 0    50   ~ 0
-We may need an addition signal besides \n~AddressEnable~ indicate the CPU is \nclear to use the VRAM. This would \nallow some margin between the \nVGA or the CPU taking control.
+Text Notes 750  3350 0    50   ~ 0
+This module counts (horizontal) pixels and (vertical) lines and \ngenerates control signals based on the current position on the screen.\n\nH- and V-sync are produced here to go directly to the VGA monitor.\nBlank signals are produced to disable VGA color output during non-visible screen positions.\nAn pixel-address strobe is produced to increment the active video memory address.
 $EndSCHEMATC

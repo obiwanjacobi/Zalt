@@ -620,6 +620,14 @@ Text HLabel 1400 2200 0    50   Input ~ 0
 BusAddress
 Wire Bus Line
 	3950 2200 1400 2200
+Text Notes 950  2500 0    49   ~ 0
+Enable CPU access to the VRAM bus
+Text Notes 900  2000 0    49   ~ 0
+CPU (IO) Address
+Text Notes 950  3600 0    49   ~ 0
+CPU Data Bus
+Text Notes 750  3050 0    49   ~ 0
+Active when the IO Address is dectected for \nwriting to the register to set the VRAM Bank (4k)
 Wire Bus Line
 	3500 4750 3500 6350
 Wire Bus Line
@@ -632,4 +640,6 @@ Wire Bus Line
 	5750 1900 5750 6350
 Wire Bus Line
 	3950 2200 3950 4850
+Text Notes 850  1200 0    49   ~ 0
+This module connects the CPU bus to the VRAM bus\nwhen the ~BusEnable~ signal is active.\n\nWill probably add the ability for the VGA adapter to issue\nan IM2 (vector) interrupt to CPU when it is allowed access.
 $EndSCHEMATC

@@ -131,7 +131,7 @@ A18
 Text Notes 650  1350 0    50   ~ 0
 From VRAM\nAddress Counter
 Text Notes 10000 6300 0    50   ~ 0
-Mode 0: \ndisengage driving the \nVRAM / CPU access\n\nMode 1: \nA0 selects pixel data\nA8 duplicate line\n\nA1-A7 => A0-A6\nA9-A18 => A7-A16\n\nMode 2:\nA0,A1 selects pixel data\nA9 duplicate line\n\nA2-A8 => A0-A6\nA10-A18 => A7-A15\n\nMode 3:\nA0,A1,A2 selects pixel data\nA10 duplicate line\n\nA3-A9 => A0-A6\nA11-A18 => A7-A14\n
+Mode 0: \ndisengage driving the \nVRAM / CPU access\n(reserved for text mode)\n\nMode 1: \nA0 selects pixel data\nA8 duplicate line\n\nA1-A7 => A0-A6\nA9-A18 => A7-A16\n\nMode 2:\nA0,A1 selects pixel data\nA9 duplicate line\n\nA2-A8 => A0-A6\nA10-A18 => A7-A15\n\nMode 3:\nA0,A1,A2 selects pixel data\nA10 duplicate line\n\nA3-A9 => A0-A6\nA11-A18 => A7-A14\n
 $Comp
 L 74xx:74LS245 U?
 U 1 1 5EBFC20E
@@ -999,4 +999,12 @@ Wire Bus Line
 	1450 1600 1450 4300
 Wire Bus Line
 	9350 1600 9350 4050
+Text Notes 5950 6150 0    49   ~ 0
+This module implements the VRAM address control for the different Video Modes.\nThe incoming Pixel-Address is mapped to an actual VRAM address.\nEach video mode uses a different combination of Pixel-Address lines, \nbecause each Video Mode uses a different number of bits per pixel.\nAlso, the same horizontal line is duplicated. That means that the VRAM \naddresses for each (pixel) line on the screen are accessed twice.\nThis is done by simply ignoring a single Pixel-Address line (A8/A9/A10)
+Text Notes 2950 1000 0    49   ~ 0
+Video Mode 1
+Text Notes 5000 1000 0    49   ~ 0
+Video Mode 2
+Text Notes 7300 1000 0    49   ~ 0
+Video Mode 3
 $EndSCHEMATC

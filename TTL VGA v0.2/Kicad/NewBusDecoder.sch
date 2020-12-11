@@ -50,4 +50,8 @@ Text Notes 9000 2850 0    50   ~ 0
 VGA video is active
 Text Notes 1500 2450 0    50   ~ 0
 CPU interface
+Text Notes 850  1100 0    50   ~ 0
+This module decodes IO addresses for the Z80 CPU to access various parts of the VGA adapter.\n\n- VRAM banks (4k)\n- Video Modes\n- Color Palette
+Text Notes 3200 4000 0    866  ~ 173
+TODO
 $EndSCHEMATC

@@ -531,4 +531,10 @@ Wire Bus Line
 	5150 3400 5150 6100
 Wire Bus Line
 	2700 1350 2700 6100
+Text Notes 7100 1100 0    49   ~ 0
+This module contains the VRAM.\n2x 64kB at this time.
+Text Notes 1250 5250 0    49   ~ 0
+Active when the VGA adapter \nis output VRAM data to the screen.
+Text Notes 1050 5900 0    49   ~ 0
+Active when the CPU has write-access
 $EndSCHEMATC

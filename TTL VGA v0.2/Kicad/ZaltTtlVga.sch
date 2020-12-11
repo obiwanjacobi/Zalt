@@ -625,6 +625,22 @@ Wire Wire Line
 	8750 1850 8400 1850
 Wire Wire Line
 	8750 1950 8400 1950
+Text Label 8450 1850 0    50   ~ 0
+Hblank
+Text Label 8450 1950 0    50   ~ 0
+Vblank
+Text Label 2000 1400 0    50   ~ 0
+Hblank
+Text Label 2000 1500 0    50   ~ 0
+Vblank
+Wire Bus Line
+	3300 2350 2550 2350
+Wire Bus Line
+	2550 2350 2550 4100
+Wire Bus Line
+	2550 4100 4000 4100
+Wire Bus Line
+	4000 4100 4000 4700
 Wire Bus Line
 	7200 2500 7200 2700
 Wire Bus Line
@@ -645,12 +661,5 @@ Wire Bus Line
 	3050 4700 3050 6100
 Wire Bus Line
 	1150 4700 1150 6100
-Text Label 8450 1850 0    50   ~ 0
-Hblank
-Text Label 8450 1950 0    50   ~ 0
-Vblank
-Text Label 2000 1400 0    50   ~ 0
-Hblank
-Text Label 2000 1500 0    50   ~ 0
-Vblank
+Connection ~ 4000 4700
 $EndSCHEMATC

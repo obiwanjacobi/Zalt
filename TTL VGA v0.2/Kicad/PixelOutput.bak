@@ -500,7 +500,7 @@ PD6
 Text Label 5100 5700 0    50   ~ 0
 PD7
 Text Notes 4200 4100 0    50   ~ 0
-22V10 GAL will fit:\nquad 2:1\ndual 4:1\nsingle 8:1\n\nOE (uses a spare output)
+22V10 GAL will fit:\nquad 2:1\ndual 4:1\nsingle 8:1\n\nOE (used a spare output)
 Wire Wire Line
 	4200 5700 3750 5700
 Wire Wire Line
@@ -513,108 +513,108 @@ Wire Wire Line
 	4200 6000 3750 6000
 Wire Wire Line
 	4200 6100 3750 6100
-Text Notes 950  7200 0    50   ~ 0
-Have a Register that selects the Palette\nto switch quickly between presets.\nOnly if not 8-bit color depth.\nStobe allowed mid-frame.
+Text Notes 1100 7250 0    50   ~ 0
+A Register that selects the active Palette.\nAllows the CPU to switch quickly between presets.\nOnly if not 8-bit color depth.\nStobe allowed mid-frame.
 Text Notes 5250 6300 0    50   ~ 0
 8-bit color depth will bypass the Palette.\nIf we have 8-bit colors.\nIf we choose 15/16-bit colors we need to map.
 $Comp
 L 74xx:74HCT574 U?
 U 1 1 5EBE347D
-P 1900 6050
-F 0 "U?" H 1900 7031 50  0000 C CNN
-F 1 "74HCT574" H 1900 6940 50  0000 C CNN
-F 2 "" H 1900 6050 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HCT574" H 1900 6050 50  0001 C CNN
-	1    1900 6050
+P 2050 6100
+F 0 "U?" H 2050 7081 50  0000 C CNN
+F 1 "74HCT574" H 2050 6990 50  0000 C CNN
+F 2 "" H 2050 6100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74HCT574" H 2050 6100 50  0001 C CNN
+	1    2050 6100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1400 5550 1050 5550
+	1550 5600 1200 5600
 Wire Wire Line
-	1400 5650 1050 5650
+	1550 5700 1200 5700
 Wire Wire Line
-	1400 5750 1050 5750
+	1550 5800 1200 5800
 Wire Wire Line
-	1400 5850 1050 5850
+	1550 5900 1200 5900
 Wire Wire Line
-	1400 5950 1050 5950
+	1550 6000 1200 6000
 Wire Wire Line
-	1400 6050 1050 6050
+	1550 6100 1200 6100
 Wire Wire Line
-	1400 6150 1050 6150
+	1550 6200 1200 6200
 Wire Wire Line
-	1400 6250 1050 6250
+	1550 6300 1200 6300
 Entry Wire Line
-	950  5450 1050 5550
+	1100 5500 1200 5600
 Entry Wire Line
-	950  5550 1050 5650
+	1100 5600 1200 5700
 Entry Wire Line
-	950  5650 1050 5750
+	1100 5700 1200 5800
 Entry Wire Line
-	950  5750 1050 5850
+	1100 5800 1200 5900
 Entry Wire Line
-	950  5850 1050 5950
+	1100 5900 1200 6000
 Entry Wire Line
-	950  5950 1050 6050
+	1100 6000 1200 6100
 Entry Wire Line
-	950  6050 1050 6150
+	1100 6100 1200 6200
 Entry Wire Line
-	950  6150 1050 6250
+	1100 6200 1200 6300
 Wire Bus Line
-	950  5350 850  5350
-Text HLabel 850  5350 0    50   Input ~ 0
+	1100 5400 1000 5400
+Text HLabel 1000 5400 0    50   Input ~ 0
 BusData
-Text HLabel 1200 6450 0    50   Input ~ 0
+Text HLabel 1350 6500 0    50   Input ~ 0
 PaletteRegStrobe
 Wire Wire Line
-	1200 6450 1400 6450
-Text Label 1100 5550 0    50   ~ 0
+	1350 6500 1550 6500
+Text Label 1250 5600 0    50   ~ 0
 BD0
-Text Label 1100 5650 0    50   ~ 0
+Text Label 1250 5700 0    50   ~ 0
 BD1
-Text Label 1100 5750 0    50   ~ 0
+Text Label 1250 5800 0    50   ~ 0
 BD2
-Text Label 1100 5850 0    50   ~ 0
+Text Label 1250 5900 0    50   ~ 0
 BD3
-Text Label 1100 5950 0    50   ~ 0
+Text Label 1250 6000 0    50   ~ 0
 BD4
-Text Label 1100 6050 0    50   ~ 0
+Text Label 1250 6100 0    50   ~ 0
 BD5
-Text Label 1100 6150 0    50   ~ 0
+Text Label 1250 6200 0    50   ~ 0
 BD6
-Text Label 1100 6250 0    50   ~ 0
+Text Label 1250 6300 0    50   ~ 0
 BD7
 Wire Wire Line
-	2400 5550 2800 5550
+	2550 5600 2950 5600
 Wire Wire Line
-	2400 5650 2800 5650
+	2550 5700 2950 5700
 Wire Wire Line
-	2400 5750 2800 5750
+	2550 5800 2950 5800
 Wire Wire Line
-	2400 5850 2800 5850
+	2550 5900 2950 5900
 Wire Wire Line
-	2400 5950 2800 5950
+	2550 6000 2950 6000
 Wire Wire Line
-	2400 6050 2800 6050
+	2550 6100 2950 6100
 Wire Wire Line
-	2400 6150 2800 6150
+	2550 6200 2950 6200
 Wire Wire Line
-	2400 6250 2800 6250
-Text Label 2500 5550 0    50   ~ 0
+	2550 6300 2950 6300
+Text Label 2650 5600 0    50   ~ 0
 PalA4
-Text Label 2500 5650 0    50   ~ 0
+Text Label 2650 5700 0    50   ~ 0
 PalA5
-Text Label 2500 5750 0    50   ~ 0
+Text Label 2650 5800 0    50   ~ 0
 PalA6
-Text Label 2500 5850 0    50   ~ 0
+Text Label 2650 5900 0    50   ~ 0
 PalA7
-Text Label 2500 5950 0    50   ~ 0
+Text Label 2650 6000 0    50   ~ 0
 PalA8
-Text Label 2500 6050 0    50   ~ 0
+Text Label 2650 6100 0    50   ~ 0
 PalA9
-Text Label 2500 6150 0    50   ~ 0
+Text Label 2650 6200 0    50   ~ 0
 PalA10
-Text Label 2500 6250 0    50   ~ 0
+Text Label 2650 6300 0    50   ~ 0
 PalA11
 Text Label 3800 5800 0    50   ~ 0
 PalA8
@@ -698,14 +698,30 @@ Text Label 2450 2150 0    50   ~ 0
 ~4bit
 Wire Wire Line
 	1800 2300 2650 2300
+Text Label 2450 2300 0    50   ~ 0
+~8bit
+Text Notes 850  950  0    49   ~ 0
+This module contains the color palette \nand color depth selection logic for the \nvarious video modes.
+Text Notes 9750 2850 0    49   ~ 0
+8-bit RGB\n\nR (3-bits)\nG (3-bits)\nB (2-bits)
+Text Notes 10150 1350 0    49   ~ 0
+TODO: RGB (9-bit) DAC
+Text Notes 1800 2500 0    49   ~ 0
+TODO: 8-bit mode
+Text Notes 1000 2800 0    49   ~ 0
+Data from VRAM
+Text Notes 7400 900  0    49   ~ 0
+The output will be 'black' when \neither blank signal is active,\n
+Text Notes 650  4700 0    49   ~ 0
+Pixel-Address lines that \nselect what data bits to \nselect for the output of \npixels. (multiple pixels \nper VRAM-Address)
 Wire Bus Line
 	1700 1650 1700 2050
 Wire Bus Line
 	1700 4200 1700 4700
 Wire Bus Line
-	950  5350 950  6150
+	1100 5400 1100 6200
 Wire Bus Line
 	1700 2900 1700 3800
-Text Label 2450 2300 0    50   ~ 0
-~8bit
+Text Notes 2400 1800 0    49   ~ 0
+bits per pixel
 $EndSCHEMATC
