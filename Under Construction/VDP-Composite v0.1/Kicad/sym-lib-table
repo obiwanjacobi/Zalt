@@ -1,0 +1,9 @@
+(sym_lib_table
+  (lib (name v9958)(type Legacy)(uri ${KIPRJMOD}/v9958.lib)(options "")(descr ""))
+  (lib (name CXA1145)(type Legacy)(uri ${KIPRJMOD}/CXA1145.lib)(options "")(descr ""))
+  (lib (name D41464)(type Legacy)(uri ${KIPRJMOD}/D41464.lib)(options "")(descr ""))
+  (lib (name CXA1645)(type Legacy)(uri ${KIPRJMOD}/CXA1645.lib)(options "")(descr ""))
+  (lib (name syshdr)(type Legacy)(uri ${KIPRJMOD}/syshdr.lib)(options "")(descr ""))
+  (lib (name 22V10)(type Legacy)(uri ${KIPRJMOD}/22V10.lib)(options "")(descr ""))
+  (lib (name VDP-Composite-rescue)(type Legacy)(uri ${KIPRJMOD}/VDP-Composite-rescue.lib)(options "")(descr ""))
+)

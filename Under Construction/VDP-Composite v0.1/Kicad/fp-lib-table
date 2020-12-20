@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name DIP178)(type KiCad)(uri ${KIPRJMOD}/DIP178.pretty)(options "")(descr ""))
+)

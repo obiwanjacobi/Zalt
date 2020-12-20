@@ -4,7 +4,7 @@ Zalt is a home brew Z80 computer with a modern(isch) chipset.
 
 ## Zalt Z80 Computer
 
-| Made by Marc Jacobi 2016 |
+| Made by Marc Jacobi 2016-2020 |
 | --- |
 | blog: https://jacobielectronix.wordpress.com/category/zalt/
 | email: obiwanjacobi@hotmail.com
@@ -16,7 +16,6 @@ Zalt is a home brew Z80 computer with a modern(isch) chipset.
 | CPU Board | (v1.0) |
 | Decoder Board | (v1.0) |
 | BusSpy Board | (no pcb) |
-| GPU Board | (under construction) |
 
 <br/>
 
@@ -26,7 +25,6 @@ Zalt is a home brew Z80 computer with a modern(isch) chipset.
 | CPU Board v1.0 - locked | module (in production)
 | Decoder Board v1.0 - locked | module (in production)
 | Design | braindump and design documents
-| GPU Board v1.0 | module (under construction)
 | Kicad | Zalt specific (shared) libraries
 | Kicad/Board Template | PCB template for stackable boards.
 | Kicad/Logical Design | Logical scratch pad for working on ideas.
@@ -36,6 +34,11 @@ Zalt is a home brew Z80 computer with a modern(isch) chipset.
 | Source/Z80 Tests | Location for all kinds of test code
 | Source/Zalt Bios | The Zalt OS source code (to be moved)
 | Source/z88dk target | Source for the z88dk Zalt target
+| Under Construction/GPU Board v0.1 | Graphics based on a ARM MCU
+| Under Construction/TTL VGA v.01 | Graphics with TTL/GAL 1st prototype (partially build)
+| Under Construction/TTL VGA v.02 | Graphics with TTL/GAL 2nd prototype
+| Under Construction/VDP-Composite v0.1 | Graphics using V9958 vintage/msx
+| Under Construction/ZaltToISA | PC ISA interfacing
 
 <br/>
 

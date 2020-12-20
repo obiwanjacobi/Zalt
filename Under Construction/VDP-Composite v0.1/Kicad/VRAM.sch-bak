@@ -1,0 +1,951 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L D41464:D41464 U?
+U 1 1 5FDC8F0A
+P 4300 2450
+AR Path="/5FDC8F0A" Ref="U?"  Part="1" 
+AR Path="/5FDC62A1/5FDC8502/5FDC8F0A" Ref="U301"  Part="1" 
+F 0 "U301" H 4300 3315 50  0000 C CNN
+F 1 "D41464" H 4300 3224 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm_LongPads" H 4350 3300 50  0001 C CNN
+F 3 "https://archive.org/details/NEC_D41464_64k_x_4bit_DRAM" H 4350 3300 50  0001 C CNN
+	1    4300 2450
+	1    0    0    -1  
+$EndComp
+Text HLabel 1650 3650 0    50   Input ~ 0
+~RAS
+Text HLabel 1650 3800 0    50   Input ~ 0
+~CAS1
+Text HLabel 1650 3950 0    50   Input ~ 0
+~CAS2
+Text HLabel 1650 4100 0    50   Input ~ 0
+~CASx
+Text HLabel 1650 4250 0    50   Input ~ 0
+R~W
+Wire Wire Line
+	1650 1150 1950 1150
+Wire Wire Line
+	1650 1250 1950 1250
+Wire Wire Line
+	1650 1350 1950 1350
+Wire Wire Line
+	1650 1450 1950 1450
+Wire Wire Line
+	1650 1550 1950 1550
+Wire Wire Line
+	1650 1650 1950 1650
+Wire Wire Line
+	1650 1750 1950 1750
+Wire Wire Line
+	1650 1850 1950 1850
+Wire Wire Line
+	1650 2500 1950 2500
+Wire Wire Line
+	1650 2600 1950 2600
+Wire Wire Line
+	1650 2700 1950 2700
+Wire Wire Line
+	1650 2800 1950 2800
+Wire Wire Line
+	1650 2900 1950 2900
+Wire Wire Line
+	1650 3000 1950 3000
+Wire Wire Line
+	1650 3100 1950 3100
+Wire Wire Line
+	1650 3200 1950 3200
+Text Label 1750 1150 0    50   ~ 0
+AD0
+Text Label 1750 1250 0    50   ~ 0
+AD1
+Text Label 1750 1350 0    50   ~ 0
+AD2
+Text Label 1750 1450 0    50   ~ 0
+AD3
+Text Label 1750 1550 0    50   ~ 0
+AD4
+Text Label 1750 1650 0    50   ~ 0
+AD5
+Text Label 1750 1750 0    50   ~ 0
+AD6
+Text Label 1750 1850 0    50   ~ 0
+AD7
+Text Label 1750 2500 0    50   ~ 0
+RD0
+Text Label 1750 2600 0    50   ~ 0
+RD1
+Text Label 1750 2700 0    50   ~ 0
+RD2
+Text Label 1750 2800 0    50   ~ 0
+RD3
+Text Label 1750 2900 0    50   ~ 0
+RD4
+Text Label 1750 3000 0    50   ~ 0
+RD5
+Text Label 1750 3100 0    50   ~ 0
+RD6
+Text Label 1750 3200 0    50   ~ 0
+RD7
+Wire Wire Line
+	1650 3650 2000 3650
+Wire Wire Line
+	1650 3800 2000 3800
+Wire Wire Line
+	1650 3950 2000 3950
+Wire Wire Line
+	1650 4100 2000 4100
+Wire Wire Line
+	1650 4250 2000 4250
+Text Label 1800 3650 0    50   ~ 0
+~RAS
+Text Label 1800 3800 0    50   ~ 0
+~CAS1
+Text Label 1800 3950 0    50   ~ 0
+~CAS2
+Text Label 1800 4100 0    50   ~ 0
+~CASx
+Text Label 1800 4250 0    50   ~ 0
+R~W
+Wire Wire Line
+	3950 1850 3550 1850
+Wire Wire Line
+	3950 1950 3550 1950
+Wire Wire Line
+	3950 2050 3550 2050
+Wire Wire Line
+	3950 2150 3550 2150
+Wire Wire Line
+	3950 2250 3550 2250
+Wire Wire Line
+	3950 2350 3550 2350
+Wire Wire Line
+	3950 2450 3550 2450
+Wire Wire Line
+	3950 2550 3550 2550
+Wire Wire Line
+	3950 2750 3550 2750
+Wire Wire Line
+	3950 2850 3550 2850
+Wire Wire Line
+	3950 2950 3550 2950
+Wire Wire Line
+	3950 3050 3550 3050
+Wire Wire Line
+	4650 1850 5000 1850
+Wire Wire Line
+	4650 1950 5000 1950
+Wire Wire Line
+	4650 2050 5000 2050
+Wire Wire Line
+	4650 2150 5000 2150
+Wire Wire Line
+	4800 2950 4800 2850
+Wire Wire Line
+	4650 3050 4800 3050
+Wire Wire Line
+	4800 3050 4800 3150
+$Comp
+L power:GND #PWR0305
+U 1 1 5FDE05F1
+P 4800 3150
+F 0 "#PWR0305" H 4800 2900 50  0001 C CNN
+F 1 "GND" H 4805 2977 50  0000 C CNN
+F 2 "" H 4800 3150 50  0001 C CNN
+F 3 "" H 4800 3150 50  0001 C CNN
+	1    4800 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0304
+U 1 1 5FDE0BBD
+P 4800 2850
+F 0 "#PWR0304" H 4800 2700 50  0001 C CNN
+F 1 "+5V" H 4815 3023 50  0000 C CNN
+F 2 "" H 4800 2850 50  0001 C CNN
+F 3 "" H 4800 2850 50  0001 C CNN
+	1    4800 2850
+	1    0    0    -1  
+$EndComp
+Text Label 3600 1850 0    50   ~ 0
+AD0
+Text Label 3600 1950 0    50   ~ 0
+AD1
+Text Label 3600 2050 0    50   ~ 0
+AD2
+Text Label 3600 2150 0    50   ~ 0
+AD3
+Text Label 3600 2250 0    50   ~ 0
+AD4
+Text Label 3600 2350 0    50   ~ 0
+AD5
+Text Label 3600 2450 0    50   ~ 0
+AD6
+Text Label 3600 2550 0    50   ~ 0
+AD7
+Text Label 3600 2750 0    50   ~ 0
+~RAS
+Text Label 3600 2850 0    50   ~ 0
+~CAS1
+Text Label 3600 2950 0    50   ~ 0
+~OE
+Text Label 3600 3050 0    50   ~ 0
+R~W
+Text Label 4800 1850 0    50   ~ 0
+RD0
+Text Label 4800 1950 0    50   ~ 0
+RD1
+Text Label 4800 2050 0    50   ~ 0
+RD2
+Text Label 4800 2150 0    50   ~ 0
+RD3
+Wire Wire Line
+	2000 4450 1650 4450
+Text Label 1800 4450 0    50   ~ 0
+~OE
+$Comp
+L power:GND #PWR0301
+U 1 1 5FDE1EF2
+P 1650 4600
+F 0 "#PWR0301" H 1650 4350 50  0001 C CNN
+F 1 "GND" H 1655 4427 50  0000 C CNN
+F 2 "" H 1650 4600 50  0001 C CNN
+F 3 "" H 1650 4600 50  0001 C CNN
+	1    1650 4600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1650 4450 1650 4600
+$Comp
+L D41464:D41464 U?
+U 1 1 5FDE423B
+P 4300 4400
+AR Path="/5FDE423B" Ref="U?"  Part="1" 
+AR Path="/5FDC62A1/5FDC8502/5FDE423B" Ref="U302"  Part="1" 
+F 0 "U302" H 4300 5265 50  0000 C CNN
+F 1 "D41464" H 4300 5174 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm_LongPads" H 4350 5250 50  0001 C CNN
+F 3 "https://archive.org/details/NEC_D41464_64k_x_4bit_DRAM" H 4350 5250 50  0001 C CNN
+	1    4300 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 3800 3550 3800
+Wire Wire Line
+	3950 3900 3550 3900
+Wire Wire Line
+	3950 4000 3550 4000
+Wire Wire Line
+	3950 4100 3550 4100
+Wire Wire Line
+	3950 4200 3550 4200
+Wire Wire Line
+	3950 4300 3550 4300
+Wire Wire Line
+	3950 4400 3550 4400
+Wire Wire Line
+	3950 4500 3550 4500
+Wire Wire Line
+	3950 4700 3550 4700
+Wire Wire Line
+	3950 4800 3550 4800
+Wire Wire Line
+	3950 4900 3550 4900
+Wire Wire Line
+	3950 5000 3550 5000
+Wire Wire Line
+	4650 3800 5000 3800
+Wire Wire Line
+	4650 3900 5000 3900
+Wire Wire Line
+	4650 4000 5000 4000
+Wire Wire Line
+	4650 4100 5000 4100
+Wire Wire Line
+	4650 4900 4800 4900
+Wire Wire Line
+	4800 4900 4800 4800
+Wire Wire Line
+	4650 5000 4800 5000
+Wire Wire Line
+	4800 5000 4800 5100
+$Comp
+L power:GND #PWR0307
+U 1 1 5FDE4259
+P 4800 5100
+F 0 "#PWR0307" H 4800 4850 50  0001 C CNN
+F 1 "GND" H 4805 4927 50  0000 C CNN
+F 2 "" H 4800 5100 50  0001 C CNN
+F 3 "" H 4800 5100 50  0001 C CNN
+	1    4800 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0306
+U 1 1 5FDE4263
+P 4800 4800
+F 0 "#PWR0306" H 4800 4650 50  0001 C CNN
+F 1 "+5V" H 4815 4973 50  0000 C CNN
+F 2 "" H 4800 4800 50  0001 C CNN
+F 3 "" H 4800 4800 50  0001 C CNN
+	1    4800 4800
+	1    0    0    -1  
+$EndComp
+Text Label 3600 3800 0    50   ~ 0
+AD0
+Text Label 3600 3900 0    50   ~ 0
+AD1
+Text Label 3600 4000 0    50   ~ 0
+AD2
+Text Label 3600 4100 0    50   ~ 0
+AD3
+Text Label 3600 4200 0    50   ~ 0
+AD4
+Text Label 3600 4300 0    50   ~ 0
+AD5
+Text Label 3600 4400 0    50   ~ 0
+AD6
+Text Label 3600 4500 0    50   ~ 0
+AD7
+Text Label 3600 4700 0    50   ~ 0
+~RAS
+Text Label 3600 4800 0    50   ~ 0
+~CAS1
+Text Label 3600 4900 0    50   ~ 0
+~OE
+Text Label 3600 5000 0    50   ~ 0
+R~W
+Text Label 4800 3800 0    50   ~ 0
+RD4
+Text Label 4800 3900 0    50   ~ 0
+RD5
+Text Label 4800 4000 0    50   ~ 0
+RD6
+Text Label 4800 4100 0    50   ~ 0
+RD7
+$Comp
+L D41464:D41464 U?
+U 1 1 5FDE8B24
+P 6200 2450
+AR Path="/5FDE8B24" Ref="U?"  Part="1" 
+AR Path="/5FDC62A1/5FDC8502/5FDE8B24" Ref="U303"  Part="1" 
+F 0 "U303" H 6200 3315 50  0000 C CNN
+F 1 "D41464" H 6200 3224 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm_LongPads" H 6250 3300 50  0001 C CNN
+F 3 "https://archive.org/details/NEC_D41464_64k_x_4bit_DRAM" H 6250 3300 50  0001 C CNN
+	1    6200 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 1850 5450 1850
+Wire Wire Line
+	5850 1950 5450 1950
+Wire Wire Line
+	5850 2050 5450 2050
+Wire Wire Line
+	5850 2150 5450 2150
+Wire Wire Line
+	5850 2250 5450 2250
+Wire Wire Line
+	5850 2350 5450 2350
+Wire Wire Line
+	5850 2450 5450 2450
+Wire Wire Line
+	5850 2550 5450 2550
+Wire Wire Line
+	5850 2750 5450 2750
+Wire Wire Line
+	5850 2850 5450 2850
+Wire Wire Line
+	5850 2950 5450 2950
+Wire Wire Line
+	5850 3050 5450 3050
+Wire Wire Line
+	6550 1850 6900 1850
+Wire Wire Line
+	6550 1950 6900 1950
+Wire Wire Line
+	6550 2050 6900 2050
+Wire Wire Line
+	6550 2150 6900 2150
+Wire Wire Line
+	6550 2950 6700 2950
+Wire Wire Line
+	6700 2950 6700 2850
+Wire Wire Line
+	6550 3050 6700 3050
+Wire Wire Line
+	6700 3050 6700 3150
+$Comp
+L power:GND #PWR0309
+U 1 1 5FDE8B42
+P 6700 3150
+F 0 "#PWR0309" H 6700 2900 50  0001 C CNN
+F 1 "GND" H 6705 2977 50  0000 C CNN
+F 2 "" H 6700 3150 50  0001 C CNN
+F 3 "" H 6700 3150 50  0001 C CNN
+	1    6700 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0308
+U 1 1 5FDE8B4C
+P 6700 2850
+F 0 "#PWR0308" H 6700 2700 50  0001 C CNN
+F 1 "+5V" H 6715 3023 50  0000 C CNN
+F 2 "" H 6700 2850 50  0001 C CNN
+F 3 "" H 6700 2850 50  0001 C CNN
+	1    6700 2850
+	1    0    0    -1  
+$EndComp
+Text Label 5500 1850 0    50   ~ 0
+AD0
+Text Label 5500 1950 0    50   ~ 0
+AD1
+Text Label 5500 2050 0    50   ~ 0
+AD2
+Text Label 5500 2150 0    50   ~ 0
+AD3
+Text Label 5500 2250 0    50   ~ 0
+AD4
+Text Label 5500 2350 0    50   ~ 0
+AD5
+Text Label 5500 2450 0    50   ~ 0
+AD6
+Text Label 5500 2550 0    50   ~ 0
+AD7
+Text Label 5500 2750 0    50   ~ 0
+~RAS
+Text Label 5500 2850 0    50   ~ 0
+~CAS2
+Text Label 5500 2950 0    50   ~ 0
+~OE
+Text Label 5500 3050 0    50   ~ 0
+R~W
+Text Label 6700 1850 0    50   ~ 0
+RD0
+Text Label 6700 1950 0    50   ~ 0
+RD1
+Text Label 6700 2050 0    50   ~ 0
+RD2
+Text Label 6700 2150 0    50   ~ 0
+RD3
+$Comp
+L D41464:D41464 U?
+U 1 1 5FDE8B66
+P 6200 4400
+AR Path="/5FDE8B66" Ref="U?"  Part="1" 
+AR Path="/5FDC62A1/5FDC8502/5FDE8B66" Ref="U304"  Part="1" 
+F 0 "U304" H 6200 5265 50  0000 C CNN
+F 1 "D41464" H 6200 5174 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm_LongPads" H 6250 5250 50  0001 C CNN
+F 3 "https://archive.org/details/NEC_D41464_64k_x_4bit_DRAM" H 6250 5250 50  0001 C CNN
+	1    6200 4400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 3800 5450 3800
+Wire Wire Line
+	5850 3900 5450 3900
+Wire Wire Line
+	5850 4000 5450 4000
+Wire Wire Line
+	5850 4100 5450 4100
+Wire Wire Line
+	5850 4200 5450 4200
+Wire Wire Line
+	5850 4300 5450 4300
+Wire Wire Line
+	5850 4400 5450 4400
+Wire Wire Line
+	5850 4500 5450 4500
+Wire Wire Line
+	5850 4700 5450 4700
+Wire Wire Line
+	5850 4800 5450 4800
+Wire Wire Line
+	5850 4900 5450 4900
+Wire Wire Line
+	5850 5000 5450 5000
+Wire Wire Line
+	6550 3800 6900 3800
+Wire Wire Line
+	6550 3900 6900 3900
+Wire Wire Line
+	6550 4000 6900 4000
+Wire Wire Line
+	6550 4100 6900 4100
+Wire Wire Line
+	6550 4900 6700 4900
+Wire Wire Line
+	6700 4900 6700 4800
+Wire Wire Line
+	6550 5000 6700 5000
+Wire Wire Line
+	6700 5000 6700 5100
+$Comp
+L power:GND #PWR0311
+U 1 1 5FDE8B84
+P 6700 5100
+F 0 "#PWR0311" H 6700 4850 50  0001 C CNN
+F 1 "GND" H 6705 4927 50  0000 C CNN
+F 2 "" H 6700 5100 50  0001 C CNN
+F 3 "" H 6700 5100 50  0001 C CNN
+	1    6700 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0310
+U 1 1 5FDE8B8E
+P 6700 4800
+F 0 "#PWR0310" H 6700 4650 50  0001 C CNN
+F 1 "+5V" H 6715 4973 50  0000 C CNN
+F 2 "" H 6700 4800 50  0001 C CNN
+F 3 "" H 6700 4800 50  0001 C CNN
+	1    6700 4800
+	1    0    0    -1  
+$EndComp
+Text Label 5500 3800 0    50   ~ 0
+AD0
+Text Label 5500 3900 0    50   ~ 0
+AD1
+Text Label 5500 4000 0    50   ~ 0
+AD2
+Text Label 5500 4100 0    50   ~ 0
+AD3
+Text Label 5500 4200 0    50   ~ 0
+AD4
+Text Label 5500 4300 0    50   ~ 0
+AD5
+Text Label 5500 4400 0    50   ~ 0
+AD6
+Text Label 5500 4500 0    50   ~ 0
+AD7
+Text Label 5500 4700 0    50   ~ 0
+~RAS
+Text Label 5500 4800 0    50   ~ 0
+~CAS2
+Text Label 5500 4900 0    50   ~ 0
+~OE
+Text Label 5500 5000 0    50   ~ 0
+R~W
+Text Label 6700 3800 0    50   ~ 0
+RD4
+Text Label 6700 3900 0    50   ~ 0
+RD5
+Text Label 6700 4000 0    50   ~ 0
+RD6
+Text Label 6700 4100 0    50   ~ 0
+RD7
+$Comp
+L D41464:D41464 U?
+U 1 1 5FDEEB9D
+P 8100 2400
+AR Path="/5FDEEB9D" Ref="U?"  Part="1" 
+AR Path="/5FDC62A1/5FDC8502/5FDEEB9D" Ref="U305"  Part="1" 
+F 0 "U305" H 8100 3265 50  0000 C CNN
+F 1 "D41464" H 8100 3174 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm_LongPads" H 8150 3250 50  0001 C CNN
+F 3 "https://archive.org/details/NEC_D41464_64k_x_4bit_DRAM" H 8150 3250 50  0001 C CNN
+	1    8100 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 1800 7350 1800
+Wire Wire Line
+	7750 1900 7350 1900
+Wire Wire Line
+	7750 2000 7350 2000
+Wire Wire Line
+	7750 2100 7350 2100
+Wire Wire Line
+	7750 2200 7350 2200
+Wire Wire Line
+	7750 2300 7350 2300
+Wire Wire Line
+	7750 2400 7350 2400
+Wire Wire Line
+	7750 2500 7350 2500
+Wire Wire Line
+	7750 2700 7350 2700
+Wire Wire Line
+	7750 2800 7350 2800
+Wire Wire Line
+	7750 2900 7350 2900
+Wire Wire Line
+	7750 3000 7350 3000
+Wire Wire Line
+	8450 1800 8800 1800
+Wire Wire Line
+	8450 1900 8800 1900
+Wire Wire Line
+	8450 2000 8800 2000
+Wire Wire Line
+	8450 2100 8800 2100
+Wire Wire Line
+	8450 2900 8600 2900
+Wire Wire Line
+	8600 2900 8600 2800
+Wire Wire Line
+	8450 3000 8600 3000
+Wire Wire Line
+	8600 3000 8600 3100
+$Comp
+L power:GND #PWR0313
+U 1 1 5FDEEBBB
+P 8600 3100
+F 0 "#PWR0313" H 8600 2850 50  0001 C CNN
+F 1 "GND" H 8605 2927 50  0000 C CNN
+F 2 "" H 8600 3100 50  0001 C CNN
+F 3 "" H 8600 3100 50  0001 C CNN
+	1    8600 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0312
+U 1 1 5FDEEBC5
+P 8600 2800
+F 0 "#PWR0312" H 8600 2650 50  0001 C CNN
+F 1 "+5V" H 8615 2973 50  0000 C CNN
+F 2 "" H 8600 2800 50  0001 C CNN
+F 3 "" H 8600 2800 50  0001 C CNN
+	1    8600 2800
+	1    0    0    -1  
+$EndComp
+Text Label 7400 1800 0    50   ~ 0
+AD0
+Text Label 7400 1900 0    50   ~ 0
+AD1
+Text Label 7400 2000 0    50   ~ 0
+AD2
+Text Label 7400 2100 0    50   ~ 0
+AD3
+Text Label 7400 2200 0    50   ~ 0
+AD4
+Text Label 7400 2300 0    50   ~ 0
+AD5
+Text Label 7400 2400 0    50   ~ 0
+AD6
+Text Label 7400 2500 0    50   ~ 0
+AD7
+Text Label 7400 2700 0    50   ~ 0
+~RAS
+Text Label 7400 2800 0    50   ~ 0
+~CASx
+Text Label 7400 2900 0    50   ~ 0
+~OE
+Text Label 7400 3000 0    50   ~ 0
+R~W
+Text Label 8600 1800 0    50   ~ 0
+RD0
+Text Label 8600 1900 0    50   ~ 0
+RD1
+Text Label 8600 2000 0    50   ~ 0
+RD2
+Text Label 8600 2100 0    50   ~ 0
+RD3
+$Comp
+L D41464:D41464 U?
+U 1 1 5FDEEBDF
+P 8100 4350
+AR Path="/5FDEEBDF" Ref="U?"  Part="1" 
+AR Path="/5FDC62A1/5FDC8502/5FDEEBDF" Ref="U306"  Part="1" 
+F 0 "U306" H 8100 5215 50  0000 C CNN
+F 1 "D41464" H 8100 5124 50  0000 C CNN
+F 2 "Package_DIP:DIP-18_W7.62mm_LongPads" H 8150 5200 50  0001 C CNN
+F 3 "https://archive.org/details/NEC_D41464_64k_x_4bit_DRAM" H 8150 5200 50  0001 C CNN
+	1    8100 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7750 3750 7350 3750
+Wire Wire Line
+	7750 3850 7350 3850
+Wire Wire Line
+	7750 3950 7350 3950
+Wire Wire Line
+	7750 4050 7350 4050
+Wire Wire Line
+	7750 4150 7350 4150
+Wire Wire Line
+	7750 4250 7350 4250
+Wire Wire Line
+	7750 4350 7350 4350
+Wire Wire Line
+	7750 4450 7350 4450
+Wire Wire Line
+	7750 4650 7350 4650
+Wire Wire Line
+	7750 4750 7350 4750
+Wire Wire Line
+	7750 4850 7350 4850
+Wire Wire Line
+	7750 4950 7350 4950
+Wire Wire Line
+	8450 3750 8800 3750
+Wire Wire Line
+	8450 3850 8800 3850
+Wire Wire Line
+	8450 3950 8800 3950
+Wire Wire Line
+	8450 4050 8800 4050
+Wire Wire Line
+	8450 4850 8600 4850
+Wire Wire Line
+	8600 4850 8600 4750
+Wire Wire Line
+	8450 4950 8600 4950
+Wire Wire Line
+	8600 4950 8600 5050
+$Comp
+L power:GND #PWR0315
+U 1 1 5FDEEBFD
+P 8600 5050
+F 0 "#PWR0315" H 8600 4800 50  0001 C CNN
+F 1 "GND" H 8605 4877 50  0000 C CNN
+F 2 "" H 8600 5050 50  0001 C CNN
+F 3 "" H 8600 5050 50  0001 C CNN
+	1    8600 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0314
+U 1 1 5FDEEC07
+P 8600 4750
+F 0 "#PWR0314" H 8600 4600 50  0001 C CNN
+F 1 "+5V" H 8615 4923 50  0000 C CNN
+F 2 "" H 8600 4750 50  0001 C CNN
+F 3 "" H 8600 4750 50  0001 C CNN
+	1    8600 4750
+	1    0    0    -1  
+$EndComp
+Text Label 7400 3750 0    50   ~ 0
+AD0
+Text Label 7400 3850 0    50   ~ 0
+AD1
+Text Label 7400 3950 0    50   ~ 0
+AD2
+Text Label 7400 4050 0    50   ~ 0
+AD3
+Text Label 7400 4150 0    50   ~ 0
+AD4
+Text Label 7400 4250 0    50   ~ 0
+AD5
+Text Label 7400 4350 0    50   ~ 0
+AD6
+Text Label 7400 4450 0    50   ~ 0
+AD7
+Text Label 7400 4650 0    50   ~ 0
+~RAS
+Text Label 7400 4750 0    50   ~ 0
+~CASx
+Text Label 7400 4850 0    50   ~ 0
+~OE
+Text Label 7400 4950 0    50   ~ 0
+R~W
+Text Label 8600 3750 0    50   ~ 0
+RD4
+Text Label 8600 3850 0    50   ~ 0
+RD5
+Text Label 8600 3950 0    50   ~ 0
+RD6
+Text Label 8600 4050 0    50   ~ 0
+RD7
+$Comp
+L Device:C C301
+U 1 1 5FDF8170
+P 2100 6650
+F 0 "C301" H 2215 6696 50  0000 L CNN
+F 1 "100nF" H 2215 6605 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 2138 6500 50  0001 C CNN
+F 3 "~" H 2100 6650 50  0001 C CNN
+	1    2100 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C302
+U 1 1 5FDF9191
+P 2700 6650
+F 0 "C302" H 2815 6696 50  0000 L CNN
+F 1 "100nF" H 2815 6605 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 2738 6500 50  0001 C CNN
+F 3 "~" H 2700 6650 50  0001 C CNN
+	1    2700 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C303
+U 1 1 5FDF9589
+P 3250 6650
+F 0 "C303" H 3365 6696 50  0000 L CNN
+F 1 "100nF" H 3365 6605 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 3288 6500 50  0001 C CNN
+F 3 "~" H 3250 6650 50  0001 C CNN
+	1    3250 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C304
+U 1 1 5FDF9851
+P 3800 6650
+F 0 "C304" H 3915 6696 50  0000 L CNN
+F 1 "100nF" H 3915 6605 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 3838 6500 50  0001 C CNN
+F 3 "~" H 3800 6650 50  0001 C CNN
+	1    3800 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C305
+U 1 1 5FDF9A14
+P 4350 6650
+F 0 "C305" H 4465 6696 50  0000 L CNN
+F 1 "100nF" H 4465 6605 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 4388 6500 50  0001 C CNN
+F 3 "~" H 4350 6650 50  0001 C CNN
+	1    4350 6650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C306
+U 1 1 5FDF9FB5
+P 4900 6650
+F 0 "C306" H 5015 6696 50  0000 L CNN
+F 1 "100nF" H 5015 6605 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 4938 6500 50  0001 C CNN
+F 3 "~" H 4900 6650 50  0001 C CNN
+	1    4900 6650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2100 6500 2100 6400
+Wire Wire Line
+	2100 6400 2700 6400
+Wire Wire Line
+	4900 6400 4900 6500
+Wire Wire Line
+	2100 6800 2100 6900
+Wire Wire Line
+	2100 6900 2700 6900
+Wire Wire Line
+	4900 6900 4900 6800
+Wire Wire Line
+	2700 6500 2700 6400
+Connection ~ 2700 6400
+Wire Wire Line
+	2700 6400 3250 6400
+Wire Wire Line
+	3250 6500 3250 6400
+Connection ~ 3250 6400
+Wire Wire Line
+	3250 6400 3800 6400
+Wire Wire Line
+	3800 6500 3800 6400
+Connection ~ 3800 6400
+Wire Wire Line
+	3800 6400 4100 6400
+Wire Wire Line
+	4350 6500 4350 6400
+Connection ~ 4350 6400
+Wire Wire Line
+	4350 6400 4900 6400
+Wire Wire Line
+	2700 6800 2700 6900
+Connection ~ 2700 6900
+Wire Wire Line
+	2700 6900 3250 6900
+Wire Wire Line
+	3250 6800 3250 6900
+Connection ~ 3250 6900
+Wire Wire Line
+	3250 6900 3800 6900
+Wire Wire Line
+	3800 6800 3800 6900
+Connection ~ 3800 6900
+Wire Wire Line
+	3800 6900 4100 6900
+Wire Wire Line
+	4350 6800 4350 6900
+Connection ~ 4350 6900
+Wire Wire Line
+	4350 6900 4900 6900
+$Comp
+L power:GND #PWR0303
+U 1 1 5FE46B99
+P 4100 7050
+F 0 "#PWR0303" H 4100 6800 50  0001 C CNN
+F 1 "GND" H 4105 6877 50  0000 C CNN
+F 2 "" H 4100 7050 50  0001 C CNN
+F 3 "" H 4100 7050 50  0001 C CNN
+	1    4100 7050
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0302
+U 1 1 5FE46E9C
+P 4100 6250
+F 0 "#PWR0302" H 4100 6100 50  0001 C CNN
+F 1 "+5V" H 4115 6423 50  0000 C CNN
+F 2 "" H 4100 6250 50  0001 C CNN
+F 3 "" H 4100 6250 50  0001 C CNN
+	1    4100 6250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4100 6250 4100 6400
+Connection ~ 4100 6400
+Wire Wire Line
+	4100 6400 4350 6400
+Wire Wire Line
+	4100 7050 4100 6900
+Connection ~ 4100 6900
+Wire Wire Line
+	4100 6900 4350 6900
+Text HLabel 1650 1150 0    50   Input ~ 0
+AD0
+Text HLabel 1650 1250 0    50   Input ~ 0
+AD1
+Text HLabel 1650 1350 0    50   Input ~ 0
+AD2
+Text HLabel 1650 1450 0    50   Input ~ 0
+AD3
+Text HLabel 1650 1550 0    50   Input ~ 0
+AD4
+Text HLabel 1650 1650 0    50   Input ~ 0
+AD5
+Text HLabel 1650 1750 0    50   Input ~ 0
+AD6
+Text HLabel 1650 1850 0    50   Input ~ 0
+AD7
+Text HLabel 1650 2500 0    50   Input ~ 0
+RD0
+Text HLabel 1650 2600 0    50   Input ~ 0
+RD1
+Text HLabel 1650 2700 0    50   Input ~ 0
+RD2
+Text HLabel 1650 2800 0    50   Input ~ 0
+RD3
+Text HLabel 1650 2900 0    50   Input ~ 0
+RD4
+Text HLabel 1650 3000 0    50   Input ~ 0
+RD5
+Text HLabel 1650 3100 0    50   Input ~ 0
+RD6
+Text HLabel 1650 3200 0    50   Input ~ 0
+RD7
+Wire Wire Line
+	4650 2950 4800 2950
+$EndSCHEMATC
