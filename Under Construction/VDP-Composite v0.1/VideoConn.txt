@@ -1,0 +1,13 @@
+Pinout of a reclaimed Video Connector board with S-video, RCA V, L and R and Scart.
+
+1  - YS (S_RGB) (SCART-16)
+2  - GND
+3  - AV         (SCART-08)
+4  - R          (SCART-15)
+5  - B/Chroma   (SCART-7) (S-Video-4)
+6  - G/Luma     (SCART-11) (S-Video-3)
+7  - Compostie Video
+8  - SPIDF - not used
+9  - GND
+10 - Audio R    (SCART-1)
+11 - Audio L    (SCART-3)

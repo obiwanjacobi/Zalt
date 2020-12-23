@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 30 0
+LIBS:ZaltTtlVga-cache
+EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -912,6 +913,4 @@ Wire Bus Line
 	7700 4000 7700 5000
 Wire Bus Line
 	7750 1300 7750 2350
-Text Notes 6800 3450 0    50   ~ 0
-Add an ~AenableH~ to the \nHorizontal Decoder as well.\nFeed that into the Vertical Decoder\nand AND it with its ~Aenable~.\nThis would allow CPU access during \nHorizontal borders and blanking  as \nwell as during Vertical borders and\nblanking.
 $EndSCHEMATC

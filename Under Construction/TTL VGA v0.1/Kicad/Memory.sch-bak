@@ -1,5 +1,6 @@
 EESchema Schematic File Version 4
-EELAYER 30 0
+LIBS:ZaltTtlVga-cache
+EELAYER 29 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -1663,7 +1664,6 @@ $EndComp
 NoConn ~ 2600 7100
 Text Notes 7250 1800 0    50   ~ 0
 A16 and A17 are swapped on the 74LS139.\n(but it is wired like this on the perf board)\nThis will fail when using more VRAM chips.\nFix by swapping outputs in U7 (WinCUPL).
-Connection ~ 4950 5750
 Wire Bus Line
 	2950 6500 2950 8100
 Wire Bus Line
@@ -1684,4 +1684,5 @@ Wire Bus Line
 	5200 1100 5200 8100
 Wire Bus Line
 	7100 1100 7100 4600
+Connection ~ 4950 5750
 $EndSCHEMATC
