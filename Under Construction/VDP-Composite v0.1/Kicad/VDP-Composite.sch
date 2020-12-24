@@ -539,7 +539,7 @@ Text Label 6200 4650 0    50   ~ 0
 Text Notes 950  6500 0    50   ~ 0
 Interrupt Vecor Load (IVL)\nActivates when the correct IO Address is written to.
 Text Notes 950  6850 0    50   ~ 0
-Interrupt Vector Output Enable (IVOR) Activates when a Z80 CPU Interrupt \nAcknowledge Cycle is detected: ~M1~ and ~IOREQ~both active.
+Interrupt Vector Output Enable (IVOR) Activates when a Z80 CPU Interrupt \nAcknowledge Cycle is detected: ~M1~ and ~IOREQ~ both active.
 $Comp
 L Jumper:SolderJumper_3_Bridged12 JP101
 U 1 1 60136017
