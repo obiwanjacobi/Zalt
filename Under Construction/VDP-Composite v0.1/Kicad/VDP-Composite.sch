@@ -372,7 +372,7 @@ U 1 1 60082819
 P 2700 5350
 F 0 "U102" H 2700 6331 50  0000 C CNN
 F 1 "74HCT574" H 2700 6240 50  0000 C CNN
-F 2 "Package_SO:SOP-20_7.5x12.8mm_P1.27mm" H 2700 5350 50  0001 C CNN
+F 2 "Package_SO:SOIC-20W_7.5x12.8mm_P1.27mm" H 2700 5350 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74HCT574" H 2700 5350 50  0001 C CNN
 	1    2700 5350
 	1    0    0    -1  
@@ -540,50 +540,28 @@ Text Notes 950  6500 0    50   ~ 0
 Interrupt Vecor Load (IVL)\nActivates when the correct IO Address is written to.
 Text Notes 950  6850 0    50   ~ 0
 Interrupt Vector Output Enable (IVOR) Activates when a Z80 CPU Interrupt \nAcknowledge Cycle is detected: ~M1~ and ~IOREQ~ both active.
-$Comp
-L Jumper:SolderJumper_3_Bridged12 JP101
-U 1 1 60136017
-P 4350 6100
-F 0 "JP101" V 4396 6167 50  0000 L CNN
-F 1 "Vector-Enable" V 4305 6167 50  0000 L CNN
-F 2 "Jumper:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm" H 4350 6100 50  0001 C CNN
-F 3 "~" H 4350 6100 50  0001 C CNN
-	1    4350 6100
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	4500 6100 4700 6100
 $Comp
 L power:GND #PWR0114
 U 1 1 6013FC48
-P 4350 6300
-F 0 "#PWR0114" H 4350 6050 50  0001 C CNN
-F 1 "GND" H 4355 6127 50  0000 C CNN
-F 2 "" H 4350 6300 50  0001 C CNN
-F 3 "" H 4350 6300 50  0001 C CNN
-	1    4350 6300
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R101
-U 1 1 601402BA
-P 4350 5750
-F 0 "R101" H 4420 5796 50  0000 L CNN
-F 1 "10k" H 4420 5705 50  0000 L CNN
-F 2 "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder" V 4280 5750 50  0001 C CNN
-F 3 "~" H 4350 5750 50  0001 C CNN
-	1    4350 5750
+P 4350 6350
+F 0 "#PWR0114" H 4350 6100 50  0001 C CNN
+F 1 "GND" H 4355 6177 50  0000 C CNN
+F 2 "" H 4350 6350 50  0001 C CNN
+F 3 "" H 4350 6350 50  0001 C CNN
+	1    4350 6350
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR0113
 U 1 1 601409A0
-P 4350 5600
-F 0 "#PWR0113" H 4350 5450 50  0001 C CNN
-F 1 "+5V" H 4365 5773 50  0000 C CNN
-F 2 "" H 4350 5600 50  0001 C CNN
-F 3 "" H 4350 5600 50  0001 C CNN
-	1    4350 5600
+P 4350 5850
+F 0 "#PWR0113" H 4350 5700 50  0001 C CNN
+F 1 "+5V" H 4365 6023 50  0000 C CNN
+F 2 "" H 4350 5850 50  0001 C CNN
+F 3 "" H 4350 5850 50  0001 C CNN
+	1    4350 5850
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -774,6 +752,17 @@ NoConn ~ 5600 1900
 NoConn ~ 6500 4550
 NoConn ~ 6500 4450
 NoConn ~ 6500 4350
+$Comp
+L Jumper:Jumper_3_Bridged12 JP102
+U 1 1 5FE574D4
+P 4350 6100
+F 0 "JP102" V 4396 6167 50  0000 L CNN
+F 1 "EnableIM" V 4305 6167 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 4350 6100 50  0001 C CNN
+F 3 "~" H 4350 6100 50  0001 C CNN
+	1    4350 6100
+	0    -1   -1   0   
+$EndComp
 Wire Bus Line
 	1650 2650 1650 3750
 Wire Bus Line
