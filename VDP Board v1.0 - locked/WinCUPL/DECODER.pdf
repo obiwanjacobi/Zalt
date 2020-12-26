@@ -1,0 +1,208 @@
+{COMPONENT \\DISKSTATION\HOME\TEMP\VDP\DECODER.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Sat Dec 26 10:18:22 2020 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P A1 {Pt "INPUT"}{Lq 0}{Ploc 100 280}}
+   {P A0 {Pt "INPUT"}{Lq 0}{Ploc 100 240}}
+   {P A3 {Pt "INPUT"}{Lq 0}{Ploc 100 220}}
+   {P A2 {Pt "INPUT"}{Lq 0}{Ploc 100 200}}
+   {P A5 {Pt "INPUT"}{Lq 0}{Ploc 100 180}}
+   {P A4 {Pt "INPUT"}{Lq 0}{Ploc 100 160}}
+   {P A7 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P A6 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P WR' {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P RD' {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P IOREQ' {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P ENABLE {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P M1' {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P VDP_RD' {Pt "I/O"}{Lq 0}{Ploc 320 20}}
+   {P VDP_WR' {Pt "I/O"}{Lq 0}{Ploc 320 40}}
+   {P BDIR {Pt "I/O"}{Lq 0}{Ploc 320 60}}
+   {P BC1 {Pt "I/O"}{Lq 0}{Ploc 320 80}}
+   {P IVL {Pt "I/O"}{Lq 0}{Ploc 320 100}}
+   {P IVOE' {Pt "I/O"}{Lq 0}{Ploc 320 120}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 210 310}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 290}
+   [Ts 15][Tj "RC"]
+   {Pnl 120 250}
+   {Pnl 120 230}
+   {Pnl 120 210}
+   {Pnl 120 190}
+   {Pnl 120 170}
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 300 30}
+   {Pnl 300 50}
+   {Pnl 300 70}
+   {Pnl 300 90}
+   {Pnl 300 110}
+   {Pnl 300 130}
+
+   {Sd A 1 2 3 4 5 6 7 8 9 10 11 13 14 15 16 17 18 19 20}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 300 290 0}
+   {L 130 280 100 280}
+   {L 130 290 140 280 130 270}
+   {L 130 240 100 240}
+   {L 130 220 100 220}
+   {L 130 200 100 200}
+   {L 130 180 100 180}
+   {L 130 160 100 160}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 120 100 100 100}
+   {C 125 100 5}
+   {L 120 80 100 80}
+   {C 125 80 5}
+   {L 120 60 100 60}
+   {C 125 60 5}
+   {L 130 40 100 40}
+   {L 120 20 100 20}
+   {C 125 20 5}
+   {C 295 20 5}
+   {L 300 20 320 20}
+   {C 295 40 5}
+   {L 300 40 320 40}
+   {L 290 60 320 60}
+   {L 290 80 320 80}
+   {L 290 100 320 100}
+   {C 295 120 5}
+   {L 300 120 320 120}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "A1" 140 280}
+   {T "A0" 140 240}
+   {T "A3" 140 220}
+   {T "A2" 140 200}
+   {T "A5" 140 180}
+   {T "A4" 140 160}
+   {T "A7" 140 140}
+   {T "A6" 140 120}
+   {T "WR'" 140 100}
+   {T "RD'" 140 80}
+   {T "IOREQ'" 140 60}
+   {T "ENABLE" 140 40}
+   {T "M1'" 140 20}
+   [Tj "RC"]
+   {T "VDP_RD'" 280 20}
+   {T "VDP_WR'" 280 40}
+   {T "BDIR" 280 60}
+   {T "BC1" 280 80}
+   {T "IVL" 280 100}
+   {T "IVOE'" 280 120}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "G22V10" 210 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD \\DISKSTATION\HOME\TEMP\VDP\DECODER 210 300}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N A1
+   }
+   {N A0
+   }
+   {N A3
+   }
+   {N A2
+   }
+   {N A5
+   }
+   {N A4
+   }
+   {N A7
+   }
+   {N A6
+   }
+   {N WR'
+   }
+   {N RD'
+   }
+   {N IOREQ'
+   }
+   {N ENABLE
+   }
+   {N M1'
+   }
+   {N VDP_RD'
+   }
+   {N VDP_WR'
+   }
+   {N BDIR
+   }
+   {N BC1
+   }
+   {N IVL
+   }
+   {N IVOE'
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

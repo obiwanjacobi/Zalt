@@ -1,0 +1,76 @@
+%SIGNAL
+PIN   2 =  A0 
+PIN   1 =  A1 
+PIN   4 =  A2 
+PIN   3 =  A3 
+PIN   6 =  A4 
+PIN   5 =  A5 
+PIN   8 =  A6 
+PIN   7 =  A7 
+PIN  18 =  BC1 
+PIN  17 =  BDIR 
+PIN  13 =  Enable 
+PIN  11 = !IOREQ 
+PIN  19 =  IVL 
+PIN  20 = !IVOE 
+PIN  14 = !M1 
+PIN  10 = !RD 
+PIN  15 = !VDP_RD 
+PIN  16 = !VDP_WR 
+PIN   9 = !WR 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+BC1 =>
+    A0 & !A1 & A2 & A3 & A4 & !A5 & A6 & A7 & !IOREQ & !RD
+  # !A0 & !A1 & A2 & A3 & A4 & !A5 & A6 & A7 & !IOREQ & !WR
+
+BDIR =>
+    !A1 & A2 & A3 & A4 & !A5 & A6 & A7 & !IOREQ & !WR
+
+IVL =>
+    !A0 & A1 & !A2 & !A3 & A4 & !A5 & A6 & A7 & !IOREQ & !WR
+
+IVOE =>
+    Enable & !IOREQ & !M1
+
+SSGAddress =>
+    !A1 & A2 & A3 & A4 & !A5 & A6 & A7
+
+VDPAddress =>
+    !A2 & A3 & !A4 & !A5 & A6 & A7
+
+VDP_RD =>
+    !A2 & A3 & !A4 & !A5 & A6 & A7 & !IOREQ & !RD
+
+VDP_WR =>
+    !A2 & A3 & !A4 & !A5 & A6 & A7 & !IOREQ & !WR
+
+VectAddress =>
+    !A0 & A1 & !A2 & !A3 & A4 & !A5 & A6 & A7
+
+BC1.oe  =>
+    1 
+
+BDIR.oe  =>
+    1 
+
+IVL.oe  =>
+    1 
+
+IVOE.oe  =>
+    1 
+
+M1.oe  =>
+    0 
+
+VDP_RD.oe  =>
+    1 
+
+VDP_WR.oe  =>
+    1 
+
+%END

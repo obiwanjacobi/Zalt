@@ -16,5 +16,5 @@ All credits for the schematic go to these projects.
 The V9958 circuit has been copied from the MSX clone project Omega.
 https://github.com/skiselev/omega
 
-The YM2149 circuit was copied from this YM2149 fro the RC2014 project. https://github.com/electrified/rc2014-ym2149
+The YM2149 circuit was copied from this YM2149 for the RC2014 project. https://github.com/electrified/rc2014-ym2149
 (although I only used the channel mixing resistors)

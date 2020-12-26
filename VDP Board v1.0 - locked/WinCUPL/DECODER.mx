@@ -1,0 +1,78 @@
+Name     Address Decoder and Interrupt Controller;
+PartNo   Zalt-VDP-Composite-01;
+Date     26-12-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt Composite Video and Sound Board;
+Location U101 - Z80 Computer / Composite Video and Sound;
+Device   G22V10;
+/*Format   j;*/
+
+/* 
+ *      Decodes IO Addresses (A0..7) for accessing the V9958
+ *      and YM2149 registers as well as the 
+ *      Interrupt Vector Register (U102).
+ *
+ *      Together with the VDPAddress the Read and Write signals
+ *      for the V9958 are generated as well.
+ *
+ *      BDIR and BC1 for the YM2149 are generated here as well
+ *      where an 'address' is written first and then data is read 
+ *      or written next - of the 'address' specified.
+ *
+ *      Finally, detect if an interrupt acknowledge cycle is active
+ *      and output the Interrupt Vector (or RST instruction) if
+ *      enabled (Enable). If not using interrupts or using IM1 
+ *      this should be disabled.
+ */
+
+/** input pins **/
+
+PIN 1   = A1;
+PIN 2	= A0;
+PIN 3   = A3;
+PIN 4   = A2;
+PIN 5   = A5;
+PIN 6   = A4;
+PIN 7   = A7;
+PIN 8   = A6;
+PIN 9   = !WR;
+PIN 10  = !RD;
+PIN 11  = !IOREQ;
+PIN 13  = Enable;
+PIN 14  = !M1;
+
+/** output pins **/
+
+/*
+PIN 23  = ;
+PIN 22  = ;
+PIN 21  = ;
+*/
+
+PIN 20  = !IVOE;
+PIN 19  = IVL;
+PIN 18  = BC1;
+PIN 17  = BDIR;
+PIN 16  = !VDP_WR;
+PIN 15  = !VDP_RD;
+
+/* V9958 VDP at 200-204h A[2..6] 
+    A[0..1] are wired to its Mode lines. */
+VDPAddress = !A2 & A3 & !A4 & !A5 & A6 & A7;
+
+VDP_RD = IOREQ & RD & VDPAddress;
+VDP_WR = IOREQ & WR & VDPAddress;
+
+/* Vector Register at 210h A[0..7] */
+VectAddress = !A0 & A1 & !A2 & !A3 & A4 & !A5 & A6 & A7;
+
+IVL = IOREQ & WR & VectAddress;
+IVOE = IOREQ & M1 & Enable;
+
+/* YM2149 IO Address at 220h (address) & 221h (data) A[1..7] */
+SSGAddress = !A1 & A2 & A3 & A4 & !A5 & A6 & A7;
+
+BDIR = IOREQ & WR & SSGAddress;
+BC1 = IOREQ & SSGAddress & ((WR & !A0) # (RD & A0));

@@ -1,0 +1,115 @@
+
+*******************************************************************************
+                                    Address
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# 60008009
+Device          g22v10  Library DLIB-h-40-1
+Created         Sat Dec 26 10:18:22 2020
+Name            Address Decoder and Interrupt Controller
+Partno          Zalt-VDP-Composite-01
+Revision        01
+Date            26-12-2020
+Designer        Marc Jacobi
+Company         Canned Bytes
+Assembly        Zalt Composite Video and Sound Board
+Location        U101 - Z80 Computer / Composite Video and Sound
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+BC1 =>
+    A0 & !A1 & A2 & A3 & A4 & !A5 & A6 & A7 & IOREQ & RD
+  # !A0 & !A1 & A2 & A3 & A4 & !A5 & A6 & A7 & IOREQ & WR
+
+BDIR =>
+    !A1 & A2 & A3 & A4 & !A5 & A6 & A7 & IOREQ & WR
+
+IVL =>
+    !A0 & A1 & !A2 & !A3 & A4 & !A5 & A6 & A7 & IOREQ & WR
+
+IVOE =>
+    Enable & IOREQ & M1
+
+SSGAddress =>
+    !A1 & A2 & A3 & A4 & !A5 & A6 & A7
+
+VDPAddress =>
+    !A2 & A3 & !A4 & !A5 & A6 & A7
+
+VDP_RD =>
+    !A2 & A3 & !A4 & !A5 & A6 & A7 & IOREQ & RD
+
+VDP_WR =>
+    !A2 & A3 & !A4 & !A5 & A6 & A7 & IOREQ & WR
+
+VectAddress =>
+    !A0 & A1 & !A2 & !A3 & A4 & !A5 & A6 & A7
+
+BC1.oe  =>
+    1 
+
+BDIR.oe  =>
+    1 
+
+IVL.oe  =>
+    1 
+
+IVOE.oe  =>
+    1 
+
+M1.oe  =>
+    0 
+
+VDP_RD.oe  =>
+    1 
+
+VDP_WR.oe  =>
+    1 
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    A0                          2        V        -       -       -     
+    A1                          1        V        -       -       -     
+    A2                          4        V        -       -       -     
+    A3                          3        V        -       -       -     
+    A4                          6        V        -       -       -     
+    A5                          5        V        -       -       -     
+    A6                          8        V        -       -       -     
+    A7                          7        V        -       -       -     
+    BC1                         18       V        2       16      4     
+    BDIR                        17       V        1       14      4     
+    Enable                      13       V        -       -       -     
+ !  IOREQ                       11       V        -       -       -     
+    IVL                         19       V        1       16      4     
+ !  IVOE                        20       V        1       14      4     
+ !  M1                          14       V        -       -       -     
+ !  RD                          10       V        -       -       -     
+    SSGAddress                  0        I        1       -       -     
+    VDPAddress                  0        I        1       -       -     
+ !  VDP_RD                      15       V        1       10      4     
+ !  VDP_WR                      16       V        1       12      4     
+    VectAddress                 0        I        1       -       -     
+ !  WR                          9        V        -       -       -     
+    BC1                 oe      18       D        1       1       0     
+    BDIR                oe      17       D        1       1       0     
+    IVL                 oe      19       D        1       1       0     
+    IVOE                oe      20       D        1       1       0     
+    M1                  oe      14       D        1       1       0     
+    VDP_RD              oe      15       D        1       1       0     
+    VDP_WR              oe      16       D        1       1       0     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+
