@@ -3,4 +3,5 @@
   (lib (name syshdr)(type Legacy)(uri C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Kicad/syshdr.lib)(options "")(descr ""))
   (lib (name My-74-Logic)(type Legacy)(uri "C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Kicad/My 74 Logic.lib")(options "")(descr ""))
   (lib (name CY8CKIT-059)(type Legacy)(uri C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Kicad/CY8CKIT-059.lib)(options "")(descr ""))
+  (lib (name 74HC646)(type Legacy)(uri "C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Under Construction/IDE v0.1/IDE/74HC646.lib")(options "")(descr ""))
 )
