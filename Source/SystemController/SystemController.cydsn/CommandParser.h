@@ -25,7 +25,9 @@ const char* INCOMPLETE;
 #define COMMAND_DEBUG          13
 #define COMMAND_STATUS         14
 #define COMMAND_VGA            15
-    
+#define COMMAND_IDE            16
+
+
 typedef struct
 {
     uint8_t CommandLine[5];

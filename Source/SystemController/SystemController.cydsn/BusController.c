@@ -2,7 +2,7 @@
 #include "CpuController.h"
 #include "SerialTerminal.h"
 
-#define SysCtrlReg_BusEnable    0
+#define SysCtrlReg_BusEnable        0
 #define SysCtrlReg_DataBusEnable    1
 
 void BusController_EnableExternalBus(bool_t enable)
@@ -34,6 +34,10 @@ void BusController_WaitForBusAck(active_t active)
         CyDelayUs(1);
         value = ReadNotPin(ExtBus_BusAck);
         
+#ifdef BUSACK_IGNORE
+        break;
+#endif
+
         counter++;
         if (counter > 999999) {
             SerialTerminal_WriteLine("=> BusAck not responding (hanging)");

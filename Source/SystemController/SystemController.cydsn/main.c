@@ -1,3 +1,4 @@
+
 #include <project.h>
 #include "SerialTerminal.h"
 #include "BusController.h"
@@ -10,6 +11,7 @@
 // devices
 #include "UsbProcessor.h"
 #include "KeyBoard.h"
+#include "IdeController.h"
 
 static SerialTerminal g_serialTerminal;
 
@@ -27,6 +29,11 @@ void init()
 int main()
 {
     init();
+    
+    BusController_Acquire();
+    IdeController_Init();
+    BusController_Release();
+    
     
     CyGlobalIntEnable; /* Enable global interrupts. */
     SerialTerminal_Start(&g_serialTerminal);

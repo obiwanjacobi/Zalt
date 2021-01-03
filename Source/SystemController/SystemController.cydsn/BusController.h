@@ -2,6 +2,15 @@
 #define __BUSCONTROLLER_H__
 
 #include "SystemController.h"
+    
+/*
+    #define BUSACK_IGNORE to run without a Z80. 
+    This will not wait for the BUSACK to activate
+ */ 
+// Do not wait for the Z80 BUSACK to activate
+// Use for testing without a Z80 CPU.
+#define BUSACK_IGNORE
+
 
 // bus state flags
 #define RETURN_TO_RESET     0x01
