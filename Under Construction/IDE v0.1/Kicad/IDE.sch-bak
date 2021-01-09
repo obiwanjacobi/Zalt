@@ -363,4 +363,6 @@ Wire Wire Line
 	5300 2700 5700 2700
 Text Label 5450 2700 0    50   ~ 0
 ~WAIT
+Text Notes 7050 6900 0    50   ~ 0
+Add\n- SD-card\n- PS2 keyboard / mouse (INT)\n- GamePort JoyStick (Dsub15)
 $EndSCHEMATC

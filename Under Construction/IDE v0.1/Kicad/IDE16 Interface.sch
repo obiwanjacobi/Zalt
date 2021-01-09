@@ -14,19 +14,6 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L IDE:Conn_IDE40 J?
-U 1 1 5FEEB379
-P 8700 2300
-AR Path="/5FEEB379" Ref="J?"  Part="1" 
-AR Path="/5FEE70AA/5FEEB379" Ref="J201"  Part="1" 
-F 0 "J201" H 8500 2415 50  0000 C CNN
-F 1 "Conn_IDE40" H 8500 2324 50  0000 C CNN
-F 2 "" H 8700 2300 50  0001 C CNN
-F 3 "" H 8700 2300 50  0001 C CNN
-	1    8700 2300
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR?
 U 1 1 5FEEB396
 P 5600 5900
@@ -133,13 +120,7 @@ Wire Wire Line
 Wire Wire Line
 	8000 3050 7600 3050
 Wire Wire Line
-	8000 3150 7600 3150
-Wire Wire Line
 	8000 3250 7600 3250
-Text Label 7650 3250 0    50   ~ 0
-DD0
-Text Label 7650 3150 0    50   ~ 0
-DD1
 Text Label 7650 3050 0    50   ~ 0
 DD2
 Text Label 7650 2950 0    50   ~ 0
@@ -412,8 +393,6 @@ Wire Wire Line
 	6200 5550 6500 5550
 Wire Wire Line
 	5050 5550 4750 5550
-Text Label 6300 3150 0    50   ~ 0
-~IDEWR
 Text Label 4800 3150 0    50   ~ 0
 ~EnableLo
 Text Label 4800 5550 0    50   ~ 0
@@ -1906,22 +1885,9 @@ Wire Wire Line
 Wire Wire Line
 	6300 1950 6950 1950
 Wire Wire Line
-	6700 3150 6300 3150
-Wire Wire Line
 	6300 2650 6950 2650
 Wire Wire Line
 	6300 2550 6950 2550
-$Comp
-L 74HC646:74HC646 U205
-U 1 1 5FEE3CA7
-P 5700 2450
-F 0 "U205" H 5675 3481 50  0000 C CNN
-F 1 "74HC646" H 5675 3390 50  0000 C CNN
-F 2 "" H 5700 2450 50  0000 C CNN
-F 3 "" H 5700 2450 50  0000 C CNN
-	1    5700 2450
-	-1   0    0    -1  
-$EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 5FF483BE
@@ -2509,10 +2475,44 @@ F 3 "" H 9700 6200 50  0001 C CNN
 $EndComp
 Text Notes 9900 5650 0    50   ~ 0
 Place holder for\nBCX70 (SMD)?
+Text Notes 3350 3150 0    50   ~ 0
+Wait to slow CPU \ndown to 8MHz?
 Wire Bus Line
 	1450 5450 1450 6200
 Wire Bus Line
 	1450 4100 1450 4850
-Text Notes 3350 3150 0    50   ~ 0
-Wait to slow CPU \ndown to 8MHz?
+$Comp
+L 74HC646:74HC646 U205
+U 1 1 5FEE3CA7
+P 5700 2450
+F 0 "U205" H 5675 3481 50  0000 C CNN
+F 1 "74HC646" H 5675 3390 50  0000 C CNN
+F 2 "" H 5700 2450 50  0000 C CNN
+F 3 "" H 5700 2450 50  0000 C CNN
+	1    5700 2450
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6700 3150 6300 3150
+Text Label 6300 3150 0    50   ~ 0
+~IDEWR
+Text Label 7650 3150 0    50   ~ 0
+DD1
+Text Label 7650 3250 0    50   ~ 0
+DD0
+Wire Wire Line
+	8000 3150 7600 3150
+$Comp
+L IDE:Conn_IDE40 J?
+U 1 1 5FEEB379
+P 8700 2300
+AR Path="/5FEEB379" Ref="J?"  Part="1" 
+AR Path="/5FEE70AA/5FEEB379" Ref="J201"  Part="1" 
+F 0 "J201" H 8500 2415 50  0000 C CNN
+F 1 "Conn_IDE40" H 8500 2324 50  0000 C CNN
+F 2 "" H 8700 2300 50  0001 C CNN
+F 3 "" H 8700 2300 50  0001 C CNN
+	1    8700 2300
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
