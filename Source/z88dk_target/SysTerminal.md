@@ -20,7 +20,7 @@ A typical initialization sequence is:
 * `ACK` => send program binary
 * `rst` release the Z80 to execute the uploaded program
 
-*) by default memory table 0 is intialized to `nul`, `cm` set to `fast` and `cd` set to `3`.
+*) by default memory table 0 is initialized to `nul`, `cm` set to `fast` and `cd` set to `3`.
 
 ## `Memory Commands`
 

@@ -19,10 +19,26 @@
 #define IDESTAT_DATACORRECTED   (1 << 2)
 #define IDESTAT_INDEX           (1 << 1)
 #define IDESTAT_ERROR           (1 << 0)
-    
-void IdeController_Init();
 
-bool_t IdeController_IsReady();
+// LBA block size in bytes
+#define IDE_LOGICAL_BLOCK_SIZE   512
+
+typedef struct
+{
+    uint8_t buffer[IDE_LOGICAL_BLOCK_SIZE];
+    
+} DriveInfo;
+
+
+bool_t IdeController_Init();
+bool_t IdeController_WaitForDeviceReady();
+bool_t IdeController_WaitForDataReady();
+bool_t IdeController_GetInfo(DriveInfo* target);
+
+uint8_t IdeController_GetError();
+
+bool_t IdeController_IsDeviceReady();
+bool_t IdeController_IsDataReady();
 bool_t IdeController_IsError();
 
 #endif //__IDECONTROLLER_H__

@@ -16,7 +16,7 @@ Device   G16V8;
 
 /** input pins **/
 
-PIN 1   = CLK;
+PIN 1   = Sel;  // IdeAddress[3..7] * !IOREQ * (!RD # !WR)
 //PIN 2   = !RD;
 PIN 3   = !WR;
 PIN 4   = A0;
@@ -24,22 +24,20 @@ PIN 5   = A1;
 PIN 6   = A2;
 //PIN 7   = ;
 //PIN 8   = ;
-PIN 9   = Sel;  // IdeAddress[3..7] * !IOREQ * (!RD # !WR)
-PIN 11  = !OE;
+//PIN 9   = ;
+//PIN 11  = !OE;
 
 
 /** output pins **/
 
-PIN 19  = Toggle;   /* connected to CLK */
+PIN 19  = !EnableHi;
 PIN 18  = !EnableLo;
-PIN 17  = !EnableHi;
-PIN 16  = !LatchLo;  // latch data (16-bit)
-PIN 15  = !PassLo;   // pass commands (8-bit)
-/*
-PIN 14  = ;
-PIN 13  = ;
-*/
-PIN 12  = LoByte;
+PIN 17  = !LatchLo; // latch data (16-bit)
+PIN 16  = !PassLo;  // pass commands (8-bit)
+PIN 15  = LoByte;
+//PIN 14  = ;
+//PIN 13  = ;
+//PIN 12  = ;
 
 
 /* Data IO Address A[0..2] */
@@ -52,5 +50,4 @@ LatchLo = LoByte & Sel & WR & DataAddress;
 PassLo = Sel & WR & !DataAddress;
 
 // clock LoByte every time IDE is selected
-Toggle = Sel;
 LoByte.d = !LoByte & DataAddress;

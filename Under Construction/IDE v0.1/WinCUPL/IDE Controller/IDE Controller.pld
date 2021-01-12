@@ -29,7 +29,7 @@ PIN 6   = A4;
 PIN 7   = A5;
 PIN 8   = A6;
 PIN 9   = A7;
-PIN 11  = !OE;
+//PIN 11  = !OE;
 
 
 /** output pins **/
@@ -56,5 +56,5 @@ SelLatch.d = Sel;
 
 /* CS0, IDEAddress and IDERD/IDEWR all have to be asserted to activate IDE */
 CS0 = SelLatch # Sel;
-IDERD = Sel & RD;
-IDEWR = Sel & WR;
+IDERD = SelLatch & RD;
+IDEWR = SelLatch & WR;

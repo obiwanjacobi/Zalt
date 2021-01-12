@@ -1,6 +1,8 @@
 @ECHO OFF
 SET PATH=%PATH%;C:\z88dk\bin\
 
+if [%2]==[] goto clib
+
 set lib=../../zalt_c.lib
 set debug=-DDEBUG -Ca-DDEBUG -Cl-DDEBUG
 set include=-I%~dp0..\src -I%~dp0..\src\sys -I%~dp0..\src\io
@@ -15,3 +17,8 @@ zcc +zalt %debug% %include% -SO2 -clib=%2 %1.c -l%lib% -o %1 %3 --c-code-in-asm 
 z88dk-dis -o 0 -x %1.map %1_CODE.bin > %1.dis.asm
 
 ::zcc +zalt %debug% %include% -SO2 -clib=%2 %1.c -l%zalt_lib% -o %1 -vn %3
+
+goto :eof
+
+:clib
+@echo Specify %2 option: 'sccz80', 'sdcc_ix' or 'sdcc_iy'

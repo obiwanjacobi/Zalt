@@ -26,12 +26,19 @@ void init()
     Debugger_Init();
 }
 
+DriveInfo driveInfo;
+volatile uint8_t err = 0;
+
 int main()
 {
     init();
     
     BusController_Acquire();
-    IdeController_Init();
+    if (!IdeController_Init() ||
+        !IdeController_GetInfo(&driveInfo))
+    {
+        err = IdeController_GetError();
+    }
     BusController_Release();
     
     

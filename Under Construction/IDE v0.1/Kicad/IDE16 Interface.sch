@@ -605,7 +605,6 @@ Wire Wire Line
 	9000 4250 9300 4250
 Wire Wire Line
 	9600 4250 9700 4250
-NoConn ~ 8000 3750
 $Comp
 L Device:R R203
 U 1 1 600B2AC0
@@ -2076,9 +2075,9 @@ Sel
 Text Label 2250 4350 0    50   ~ 0
 ~WR
 Text Label 3750 4250 0    50   ~ 0
-~EnableLo
-Text Label 3750 4350 0    50   ~ 0
 ~EnableHi
+Text Label 3750 4350 0    50   ~ 0
+~EnableLo
 Text Label 3750 4450 0    50   ~ 0
 ~LatchLo
 Text Label 3750 4550 0    50   ~ 0
@@ -2182,13 +2181,9 @@ LoadVect
 Text Label 2750 7300 0    50   ~ 0
 OutVect
 Text Label 3550 2400 0    50   ~ 0
-VectAddr
-Text Label 2250 4850 0    50   ~ 0
-VectAddr
-Text Label 3750 4850 0    50   ~ 0
-LoadVect
+~LoadVect
 Text Label 3750 4950 0    50   ~ 0
-OutVEct
+~OutVect
 Text Label 2250 4450 0    50   ~ 0
 ~M1
 Text HLabel 1300 3550 0    50   Input ~ 0
@@ -2213,7 +2208,6 @@ Text Label 1550 3850 0    50   ~ 0
 ~INT
 Text Label 3750 4750 0    50   ~ 0
 Interrupt
-NoConn ~ 3800 2500
 NoConn ~ 4050 4650
 Text Notes 7750 1650 0    50   ~ 0
 Cpu -> IDE command:\nLow-byte is passed through to IDE directly (9-bits only)
@@ -2477,10 +2471,6 @@ Text Notes 9900 5650 0    50   ~ 0
 Place holder for\nBCX70 (SMD)?
 Text Notes 3350 3150 0    50   ~ 0
 Wait to slow CPU \ndown to 8MHz?
-Wire Bus Line
-	1450 5450 1450 6200
-Wire Bus Line
-	1450 4100 1450 4850
 $Comp
 L 74HC646:74HC646 U205
 U 1 1 5FEE3CA7
@@ -2515,4 +2505,19 @@ F 3 "" H 8700 2300 50  0001 C CNN
 	1    8700 2300
 	1    0    0    -1  
 $EndComp
+Wire Wire Line
+	8000 3750 7600 3750
+Text Label 7650 3750 0    50   ~ 0
+IODRY
+Text Label 3550 2500 0    50   ~ 0
+IORDY
+Text Label 3750 4650 0    50   ~ 0
+(LoByte)
+NoConn ~ 3800 2200
+Wire Bus Line
+	1450 5450 1450 6200
+Wire Bus Line
+	1450 4100 1450 4850
+Text Label 2250 4850 0    50   ~ 0
+Sel
 $EndSCHEMATC

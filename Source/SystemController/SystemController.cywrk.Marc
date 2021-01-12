@@ -354,7 +354,7 @@
 <OpenDocs>
 <name v=".\SystemController.cydsn\main.c" />
 <name v=".\SystemController.cydsn\IdeController.c" />
-<name v=".\SystemController.cydsn\Generated_Source\PSoC5\CyBootAsmGnu.s" />
+<name v=".\SystemController.cydsn\IdeController.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -362,7 +362,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="549, 733" SelectedTabbedMdiWindow="f16656ac-7522-448e-8374-0898a9f47b9d"><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\main.c" Guid="9729ea58-8f7a-4394-8f73-ee3a3328aea3" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\IdeController.c" Guid="f16656ac-7522-448e-8374-0898a9f47b9d" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\Generated_Source\PSoC5\CyBootAsmGnu.s" Guid="bf5c8f43-4001-4eb3-afa7-884c40b3e3c3" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1121, 742" SelectedTabbedMdiWindow="f16656ac-7522-448e-8374-0898a9f47b9d"><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\main.c" Guid="9729ea58-8f7a-4394-8f73-ee3a3328aea3" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\IdeController.c" Guid="f16656ac-7522-448e-8374-0898a9f47b9d" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\IdeController.h" Guid="8215bd8a-51a9-4c3e-a72e-3b6bcb42006b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="Debug" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
