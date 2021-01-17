@@ -36,7 +36,7 @@ uint16_t Status_Execute(SerialTerminal* serialTerminal, TerminalCommand* command
     {
         cpuStat = SUSPENDED;
     }
-    if (CpuController_IsCpuHalted())
+    else if (CpuController_IsCpuHalted())
     {
         cpuStat = "Halted";
     }
@@ -79,55 +79,61 @@ uint16_t CommandHandler_DispatchCommand(SerialTerminal* serialTerminal, Terminal
     
     switch(command->Command)
     {
-        case COMMAND_MEMORYWRITE:
+        case Command_MemoryWrite:
             bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
             MemoryWrite_Execute(serialTerminal, command);
             break;
-        case COMMAND_MEMORYREAD:
+        case Command_MemoryRead:
             bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
             MemoryRead_Execute(serialTerminal, command);
             break;
-        case COMMAND_MEMORYDUMP:
+        case Command_MemoryDump:
             bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
             MemoryDump_Execute(serialTerminal, command);
             break;
-        case COMMAND_MEMORYFILL:
+        case Command_MemoryFill:
             bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
             MemoryFill_Execute(serialTerminal, command);
             break;
-        case COMMAND_MEMORYTEST:
+        case Command_MemoryTest:
             bytesRead = DmaParseCommandParameters(&serialTerminal->RxBuffer, command);
             MemoryTest_Execute(serialTerminal, command);
             break;
-        case COMMAND_CLOCKMODE:
+        case Command_ClockMode:
             bytesRead = ClockMode_Execute(serialTerminal, command);
             break;
-        case COMMAND_CLOCKDIVIDER:
+        case Command_ClockDivider:
             bytesRead = ClockDivider_Execute(serialTerminal, command);
             break;
-        case COMMAND_CLOCKPULSE:
+        case Command_ClockPulse:
             bytesRead = ClockPulse_Execute(serialTerminal, command);
             break;
-        case COMMAND_CPURESET:
+        case Command_CpuReset:
             bytesRead = CpuReset_Execute(serialTerminal, command);
             break;
-        case COMMAND_TERMINAL_OFF:
+        case Command_CpuGo:
+            bytesRead = CpuGo_Execute(serialTerminal, command);
+            break;
+        case Command_TerminalOff:
             bytesRead = TerminalOff_Execute(serialTerminal, command);
             break;
-        case COMMAND_MEMORYMANAGER:
+        case Command_MemoryManager:
             bytesRead = MemoryManager_Execute(serialTerminal, command);
             break;
-        case COMMAND_BANKSWITCH:
+        case Command_BankSwitch:
             bytesRead = BankSwitch_Execute(serialTerminal, command);
             break;
-        case COMMAND_DEBUG:
+        case Command_Debug:
             bytesRead = Debug_Execute(serialTerminal, command);
             break;
-        case COMMAND_STATUS:
+        case Command_Status:
             bytesRead = Status_Execute(serialTerminal, command);
             break;
-        case COMMAND_VGA:
+        case Command_VGA:
             bytesRead = Vga_Execute(serialTerminal, command);
+            break;
+        default:
+            // not implemented yet
             break;
     }
     

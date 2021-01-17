@@ -2518,4 +2518,6 @@ Wire Bus Line
 	1450 5450 1450 6200
 Wire Bus Line
 	1450 4100 1450 4850
+Text Label 2250 4850 0    50   ~ 0
+Sel
 $EndSCHEMATC

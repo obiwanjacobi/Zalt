@@ -9,7 +9,7 @@
  */ 
 // Do not wait for the Z80 BUSACK to activate
 // Use for testing without a Z80 CPU.
-#define BUSACK_IGNORE
+//#define BUSACK_IGNORE
 
 
 // bus state flags
@@ -27,21 +27,22 @@ typedef struct
 void BusController_Init();
 void BusController_ResetState();
 
-void BusController_Open(BusState* state);
+bool_t BusController_Open(BusState* state);
 void BusController_Close(BusState* state);
 
 // sync acquire the external bus
-void BusController_Acquire();
+bool_t BusController_Acquire();
 
 // sync release the external bus
 void BusController_Release();
 
-// indicates if the bus is acquired (non-zero)
-//bool_t BusController_IsAcquired();
+// is BusReq active?
 bool_t BusController_IsAcquiring();
 
 // enable data bus outputs for write
 void BusController_EnableDataBusOutput(bool_t enable);
+bool_t BusController_IsDataBusOutputEnabled();
+void BusController_AssertDataBusOutput(active_t expected);
 
 #endif  //__BUSCONTROLLER_H__
 

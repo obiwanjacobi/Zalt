@@ -17,3 +17,7 @@
 * [Done] Look at the MemoryDecoder. I am using hard 0's and 1's there. Think the 1's should be Z's! (5V tollerance)
     Amazing the chip is still working...
 * Enable the read and write memory bank tables (commented out).
+
+## Resources
+
+http://map.grauw.nl/articles/fast_loops.php

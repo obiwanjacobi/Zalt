@@ -77,6 +77,7 @@ void IOProcessor_OutputDispatch(IOInfo* ioInfo)
             break;
             
         default:
+            SerialTerminal_WriteFormat("Unhandled OUT address: %04X\r\n", ioInfo->Address);
             break;
     }
 }
@@ -100,6 +101,7 @@ void IOProcessor_InputDispatch(IOInfo* ioInfo)
             data = KeyBoard_GetKey();
             break;
         default:
+            SerialTerminal_WriteFormat("Unhandled IN address: %04X\r\n", ioInfo->Address);
             break;
     }
     

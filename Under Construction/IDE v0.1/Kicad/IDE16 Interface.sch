@@ -2210,7 +2210,7 @@ Text Label 3750 4750 0    50   ~ 0
 Interrupt
 NoConn ~ 4050 4650
 Text Notes 7750 1650 0    50   ~ 0
-Cpu -> IDE command:\nLow-byte is passed through to IDE directly (9-bits only)
+Cpu -> IDE command:\nLow-byte is passed through to IDE directly (8-bits only)
 Text Notes 4050 7400 0    50   ~ 0
 Stores Interrupt Vector (IM2) or \nRST instruction (IM0) for IDE.
 $Comp
@@ -2514,10 +2514,10 @@ IORDY
 Text Label 3750 4650 0    50   ~ 0
 (LoByte)
 NoConn ~ 3800 2200
+Text Label 2250 4850 0    50   ~ 0
+Sel
 Wire Bus Line
 	1450 5450 1450 6200
 Wire Bus Line
 	1450 4100 1450 4850
-Text Label 2250 4850 0    50   ~ 0
-Sel
 $EndSCHEMATC

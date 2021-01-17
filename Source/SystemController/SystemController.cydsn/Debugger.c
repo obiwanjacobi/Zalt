@@ -3,6 +3,7 @@
 #include "InterruptProcessor.h"
 #include "BusController.h"
 #include "CpuController.h"
+#include "SerialTerminal.h"
 
 #include "stdlib.h"
 #include "stdio.h"
@@ -330,6 +331,7 @@ void Debugger_Print()
                 SysTerminal_PutString("- CPU Paused: ");
                 Debugger_PrintStatus();
                 SysTerminal_PutString(NewLine);
+                SerialTerminal_WritePrompt();
                 _messageShown = DebugState_Pause;
             }
             break;
@@ -339,6 +341,7 @@ void Debugger_Print()
             {
                 SysTerminal_PutString("- CPU running");
                 SysTerminal_PutString(NewLine);
+                SerialTerminal_WritePrompt();
                 _messageShown = DebugState_None;
             }
             break;

@@ -17,6 +17,7 @@ static SerialTerminal g_serialTerminal;
 
 void init()
 {
+    SerialTerminal_Start(&g_serialTerminal);
     BusController_Init();
     CpuController_Init();
     IOProcessor_Init();
@@ -26,26 +27,24 @@ void init()
     Debugger_Init();
 }
 
-DriveInfo driveInfo;
-volatile uint8_t err = 0;
+//DriveInfo driveInfo;
+//volatile uint8_t err = 0;
 
 int main()
 {
+    CyGlobalIntEnable; /* Enable global interrupts. */
+    
     init();
     
-    BusController_Acquire();
-    if (!IdeController_Init() ||
-        !IdeController_GetInfo(&driveInfo))
-    {
-        err = IdeController_GetError();
-    }
-    BusController_Release();
+//    BusController_Acquire();
+//    if (!IdeController_Init() ||
+//        !IdeController_GetInfo(&driveInfo))
+//    {
+//        err = IdeController_GetError();
+//    }
+//    BusController_Release();
     
-    
-    CyGlobalIntEnable; /* Enable global interrupts. */
-    SerialTerminal_Start(&g_serialTerminal);
-    
-    UsbProcessor_Start();
+    //UsbProcessor_Start();
     
     // echo back that the system is ready but halted.
     SerialTerminal_WriteLine("Ready (Suspended).");
@@ -55,7 +54,7 @@ int main()
     
     for(;;)
     {
-        UsbProcessor_Receive();
+        //UsbProcessor_Receive();
         Debugger_Print();
         
         if (g_serialTerminal.IsActive)

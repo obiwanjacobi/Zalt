@@ -1,4 +1,5 @@
 #include "IOController.h"
+#include "BusController.h"
 
 void SpinWaitIO()
 {
@@ -7,6 +8,8 @@ void SpinWaitIO()
 
 uint8_t IOController_Input(uint16_t address)
 {
+    BusController_AssertDataBusOutput(Inactive);
+    
     LsbA_Write(address & 0x00FF);
     MsbA_Write((address & 0xFF00) >> 8);
     
@@ -25,6 +28,8 @@ uint8_t IOController_Input(uint16_t address)
 
 void IOController_Output(uint16_t address, uint8_t data)
 {
+    BusController_AssertDataBusOutput(Active);
+    
     LsbA_Write(address & 0x00FF);
     MsbA_Write((address & 0xFF00) >> 8);
     

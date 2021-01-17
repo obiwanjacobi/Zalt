@@ -24,9 +24,14 @@ MEM EQU 64          ; Memory length in kilobytes.
 IOBYTE  EQU 3       ;i/o definition byte.
 TDRIVE  EQU 4       ;current drive name and user number.
 ENTRY   EQU 5       ;entry point for the cp/m bdos.
-TFCB    EQU 5CH     ;default file control block.
+TFCB1   EQU 5CH     ;default file control block.
+TFCB2   EQU 6CH     ;mentioned in interface guide - not used in code?
 TBUFF   EQU 80H     ;i/o buffer and command line storage.
 TBASE   EQU 100H        ;transiant program storage area.
+
+;
+; Note: Low-Memory (0000) is initialized in the Bios (gocpm)
+;
 
 ;
 ;   Set control character equates.
@@ -1205,7 +1210,7 @@ UNKWN4: POP HL
     LD  (FCB+16),A
     XOR A       ;clear record byte in fcb.
     LD  (FCB+32),A
-    LD  DE,TFCB     ;move it into place at(005Ch).
+    LD  DE,TFCB1     ;move it into place at(005Ch).
     LD  HL,FCB
     LD  B,33
     CALL    HL2DE
@@ -1308,7 +1313,8 @@ ROFILE: DEFW    ERROR4      ;file is read only.
 ;   Entry into bdos. (DE) or (E) are the parameters passed. The
 ; function number desired is in register (C).
 ;
-FBASE1: EX  DE,HL       ;save the (DE) parameters.
+FBASE1:
+    EX  DE,HL       ;save the (DE) parameters.
     LD  (PARAMS),HL
     EX  DE,HL
     LD  A,E     ;and save register (E) in particular.
@@ -1343,7 +1349,8 @@ FBASE1: EX  DE,HL       ;save the (DE) parameters.
 ;
 NFUNCTS EQU 41      ;number of functions in followin table.
 ;
-FUNCTNS:DEFW    WBOOT,GETCON,OUTCON,GETRDR,PUNCH,LIST,DIRCIO,GETIOB
+FUNCTNS:
+    DEFW    WBOOT,GETCON,OUTCON,GETRDR,PUNCH,LIST,DIRCIO,GETIOB
     DEFW    SETIOB,PRTSTR,RDBUFF,GETCSTS,GETVER,RSTDSK,SETDSK,OPENFIL
     DEFW    CLOSEFIL,GETFST,GETNXT,DELFILE,READSEQ,WRTSEQ,FCREATE
     DEFW    RENFILE,GETLOG,GETCRNT,PUTDMA,GETALOC,WRTPRTD,GETROV,SETATTR
@@ -3792,6 +3799,17 @@ CKSUMTBL: DEFB  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 ; disks:  equ 04h     ;number of disks in the system
 
 ;
+; IDE IO Interface port definitions
+;
+IDE_IO_DATA         EQU     08h
+IDE_IO_SECT_CNT     EQU     0ah
+IDE_IO_LBA0_7       EQU     0bh
+IDE_IO_LBA8_15      EQU     0ch
+IDE_IO_LBA16_23     EQU     0dh
+IDE_IO_LBA24_27_DEV EQU     0eh
+IDE_IO_STAT_CMD     EQU     0fh
+
+;
     org bios        ;origin of this program
 nsects: equ ($-ccp)/128 ;warm start sector count
 ;
@@ -3940,7 +3958,7 @@ gocpm:
     LD  (6),HL      ;address field of Jump at 5 to bdos
 ;
     LD  BC, 80h     ;default dma address is 80h
-    call    setdma
+    call setdma
 ;
     ei          ;enable the interrupt system
     LD  A,(cdisk)   ;get current disk number
@@ -4065,35 +4083,36 @@ read:
 ;Dma address in 'dmaad' (0-65535)
 ;
             ld  hl,hstbuf       ;buffer to place disk sector (256 bytes)
-rd_status_loop_1:   in  a,(0fh)         ;check status
+rd_status_loop_1:   in  a,(IDE_IO_STAT_CMD)         ;check status
             and 80h         ;check BSY bit
             jp  nz,rd_status_loop_1 ;loop until not busy
-rd_status_loop_2:   in  a,(0fh)         ;check  status
+rd_status_loop_2:   in  a,(IDE_IO_STAT_CMD)         ;check  status
             and 40h         ;check DRDY bit
             jp  z,rd_status_loop_2  ;loop until ready
+            
             ld  a,01h           ;number of sectors = 1
-            out (0ah),a         ;sector count register
+            out (IDE_IO_SECT_CNT),a         ;sector count register
             ld  a,(sector)      ;sector
-            out (0bh),a         ;lba bits 0 - 7
+            out (IDE_IO_LBA0_7),a         ;lba bits 0 - 7
             ld  a,(track)       ;track
-            out (0ch),a         ;lba bits 8 - 15
+            out (IDE_IO_LBA8_15),a         ;lba bits 8 - 15
             ld  a,(diskno)      ;disk (only bits 
-            out (0dh),a         ;lba bits 16 - 23
+            out (IDE_IO_LBA16_23),a         ;lba bits 16 - 23
             ld  a,11100000b     ;LBA mode, select host drive 0
-            out (0eh),a         ;drive/head register
+            out (IDE_IO_LBA24_27_DEV),a         ;drive/head register
             ld  a,20h           ;Read sector command
-            out (0fh),a
-rd_wait_for_DRQ_set:    in  a,(0fh)         ;read status
+            out (IDE_IO_STAT_CMD),a
+rd_wait_for_DRQ_set:    in  a,(IDE_IO_STAT_CMD)         ;read status
             and 08h         ;DRQ bit
             jp  z,rd_wait_for_DRQ_set   ;loop until bit set
-rd_wait_for_BSY_clear:  in  a,(0fh)
+rd_wait_for_BSY_clear:  in  a,(IDE_IO_STAT_CMD)
             and 80h
             jp  nz,rd_wait_for_BSY_clear
-            in  a,(0fh)         ;clear INTRQ
-read_loop:      in  a,(08h)         ;get data
+            in  a,(IDE_IO_STAT_CMD)         ;clear INTRQ
+read_loop:      in  a,(IDE_IO_DATA)         ;get data
             ld  (hl),a
             inc hl
-            in  a,(0fh)         ;check status
+            in  a,(IDE_IO_STAT_CMD)         ;check status
             and 08h         ;DRQ bit
             jp  nz,read_loop        ;loop until clear
             ld  hl,(dmaad)      ;memory location to place data read from disk
@@ -4104,7 +4123,7 @@ rd_sector_loop:     ld  a,(de)          ;get byte from host buffer
             inc hl
             inc de
             djnz    rd_sector_loop      ;put 128 bytes into memory
-            in  a,(0fh)         ;get status
+            in  a,(IDE_IO_STAT_CMD)         ;get status
             and 01h         ;error bit
             ret
 
@@ -4124,37 +4143,37 @@ wr_sector_loop:     ld  a,(hl)          ;get byte from memory
             inc de
             djnz    wr_sector_loop      ;put 128 bytes in host buffer
             ld  hl,hstbuf       ;location of data to write to disk
-wr_status_loop_1:   in  a,(0fh)         ;check status
+wr_status_loop_1:   in  a,(IDE_IO_STAT_CMD)         ;check status
             and 80h         ;check BSY bit
             jp  nz,wr_status_loop_1 ;loop until not busy
-wr_status_loop_2:   in  a,(0fh)         ;check  status
+wr_status_loop_2:   in  a,(IDE_IO_STAT_CMD)         ;check  status
             and 40h         ;check DRDY bit
             jp  z,wr_status_loop_2  ;loop until ready
             ld  a,01h           ;number of sectors = 1
-            out (0ah),a         ;sector count register
+            out (IDE_IO_SECT_CNT),a         ;sector count register
             ld  a,(sector)
-            out (0bh),a         ;lba bits 0 - 7 = "sector"
+            out (IDE_IO_LBA0_7),a         ;lba bits 0 - 7 = "sector"
             ld  a,(track)
-            out (0ch),a         ;lba bits 8 - 15 = "track"
+            out (IDE_IO_LBA8_15),a         ;lba bits 8 - 15 = "track"
             ld  a,(diskno)
-            out (0dh),a         ;lba bits 16 - 23, use 16 to 20 for "disk"
+            out (IDE_IO_LBA16_23),a         ;lba bits 16 - 23, use 16 to 20 for "disk"
             ld  a,11100000b     ;LBA mode, select drive 0
-            out (0eh),a         ;drive/head register
+            out (IDE_IO_LBA24_27_DEV),a         ;drive/head register
             ld  a,30h           ;Write sector command
-            out (0fh),a
-wr_wait_for_DRQ_set:    in  a,(0fh)         ;read status
+            out (IDE_IO_STAT_CMD),a
+wr_wait_for_DRQ_set:    in  a,(IDE_IO_STAT_CMD)         ;read status
             and 08h         ;DRQ bit
             jp  z,wr_wait_for_DRQ_set   ;loop until bit set         
 write_loop:     ld  a,(hl)
-            out (08h),a         ;write data
+            out (IDE_IO_DATA),a         ;write data
             inc hl
-            in  a,(0fh)         ;read status
+            in  a,(IDE_IO_STAT_CMD)         ;read status
             and 08h         ;check DRQ bit
             jp  nz,write_loop       ;write until bit cleared
-wr_wait_for_BSY_clear:  in  a,(0fh)
+wr_wait_for_BSY_clear:  in  a,(IDE_IO_STAT_CMD)
             and 80h
             jp  nz,wr_wait_for_BSY_clear
-            in  a,(0fh)         ;clear INTRQ
+            in  a,(IDE_IO_STAT_CMD)         ;clear INTRQ
             and 01h         ;check for error
             ret
 ;

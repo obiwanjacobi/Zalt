@@ -1,5 +1,7 @@
 #include "CpuCommands.h"
 #include "CpuController.h"
+#include "BusController.h"
+#include "MemoryController.h"
 #include "IOProcessor.h"
 
 #include <stdlib.h>
@@ -173,16 +175,19 @@ uint16_t CpuReset_Execute(SerialTerminal* serialTerminal, TerminalCommand* comma
         number = command->Number;
     }
     
-    CpuController_Reset(1);
+    CpuController_Reset(Active);
     IOProcessor_ReleaseCpuWait();
     
     if (number > 0)
     {
         // give Z80 enough time to reset.
         CpuController_WaitCycles(number);
-        CpuController_Reset(0);
+        CpuController_Reset(Inactive);
         
-        SerialTerminal_WriteLine(OK);
+        if (CpuController_IsResetActive())
+            SerialTerminal_WriteLine("RESET ERROR");
+        else
+            SerialTerminal_WriteLine(OK);
     }
     else
     {
@@ -191,5 +196,57 @@ uint16_t CpuReset_Execute(SerialTerminal* serialTerminal, TerminalCommand* comma
     
     return totalRead;
 }
+
+//
+// Execute code
+//
+// => 'go' [nnnn]     nnnn => address to start execution from. if not supplier starts at 0000.
+uint16_t CpuGo_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
+{
+    RingBuffer* const buffer = &serialTerminal->RxBuffer;
+    uint16_t totalRead = 0;
+    uint8_t temp[10];
+    char* endPtr = NULL;
+    
+    uint16_t address = 0;
+    
+    if (!RingBuffer_IsEmpty(buffer))
+    {
+        totalRead += CommandParser_Read(buffer, temp, 9);
+        
+        command->Address = strtoul((const char*)temp, &endPtr, 10);
+        address = command->Address;
+    }
+    
+    // cannot jump to address 1 or 2 (JP instruction takes 3 bytes)
+    if (address > 2)
+    {
+        // Z80 JP instruction to 'address'
+        uint8_t jmp[3] = { 0xC3, (uint8_t)(address & 0xFF), (uint8_t)(address >> 8) };
+        
+        Memory mem;
+        mem.Address = 0;
+        mem.Buffer = jmp;
+        mem.Length = 3;
+        
+        BusState bus;
+        if (!BusController_Open(&bus))
+        {
+            SerialTerminal_WriteLine("Go Command failed to execute.");
+            return totalRead;
+        }
+        MemoryController_Write(&mem);
+        BusController_Close(&bus);
+    }
+    
+    // reset CPU
+    CpuController_Reset(Active);
+    CpuController_WaitCycles(10);
+    IOProcessor_ReleaseCpuWait();
+    CpuController_Reset(Inactive);
+
+    return totalRead;
+}
+
 
 /* [] END OF FILE */

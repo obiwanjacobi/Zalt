@@ -18,3 +18,11 @@ https://github.com/skiselev/omega
 
 The YM2149 circuit was copied from this YM2149 for the RC2014 project. https://github.com/electrified/rc2014-ym2149
 (although I only used the channel mixing resistors)
+
+## Resources
+
+V9938 Programming Guide (pdf)
+
+Several articles on VDP programming and sources: 
+http://map.grauw.nl/articles/vdp_tut.php
+http://map.grauw.nl/sources/vdp_rout.php

@@ -1,2 +1,2 @@
 @ECHO OFF
-call ../make IdeGetInfo %1 --list
+call ../make IdeGetInfo sccz80 --list

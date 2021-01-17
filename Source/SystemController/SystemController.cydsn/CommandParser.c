@@ -16,6 +16,7 @@ static char g_Commands[][5] = {
     "cd",   // clock divider
     "cp",   // clock pulse
     "rst",  // cpu reset
+    "go",   // go exec
     "to",   // terminal off
     "mm",   // memory manager
     "bs",   // bank switch
@@ -25,14 +26,14 @@ static char g_Commands[][5] = {
     ""      // end of table
 };
 
-uint8_t FindCommand(const char* commandCode)
+Commands FindCommand(const char* commandCode)
 {
     int i = 0;
 
     while( true )
     {
-        if (strlen(g_Commands[i]) == 0) return 0;   // end of table
-        if (strcmp(g_Commands[i], commandCode) == 0) return i + 1;
+        if (strlen(g_Commands[i]) == 0) return Command_None;   // end of table
+        if (strcmp(g_Commands[i], commandCode) == 0) return (Commands)(i + 1);
         i++;
     }
 }
@@ -63,7 +64,7 @@ uint8_t CommandParser_BuildCommand(TerminalCommand* command, RingBuffer* buffer)
     command->Command = FindCommand((const char*)command->CommandLine);
     
     // if command == none => error: command not recognized.
-    if (command->Command == COMMAND_NONE) return 0;
+    if (command->Command == Command_None) return 0;
     
     return bytesRead;
 }

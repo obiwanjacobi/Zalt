@@ -25,7 +25,23 @@ void BusController_EnableDataBusOutput(bool_t enable)
     SysCtrlReg_Write(ctrlReg);
 }
 
-void BusController_WaitForBusAck(active_t active)
+bool_t BusController_IsDataBusOutputEnabled()
+{
+    uint8_t ctrlReg = SysCtrlReg_Read();
+    return ctrlReg & (1 << SysCtrlReg_DataBusEnable) ? true : false;
+}
+
+void BusController_AssertDataBusOutput(active_t expected)
+{
+    bool_t enabled = BusController_IsDataBusOutputEnabled();
+    bool_t notEnabled = enabled ? false : true;
+    bool_t failed = expected == Active ? notEnabled : enabled;
+    
+    if (failed)
+        SerialTerminal_Write("ERROR: Bus Conflict!");
+}
+
+bool_t BusController_WaitForBusAck(active_t waitFor)
 {
     active_t value;
     uint64_t counter = 0;
@@ -41,10 +57,11 @@ void BusController_WaitForBusAck(active_t active)
         counter++;
         if (counter > 999999) {
             SerialTerminal_WriteLine("=> BusAck not responding (hanging)");
-            counter = 0;
+            return false;
         }
                 
-    } while (value == active);
+    } while (value != waitFor);
+    return true;
 }
 
 void BusController_ResetState()
@@ -70,7 +87,7 @@ void BusController_Init()
     BusController_ResetState();
 }
 
-void BusController_Acquire()
+bool_t BusController_Acquire()
 {
     // set control lines in neutral state
     BusController_ResetState();
@@ -79,10 +96,15 @@ void BusController_Acquire()
     WriteNotPin(ExtBus_BusReq, Active);
     
     // wait for acknowledge
-    BusController_WaitForBusAck(Inactive);
+    if (!BusController_WaitForBusAck(Active))
+    {
+        WriteNotPin(ExtBus_BusReq, Inactive);
+        return false;
+    }
     
     // enable the external bus
     BusController_EnableExternalBus(true);
+    return true;
 }
 
 void BusController_Release()
@@ -95,7 +117,7 @@ void BusController_Release()
     BusController_ResetState();
     
     // wait for cpu to take over bus again
-    BusController_WaitForBusAck(Active);
+    BusController_WaitForBusAck(Inactive);
 }
 
 bool_t BusController_IsAcquiring()
@@ -108,25 +130,31 @@ bool_t BusController_IsAcquired()
     return (ReadNotPin(ExtBus_BusAck) == Active) ? true : false;
 }
 
-void BusController_Open(BusState* state)
+bool_t BusController_Open(BusState* state)
 {
     state->Flags = 0;
     if (!BusController_IsAcquiring())
     {
-        state->Flags = CpuController_IsResetActive() ? RETURN_TO_RESET : 0;
-        if (state->Flags) CpuController_Reset(0);
+        if (CpuController_IsResetActive())
+        {
+            state->Flags = RETURN_TO_RESET;
+            CpuController_Reset(Inactive);
+            CyDelayUs(1);
+        }
         
         state->Flags |= RELEASE_BUS;
-        BusController_Acquire();
+        return BusController_Acquire();
     }
+    return true;
 }
 
 void BusController_Close(BusState* state)
 {
     if (state->Flags)
     {
+        BusController_EnableDataBusOutput(false);
         BusController_Release();
-        if ((state->Flags & RETURN_TO_RESET) != 0) CpuController_Reset(1);
+        if ((state->Flags & RETURN_TO_RESET) != 0) CpuController_Reset(Active);
     }
 }
 

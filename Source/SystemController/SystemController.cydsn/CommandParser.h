@@ -8,31 +8,34 @@ const char* OK;
 const char* SUSPENDED;
 const char* INCOMPLETE;
 
+typedef enum
+{
+    Command_None,
+    Command_MemoryWrite,
+    Command_MemoryRead,
+    Command_MemoryDump,
+    Command_MemoryFill,
+    Command_MemoryTest,
+    Command_ClockMode,
+    Command_ClockDivider,
+    Command_ClockPulse,
+    Command_CpuReset,
+    Command_CpuGo,
+    Command_TerminalOff,
+    Command_MemoryManager,
+    Command_BankSwitch,
+    Command_Debug,
+    Command_Status,
+    Command_VGA,
+    Command_IDE,
     
-#define COMMAND_NONE            0
-#define COMMAND_MEMORYWRITE     1
-#define COMMAND_MEMORYREAD      2
-#define COMMAND_MEMORYDUMP      3
-#define COMMAND_MEMORYFILL      4
-#define COMMAND_MEMORYTEST      5
-#define COMMAND_CLOCKMODE       6
-#define COMMAND_CLOCKDIVIDER    7
-#define COMMAND_CLOCKPULSE      8
-#define COMMAND_CPURESET        9
-#define COMMAND_TERMINAL_OFF   10
-#define COMMAND_MEMORYMANAGER  11
-#define COMMAND_BANKSWITCH     12
-#define COMMAND_DEBUG          13
-#define COMMAND_STATUS         14
-#define COMMAND_VGA            15
-#define COMMAND_IDE            16
-
+} Commands;   
 
 typedef struct
 {
     uint8_t CommandLine[5];
     
-    uint16_t Command;
+    Commands Command;
     union {
         uint16_t Address;
         uint16_t Number;
