@@ -1,0 +1,29 @@
+{
+  "head": { "text": "Z80-IDE Timings", "tock": ". T1 . T2 . Tw . T3 . T1 . . T1 . T2 . Tw . T3 . T1 . "},
+  "signal": [
+    ["Z80",
+      { "name": "CLK", "wave": "01010101010|1010101010", "period": 1 },
+      { "name": "A[0..7]", "wave": "x=.......x.|=.......x.", "phase": -0.3, "data": ["in-addr", "out-addr"] },
+      { "name": "IOREQ", "wave": "1..0....1..|..0....1..", "phase":-0.1 },
+      { "name": "RD", "wave": "1..0....1..|.........", "phase": -0.2 },
+      { "name": "WR", "wave": "1..........|..0....1..", "phase": -0.2 },
+      { "name": "D[0..7]", "wave": "x......=x..|.=......x.", "phase": -0.4, "data": ["in", "out"] }
+    ],
+    ["IDE",
+      { "name": "CS0", "wave": "1..0.....1.|..0.....1." },
+      { "name": "A[0..2]", "wave": "x=.......x.|=.......x.", "phase": -0.3, "data": ["reg", "reg"] },
+      { "name": "RD", "wave": "1....0..1..|........." },
+      { "name": "WR", "wave": "1..........|....0..1.." },
+      { "name": "D[0..15]", "wave": "x....=....x|..=.....x.", "data": ["out", "in"] }
+    ],
+    ["Decoder",
+      { "name": "DIR (=IDEWR)", "wave": "1..........|....0..1.." },
+      { "name": "EnLo", "wave": "1....0..1..|.........." },
+      { "name": "EnHi", "wave": "1..........|....0..1.." },
+      { "name": "ClkHi (=IDERD)", "wave": "1....0..1..|..........", "node": "........o" },
+      { "name": "ClkLo", "wave": "1..........|....0..1..", "node": "...................x" }
+    ]
+  ],
+  "foot": { "text": ['tspan', {'font-size':'10'}, "o, x = clocked into register"] },
+  "config": { "skin": "narrow" }
+}

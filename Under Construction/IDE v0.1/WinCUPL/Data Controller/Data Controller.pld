@@ -1,0 +1,53 @@
+Name     Data Controller;
+PartNo   Zalt-IDE-01;
+Date     27-12-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt IDE Board;
+Location Z80 Computer / IDE;
+Device   G16V8;
+/*Format   j;*/
+
+/* 
+ *      Data Controller
+ */
+
+
+/** input pins **/
+
+PIN 1   = Sel;  // IdeAddress[3..7] * !IOREQ * (!RD # !WR)
+//PIN 2   = !RD;
+PIN 3   = !WR;
+PIN 4   = A0;
+PIN 5   = A1;
+PIN 6   = A2;
+//PIN 7   = ;
+//PIN 8   = ;
+//PIN 9   = ;
+//PIN 11  = !OE;
+
+
+/** output pins **/
+
+PIN 19  = !EnableHi;
+PIN 18  = !EnableLo;
+PIN 17  = !LatchLo; // latch data (16-bit)
+PIN 16  = !PassLo;  // pass commands (8-bit)
+PIN 15  = LoByte;
+//PIN 14  = ;
+//PIN 13  = ;
+//PIN 12  = ;
+
+
+/* Data IO Address A[0..2] */
+DataAddress = !A0 & !A1 & !A2;
+
+EnableLo = Sel & (LoByte & !WR # !LoByte & WR) # Sel & !DataAddress;
+EnableHi = !LoByte & Sel & DataAddress;
+LatchLo = LoByte & Sel & WR & DataAddress;
+// pass for RD is hardwired
+PassLo = Sel & WR & !DataAddress;
+
+// clock LoByte every time IDE is selected
+LoByte.d = !LoByte & DataAddress;

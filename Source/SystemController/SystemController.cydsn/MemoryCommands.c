@@ -117,6 +117,13 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
     mem.Length = command->Length;
     mem.SpinCountTimeout = mem.Length == 0 ? 0x2FF : 0;
     
+    BusState busState;
+    if (!BusController_Open(&busState))
+    {
+        SerialTerminal_WriteLine("Memory Write Command failed to execute.");
+        return 0;
+    }
+    
     // signal ready to receive file
     if (mem.Length == 0)
     {
@@ -128,10 +135,7 @@ uint16_t MemoryWrite_Execute(SerialTerminal* serialTerminal, TerminalCommand* co
         SerialTerminal_WriteUint16(mem.Length, 16);
         SerialTerminal_WriteLine("h bytes...");
     }    
-    
-    BusState busState;
-    BusController_Open(&busState);
-    
+
     uint16_t bytesRead = 0;
     BusController_EnableDataBusOutput(true);
     
@@ -171,15 +175,19 @@ uint16_t MemoryRead_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     {
         command->Length = 0xFF;
     }
+        
+    BusState busState;
+    if (!BusController_Open(&busState))
+    {
+        SerialTerminal_WriteLine("Memory Read Command failed to execute.");
+        return 0;
+    }
     
     SerialTerminal_Write("Reading ");
     SerialTerminal_WriteUint16(command->Length, 16);
     SerialTerminal_Write("h bytes from address ");
     SerialTerminal_WriteUint16(command->Address, 16);
     SerialTerminal_WriteLine(":");
-        
-    BusState busState;
-    BusController_Open(&busState);
     
     MemoryRead_CopyToTerminal(command->Address, command->Length, NULL);
     
@@ -206,7 +214,11 @@ uint16_t MemoryDump_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     }
     
     BusState busState;
-    BusController_Open(&busState);
+    if (!BusController_Open(&busState))
+    {
+        SerialTerminal_WriteLine("Memory Dump Command failed to execute.");
+        return 0;
+    }
     
     MemoryRead_CopyToTerminal(command->Address, command->Length, "%02X");
     
@@ -228,6 +240,13 @@ uint16_t MemoryFill_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     mem.Buffer = NULL;
     mem.Length = command->Length == 0 ? 0xFFFF - command->Address : command->Length;
     
+    BusState busState;
+    if (!BusController_Open(&busState))
+    {
+        SerialTerminal_WriteLine("Memory Fill Command failed to execute.");
+        return 0;
+    }
+    
     SerialTerminal_Write("Filling ");
     SerialTerminal_WriteUint16(mem.Length, 16);
     SerialTerminal_Write("h bytes from address ");
@@ -235,9 +254,7 @@ uint16_t MemoryFill_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     SerialTerminal_Write(" with value ");
     SerialTerminal_WriteUint16(command->Param3, 16);
     SerialTerminal_WriteLine("h");
-    
-    BusState busState;
-    BusController_Open(&busState);
+        
     BusController_EnableDataBusOutput(true);
     
     while(mem.Length > 0)
@@ -264,19 +281,20 @@ uint16_t MemoryTest_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     mem.Length = command->Length == 0 ? 0xFFFF - command->Address : command->Length;
     TestMemoryResult result;
     
+    BusState busState;
+    if (!BusController_Open(&busState))
+    {
+        SerialTerminal_WriteLine("Memory Test Command failed to execute.");
+        return 0;
+    }
+    
     SerialTerminal_Write("Testing ");
     SerialTerminal_WriteUint16(mem.Length, 16);
     SerialTerminal_Write("h bytes from address ");
     SerialTerminal_WriteUint16(command->Address, 16);
     SerialTerminal_WriteLine("h");
         
-    BusState busState;
-    BusController_Open(&busState);
-    BusController_EnableDataBusOutput(true);
-        
-    MemoryController_TestMemory(&mem, &result);
-    
-    BusController_EnableDataBusOutput(false);
+    MemoryController_TestMemory(&mem, &result);   
     BusController_Close(&busState);
     
     if (mem.Length > 0)

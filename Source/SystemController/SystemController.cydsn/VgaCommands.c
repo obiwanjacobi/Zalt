@@ -23,7 +23,11 @@ uint16_t Vga_Execute(SerialTerminal* serialTerminal, TerminalCommand* command)
 {
     uint16_t bytesRead = 0;
     BusState busState;
-    BusController_Open(&busState);
+    if (!BusController_Open(&busState))
+    {
+        SerialTerminal_WriteLine("VGA Command failed to execute.");
+        return bytesRead;
+    }
     BusController_EnableDataBusOutput(true);
     
     // setup extended mem-addr 0x3Fxxx

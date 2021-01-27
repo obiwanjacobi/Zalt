@@ -6,7 +6,7 @@
     
 typedef struct 
 {
-    uint8_t IsActive;
+    bool_t IsActive;
     RingBuffer RxBuffer;
     
 } SerialTerminal;

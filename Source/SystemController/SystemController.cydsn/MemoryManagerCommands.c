@@ -60,8 +60,11 @@ void MemMgr_ReportTestResult(TestMemory* memory, TestMemoryResult* result)
 void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, int16_t value)
 {
     BusState busState;
-    BusController_Open(&busState);
-    BusController_EnableDataBusOutput(true);
+    if (!BusController_Open(&busState))
+    {
+        SerialTerminal_WriteLine("Memory Manager Command failed to execute.");
+        return;
+    }
     
     switch (mode)
     {
@@ -83,23 +86,21 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, int16_t
                 {
                     MemoryManager_ReportTable(table);
                     
+                    BusController_EnableDataBusOutput(true);
                     MemoryManager_SelectTableIO(table);
-                    
-                    // reading, so disable driving the databus
-                    BusController_EnableDataBusOutput(0);
+                    BusController_EnableDataBusOutput(false);
                     
                     MemoryManager_ReportTableIndex();
-                    
-                    BusController_EnableDataBusOutput(1);
                 }
             }
             else
             {
                 MemoryManager_ReportTable(table);
                     
+                BusController_EnableDataBusOutput(true);
                 MemoryManager_SelectTableIO(table);
-                // reading, so disable driving the databus
-                BusController_EnableDataBusOutput(0);
+                BusController_EnableDataBusOutput(false);
+
                 if (index == -1)
                 {
                     MemoryManager_ReportTableIndex();
@@ -111,10 +112,13 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, int16_t
             }
             break;
         case MM_MODE_PUT:
+            BusController_EnableDataBusOutput(true);
             MemoryManager_SelectTableIO(table);
             MemoryManager_WriteTableData(index, value);
+            BusController_EnableDataBusOutput(false);
             break;
         case MM_MODE_NUL:
+            BusController_EnableDataBusOutput(true);
             if (table == -1)
             {
                 for(table = 0; table < MemMapTableCount; table++)
@@ -128,6 +132,7 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, int16_t
                 MemoryManager_SelectTableIO(table);
                 MemoryManager_WriteNullTable();
             }
+            BusController_EnableDataBusOutput(false);
             break;
         case MM_MODE_TST:
             value = table;
@@ -149,8 +154,10 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, int16_t
                     
                     MemMgr_ReportTest(value);
                     
+                    BusController_EnableDataBusOutput(true);
                     MemoryManager_WriteTableData(index, value);
                     MemoryController_TestMemory(&memory, &result);
+                    BusController_EnableDataBusOutput(false);
                     
                     MemMgr_ReportTestResult(&memory, &result);
                 }
@@ -162,21 +169,25 @@ void MemoryManager_MapAction(uint8_t mode, int16_t table, int16_t index, int16_t
                 
                 MemMgr_ReportTest(value);
                 
+                BusController_EnableDataBusOutput(true);
                 MemoryManager_WriteTableData(index, value);
                 MemoryController_TestMemory(&memory, &result);
+                BusController_EnableDataBusOutput(false);
                 
                 MemMgr_ReportTestResult(&memory, &result);
             }
             
+            BusController_EnableDataBusOutput(true);
             MemoryManager_WriteTableData(index, pageToRestore);
+            BusController_EnableDataBusOutput(false);
             break;
         default:
             break;
     }
 
     // keep io table in sync with mem table
+    BusController_EnableDataBusOutput(true);
     MemoryManager_SelectTableIO(MemoryManager_GetCurrentTable());
-    
     BusController_EnableDataBusOutput(false);
     BusController_Close(&busState);
 }
@@ -248,7 +259,6 @@ uint16_t MemoryManager_Execute(SerialTerminal* serialTerminal, TerminalCommand* 
             return totalRead;
         }
     }
-    
     if (index == -1)
     {
         if (command->Mode == MM_MODE_PUT)
@@ -310,12 +320,16 @@ uint16_t BankSwitch_Execute(SerialTerminal* serialTerminal, TerminalCommand* com
     }
     
     BusState busState;
-    BusController_Open(&busState);
-    BusController_EnableDataBusOutput(1);
+    if (!BusController_Open(&busState))
+    {
+        SerialTerminal_WriteLine("Bank Switch Command failed to execute.");
+        return 0;
+    }
+    BusController_EnableDataBusOutput(true);
     
     MemoryManager_WriteTableData(page, bank);
     
-    BusController_EnableDataBusOutput(0);
+    BusController_EnableDataBusOutput(false);
     BusController_Close(&busState);
     
     SerialTerminal_WriteLine(OK);

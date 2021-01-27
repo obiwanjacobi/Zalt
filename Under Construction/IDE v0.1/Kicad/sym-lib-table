@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name IDE)(type Legacy)(uri ${KIPRJMOD}/IDE.lib)(options "")(descr ""))
+  (lib (name 74HC646)(type Legacy)(uri ${KIPRJMOD}/74HC646.lib)(options "")(descr ""))
+  (lib (name G22V10)(type Legacy)(uri ${KIPRJMOD}/22V10.lib)(options "")(descr ""))
+  (lib (name SYSHDR)(type Legacy)(uri ${KIPRJMOD}/syshdr.lib)(options "")(descr ""))
+)

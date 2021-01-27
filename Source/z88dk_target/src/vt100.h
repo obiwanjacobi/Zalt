@@ -3,6 +3,11 @@
 
 #include "StringBuilder.h"
 
+/*
+ * More info here
+ * http://ascii-table.com/ansi-escape-sequences-vt-100.php
+ */
+
 #define VT100_CommandStart "\x1b["
 
 /*

@@ -63,15 +63,19 @@ void MemoryManager_OnInterrupt()
 void MemMgr_InitTableNul(uint8_t tableIndex)
 {
     BusState bus;
-    BusController_Open(&bus);
-    BusController_EnableDataBusOutput(1);
+    if (!BusController_Open(&bus))
+    {
+        SerialTerminal_WriteLine("Memory Manager failed to initialize.");
+        return;
+    }
+    BusController_EnableDataBusOutput(true);
     
     // write first table for 64k
     MemoryManager_SelectTable(tableIndex);
     MemoryManager_SelectTableIO(tableIndex);
     MemoryManager_WriteNullTable();
     
-    BusController_EnableDataBusOutput(0);
+    BusController_EnableDataBusOutput(false);
     BusController_Close(&bus);
 }
 

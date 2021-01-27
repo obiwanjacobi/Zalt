@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define SerialTerminal_RxBufferSize 40
+#define SerialTerminal_RxBufferSize 100
 
 static uint8_t g_rxBuffer[SerialTerminal_RxBufferSize];
 
@@ -16,7 +16,7 @@ void SerialTerminal_WritePrompt()
 
 void SerialTerminal_Start(SerialTerminal* serialTerminal)
 {
-    serialTerminal->IsActive = 1;   // on by default
+    serialTerminal->IsActive = true;   // on by default
     
     RingBuffer_Init(&serialTerminal->RxBuffer, g_rxBuffer, SerialTerminal_RxBufferSize);
     SysTerminal_Start();

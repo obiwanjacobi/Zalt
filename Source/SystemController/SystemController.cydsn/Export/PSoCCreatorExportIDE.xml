@@ -25,7 +25,7 @@
       <Tool Name="postbuild" Command="" Options="" />
     </Toolchain>
   </Toolchains>
-  <Project Name="SystemController" Path="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn" Version="5.90" Type="Normal">
+  <Project Name="SystemController" Path="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn" Version="6.0" Type="Normal">
     <CMSIS_SVD_File>SystemController.svd</CMSIS_SVD_File>
     <Datasheet>SystemController_datasheet.pdf</Datasheet>
     <LinkerFiles>
@@ -77,9 +77,13 @@
           <File BuildType="BUILD" Toolchain="">DebugCommands.c</File>
           <File BuildType="BUILD" Toolchain="">VgaCommands.c</File>
           <File BuildType="BUILD" Toolchain="">VgaCommands.h</File>
+          <File BuildType="BUILD" Toolchain="">IdeCommands.c</File>
+          <File BuildType="BUILD" Toolchain="">IdeCommands.h</File>
           <File BuildType="BUILD" Toolchain="">SystemController.h</File>
           <File BuildType="BUILD" Toolchain="">KeyBoard.h</File>
           <File BuildType="BUILD" Toolchain="">KeyBoard.c</File>
+          <File BuildType="BUILD" Toolchain="">IdeController.h</File>
+          <File BuildType="BUILD" Toolchain="">IdeController.c</File>
           <File BuildType="BUILD" Toolchain="">Message.h</File>
         </Files>
       </Folder>

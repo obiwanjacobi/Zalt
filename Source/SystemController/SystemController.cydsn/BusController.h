@@ -2,6 +2,15 @@
 #define __BUSCONTROLLER_H__
 
 #include "SystemController.h"
+    
+/*
+    #define BUSACK_IGNORE to run without a Z80. 
+    This will not wait for the BUSACK to activate
+ */ 
+// Do not wait for the Z80 BUSACK to activate
+// Use for testing without a Z80 CPU.
+//#define BUSACK_IGNORE
+
 
 // bus state flags
 #define RETURN_TO_RESET     0x01
@@ -18,21 +27,24 @@ typedef struct
 void BusController_Init();
 void BusController_ResetState();
 
-void BusController_Open(BusState* state);
+bool_t BusController_Open(BusState* state);
 void BusController_Close(BusState* state);
 
 // sync acquire the external bus
-void BusController_Acquire();
+bool_t BusController_Acquire();
 
 // sync release the external bus
 void BusController_Release();
 
-// indicates if the bus is acquired (non-zero)
-//bool_t BusController_IsAcquired();
+// is BusReq active?
 bool_t BusController_IsAcquiring();
+bool_t BusController_IsCpuBusEnabled();
+void BusController_AssertCpuBus(active_t expected, const char* msg);
 
 // enable data bus outputs for write
 void BusController_EnableDataBusOutput(bool_t enable);
+bool_t BusController_IsDataBusOutputEnabled();
+void BusController_AssertDataBusOutput(active_t expected, const char* msg);
 
 #endif  //__BUSCONTROLLER_H__
 

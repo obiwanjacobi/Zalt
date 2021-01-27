@@ -1,0 +1,60 @@
+Name     IDE-Controller;
+PartNo   Zalt-IDE-01;
+Date     27-12-2020;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt IDE Board;
+Location Z80 Computer / IDE;
+Device   G16V8;
+/*Format   j;*/
+
+/* 
+ *      IDE Interface Controller
+ *
+ *      CS0 (SelLatch) is synced to the (CPU)CLK (pin1) in order to 
+ *      extend it beyond the IOREQ/RD/WR activity - as required by IDE timing.
+ *
+ */
+
+
+/** input pins **/
+
+PIN 1   = CLK;
+PIN 2   = !IOREQ;
+PIN 3   = !RD;
+PIN 4   = !WR;
+PIN 5   = A3;
+PIN 6   = A4;
+PIN 7   = A5;
+PIN 8   = A6;
+PIN 9   = A7;
+//PIN 11  = !OE;
+
+
+/** output pins **/
+
+PIN 19  = SelLatch;
+PIN 18  = Sel;
+//PIN 17  = !LoadVect;
+//PIN 16  = IORDY;
+PIN 15  = !CS0;
+PIN 14  = !IDEWR;
+PIN 13  = !IDERD;
+//PIN 12  = Wait;
+
+
+/* IDE IO Address at F0h A[3..7] */
+/* A[0..2] are wired to the IDE address lines. */
+IDEAddress = !A3 & A4 & A5 & A6 & A7;
+
+/* IDE selected */
+Sel = IDEAddress & IOREQ & (RD # WR);
+
+/* Sel latched to CLK - to extend the pulse to after RD/WR have been released */
+SelLatch.d = Sel;
+
+/* CS0, IDEAddress and IDERD/IDEWR all have to be asserted to activate IDE */
+CS0 = SelLatch # Sel;
+IDERD = SelLatch & RD;
+IDEWR = SelLatch & WR;
