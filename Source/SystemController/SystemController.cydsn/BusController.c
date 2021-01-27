@@ -5,7 +5,7 @@
 #define SysCtrlReg_BusEnable        0
 #define SysCtrlReg_DataBusEnable    1
 
-void BusController_EnableExternalBus(bool_t enable)
+void BusController_EnableCpuBus(bool_t enable)
 {
     uint8_t ctrlReg = SysCtrlReg_Read();
     
@@ -25,20 +25,42 @@ void BusController_EnableDataBusOutput(bool_t enable)
     SysCtrlReg_Write(ctrlReg);
 }
 
+bool_t BusController_IsCpuBusEnabled()
+{
+    uint8_t ctrlReg = SysCtrlReg_Read();
+    return ctrlReg & (1 << SysCtrlReg_BusEnable) ? true : false;
+}
+
 bool_t BusController_IsDataBusOutputEnabled()
 {
     uint8_t ctrlReg = SysCtrlReg_Read();
     return ctrlReg & (1 << SysCtrlReg_DataBusEnable) ? true : false;
 }
 
-void BusController_AssertDataBusOutput(active_t expected)
+void BusController_AssertCpuBus(active_t expected, const char* msg)
+{
+    bool_t active = BusController_IsCpuBusEnabled();
+    bool_t notActive = active ? false : true;
+    bool_t failed = expected == Active ? notActive : active;
+    
+    if (failed)
+    {
+        SerialTerminal_Write("ERROR: Bus Conflict! ");
+        SerialTerminal_WriteLine(msg);
+    }
+}
+
+void BusController_AssertDataBusOutput(active_t expected, const char* msg)
 {
     bool_t enabled = BusController_IsDataBusOutputEnabled();
     bool_t notEnabled = enabled ? false : true;
     bool_t failed = expected == Active ? notEnabled : enabled;
     
     if (failed)
-        SerialTerminal_Write("ERROR: Bus Conflict!");
+    {
+        SerialTerminal_Write("ERROR: Data Bus Conflict! ");
+        SerialTerminal_WriteLine(msg);
+    }
 }
 
 bool_t BusController_WaitForBusAck(active_t waitFor)
@@ -50,14 +72,15 @@ bool_t BusController_WaitForBusAck(active_t waitFor)
         CyDelayUs(1);
         value = ReadNotPin(ExtBus_BusAck);
         
-#ifdef BUSACK_IGNORE
-        break;
-#endif
-
         counter++;
         if (counter > 999999) {
-            SerialTerminal_WriteLine("=> BusAck not responding (hanging)");
+#ifdef BUSACK_IGNORE
+            SerialTerminal_WriteLine("=> BusAck not responging (ignoring)");
+            return true;
+#else
+            SerialTerminal_WriteLine("=> BusAck not responding (aborting)");
             return false;
+#endif
         }
                 
     } while (value != waitFor);
@@ -80,8 +103,8 @@ void BusController_ResetState()
 
 void BusController_Init()
 {
-    // disable external bus
-    BusController_EnableExternalBus(false);
+    // disable external cpu bus
+    BusController_EnableCpuBus(false);
     BusController_EnableDataBusOutput(false);
     
     BusController_ResetState();
@@ -102,15 +125,15 @@ bool_t BusController_Acquire()
         return false;
     }
     
-    // enable the external bus
-    BusController_EnableExternalBus(true);
+    // enable the external cpu bus
+    BusController_EnableCpuBus(true);
     return true;
 }
 
 void BusController_Release()
 {
     // disable output drives on the external bus
-    BusController_EnableExternalBus(false);
+    BusController_EnableCpuBus(false);
     BusController_EnableDataBusOutput(false);
     
     // release BusReq (and reset others)
@@ -145,7 +168,7 @@ bool_t BusController_Open(BusState* state)
         state->Flags |= RELEASE_BUS;
         return BusController_Acquire();
     }
-    return true;
+    return false;
 }
 
 void BusController_Close(BusState* state)

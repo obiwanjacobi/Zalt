@@ -600,7 +600,7 @@ F 3 "" H 9700 4250 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	7150 3850 7300 3850
+	7150 3850 7250 3850
 Wire Wire Line
 	9000 4250 9300 4250
 Wire Wire Line
@@ -2210,7 +2210,7 @@ Text Label 3750 4750 0    50   ~ 0
 Interrupt
 NoConn ~ 4050 4650
 Text Notes 7750 1650 0    50   ~ 0
-Cpu -> IDE command:\nLow-byte is passed through to IDE directly (9-bits only)
+Cpu -> IDE command:\nLow-byte is passed through to IDE directly (8-bits only)
 Text Notes 4050 7400 0    50   ~ 0
 Stores Interrupt Vector (IM2) or \nRST instruction (IM0) for IDE.
 $Comp
@@ -2469,8 +2469,8 @@ F 3 "" H 9700 6200 50  0001 C CNN
 $EndComp
 Text Notes 9900 5650 0    50   ~ 0
 Place holder for\nBCX70 (SMD)?
-Text Notes 3350 3150 0    50   ~ 0
-Wait to slow CPU \ndown to 8MHz?
+Text Notes 3400 3250 0    50   ~ 0
+Wait to slow CPU \ndown to 8MHz?\n(IORDY)
 $Comp
 L 74HC646:74HC646 U205
 U 1 1 5FEE3CA7
@@ -2514,10 +2514,28 @@ IORDY
 Text Label 3750 4650 0    50   ~ 0
 (LoByte)
 NoConn ~ 3800 2200
+Text Label 2250 4850 0    50   ~ 0
+Sel
+$Comp
+L Device:R R?
+U 1 1 6006BF92
+P 7450 3950
+F 0 "R?" V 7243 3950 50  0000 C CNN
+F 1 "10k" V 7334 3950 50  0000 C CNN
+F 2 "" V 7380 3950 50  0001 C CNN
+F 3 "~" H 7450 3950 50  0001 C CNN
+	1    7450 3950
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7300 3950 7250 3950
+Wire Wire Line
+	7250 3950 7250 3850
 Wire Bus Line
 	1450 5450 1450 6200
 Wire Bus Line
 	1450 4100 1450 4850
-Text Label 2250 4850 0    50   ~ 0
-Sel
+Connection ~ 7250 3850
+Wire Wire Line
+	7250 3850 7300 3850
 $EndSCHEMATC

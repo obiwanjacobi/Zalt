@@ -15,7 +15,7 @@
 
 static SerialTerminal g_serialTerminal;
 
-void init()
+void Init()
 {
     SerialTerminal_Start(&g_serialTerminal);
     BusController_Init();
@@ -27,34 +27,77 @@ void init()
     Debugger_Init();
 }
 
-//DriveInfo driveInfo;
-//volatile uint8_t err = 0;
+uint8_t _haltMessageDisplayed = 0;
+void Debug_DisplayHaltInfo()
+{
+    if (ReadNotPin(ExtBus_CpuHalt) == Active)
+    {
+        if (_haltMessageDisplayed == 0)
+        {
+            SerialTerminal_WriteLine(NULL);
+            SerialTerminal_WriteLine("- CPU Paused.");
+            _haltMessageDisplayed = 1;
+            
+            // when cpu is halted reactivate the terminal
+            if (g_serialTerminal.IsActive == 0)
+            {
+                // reset cpu and related sysctrl hardware state
+                CpuController_Reset(1);
+                IOProcessor_ReleaseCpuWait();
+                
+                g_serialTerminal.IsActive = 1;
+            }
+        }
+    }
+    else
+    {
+        if (_haltMessageDisplayed && 
+            CpuController_IsResetActive() == false)
+        {
+            SerialTerminal_WriteLine("- CPU Continued.");
+        }
+        _haltMessageDisplayed = 0;
+    }
+}
+
+void Test_Ide()
+{
+    DriveBlock logicalBlock;
+    
+    if (!BusController_Acquire()) return;
+    
+    if (!IdeController_Init() ||
+        !IdeController_GetInfo(&logicalBlock))
+    {
+        uint8_t err = IdeController_GetError();
+        SerialTerminal_WriteFormat("IDE Error: %02X", err);
+        SerialTerminal_WriteLine(NULL);
+    }
+    else
+    {
+        SerialTerminal_WriteLine(logicalBlock.DriveInfo.ModelNumber);
+    }
+    BusController_Release();
+}
 
 int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
     
-    init();
+    Init();
     
-//    BusController_Acquire();
-//    if (!IdeController_Init() ||
-//        !IdeController_GetInfo(&driveInfo))
-//    {
-//        err = IdeController_GetError();
-//    }
-//    BusController_Release();
+    //Test_Ide();
     
-    //UsbProcessor_Start();
+    UsbProcessor_Start();
     
     // echo back that the system is ready but halted.
     SerialTerminal_WriteLine("Ready (Suspended).");
     SerialTerminal_WritePrompt();
     
-//    uint8_t haltMessageDisplayed = 0;
     
     for(;;)
     {
-        //UsbProcessor_Receive();
+        UsbProcessor_Receive();
         Debugger_Print();
         
         if (g_serialTerminal.IsActive)
@@ -63,35 +106,7 @@ int main()
             SerialTerminal_ReceiveCommand(&g_serialTerminal);
         }
         
-        // temp
-//        if (ReadNotPin(ExtBus_CpuHalt) == Active)
-//        {
-//            if (haltMessageDisplayed == 0)
-//            {
-//                SerialTerminal_WriteLine(NULL);
-//                SerialTerminal_WriteLine("- CPU Paused.");
-//                haltMessageDisplayed = 1;
-//                
-//                // when cpu is halted reactivate the terminal
-//                if (g_serialTerminal.IsActive == 0)
-//                {
-//                    // reset cpu and related sysctrl hardware state
-//                    CpuController_Reset(1);
-//                    IOProcessor_ReleaseCpuWait();
-//                    
-//                    g_serialTerminal.IsActive = 1;
-//                }
-//            }
-//        }
-//        else
-//        {
-//            if (haltMessageDisplayed && 
-//                CpuController_IsResetActive() == 0)
-//            {
-//                SerialTerminal_WriteLine("- CPU Continued.");
-//            }
-//            haltMessageDisplayed = 0;
-//        }
+        //Debug_DisplayHaltInfo();
     }
 }
 

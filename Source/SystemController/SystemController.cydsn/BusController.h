@@ -38,11 +38,13 @@ void BusController_Release();
 
 // is BusReq active?
 bool_t BusController_IsAcquiring();
+bool_t BusController_IsCpuBusEnabled();
+void BusController_AssertCpuBus(active_t expected, const char* msg);
 
 // enable data bus outputs for write
 void BusController_EnableDataBusOutput(bool_t enable);
 bool_t BusController_IsDataBusOutputEnabled();
-void BusController_AssertDataBusOutput(active_t expected);
+void BusController_AssertDataBusOutput(active_t expected, const char* msg);
 
 #endif  //__BUSCONTROLLER_H__
 

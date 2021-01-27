@@ -8,7 +8,9 @@ void SpinWaitIO()
 
 uint8_t IOController_Input(uint16_t address)
 {
-    BusController_AssertDataBusOutput(Inactive);
+    const char* msg = "IOController_Input";
+    BusController_AssertCpuBus(Active, msg);
+    BusController_AssertDataBusOutput(Inactive, msg);
     
     LsbA_Write(address & 0x00FF);
     MsbA_Write((address & 0xFF00) >> 8);
@@ -28,7 +30,9 @@ uint8_t IOController_Input(uint16_t address)
 
 void IOController_Output(uint16_t address, uint8_t data)
 {
-    BusController_AssertDataBusOutput(Active);
+    const char* msg = "IOController_Output";
+    BusController_AssertCpuBus(Active, msg);
+    BusController_AssertDataBusOutput(Active, msg);
     
     LsbA_Write(address & 0x00FF);
     MsbA_Write((address & 0xFF00) >> 8);

@@ -36,12 +36,12 @@ PIN 9   = A7;
 
 PIN 19  = SelLatch;
 PIN 18  = Sel;
-//PIN 17  = ;
-//PIN 16  = ;
+//PIN 17  = !LoadVect;
+//PIN 16  = IORDY;
 PIN 15  = !CS0;
 PIN 14  = !IDEWR;
 PIN 13  = !IDERD;
-//PIN 12  = ;
+//PIN 12  = Wait;
 
 
 /* IDE IO Address at F0h A[3..7] */

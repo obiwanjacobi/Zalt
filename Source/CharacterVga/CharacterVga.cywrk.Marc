@@ -176,29 +176,6 @@
 <v>CharacterVga\CharacterVga\PSoC 5LP Architecture TRM</v>
 <v>CharacterVga\CharacterVga\CY8C58LP Family Datasheet</v>
 <v>CharacterVga\CharacterVga\System Reference Guides</v>
-<v>CharacterVga\CharacterVga\System Reference Guides\cy_boot_v5_80</v>
-<v>CharacterVga\CharacterVga\BasicCounter_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\Capacitor_v1_0</v>
-<v>CharacterVga\CharacterVga\Capacitor_v1_0\Capacitor_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\Crystal_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\cy_clock_v2_20.pdf</v>
-<v>CharacterVga\CharacterVga\cy_constant_v1_0</v>
-<v>CharacterVga\CharacterVga\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\cy_dma_v1_70</v>
-<v>CharacterVga\CharacterVga\cy_dma_v1_70\cy_dma_v1_70.pdf</v>
-<v>CharacterVga\CharacterVga\cy_isr_v1_70</v>
-<v>CharacterVga\CharacterVga\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>CharacterVga\CharacterVga\cy_pins_v2_20</v>
-<v>CharacterVga\CharacterVga\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>CharacterVga\CharacterVga\CyControlReg_v1_80.pdf</v>
-<v>CharacterVga\CharacterVga\cydff_v1_30.pdf</v>
-<v>CharacterVga\CharacterVga\CyStatusReg_v1_90</v>
-<v>CharacterVga\CharacterVga\CyStatusReg_v1_90\CyStatusReg_v1_90.pdf</v>
-<v>CharacterVga\CharacterVga\EEPROM_v3_0.pdf</v>
-<v>CharacterVga\CharacterVga\FreqDiv_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\Gnd_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\mux_v1_10</v>
-<v>CharacterVga\CharacterVga\mux_v1_10\mux_v1_10.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>CharacterVga</v>
@@ -206,29 +183,6 @@
 <v>CharacterVga\CharacterVga\PSoC 5LP Architecture TRM</v>
 <v>CharacterVga\CharacterVga\CY8C58LP Family Datasheet</v>
 <v>CharacterVga\CharacterVga\System Reference Guides</v>
-<v>CharacterVga\CharacterVga\System Reference Guides\cy_boot_v5_80</v>
-<v>CharacterVga\CharacterVga\BasicCounter_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\Capacitor_v1_0</v>
-<v>CharacterVga\CharacterVga\Capacitor_v1_0\Capacitor_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\Crystal_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\cy_clock_v2_20.pdf</v>
-<v>CharacterVga\CharacterVga\cy_constant_v1_0</v>
-<v>CharacterVga\CharacterVga\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\cy_dma_v1_70</v>
-<v>CharacterVga\CharacterVga\cy_dma_v1_70\cy_dma_v1_70.pdf</v>
-<v>CharacterVga\CharacterVga\cy_isr_v1_70</v>
-<v>CharacterVga\CharacterVga\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
-<v>CharacterVga\CharacterVga\cy_pins_v2_20</v>
-<v>CharacterVga\CharacterVga\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>CharacterVga\CharacterVga\CyControlReg_v1_80.pdf</v>
-<v>CharacterVga\CharacterVga\cydff_v1_30.pdf</v>
-<v>CharacterVga\CharacterVga\CyStatusReg_v1_90</v>
-<v>CharacterVga\CharacterVga\CyStatusReg_v1_90\CyStatusReg_v1_90.pdf</v>
-<v>CharacterVga\CharacterVga\EEPROM_v3_0.pdf</v>
-<v>CharacterVga\CharacterVga\FreqDiv_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\Gnd_v1_0.pdf</v>
-<v>CharacterVga\CharacterVga\mux_v1_10</v>
-<v>CharacterVga\CharacterVga\mux_v1_10\mux_v1_10.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -241,6 +195,7 @@
 <name v=".\CharacterVga.cydsn\main.c" />
 <name v=".\CharacterVga.cydsn\TopDesign\TopDesign.cysch" />
 <name v=".\CharacterVga.cydsn\CharacterVga.cydwr" />
+<name v=".\CharacterVga.cydsn\LinkerScript.ld" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -248,7 +203,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1298, 740" SelectedTabbedMdiWindow="b7d8bfda-1695-4e17-a858-dfc4092ddc45"><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\CharacterVga\CharacterVga.cydsn\main.c" Guid="b7d8bfda-1695-4e17-a858-dfc4092ddc45" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\CharacterVga\CharacterVga.cydsn\TopDesign\TopDesign.cysch" Guid="fc4672be-6fbf-4430-a8dd-96b99cc8e48e" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\CharacterVga\CharacterVga.cydsn\CharacterVga.cydwr" Guid="ebdb526c-5428-482f-a5bc-7a2eff06693d" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1749, 1030" SelectedTabbedMdiWindow="cca58e48-96ea-4652-93f8-2c81f10efea0"><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\CharacterVga\CharacterVga.cydsn\main.c" Guid="b7d8bfda-1695-4e17-a858-dfc4092ddc45" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\CharacterVga\CharacterVga.cydsn\TopDesign\TopDesign.cysch" Guid="fc4672be-6fbf-4430-a8dd-96b99cc8e48e" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\CharacterVga\CharacterVga.cydsn\CharacterVga.cydwr" Guid="ebdb526c-5428-482f-a5bc-7a2eff06693d" /><DocumentWindow Key="C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\CharacterVga\CharacterVga.cydsn\LinkerScript.ld" Guid="cca58e48-96ea-4652-93f8-2c81f10efea0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

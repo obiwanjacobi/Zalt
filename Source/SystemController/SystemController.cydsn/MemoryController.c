@@ -54,7 +54,9 @@ void MemoryController_TestMemory(TestMemory* memory, TestMemoryResult* result)
 
 uint8_t MemoryController_ReadAddress(uint16_t address)
 {
-    BusController_AssertDataBusOutput(Inactive);
+    const char* msg = "MemoryController_ReadAddress";
+    BusController_AssertCpuBus(Active, msg);
+    BusController_AssertDataBusOutput(Inactive, msg);
     
     LsbA_Write(address & 0x00FF);
     MsbA_Write((address & 0xFF00) >> 8);
@@ -73,6 +75,8 @@ uint8_t MemoryController_ReadAddress(uint16_t address)
 
 void MemoryController_WriteAddress(uint16_t address, uint8_t data)
 {
+    const char* msg = "MemoryController_WriteAddress";
+    BusController_AssertCpuBus(Active, msg);
     BusController_EnableDataBusOutput(true);
     
     LsbA_Write(address & 0x00FF);
