@@ -1,6 +1,5 @@
 EESchema Schematic File Version 4
-LIBS:Z80 CPU Board-cache
-EELAYER 29 0
+EELAYER 30 0
 EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
@@ -354,33 +353,33 @@ Entry Wire Line
 Entry Wire Line
 	6900 4050 7000 3950
 Text Label 7000 1550 0    60   ~ 0
-!CPU_RESET
+~CPU_RESET
 Text Label 7000 1850 0    60   ~ 0
-!CPU_CLK
+~CPU_CLK
 Text Label 7000 2150 0    60   ~ 0
-!NMI
+~NMI
 Text Label 7000 2250 0    60   ~ 0
-!CPU_INT
+~CPU_INT
 Text Label 7000 2550 0    60   ~ 0
-!CPU_M1
+~CPU_M1
 Text Label 7000 2650 0    60   ~ 0
-!REFRESH
+~REFRESH
 Text Label 7000 2750 0    60   ~ 0
-!CPU_WAIT
+~CPU_WAIT
 Text Label 7000 2850 0    60   ~ 0
-!CPU_HALT
+~CPU_HALT
 Text Label 7000 3250 0    60   ~ 0
-!RD
+~RD
 Text Label 7000 3350 0    60   ~ 0
-!WR
+~WR
 Text Label 7000 3450 0    60   ~ 0
-!MEMREQ
+~MEMREQ
 Text Label 7000 3550 0    60   ~ 0
-!IOREQ
+~IOREQ
 Text Label 7000 3850 0    60   ~ 0
-!BUSREQ
+~BUSREQ
 Text Label 7000 3950 0    60   ~ 0
-!BUSACK
+~BUSACK
 $Comp
 L Z80-CPU-Board-rescue:UM61512A IC101
 U 1 1 567D2CDC
@@ -588,13 +587,13 @@ CPU_ME
 Text Label 6150 4300 2    60   ~ 0
 CPU_ME
 Text Label 3300 2150 2    60   ~ 0
-!MBE0
+~MBE0
 Text Label 3300 4200 2    60   ~ 0
-!MBE1
+~MBE1
 Text Label 6150 2150 2    60   ~ 0
-!MBE2
+~MBE2
 Text Label 6150 4200 2    60   ~ 0
-!MBE3
+~MBE3
 Entry Wire Line
 	3400 2750 3500 2650
 Entry Wire Line
@@ -668,13 +667,13 @@ Entry Wire Line
 Entry Wire Line
 	2650 4500 2750 4600
 Text Label 2650 2350 2    60   ~ 0
-!RD
+~RD
 Text Label 2650 2450 2    60   ~ 0
-!WR
+~WR
 Text Label 2650 4400 2    60   ~ 0
-!RD
+~RD
 Text Label 2650 4500 2    60   ~ 0
-!WR
+~WR
 Entry Wire Line
 	6800 2350 6900 2450
 Entry Wire Line
@@ -684,13 +683,13 @@ Entry Wire Line
 Entry Wire Line
 	6800 4500 6900 4600
 Text Label 6800 2350 2    60   ~ 0
-!RD
+~RD
 Text Label 6800 2450 2    60   ~ 0
-!WR
+~WR
 Text Label 6800 4400 2    60   ~ 0
-!RD
+~RD
 Text Label 6800 4500 2    60   ~ 0
-!WR
+~WR
 $Comp
 L Z80-CPU-Board-rescue:C-RESCUE-Z80_CPU_Board C101
 U 1 1 567D7186
@@ -901,19 +900,19 @@ Entry Wire Line
 Entry Wire Line
 	7300 7800 7400 7700
 Text Label 7250 7000 2    60   ~ 0
-!BUSACK
+~BUSACK
 Text Label 7250 7100 2    60   ~ 0
-!CPU_WAIT
+~CPU_WAIT
 Text Label 7250 7200 2    60   ~ 0
-!REFRESH
+~REFRESH
 Text Label 7250 7300 2    60   ~ 0
-!IOREQ
+~IOREQ
 Text Label 7250 7400 2    60   ~ 0
-!WR
+~WR
 Text Label 7250 7500 2    60   ~ 0
-!NMI
+~NMI
 Text Label 7250 7800 2    60   ~ 0
-!CPU_CLK
+~CPU_CLK
 Entry Wire Line
 	4750 6900 4850 7000
 Entry Wire Line
@@ -929,19 +928,19 @@ Entry Wire Line
 Entry Wire Line
 	4750 7700 4850 7800
 Text Label 4900 7000 0    60   ~ 0
-!BUSREQ
+~BUSREQ
 Text Label 4900 7100 0    60   ~ 0
-!CPU_HALT
+~CPU_HALT
 Text Label 4900 7200 0    60   ~ 0
-!CPU_M1
+~CPU_M1
 Text Label 4900 7300 0    60   ~ 0
-!MEMREQ
+~MEMREQ
 Text Label 4900 7400 0    60   ~ 0
-!RD
+~RD
 Text Label 4900 7500 0    60   ~ 0
-!CPU_INT
+~CPU_INT
 Text Label 4900 7800 0    60   ~ 0
-!CPU_RESET
+~CPU_RESET
 Entry Wire Line
 	3850 7050 3950 6950
 Entry Wire Line
@@ -1084,13 +1083,13 @@ Entry Wire Line
 Entry Wire Line
 	1850 8650 1950 8550
 Text Label 2000 8450 0    60   ~ 0
-!MEMREQ
+~MEMREQ
 Text Label 2000 8550 0    60   ~ 0
-!RD
+~RD
 Text Label 4100 8550 2    60   ~ 0
-!CPU_WAIT
+~CPU_WAIT
 Text Label 4050 8450 2    60   ~ 0
-!WR
+~WR
 $Comp
 L Z80-CPU-Board-rescue:GND-RESCUE-Z80_CPU_Board #PWR013
 U 1 1 56DAEDC2
@@ -1222,15 +1221,15 @@ $EndComp
 Text Notes 12800 2900 2    60   ~ 0
 Addresses $0xxx - $Fxxx \nmapped to $00xxx - $FFxxx
 Text Notes 11450 2550 0    60   ~ 0
-Address Translation (AT) \n/AT-IO => AT in IO mode (Active Low)\n/AT-IO = /IOREQ & A[11..0] = $FFF\n\n/AT-IO-1 => Set Memory Map Table\n/AT-IO-2 => Set IO Map Table\n/AT-IO-3 => Read/Write IO Table Data
+Address Translation (AT) \n~AT-IO~ => AT in IO mode (Active Low)\n~AT-IO~ = ~IOREQ~ & A[11..0] = $FFF\n\n~AT-IO-1~ => Set Memory Map Table\n~AT-IO-2~ => Set IO Map Table\n~AT-IO-3~ => Read/Write IO Table Data
 Text Notes 14250 5450 2    60   ~ 0
-A->B = /RD
+A->B = ~RD~
 Text Notes 14250 5550 2    60   ~ 0
-/CE = /AT-IO-3
+~CE~ = ~AT-IO-3~
 Text Notes 13950 4250 0    60   ~ 0
-/OE = !(/AT-IO-3 & /WR) \n& !/RST (& 'boot release')
+~OE~ = !(~AT-IO-3~ & ~WR~) \n& !~RST~ (& 'boot release')
 Text Notes 13950 4350 0    60   ~ 0
-/WE = /AT-IO-3 & /WR
+~WE~ = ~AT-IO-3~ & ~WR~
 Entry Wire Line
 	15400 4500 15500 4600
 Entry Wire Line
@@ -1363,7 +1362,7 @@ Entry Wire Line
 Text Label 10000 4250 0    60   ~ 0
 D7
 Text Notes 12450 4400 0    60   ~ 0
-/MEM-RD
+~MEM-RD~
 $Comp
 L Z80-CPU-Board-rescue:C-RESCUE-Z80_CPU_Board C106
 U 1 1 56E2F488
@@ -1543,15 +1542,15 @@ F 3 "" H 11950 5250 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 Text Notes 11150 5900 0    60   ~ 0
-Load = /AT-IO-2
+Load = ~AT-IO-2~
 Text Notes 11150 6000 0    60   ~ 0
-/OE = /AT-IO-2
+~OE~ = ~AT-IO-2~
 Text Notes 14550 2450 0    60   ~ 0
 Boolean equations are on \na logic level (not physical)
 Text Notes 10200 4750 0    60   ~ 0
-Load = /AT-IO-1
+Load = ~AT-IO-1~
 Text Notes 10200 4850 0    60   ~ 0
-/OE = !/AT-IO-2
+~OE~ = !~AT-IO-2~
 NoConn ~ 5500 8500
 NoConn ~ 5500 8600
 NoConn ~ 6700 8600
@@ -1570,18 +1569,18 @@ Entry Wire Line
 Text Label 13050 7350 0    60   ~ 0
 CPU_ME
 Text Label 13050 7450 0    60   ~ 0
-!MBE1
+~MBE1
 Text Label 13050 7550 0    60   ~ 0
-!MBE3
+~MBE3
 Text Label 11100 7450 0    60   ~ 0
-!MBE0
+~MBE0
 Text Label 11100 7550 0    60   ~ 0
-!MBE2
+~MBE2
 $Comp
 L Device:R R101
 U 1 1 56EF9C98
 P 8850 7450
-F 0 "R101" V 8930 7450 50  0000 C CNN
+F 0 "R101" V 8780 7450 50  0000 C CNN
 F 1 "10k" V 8850 7450 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 8780 7450 50  0001 C CNN
 F 3 "" H 8850 7450 50  0000 C CNN
@@ -1592,7 +1591,7 @@ $Comp
 L Device:R R102
 U 1 1 56EF9D33
 P 8850 7600
-F 0 "R102" V 8930 7600 50  0000 C CNN
+F 0 "R102" V 8780 7600 50  0000 C CNN
 F 1 "10k" V 8850 7600 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 8780 7600 50  0001 C CNN
 F 3 "" H 8850 7600 50  0000 C CNN
@@ -2467,17 +2466,17 @@ Wire Wire Line
 Wire Wire Line
 	8200 8200 8700 8200
 Text Label 8250 7450 0    60   ~ 0
-!NMI
+~NMI
 Text Label 8250 7600 0    60   ~ 0
-!CPU_INT
+~CPU_INT
 Text Label 8250 7750 0    60   ~ 0
-!MEMREQ
+~MEMREQ
 Text Label 8250 7900 0    60   ~ 0
-!IOREQ
+~IOREQ
 Text Label 8250 8050 0    60   ~ 0
-!RD
+~RD
 Text Label 8250 8200 0    60   ~ 0
-!WR
+~WR
 $Comp
 L Device:R R107
 U 1 1 56EFE5DD
@@ -2494,7 +2493,7 @@ Entry Wire Line
 Wire Wire Line
 	8200 8350 8700 8350
 Text Label 8250 8350 0    60   ~ 0
-!CPU_WAIT
+~CPU_WAIT
 Wire Wire Line
 	9000 7450 9100 7450
 Wire Wire Line
@@ -2632,9 +2631,9 @@ Wire Wire Line
 Wire Wire Line
 	11050 8150 11850 8150
 Text Label 11100 7650 0    60   ~ 0
-!MemMapWE
+~MemMapWE
 Text Label 11100 7750 0    60   ~ 0
-!MemMapEn
+~MemMapEn
 Text Label 11100 7850 0    60   ~ 0
 MapTableLd
 Text Label 11100 7950 0    60   ~ 0
@@ -2644,13 +2643,13 @@ MemRdTableSel
 Text Label 11100 8150 0    60   ~ 0
 SysCtrlTableSel
 Text Label 13050 7650 2    60   ~ 0
-!MemMapOE
+~MemMapOE
 Text Label 13050 7750 2    60   ~ 0
-!MapTableData
+~MapTableData
 Text Label 13050 7850 2    60   ~ 0
-!MapTableOE
+~MapTableOE
 Text Label 13050 7950 2    60   ~ 0
-!IOMapTableOE
+~IOMapTableOE
 Text Label 13050 8050 2    60   ~ 0
 SpareTableSel
 NoConn ~ 12350 8150
@@ -2661,7 +2660,7 @@ MA16
 Text Label 2150 7950 0    60   ~ 0
 MA18
 Text Notes 8150 7050 0    60   ~ 0
-Missed !BUSREQ :-(
+Missed ~BUSREQ~ :-(
 Wire Wire Line
 	7800 4500 7950 4500
 Wire Wire Line
@@ -2776,6 +2775,26 @@ Wire Wire Line
 	11900 4650 11900 4750
 Wire Wire Line
 	12050 4700 12050 4750
+Wire Notes Line
+	9000 7650 8700 7650
+Text Notes 9150 8150 0    60   ~ 0
+R103-R106\nnot placed!
+Text Notes 15400 2800 0    60   ~ 0
+R110-R117\nnot placed!
+Wire Notes Line
+	14050 2700 14050 3000
+Wire Notes Line
+	14050 3000 15350 3000
+Wire Notes Line
+	15350 3000 15350 2700
+Wire Notes Line
+	15350 2700 14050 2700
+Wire Notes Line
+	8710 7660 8710 8250
+Wire Notes Line
+	8710 8250 9000 8250
+Wire Notes Line
+	9000 8250 9000 7650
 Wire Wire Line
 	5350 2350 6800 2350
 Wire Wire Line

@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\.."
+		},
+		{
+			"name": "IdeController",
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"debug.h": "c",
+			"xmemory": "c"
+		}
+	}
+}

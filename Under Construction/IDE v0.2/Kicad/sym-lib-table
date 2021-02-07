@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name IDE)(type Legacy)(uri "C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Under Construction/IDE v0.2/Kicad/IDE.lib")(options "")(descr ""))
+  (lib (name SYSHDR)(type Legacy)(uri "C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Under Construction/IDE v0.2/Kicad/syshdr.lib")(options "")(descr ""))
+  (lib (name G22V10)(type Legacy)(uri "C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Under Construction/IDE v0.2/Kicad/22V10.lib")(options "")(descr ""))
+  (lib (name 74HC646)(type Legacy)(uri "C:/Users/marc/Documents/MyProjects/Zalt/Zalt/Under Construction/IDE v0.2/Kicad/74HC646.lib")(options "")(descr ""))
+)

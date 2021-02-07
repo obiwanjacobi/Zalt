@@ -12,14 +12,28 @@
 //#define BUSACK_IGNORE
 
 
-// bus state flags
-#define RETURN_TO_RESET     0x01
-#define RELEASE_BUS         0x02
+typedef enum
+{
+    BusError_Success,   // no errors
+    BusError_Taken,     // an external device has taken the bus (not the system controller)
+    BusError_NoAck,     // the Z80 is not responding to BUSREQ with BUSACK
+    BusError_Busy,      // we are already acquiring the bus
     
+} BusError;
+
+typedef enum
+{
+    BusStateFlags_None = 0,                 // clean/init
+    BusStateFlags_ReturnToReset = 0x01,     // activate reset when bus is closed
+    BusStateFlags_ReleaseOnClose = 0x02     // release ownership of bus when Close is called.
+    
+} BusStateFlags;
+
 typedef struct
 {
-    uint8_t Flags;
-    
+    BusStateFlags Flags;
+    BusError Result;
+
 } BusState;
     
 // TODO: Wait-state management
@@ -31,7 +45,7 @@ bool_t BusController_Open(BusState* state);
 void BusController_Close(BusState* state);
 
 // sync acquire the external bus
-bool_t BusController_Acquire();
+BusError BusController_Acquire();
 
 // sync release the external bus
 void BusController_Release();

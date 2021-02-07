@@ -364,6 +364,7 @@ void Debugger_Print()
 // returns true when done
 bool_t Debugger_ReceiveRegisters(uint8_t data)
 {
+    // TODO: clear MSB in target before ORing in value
     switch(DebuggerRegState)
     {
         case DebugRegister_F:

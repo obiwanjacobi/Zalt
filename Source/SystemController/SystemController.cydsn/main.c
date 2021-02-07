@@ -21,8 +21,12 @@ void Init()
     BusController_Init();
     CpuController_Init();
     IOProcessor_Init();
-    MemoryManager_Init();
     InterruptProcessor_Init();
+}
+
+void InitWithInterrupts()
+{
+    MemoryManager_Init();
     KeyBoard_Init();
     Debugger_Init();
 }
@@ -64,7 +68,7 @@ void Test_Ide()
 {
     DriveBlock logicalBlock;
     
-    if (!BusController_Acquire()) return;
+    if (BusController_Acquire()) return;
     
     if (!IdeController_Init() ||
         !IdeController_GetInfo(&logicalBlock))
@@ -82,13 +86,11 @@ void Test_Ide()
 
 int main()
 {
-    CyGlobalIntEnable; /* Enable global interrupts. */
-    
     Init();
+    CyGlobalIntEnable; /* Enable global interrupts. */
+    InitWithInterrupts();
     
-    //Test_Ide();
-    
-    UsbProcessor_Start();
+    //UsbProcessor_Start();
     
     // echo back that the system is ready but halted.
     SerialTerminal_WriteLine("Ready (Suspended).");
@@ -97,8 +99,8 @@ int main()
     
     for(;;)
     {
-        UsbProcessor_Receive();
-        Debugger_Print();
+        //UsbProcessor_Receive();
+        //Debugger_Print();
         
         if (g_serialTerminal.IsActive)
         {

@@ -1,13 +1,13 @@
-Loading plugins phase: Elapsed time ==> 0s.232ms
+Loading plugins phase: Elapsed time ==> 0s.322ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\SystemController.cyprj -d CY8C5888LTI-LP097 -s C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
 <CYPRESSTAG name="Design elaboration results...">
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 3s.074ms
+Elaboration phase: Elapsed time ==> 6s.539ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.169ms
+HDL generation phase: Elapsed time ==> 0s.279ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -41,7 +41,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Tue Jan 26 16:27:30 2021
+Thu Feb 04 16:53:42 2021
 
 
 ======================================================================
@@ -51,7 +51,7 @@ Options  :    -yv2 -q10 SystemController.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Tue Jan 26 16:27:31 2021
+Thu Feb 04 16:53:42 2021
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\ZeroTerminal\ZeroTerminal.v'
@@ -112,7 +112,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Tue Jan 26 16:27:32 2021
+Thu Feb 04 16:53:44 2021
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -157,7 +157,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Tue Jan 26 16:27:34 2021
+Thu Feb 04 16:53:47 2021
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -1021,14 +1021,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\SystemController.cyprj -dcpsoc3 SystemController.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 6s.387ms
+Warp synthesis phase: Elapsed time ==> 8s.059ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Tuesday, 26 January 2021 16:27:35
+cyp3fit: V4.4.0.80, Family: PSoC3, Started at: Thursday, 04 February 2021 16:53:48
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\SystemController.cyprj -d CY8C5888LTI-LP097 SystemController.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.055ms
+Design parsing phase: Elapsed time ==> 0s.036ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -1566,14 +1566,14 @@ Design Equations
         Attributes:
             Alias: BusReq
             In Group/Port: True
-            In Sync Option: AUTO
+            In Sync Option: SYNC
             Out Sync Option: NOSYNC
             Interrupt generated: False
             Interrupt mode: NONE
             Drive mode: OPEN_DRAIN_LO
-            VTrip: EITHER
+            VTrip: CMOS
             Slew: FAST
-            Input Sync needed: False
+            Input Sync needed: True
             Output Sync needed: False
             SC shield enabled: False
             POR State: INP_DIS_HI_Z
@@ -1592,7 +1592,7 @@ Design Equations
             SIO Vtrip: MULTIPLIER_0_5
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
-            Required Capabilities: DIGITAL
+            Required Capabilities: DIGITAL, ROUTABLE
             Initial Value: 1
             IO Voltage: 0
         PORT MAP (
@@ -1633,7 +1633,7 @@ Design Equations
             SIO Multiplier Index: 0
             SIO RefSel: VCC_IO
             Required Capabilities: DIGITAL, ROUTABLE
-            Initial Value: 0
+            Initial Value: 1
             IO Voltage: 0
         PORT MAP (
             pa_out => ExtBus(5)__PA ,
@@ -4427,8 +4427,8 @@ Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
 DAC                           :      :      :      :        
   VIDAC                       :    0 :    4 :    4 :  0.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 0s.349ms
-Tech Mapping phase: Elapsed time ==> 0s.455ms
+Technology Mapping: Elapsed time ==> 0s.670ms
+Tech Mapping phase: Elapsed time ==> 0s.869ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 Initial Analog Placement Results:
@@ -4474,7 +4474,7 @@ IO_5@[IOP=(12)][IoId=(5)] : TxSysTerminal(0) (fixed)
 IO_7@[IOP=(15)][IoId=(7)] : \USB:Dm(0)\ (fixed)
 IO_6@[IOP=(15)][IoId=(6)] : \USB:Dp(0)\ (fixed)
 USB[0]@[FFB(USB,0)] : \USB:USB\
-Analog Placement phase: Elapsed time ==> 0s.017ms
+Analog Placement phase: Elapsed time ==> 0s.106ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
 Analog Routing phase: Elapsed time ==> 0s.000ms
@@ -4492,11 +4492,11 @@ Dump of CyP35AnalogRoutingResultsDB
 IsVddaHalfUsedForComp = False
 IsVddaHalfUsedForSar0 = False
 IsVddaHalfUsedForSar1 = False
-Analog Code Generation phase: Elapsed time ==> 0s.285ms
+Analog Code Generation phase: Elapsed time ==> 0s.792ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2076: Total run-time: 2.5 sec.
+I2076: Total run-time: 5.6 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -4520,14 +4520,14 @@ PLD Packing Summary
 <CYPRESSTAG name="Packed PLD Contents">
 Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.016ms
+PLD Packing: Elapsed time ==> 0s.001ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.311ms
+Partitioning: Elapsed time ==> 0s.794ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -7651,14 +7651,14 @@ Pin : Name = ExtBus(4)
     Attributes:
         Alias: BusReq
         In Group/Port: True
-        In Sync Option: AUTO
+        In Sync Option: SYNC
         Out Sync Option: NOSYNC
         Interrupt generated: False
         Interrupt mode: NONE
         Drive mode: OPEN_DRAIN_LO
-        VTrip: EITHER
+        VTrip: CMOS
         Slew: FAST
-        Input Sync needed: False
+        Input Sync needed: True
         Output Sync needed: False
         SC shield enabled: False
         POR State: INP_DIS_HI_Z
@@ -7677,7 +7677,7 @@ Pin : Name = ExtBus(4)
         SIO Vtrip: MULTIPLIER_0_5
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
-        Required Capabilities: DIGITAL
+        Required Capabilities: DIGITAL, ROUTABLE
         Initial Value: 1
         IO Voltage: 0
     PORT MAP (
@@ -7719,7 +7719,7 @@ Pin : Name = ExtBus(5)
         SIO Multiplier Index: 0
         SIO RefSel: VCC_IO
         Required Capabilities: DIGITAL, ROUTABLE
-        Initial Value: 0
+        Initial Value: 1
         IO Voltage: 0
     PORT MAP (
         pa_out => ExtBus(5)__PA ,
@@ -8351,19 +8351,19 @@ Port | Pin | Fixed |      Type |       Drive Mode |             Name | Connectio
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 0s.132ms
-Digital Placement phase: Elapsed time ==> 3s.913ms
+Digital component placer commit/Report: Elapsed time ==> 0s.296ms
+Digital Placement phase: Elapsed time ==> 7s.707ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.4\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "SystemController_r.vh2" --pcf-path "SystemController.pco" --des-name "SystemController" --dsf-path "SystemController.dsf" --sdc-path "SystemController.sdc" --lib-path "SystemController_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 3s.826ms
+Digital Routing phase: Elapsed time ==> 5s.455ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.531ms
+Bitstream Generation phase: Elapsed time ==> 0s.512ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.134ms
+Bitstream Verification phase: Elapsed time ==> 0s.105ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Warning: sta.M0021: SystemController_timing.html: Warning-1350: Asynchronous path(s) exist from "CyBUS_CLK" to "CPUCLK_FAST(routed)". See the timing report for details. (File=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\SystemController_timing.html)
@@ -8374,17 +8374,17 @@ Warning: sta.M0021: SystemController_timing.html: Warning-1350: Asynchronous pat
 Warning: sta.M0021: SystemController_timing.html: Warning-1350: Asynchronous path(s) exist from "CPUCLK_SLOW(routed)" to "CyBUS_CLK". See the timing report for details. (File=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\SystemController_timing.html)
 Warning: sta.M0019: SystemController_timing.html: Warning-1366: Setup time violation found in a path from clock ( CyBUS_CLK ) to clock ( CyBUS_CLK ). (File=C:\Users\marc\Documents\MyProjects\Zalt\Zalt\Source\SystemController\SystemController.cydsn\SystemController_timing.html)
 Timing report is in SystemController_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.915ms
+Static timing analysis phase: Elapsed time ==> 1s.219ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.000ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.461ms
+Design database save phase: Elapsed time ==> 0s.364ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 10s.744ms
+cydsfit: Elapsed time ==> 17s.325ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 10s.745ms
-API generation phase: Elapsed time ==> 8s.527ms
-Dependency generation phase: Elapsed time ==> 0s.096ms
-Cleanup phase: Elapsed time ==> 0s.003ms
+Fitter phase: Elapsed time ==> 17s.325ms
+API generation phase: Elapsed time ==> 6s.201ms
+Dependency generation phase: Elapsed time ==> 0s.093ms
+Cleanup phase: Elapsed time ==> 0s.001ms

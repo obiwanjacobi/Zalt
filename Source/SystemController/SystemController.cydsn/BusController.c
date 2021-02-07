@@ -75,7 +75,7 @@ bool_t BusController_WaitForBusAck(active_t waitFor)
         counter++;
         if (counter > 999999) {
 #ifdef BUSACK_IGNORE
-            SerialTerminal_WriteLine("=> BusAck not responging (ignoring)");
+            SerialTerminal_WriteLine("=> BusAck not responding (ignoring)");
             return true;
 #else
             SerialTerminal_WriteLine("=> BusAck not responding (aborting)");
@@ -110,10 +110,14 @@ void BusController_Init()
     BusController_ResetState();
 }
 
-bool_t BusController_Acquire()
+BusError BusController_Acquire()
 {
     // set control lines in neutral state
     BusController_ResetState();
+    
+    // already active
+    if (ReadNotPin(ExtBus_BusReq) == Active)
+        return BusError_Taken;
     
     // activate BusReq
     WriteNotPin(ExtBus_BusReq, Active);
@@ -122,12 +126,12 @@ bool_t BusController_Acquire()
     if (!BusController_WaitForBusAck(Active))
     {
         WriteNotPin(ExtBus_BusReq, Inactive);
-        return false;
+        return BusError_NoAck;
     }
     
     // enable the external cpu bus
     BusController_EnableCpuBus(true);
-    return true;
+    return BusError_Success;
 }
 
 void BusController_Release()
@@ -160,14 +164,17 @@ bool_t BusController_Open(BusState* state)
     {
         if (CpuController_IsResetActive())
         {
-            state->Flags = RETURN_TO_RESET;
+            state->Flags = BusStateFlags_ReturnToReset;
             CpuController_Reset(Inactive);
             CyDelayUs(1);
         }
         
-        state->Flags |= RELEASE_BUS;
-        return BusController_Acquire();
+        state->Flags |= BusStateFlags_ReleaseOnClose;
+        state->Result = BusController_Acquire();
+        return state->Result == BusError_Success ? true : false;
     }
+    
+    state->Result = BusError_Busy;
     return false;
 }
 
@@ -177,7 +184,8 @@ void BusController_Close(BusState* state)
     {
         BusController_EnableDataBusOutput(false);
         BusController_Release();
-        if ((state->Flags & RETURN_TO_RESET) != 0) CpuController_Reset(Active);
+        if (state->Flags & BusStateFlags_ReturnToReset)
+            CpuController_Reset(Active);
     }
 }
 

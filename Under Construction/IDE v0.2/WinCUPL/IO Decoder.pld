@@ -1,0 +1,47 @@
+Name     IO Decoder;
+PartNo   Zalt-IDE-01;
+Date     01-02-2021;
+Revision 01;
+Designer Marc Jacobi;
+Company  Canned Bytes;
+Assembly Zalt IDE Board;
+Location Z80 Computer / IDE;
+Device   G16V8;
+/*Format   j;*/
+
+/* 
+ *
+ */
+
+
+/** input pins **/
+
+PIN 1   = !M1;
+PIN 2   = !IOREQ;
+PIN 3   = !RD;
+PIN 4   = !WR;
+PIN 5   = A3;
+PIN 6   = A4;
+PIN 7   = A5;
+PIN 8   = A6;
+PIN 9   = A7;
+PIN 11  = IOEnable;
+
+
+/** output pins **/
+
+PIN 19  = Wait;
+PIN 18  = RegRd;
+PIN 17  = RegWr;
+//PIN 16  = ;
+//PIN 15  = ;
+//PIN 14  = ;
+//PIN 13  = ;
+//PIN 12  = ;
+
+// IO address range 0x50 - 0x57
+address = !A3 & A4 & !A5 & A6 & !A7;
+
+RegRd = address & IOREQ & RD;
+RegWr = address & IOREQ & WR;
+Wait = (RegRd # RegWr) & IOEnable;

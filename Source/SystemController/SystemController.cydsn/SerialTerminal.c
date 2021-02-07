@@ -147,6 +147,17 @@ void SerialTerminal_WriteArrayFormat(const char* format, uint8_t *buffer, uint16
                 
         if (valCount == 15)
         {
+            SysTerminal_PutString("   ");
+            for (uint16_t j = i - 15; j <= i; j++)
+            {
+                uint8_t val = buffer[j];
+                // filter out non-ascii
+                if (val < 32 || val > 127)
+                    SysTerminal_PutChar('.');
+                else
+                    SysTerminal_PutChar(val);
+            }
+            
             SysTerminal_PutString(NewLine);
             valCount = 0;
             continue;
