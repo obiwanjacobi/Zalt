@@ -4,7 +4,7 @@ The idea here is to have the details of the IDE/PATA disk managed by an MCU.
 The MCU acts as a DMA controller to the Z80 and can read/write data directly into/from the Z80 memory - after the Z80 has released its bus.
 
 The idea is also that the interaction abstraction is higher that tracks and sectors or even logical blocks.
-The idea of (Meta) Streams can be implemented to interface with the disk. The data is moved between Z80 memory and IDE(DMA) using blocks of a certain size. There will be a limit on the max block size because of the size of the internal memory of the MCU (4kB). The location of the command parameter and data buffers have to be on an address that is greater than `0x0400` (check!) because the DMA of the IDE controller cannot go below that - where it's own internal memory is located.
+The idea of (Meta) Streams can be implemented to interface with the disk. The data is moved between Z80 memory and IDE(DMA) using blocks of a certain size. There will be a limit on the max block size because of the size of the internal memory of the MCU (4kB). The location of the command parameter and data buffers have to be on an address that is greater than `0x2200` (ATmega2560) because the DMA of the IDE controller cannot go below that - where it's own internal memory is located. Note that it is also possible to set an upper limit and free a couple of pins on the MCU that would then not be needed for the upper address lines.
 
 The MCU exposes IO locations to the Z80 program to set registers. At what address the data is to be read/written and how large the blocks are etc. Writing to the data or Command Buffer registers, will reset any internal state in the IDE controller.
 
@@ -13,17 +13,25 @@ Register | Description
 Buffer Address | 16-bit memory address for data exchange [1]
 Buffer Length | 16-bit memory size [2]
 Command Buffer Address | 16-bit memory address for writing command parameters [1][3]
-BlockIndex | Writing this triggers a block-move for the current command
-Status | Status of the last (or current) operation
+BlockIndex | Writing this triggers a block-move for the current command [4]
+Status | Status of the last (or current) operation [5]
+Interrupt Vector | IM0 RST instruction or IM2 interrupt vector
+
 ---
 
 Notes:
 
 1. The Z80 raw address must be supplied to these registers. The MCU-DMA will take over the Z80 bus and any memory mapping the MMU has in place will activate as if the Z80 itself was reading/writing data.
 
-2. The length of these data blocks are always a multiple of 512 bytes due to the logical block size the IDE uses (128 x 16-bit words).
+2. The length of these data blocks are always a multiple of 512 bytes due to the logical block size the IDE uses (128 x 16-bit words). Not strictly needed but addition data will be read from the IDE disk and not used. For writing, the entire 512 bytes for that block has to be read, the changes copied in and the result written back. If the data does not align with the disk's logical blocks, multiple blocks have to be read and written.
 
 3. The command buffer has a fixed (mandatory) length.
+
+4. If we make the BlockIndex 8-bits the maximum file size is related to the `BufferLength`. With a `BufferLength` of 512-multiples the maximum file size would be 256*512=131072 bytes. Sounds like a reasonable start. A 4k buffer would yield 1MB file sizes.
+
+5. Status can be written to set interrupt enable.
+
+> For a (potential) RAM disk, we need extra registers that point to the RAM disk buffer (in Z80 memory) and defines its length.
 
 ## Commands
 
@@ -37,7 +45,7 @@ Copy | copies a file or folder
 Find | finds one or more files (returns meta)
 ReadMeta | reads the meta stream
 WriteMeta | writes the meta stream (create folders)
-DeleteMeta | Deletes the meta stream (delete folders)
+DeleteMeta | deletes the meta stream (delete folders)
 Abort | aborts any active command
 
 ---
@@ -101,8 +109,6 @@ The `Meta` flag can be combined with the following commands:
 
 The `Direct` flag on any command indicates that the operation is to use the data from the Z80 memory directly and not copy it to the IDE controller's internal memory first.
 
-> The current design using a 64 pin ATmega128A does not have enough IO pins to have the external RAM and IDE interface active at the same time. When using a 100 pin ATmega1280/ATmega2560, this becomes possible.
-
 The `Sequential` flag indicates that (part of) the file is read in sequence (forward, not random access) *AND* that the command will not be interleaved with other commands. This allows the IDE controller to prefetch data for the next block while the Z80 program is processing the current block. Not all commands will take advantage of this flag but it is never an error specifying it.
 
 The `Status` field is a copy of the Status register at the very last moment the IDE controller has access to the Z80 memory bus. The status register can be queried at any time to get an up to date value. For instance a write command copies the data over to the IDE controller's internal memory and then releases the bus. At that time the status is `Busy` as an indication of the data being written to disk. It also indicates that it is ok for the Z80 program to fill up the (write) buffer with another block of data.
@@ -119,7 +125,7 @@ Location | Description
 --|--
 `/` | root folder
 `/MyFolder/` | 1st level folder [1]
-`/MyFile` | root file
+`/MyFile.dat` | root file
 `/**/*.txt` | Find query (find all text files in any folder)
 
 ---
@@ -142,7 +148,7 @@ If not specified (zero) the entire file is retrieved.
 The content offset parameter allows reading or writing partial files. Usually not very useful for Meta streams.
 
 This parameter can be specified per byte (no alignment).
-If not specified data transfers starts at the beginning of the file.
+If not specified (zero) data transfers starts at the beginning of the file.
 
 ### Stream Length
 
@@ -162,12 +168,12 @@ For data files the buffer is just a part of the file content. The interpretation
 
 For Meta Streams there is a fixed structure to the content of the stream. If a meta stream is larger than the buffer length, it will always contain a number of complete structures - it never ends (or begins) with a partial structure.
 
-The bad news is that the structure is a variable size - to safe space.
+The bad news is that the structure is a variable size - to save space.
 
 ```c
 enum MetaFlags
 {
-    None = 0x00,
+    None = 0x00,        // end of the line
     File = 0x01,
     Folder = 0x02,
 
@@ -177,12 +183,13 @@ enum MetaFlags
     // TBD
     Meta,   // indicates a meta stream
     Volume, // volume/partition ??
+    Flush,  // make sure everything is persisted
 }
 
 struct MetaRecord
 {
     MetaFlags   Flags;  // uint8_t
-    uint32_t    Length; // max length dependent on FS
+    uint32_t    ContentLength; // max length dependent on FS
     uint16_t    Date;
     uint16_t    Time;
     char        Location[1+];   // variable length
@@ -192,7 +199,7 @@ struct MetaRecord
 Field | Offset | Description
 --|--|--
 Flags | 0 | Flags and attributes of the record
-Length | 1 | Length in bytes of a file (0 for Folder)
+ContentLength | 1 | Length in bytes of a file (0 for Folder)
 Date | 5 | Date (year, month and day) of last modified
 Time | 7 | Time (hour, minute, second) of last modified
 Location | 19 | Zero terminated string of path (min length is 1)
@@ -206,7 +213,7 @@ The end of the stream is indicated by an additional `null` in memory (next recor
 
 > Mount drives by name (not drive letter) service as root.
 
-Location names are subject to underlying file system (FAT32/exFAT)
+Location names are subject to underlying file system (FAT32/exFAT). Assume 8.3 file names.
 
 ## Process Interaction
 

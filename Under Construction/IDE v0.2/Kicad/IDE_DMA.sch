@@ -134,67 +134,67 @@ A15
 $Comp
 L 74xx:74LS573 U?
 U 1 1 6012E888
-P 8200 2300
-F 0 "U?" H 8200 3281 50  0000 C CNN
-F 1 "74ACT573 (fast)" H 8200 3190 50  0000 C CNN
-F 2 "" H 8200 2300 50  0001 C CNN
-F 3 "74xx/74hc573.pdf" H 8200 2300 50  0001 C CNN
-	1    8200 2300
+P 10700 2150
+F 0 "U?" H 10700 3131 50  0000 C CNN
+F 1 "74AHC573 (fast)" H 10700 3040 50  0000 C CNN
+F 2 "" H 10700 2150 50  0001 C CNN
+F 3 "74xx/74hc573.pdf" H 10700 2150 50  0001 C CNN
+	1    10700 2150
 	1    0    0    -1  
 $EndComp
 Text Notes 1100 7400 0    50   ~ 0
 Read:\nIde is accessed to fetch a logical block.\n\nAfter BUSRQ/BUSACK the external memory interface \nis initialized and enabled to access the Z80 bus.\n\nThen the internal buffer is copied into the Z80 memory \nbuffer. Due to low internal SRAM this will probably be \ntwo cycles of a couple of kB bytes to read/write one file/stream to/from IDE.\n\nWhen done, the Z80 is released.
 Wire Wire Line
-	6600 1800 7700 1800
+	9100 1650 10200 1650
 Wire Wire Line
-	6600 1900 7700 1900
+	9100 1750 10200 1750
 Wire Wire Line
-	6600 2000 7700 2000
+	9100 1850 10200 1850
 Wire Wire Line
-	6600 2100 7700 2100
+	9100 1950 10200 1950
 Wire Wire Line
-	6600 2200 7700 2200
+	9100 2050 10200 2050
 Wire Wire Line
-	6600 2300 7700 2300
+	9100 2150 10200 2150
 Wire Wire Line
-	6600 2400 7700 2400
+	9100 2250 10200 2250
 Wire Wire Line
-	6600 2500 7700 2500
+	9100 2350 10200 2350
 Wire Wire Line
-	8700 1800 9150 1800
+	11200 1650 11650 1650
 Wire Wire Line
-	8700 1900 9150 1900
+	11200 1750 11650 1750
 Wire Wire Line
-	8700 2000 9150 2000
+	11200 1850 11650 1850
 Wire Wire Line
-	8700 2100 9150 2100
+	11200 1950 11650 1950
 Wire Wire Line
-	8700 2200 9150 2200
+	11200 2050 11650 2050
 Wire Wire Line
-	8700 2300 9150 2300
+	11200 2150 11650 2150
 Wire Wire Line
-	8700 2400 9150 2400
+	11200 2250 11650 2250
 Wire Wire Line
-	8700 2500 9150 2500
-Text Label 9000 1800 0    50   ~ 0
+	11200 2350 11650 2350
+Text Label 11500 1650 0    50   ~ 0
 A0
-Text Label 9000 1900 0    50   ~ 0
+Text Label 11500 1750 0    50   ~ 0
 A1
-Text Label 9000 2000 0    50   ~ 0
+Text Label 11500 1850 0    50   ~ 0
 A2
-Text Label 9000 2100 0    50   ~ 0
+Text Label 11500 1950 0    50   ~ 0
 A3
-Text Label 9000 2200 0    50   ~ 0
+Text Label 11500 2050 0    50   ~ 0
 A4
-Text Label 9000 2300 0    50   ~ 0
+Text Label 11500 2150 0    50   ~ 0
 A5
-Text Label 9000 2400 0    50   ~ 0
+Text Label 11500 2250 0    50   ~ 0
 A6
-Text Label 9000 2500 0    50   ~ 0
+Text Label 11500 2350 0    50   ~ 0
 A7
 Wire Wire Line
-	7700 2700 7450 2700
-Text Label 7450 2700 0    50   ~ 0
+	10200 2550 9950 2550
+Text Label 9950 2550 0    50   ~ 0
 ALE
 $Comp
 L Connector:AVR-ISP-6 J?
@@ -224,23 +224,23 @@ SCK
 Text Label 2500 10200 0    50   ~ 0
 ~RST
 Wire Wire Line
-	5400 1800 5200 1800
+	7500 1650 7300 1650
 $Comp
 L Device:Jumper_NC_Small JP?
 U 1 1 601D509F
-P 5100 1800
-F 0 "JP?" H 5100 2012 50  0000 C CNN
-F 1 "Open to Program" H 5100 1921 50  0000 C CNN
-F 2 "" H 5100 1800 50  0001 C CNN
-F 3 "~" H 5100 1800 50  0001 C CNN
-	1    5100 1800
+P 7200 1650
+F 0 "JP?" H 7200 1862 50  0000 C CNN
+F 1 "Open to Program" H 7200 1771 50  0000 C CNN
+F 2 "" H 7200 1650 50  0001 C CNN
+F 3 "~" H 7200 1650 50  0001 C CNN
+	1    7200 1650
 	1    0    0    -1  
 $EndComp
-Text Label 5250 1800 0    50   ~ 0
+Text Label 7350 1650 0    50   ~ 0
 ~RST
 Wire Wire Line
-	5000 1800 4700 1800
-Text Label 4750 1800 0    50   ~ 0
+	7100 1650 6800 1650
+Text Label 6850 1650 0    50   ~ 0
 ~RESET
 Wire Wire Line
 	950  5100 600  5100
@@ -249,106 +249,104 @@ Text Label 650  5100 0    50   ~ 0
 $Comp
 L Device:Crystal Y?
 U 1 1 601DCEB3
-P 4650 2200
-F 0 "Y?" H 4650 2468 50  0000 C CNN
-F 1 "16MHz" H 4650 2377 50  0000 C CNN
-F 2 "" H 4650 2200 50  0001 C CNN
-F 3 "~" H 4650 2200 50  0001 C CNN
-	1    4650 2200
+P 6750 2050
+F 0 "Y?" H 6750 2318 50  0000 C CNN
+F 1 "16MHz" H 6750 2227 50  0000 C CNN
+F 2 "" H 6750 2050 50  0001 C CNN
+F 3 "~" H 6750 2050 50  0001 C CNN
+	1    6750 2050
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5400 2200 4900 2200
+	7500 2050 7000 2050
 Wire Wire Line
-	5400 2000 4350 2000
+	7500 1850 6450 1850
 Wire Wire Line
-	4350 2000 4350 2200
+	6450 1850 6450 2050
 Wire Wire Line
-	4350 2200 4500 2200
+	6450 2050 6600 2050
 Wire Wire Line
-	4350 2200 4350 2350
-Connection ~ 4350 2200
+	6450 2050 6450 2200
+Connection ~ 6450 2050
 Wire Wire Line
-	4900 2200 4900 2350
-Connection ~ 4900 2200
+	7000 2050 7000 2200
+Connection ~ 7000 2050
 Wire Wire Line
-	4900 2200 4800 2200
+	7000 2050 6900 2050
 $Comp
 L Device:C_Small C?
 U 1 1 601EC481
-P 4350 2450
-F 0 "C?" H 4442 2496 50  0000 L CNN
-F 1 "22pF" H 4442 2405 50  0000 L CNN
-F 2 "" H 4350 2450 50  0001 C CNN
-F 3 "~" H 4350 2450 50  0001 C CNN
-	1    4350 2450
+P 6450 2300
+F 0 "C?" H 6542 2346 50  0000 L CNN
+F 1 "22pF" H 6542 2255 50  0000 L CNN
+F 2 "" H 6450 2300 50  0001 C CNN
+F 3 "~" H 6450 2300 50  0001 C CNN
+	1    6450 2300
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:C_Small C?
 U 1 1 601ECB1C
-P 4900 2450
-F 0 "C?" H 4992 2496 50  0000 L CNN
-F 1 "22pF" H 4992 2405 50  0000 L CNN
-F 2 "" H 4900 2450 50  0001 C CNN
-F 3 "~" H 4900 2450 50  0001 C CNN
-	1    4900 2450
+P 7000 2300
+F 0 "C?" H 7092 2346 50  0000 L CNN
+F 1 "22pF" H 7092 2255 50  0000 L CNN
+F 2 "" H 7000 2300 50  0001 C CNN
+F 3 "~" H 7000 2300 50  0001 C CNN
+	1    7000 2300
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 601ED003
-P 4350 2700
-F 0 "#PWR?" H 4350 2450 50  0001 C CNN
-F 1 "GND" H 4355 2527 50  0000 C CNN
-F 2 "" H 4350 2700 50  0001 C CNN
-F 3 "" H 4350 2700 50  0001 C CNN
-	1    4350 2700
+P 6450 2550
+F 0 "#PWR?" H 6450 2300 50  0001 C CNN
+F 1 "GND" H 6455 2377 50  0000 C CNN
+F 2 "" H 6450 2550 50  0001 C CNN
+F 3 "" H 6450 2550 50  0001 C CNN
+	1    6450 2550
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR?
 U 1 1 601ED8FA
-P 7000 1350
-F 0 "#PWR?" H 7000 1200 50  0001 C CNN
-F 1 "+5V" H 7015 1523 50  0000 C CNN
-F 2 "" H 7000 1350 50  0001 C CNN
-F 3 "" H 7000 1350 50  0001 C CNN
-	1    7000 1350
+P 8350 1100
+F 0 "#PWR?" H 8350 950 50  0001 C CNN
+F 1 "+5V" H 8365 1273 50  0000 C CNN
+F 2 "" H 8350 1100 50  0001 C CNN
+F 3 "" H 8350 1100 50  0001 C CNN
+	1    8350 1100
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 601EE441
-P 4900 2700
-F 0 "#PWR?" H 4900 2450 50  0001 C CNN
-F 1 "GND" H 4905 2527 50  0000 C CNN
-F 2 "" H 4900 2700 50  0001 C CNN
-F 3 "" H 4900 2700 50  0001 C CNN
-	1    4900 2700
+P 7000 2550
+F 0 "#PWR?" H 7000 2300 50  0001 C CNN
+F 1 "GND" H 7005 2377 50  0000 C CNN
+F 2 "" H 7000 2550 50  0001 C CNN
+F 3 "" H 7000 2550 50  0001 C CNN
+	1    7000 2550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4350 2550 4350 2700
+	6450 2400 6450 2550
 Wire Wire Line
-	4900 2550 4900 2700
+	7000 2400 7000 2550
 Wire Wire Line
-	6450 1450 7000 1450
+	8350 1200 8350 1100
+Text Label 9950 2650 0    50   ~ 0
+~BusSel
 Wire Wire Line
-	7000 1450 7000 1350
-Text Label 7450 2800 0    50   ~ 0
-~BusEnable
-Wire Wire Line
-	7700 2800 7450 2800
+	10200 2650 9950 2650
 $Comp
 L power:+5V #PWR?
 U 1 1 602C083F
-P 8650 1450
-F 0 "#PWR?" H 8650 1300 50  0001 C CNN
-F 1 "+5V" H 8665 1623 50  0000 C CNN
-F 2 "" H 8650 1450 50  0001 C CNN
-F 3 "" H 8650 1450 50  0001 C CNN
-	1    8650 1450
+P 11150 1300
+F 0 "#PWR?" H 11150 1150 50  0001 C CNN
+F 1 "+5V" H 11165 1473 50  0000 C CNN
+F 2 "" H 11150 1300 50  0001 C CNN
+F 3 "" H 11150 1300 50  0001 C CNN
+	1    11150 1300
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -365,23 +363,23 @@ $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 60339F54
-P 8200 3200
-F 0 "#PWR?" H 8200 2950 50  0001 C CNN
-F 1 "GND" H 8205 3027 50  0000 C CNN
-F 2 "" H 8200 3200 50  0001 C CNN
-F 3 "" H 8200 3200 50  0001 C CNN
-	1    8200 3200
+P 10700 3050
+F 0 "#PWR?" H 10700 2800 50  0001 C CNN
+F 1 "GND" H 10705 2877 50  0000 C CNN
+F 2 "" H 10700 3050 50  0001 C CNN
+F 3 "" H 10700 3050 50  0001 C CNN
+	1    10700 3050
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR?
 U 1 1 6033A2F2
-P 5950 8700
-F 0 "#PWR?" H 5950 8450 50  0001 C CNN
-F 1 "GND" H 5955 8527 50  0000 C CNN
-F 2 "" H 5950 8700 50  0001 C CNN
-F 3 "" H 5950 8700 50  0001 C CNN
-	1    5950 8700
+P 4400 6000
+F 0 "#PWR?" H 4400 5750 50  0001 C CNN
+F 1 "GND" H 4405 5827 50  0000 C CNN
+F 2 "" H 4400 6000 50  0001 C CNN
+F 3 "" H 4400 6000 50  0001 C CNN
+	1    4400 6000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -400,184 +398,153 @@ Wire Wire Line
 Wire Wire Line
 	1850 10500 1850 10600
 Wire Wire Line
-	8200 1500 8650 1500
+	10700 1350 11150 1350
 Wire Wire Line
-	8650 1500 8650 1450
+	11150 1350 11150 1300
 Wire Wire Line
-	8200 3100 8200 3200
-Wire Wire Line
-	5950 8600 5950 8700
+	10700 2950 10700 3050
 $Comp
 L IDE:Conn_IDE40 J?
 U 1 1 603E6D59
-P 12500 4500
-F 0 "J?" H 12300 4615 50  0000 C CNN
-F 1 "Conn_IDE40" H 12300 4524 50  0000 C CNN
-F 2 "" H 12500 4500 50  0001 C CNN
-F 3 "" H 12500 4500 50  0001 C CNN
-	1    12500 4500
+P 14650 1000
+F 0 "J?" H 14450 1115 50  0000 C CNN
+F 1 "Conn_IDE40" H 14450 1024 50  0000 C CNN
+F 2 "" H 14650 1000 50  0001 C CNN
+F 3 "" H 14650 1000 50  0001 C CNN
+	1    14650 1000
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	11800 4750 11500 4750
+	13950 1250 13650 1250
 Wire Wire Line
-	11800 4850 11500 4850
+	13950 1350 13650 1350
 Wire Wire Line
-	11800 4950 11500 4950
+	13950 1450 13650 1450
 Wire Wire Line
-	11800 5050 11500 5050
+	13950 1550 13650 1550
 Wire Wire Line
-	11800 5150 11500 5150
+	13950 1650 13650 1650
 Wire Wire Line
-	11800 5250 11500 5250
+	13950 1750 13650 1750
 Wire Wire Line
-	11800 5350 11500 5350
+	13950 1850 13650 1850
 Wire Wire Line
-	11800 5450 11500 5450
+	13950 1950 13650 1950
 Wire Wire Line
-	12800 4750 13150 4750
+	14950 1250 15300 1250
 Wire Wire Line
-	12800 4850 13150 4850
+	14950 1350 15300 1350
 Wire Wire Line
-	12800 4950 13150 4950
+	14950 1450 15300 1450
 Wire Wire Line
-	12800 5050 13150 5050
+	14950 1550 15300 1550
 Wire Wire Line
-	12800 5150 13150 5150
+	14950 1650 15300 1650
 Wire Wire Line
-	12800 5250 13150 5250
+	14950 1750 15300 1750
 Wire Wire Line
-	12800 5350 13150 5350
+	14950 1850 15300 1850
 Wire Wire Line
-	12800 5450 13150 5450
-Text Label 11550 4750 0    50   ~ 0
+	14950 1950 15300 1950
+Text Label 13700 1250 0    50   ~ 0
 DD7
-Text Label 11550 4850 0    50   ~ 0
+Text Label 13700 1350 0    50   ~ 0
 DD6
-Text Label 11550 4950 0    50   ~ 0
+Text Label 13700 1450 0    50   ~ 0
 DD5
-Text Label 11550 5050 0    50   ~ 0
+Text Label 13700 1550 0    50   ~ 0
 DD4
-Text Label 11550 5150 0    50   ~ 0
+Text Label 13700 1650 0    50   ~ 0
 DD3
-Text Label 11550 5250 0    50   ~ 0
+Text Label 13700 1750 0    50   ~ 0
 DD2
-Text Label 11550 5350 0    50   ~ 0
+Text Label 13700 1850 0    50   ~ 0
 DD1
-Text Label 11550 5450 0    50   ~ 0
+Text Label 13700 1950 0    50   ~ 0
 DD0
-Text Label 12950 4750 0    50   ~ 0
+Text Label 15100 1250 0    50   ~ 0
 DD8
-Text Label 12950 4850 0    50   ~ 0
+Text Label 15100 1350 0    50   ~ 0
 DD9
-Text Label 12950 4950 0    50   ~ 0
+Text Label 15100 1450 0    50   ~ 0
 DD10
-Text Label 12950 5050 0    50   ~ 0
+Text Label 15100 1550 0    50   ~ 0
 DD11
-Text Label 12950 5150 0    50   ~ 0
+Text Label 15100 1650 0    50   ~ 0
 DD12
-Text Label 12950 5250 0    50   ~ 0
+Text Label 15100 1750 0    50   ~ 0
 DD13
-Text Label 12950 5350 0    50   ~ 0
+Text Label 15100 1850 0    50   ~ 0
 DD14
-Text Label 12950 5450 0    50   ~ 0
+Text Label 15100 1950 0    50   ~ 0
 DD15
-Text Notes 5050 6700 0    50   ~ 0
-(positive logic)\nMEMRQ = BusEnable & (DMA_RD | DMA_WR) - .OE = BusEnable\nRD = BusEnable & DMA_RD - .OE = BusEnable\nWR = BusEnable & DMA_WR - .OE = BusEnable\nIdeEnable = !BusEnable\nDataDir = DMA_WR\nRegWr = IOREQ & WR & A[4..7]\nRegRd = IOREQ & RD & A[4..7]
+Text Notes 3550 4200 0    50   ~ 0
+(positive logic)\nOutIntVect = M1 & IOREQ\nRegWr = IOREQ & WR & A[4..7]\nRegRd = IOREQ & RD & A[4..7]\nWait = (RegRd | RegWr) & IOEnable
 Wire Wire Line
-	11800 5750 11500 5750
+	13950 2250 13650 2250
 Wire Wire Line
-	11800 5850 11500 5850
+	13950 2350 13650 2350
 Wire Wire Line
-	11800 6250 11500 6250
+	13950 2750 13650 2750
 Wire Wire Line
-	11800 6350 11500 6350
+	13950 2850 13650 2850
 Wire Wire Line
-	11800 6450 11500 6450
+	13950 2950 13650 2950
 Wire Wire Line
-	12800 6350 13100 6350
-Text Label 11500 6250 0    50   ~ 0
+	14950 2850 15250 2850
+Text Label 13650 2750 0    50   ~ 0
 IdeA1
-Text Label 11500 6350 0    50   ~ 0
+Text Label 13650 2850 0    50   ~ 0
 IdeA0
-Text Label 12900 6350 0    50   ~ 0
+Text Label 15050 2850 0    50   ~ 0
 IdeA2
-Text Label 11500 6450 0    50   ~ 0
-~IdeSel
-$Comp
-L G22V10:G22V10 U?
-U 1 1 608BC719
-P 5900 7750
-F 0 "U?" H 5875 8581 50  0000 C CNN
-F 1 "G22V10" H 5875 8490 50  0000 C CNN
-F 2 "" H 5800 8350 50  0001 C CNN
-F 3 "" H 5800 8350 50  0001 C CNN
-	1    5900 7750
-	1    0    0    -1  
-$EndComp
+Text Label 13650 2950 0    50   ~ 0
+~IdeSel0
 Wire Wire Line
-	5400 7300 5000 7300
+	3900 4800 3500 4800
 Wire Wire Line
-	5400 7400 5000 7400
+	3900 4900 3500 4900
 Wire Wire Line
-	5400 7500 5000 7500
+	3900 5000 3500 5000
 Wire Wire Line
-	5400 7600 5000 7600
+	3900 5100 3500 5100
 Wire Wire Line
-	5400 7700 5000 7700
+	3900 5200 3500 5200
 Wire Wire Line
-	5400 7800 5000 7800
+	3900 5300 3500 5300
 Wire Wire Line
-	5400 7900 5000 7900
+	3900 5400 3500 5400
 Wire Wire Line
-	5400 8000 5000 8000
+	3900 5500 3500 5500
 Wire Wire Line
-	5400 8100 5000 8100
+	3900 5700 3500 5700
 Wire Wire Line
-	5400 8200 5000 8200
+	4900 4800 5350 4800
 Wire Wire Line
-	5400 8300 5000 8300
+	4900 4900 5350 4900
 Wire Wire Line
-	5400 8400 5000 8400
+	4900 5000 5350 5000
 Wire Wire Line
-	6350 7300 6800 7300
-Wire Wire Line
-	6350 7400 6800 7400
-Wire Wire Line
-	6350 7500 6800 7500
-Wire Wire Line
-	6350 7600 6800 7600
-Wire Wire Line
-	6350 7700 6800 7700
-Wire Wire Line
-	6350 7800 6800 7800
-Wire Wire Line
-	6350 7900 6800 7900
-Wire Wire Line
-	6350 8000 6800 8000
-Wire Wire Line
-	6350 8100 6800 8100
-Wire Wire Line
-	6350 8200 6800 8200
-Text Label 5050 7300 0    50   ~ 0
+	4900 5100 5350 5100
+Text Label 3550 4800 0    50   ~ 0
 ~M1
-Text Label 5050 7400 0    50   ~ 0
+Text Label 3550 4900 0    50   ~ 0
 ~IOREQ
-Text Label 5050 7500 0    50   ~ 0
+Text Label 3550 5000 0    50   ~ 0
 ~RD
-Text Label 5050 7600 0    50   ~ 0
+Text Label 3550 5100 0    50   ~ 0
 ~WR
-Text Label 5050 7800 0    50   ~ 0
+Text Label 3550 5200 0    50   ~ 0
 A4
-Text Label 5050 7900 0    50   ~ 0
+Text Label 3550 5300 0    50   ~ 0
 A5
-Text Label 5050 8000 0    50   ~ 0
+Text Label 3550 5400 0    50   ~ 0
 A6
-Text Label 5050 8100 0    50   ~ 0
+Text Label 3550 5500 0    50   ~ 0
 A7
-Text Label 6500 7900 0    50   ~ 0
+Text Label 5050 4900 0    50   ~ 0
 RegWr
-Text Label 6500 8000 0    50   ~ 0
+Text Label 5050 5000 0    50   ~ 0
 RegRd
 Wire Wire Line
 	2150 4300 2500 4300
@@ -658,150 +625,115 @@ F 3 "" H 1550 8650 50  0001 C CNN
 	1    1550 8650
 	1    0    0    -1  
 $EndComp
-Text Label 6500 8100 0    50   ~ 0
+Text Label 5050 5100 0    50   ~ 0
 OutIntVect
-$Comp
-L MCU_Microchip_ATmega:ATmega128A-AU U?
-U 1 1 601FCAFF
-P 6000 3500
-F 0 "U?" H 6000 1411 50  0000 C CNN
-F 1 "ATmega128A-AU" H 6000 1320 50  0000 C CNN
-F 2 "Package_QFP:TQFP-64_14x14mm_P0.8mm" H 6000 3500 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8151-8-bit-AVR-ATmega128A_Datasheet.pdf" H 6000 3500 50  0001 C CNN
-	1    6000 3500
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	6600 2700 7200 2700
+	9100 4750 9700 4750
 Wire Wire Line
-	6600 2800 7200 2800
+	9100 5650 9700 5650
 Wire Wire Line
-	6600 2900 7200 2900
+	7500 4050 6950 4050
 Wire Wire Line
-	6600 3000 7200 3000
+	7500 3950 6950 3950
 Wire Wire Line
-	6600 3100 7200 3100
+	7500 5250 6900 5250
 Wire Wire Line
-	6600 3200 7200 3200
+	7500 5350 6900 5350
 Wire Wire Line
-	6600 3300 7200 3300
+	7500 5450 6900 5450
 Wire Wire Line
-	6600 3400 7200 3400
+	7500 5550 6900 5550
 Wire Wire Line
-	6600 3600 7200 3600
+	7500 5650 6900 5650
 Wire Wire Line
-	6600 3700 7200 3700
+	7500 5750 6900 5750
 Wire Wire Line
-	6600 3800 7200 3800
+	7500 5850 6900 5850
 Wire Wire Line
-	6600 3900 7200 3900
+	7500 5950 6900 5950
 Wire Wire Line
-	6600 4000 7200 4000
+	7500 4350 6900 4350
 Wire Wire Line
-	6600 4100 7200 4100
+	7500 4450 6900 4450
 Wire Wire Line
-	6600 4200 7200 4200
+	7500 4550 6900 4550
 Wire Wire Line
-	6600 4300 7200 4300
+	7500 4650 6900 4650
 Wire Wire Line
-	6600 4500 7200 4500
+	7500 4750 6900 4750
 Wire Wire Line
-	6600 4600 7200 4600
+	7500 4850 6900 4850
 Wire Wire Line
-	6600 4700 7200 4700
+	7500 4950 6900 4950
 Wire Wire Line
-	6600 4800 7200 4800
+	7500 5050 6900 5050
 Wire Wire Line
-	6600 4900 7200 4900
+	6950 3450 7500 3450
 Wire Wire Line
-	6600 5000 7200 5000
+	6950 3550 7500 3550
 Wire Wire Line
-	6600 5100 7200 5100
+	6950 3650 7500 3650
 Wire Wire Line
-	6600 5200 7200 5200
+	6950 3750 7500 3750
 Wire Wire Line
-	5400 3600 4850 3600
+	9100 5250 9650 5250
 Wire Wire Line
-	5400 3700 4850 3700
+	9100 5350 9650 5350
 Wire Wire Line
-	5400 3800 4850 3800
+	9100 5450 9650 5450
 Wire Wire Line
-	5400 3900 4850 3900
+	9650 4950 9100 4950
 Wire Wire Line
-	5400 4000 4850 4000
+	9650 5050 9100 5050
 Wire Wire Line
-	5400 4100 4850 4100
+	9100 4350 9650 4350
 Wire Wire Line
-	5400 4200 4850 4200
+	9100 4450 9650 4450
 Wire Wire Line
-	5400 4300 4850 4300
+	9100 4550 9650 4550
 Wire Wire Line
-	5400 4500 4850 4500
+	7500 6150 7150 6150
 Wire Wire Line
-	5400 4600 4850 4600
+	7500 6250 7150 6250
 Wire Wire Line
-	5400 4700 4850 4700
+	7500 6350 7150 6350
 Wire Wire Line
-	5400 4800 4850 4800
+	7500 6450 7150 6450
 Wire Wire Line
-	5400 4900 4850 4900
-Wire Wire Line
-	5400 5000 4850 5000
-Wire Wire Line
-	5400 5100 4850 5100
-Wire Wire Line
-	5400 5200 4850 5200
-Wire Wire Line
-	5400 2800 5050 2800
-Wire Wire Line
-	5400 2900 5050 2900
-Wire Wire Line
-	5400 3000 5050 3000
-Wire Wire Line
-	5400 3100 5050 3100
-Wire Wire Line
-	5400 3200 5050 3200
-Text Label 5050 3000 0    50   ~ 0
+	7500 6550 7150 6550
+Text Label 7150 6350 0    50   ~ 0
 ALE
-Text Label 7000 2800 0    50   ~ 0
-SCK
-Text Label 7000 2900 0    50   ~ 0
-MOSI
-Text Label 7000 3000 0    50   ~ 0
-MISO
-Text Label 5050 2800 0    50   ~ 0
+Text Label 7150 6150 0    50   ~ 0
 ~WR
-Text Label 5050 2900 0    50   ~ 0
+Text Label 7150 6250 0    50   ~ 0
 ~RD
-Text Label 11500 5750 0    50   ~ 0
+Text Label 13650 2250 0    50   ~ 0
 ~IdeWr
-Text Label 11500 5850 0    50   ~ 0
+Text Label 13650 2350 0    50   ~ 0
 ~IdeRd
-Text Label 5100 3600 0    50   ~ 0
+Text Label 7200 3450 2    50   ~ 0
 IdeA0
-Text Label 5100 3700 0    50   ~ 0
+Text Label 7200 3550 2    50   ~ 0
 IdeA1
-Text Label 5100 3800 0    50   ~ 0
+Text Label 7200 3650 2    50   ~ 0
 IdeA2
-Text Label 5100 3900 0    50   ~ 0
-~IdeSel
-Text Label 6950 3400 0    50   ~ 0
+Text Label 7200 3950 2    50   ~ 0
 ~IdeRd
-Text Label 6950 3300 0    50   ~ 0
+Text Label 7200 4050 2    50   ~ 0
 ~IdeWr
-Text Label 6800 2700 0    50   ~ 0
-~BusEnable
-Text Label 4900 5000 0    50   ~ 0
+Text Label 9400 4750 0    50   ~ 0
+~BusSel
+Text Label 9600 4350 2    50   ~ 0
 RegRd
-Text Label 4900 5100 0    50   ~ 0
+Text Label 9600 4450 2    50   ~ 0
 RegWr
-Text Label 4900 5200 0    50   ~ 0
+Text Label 9600 4550 2    50   ~ 0
 OutIntVect
-Text Label 4900 4900 0    50   ~ 0
+Text Label 9150 5050 0    50   ~ 0
 Interrupt
-Text Label 4900 4800 0    50   ~ 0
+Text Label 9150 4950 0    50   ~ 0
 BusRequest
-Text Label 5050 3200 0    50   ~ 0
+Text Label 7150 6550 0    50   ~ 0
 ~BUSACK
 $Comp
 L Transistor_BJT:BC547 Q?
@@ -850,134 +782,59 @@ F 3 "" H 2950 9350 50  0001 C CNN
 	1    2950 9350
 	1    0    0    -1  
 $EndComp
-Text Label 6750 1800 0    50   ~ 0
+Text Label 9150 1650 0    50   ~ 0
 D0
-Text Label 6750 1900 0    50   ~ 0
+Text Label 9150 1750 0    50   ~ 0
 D1
-Text Label 6750 2000 0    50   ~ 0
+Text Label 9150 1850 0    50   ~ 0
 D2
-Text Label 6750 2100 0    50   ~ 0
+Text Label 9150 1950 0    50   ~ 0
 D3
-Text Label 6750 2200 0    50   ~ 0
+Text Label 9150 2050 0    50   ~ 0
 D4
-Text Label 6750 2300 0    50   ~ 0
+Text Label 9150 2150 0    50   ~ 0
 D5
-Text Label 6750 2400 0    50   ~ 0
+Text Label 9150 2250 0    50   ~ 0
 D6
-Text Label 6750 2500 0    50   ~ 0
+Text Label 9150 2350 0    50   ~ 0
 D7
-Text Notes 3850 3250 0    50   ~ 0
+Text Notes 5750 6750 0    50   ~ 0
 D[0..7] and PG[0..3]\nare configure to inputs when\nZ80 bus is not acquired. 
-Text Label 5050 3100 0    50   ~ 0
+Text Label 7150 6450 0    50   ~ 0
 ~MEMRQ
-Text Notes 3650 5200 0    50   ~ 0
+Text Notes 10850 4550 2    50   ~ 0
 RegRd, RegWr and OutIntVect\nare on INT-pins to handle\nthem quiclky
-$Comp
-L 74xx:74HC245 U?
-U 1 1 601927FC
-P 9350 5000
-F 0 "U?" H 9350 5981 50  0000 C CNN
-F 1 "74HC245" H 9350 5890 50  0000 C CNN
-F 2 "" H 9350 5000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/gpn/sn74HC245" H 9350 5000 50  0001 C CNN
-	1    9350 5000
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9850 4500 10350 4500
-Wire Wire Line
-	9850 4600 10350 4600
-Wire Wire Line
-	9850 4700 10350 4700
-Wire Wire Line
-	9850 4800 10350 4800
-Wire Wire Line
-	9850 4900 10350 4900
-Wire Wire Line
-	9850 5000 10350 5000
-Wire Wire Line
-	9850 5100 10350 5100
-Wire Wire Line
-	9850 5200 10350 5200
-Wire Wire Line
-	8850 4500 8300 4500
-Wire Wire Line
-	8850 4600 8300 4600
-Wire Wire Line
-	8850 4700 8300 4700
-Wire Wire Line
-	8850 4800 8300 4800
-Wire Wire Line
-	8850 4900 8300 4900
-Wire Wire Line
-	8850 5000 8300 5000
-Wire Wire Line
-	8850 5100 8300 5100
-Wire Wire Line
-	8850 5200 8300 5200
-Text Label 10150 4500 0    50   ~ 0
-A8
-Text Label 10150 4600 0    50   ~ 0
-A9
-Text Label 10150 4700 0    50   ~ 0
-A10
-Text Label 10150 4800 0    50   ~ 0
-A11
-Text Label 10150 4900 0    50   ~ 0
-A12
-Text Label 10150 5000 0    50   ~ 0
-A13
-Text Label 10150 5100 0    50   ~ 0
-A14
-Text Label 10150 5200 0    50   ~ 0
-A15
-Text Label 7000 3600 0    50   ~ 0
+Text Label 7100 5250 2    50   ~ 0
 DD8
-Text Label 7000 3700 0    50   ~ 0
+Text Label 7100 5350 2    50   ~ 0
 DD9
-Text Label 7000 3800 0    50   ~ 0
+Text Label 7100 5450 2    50   ~ 0
 DD10
-Text Label 7000 3900 0    50   ~ 0
+Text Label 7100 5550 2    50   ~ 0
 DD11
-Text Label 7000 4000 0    50   ~ 0
+Text Label 7100 5650 2    50   ~ 0
 DD12
-Text Label 7000 4100 0    50   ~ 0
+Text Label 7100 5750 2    50   ~ 0
 DD13
-Text Label 7000 4200 0    50   ~ 0
+Text Label 7100 5850 2    50   ~ 0
 DD14
-Text Label 7000 4300 0    50   ~ 0
+Text Label 7100 5950 2    50   ~ 0
 DD15
-Text Label 8400 4500 0    50   ~ 0
-DD8
-Text Label 8400 4600 0    50   ~ 0
-DD9
-Text Label 8400 4700 0    50   ~ 0
-DD10
-Text Label 8400 4800 0    50   ~ 0
-DD11
-Text Label 8400 4900 0    50   ~ 0
-DD12
-Text Label 8400 5000 0    50   ~ 0
-DD13
-Text Label 8400 5100 0    50   ~ 0
-DD14
-Text Label 8400 5200 0    50   ~ 0
-DD15
-Text Label 7000 4500 0    50   ~ 0
+Text Label 7100 4350 2    50   ~ 0
 DD0
-Text Label 7000 4600 0    50   ~ 0
+Text Label 7100 4450 2    50   ~ 0
 DD1
-Text Label 7000 4700 0    50   ~ 0
+Text Label 7100 4550 2    50   ~ 0
 DD2
-Text Label 7000 4800 0    50   ~ 0
+Text Label 7100 4650 2    50   ~ 0
 DD3
-Text Label 7000 4900 0    50   ~ 0
+Text Label 7100 4750 2    50   ~ 0
 DD4
-Text Label 7000 5000 0    50   ~ 0
+Text Label 7100 4850 2    50   ~ 0
 DD5
-Text Label 7000 5100 0    50   ~ 0
+Text Label 7100 4950 2    50   ~ 0
 DD6
-Text Label 7000 5200 0    50   ~ 0
+Text Label 7100 5050 2    50   ~ 0
 DD7
 $Comp
 L Connector:AVR-JTAG-10 J?
@@ -1010,28 +867,12 @@ Text Label 4650 10150 0    50   ~ 0
 TDO
 Text Label 4650 10250 0    50   ~ 0
 TDI
-Text Label 4950 4000 0    50   ~ 0
-TCK
-Text Label 4950 4100 0    50   ~ 0
-TMS
-Text Label 4950 4200 0    50   ~ 0
-TDO
-Text Label 4950 4300 0    50   ~ 0
-TDI
-Wire Wire Line
-	8850 5400 8050 5400
-Wire Wire Line
-	8850 5500 8300 5500
-Text Label 5050 7700 0    50   ~ 0
-A3
-Text Label 4950 4500 0    50   ~ 0
+Text Label 9550 5250 2    50   ~ 0
 A0
-Text Label 4950 4600 0    50   ~ 0
+Text Label 9550 5350 2    50   ~ 0
 A1
-Text Label 4950 4700 0    50   ~ 0
+Text Label 9550 5450 2    50   ~ 0
 A2
-Text Label 8400 5500 0    50   ~ 0
-~BusEnable
 Text Label 4650 9750 0    50   ~ 0
 ~RST
 NoConn ~ 3900 9450
@@ -1109,21 +950,157 @@ Wire Wire Line
 	2150 4400 2500 4400
 Text Label 2250 4400 0    50   ~ 0
 ~WAIT
-Text Notes 7350 3750 0    50   ~ 0
-Shared between XRAM and IDE
+Wire Wire Line
+	13950 1150 13650 1150
+Text Label 13700 1150 0    50   ~ 0
+~IdeRst
+Text Label 5090 4790 0    50   ~ 0
+Wait
+Text Label 9330 5650 0    50   ~ 0
+IOEnable
+Text Label 3500 5700 0    50   ~ 0
+IOEnable
+Text Notes 11000 4550 0    50   ~ 0
+OutIntVect handling checks if an \ninterrupt was issued then outputs \nthe vector or instruction. \nOtherwise it does nothing.\n
+Text Notes 11400 1350 0    50   ~ 0
+Although the datasheet says to \nuse a fast AHC latch, I have it \nworking with a plain HCT type.
+Text Notes 5550 10250 0    50   ~ 0
+TODO:\nSD-Card\n- 3V3 regulator\n- (A)HC(T) buffers as level shifters\n- SPI port
 $Comp
-L power:+5V #PWR?
-U 1 1 605F2607
-P 8050 5400
-F 0 "#PWR?" H 8050 5250 50  0001 C CNN
-F 1 "+5V" H 8065 5573 50  0000 C CNN
-F 2 "" H 8050 5400 50  0001 C CNN
-F 3 "" H 8050 5400 50  0001 C CNN
-	1    8050 5400
+L MCU_Microchip_ATmega:ATmega2560-16AU U?
+U 1 1 602C2436
+P 8300 4250
+F 0 "U?" H 8300 1261 50  0000 C CNN
+F 1 "ATmega2560-16AU" H 8300 1170 50  0000 C CNN
+F 2 "Package_QFP:TQFP-100_14x14mm_P0.5mm" H 8300 4250 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2549-8-bit-AVR-Microcontroller-ATmega640-1280-1281-2560-2561_datasheet.pdf" H 8300 4250 50  0001 C CNN
+	1    8300 4250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	11800 4650 11500 4650
-Text Label 11550 4650 0    50   ~ 0
-~RESET
+	9100 3450 9700 3450
+Wire Wire Line
+	9100 3550 9700 3550
+Wire Wire Line
+	9100 3650 9700 3650
+Wire Wire Line
+	9100 3750 9700 3750
+Wire Wire Line
+	9100 3850 9700 3850
+Wire Wire Line
+	9100 3950 9700 3950
+Wire Wire Line
+	9100 4050 9700 4050
+Wire Wire Line
+	9100 4150 9700 4150
+Text Label 9500 3450 0    50   ~ 0
+A8
+Text Label 9500 3550 0    50   ~ 0
+A9
+Text Label 9500 3650 0    50   ~ 0
+A10
+Text Label 9500 3750 0    50   ~ 0
+A11
+Text Label 9500 3850 0    50   ~ 0
+A12
+Text Label 9500 3950 0    50   ~ 0
+A13
+Text Label 9500 4050 0    50   ~ 0
+A14
+Text Label 9500 4150 0    50   ~ 0
+A15
+Wire Wire Line
+	9100 6550 9700 6550
+Wire Wire Line
+	9100 6650 9700 6650
+Wire Wire Line
+	9100 6750 9700 6750
+Wire Wire Line
+	9100 6850 9700 6850
+Text Label 9500 6550 0    50   ~ 0
+TCK
+Text Label 9500 6650 0    50   ~ 0
+TMS
+Text Label 9500 6750 0    50   ~ 0
+TDO
+Text Label 9500 6850 0    50   ~ 0
+TDI
+Wire Wire Line
+	9100 2550 9700 2550
+Wire Wire Line
+	9100 2650 9700 2650
+Wire Wire Line
+	9100 2750 9700 2750
+Wire Wire Line
+	9100 2850 9700 2850
+Text Label 9450 2550 0    50   ~ 0
+SDSel
+Text Label 9450 2650 0    50   ~ 0
+SCK
+Text Label 9450 2750 0    50   ~ 0
+MOSI
+Text Label 9450 2850 0    50   ~ 0
+MISO
+Wire Wire Line
+	9100 5550 9650 5550
+Text Label 9550 5550 2    50   ~ 0
+A3
+Wire Wire Line
+	13950 2450 13650 2450
+Wire Wire Line
+	13950 2650 13650 2650
+Text Label 13650 2450 0    50   ~ 0
+IdeRdy
+Text Label 13650 2650 0    50   ~ 0
+IdeInt
+Text Notes 13750 3100 0    50   ~ 0
+LED
+Text Notes 5550 10800 0    50   ~ 0
+RTC \n- backup battery\n- what chip? DS1307?\n- what IO needed/protocol (I2C=TWI/SPI)\n- incl. SRAM (vbat)\n- for file time / general Z80 use
+Wire Wire Line
+	6950 3150 7500 3150
+Wire Wire Line
+	6950 3250 7500 3250
+Text Label 7000 3150 0    50   ~ 0
+IdeRdy
+Text Label 7000 3250 0    50   ~ 0
+IdeInt
+$Comp
+L Logic_Programmable:GAL16V8 U?
+U 1 1 6061D28E
+P 4400 5300
+F 0 "U?" H 4400 6181 50  0000 C CNN
+F 1 "GAL16V8" H 4400 6090 50  0000 C CNN
+F 2 "" H 4400 5300 50  0001 C CNN
+F 3 "" H 4400 5300 50  0001 C CNN
+	1    4400 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8300 1350 8300 1200
+Wire Wire Line
+	8300 1200 8350 1200
+Wire Wire Line
+	8350 1200 8400 1200
+Wire Wire Line
+	8400 1200 8400 1350
+Connection ~ 8350 1200
+Text Notes 2100 7800 0    50   ~ 0
+2N7000\nN-Channel MOSFET
+Text Label 15000 2950 0    50   ~ 0
+~IdeSel1
+Wire Wire Line
+	14950 2950 15300 2950
+Wire Wire Line
+	7500 3850 6950 3850
+Wire Wire Line
+	7500 4150 6950 4150
+Text Label 7000 4150 0    50   ~ 0
+~IdeRst
+Text Label 7000 3850 0    50   ~ 0
+~IdeSel0
+Text Label 7000 3750 0    50   ~ 0
+~IdeSel1
+Text Notes 5650 3250 0    50   ~ 0
+IdeInt should go on an INT-pin
 $EndSCHEMATC

@@ -15,7 +15,7 @@ public lp_pptr
 public lp_plong
 public lp_pdoub
 public l_farcall
-public FA;
+public FA
 
 ; imports
 extern memorymanager_page_read
