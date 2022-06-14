@@ -2,5 +2,6 @@
     "files.associations": {
         "debug.h": "c",
         "xmemory": "c"
-    }
+    },
+    "FSharp.suggestGitignore": false
 }
