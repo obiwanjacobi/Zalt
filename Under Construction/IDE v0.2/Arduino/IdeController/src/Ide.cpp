@@ -2,7 +2,10 @@
 #include "IdeProtocol.h"
 #include "Port.h"
 
-typedef IdeProtocol<IdeDriver16<ATL::MCU::PortC, ATL::MCU::PortB, ATL::MCU::PortA>> Ide;
+typedef ATL::MCU::Port<ATL::MCU::PortC> LsbPort;
+typedef ATL::MCU::Port<ATL::MCU::PortL> MsbPort;
+typedef ATL::MCU::Port<ATL::MCU::PortA> CtrlPort;
+typedef IdeProtocol<IdeDriver16<MsbPort, LsbPort, CtrlPort>> Ide;
 
 Ide ide;
 

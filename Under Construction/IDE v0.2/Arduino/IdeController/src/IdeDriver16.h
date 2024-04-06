@@ -61,13 +61,9 @@ typedef uint8_t IdeStatus;
 // Error
 #define IDE_STAT_ERR 0x01
 
-template <const ATL::MCU::Ports MsbPortId, const ATL::MCU::Ports LsbPortId, const ATL::MCU::Ports CtrlPortId>
+template <typename MsbPort, typename LsbPort, typename CtrlPort>
 class IdeDriver16
 {
-    typedef ATL::MCU::Port<LsbPortId> LsbPort;
-    typedef ATL::MCU::Port<MsbPortId> MsbPort;
-    typedef ATL::MCU::Port<CtrlPortId> CtrlPort;
-
 protected:
     IdeDriver16()
     {
@@ -84,8 +80,8 @@ protected:
     {
         SetDataDir(ATL::MCU::Input);
 
-        uint8_t lsb = LsbPort::ReadPort();
-        uint8_t msb = MsbPort::ReadPort();
+        uint8_t lsb = LsbPort::Read();
+        uint8_t msb = MsbPort::Read();
 
         return endian == BigEndian
                    ? (msb << 8) | lsb
@@ -110,8 +106,8 @@ protected:
             lsb = (data >> 8) & 0xFF;
         }
 
-        LsbPort::WritePort(lsb);
-        MsbPort::WritePort(msb);
+        LsbPort::Write(lsb);
+        MsbPort::Write(msb);
     }
 
     IdeStatus WaitForStatus(IdeStatus mask, IdeStatus status)
@@ -158,7 +154,7 @@ protected:
 
     inline void Control(IdeRegister ideReg)
     {
-        CtrlPort::WritePort(ideReg ^ 0xc7);
+        CtrlPort::Write(ideReg ^ 0xc7);
     }
 
 private:
