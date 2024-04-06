@@ -144,7 +144,7 @@ uint8_t IDE::driveInfo(char *driveModel, char *driveSN,
  */
 uint8_t IDE::errorCode()
 {
-	return ideError;
+    return ideError;
 }
 
 /**
@@ -153,8 +153,8 @@ uint8_t IDE::errorCode()
  */
 uint8_t IDE::errorData()
 {
-	// provided for compatability with S2dCard class
-	return 0;
+    // provided for compatability with S2dCard class
+    return 0;
 }
 
 /**
