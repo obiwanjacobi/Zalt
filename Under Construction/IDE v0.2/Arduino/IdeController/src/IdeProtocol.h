@@ -1,3 +1,26 @@
+/*
+Arduino Template Library https://github.com/obiwanjacobi/atl
+Written by Marc Jacobi
+Copyright 2012-2024 All Rights Reserved
+
+This work is derived from:
+Arduino IDEFat Library, Copyright (C) 2009 by William Greiman
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
 #ifndef __IDEPROTOCOL_H__
 #define __IDEPROTOCOL_H__
 
@@ -14,6 +37,7 @@ typedef struct
 } IdeBlockBuffer;
 
 // BaseT (IdeDriver16) implements:
+// - ctor()
 // - void Initialize()
 // - void Control(IdeRegister)
 // - uint8_t ReadReg8(IdeRegister)
@@ -21,7 +45,9 @@ typedef struct
 // - void WriteReg8(IdeRegister, uint8_t)
 // - void WriteReg16(IdeRegister, uint16_t)
 // - IdeStatus WaitForStatus(IdeStatus, IdeStatus)
-template <typename BaseT>
+// DelayT implements:
+// - static void Wait(uint32_t) [ms]
+template <typename BaseT, typename DelayT>
 class IdeProtocol : public BaseT
 {
 public:
@@ -38,13 +64,13 @@ public:
   {
     WaitNotBusy();
     WriteLBA(lba);
-    BaseT::WriteReg8(IDE_COMMAND, IDE_CMD_READ);
+    BaseT::WriteReg8(IDE_COMMAND, IdeCommandReadSectors);
 
     WaitForDRQ();
     IdeError err = BaseT::ReadReg8(IDE_ERR);
 
     if (err == 0)
-      DiskToBlock(buffer, LittleEndian);
+      BlockToBuffer(buffer, LittleEndian);
 
     return err;
   }
@@ -53,14 +79,14 @@ public:
   {
     WaitNotBusy();
     WriteLBA(lba);
-    BaseT::WriteReg8(IDE_COMMAND, IDE_CMD_WRITE);
+    BaseT::WriteReg8(IDE_COMMAND, IdeCommandWriteSectors);
 
     WaitForDRQ();
     IdeError err = BaseT::ReadReg8(IDE_ERR);
 
     if (err == 0)
     {
-      BlockToDisk(buffer, LittleEndian);
+      BufferToBlock(buffer, LittleEndian);
       WaitNotBusy();
       err = BaseT::ReadReg8(IDE_ERR);
     }
@@ -71,17 +97,17 @@ public:
 protected:
   inline IdeStatus WaitForDRQ()
   {
-    return BaseT::WaitForStatus(IDE_STAT_DRQ | IDE_STAT_BSY, IDE_STAT_DRQ);
+    return BaseT::WaitForStatus(IdeStatusDataRequest | IdeStatusBusy, IdeStatusDataRequest);
   }
 
   inline IdeStatus WaitNotBusy()
   {
-    return BaseT::WaitForStatus(IDE_STAT_BSY, 0);
+    return BaseT::WaitForStatus(IdeStatusBusy, 0);
   }
 
   inline IdeStatus WaitForReady()
   {
-    return BaseT::WaitForStatus(IDE_STAT_RDY | IDE_STAT_BSY, IDE_STAT_RDY);
+    return BaseT::WaitForStatus(IdeStatusReady | IdeStatusBusy, IdeStatusReady);
   }
 
 private:
@@ -101,19 +127,19 @@ private:
     BaseT::WriteReg8(IDE_SEC_CNT, 1);
   }
 
-  void DiskToBlock(IdeBlockBuffer &buffer, ByteOrder endian)
+  void BlockToBuffer(IdeBlockBuffer &buffer, ByteOrder endian)
   {
     uint8_t *block = buffer.data;
 
     for (int i = 0; i < 512; i += 2)
     {
-      uint16_t word = BaseT::ReadReg16(IDE_DATA, endian);
-      *block++ = (word >> 8) & 0xFF;
-      *block++ = word & 0xFF;
+      uint16_t value = BaseT::ReadReg16(IDE_DATA, endian);
+      *block++ = (value >> 8) & 0xFF;
+      *block++ = value & 0xFF;
     }
   }
 
-  void BlockToDisk(const IdeBlockBuffer &buffer, ByteOrder endian)
+  void BufferToBlock(const IdeBlockBuffer &buffer, ByteOrder endian)
   {
     const uint8_t *block = buffer.data;
 
@@ -128,8 +154,7 @@ private:
   void Reset()
   {
     BaseT::Control(IDE_RST_LINE);
-    // TODO: Delay!
-    // delay(500);
+    DelayT::Wait(500);
     BaseT::Control(0);
   }
 };

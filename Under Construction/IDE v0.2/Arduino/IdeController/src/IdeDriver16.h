@@ -1,8 +1,33 @@
+/*
+Arduino Template Library https://github.com/obiwanjacobi/atl
+Written by Marc Jacobi
+Copyright 2012-2024 All Rights Reserved
+
+This work is derived from:
+Arduino IDEFat Library, Copyright (C) 2009 by William Greiman
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
 #ifndef __IDEDRIVER16_H__
 #define __IDEDRIVER16_H__
 
 #include "Port.h"
 #include "Core.h"
+
+typedef uint8_t IdeRegister;
 
 // control signals (active low)
 #define IDE_RST_LINE 0x01
@@ -10,15 +35,12 @@
 #define IDE_RD_LINE 0x04
 #define IDE_CS0_LINE 0x40
 #define IDE_CS1_LINE 0x80
-
-// address lines
+// register address lines
 #define IDE_A0_LINE 0x08
 #define IDE_A1_LINE 0x10
 #define IDE_A2_LINE 0x20
 
-typedef uint8_t IdeRegister;
-
-// control functions
+// control registers
 #define IDE_DATA IDE_CS0_LINE
 #define IDE_ERR IDE_CS0_LINE + IDE_A0_LINE
 #define IDE_SEC_CNT IDE_CS0_LINE + IDE_A1_LINE
@@ -32,35 +54,57 @@ typedef uint8_t IdeRegister;
 #define IDE_ASTATUS IDE_CS1_LINE + IDE_A2_LINE + IDE_A1_LINE + IDE_A0_LINE
 
 typedef uint8_t IdeCommand;
-
-// commands
-#define IDE_CMD_RECAL 0x10
-#define IDE_CMD_READ 0x20
-#define IDE_CMD_WRITE 0x30
-#define IDE_CMD_INIT 0x91
-#define IDE_CMD_ID 0xEC
-#define IDE_CMD_SPINDOWN 0xE0
-#define IDE_CMD_SPINUP 0xE1
+enum IdeCommands
+{
+    // some of these are provided by AI - not sure if all are correct!
+    IdeCommandRecalibrate = 0x10,               //  Recalibrates drive heads to cylinder 0.
+    IdeCommandReadSectors = 0x20,               // Reads sectors from drive.
+    IdeCommandWriteSectors = 0x30,              // Writes sectors to drive.
+    IdeCommandReadVerifySectors = 0x40,         // Reads sectors and verifies data.
+    IdeCommandFormatTrack = 0x50,               // Formats a track on the drive.
+    IdeCommandSeek = 0x70,                      // Moves read / write head to specified cylinder.
+    IdeCommandExecuteDeviceDiagnostic = 0x90,   // Runs internal diagnostic tests.
+    IdeCommandInitializeDriveParameters = 0x91, // Initializes drive parameters.
+    IdeCommandDownloadMicrocode = 0x92,         // Downloads drive's internal microcode.
+    IdeCommandReadMultiple = 0xC4,              // Reads multiple sectors in a block.
+    IdeCommandWriteMultiple = 0xC5,             // Writes multiple sectors in a block.
+    IdeCommandSetMultipleMode = 0xC6,           // Sets number of sectors to transfer per block.
+    IdeCommandReadDMA = 0xC8,                   // Reads data from drive using DMA.
+    IdeCommandWriteDMA = 0xCA,                  // Writes data to drive using DMA.
+    IdeCommandSpinDown = 0xE0,                  // Starts spinning up the disk platter.
+    IdeCommandSpinUp = 0xE1,                    // Stops the spinning platter and parks the head.
+    IdeCommandStandby = 0xE2,                   // Puts drive into low power standby mode.
+    IdeCommandIdle = 0xE3,                      // Puts drive into Idle mode.
+    IdeCommandReadBuffer = 0xE4,                // Reads data from drive's sector buffer.
+    IdeCommandCheckPowerMode = 0xE5,            // Checks if drive is in Idle or Standby mode.
+    IdeCommandSleep = 0xE6,                     // Puts drive in low power sleep mode.
+    IdeCommandWriteBuffer = 0xE8,               // Writes data to drive's sector buffer.
+    IdeCommandIdentifyDevice = 0xEC,            // Returns identification and configuration information about the drive.
+    IdeCommandSetFeatures = 0xEF                // Sets various drive features like disabling write cache.
+};
 
 typedef uint8_t IdeStatus;
+enum IdeStatuses
+{
+    IdeStatusBusy = 0x80,
+    IdeStatusReady = 0x40,
+    IdeStatusDiskFault = 0x20,
+    IdeStatusDiskSeekComplete = 0x10,
+    IdeStatusDataRequest = 0x08,
+    IdeStatusCorrectableError = 0x04,
+    IdeStatusReserved = 0x02,
+    IdeStatusError = 0x01,
+};
 
-// Busy
-#define IDE_STAT_BSY 0x80
-// Ready
-#define IDE_STAT_RDY 0x40
-// Drive Fault
-#define IDE_STAT_DF 0x20
-// Drive Seek Complete
-#define IDE_STAT_DSC 0x10
-// Data Request
-#define IDE_STAT_DRQ 0x08
-// Correctable Error
-#define IDE_STAT_CORR 0x04
-// Vender specific / reserved
-#define IDE_STAT_RESERVED 0x02
-// Error
-#define IDE_STAT_ERR 0x01
-
+/*
+ * MsbPort and LsbPort must support:
+ * - SetDirection(uint8_t) to configure the Port as Input/Output
+ * - uint8_t Read() to read data from the Port
+ * - Write(uint8_t) to output data on the Port
+ * CtrlPort must support:
+ * - SetDirection(uint8_t) to configure the Port as Output
+ * - Write(uint8_t) to output data on the Port
+ */
 template <typename MsbPort, typename LsbPort, typename CtrlPort>
 class IdeDriver16
 {
