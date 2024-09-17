@@ -57,17 +57,14 @@ namespace ATL
 #ifdef PORTH
             PortH = 7,
 #endif // PORTH
-#ifdef PORTI
-            PortI = 8,
-#endif // PORTI
 #ifdef PORTJ
-            PortJ = 9,
+            PortJ = 8,
 #endif // PORTJ
 #ifdef PORTK
-            PortK = 10,
+            PortK = 9,
 #endif // PORTK
 #ifdef PORTL
-            PortL = 11,
+            PortL = 10,
 #endif // PORTL
         };
 
