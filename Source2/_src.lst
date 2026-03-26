@@ -1,0 +1,4 @@
+; List of C source files to compile into firmware binary
+; One file per line, relative to the project root
+src/main.c
+; src/shell.c
